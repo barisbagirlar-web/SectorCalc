@@ -15,6 +15,10 @@
         "fr": "Minimum",
         "es": "Minimum",
         "ar": "Minimum"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum value of the distribution (0th percentile)",
+        "tr": "Dağılımın minimum değeri (0. yüzdelik dilim)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Value at the 20th percentile (lower boundary of first quintile)",
       "label_i18n": {
         "en": "20th Percentile",
-        "tr": "20th Percentile",
+        "tr": "20. Yüzdelik Dilim",
         "de": "20th Percentile",
         "fr": "20th Percentile",
         "es": "20th Percentile",
         "ar": "20th Percentile"
+      },
+      "businessContext_i18n": {
+        "en": "Value at the 20th percentile (lower boundary of first quintile)",
+        "tr": "20. yüzdelik dilimdeki değer (ilk beşte birlik dilimin alt sınırı)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Value at the 40th percentile (boundary between second and third quintile)",
       "label_i18n": {
         "en": "40th Percentile",
-        "tr": "40th Percentile",
+        "tr": "40. Yüzdelik Dilim",
         "de": "40th Percentile",
         "fr": "40th Percentile",
         "es": "40th Percentile",
         "ar": "40th Percentile"
+      },
+      "businessContext_i18n": {
+        "en": "Value at the 40th percentile (boundary between second and third quintile)",
+        "tr": "40. yüzdelik dilimdeki değer (ikinci ve üçüncü beşte birlik dilim arasındaki sınır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Value at the 60th percentile",
       "label_i18n": {
         "en": "60th Percentile",
-        "tr": "60th Percentile",
+        "tr": "60. Yüzdelik Dilim",
         "de": "60th Percentile",
         "fr": "60th Percentile",
         "es": "60th Percentile",
         "ar": "60th Percentile"
+      },
+      "businessContext_i18n": {
+        "en": "Value at the 60th percentile",
+        "tr": "60. yüzdelik dilimdeki değer"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Value at the 80th percentile",
       "label_i18n": {
         "en": "80th Percentile",
-        "tr": "80th Percentile",
+        "tr": "80. Yüzdelik Dilim",
         "de": "80th Percentile",
         "fr": "80th Percentile",
         "es": "80th Percentile",
         "ar": "80th Percentile"
+      },
+      "businessContext_i18n": {
+        "en": "Value at the 80th percentile",
+        "tr": "80. yüzdelik dilimdeki değer"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Maximum value of the distribution (100th percentile)",
       "label_i18n": {
         "en": "Maximum",
-        "tr": "Maximum",
+        "tr": "Maksimum",
         "de": "Maximum",
         "fr": "Maximum",
         "es": "Maximum",
         "ar": "Maximum"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum value of the distribution (100th percentile)",
+        "tr": "Dağılımın maksimum değeri (100. yüzdelik dilim)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "The value to place within the distribution",
       "label_i18n": {
         "en": "Target Value",
-        "tr": "Target Value",
+        "tr": "Hedef Değer",
         "de": "Target Value",
         "fr": "Target Value",
         "es": "Target Value",
         "ar": "Target Value"
+      },
+      "businessContext_i18n": {
+        "en": "The value to place within the distribution",
+        "tr": "Dağılım içine yerleştirilecek değer"
       }
     }
   ],

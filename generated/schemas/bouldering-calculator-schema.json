@@ -10,11 +10,15 @@
       "businessContext": "Total mass of the climber including gear",
       "label_i18n": {
         "en": "Body Mass",
-        "tr": "Body Mass",
+        "tr": "Vücut Kütlesi",
         "de": "Body Mass",
         "fr": "Body Mass",
         "es": "Body Mass",
         "ar": "Body Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of the climber including gear",
+        "tr": "Tırmanıcının ekipman dahil toplam kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vertical drop from climber's feet to pad surface",
       "label_i18n": {
         "en": "Fall Height",
-        "tr": "Fall Height",
+        "tr": "Düşüş Yüksekliği",
         "de": "Fall Height",
         "fr": "Fall Height",
         "es": "Fall Height",
         "ar": "Fall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical drop from climber's feet to pad surface",
+        "tr": "Tırmanıcının ayaklarından minder yüzeyine dikey mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Crash pad thickness",
       "label_i18n": {
         "en": "Mat Thickness",
-        "tr": "Mat Thickness",
+        "tr": "Minder Kalınlığı",
         "de": "Mat Thickness",
         "fr": "Mat Thickness",
         "es": "Mat Thickness",
         "ar": "Mat Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Crash pad thickness",
+        "tr": "Çarpma minderinin kalınlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Overall pad stiffness (typical 20-100 kN/m)",
       "label_i18n": {
         "en": "Mat Stiffness",
-        "tr": "Mat Stiffness",
+        "tr": "Minder Sertliği",
         "de": "Mat Stiffness",
         "fr": "Mat Stiffness",
         "es": "Mat Stiffness",
         "ar": "Mat Stiffness"
+      },
+      "businessContext_i18n": {
+        "en": "Overall pad stiffness (typical 20-100 kN/m)",
+        "tr": "Genel minder sertliği (tipik 20-100 kN/m)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Acceleration due to gravity",
       "label_i18n": {
         "en": "Gravity",
-        "tr": "Gravity",
+        "tr": "Yerçekimi",
         "de": "Gravity",
         "fr": "Gravity",
         "es": "Gravity",
         "ar": "Gravity"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity",
+        "tr": "Yerçekimi ivmesi"
       }
     }
   ],

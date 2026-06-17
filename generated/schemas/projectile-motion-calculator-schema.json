@@ -10,11 +10,15 @@
       "businessContext": "Muzzle velocity of projectile",
       "label_i18n": {
         "en": "Initial Velocity",
-        "tr": "Initial Velocity",
+        "tr": "Başlangıç Hızı",
         "de": "Initial Velocity",
         "fr": "Initial Velocity",
         "es": "Initial Velocity",
         "ar": "Initial Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Muzzle velocity of projectile",
+        "tr": "Merminin namlu çıkış hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Launch angle relative to horizontal",
       "label_i18n": {
         "en": "Launch Angle",
-        "tr": "Launch Angle",
+        "tr": "Çıkış Açısı",
         "de": "Launch Angle",
         "fr": "Launch Angle",
         "es": "Launch Angle",
         "ar": "Launch Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Launch angle relative to horizontal",
+        "tr": "Yataya göre atış açısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Initial height from ground",
       "label_i18n": {
         "en": "Initial Height",
-        "tr": "Initial Height",
+        "tr": "Başlangıç Yüksekliği",
         "de": "Initial Height",
         "fr": "Initial Height",
         "es": "Initial Height",
         "ar": "Initial Height"
+      },
+      "businessContext_i18n": {
+        "en": "Initial height from ground",
+        "tr": "Yerden başlangıç yüksekliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Acceleration due to gravity (typically 9.81 m/s²)",
       "label_i18n": {
         "en": "Gravity",
-        "tr": "Gravity",
+        "tr": "Yerçekimi",
         "de": "Gravity",
         "fr": "Gravity",
         "es": "Gravity",
         "ar": "Gravity"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity (typically 9.81 m/s²)",
+        "tr": "Yerçekimi ivmesi (tipik olarak 9.81 m/s²)"
       }
     }
   ],

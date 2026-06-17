@@ -10,11 +10,15 @@
       "businessContext": "Cost of a single pack of cigarettes.",
       "label_i18n": {
         "en": "Price per Pack",
-        "tr": "Price per Pack",
+        "tr": "Paket Başına Fiyat",
         "de": "Price per Pack",
         "fr": "Price per Pack",
         "es": "Price per Pack",
         "ar": "Price per Pack"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of a single pack of cigarettes.",
+        "tr": "Bir paket sigaranın maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of cigarettes in a pack.",
       "label_i18n": {
         "en": "Cigarettes per Pack",
-        "tr": "Cigarettes per Pack",
+        "tr": "Paket Başına Sigara Sayısı",
         "de": "Cigarettes per Pack",
         "fr": "Cigarettes per Pack",
         "es": "Cigarettes per Pack",
         "ar": "Cigarettes per Pack"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cigarettes in a pack.",
+        "tr": "Bir paketteki sigara sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of cigarettes smoked per day.",
       "label_i18n": {
         "en": "Cigarettes per Day",
-        "tr": "Cigarettes per Day",
+        "tr": "Günlük Sigara Sayısı",
         "de": "Cigarettes per Day",
         "fr": "Cigarettes per Day",
         "es": "Cigarettes per Day",
         "ar": "Cigarettes per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cigarettes smoked per day.",
+        "tr": "Günde içilen sigara sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of days for total cost calculation.",
       "label_i18n": {
         "en": "Period in Days",
-        "tr": "Period in Days",
+        "tr": "Gün cinsinden süre",
         "de": "Period in Days",
         "fr": "Period in Days",
         "es": "Period in Days",
         "ar": "Period in Days"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days for total cost calculation.",
+        "tr": "Toplam maliyet hesaplaması için gün sayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Number of meals served daily",
       "label_i18n": {
         "en": "Meals per Day",
-        "tr": "Meals per Day",
+        "tr": "Günde Öğün Sayısı",
         "de": "Meals per Day",
         "fr": "Meals per Day",
         "es": "Meals per Day",
         "ar": "Meals per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of meals served daily",
+        "tr": "Günlük servis edilen öğün sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average ingredient cost per meal",
       "label_i18n": {
         "en": "Ingredient Cost per Meal",
-        "tr": "Ingredient Cost per Meal",
+        "tr": "Öğün Başına Malzeme Maliyeti",
         "de": "Ingredient Cost per Meal",
         "fr": "Ingredient Cost per Meal",
         "es": "Ingredient Cost per Meal",
         "ar": "Ingredient Cost per Meal"
+      },
+      "businessContext_i18n": {
+        "en": "Average ingredient cost per meal",
+        "tr": "Öğün başına ortalama malzeme maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Hourly rate for kitchen staff",
       "label_i18n": {
         "en": "Labor Cost per Hour",
-        "tr": "Labor Cost per Hour",
+        "tr": "Saatlik işçilik maliyeti",
         "de": "Labor Cost per Hour",
         "fr": "Labor Cost per Hour",
         "es": "Labor Cost per Hour",
         "ar": "Labor Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly rate for kitchen staff",
+        "tr": "Mutfak personeli için saatlik ücret"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average time to prepare one meal",
       "label_i18n": {
         "en": "Preparation Time per Meal",
-        "tr": "Preparation Time per Meal",
+        "tr": "Öğün Başına Hazırlık Süresi",
         "de": "Preparation Time per Meal",
         "fr": "Preparation Time per Meal",
         "es": "Preparation Time per Meal",
         "ar": "Preparation Time per Meal"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to prepare one meal",
+        "tr": "Bir öğünü hazırlamak için ortalama süre"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Overhead costs as percentage of direct costs",
       "label_i18n": {
         "en": "Overhead Percentage",
-        "tr": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi",
         "de": "Overhead Percentage",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Overhead costs as percentage of direct costs",
+        "tr": "Doğrudan maliyetlerin yüzdesi olarak genel giderler"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Expected food waste percentage",
       "label_i18n": {
         "en": "Waste Percentage",
-        "tr": "Waste Percentage",
+        "tr": "Fire Yüzdesi",
         "de": "Waste Percentage",
         "fr": "Waste Percentage",
         "es": "Waste Percentage",
         "ar": "Waste Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Expected food waste percentage",
+        "tr": "Beklenen gıda israfı yüzdesi"
       }
     }
   ],

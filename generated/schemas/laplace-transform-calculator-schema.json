@@ -10,11 +10,15 @@
       "businessContext": "Amplitude of the damped sine wave",
       "label_i18n": {
         "en": "Amplitude (A)",
-        "tr": "Amplitude (A)",
+        "tr": "Genlik (A)",
         "de": "Amplitude (A)",
         "fr": "Amplitude (A)",
         "es": "Amplitude (A)",
         "ar": "Amplitude (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Amplitude of the damped sine wave",
+        "tr": "Sönümlü sinüs dalgasının genliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Exponential decay constant",
       "label_i18n": {
         "en": "Damping constant (α)",
-        "tr": "Damping constant (α)",
+        "tr": "Sönüm sabiti (α)",
         "de": "Damping constant (α)",
         "fr": "Damping constant (α)",
         "es": "Damping constant (α)",
         "ar": "Damping constant (α)"
+      },
+      "businessContext_i18n": {
+        "en": "Exponential decay constant",
+        "tr": "Üstel sönüm sabiti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angular frequency of the oscillation",
       "label_i18n": {
         "en": "Frequency (ω)",
-        "tr": "Frequency (ω)",
+        "tr": "Frekans (ω)",
         "de": "Frequency (ω)",
         "fr": "Frequency (ω)",
         "es": "Frequency (ω)",
         "ar": "Frequency (ω)"
+      },
+      "businessContext_i18n": {
+        "en": "Angular frequency of the oscillation",
+        "tr": "Salınımın açısal frekansı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Phase offset of the sine wave",
       "label_i18n": {
         "en": "Phase shift (φ)",
-        "tr": "Phase shift (φ)",
+        "tr": "Faz kayması (φ)",
         "de": "Phase shift (φ)",
         "fr": "Phase shift (φ)",
         "es": "Phase shift (φ)",
         "ar": "Phase shift (φ)"
+      },
+      "businessContext_i18n": {
+        "en": "Phase offset of the sine wave",
+        "tr": "Sinüs dalgasının faz ofseti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Dead time before the function starts",
       "label_i18n": {
         "en": "Time delay (τ)",
-        "tr": "Time delay (τ)",
+        "tr": "Zaman gecikmesi (τ)",
         "de": "Time delay (τ)",
         "fr": "Time delay (τ)",
         "es": "Time delay (τ)",
         "ar": "Time delay (τ)"
+      },
+      "businessContext_i18n": {
+        "en": "Dead time before the function starts",
+        "tr": "Fonksiyon başlamadan önceki ölü zaman"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Complex frequency variable (real part)",
       "label_i18n": {
         "en": "Laplace variable (s)",
-        "tr": "Laplace variable (s)",
+        "tr": "Laplace değişkeni (s)",
         "de": "Laplace variable (s)",
         "fr": "Laplace variable (s)",
         "es": "Laplace variable (s)",
         "ar": "Laplace variable (s)"
+      },
+      "businessContext_i18n": {
+        "en": "Complex frequency variable (real part)",
+        "tr": "Karmaşık frekans değişkeni (gerçel kısım)"
       }
     }
   ],

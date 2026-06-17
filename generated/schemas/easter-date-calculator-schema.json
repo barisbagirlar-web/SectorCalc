@@ -10,11 +10,15 @@
       "businessContext": "The year for which to calculate Easter Sunday.",
       "label_i18n": {
         "en": "Year",
-        "tr": "Year",
+        "tr": "Yıl",
         "de": "Year",
         "fr": "Year",
         "es": "Year",
         "ar": "Year"
+      },
+      "businessContext_i18n": {
+        "en": "The year for which to calculate Easter Sunday.",
+        "tr": "Paskalya Pazarının hesaplanacağı yıl."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Year of the reference date to compute days until Easter.",
       "label_i18n": {
         "en": "Reference Year",
-        "tr": "Reference Year",
+        "tr": "Referans Yıl",
         "de": "Reference Year",
         "fr": "Reference Year",
         "es": "Reference Year",
         "ar": "Reference Year"
+      },
+      "businessContext_i18n": {
+        "en": "Year of the reference date to compute days until Easter.",
+        "tr": "Paskalya'ya kalan günleri hesaplamak için referans tarihin yılı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Month of the reference date (1-12).",
       "label_i18n": {
         "en": "Reference Month",
-        "tr": "Reference Month",
+        "tr": "Referans Ay",
         "de": "Reference Month",
         "fr": "Reference Month",
         "es": "Reference Month",
         "ar": "Reference Month"
+      },
+      "businessContext_i18n": {
+        "en": "Month of the reference date (1-12).",
+        "tr": "Referans tarihin ayı (1-12)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Day of the reference date (1-31).",
       "label_i18n": {
         "en": "Reference Day",
-        "tr": "Reference Day",
+        "tr": "Referans Gün",
         "de": "Reference Day",
         "fr": "Reference Day",
         "es": "Reference Day",
         "ar": "Reference Day"
+      },
+      "businessContext_i18n": {
+        "en": "Day of the reference date (1-31).",
+        "tr": "Referans tarihin günü (1-31)."
       }
     }
   ],

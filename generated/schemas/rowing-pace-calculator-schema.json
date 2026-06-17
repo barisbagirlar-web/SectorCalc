@@ -10,11 +10,15 @@
       "businessContext": "Distance rowed in meters",
       "label_i18n": {
         "en": "Distance (m)",
-        "tr": "Distance (m)",
+        "tr": "Mesafe (m)",
         "de": "Distance (m)",
         "fr": "Distance (m)",
         "es": "Distance (m)",
         "ar": "Distance (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance rowed in meters",
+        "tr": "Metre cinsinden kürek çekme mesafesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Minutes part of total time",
       "label_i18n": {
         "en": "Time (minutes)",
-        "tr": "Time (minutes)",
+        "tr": "Süre (dakika)",
         "de": "Time (minutes)",
         "fr": "Time (minutes)",
         "es": "Time (minutes)",
         "ar": "Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes part of total time",
+        "tr": "Toplam sürenin dakika kısmı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Seconds part of total time",
       "label_i18n": {
         "en": "Time (seconds)",
-        "tr": "Time (seconds)",
+        "tr": "Süre (saniye)",
         "de": "Time (seconds)",
         "fr": "Time (seconds)",
         "es": "Time (seconds)",
         "ar": "Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Seconds part of total time",
+        "tr": "Toplam sürenin saniye kısmı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Target distance for time projection",
       "label_i18n": {
         "en": "Target Distance (m)",
-        "tr": "Target Distance (m)",
+        "tr": "Hedef Mesafe (m)",
         "de": "Target Distance (m)",
         "fr": "Target Distance (m)",
         "es": "Target Distance (m)",
         "ar": "Target Distance (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Target distance for time projection",
+        "tr": "Süre tahmini için hedef mesafe"
       }
     }
   ],

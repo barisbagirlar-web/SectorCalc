@@ -21,10 +21,12 @@
       "max": 25,
       "businessContext": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10.",
       "label_i18n": {
-        "en": "Subgroup Size (n)"
+        "en": "Subgroup Size (n)",
+        "tr": "Alt Grup Boyutu (n)"
       },
       "businessContext_i18n": {
-        "en": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10."
+        "en": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10.",
+        "tr": "X-bar ve R grafikleri için alt grup başına örnek sayısı. Tipik değerler: 3-10."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100,
       "businessContext": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits.",
       "label_i18n": {
-        "en": "Number of Subgroups (k)"
+        "en": "Number of Subgroups (k)",
+        "tr": "Alt Grup Sayısı (k)"
       },
       "businessContext_i18n": {
-        "en": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits."
+        "en": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits.",
+        "tr": "Proses değişkenliğini tahmin etmek için kullanılan toplam alt grup sayısı. Güvenilir limitler için minimum 10."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1000,
       "businessContext": "Average of subgroup means. Central line for X-bar chart.",
       "label_i18n": {
-        "en": "Overall Mean (X-double-bar)"
+        "en": "Overall Mean (X-double-bar)",
+        "tr": "Genel Ortalama (X-çift-çizgi)"
       },
       "businessContext_i18n": {
-        "en": "Average of subgroup means. Central line for X-bar chart."
+        "en": "Average of subgroup means. Central line for X-bar chart.",
+        "tr": "Alt grup ortalamalarının ortalaması. X-bar grafiği için merkez çizgisi."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Mean of subgroup ranges. Used to estimate process sigma.",
       "label_i18n": {
-        "en": "Average Range (R-bar)"
+        "en": "Average Range (R-bar)",
+        "tr": "Ortalama Aralık (R-bar)"
       },
       "businessContext_i18n": {
-        "en": "Mean of subgroup ranges. Used to estimate process sigma."
+        "en": "Mean of subgroup ranges. Used to estimate process sigma.",
+        "tr": "Alt grup aralıklarının ortalaması. Proses sigmasını tahmin etmek için kullanılır."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 1000,
       "businessContext": "Maximum acceptable value per customer or design requirement.",
       "label_i18n": {
-        "en": "Upper Specification Limit (USL)"
+        "en": "Upper Specification Limit (USL)",
+        "tr": "Üst Spesifikasyon Limiti (USL)"
       },
       "businessContext_i18n": {
-        "en": "Maximum acceptable value per customer or design requirement."
+        "en": "Maximum acceptable value per customer or design requirement.",
+        "tr": "Müşteri veya tasarım gereksinimine göre izin verilen maksimum değer."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 1000,
       "businessContext": "Minimum acceptable value per customer or design requirement.",
       "label_i18n": {
-        "en": "Lower Specification Limit (LSL)"
+        "en": "Lower Specification Limit (LSL)",
+        "tr": "Alt Spesifikasyon Limiti (LSL)"
       },
       "businessContext_i18n": {
-        "en": "Minimum acceptable value per customer or design requirement."
+        "en": "Minimum acceptable value per customer or design requirement.",
+        "tr": "Müşteri veya tasarım gereksinimine göre izin verilen minimum değer."
       }
     },
     {
@@ -120,10 +132,12 @@
       ],
       "businessContext": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements.",
       "label_i18n": {
-        "en": "Chart Type"
+        "en": "Chart Type",
+        "tr": "Grafik Türü"
       },
       "businessContext_i18n": {
-        "en": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements."
+        "en": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements.",
+        "tr": "Kontrol grafiği türünü seçin. Küçük alt gruplar için Xbar-R, büyük alt gruplar için Xbar-s, bireysel ölçümler için I-MR."
       }
     },
     {
@@ -134,10 +148,12 @@
       "default": true,
       "businessContext": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation.",
       "label_i18n": {
-        "en": "Use Estimated Sigma from R-bar"
+        "en": "Use Estimated Sigma from R-bar",
+        "tr": "R-bar'dan Tahmini Sigma Kullan"
       },
       "businessContext_i18n": {
-        "en": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation."
+        "en": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation.",
+        "tr": "Doğruysa, sigma R-bar/d2'den tahmin edilir. Yanlışsa, havuzlanmış standart sapma kullanılır."
       }
     }
   ],

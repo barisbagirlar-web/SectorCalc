@@ -10,11 +10,15 @@
       "businessContext": "Length of the bonding surface in meters.",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the bonding surface in meters.",
+        "tr": "Yapışma yüzeyinin metre cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the bonding surface in meters.",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the bonding surface in meters.",
+        "tr": "Yapışma yüzeyinin metre cinsinden genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Adhesive consumption per square meter in kilograms per square meter.",
       "label_i18n": {
         "en": "Coverage Rate",
-        "tr": "Coverage Rate",
+        "tr": "Kaplama Oranı",
         "de": "Coverage Rate",
         "fr": "Coverage Rate",
         "es": "Coverage Rate",
         "ar": "Coverage Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Adhesive consumption per square meter in kilograms per square meter.",
+        "tr": "Metrekare başına kilogram cinsinden yapıştırıcı tüketimi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of additional adhesive to account for waste, spillage, and application loss.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of additional adhesive to account for waste, spillage, and application loss.",
+        "tr": "Atık, dökülme ve uygulama kaybını hesaba katmak için ek yapıştırıcı yüzdesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of adhesive layers to be applied (e.g., for multi-coat applications).",
       "label_i18n": {
         "en": "Number of Layers",
-        "tr": "Number of Layers",
+        "tr": "Katman Sayısı",
         "de": "Number of Layers",
         "fr": "Number of Layers",
         "es": "Number of Layers",
         "ar": "Number of Layers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of adhesive layers to be applied (e.g., for multi-coat applications).",
+        "tr": "Uygulanacak yapıştırıcı katmanı sayısı (örneğin, çok katlı uygulamalar için)."
       }
     }
   ],

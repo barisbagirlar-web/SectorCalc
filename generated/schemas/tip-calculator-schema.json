@@ -10,11 +10,15 @@
       "businessContext": "Total pre-tax bill amount",
       "label_i18n": {
         "en": "Bill Amount",
-        "tr": "Bill Amount",
+        "tr": "Fatura Tutarı",
         "de": "Bill Amount",
         "fr": "Bill Amount",
         "es": "Bill Amount",
         "ar": "Bill Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total pre-tax bill amount",
+        "tr": "Vergi öncesi toplam fatura tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Tip percentage on pre-tax amount",
       "label_i18n": {
         "en": "Tip Percentage",
-        "tr": "Tip Percentage",
+        "tr": "Bahşiş Yüzdesi",
         "de": "Tip Percentage",
         "fr": "Tip Percentage",
         "es": "Tip Percentage",
         "ar": "Tip Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Tip percentage on pre-tax amount",
+        "tr": "Vergi öncesi tutar üzerinden bahşiş yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of diners splitting the bill",
       "label_i18n": {
         "en": "Number of People",
-        "tr": "Number of People",
+        "tr": "Kişi Sayısı",
         "de": "Number of People",
         "fr": "Number of People",
         "es": "Number of People",
         "ar": "Number of People"
+      },
+      "businessContext_i18n": {
+        "en": "Number of diners splitting the bill",
+        "tr": "Faturayı bölen kişi sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sales tax rate applied to bill",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Sales tax rate applied to bill",
+        "tr": "Faturaya uygulanan satış vergisi oranı"
       }
     }
   ],

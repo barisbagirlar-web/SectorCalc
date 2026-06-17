@@ -10,11 +10,15 @@
       "businessContext": "Total cost of ingredients for the batch",
       "label_i18n": {
         "en": "Recipe Cost",
-        "tr": "Recipe Cost",
+        "tr": "Tarif maliyeti",
         "de": "Recipe Cost",
         "fr": "Recipe Cost",
         "es": "Recipe Cost",
         "ar": "Recipe Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of ingredients for the batch",
+        "tr": "Parti için toplam içerik maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Labor cost per batch",
       "label_i18n": {
         "en": "Labor Cost",
-        "tr": "Labor Cost",
+        "tr": "İşçilik Maliyeti",
         "de": "Labor Cost",
         "fr": "Labor Cost",
         "es": "Labor Cost",
         "ar": "Labor Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Labor cost per batch",
+        "tr": "Parti başına işçilik maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Other costs (overhead, packaging, etc.)",
       "label_i18n": {
         "en": "Other Costs",
-        "tr": "Other Costs",
+        "tr": "Diğer Maliyetler",
         "de": "Other Costs",
         "fr": "Other Costs",
         "es": "Other Costs",
         "ar": "Other Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Other costs (overhead, packaging, etc.)",
+        "tr": "Diğer maliyetler (genel gider, paketleme vb.)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of portions or servings",
       "label_i18n": {
         "en": "Number of Portions",
-        "tr": "Number of Portions",
+        "tr": "Porsiyon sayısı",
         "de": "Number of Portions",
         "fr": "Number of Portions",
         "es": "Number of Portions",
         "ar": "Number of Portions"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of portions or servings",
+        "tr": "Toplam porsiyon veya servis sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Desired profit margin percentage",
       "label_i18n": {
         "en": "Desired Profit Margin",
-        "tr": "Desired Profit Margin",
+        "tr": "Hedef Kar Marjı",
         "de": "Desired Profit Margin",
         "fr": "Desired Profit Margin",
         "es": "Desired Profit Margin",
         "ar": "Desired Profit Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Desired profit margin percentage",
+        "tr": "İstenen kâr marjı yüzdesi"
       }
     }
   ],

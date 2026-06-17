@@ -10,11 +10,15 @@
       "businessContext": "Total heat energy added to the substance",
       "label_i18n": {
         "en": "Heat Added (Q)",
-        "tr": "Heat Added (Q)",
+        "tr": "Eklenen Isı (Q)",
         "de": "Heat Added (Q)",
         "fr": "Heat Added (Q)",
         "es": "Heat Added (Q)",
         "ar": "Heat Added (Q)"
+      },
+      "businessContext_i18n": {
+        "en": "Total heat energy added to the substance",
+        "tr": "Maddeye eklenen toplam ısı enerjisi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass of the substance being heated",
       "label_i18n": {
         "en": "Mass (m)",
-        "tr": "Mass (m)",
+        "tr": "Kütle (m)",
         "de": "Mass (m)",
         "fr": "Mass (m)",
         "es": "Mass (m)",
         "ar": "Mass (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the substance being heated",
+        "tr": "Isıtılan maddenin kütlesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Temperature of the substance before heating",
       "label_i18n": {
         "en": "Initial Temperature",
-        "tr": "Initial Temperature",
+        "tr": "Başlangıç Sıcaklığı",
         "de": "Initial Temperature",
         "fr": "Initial Temperature",
         "es": "Initial Temperature",
         "ar": "Initial Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the substance before heating",
+        "tr": "Isıtmadan önce maddenin sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of the substance after heating",
       "label_i18n": {
         "en": "Final Temperature",
-        "tr": "Final Temperature",
+        "tr": "Son Sıcaklık",
         "de": "Final Temperature",
         "fr": "Final Temperature",
         "es": "Final Temperature",
         "ar": "Final Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the substance after heating",
+        "tr": "Isıtmadan sonra maddenin sıcaklığı"
       }
     }
   ],

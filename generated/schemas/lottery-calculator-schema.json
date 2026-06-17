@@ -10,11 +10,15 @@
       "businessContext": "Total number of unique possible outcomes (e.g., 1 in 14 million for 6/49 lottery)",
       "label_i18n": {
         "en": "Total Combinations/Tickets",
-        "tr": "Total Combinations/Tickets",
+        "tr": "Toplam Kombinasyon/Bilet",
         "de": "Total Combinations/Tickets",
         "fr": "Total Combinations/Tickets",
         "es": "Total Combinations/Tickets",
         "ar": "Total Combinations/Tickets"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of unique possible outcomes (e.g., 1 in 14 million for 6/49 lottery)",
+        "tr": "Toplam benzersiz olası sonuç sayısı (ör. 6/49 piyango için 14 milyonda 1)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of tickets/lines you buy",
       "label_i18n": {
         "en": "Tickets Purchased",
-        "tr": "Tickets Purchased",
+        "tr": "Satın Alınan Biletler",
         "de": "Tickets Purchased",
         "fr": "Tickets Purchased",
         "es": "Tickets Purchased",
         "ar": "Tickets Purchased"
+      },
+      "businessContext_i18n": {
+        "en": "Number of tickets/lines you buy",
+        "tr": "Satın aldığınız bilet/kolon sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Price per ticket/entry",
       "label_i18n": {
         "en": "Cost per Ticket",
-        "tr": "Cost per Ticket",
+        "tr": "Bilet Başına Maliyet",
         "de": "Cost per Ticket",
         "fr": "Cost per Ticket",
         "es": "Cost per Ticket",
         "ar": "Cost per Ticket"
+      },
+      "businessContext_i18n": {
+        "en": "Price per ticket/entry",
+        "tr": "Bilet/giriş başına fiyat"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total prize money for the top prize",
       "label_i18n": {
         "en": "Jackpot/Prize Amount",
-        "tr": "Jackpot/Prize Amount",
+        "tr": "İkramiye/Ödül Tutarı",
         "de": "Jackpot/Prize Amount",
         "fr": "Jackpot/Prize Amount",
         "es": "Jackpot/Prize Amount",
         "ar": "Jackpot/Prize Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total prize money for the top prize",
+        "tr": "Büyük ödül için toplam ödül parası"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of top prizes available (e.g., 1 jackpot)",
       "label_i18n": {
         "en": "Number of Top Prizes",
-        "tr": "Number of Top Prizes",
+        "tr": "Büyük Ödül Sayısı",
         "de": "Number of Top Prizes",
         "fr": "Number of Top Prizes",
         "es": "Number of Top Prizes",
         "ar": "Number of Top Prizes"
+      },
+      "businessContext_i18n": {
+        "en": "Number of top prizes available (e.g., 1 jackpot)",
+        "tr": "Mevcut büyük ödül sayısı (ör. 1 büyük ikramiye)"
       }
     }
   ],

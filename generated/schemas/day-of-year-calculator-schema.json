@@ -10,11 +10,15 @@
       "businessContext": "Input month (1–12)",
       "label_i18n": {
         "en": "Month",
-        "tr": "Month",
+        "tr": "Ay",
         "de": "Month",
         "fr": "Month",
         "es": "Month",
         "ar": "Month"
+      },
+      "businessContext_i18n": {
+        "en": "Input month (1–12)",
+        "tr": "Giriş ayı (1–12)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Input day (1–31)",
       "label_i18n": {
         "en": "Day",
-        "tr": "Day",
+        "tr": "Gün",
         "de": "Day",
         "fr": "Day",
         "es": "Day",
         "ar": "Day"
+      },
+      "businessContext_i18n": {
+        "en": "Input day (1–31)",
+        "tr": "Giriş günü (1–31)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Input year (e.g., 2023)",
       "label_i18n": {
         "en": "Year",
-        "tr": "Year",
+        "tr": "Yıl",
         "de": "Year",
         "fr": "Year",
         "es": "Year",
         "ar": "Year"
+      },
+      "businessContext_i18n": {
+        "en": "Input year (e.g., 2023)",
+        "tr": "Giriş yılı (ör. 2023)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Month when fiscal year starts (1–12)",
       "label_i18n": {
         "en": "Fiscal Start Month",
-        "tr": "Fiscal Start Month",
+        "tr": "Mali Yıl Başlangıç Ayı",
         "de": "Fiscal Start Month",
         "fr": "Fiscal Start Month",
         "es": "Fiscal Start Month",
         "ar": "Fiscal Start Month"
+      },
+      "businessContext_i18n": {
+        "en": "Month when fiscal year starts (1–12)",
+        "tr": "Mali yılın başladığı ay (1–12)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Day when fiscal year starts (1–31)",
       "label_i18n": {
         "en": "Fiscal Start Day",
-        "tr": "Fiscal Start Day",
+        "tr": "Mali Yıl Başlangıç Günü",
         "de": "Fiscal Start Day",
         "fr": "Fiscal Start Day",
         "es": "Fiscal Start Day",
         "ar": "Fiscal Start Day"
+      },
+      "businessContext_i18n": {
+        "en": "Day when fiscal year starts (1–31)",
+        "tr": "Mali yılın başladığı gün (1–31)"
       }
     }
   ],

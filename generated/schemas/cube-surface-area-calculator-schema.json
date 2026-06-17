@@ -10,11 +10,15 @@
       "businessContext": "Length of one edge of the cube in meters.",
       "label_i18n": {
         "en": "Edge Length",
-        "tr": "Edge Length",
+        "tr": "Kenar Uzunluğu",
         "de": "Edge Length",
         "fr": "Edge Length",
         "es": "Edge Length",
         "ar": "Edge Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of one edge of the cube in meters.",
+        "tr": "Küpün bir kenarının metre cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of identical cubes to calculate total surface area for.",
       "label_i18n": {
         "en": "Number of Cubes",
-        "tr": "Number of Cubes",
+        "tr": "Küp Sayısı",
         "de": "Number of Cubes",
         "fr": "Number of Cubes",
         "es": "Number of Cubes",
         "ar": "Number of Cubes"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical cubes to calculate total surface area for.",
+        "tr": "Toplam yüzey alanını hesaplamak için aynı küplerin sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of faces exposed per cube (default 6 for full cube; e.g., 5 if one face is on the ground).",
       "label_i18n": {
         "en": "Exposed Faces per Cube",
-        "tr": "Exposed Faces per Cube",
+        "tr": "Küp Başına Açık Yüzey",
         "de": "Exposed Faces per Cube",
         "fr": "Exposed Faces per Cube",
         "es": "Exposed Faces per Cube",
         "ar": "Exposed Faces per Cube"
+      },
+      "businessContext_i18n": {
+        "en": "Number of faces exposed per cube (default 6 for full cube; e.g., 5 if one face is on the ground).",
+        "tr": "Küp başına açık yüzey sayısı (varsayılan 6 tam küp; örn. bir yüzü yerdeyse 5)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to convert m² to desired area unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²).",
       "label_i18n": {
         "en": "Unit Conversion Factor",
-        "tr": "Unit Conversion Factor",
+        "tr": "Birim Dönüşüm Faktörü",
         "de": "Unit Conversion Factor",
         "fr": "Unit Conversion Factor",
         "es": "Unit Conversion Factor",
         "ar": "Unit Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to convert m² to desired area unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²).",
+        "tr": "m²'yi istenen alan birimine dönüştürmek için çarpan (örn. m² için 1, cm² için 10000, ft² için 10.7639)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage added to total area to account for waste, errors, or overage.",
       "label_i18n": {
         "en": "Safety Margin",
-        "tr": "Safety Margin",
+        "tr": "Güvenlik Marjı",
         "de": "Safety Margin",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage added to total area to account for waste, errors, or overage.",
+        "tr": "Fire, hata veya fazlalık için toplam alana eklenen yüzde."
       }
     }
   ],

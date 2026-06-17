@@ -10,11 +10,15 @@
       "businessContext": "Total number of traffic lanes in one direction.",
       "label_i18n": {
         "en": "Number of Lanes",
-        "tr": "Number of Lanes",
+        "tr": "Şerit Sayısı",
         "de": "Number of Lanes",
         "fr": "Number of Lanes",
         "es": "Number of Lanes",
         "ar": "Number of Lanes"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of traffic lanes in one direction.",
+        "tr": "Total number of traffic lanes in one direction."
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Average Traffic Speed",
         "es": "Average Traffic Speed",
         "ar": "Average Traffic Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Average speed of vehicles in the traffic stream.",
+        "tr": "Trafik akışındaki araçların ortalama hızı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Typical effective length of a vehicle including safety margin.",
       "label_i18n": {
         "en": "Average Vehicle Length",
-        "tr": "Average Vehicle Length",
+        "tr": "Ortalama Araç Uzunluğu",
         "de": "Average Vehicle Length",
         "fr": "Average Vehicle Length",
         "es": "Average Vehicle Length",
         "ar": "Average Vehicle Length"
+      },
+      "businessContext_i18n": {
+        "en": "Typical effective length of a vehicle including safety margin.",
+        "tr": "Güvenlik payı dahil bir aracın tipik etkin uzunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average time gap between consecutive vehicles (time headway).",
       "label_i18n": {
         "en": "Time Headway",
-        "tr": "Time Headway",
+        "tr": "Zaman Aralığı",
         "de": "Time Headway",
         "fr": "Time Headway",
         "es": "Time Headway",
         "ar": "Time Headway"
+      },
+      "businessContext_i18n": {
+        "en": "Average time gap between consecutive vehicles (time headway).",
+        "tr": "Ardışık araçlar arasındaki ortalama zaman boşluğu (zaman aralığı)."
       }
     }
   ],

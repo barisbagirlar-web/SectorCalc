@@ -10,11 +10,15 @@
       "businessContext": "Average calorie consumption on normal eating days.",
       "label_i18n": {
         "en": "Normal Day Calorie Intake",
-        "tr": "Normal Day Calorie Intake",
+        "tr": "Normal Gün Kalori Alımı",
         "de": "Normal Day Calorie Intake",
         "fr": "Normal Day Calorie Intake",
         "es": "Normal Day Calorie Intake",
         "ar": "Normal Day Calorie Intake"
+      },
+      "businessContext_i18n": {
+        "en": "Average calorie consumption on normal eating days.",
+        "tr": "Normal yeme günlerinde ortalama kalori tüketimi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Calorie intake on fasting days (often 0-500 kcal).",
       "label_i18n": {
         "en": "Fasting Day Calorie Intake",
-        "tr": "Fasting Day Calorie Intake",
+        "tr": "Oruç Günü Kalori Alımı",
         "de": "Fasting Day Calorie Intake",
         "fr": "Fasting Day Calorie Intake",
         "es": "Fasting Day Calorie Intake",
         "ar": "Fasting Day Calorie Intake"
+      },
+      "businessContext_i18n": {
+        "en": "Calorie intake on fasting days (often 0-500 kcal).",
+        "tr": "Oruç günlerinde kalori alımı (genellikle 0-500 kcal)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of days to calculate for the regimen.",
       "label_i18n": {
         "en": "Number of Days",
-        "tr": "Number of Days",
+        "tr": "Gün Sayısı",
         "de": "Number of Days",
         "fr": "Number of Days",
         "es": "Number of Days",
         "ar": "Number of Days"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of days to calculate for the regimen.",
+        "tr": "Rejim için hesaplanacak toplam gün sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 if starting with a normal day, 1 if starting with a fasting day.",
       "label_i18n": {
         "en": "Starting Day Type",
-        "tr": "Starting Day Type",
+        "tr": "Başlangıç Gün Türü",
         "de": "Starting Day Type",
         "fr": "Starting Day Type",
         "es": "Starting Day Type",
         "ar": "Starting Day Type"
+      },
+      "businessContext_i18n": {
+        "en": "0 if starting with a normal day, 1 if starting with a fasting day.",
+        "tr": "Normal günle başlıyorsa 0, oruç günüyle başlıyorsa 1."
       }
     }
   ],

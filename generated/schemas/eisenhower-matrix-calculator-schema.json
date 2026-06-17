@@ -10,11 +10,15 @@
       "businessContext": "Rating of how urgent the task is, 1 being not urgent, 10 extremely urgent.",
       "label_i18n": {
         "en": "Urgency Score (1-10)",
-        "tr": "Urgency Score (1-10)",
+        "tr": "Acil Durum Puanı (1-10)",
         "de": "Urgency Score (1-10)",
         "fr": "Urgency Score (1-10)",
         "es": "Urgency Score (1-10)",
         "ar": "Urgency Score (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Rating of how urgent the task is, 1 being not urgent, 10 extremely urgent.",
+        "tr": "Görevin ne kadar acil olduğunu değerlendirin, 1 hiç acil değil, 10 son derece acil."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Rating of how important the task is, 1 being not important, 10 extremely important.",
       "label_i18n": {
         "en": "Importance Score (1-10)",
-        "tr": "Importance Score (1-10)",
+        "tr": "Önem Puanı (1-10)",
         "de": "Importance Score (1-10)",
         "fr": "Importance Score (1-10)",
         "es": "Importance Score (1-10)",
         "ar": "Importance Score (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Rating of how important the task is, 1 being not important, 10 extremely important.",
+        "tr": "Görevin ne kadar önemli olduğunu değerlendirin, 1 hiç önemli değil, 10 son derece önemli."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight assigned to urgency in the priority score calculation. Typically between 0 and 1.",
       "label_i18n": {
         "en": "Urgency Weight",
-        "tr": "Urgency Weight",
+        "tr": "Acil Durum Ağırlığı",
         "de": "Urgency Weight",
         "fr": "Urgency Weight",
         "es": "Urgency Weight",
         "ar": "Urgency Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight assigned to urgency in the priority score calculation. Typically between 0 and 1.",
+        "tr": "Öncelik puanı hesaplamasında aciliyete atanan ağırlık. Genellikle 0 ile 1 arasında."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Weight assigned to importance in the priority score calculation. Typically between 0 and 1.",
       "label_i18n": {
         "en": "Importance Weight",
-        "tr": "Importance Weight",
+        "tr": "Önem Ağırlığı",
         "de": "Importance Weight",
         "fr": "Importance Weight",
         "es": "Importance Weight",
         "ar": "Importance Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight assigned to importance in the priority score calculation. Typically between 0 and 1.",
+        "tr": "Öncelik puanı hesaplamasında öneme atanan ağırlık. Genellikle 0 ile 1 arasında."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total area to be cleaned in square meters",
       "label_i18n": {
         "en": "Cleaning Area",
-        "tr": "Cleaning Area",
+        "tr": "Temizlik Alanı",
         "de": "Cleaning Area",
         "fr": "Cleaning Area",
         "es": "Cleaning Area",
         "ar": "Cleaning Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total area to be cleaned in square meters",
+        "tr": "Metrekare cinsinden temizlenecek toplam alan"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of times cleaning is performed per month",
       "label_i18n": {
         "en": "Cleaning Frequency",
-        "tr": "Cleaning Frequency",
+        "tr": "Temizlik Sıklığı",
         "de": "Cleaning Frequency",
         "fr": "Cleaning Frequency",
         "es": "Cleaning Frequency",
         "ar": "Cleaning Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times cleaning is performed per month",
+        "tr": "Ayda yapılan temizlik sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of labor per hour",
       "label_i18n": {
         "en": "Labor Hourly Rate",
-        "tr": "Labor Hourly Rate",
+        "tr": "İşçilik Saatlik Ücreti",
         "de": "Labor Hourly Rate",
         "fr": "Labor Hourly Rate",
         "es": "Labor Hourly Rate",
         "ar": "Labor Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of labor per hour",
+        "tr": "Saat başına işçilik maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time required to clean one square meter",
       "label_i18n": {
         "en": "Labor Time per m²",
-        "tr": "Labor Time per m²",
+        "tr": "m² Başına İşçilik Süresi",
         "de": "Labor Time per m²",
         "fr": "Labor Time per m²",
         "es": "Labor Time per m²",
         "ar": "Labor Time per m²"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to clean one square meter",
+        "tr": "Bir metrekareyi temizlemek için gereken süre"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of cleaning materials per square meter",
       "label_i18n": {
         "en": "Material Cost per m²",
-        "tr": "Material Cost per m²",
+        "tr": "m² Başına Malzeme Maliyeti",
         "de": "Material Cost per m²",
         "fr": "Material Cost per m²",
         "es": "Material Cost per m²",
         "ar": "Material Cost per m²"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of cleaning materials per square meter",
+        "tr": "Metrekare başına temizlik malzemelerinin maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Fixed monthly cost for equipment (depreciation, rental, etc.)",
       "label_i18n": {
         "en": "Equipment Fixed Cost",
-        "tr": "Equipment Fixed Cost",
+        "tr": "Ekipman Sabit Maliyeti",
         "de": "Equipment Fixed Cost",
         "fr": "Equipment Fixed Cost",
         "es": "Equipment Fixed Cost",
         "ar": "Equipment Fixed Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed monthly cost for equipment (depreciation, rental, etc.)",
+        "tr": "Ekipman için aylık sabit maliyet (amortisman, kiralama vb.)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Overhead and profit margin percentage",
       "label_i18n": {
         "en": "Overhead Margin",
-        "tr": "Overhead Margin",
+        "tr": "Genel Gider Marjı",
         "de": "Overhead Margin",
         "fr": "Overhead Margin",
         "es": "Overhead Margin",
         "ar": "Overhead Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Overhead and profit margin percentage",
+        "tr": "Genel gider ve kar marjı yüzdesi"
       }
     }
   ],

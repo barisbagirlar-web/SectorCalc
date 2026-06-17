@@ -10,11 +10,15 @@
       "businessContext": "Total floor area of the warehouse",
       "label_i18n": {
         "en": "Total Warehouse Area",
-        "tr": "Total Warehouse Area",
+        "tr": "Toplam Depo Alanı",
         "de": "Total Warehouse Area",
         "fr": "Total Warehouse Area",
         "es": "Total Warehouse Area",
         "ar": "Total Warehouse Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total floor area of the warehouse",
+        "tr": "Deponun toplam taban alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Area used for storage",
       "label_i18n": {
         "en": "Storage Area",
-        "tr": "Storage Area",
+        "tr": "Depolama Alanı",
         "de": "Storage Area",
         "fr": "Storage Area",
         "es": "Storage Area",
         "ar": "Storage Area"
+      },
+      "businessContext_i18n": {
+        "en": "Area used for storage",
+        "tr": "Depolama için kullanılan alan"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum number of pallet positions available",
       "label_i18n": {
         "en": "Max Pallet Positions",
-        "tr": "Max Pallet Positions",
+        "tr": "Maksimum Palet Pozisyonu",
         "de": "Max Pallet Positions",
         "fr": "Max Pallet Positions",
         "es": "Max Pallet Positions",
         "ar": "Max Pallet Positions"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum number of pallet positions available",
+        "tr": "Mevcut maksimum palet pozisyonu sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current number of pallets stored",
       "label_i18n": {
         "en": "Current Pallets Stored",
-        "tr": "Current Pallets Stored",
+        "tr": "Mevcut Depolanan Palet Sayısı",
         "de": "Current Pallets Stored",
         "fr": "Current Pallets Stored",
         "es": "Current Pallets Stored",
         "ar": "Current Pallets Stored"
+      },
+      "businessContext_i18n": {
+        "en": "Current number of pallets stored",
+        "tr": "Şu anda depolanan palet sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Pallets processed per day",
       "label_i18n": {
         "en": "Daily Throughput",
-        "tr": "Daily Throughput",
+        "tr": "Günlük İşlem Hacmi",
         "de": "Daily Throughput",
         "fr": "Daily Throughput",
         "es": "Daily Throughput",
         "ar": "Daily Throughput"
+      },
+      "businessContext_i18n": {
+        "en": "Pallets processed per day",
+        "tr": "Günde işlenen palet sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of working days in a year",
       "label_i18n": {
         "en": "Operating Days per Year",
-        "tr": "Operating Days per Year",
+        "tr": "Yıllık Çalışma Günü Sayısı",
         "de": "Operating Days per Year",
         "fr": "Operating Days per Year",
         "es": "Operating Days per Year",
         "ar": "Operating Days per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of working days in a year",
+        "tr": "Bir yıldaki çalışma günü sayısı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Annual fixed costs (rent, maintenance)",
       "label_i18n": {
         "en": "Annual Fixed Costs",
-        "tr": "Annual Fixed Costs",
+        "tr": "Yıllık Sabit Maliyetler",
         "de": "Annual Fixed Costs",
         "fr": "Annual Fixed Costs",
         "es": "Annual Fixed Costs",
         "ar": "Annual Fixed Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Annual fixed costs (rent, maintenance)",
+        "tr": "Yıllık sabit maliyetler (kira, bakım)"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Variable cost for handling one pallet",
       "label_i18n": {
         "en": "Variable Cost per Pallet",
-        "tr": "Variable Cost per Pallet",
+        "tr": "Palet Başına Değişken Maliyet",
         "de": "Variable Cost per Pallet",
         "fr": "Variable Cost per Pallet",
         "es": "Variable Cost per Pallet",
         "ar": "Variable Cost per Pallet"
+      },
+      "businessContext_i18n": {
+        "en": "Variable cost for handling one pallet",
+        "tr": "Bir paletin elleçlenmesi için değişken maliyet"
       }
     }
   ],

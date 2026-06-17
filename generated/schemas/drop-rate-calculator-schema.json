@@ -10,11 +10,15 @@
       "businessContext": "Total dropped items during observation",
       "label_i18n": {
         "en": "Number of Drops",
-        "tr": "Number of Drops",
+        "tr": "Düşme Sayısı",
         "de": "Number of Drops",
         "fr": "Number of Drops",
         "es": "Number of Drops",
         "ar": "Number of Drops"
+      },
+      "businessContext_i18n": {
+        "en": "Total dropped items during observation",
+        "tr": "Gözlem sırasında düşen toplam ürün sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total items processed in the same period",
       "label_i18n": {
         "en": "Total Items Handled",
-        "tr": "Total Items Handled",
+        "tr": "Toplam İşlenen Ürün",
         "de": "Total Items Handled",
         "fr": "Total Items Handled",
         "es": "Total Items Handled",
         "ar": "Total Items Handled"
+      },
+      "businessContext_i18n": {
+        "en": "Total items processed in the same period",
+        "tr": "Aynı dönemde işlenen toplam ürün sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of observation in hours",
       "label_i18n": {
         "en": "Time Period",
-        "tr": "Time Period",
+        "tr": "Zaman Periyodu",
         "de": "Time Period",
         "fr": "Time Period",
         "es": "Time Period",
         "ar": "Time Period"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of observation in hours",
+        "tr": "Gözlem süresi (saat)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average financial loss per dropped item",
       "label_i18n": {
         "en": "Cost per Drop",
-        "tr": "Cost per Drop",
+        "tr": "Düşme Başına Maliyet",
         "de": "Cost per Drop",
         "fr": "Cost per Drop",
         "es": "Cost per Drop",
         "ar": "Cost per Drop"
+      },
+      "businessContext_i18n": {
+        "en": "Average financial loss per dropped item",
+        "tr": "Düşen ürün başına ortalama finansal kayıp"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total distance to be traveled.",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance to be traveled.",
+        "tr": "Gidilecek toplam mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vehicle fuel consumption rate.",
       "label_i18n": {
         "en": "Fuel Consumption",
-        "tr": "Fuel Consumption",
+        "tr": "Yakıt Tüketimi",
         "de": "Fuel Consumption",
         "fr": "Fuel Consumption",
         "es": "Fuel Consumption",
         "ar": "Fuel Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Vehicle fuel consumption rate.",
+        "tr": "Araç yakıt tüketim oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Price of fuel per liter.",
       "label_i18n": {
         "en": "Fuel Price",
-        "tr": "Fuel Price",
+        "tr": "Yakıt Fiyatı",
         "de": "Fuel Price",
         "fr": "Fuel Price",
         "es": "Fuel Price",
         "ar": "Fuel Price"
+      },
+      "businessContext_i18n": {
+        "en": "Price of fuel per liter.",
+        "tr": "Litre başına yakıt fiyatı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average maintenance cost per kilometer.",
       "label_i18n": {
         "en": "Maintenance Cost per km",
-        "tr": "Maintenance Cost per km",
+        "tr": "Km başına bakım maliyeti",
         "de": "Maintenance Cost per km",
         "fr": "Maintenance Cost per km",
         "es": "Maintenance Cost per km",
         "ar": "Maintenance Cost per km"
+      },
+      "businessContext_i18n": {
+        "en": "Average maintenance cost per kilometer.",
+        "tr": "Kilometre başına ortalama bakım maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Hourly wage of the driver.",
       "label_i18n": {
         "en": "Driver Wage per Hour",
-        "tr": "Driver Wage per Hour",
+        "tr": "Sürücü Saatlik Ücreti",
         "de": "Driver Wage per Hour",
         "fr": "Driver Wage per Hour",
         "es": "Driver Wage per Hour",
         "ar": "Driver Wage per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage of the driver.",
+        "tr": "Sürücünün saatlik ücreti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Expected average speed during the trip.",
       "label_i18n": {
         "en": "Average Speed",
-        "tr": "Average Speed",
+        "tr": "Ortalama Hız",
         "de": "Average Speed",
         "fr": "Average Speed",
         "es": "Average Speed",
         "ar": "Average Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Expected average speed during the trip.",
+        "tr": "Seyahat sırasında beklenen ortalama hız."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Total toll costs for the trip.",
       "label_i18n": {
         "en": "Toll Cost",
-        "tr": "Toll Cost",
+        "tr": "Köprü ve Otoyol Ücreti",
         "de": "Toll Cost",
         "fr": "Toll Cost",
         "es": "Toll Cost",
         "ar": "Toll Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total toll costs for the trip.",
+        "tr": "Seyahat için toplam köprü ve otoyol ücretleri."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Any additional costs (permits, loading/unloading, etc.).",
       "label_i18n": {
         "en": "Other Costs",
-        "tr": "Other Costs",
+        "tr": "Diğer Maliyetler",
         "de": "Other Costs",
         "fr": "Other Costs",
         "es": "Other Costs",
         "ar": "Other Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Any additional costs (permits, loading/unloading, etc.).",
+        "tr": "Ek maliyetler (izinler, yükleme/boşaltma vb.)."
       }
     }
   ],

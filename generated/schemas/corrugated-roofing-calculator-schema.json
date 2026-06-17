@@ -10,11 +10,15 @@
       "businessContext": "The total horizontal width of the roof area to be covered.",
       "label_i18n": {
         "en": "Roof Width (m)",
-        "tr": "Roof Width (m)",
+        "tr": "Çatı Genişliği (m)",
         "de": "Roof Width (m)",
         "fr": "Roof Width (m)",
         "es": "Roof Width (m)",
         "ar": "Roof Width (m)"
+      },
+      "businessContext_i18n": {
+        "en": "The total horizontal width of the roof area to be covered.",
+        "tr": "Kaplanacak çatı alanının toplam yatay genişliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The length of the roof slope from ridge to eave.",
       "label_i18n": {
         "en": "Roof Length (m)",
-        "tr": "Roof Length (m)",
+        "tr": "Çatı Uzunluğu (m)",
         "de": "Roof Length (m)",
         "fr": "Roof Length (m)",
         "es": "Roof Length (m)",
         "ar": "Roof Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "The length of the roof slope from ridge to eave.",
+        "tr": "Mahyadan saçaklara kadar çatı eğiminin uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The coverage width of one sheet after accounting for side overlap.",
       "label_i18n": {
         "en": "Sheet Effective Width (m)",
-        "tr": "Sheet Effective Width (m)",
+        "tr": "Levha Etkili Genişlik (m)",
         "de": "Sheet Effective Width (m)",
         "fr": "Sheet Effective Width (m)",
         "es": "Sheet Effective Width (m)",
         "ar": "Sheet Effective Width (m)"
+      },
+      "businessContext_i18n": {
+        "en": "The coverage width of one sheet after accounting for side overlap.",
+        "tr": "Yan bindirme payı düşüldükten sonra bir levhanın kaplama genişliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The length of a single corrugated sheet.",
       "label_i18n": {
         "en": "Sheet Length (m)",
-        "tr": "Sheet Length (m)",
+        "tr": "Levha Uzunluğu (m)",
         "de": "Sheet Length (m)",
         "fr": "Sheet Length (m)",
         "es": "Sheet Length (m)",
         "ar": "Sheet Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "The length of a single corrugated sheet.",
+        "tr": "Tek bir oluklu levhanın uzunluğu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The lengthwise overlap between sheets to ensure watertightness.",
       "label_i18n": {
         "en": "End Overlap (m)",
-        "tr": "End Overlap (m)",
+        "tr": "Uç Bindirme (m)",
         "de": "End Overlap (m)",
         "fr": "End Overlap (m)",
         "es": "End Overlap (m)",
         "ar": "End Overlap (m)"
+      },
+      "businessContext_i18n": {
+        "en": "The lengthwise overlap between sheets to ensure watertightness.",
+        "tr": "Su geçirmezliği sağlamak için levhalar arasındaki boyuna bindirme."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost of one sheet in local currency.",
       "label_i18n": {
         "en": "Price per Sheet",
-        "tr": "Price per Sheet",
+        "tr": "Levha Başına Fiyat",
         "de": "Price per Sheet",
         "fr": "Price per Sheet",
         "es": "Price per Sheet",
         "ar": "Price per Sheet"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of one sheet in local currency.",
+        "tr": "Yerel para biriminde bir levhanın maliyeti."
       }
     }
   ],

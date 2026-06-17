@@ -10,11 +10,15 @@
       "businessContext": "Horizontal resolution of the video in pixels",
       "label_i18n": {
         "en": "Video Width",
-        "tr": "Video Width",
+        "tr": "Video Genişliği",
         "de": "Video Width",
         "fr": "Video Width",
         "es": "Video Width",
         "ar": "Video Width"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal resolution of the video in pixels",
+        "tr": "Videonun piksel cinsinden yatay çözünürlüğü"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vertical resolution of the video in pixels",
       "label_i18n": {
         "en": "Video Height",
-        "tr": "Video Height",
+        "tr": "Video Yüksekliği",
         "de": "Video Height",
         "fr": "Video Height",
         "es": "Video Height",
         "ar": "Video Height"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical resolution of the video in pixels",
+        "tr": "Videonun piksel cinsinden dikey çözünürlüğü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of frames displayed per second",
       "label_i18n": {
         "en": "Frame Rate",
-        "tr": "Frame Rate",
+        "tr": "Kare Hızı",
         "de": "Frame Rate",
         "fr": "Frame Rate",
         "es": "Frame Rate",
         "ar": "Frame Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Number of frames displayed per second",
+        "tr": "Saniyede görüntülenen kare sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of bits used to represent the color of a single pixel, e.g., 24 for True Color",
       "label_i18n": {
         "en": "Color Depth",
-        "tr": "Color Depth",
+        "tr": "Renk Derinliği",
         "de": "Color Depth",
         "fr": "Color Depth",
         "es": "Color Depth",
         "ar": "Color Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Number of bits used to represent the color of a single pixel, e.g., 24 for True Color",
+        "tr": "Tek bir pikselin rengini temsil etmek için kullanılan bit sayısı, örn. 24 (Gerçek Renk)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Typical values: 0.1 for H.264, 0.05 for H.265. Determines the compression factor applied to the uncompressed bitrate.",
       "label_i18n": {
         "en": "Compression Ratio",
-        "tr": "Compression Ratio",
+        "tr": "Sıkıştırma Oranı",
         "de": "Compression Ratio",
         "fr": "Compression Ratio",
         "es": "Compression Ratio",
         "ar": "Compression Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Typical values: 0.1 for H.264, 0.05 for H.265. Determines the compression factor applied to the uncompressed bitrate.",
+        "tr": "Tipik değerler: H.264 için 0.1, H.265 için 0.05. Sıkıştırılmamış bit hızına uygulanan sıkıştırma faktörünü belirler."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Length of the video in seconds, used to calculate total file size",
       "label_i18n": {
         "en": "Duration",
-        "tr": "Duration",
+        "tr": "Süre",
         "de": "Duration",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the video in seconds, used to calculate total file size",
+        "tr": "Videonun saniye cinsinden uzunluğu, toplam dosya boyutunu hesaplamak için kullanılır"
       }
     }
   ],

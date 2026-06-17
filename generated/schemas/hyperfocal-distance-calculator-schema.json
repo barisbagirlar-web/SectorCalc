@@ -10,11 +10,15 @@
       "businessContext": "The focal length of the lens in millimeters.",
       "label_i18n": {
         "en": "Focal Length (f)",
-        "tr": "Focal Length (f)",
+        "tr": "Odak Uzaklığı (f)",
         "de": "Focal Length (f)",
         "fr": "Focal Length (f)",
         "es": "Focal Length (f)",
         "ar": "Focal Length (f)"
+      },
+      "businessContext_i18n": {
+        "en": "The focal length of the lens in millimeters.",
+        "tr": "Merceğin milimetre cinsinden odak uzaklığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The f-number of the lens aperture. Larger numbers indicate smaller apertures.",
       "label_i18n": {
         "en": "Aperture (N)",
-        "tr": "Aperture (N)",
+        "tr": "Diyafram (N)",
         "de": "Aperture (N)",
         "fr": "Aperture (N)",
         "es": "Aperture (N)",
         "ar": "Aperture (N)"
+      },
+      "businessContext_i18n": {
+        "en": "The f-number of the lens aperture. Larger numbers indicate smaller apertures.",
+        "tr": "Lens diyaframının f-sayısı. Daha büyük sayılar daha küçük diyaframları gösterir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The acceptable circle of confusion diameter in mm. Common values: 0.03mm for full-frame, 0.02mm for APS-C, 0.015mm for Four Thirds.",
       "label_i18n": {
         "en": "Circle of Confusion (c)",
-        "tr": "Circle of Confusion (c)",
+        "tr": "Bulanıklık Dairesi (c)",
         "de": "Circle of Confusion (c)",
         "fr": "Circle of Confusion (c)",
         "es": "Circle of Confusion (c)",
         "ar": "Circle of Confusion (c)"
+      },
+      "businessContext_i18n": {
+        "en": "The acceptable circle of confusion diameter in mm. Common values: 0.03mm for full-frame, 0.02mm for APS-C, 0.015mm for Four Thirds.",
+        "tr": "Kabul edilebilir bulanıklık çemberi çapı (mm cinsinden). Yaygın değerler: tam kare için 0,03mm, APS-C için 0,02mm, Four Thirds için 0,015mm."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to convert the result to desired output unit. Use 1 for mm, 0.001 for meters, 0.03937 for inches.",
       "label_i18n": {
         "en": "Output Unit Multiplier",
-        "tr": "Output Unit Multiplier",
+        "tr": "Çıktı Birim Çarpanı",
         "de": "Output Unit Multiplier",
         "fr": "Output Unit Multiplier",
         "es": "Output Unit Multiplier",
         "ar": "Output Unit Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to convert the result to desired output unit. Use 1 for mm, 0.001 for meters, 0.03937 for inches.",
+        "tr": "Sonucu istenen çıktı birimine dönüştürmek için çarpan. mm için 1, metre için 0,001, inç için 0,03937 kullanın."
       }
     }
   ],

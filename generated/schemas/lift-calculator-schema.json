@@ -15,6 +15,9 @@
         "fr": "Load Mass",
         "es": "Load Mass",
         "ar": "Load Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the load to be lifted"
       }
     },
     {
@@ -31,6 +34,9 @@
         "fr": "Car Mass",
         "es": "Car Mass",
         "ar": "Car Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the elevator car or lifting platform"
       }
     },
     {
@@ -47,6 +53,9 @@
         "fr": "Acceleration",
         "es": "Acceleration",
         "ar": "Acceleration"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration of the lift"
       }
     },
     {
@@ -63,6 +72,9 @@
         "fr": "Counterweight Ratio",
         "es": "Counterweight Ratio",
         "ar": "Counterweight Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of counterweight mass to total mass (car + load)"
       }
     },
     {
@@ -79,6 +91,9 @@
         "fr": "Friction Force",
         "es": "Friction Force",
         "ar": "Friction Force"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated friction opposing motion"
       }
     },
     {
@@ -90,11 +105,14 @@
       "businessContext": "Safety factor for mechanical design",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Safety factor for mechanical design"
       }
     }
   ],

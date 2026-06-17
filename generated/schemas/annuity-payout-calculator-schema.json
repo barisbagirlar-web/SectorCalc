@@ -10,11 +10,15 @@
       "businessContext": "The present value or lump sum used to purchase the annuity.",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "The present value or lump sum used to purchase the annuity.",
+        "tr": "Geliri satın almak için kullanılan bugünkü değer veya toplu meblağ."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual nominal interest rate.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate.",
+        "tr": "Yıllık nominal faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of years over which payments are made.",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Number of Years",
+        "tr": "Yıl Sayısı",
         "de": "Number of Years",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of years over which payments are made.",
+        "tr": "Ödemelerin yapıldığı toplam yıl sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Frequency of payments: 12 for monthly, 4 for quarterly, 1 for annually.",
       "label_i18n": {
         "en": "Payments Per Year",
-        "tr": "Payments Per Year",
+        "tr": "Yıllık Ödeme Sayısı",
         "de": "Payments Per Year",
         "fr": "Payments Per Year",
         "es": "Payments Per Year",
         "ar": "Payments Per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency of payments: 12 for monthly, 4 for quarterly, 1 for annually.",
+        "tr": "Ödeme sıklığı: aylık için 12, üç aylık için 4, yıllık için 1."
       }
     }
   ],

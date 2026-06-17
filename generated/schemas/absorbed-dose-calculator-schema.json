@@ -10,11 +10,15 @@
       "businessContext": "Mass of the material that absorbs the radiation energy.",
       "label_i18n": {
         "en": "Mass of Absorbing Material",
-        "tr": "Mass of Absorbing Material",
+        "tr": "Soğurucu Malzeme Kütlesi",
         "de": "Mass of Absorbing Material",
         "fr": "Mass of Absorbing Material",
         "es": "Mass of Absorbing Material",
         "ar": "Mass of Absorbing Material"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the material that absorbs the radiation energy.",
+        "tr": "Radyasyon enerjisini soğuran malzemenin kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total energy deposited by ionizing radiation into the material.",
       "label_i18n": {
         "en": "Total Energy Deposited",
-        "tr": "Total Energy Deposited",
+        "tr": "Toplam Biriken Enerji",
         "de": "Total Energy Deposited",
         "fr": "Total Energy Deposited",
         "es": "Total Energy Deposited",
         "ar": "Total Energy Deposited"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy deposited by ionizing radiation into the material.",
+        "tr": "İyonlaştırıcı radyasyon tarafından malzemede biriktirilen toplam enerji."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of radiation exposure.",
       "label_i18n": {
         "en": "Exposure Time",
-        "tr": "Exposure Time",
+        "tr": "Maruziyet Süresi",
         "de": "Exposure Time",
         "fr": "Exposure Time",
         "es": "Exposure Time",
         "ar": "Exposure Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of radiation exposure.",
+        "tr": "Radyasyona maruz kalma süresi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Density of the absorbing material (e.g., water = 1000 kg/m³).",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the absorbing material (e.g., water = 1000 kg/m³).",
+        "tr": "Soğurucu malzemenin yoğunluğu (örneğin, su = 1000 kg/m³)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Volume of the absorbing material.",
       "label_i18n": {
         "en": "Volume of Material",
-        "tr": "Volume of Material",
+        "tr": "Malzeme Hacmi",
         "de": "Volume of Material",
         "fr": "Volume of Material",
         "es": "Volume of Material",
         "ar": "Volume of Material"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of the absorbing material.",
+        "tr": "Soğurucu malzemenin hacmi."
       }
     }
   ],

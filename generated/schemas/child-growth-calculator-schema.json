@@ -10,11 +10,15 @@
       "businessContext": "Production order quantity for the parent item.",
       "label_i18n": {
         "en": "Parent Item Quantity",
-        "tr": "Parent Item Quantity",
+        "tr": "Ana Ürün Miktarı",
         "de": "Parent Item Quantity",
         "fr": "Parent Item Quantity",
         "es": "Parent Item Quantity",
         "ar": "Parent Item Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Production order quantity for the parent item.",
+        "tr": "Ana ürün için üretim emri miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of child items required per one parent item.",
       "label_i18n": {
         "en": "BOM Multiplier",
-        "tr": "BOM Multiplier",
+        "tr": "Ürün Ağacı Çarpanı",
         "de": "BOM Multiplier",
         "fr": "BOM Multiplier",
         "es": "BOM Multiplier",
         "ar": "BOM Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Number of child items required per one parent item.",
+        "tr": "Bir ana ürün başına gereken alt ürün sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected percentage of child items scrapped during production.",
       "label_i18n": {
         "en": "Scrap Rate",
-        "tr": "Scrap Rate",
+        "tr": "Fire Oranı",
         "de": "Scrap Rate",
         "fr": "Scrap Rate",
         "es": "Scrap Rate",
         "ar": "Scrap Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage of child items scrapped during production.",
+        "tr": "Üretim sırasında hurdaya çıkması beklenen alt ürünlerin yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional percentage for safety stock to cover uncertainties.",
       "label_i18n": {
         "en": "Safety Stock Factor",
-        "tr": "Safety Stock Factor",
+        "tr": "Emniyet Stoku Faktörü",
         "de": "Safety Stock Factor",
         "fr": "Safety Stock Factor",
         "es": "Safety Stock Factor",
         "ar": "Safety Stock Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage for safety stock to cover uncertainties.",
+        "tr": "Belirsizlikleri karşılamak için emniyet stoku olarak eklenen yüzde."
       }
     }
   ],

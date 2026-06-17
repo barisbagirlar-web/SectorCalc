@@ -10,11 +10,15 @@
       "businessContext": "Annual income used to determine Income Related Monthly Adjustment Amount (IRMAA)",
       "label_i18n": {
         "en": "Modified Adjusted Gross Income (MAGI)",
-        "tr": "Modified Adjusted Gross Income (MAGI)",
+        "tr": "Düzeltilmiş Brüt Gelir (MAGI)",
         "de": "Modified Adjusted Gross Income (MAGI)",
         "fr": "Modified Adjusted Gross Income (MAGI)",
         "es": "Modified Adjusted Gross Income (MAGI)",
         "ar": "Modified Adjusted Gross Income (MAGI)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual income used to determine Income Related Monthly Adjustment Amount (IRMAA)",
+        "tr": "Gelire Bağlı Aylık Düzenleme Tutarını (IRMAA) belirlemek için kullanılan yıllık gelir"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "IRS tax filing status that determines IRMAA brackets",
       "label_i18n": {
         "en": "Filing Status",
-        "tr": "Filing Status",
+        "tr": "Dosyalama Durumu",
         "de": "Filing Status",
         "fr": "Filing Status",
         "es": "Filing Status",
         "ar": "Filing Status"
+      },
+      "businessContext_i18n": {
+        "en": "IRS tax filing status that determines IRMAA brackets",
+        "tr": "IRS vergi beyanname durumu, IRMAA dilimlerini belirler"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current year base monthly premium without adjustments",
       "label_i18n": {
         "en": "Standard Part B Monthly Premium",
-        "tr": "Standard Part B Monthly Premium",
+        "tr": "Standart Bölüm B Aylık Primi",
         "de": "Standard Part B Monthly Premium",
         "fr": "Standard Part B Monthly Premium",
         "es": "Standard Part B Monthly Premium",
         "ar": "Standard Part B Monthly Premium"
+      },
+      "businessContext_i18n": {
+        "en": "Current year base monthly premium without adjustments",
+        "tr": "Cari yıl ayarlama yapılmamış aylık baz prim"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of months past Initial Enrollment Period without Part B or creditable coverage; used to compute penalty",
       "label_i18n": {
         "en": "Late Enrollment Period in Months",
-        "tr": "Late Enrollment Period in Months",
+        "tr": "Gecikmeli Kayıt Süresi (Ay)",
         "de": "Late Enrollment Period in Months",
         "fr": "Late Enrollment Period in Months",
         "es": "Late Enrollment Period in Months",
         "ar": "Late Enrollment Period in Months"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months past Initial Enrollment Period without Part B or creditable coverage; used to compute penalty",
+        "tr": "İlk Kayıt Dönemi'nden sonra Bölüm B veya kredilendirilebilir teminat olmadan geçen ay sayısı; ceza hesaplamak için kullanılır"
       }
     }
   ],

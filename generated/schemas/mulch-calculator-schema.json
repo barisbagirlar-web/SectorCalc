@@ -10,11 +10,15 @@
       "businessContext": "The length of the area to be covered with mulch, measured in feet.",
       "label_i18n": {
         "en": "Length (ft)",
-        "tr": "Length (ft)",
+        "tr": "Uzunluk (ft)",
         "de": "Length (ft)",
         "fr": "Length (ft)",
         "es": "Length (ft)",
         "ar": "Length (ft)"
+      },
+      "businessContext_i18n": {
+        "en": "The length of the area to be covered with mulch, measured in feet.",
+        "tr": "Malçla kaplanacak alanın fit cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The width of the area to be covered with mulch, measured in feet.",
       "label_i18n": {
         "en": "Width (ft)",
-        "tr": "Width (ft)",
+        "tr": "Genişlik (ft)",
         "de": "Width (ft)",
         "fr": "Width (ft)",
         "es": "Width (ft)",
         "ar": "Width (ft)"
+      },
+      "businessContext_i18n": {
+        "en": "The width of the area to be covered with mulch, measured in feet.",
+        "tr": "Malçla kaplanacak alanın fit cinsinden genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The desired depth of mulch layer, measured in inches.",
       "label_i18n": {
         "en": "Mulch Depth (in)",
-        "tr": "Mulch Depth (in)",
+        "tr": "Malç Derinliği (in)",
         "de": "Mulch Depth (in)",
         "fr": "Mulch Depth (in)",
         "es": "Mulch Depth (in)",
         "ar": "Mulch Depth (in)"
+      },
+      "businessContext_i18n": {
+        "en": "The desired depth of mulch layer, measured in inches.",
+        "tr": "İstenen malç tabakası derinliği, inç cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The volume of a single bag of mulch, typically 2 cubic feet.",
       "label_i18n": {
         "en": "Bag Volume (ft³)",
-        "tr": "Bag Volume (ft³)",
+        "tr": "Torba Hacmi (ft³)",
         "de": "Bag Volume (ft³)",
         "fr": "Bag Volume (ft³)",
         "es": "Bag Volume (ft³)",
         "ar": "Bag Volume (ft³)"
+      },
+      "businessContext_i18n": {
+        "en": "The volume of a single bag of mulch, typically 2 cubic feet.",
+        "tr": "Tek bir malç torbasının hacmi, tipik olarak 2 fit küp."
       }
     }
   ],

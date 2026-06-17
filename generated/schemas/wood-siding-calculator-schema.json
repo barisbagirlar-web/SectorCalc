@@ -10,11 +10,15 @@
       "businessContext": "The horizontal length of the wall to cover.",
       "label_i18n": {
         "en": "Wall Width",
-        "tr": "Wall Width",
+        "tr": "Duvar genişliği",
         "de": "Wall Width",
         "fr": "Wall Width",
         "es": "Wall Width",
         "ar": "Wall Width"
+      },
+      "businessContext_i18n": {
+        "en": "The horizontal length of the wall to cover.",
+        "tr": "Kaplanacak duvarın yatay uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The vertical height of the wall.",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "The vertical height of the wall.",
+        "tr": "Duvarın dikey yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The visible height of each siding board after overlapping, typically 4-8 inches.",
       "label_i18n": {
         "en": "Exposed Face",
-        "tr": "Exposed Face",
+        "tr": "Görünen Yüz",
         "de": "Exposed Face",
         "fr": "Exposed Face",
         "es": "Exposed Face",
         "ar": "Exposed Face"
+      },
+      "businessContext_i18n": {
+        "en": "The visible height of each siding board after overlapping, typically 4-8 inches.",
+        "tr": "Her bir cephe kaplama levhasının bindirmeden sonra görünen yüksekliği, tipik olarak 4-8 inç."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The length of each siding board.",
       "label_i18n": {
         "en": "Board Length",
-        "tr": "Board Length",
+        "tr": "Tahta Uzunluğu",
         "de": "Board Length",
         "fr": "Board Length",
         "es": "Board Length",
         "ar": "Board Length"
+      },
+      "businessContext_i18n": {
+        "en": "The length of each siding board.",
+        "tr": "Her bir cephe kaplama levhasının uzunluğu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Extra material percentage to account for cuts and errors.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Extra material percentage to account for cuts and errors.",
+        "tr": "Kesim ve hatalar için ekstra malzeme yüzdesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost of one board.",
       "label_i18n": {
         "en": "Price per Board",
-        "tr": "Price per Board",
+        "tr": "Levha Başına Fiyat",
         "de": "Price per Board",
         "fr": "Price per Board",
         "es": "Price per Board",
         "ar": "Price per Board"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of one board.",
+        "tr": "Bir levhanın maliyeti."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The starting balance of the savings account.",
       "label_i18n": {
         "en": "Initial Deposit",
-        "tr": "Initial Deposit",
+        "tr": "Başlangıç Mevduatı",
         "de": "Initial Deposit",
         "fr": "Initial Deposit",
         "es": "Initial Deposit",
         "ar": "Initial Deposit"
+      },
+      "businessContext_i18n": {
+        "en": "The starting balance of the savings account.",
+        "tr": "Tasarruf hesabının başlangıç bakiyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The amount deposited at the end of each month.",
       "label_i18n": {
         "en": "Monthly Contribution",
-        "tr": "Monthly Contribution",
+        "tr": "Aylık Katkı",
         "de": "Monthly Contribution",
         "fr": "Monthly Contribution",
         "es": "Monthly Contribution",
         "ar": "Monthly Contribution"
+      },
+      "businessContext_i18n": {
+        "en": "The amount deposited at the end of each month.",
+        "tr": "Her ay sonunda yatırılan miktar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The annual percentage yield, representing the effective annual rate of return taking compounding into account.",
       "label_i18n": {
         "en": "Annual Interest Rate (APY)",
-        "tr": "Annual Interest Rate (APY)",
+        "tr": "Yıllık Faiz Oranı (APY)",
         "de": "Annual Interest Rate (APY)",
         "fr": "Annual Interest Rate (APY)",
         "es": "Annual Interest Rate (APY)",
         "ar": "Annual Interest Rate (APY)"
+      },
+      "businessContext_i18n": {
+        "en": "The annual percentage yield, representing the effective annual rate of return taking compounding into account.",
+        "tr": "Bileşik faiz etkisini hesaba katan efektif yıllık getiri oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The total number of years the money is invested.",
       "label_i18n": {
         "en": "Investment Period",
-        "tr": "Investment Period",
+        "tr": "Yatırım Süresi",
         "de": "Investment Period",
         "fr": "Investment Period",
         "es": "Investment Period",
         "ar": "Investment Period"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of years the money is invested.",
+        "tr": "Paranın yatırıldığı toplam yıl sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of times interest is compounded per year. Typically 12 for monthly, 4 for quarterly, 1 for annually.",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı",
         "de": "Compounding Frequency",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times interest is compounded per year. Typically 12 for monthly, 4 for quarterly, 1 for annually.",
+        "tr": "Yıllık bileşik faiz dönemi sayısı. Genellikle aylık için 12, üç aylık için 4, yıllık için 1."
       }
     }
   ],

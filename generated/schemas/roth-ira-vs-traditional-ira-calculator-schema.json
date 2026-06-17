@@ -10,11 +10,15 @@
       "businessContext": "Amount you plan to contribute each year to the IRA (pre-tax for Traditional, after tax for Roth).",
       "label_i18n": {
         "en": "Annual Contribution",
-        "tr": "Annual Contribution",
+        "tr": "Yıllık Katkı",
         "de": "Annual Contribution",
         "fr": "Annual Contribution",
         "es": "Annual Contribution",
         "ar": "Annual Contribution"
+      },
+      "businessContext_i18n": {
+        "en": "Amount you plan to contribute each year to the IRA (pre-tax for Traditional, after tax for Roth).",
+        "tr": "Her yıl IRA'ya katkıda bulunmayı planladığınız tutar (Geleneksel için vergi öncesi, Roth için vergi sonrası)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Your current age.",
       "label_i18n": {
         "en": "Current Age",
-        "tr": "Current Age",
+        "tr": "Mevcut Yaş",
         "de": "Current Age",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "Your current age.",
+        "tr": "Mevcut yaşınız."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age at which you plan to retire and start withdrawals.",
       "label_i18n": {
         "en": "Retirement Age",
-        "tr": "Retirement Age",
+        "tr": "Emeklilik Yaşı",
         "de": "Retirement Age",
         "fr": "Retirement Age",
         "es": "Retirement Age",
         "ar": "Retirement Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age at which you plan to retire and start withdrawals.",
+        "tr": "Emekli olmayı ve çekimlere başlamayı planladığınız yaş."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Your current marginal income tax rate (e.g., 22 for 22%).",
       "label_i18n": {
         "en": "Current Tax Rate",
-        "tr": "Current Tax Rate",
+        "tr": "Mevcut Vergi Oranı",
         "de": "Current Tax Rate",
         "fr": "Current Tax Rate",
         "es": "Current Tax Rate",
         "ar": "Current Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Your current marginal income tax rate (e.g., 22 for 22%).",
+        "tr": "Mevcut marjinal gelir vergisi oranınız (örneğin, %22 için 22)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Your expected marginal tax rate in retirement (e.g., 22 for 22%).",
       "label_i18n": {
         "en": "Expected Retirement Tax Rate",
-        "tr": "Expected Retirement Tax Rate",
+        "tr": "Beklenen Emeklilik Vergi Oranı",
         "de": "Expected Retirement Tax Rate",
         "fr": "Expected Retirement Tax Rate",
         "es": "Expected Retirement Tax Rate",
         "ar": "Expected Retirement Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Your expected marginal tax rate in retirement (e.g., 22 for 22%).",
+        "tr": "Emeklilikte beklenen marjinal vergi oranınız (örneğin, %22 için 22)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Expected average annual return on investments (assumed > 0%).",
       "label_i18n": {
         "en": "Expected Annual Return",
-        "tr": "Expected Annual Return",
+        "tr": "Beklenen Yıllık Getiri",
         "de": "Expected Annual Return",
         "fr": "Expected Annual Return",
         "es": "Expected Annual Return",
         "ar": "Expected Annual Return"
+      },
+      "businessContext_i18n": {
+        "en": "Expected average annual return on investments (assumed > 0%).",
+        "tr": "Yatırımlarda beklenen ortalama yıllık getiri (%0'dan büyük olduğu varsayılır)."
       }
     }
   ],

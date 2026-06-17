@@ -10,11 +10,15 @@
       "businessContext": "Target concentration of the electrolyte solution in moles per liter",
       "label_i18n": {
         "en": "Desired Molarity",
-        "tr": "Desired Molarity",
+        "tr": "İstenen Molarite",
         "de": "Desired Molarity",
         "fr": "Desired Molarity",
         "es": "Desired Molarity",
         "ar": "Desired Molarity"
+      },
+      "businessContext_i18n": {
+        "en": "Target concentration of the electrolyte solution in moles per liter",
+        "tr": "Elektrolit çözeltisinin litre başına mol cinsinden hedef konsantrasyonu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Final volume of the solution to prepare",
       "label_i18n": {
         "en": "Solution Volume",
-        "tr": "Solution Volume",
+        "tr": "Çözelti Hacmi",
         "de": "Solution Volume",
         "fr": "Solution Volume",
         "es": "Solution Volume",
         "ar": "Solution Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Final volume of the solution to prepare",
+        "tr": "Hazırlanacak çözeltinin nihai hacmi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Purity percentage of the solid solute (e.g., 99.5 means 99.5% pure)",
       "label_i18n": {
         "en": "Solute Purity",
-        "tr": "Solute Purity",
+        "tr": "Çözünen Saflığı",
         "de": "Solute Purity",
         "fr": "Solute Purity",
         "es": "Solute Purity",
         "ar": "Solute Purity"
+      },
+      "businessContext_i18n": {
+        "en": "Purity percentage of the solid solute (e.g., 99.5 means 99.5% pure)",
+        "tr": "Katı çözünenin saflık yüzdesi (örneğin, 99.5, %99.5 saf anlamına gelir)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Molar mass of the anhydrous solute",
       "label_i18n": {
         "en": "Molecular Weight (Anhydrous)",
-        "tr": "Molecular Weight (Anhydrous)",
+        "tr": "Moleküler Ağırlık (Susuz)",
         "de": "Molecular Weight (Anhydrous)",
         "fr": "Molecular Weight (Anhydrous)",
         "es": "Molecular Weight (Anhydrous)",
         "ar": "Molecular Weight (Anhydrous)"
+      },
+      "businessContext_i18n": {
+        "en": "Molar mass of the anhydrous solute",
+        "tr": "Susuz çözünenin molar kütlesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of water molecules per formula unit (e.g., 5 for CuSO4·5H2O; 0 for anhydrous)",
       "label_i18n": {
         "en": "Water of Hydration",
-        "tr": "Water of Hydration",
+        "tr": "Hidratasyon Suyu",
         "de": "Water of Hydration",
         "fr": "Water of Hydration",
         "es": "Water of Hydration",
         "ar": "Water of Hydration"
+      },
+      "businessContext_i18n": {
+        "en": "Number of water molecules per formula unit (e.g., 5 for CuSO4·5H2O; 0 for anhydrous)",
+        "tr": "Formül birimi başına su molekülü sayısı (ör. CuSO4·5H2O için 5; susuz için 0)"
       }
     }
   ],

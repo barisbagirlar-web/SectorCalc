@@ -10,11 +10,15 @@
       "businessContext": "The speed value in knots to convert.",
       "label_i18n": {
         "en": "Speed in knots",
-        "tr": "Speed in knots",
+        "tr": "Knot cinsinden hız",
         "de": "Speed in knots",
         "fr": "Speed in knots",
         "es": "Speed in knots",
         "ar": "Speed in knots"
+      },
+      "businessContext_i18n": {
+        "en": "The speed value in knots to convert.",
+        "tr": "Dönüştürülecek knot cinsinden hız değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from knots to kilometers per hour. Default is 1.852.",
       "label_i18n": {
         "en": "Conversion factor",
-        "tr": "Conversion factor",
+        "tr": "Dönüşüm faktörü",
         "de": "Conversion factor",
         "fr": "Conversion factor",
         "es": "Conversion factor",
         "ar": "Conversion factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from knots to kilometers per hour. Default is 1.852.",
+        "tr": "Knot'tan kilometre/saat'e standart dönüşüm faktörü. Varsayılan 1.852'dir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the result.",
       "label_i18n": {
         "en": "Decimal places",
-        "tr": "Decimal places",
+        "tr": "Ondalık basamaklar",
         "de": "Decimal places",
         "fr": "Decimal places",
         "es": "Decimal places",
         "ar": "Decimal places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the result.",
+        "tr": "Sonuç için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rounding mode: 0 = floor, 1 = round, 2 = ceil.",
       "label_i18n": {
         "en": "Rounding mode",
-        "tr": "Rounding mode",
+        "tr": "Yuvarlama modu",
         "de": "Rounding mode",
         "fr": "Rounding mode",
         "es": "Rounding mode",
         "ar": "Rounding mode"
+      },
+      "businessContext_i18n": {
+        "en": "Rounding mode: 0 = floor, 1 = round, 2 = ceil.",
+        "tr": "Yuvarlama modu: 0 = taban, 1 = yuvarla, 2 = tavan."
       }
     }
   ],

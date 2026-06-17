@@ -10,11 +10,15 @@
       "businessContext": "Total body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total body weight in kilograms",
+        "tr": "Toplam vücut ağırlığı (kg)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height in centimeters for lean mass estimation",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height in centimeters for lean mass estimation",
+        "tr": "Yağsız kütle tahmini için santimetre cinsinden boy"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age in years (for context, not used in core calculation)",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age in years (for context, not used in core calculation)",
+        "tr": "Yıl cinsinden yaş (bağlam için, temel hesaplamada kullanılmaz)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 for female, 1 for male; used in lean mass formula",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for female, 1 for male; used in lean mass formula",
+        "tr": "Kadın için 0, erkek için 1; yağsız kütle formülünde kullanılır"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Daily protein requirement per kg (0.8 for sedentary, 1.2-1.7 for active, 2.2 for muscle gain)",
       "label_i18n": {
         "en": "Protein Factor",
-        "tr": "Protein Factor",
+        "tr": "Protein Faktörü",
         "de": "Protein Factor",
         "fr": "Protein Factor",
         "es": "Protein Factor",
         "ar": "Protein Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Daily protein requirement per kg (0.8 for sedentary, 1.2-1.7 for active, 2.2 for muscle gain)",
+        "tr": "Kg başına günlük protein ihtiyacı (hareketsiz için 0.8, aktif için 1.2-1.7, kas gelişimi için 2.2)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "0 to base on total weight, 1 to base on estimated lean body mass",
       "label_i18n": {
         "en": "Use Lean Body Mass",
-        "tr": "Use Lean Body Mass",
+        "tr": "Yağsız Vücut Kütlesi Kullan",
         "de": "Use Lean Body Mass",
         "fr": "Use Lean Body Mass",
         "es": "Use Lean Body Mass",
         "ar": "Use Lean Body Mass"
+      },
+      "businessContext_i18n": {
+        "en": "0 to base on total weight, 1 to base on estimated lean body mass",
+        "tr": "Toplam ağırlığa dayanmak için 0, tahmini yağsız vücut kütlesine dayanmak için 1"
       }
     }
   ],

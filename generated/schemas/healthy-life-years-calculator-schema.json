@@ -10,11 +10,15 @@
       "businessContext": "Total expected years of life from birth based on current mortality rates.",
       "label_i18n": {
         "en": "Life Expectancy at Birth (years)",
-        "tr": "Life Expectancy at Birth (years)",
+        "tr": "Doğumda Beklenen Yaşam Süresi (yıl)",
         "de": "Life Expectancy at Birth (years)",
         "fr": "Life Expectancy at Birth (years)",
         "es": "Life Expectancy at Birth (years)",
         "ar": "Life Expectancy at Birth (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Total expected years of life from birth based on current mortality rates.",
+        "tr": "Mevcut ölüm oranlarına göre doğumdan itibaren beklenen toplam yaşam yılı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Proportion of population with severe long-standing activity limitation, expressed as a decimal (0-1).",
       "label_i18n": {
         "en": "Prevalence of Severe Activity Limitation",
-        "tr": "Prevalence of Severe Activity Limitation",
+        "tr": "Şiddetli Aktivite Kısıtlılığı Yaygınlığı",
         "de": "Prevalence of Severe Activity Limitation",
         "fr": "Prevalence of Severe Activity Limitation",
         "es": "Prevalence of Severe Activity Limitation",
         "ar": "Prevalence of Severe Activity Limitation"
+      },
+      "businessContext_i18n": {
+        "en": "Proportion of population with severe long-standing activity limitation, expressed as a decimal (0-1).",
+        "tr": "Uzun süreli şiddetli aktivite kısıtlılığı olan nüfus oranı, ondalık olarak ifade edilir (0-1)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Proportion of population with moderate activity limitation, expressed as a decimal (0-1).",
       "label_i18n": {
         "en": "Prevalence of Moderate Activity Limitation",
-        "tr": "Prevalence of Moderate Activity Limitation",
+        "tr": "Orta Dereceli Aktivite Kısıtlılığı Yaygınlığı",
         "de": "Prevalence of Moderate Activity Limitation",
         "fr": "Prevalence of Moderate Activity Limitation",
         "es": "Prevalence of Moderate Activity Limitation",
         "ar": "Prevalence of Moderate Activity Limitation"
+      },
+      "businessContext_i18n": {
+        "en": "Proportion of population with moderate activity limitation, expressed as a decimal (0-1).",
+        "tr": "Orta dereceli aktivite kısıtlılığı olan nüfus oranı, ondalık olarak ifade edilir (0-1)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Health loss weight for severe state (0 = full health, 1 = worst possible health).",
       "label_i18n": {
         "en": "Disability Weight for Severe Limitation",
-        "tr": "Disability Weight for Severe Limitation",
+        "tr": "Şiddetli Kısıtlılık için Engellilik Ağırlığı",
         "de": "Disability Weight for Severe Limitation",
         "fr": "Disability Weight for Severe Limitation",
         "es": "Disability Weight for Severe Limitation",
         "ar": "Disability Weight for Severe Limitation"
+      },
+      "businessContext_i18n": {
+        "en": "Health loss weight for severe state (0 = full health, 1 = worst possible health).",
+        "tr": "Sağlık kaybı ağırlığı - şiddetli durum (0 = tam sağlık, 1 = mümkün olan en kötü sağlık)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Health loss weight for moderate state (0 = full health, 1 = worst possible health).",
       "label_i18n": {
         "en": "Disability Weight for Moderate Limitation",
-        "tr": "Disability Weight for Moderate Limitation",
+        "tr": "Orta Dereceli Kısıtlama için Engellilik Ağırlığı",
         "de": "Disability Weight for Moderate Limitation",
         "fr": "Disability Weight for Moderate Limitation",
         "es": "Disability Weight for Moderate Limitation",
         "ar": "Disability Weight for Moderate Limitation"
+      },
+      "businessContext_i18n": {
+        "en": "Health loss weight for moderate state (0 = full health, 1 = worst possible health).",
+        "tr": "Sağlık kaybı ağırlığı - orta durum (0 = tam sağlık, 1 = mümkün olan en kötü sağlık)."
       }
     }
   ],

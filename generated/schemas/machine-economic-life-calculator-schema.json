@@ -22,10 +22,12 @@
       "max": 10000000,
       "businessContext": "Initial capital investment for the machine, including installation and commissioning.",
       "label_i18n": {
-        "en": "Purchase Price"
+        "en": "Purchase Price",
+        "tr": "Satın Alma Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Initial capital investment for the machine, including installation and commissioning."
+        "en": "Initial capital investment for the machine, including installation and commissioning.",
+        "tr": "Kurulum ve devreye alma dahil makine için ilk sermaye yatırımı."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 5000000,
       "businessContext": "Estimated resale or scrap value at the end of the machine's useful life.",
       "label_i18n": {
-        "en": "Salvage Value at End of Life"
+        "en": "Salvage Value at End of Life",
+        "tr": "Ömür Sonu Hurda Değeri"
       },
       "businessContext_i18n": {
-        "en": "Estimated resale or scrap value at the end of the machine's useful life."
+        "en": "Estimated resale or scrap value at the end of the machine's useful life.",
+        "tr": "Makinenin faydalı ömrünün sonunda tahmini yeniden satış veya hurda değeri."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 50,
       "businessContext": "Expected number of years the machine will be operational before major overhaul or replacement.",
       "label_i18n": {
-        "en": "Estimated Useful Life"
+        "en": "Estimated Useful Life",
+        "tr": "Tahmini Faydalı Ömür"
       },
       "businessContext_i18n": {
-        "en": "Expected number of years the machine will be operational before major overhaul or replacement."
+        "en": "Expected number of years the machine will be operational before major overhaul or replacement.",
+        "tr": "Makinenin büyük bir revizyon veya değiştirme öncesinde çalışır durumda olması beklenen yıl sayısı."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 1000000,
       "businessContext": "Includes energy, consumables, labor, and routine maintenance in the first year.",
       "label_i18n": {
-        "en": "Annual Operating Cost (Year 1)"
+        "en": "Annual Operating Cost (Year 1)",
+        "tr": "Yıllık İşletme Maliyeti (1. Yıl)"
       },
       "businessContext_i18n": {
-        "en": "Includes energy, consumables, labor, and routine maintenance in the first year."
+        "en": "Includes energy, consumables, labor, and routine maintenance in the first year.",
+        "tr": "İlk yıldaki enerji, sarf malzemeleri, işçilik ve rutin bakımı içerir."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 20,
       "businessContext": "Annual increase in operating costs due to aging, inflation, and wear.",
       "label_i18n": {
-        "en": "Operating Cost Escalation Rate"
+        "en": "Operating Cost Escalation Rate",
+        "tr": "İşletme Maliyeti Artış Oranı"
       },
       "businessContext_i18n": {
-        "en": "Annual increase in operating costs due to aging, inflation, and wear."
+        "en": "Annual increase in operating costs due to aging, inflation, and wear.",
+        "tr": "Eskime, enflasyon ve aşınma nedeniyle işletme maliyetlerindeki yıllık artış."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 30,
       "businessContext": "Weighted average cost of capital used for net present value calculations.",
       "label_i18n": {
-        "en": "Discount Rate (WACC)"
+        "en": "Discount Rate (WACC)",
+        "tr": "İskonto Oranı (AOSM)"
       },
       "businessContext_i18n": {
-        "en": "Weighted average cost of capital used for net present value calculations."
+        "en": "Weighted average cost of capital used for net present value calculations.",
+        "tr": "Net bugünkü değer hesaplamaları için kullanılan ağırlıklı ortalama sermaye maliyeti."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 10000000,
       "businessContext": "Number of units produced per year at full capacity.",
       "label_i18n": {
-        "en": "Annual Production Units"
+        "en": "Annual Production Units",
+        "tr": "Yıllık Üretim Birimleri"
       },
       "businessContext_i18n": {
-        "en": "Number of units produced per year at full capacity."
+        "en": "Number of units produced per year at full capacity.",
+        "tr": "Tam kapasitede yılda üretilen birim sayısı."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 1000,
       "businessContext": "Selling price per unit produced by the machine.",
       "label_i18n": {
-        "en": "Revenue per Unit"
+        "en": "Revenue per Unit",
+        "tr": "Birim Başına Gelir"
       },
       "businessContext_i18n": {
-        "en": "Selling price per unit produced by the machine."
+        "en": "Selling price per unit produced by the machine.",
+        "tr": "Makine tarafından üretilen birim başına satış fiyatı."
       }
     }
   ],

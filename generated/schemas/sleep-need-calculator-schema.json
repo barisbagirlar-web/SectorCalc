@@ -10,11 +10,15 @@
       "businessContext": "Worker's age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Worker's age in years",
+        "tr": "İşçinin yıl cinsinden yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Type of shift assignment",
       "label_i18n": {
         "en": "Shift Type",
-        "tr": "Shift Type",
+        "tr": "Vardiya Türü",
         "de": "Shift Type",
         "fr": "Shift Type",
         "es": "Shift Type",
         "ar": "Shift Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of shift assignment",
+        "tr": "Vardiya atama türü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Self-assessed sleep quality rating",
       "label_i18n": {
         "en": "Sleep Quality",
-        "tr": "Sleep Quality",
+        "tr": "Uyku Kalitesi",
         "de": "Sleep Quality",
         "fr": "Sleep Quality",
         "es": "Sleep Quality",
         "ar": "Sleep Quality"
+      },
+      "businessContext_i18n": {
+        "en": "Self-assessed sleep quality rating",
+        "tr": "Kendi değerlendirilen uyku kalitesi puanı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired wake-up time in minutes past midnight",
       "label_i18n": {
         "en": "Desired Wake-up Time",
-        "tr": "Desired Wake-up Time",
+        "tr": "İstenen Uyanma Saati",
         "de": "Desired Wake-up Time",
         "fr": "Desired Wake-up Time",
         "es": "Desired Wake-up Time",
         "ar": "Desired Wake-up Time"
+      },
+      "businessContext_i18n": {
+        "en": "Desired wake-up time in minutes past midnight",
+        "tr": "Gece yarısından sonra dakika cinsinden istenen uyanma saati"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average time to fall asleep",
       "label_i18n": {
         "en": "Sleep Latency",
-        "tr": "Sleep Latency",
+        "tr": "Uykuya Dalma Süresi",
         "de": "Sleep Latency",
         "fr": "Sleep Latency",
         "es": "Sleep Latency",
         "ar": "Sleep Latency"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to fall asleep",
+        "tr": "Uykuya dalmak için ortalama süre"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Weekly physical activity hours",
       "label_i18n": {
         "en": "Physical Activity",
-        "tr": "Physical Activity",
+        "tr": "Fiziksel Aktivite",
         "de": "Physical Activity",
         "fr": "Physical Activity",
         "es": "Physical Activity",
         "ar": "Physical Activity"
+      },
+      "businessContext_i18n": {
+        "en": "Weekly physical activity hours",
+        "tr": "Haftalık fiziksel aktivite saati"
       }
     }
   ],

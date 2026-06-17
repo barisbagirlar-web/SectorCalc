@@ -10,11 +10,15 @@
       "businessContext": "Elevation of fluid source surface relative to pump centerline (positive if source is above pump, negative if below).",
       "label_i18n": {
         "en": "Suction Static Head",
-        "tr": "Suction Static Head",
+        "tr": "Emme Statik Yüksekliği",
         "de": "Suction Static Head",
         "fr": "Suction Static Head",
         "es": "Suction Static Head",
         "ar": "Suction Static Head"
+      },
+      "businessContext_i18n": {
+        "en": "Elevation of fluid source surface relative to pump centerline (positive if source is above pump, negative if below).",
+        "tr": "Akışkan kaynağı yüzeyinin pompa merkez hattına göre kotu (kaynak pompanın üstündeyse pozitif, altındaysa negatif)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Elevation of discharge point relative to pump centerline.",
       "label_i18n": {
         "en": "Discharge Static Head",
-        "tr": "Discharge Static Head",
+        "tr": "Basma Statik Yüksekliği",
         "de": "Discharge Static Head",
         "fr": "Discharge Static Head",
         "es": "Discharge Static Head",
         "ar": "Discharge Static Head"
+      },
+      "businessContext_i18n": {
+        "en": "Elevation of discharge point relative to pump centerline.",
+        "tr": "Basma noktasının pompa merkez hattına göre kotu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Volumetric flow rate of the fluid in liters per second.",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of the fluid in liters per second.",
+        "tr": "Saniyede litre cinsinden akışkanın hacimsel debisi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total length of straight pipe between suction and discharge.",
       "label_i18n": {
         "en": "Pipe Length",
-        "tr": "Pipe Length",
+        "tr": "Boru Uzunluğu",
         "de": "Pipe Length",
         "fr": "Pipe Length",
         "es": "Pipe Length",
         "ar": "Pipe Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of straight pipe between suction and discharge.",
+        "tr": "Emme ve basma arasındaki düz borunun toplam uzunluğu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Inner diameter of the pipe.",
       "label_i18n": {
         "en": "Pipe Internal Diameter",
-        "tr": "Pipe Internal Diameter",
+        "tr": "Boru İç Çapı",
         "de": "Pipe Internal Diameter",
         "fr": "Pipe Internal Diameter",
         "es": "Pipe Internal Diameter",
         "ar": "Pipe Internal Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the pipe.",
+        "tr": "Boru iç çapı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Pipe roughness coefficient (e.g., 120 for steel, 150 for PVC).",
       "label_i18n": {
         "en": "Hazen-Williams C-Factor",
-        "tr": "Hazen-Williams C-Factor",
+        "tr": "Hazen-Williams C-Faktörü",
         "de": "Hazen-Williams C-Factor",
         "fr": "Hazen-Williams C-Factor",
         "es": "Hazen-Williams C-Factor",
         "ar": "Hazen-Williams C-Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Pipe roughness coefficient (e.g., 120 for steel, 150 for PVC).",
+        "tr": "Boru pürüzlülük katsayısı (ör. çelik için 120, PVC için 150)."
       }
     }
   ],

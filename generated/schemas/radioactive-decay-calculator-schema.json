@@ -10,11 +10,15 @@
       "businessContext": "Initial mass of the radioactive substance in grams",
       "label_i18n": {
         "en": "Initial Mass",
-        "tr": "Initial Mass",
+        "tr": "Başlangıç Kütlesi",
         "de": "Initial Mass",
         "fr": "Initial Mass",
         "es": "Initial Mass",
         "ar": "Initial Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Initial mass of the radioactive substance in grams",
+        "tr": "Radyoaktif maddenin başlangıç kütlesi (gram cinsinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time required for half of the substance to decay",
       "label_i18n": {
         "en": "Half-Life",
-        "tr": "Half-Life",
+        "tr": "Yarılanma Süresi",
         "de": "Half-Life",
         "fr": "Half-Life",
         "es": "Half-Life",
         "ar": "Half-Life"
+      },
+      "businessContext_i18n": {
+        "en": "Time required for half of the substance to decay",
+        "tr": "Maddenin yarısının bozunması için gereken süre"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Starting point of the decay period",
       "label_i18n": {
         "en": "Start Time",
-        "tr": "Start Time",
+        "tr": "Başlangıç Zamanı",
         "de": "Start Time",
         "fr": "Start Time",
         "es": "Start Time",
         "ar": "Start Time"
+      },
+      "businessContext_i18n": {
+        "en": "Starting point of the decay period",
+        "tr": "Bozunma periyodunun başlangıç noktası"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ending point of the decay period",
       "label_i18n": {
         "en": "End Time",
-        "tr": "End Time",
+        "tr": "Bitiş Zamanı",
         "de": "End Time",
         "fr": "End Time",
         "es": "End Time",
         "ar": "End Time"
+      },
+      "businessContext_i18n": {
+        "en": "Ending point of the decay period",
+        "tr": "Bozunma periyodunun bitiş noktası"
       }
     }
   ],

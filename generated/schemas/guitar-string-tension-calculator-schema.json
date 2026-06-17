@@ -10,11 +10,15 @@
       "businessContext": "Distance from nut to bridge (vibrating string length)",
       "label_i18n": {
         "en": "Scale Length",
-        "tr": "Scale Length",
+        "tr": "Skala Uzunluğu",
         "de": "Scale Length",
         "fr": "Scale Length",
         "es": "Scale Length",
         "ar": "Scale Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from nut to bridge (vibrating string length)",
+        "tr": "Somundan köprüye mesafe (titreşen tel uzunluğu)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Diameter of the string (e.g., 0.010 inch ≈ 0.254 mm)",
       "label_i18n": {
         "en": "String Diameter",
-        "tr": "String Diameter",
+        "tr": "Tel Çapı",
         "de": "String Diameter",
         "fr": "String Diameter",
         "es": "String Diameter",
         "ar": "String Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the string (e.g., 0.010 inch ≈ 0.254 mm)",
+        "tr": "Tel çapı (örn. 0.010 inç ≈ 0.254 mm)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of string material (steel ≈ 7850 kg/m³, nickel ≈ 8900 kg/m³)",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of string material (steel ≈ 7850 kg/m³, nickel ≈ 8900 kg/m³)",
+        "tr": "Tel malzemesi yoğunluğu (çelik ≈ 7850 kg/m³, nikel ≈ 8900 kg/m³)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired pitch frequency (e.g., E4 = 329.63 Hz for high E string)",
       "label_i18n": {
         "en": "Target Frequency",
-        "tr": "Target Frequency",
+        "tr": "Hedef Frekans",
         "de": "Target Frequency",
         "fr": "Target Frequency",
         "es": "Target Frequency",
         "ar": "Target Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Desired pitch frequency (e.g., E4 = 329.63 Hz for high E string)",
+        "tr": "İstenen perde frekansı (örn. yüksek E teli için E4 = 329.63 Hz)"
       }
     }
   ],

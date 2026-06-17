@@ -10,11 +10,15 @@
       "businessContext": "Horizontal pixel count of the digital image or screen, used to calculate physical width.",
       "label_i18n": {
         "en": "Width in Pixels",
-        "tr": "Width in Pixels",
+        "tr": "Piksel cinsinden Genişlik",
         "de": "Width in Pixels",
         "fr": "Width in Pixels",
         "es": "Width in Pixels",
         "ar": "Width in Pixels"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal pixel count of the digital image or screen, used to calculate physical width.",
+        "tr": "Dijital görüntü veya ekranın yatay piksel sayısı, fiziksel genişliği hesaplamak için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vertical pixel count of the digital image or screen, used to calculate physical height.",
       "label_i18n": {
         "en": "Height in Pixels",
-        "tr": "Height in Pixels",
+        "tr": "Yükseklik (piksel)",
         "de": "Height in Pixels",
         "fr": "Height in Pixels",
         "es": "Height in Pixels",
         "ar": "Height in Pixels"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical pixel count of the digital image or screen, used to calculate physical height.",
+        "tr": "Dijital görüntü veya ekranın dikey piksel sayısı, fiziksel yüksekliği hesaplamak için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The image resolution, typically the screen's pixel density, determining the inches per pixel.",
       "label_i18n": {
         "en": "Pixels Per Inch (PPI)",
-        "tr": "Pixels Per Inch (PPI)",
+        "tr": "İnç Başına Piksel (PPI)",
         "de": "Pixels Per Inch (PPI)",
         "fr": "Pixels Per Inch (PPI)",
         "es": "Pixels Per Inch (PPI)",
         "ar": "Pixels Per Inch (PPI)"
+      },
+      "businessContext_i18n": {
+        "en": "The image resolution, typically the screen's pixel density, determining the inches per pixel.",
+        "tr": "Görüntü çözünürlüğü, genellikle ekranın piksel yoğunluğu, inç başına düşen piksel sayısını belirler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the output dimensions, ensuring manufacturing or design tolerances.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output dimensions, ensuring manufacturing or design tolerances.",
+        "tr": "Çıktı boyutları için ondalık basamak sayısı, üretim veya tasarım toleranslarını sağlar."
       }
     }
   ],

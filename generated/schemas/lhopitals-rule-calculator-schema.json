@@ -10,11 +10,15 @@
       "businessContext": "Coefficient of the highest power term in the numerator polynomial.",
       "label_i18n": {
         "en": "Numerator Coefficient",
-        "tr": "Numerator Coefficient",
+        "tr": "Pay Katsayısı",
         "de": "Numerator Coefficient",
         "fr": "Numerator Coefficient",
         "es": "Numerator Coefficient",
         "ar": "Numerator Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of the highest power term in the numerator polynomial.",
+        "tr": "Pay polinomundaki en yüksek dereceli terimin katsayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Exponent of x in the numerator polynomial.",
       "label_i18n": {
         "en": "Numerator Power",
-        "tr": "Numerator Power",
+        "tr": "Pay Derecesi",
         "de": "Numerator Power",
         "fr": "Numerator Power",
         "es": "Numerator Power",
         "ar": "Numerator Power"
+      },
+      "businessContext_i18n": {
+        "en": "Exponent of x in the numerator polynomial.",
+        "tr": "Pay polinomunda x'in üssü."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Coefficient of the highest power term in the denominator polynomial.",
       "label_i18n": {
         "en": "Denominator Coefficient",
-        "tr": "Denominator Coefficient",
+        "tr": "Payda Katsayısı",
         "de": "Denominator Coefficient",
         "fr": "Denominator Coefficient",
         "es": "Denominator Coefficient",
         "ar": "Denominator Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of the highest power term in the denominator polynomial.",
+        "tr": "Paydaki en yüksek dereceli terimin katsayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Exponent of x in the denominator polynomial.",
       "label_i18n": {
         "en": "Denominator Power",
-        "tr": "Denominator Power",
+        "tr": "Payda Derecesi",
         "de": "Denominator Power",
         "fr": "Denominator Power",
         "es": "Denominator Power",
         "ar": "Denominator Power"
+      },
+      "businessContext_i18n": {
+        "en": "Exponent of x in the denominator polynomial.",
+        "tr": "Paydadaki polinomda x'in üssü."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The value that x approaches in the limit.",
       "label_i18n": {
         "en": "Limit Point (x→a)",
-        "tr": "Limit Point (x→a)",
+        "tr": "Limit Noktası (x→a)",
         "de": "Limit Point (x→a)",
         "fr": "Limit Point (x→a)",
         "es": "Limit Point (x→a)",
         "ar": "Limit Point (x→a)"
+      },
+      "businessContext_i18n": {
+        "en": "The value that x approaches in the limit.",
+        "tr": "Limitte x'in yaklaştığı değer."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of times to apply L'Hopital's rule (differentiate numerator and denominator).",
       "label_i18n": {
         "en": "L'Hopital Iterations",
-        "tr": "L'Hopital Iterations",
+        "tr": "L'Hopital Tekrarları",
         "de": "L'Hopital Iterations",
         "fr": "L'Hopital Iterations",
         "es": "L'Hopital Iterations",
         "ar": "L'Hopital Iterations"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times to apply L'Hopital's rule (differentiate numerator and denominator).",
+        "tr": "L'Hopital kuralının uygulanma sayısı (pay ve paydanın türevi alınır)."
       }
     }
   ],

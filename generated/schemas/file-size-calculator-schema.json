@@ -10,11 +10,15 @@
       "businessContext": "Total count of files to store or transfer",
       "label_i18n": {
         "en": "Number of Files",
-        "tr": "Number of Files",
+        "tr": "Dosya Sayısı",
         "de": "Number of Files",
         "fr": "Number of Files",
         "es": "Number of Files",
         "ar": "Number of Files"
+      },
+      "businessContext_i18n": {
+        "en": "Total count of files to store or transfer",
+        "tr": "Depolanacak veya aktarılacak toplam dosya sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average size of each file in megabytes",
       "label_i18n": {
         "en": "Size per File",
-        "tr": "Size per File",
+        "tr": "Dosya Başına Boyut",
         "de": "Size per File",
         "fr": "Size per File",
         "es": "Size per File",
         "ar": "Size per File"
+      },
+      "businessContext_i18n": {
+        "en": "Average size of each file in megabytes",
+        "tr": "Her bir dosyanın megabayt cinsinden ortalama boyutu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Storage overhead factor for redundancy, e.g., RAID 5 = 1.2",
       "label_i18n": {
         "en": "Redundancy Factor",
-        "tr": "Redundancy Factor",
+        "tr": "Yedeklilik Faktörü",
         "de": "Redundancy Factor",
         "fr": "Redundancy Factor",
         "es": "Redundancy Factor",
         "ar": "Redundancy Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Storage overhead factor for redundancy, e.g., RAID 5 = 1.2",
+        "tr": "Yedeklilik için depolama ek yükü faktörü, örn. RAID 5 = 1,2"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected compression ratio between 0 and 1 (1 = no compression)",
       "label_i18n": {
         "en": "Compression Ratio",
-        "tr": "Compression Ratio",
+        "tr": "Sıkıştırma Oranı",
         "de": "Compression Ratio",
         "fr": "Compression Ratio",
         "es": "Compression Ratio",
         "ar": "Compression Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Expected compression ratio between 0 and 1 (1 = no compression)",
+        "tr": "0 ile 1 arasında beklenen sıkıştırma oranı (1 = sıkıştırma yok)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Filesystem metadata overhead per file in kilobytes",
       "label_i18n": {
         "en": "Filesystem Overhead",
-        "tr": "Filesystem Overhead",
+        "tr": "Dosya Sistemi Ek Yükü",
         "de": "Filesystem Overhead",
         "fr": "Filesystem Overhead",
         "es": "Filesystem Overhead",
         "ar": "Filesystem Overhead"
+      },
+      "businessContext_i18n": {
+        "en": "Filesystem metadata overhead per file in kilobytes",
+        "tr": "Dosya başına kilobayt cinsinden dosya sistemi meta veri ek yükü"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Network speed in megabits per second for download/upload time estimation",
       "label_i18n": {
         "en": "Network Transfer Speed",
-        "tr": "Network Transfer Speed",
+        "tr": "Ağ Aktarım Hızı",
         "de": "Network Transfer Speed",
         "fr": "Network Transfer Speed",
         "es": "Network Transfer Speed",
         "ar": "Network Transfer Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Network speed in megabits per second for download/upload time estimation",
+        "tr": "İndirme/yükleme süresi tahmini için megabit/saniye cinsinden ağ hızı"
       }
     }
   ],

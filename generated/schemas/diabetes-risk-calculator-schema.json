@@ -10,11 +10,15 @@
       "businessContext": "Patient age",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age",
+        "tr": "Hasta yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Body Mass Index",
       "label_i18n": {
         "en": "BMI",
-        "tr": "BMI",
+        "tr": "VKİ",
         "de": "BMI",
         "fr": "BMI",
         "es": "BMI",
         "ar": "BMI"
+      },
+      "businessContext_i18n": {
+        "en": "Body Mass Index",
+        "tr": "Vücut Kitle İndeksi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fasting blood glucose level",
       "label_i18n": {
         "en": "Fasting Glucose",
-        "tr": "Fasting Glucose",
+        "tr": "Açlık Glukozu",
         "de": "Fasting Glucose",
         "fr": "Fasting Glucose",
         "es": "Fasting Glucose",
         "ar": "Fasting Glucose"
+      },
+      "businessContext_i18n": {
+        "en": "Fasting blood glucose level",
+        "tr": "Açlık kan şekeri seviyesi"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "HbA1c",
         "es": "HbA1c",
         "ar": "HbA1c"
+      },
+      "businessContext_i18n": {
+        "en": "Glycated hemoglobin (A1C)",
+        "tr": "Glikozillenmiş hemoglobin (A1C)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Family history of diabetes (0=no, 1=yes)",
       "label_i18n": {
         "en": "Family History",
-        "tr": "Family History",
+        "tr": "Aile Öyküsü",
         "de": "Family History",
         "fr": "Family History",
         "es": "Family History",
         "ar": "Family History"
+      },
+      "businessContext_i18n": {
+        "en": "Family history of diabetes (0=no, 1=yes)",
+        "tr": "Ailede diyabet öyküsü (0=hayır, 1=evet)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Regular physical activity (0=sedentary, 1=active)",
       "label_i18n": {
         "en": "Physical Activity",
-        "tr": "Physical Activity",
+        "tr": "Fiziksel Aktivite",
         "de": "Physical Activity",
         "fr": "Physical Activity",
         "es": "Physical Activity",
         "ar": "Physical Activity"
+      },
+      "businessContext_i18n": {
+        "en": "Regular physical activity (0=sedentary, 1=active)",
+        "tr": "Düzenli fiziksel aktivite (0=hareketsiz, 1=aktif)"
       }
     }
   ],

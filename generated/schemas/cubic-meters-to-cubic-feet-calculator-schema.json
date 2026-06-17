@@ -10,11 +10,15 @@
       "businessContext": "The volume in cubic meters to be converted.",
       "label_i18n": {
         "en": "Volume (m³)",
-        "tr": "Volume (m³)",
+        "tr": "Hacim (m³)",
         "de": "Volume (m³)",
         "fr": "Volume (m³)",
         "es": "Volume (m³)",
         "ar": "Volume (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "The volume in cubic meters to be converted.",
+        "tr": "Dönüştürülecek metreküp cinsinden hacim."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The number of cubic feet per cubic meter. Based on 1 m = 3.28084 ft.",
       "label_i18n": {
         "en": "Conversion Factor (ft³ per m³)",
-        "tr": "Conversion Factor (ft³ per m³)",
+        "tr": "Dönüşüm Faktörü (ft³/m³)",
         "de": "Conversion Factor (ft³ per m³)",
         "fr": "Conversion Factor (ft³ per m³)",
         "es": "Conversion Factor (ft³ per m³)",
         "ar": "Conversion Factor (ft³ per m³)"
+      },
+      "businessContext_i18n": {
+        "en": "The number of cubic feet per cubic meter. Based on 1 m = 3.28084 ft.",
+        "tr": "Metreküp başına düşen fit küp sayısı. 1 m = 3,28084 ft esas alınmıştır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired number of decimal places for the rounded result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Desired number of decimal places for the rounded result.",
+        "tr": "Yuvarlatılmış sonuç için istenen ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for safety or conversion margin, typically 1 for exact conversion.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for safety or conversion margin, typically 1 for exact conversion.",
+        "tr": "Güvenlik veya dönüşüm marjı çarpanı, tam dönüşüm için genellikle 1."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage uncertainty in the input measurement, affecting output uncertainty.",
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
-        "tr": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)",
         "de": "Measurement Uncertainty (%)",
         "fr": "Measurement Uncertainty (%)",
         "es": "Measurement Uncertainty (%)",
         "ar": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage uncertainty in the input measurement, affecting output uncertainty.",
+        "tr": "Giriş ölçümündeki yüzde belirsizlik, çıktı belirsizliğini etkiler."
       }
     }
   ],

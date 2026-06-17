@@ -10,11 +10,15 @@
       "businessContext": "total area to be plated",
       "label_i18n": {
         "en": "Surface Area",
-        "tr": "Surface Area",
+        "tr": "Yüzey Alanı",
         "de": "Surface Area",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "total area to be plated",
+        "tr": "kaplanacak toplam alan"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "desired coating thickness",
       "label_i18n": {
         "en": "Plating Thickness",
-        "tr": "Plating Thickness",
+        "tr": "Kaplama Kalınlığı",
         "de": "Plating Thickness",
         "fr": "Plating Thickness",
         "es": "Plating Thickness",
         "ar": "Plating Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "desired coating thickness",
+        "tr": "istenen kaplama kalınlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "applied current per unit area",
       "label_i18n": {
         "en": "Current Density",
-        "tr": "Current Density",
+        "tr": "Akım Yoğunluğu",
         "de": "Current Density",
         "fr": "Current Density",
         "es": "Current Density",
         "ar": "Current Density"
+      },
+      "businessContext_i18n": {
+        "en": "applied current per unit area",
+        "tr": "birim alana uygulanan akım"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "percentage of current used for metal deposition",
       "label_i18n": {
         "en": "Cathode Efficiency",
-        "tr": "Cathode Efficiency",
+        "tr": "Katot Verimliliği",
         "de": "Cathode Efficiency",
         "fr": "Cathode Efficiency",
         "es": "Cathode Efficiency",
         "ar": "Cathode Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "percentage of current used for metal deposition",
+        "tr": "metal biriktirme için kullanılan akım yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "density of plating metal",
       "label_i18n": {
         "en": "Metal Density",
-        "tr": "Metal Density",
+        "tr": "Metal Yoğunluğu",
         "de": "Metal Density",
         "fr": "Metal Density",
         "es": "Metal Density",
         "ar": "Metal Density"
+      },
+      "businessContext_i18n": {
+        "en": "density of plating metal",
+        "tr": "kaplama metalinin yoğunluğu"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "molar mass of metal",
       "label_i18n": {
         "en": "Atomic Weight",
-        "tr": "Atomic Weight",
+        "tr": "Atom Ağırlığı",
         "de": "Atomic Weight",
         "fr": "Atomic Weight",
         "es": "Atomic Weight",
         "ar": "Atomic Weight"
+      },
+      "businessContext_i18n": {
+        "en": "molar mass of metal",
+        "tr": "metal mol kütlesi"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "number of electrons transferred per ion",
       "label_i18n": {
         "en": "Valence",
-        "tr": "Valence",
+        "tr": "Değerlik",
         "de": "Valence",
         "fr": "Valence",
         "es": "Valence",
         "ar": "Valence"
+      },
+      "businessContext_i18n": {
+        "en": "number of electrons transferred per ion",
+        "tr": "iyon başına aktarılan elektron sayısı"
       }
     }
   ],

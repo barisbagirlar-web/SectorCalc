@@ -10,11 +10,15 @@
       "businessContext": "The mass of the object being subjected to force.",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "The mass of the object being subjected to force.",
+        "tr": "Kuvvete maruz kalan nesnenin kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The initial velocity of the object before the force is applied.",
       "label_i18n": {
         "en": "Initial Velocity",
-        "tr": "Initial Velocity",
+        "tr": "Başlangıç Hızı",
         "de": "Initial Velocity",
         "fr": "Initial Velocity",
         "es": "Initial Velocity",
         "ar": "Initial Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "The initial velocity of the object before the force is applied.",
+        "tr": "Kuvvet uygulanmadan önce nesnenin ilk hızı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The final velocity of the object after the force is applied.",
       "label_i18n": {
         "en": "Final Velocity",
-        "tr": "Final Velocity",
+        "tr": "Son Hız",
         "de": "Final Velocity",
         "fr": "Final Velocity",
         "es": "Final Velocity",
         "ar": "Final Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "The final velocity of the object after the force is applied.",
+        "tr": "Kuvvet uygulandıktan sonra nesnenin son hızı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The duration over which the force is applied to change the velocity.",
       "label_i18n": {
         "en": "Time",
-        "tr": "Time",
+        "tr": "Zaman",
         "de": "Time",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
+      },
+      "businessContext_i18n": {
+        "en": "The duration over which the force is applied to change the velocity.",
+        "tr": "Hızı değiştirmek için kuvvetin uygulandığı süre."
       }
     }
   ],

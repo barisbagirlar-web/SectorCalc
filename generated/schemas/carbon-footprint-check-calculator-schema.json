@@ -19,10 +19,12 @@
       "max": 10000000,
       "businessContext": "Annual electrical energy used by the facility (ISO 50001).",
       "label_i18n": {
-        "en": "Total Energy Consumption"
+        "en": "Total Energy Consumption",
+        "tr": "Toplam Enerji Tüketimi"
       },
       "businessContext_i18n": {
-        "en": "Annual electrical energy used by the facility (ISO 50001)."
+        "en": "Annual electrical energy used by the facility (ISO 50001).",
+        "tr": "Tesis tarafından kullanılan yıllık elektrik enerjisi (ISO 50001)."
       }
     },
     {
@@ -42,10 +44,12 @@
         "coal"
       ],
       "label_i18n": {
-        "en": "Primary Energy Source"
+        "en": "Primary Energy Source",
+        "tr": "Birincil Enerji Kaynağı"
       },
       "businessContext_i18n": {
-        "en": "The dominant source of electricity (grid mix, solar, wind, natural gas)."
+        "en": "The dominant source of electricity (grid mix, solar, wind, natural gas).",
+        "tr": "Elektriğin baskın kaynağı (şebeke karışımı, güneş, rüzgar, doğal gaz)."
       }
     },
     {
@@ -58,10 +62,12 @@
       "max": 10000000,
       "businessContext": "Total diesel, gasoline, or heating oil used annually (Scope 1 emissions).",
       "label_i18n": {
-        "en": "Fossil Fuel Consumption (Fleet & Heating)"
+        "en": "Fossil Fuel Consumption (Fleet & Heating)",
+        "tr": "Fosil Yakıt Tüketimi (Filo ve Isıtma)"
       },
       "businessContext_i18n": {
-        "en": "Total diesel, gasoline, or heating oil used annually (Scope 1 emissions)."
+        "en": "Total diesel, gasoline, or heating oil used annually (Scope 1 emissions).",
+        "tr": "Yıllık toplam dizel, benzin veya ısıtma yağı kullanımı (Kapsam 1 emisyonları)."
       }
     },
     {
@@ -74,10 +80,12 @@
       "max": 100000,
       "businessContext": "Annual waste sent to landfill or incineration (WERC guidelines).",
       "label_i18n": {
-        "en": "Total Waste Generated"
+        "en": "Total Waste Generated",
+        "tr": "Toplam Atık Üretimi"
       },
       "businessContext_i18n": {
-        "en": "Annual waste sent to landfill or incineration (WERC guidelines)."
+        "en": "Annual waste sent to landfill or incineration (WERC guidelines).",
+        "tr": "Yıllık depolama sahasına veya yakma tesisine gönderilen atık (WERC yönergeleri)."
       }
     },
     {
@@ -90,10 +98,12 @@
       "max": 100,
       "businessContext": "Percentage of waste that is recycled or composted (Lean green metrics).",
       "label_i18n": {
-        "en": "Recycling Rate"
+        "en": "Recycling Rate",
+        "tr": "Geri Dönüşüm Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of waste that is recycled or composted (Lean green metrics)."
+        "en": "Percentage of waste that is recycled or composted (Lean green metrics).",
+        "tr": "Geri dönüştürülen veya kompostlanan atık yüzdesi (Yalın yeşil metrikler)."
       }
     },
     {
@@ -106,10 +116,12 @@
       "max": 100000000,
       "businessContext": "Total units produced per year (for intensity-based benchmarking).",
       "label_i18n": {
-        "en": "Annual Production Volume"
+        "en": "Annual Production Volume",
+        "tr": "Yıllık Üretim Hacmi"
       },
       "businessContext_i18n": {
-        "en": "Total units produced per year (for intensity-based benchmarking)."
+        "en": "Total units produced per year (for intensity-based benchmarking).",
+        "tr": "Yılda üretilen toplam birim (yoğunluk bazlı kıyaslama için)."
       }
     },
     {
@@ -122,10 +134,12 @@
       "max": 50000,
       "businessContext": "Average distance raw materials or finished goods travel (logistics carbon).",
       "label_i18n": {
-        "en": "Average Transport Distance per Unit"
+        "en": "Average Transport Distance per Unit",
+        "tr": "Birim başına ortalama taşıma mesafesi"
       },
       "businessContext_i18n": {
-        "en": "Average distance raw materials or finished goods travel (logistics carbon)."
+        "en": "Average distance raw materials or finished goods travel (logistics carbon).",
+        "tr": "Hammaddelerin veya bitmiş ürünlerin kat ettiği ortalama mesafe (lojistik karbonu)."
       }
     },
     {
@@ -138,10 +152,12 @@
       "max": null,
       "businessContext": "Indicates if the organization purchases verified carbon credits.",
       "label_i18n": {
-        "en": "Active Carbon Offset Program"
+        "en": "Active Carbon Offset Program",
+        "tr": "Aktif Karbon Dengeleme Programı"
       },
       "businessContext_i18n": {
-        "en": "Indicates if the organization purchases verified carbon credits."
+        "en": "Indicates if the organization purchases verified carbon credits.",
+        "tr": "Kuruluşun doğrulanmış karbon kredisi satın alıp almadığını belirtir."
       }
     }
   ],

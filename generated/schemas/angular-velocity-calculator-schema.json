@@ -10,11 +10,15 @@
       "businessContext": "Typical motor speed for industrial applications",
       "label_i18n": {
         "en": "Rotational Speed (RPM)",
-        "tr": "Rotational Speed (RPM)",
+        "tr": "Dönüş Hızı (RPM)",
         "de": "Rotational Speed (RPM)",
         "fr": "Rotational Speed (RPM)",
         "es": "Rotational Speed (RPM)",
         "ar": "Rotational Speed (RPM)"
+      },
+      "businessContext_i18n": {
+        "en": "Typical motor speed for industrial applications",
+        "tr": "Endüstriyel uygulamalar için tipik motor hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance from center of rotation to point of interest",
       "label_i18n": {
         "en": "Radius",
-        "tr": "Radius",
+        "tr": "Yarıçap",
         "de": "Radius",
         "fr": "Radius",
         "es": "Radius",
         "ar": "Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from center of rotation to point of interest",
+        "tr": "Dönme merkezinden ilgili noktaya olan mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time interval for angular displacement calculation",
       "label_i18n": {
         "en": "Time",
-        "tr": "Time",
+        "tr": "Zaman",
         "de": "Time",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time interval for angular displacement calculation",
+        "tr": "Açısal yer değiştirme hesaplaması için zaman aralığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Transmission ratio affecting final angular velocity",
       "label_i18n": {
         "en": "Gear Ratio (output/input)",
-        "tr": "Gear Ratio (output/input)",
+        "tr": "Dişli Oranı (çıkış/giriş)",
         "de": "Gear Ratio (output/input)",
         "fr": "Gear Ratio (output/input)",
         "es": "Gear Ratio (output/input)",
         "ar": "Gear Ratio (output/input)"
+      },
+      "businessContext_i18n": {
+        "en": "Transmission ratio affecting final angular velocity",
+        "tr": "Nihai açısal hızı etkileyen transmisyon oranı"
       }
     }
   ],

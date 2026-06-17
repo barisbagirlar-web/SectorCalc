@@ -10,11 +10,15 @@
       "businessContext": "System working pressure affects stress on components.",
       "label_i18n": {
         "en": "Operating Pressure",
-        "tr": "Operating Pressure",
+        "tr": "Çalışma basıncı",
         "de": "Operating Pressure",
         "fr": "Operating Pressure",
         "es": "Operating Pressure",
         "ar": "Operating Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "System working pressure affects stress on components.",
+        "tr": "Sistem çalışma basıncı bileşenler üzerindeki stresi etkiler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Elevated temperatures reduce material strength and increase corrosion rates.",
       "label_i18n": {
         "en": "Operating Temperature",
-        "tr": "Operating Temperature",
+        "tr": "Çalışma Sıcaklığı",
         "de": "Operating Temperature",
         "fr": "Operating Temperature",
         "es": "Operating Temperature",
         "ar": "Operating Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Elevated temperatures reduce material strength and increase corrosion rates.",
+        "tr": "Yüksek sıcaklıklar malzeme mukavemetini azaltır ve korozyon oranlarını artırır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fluid velocity contributes to erosion and vibration risks.",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Fluid velocity contributes to erosion and vibration risks.",
+        "tr": "Akışkan hızı, erozyon ve titreşim risklerine katkıda bulunur."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Vibration can cause fatigue and joint loosening.",
       "label_i18n": {
         "en": "Vibration Level",
-        "tr": "Vibration Level",
+        "tr": "Titreşim Seviyesi",
         "de": "Vibration Level",
         "fr": "Vibration Level",
         "es": "Vibration Level",
         "ar": "Vibration Level"
+      },
+      "businessContext_i18n": {
+        "en": "Vibration can cause fatigue and joint loosening.",
+        "tr": "Titreşim, yorulma ve bağlantı gevşemesine neden olabilir."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Thinner walls are more susceptible to failure under pressure and corrosion.",
       "label_i18n": {
         "en": "Wall Thickness",
-        "tr": "Wall Thickness",
+        "tr": "Duvar Kalınlığı (cm)",
         "de": "Wall Thickness",
         "fr": "Wall Thickness",
         "es": "Wall Thickness",
         "ar": "Wall Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thinner walls are more susceptible to failure under pressure and corrosion.",
+        "tr": "Daha ince duvarlar, basınç ve korozyon altında arızaya daha yatkındır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Material loss over time reduces structural integrity.",
       "label_i18n": {
         "en": "Corrosion Rate",
-        "tr": "Corrosion Rate",
+        "tr": "Korozyon Hızı",
         "de": "Corrosion Rate",
         "fr": "Corrosion Rate",
         "es": "Corrosion Rate",
         "ar": "Corrosion Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Material loss over time reduces structural integrity.",
+        "tr": "Zamanla malzeme kaybı yapısal bütünlüğü azaltır."
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Direct manufacturing cost per unit (materials, labor, overhead) at the producing entity.",
       "label_i18n": {
-        "en": "Production Cost per Unit (USD)"
+        "en": "Production Cost per Unit (USD)",
+        "tr": "Birim Başına Üretim Maliyeti (USD)"
       },
       "businessContext_i18n": {
-        "en": "Direct manufacturing cost per unit (materials, labor, overhead) at the producing entity."
+        "en": "Direct manufacturing cost per unit (materials, labor, overhead) at the producing entity.",
+        "tr": "Üretici işletmede birim başına doğrudan üretim maliyeti (malzeme, işçilik, genel gider)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 50000,
       "businessContext": "Arm's length market price for comparable uncontrolled transactions.",
       "label_i18n": {
-        "en": "Market Price per Unit (USD)"
+        "en": "Market Price per Unit (USD)",
+        "tr": "Birim Başına Piyasa Fiyatı (USD)"
       },
       "businessContext_i18n": {
-        "en": "Arm's length market price for comparable uncontrolled transactions."
+        "en": "Arm's length market price for comparable uncontrolled transactions.",
+        "tr": "Karşılaştırılabilir kontrolsüz işlemler için geçerli piyasa fiyatı."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10000000,
       "businessContext": "Total number of units transferred between entities in the period.",
       "label_i18n": {
-        "en": "Transaction Volume (units)"
+        "en": "Transaction Volume (units)",
+        "tr": "İşlem Hacmi (birim)"
       },
       "businessContext_i18n": {
-        "en": "Total number of units transferred between entities in the period."
+        "en": "Total number of units transferred between entities in the period.",
+        "tr": "Dönem içinde işletmeler arasında transfer edilen toplam birim sayısı."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 50,
       "businessContext": "Effective corporate tax rate of the producing entity's jurisdiction.",
       "label_i18n": {
-        "en": "Producer Entity Tax Rate (%)"
+        "en": "Producer Entity Tax Rate (%)",
+        "tr": "Üretici İşletme Vergi Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Effective corporate tax rate of the producing entity's jurisdiction."
+        "en": "Effective corporate tax rate of the producing entity's jurisdiction.",
+        "tr": "Üretici işletmenin bulunduğu ülkedeki efektif kurumlar vergisi oranı."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 50,
       "businessContext": "Effective corporate tax rate of the distributing entity's jurisdiction.",
       "label_i18n": {
-        "en": "Distributor Entity Tax Rate (%)"
+        "en": "Distributor Entity Tax Rate (%)",
+        "tr": "Dağıtıcı İşletme Vergi Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Effective corporate tax rate of the distributing entity's jurisdiction."
+        "en": "Effective corporate tax rate of the distributing entity's jurisdiction.",
+        "tr": "Dağıtıcı işletmenin bulunduğu ülkedeki efektif kurumlar vergisi oranı."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 50000,
       "businessContext": "Existing transfer price used for intercompany transactions.",
       "label_i18n": {
-        "en": "Current Transfer Price (USD)"
+        "en": "Current Transfer Price (USD)",
+        "tr": "Mevcut Transfer Fiyatı (USD)"
       },
       "businessContext_i18n": {
-        "en": "Existing transfer price used for intercompany transactions."
+        "en": "Existing transfer price used for intercompany transactions.",
+        "tr": "Şirketler arası işlemlerde kullanılan mevcut transfer fiyatı."
       }
     },
     {
@@ -122,10 +134,12 @@
       ],
       "businessContext": "Company's appetite for audit risk; Low = tight arm's length range, High = wider range.",
       "label_i18n": {
-        "en": "Compliance Risk Tolerance (Low/Medium/High)"
+        "en": "Compliance Risk Tolerance (Low/Medium/High)",
+        "tr": "Uyum Risk Toleransı (Düşük/Orta/Yüksek)"
       },
       "businessContext_i18n": {
-        "en": "Company's appetite for audit risk; Low = tight arm's length range, High = wider range."
+        "en": "Company's appetite for audit risk; Low = tight arm's length range, High = wider range.",
+        "tr": "Şirketin denetim riskine karşı toleransı; Düşük = dar emsallere uygunluk aralığı, Yüksek = geniş aralık."
       }
     },
     {
@@ -138,10 +152,12 @@
       "max": null,
       "businessContext": "If true, applies a waste reduction factor (muda) to production cost based on Six Sigma process capability.",
       "label_i18n": {
-        "en": "Include Lean Waste Factor"
+        "en": "Include Lean Waste Factor",
+        "tr": "Yalın İsraf Faktörünü Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "If true, applies a waste reduction factor (muda) to production cost based on Six Sigma process capability."
+        "en": "If true, applies a waste reduction factor (muda) to production cost based on Six Sigma process capability.",
+        "tr": "Doğruysa, Altı Sigma proses yeteneğine göre üretim maliyetine bir israf azaltma faktörü (muda) uygulanır."
       }
     }
   ],

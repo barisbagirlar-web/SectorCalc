@@ -10,11 +10,15 @@
       "businessContext": "Declared net weight on the package",
       "label_i18n": {
         "en": "Nominal Net Weight",
-        "tr": "Nominal Net Weight",
+        "tr": "Nominal Net Ağırlık",
         "de": "Nominal Net Weight",
         "fr": "Nominal Net Weight",
         "es": "Nominal Net Weight",
         "ar": "Nominal Net Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Declared net weight on the package",
+        "tr": "Paket üzerinde beyan edilen net ağırlık"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard deviation of the filling process",
       "label_i18n": {
         "en": "Process Standard Deviation",
-        "tr": "Process Standard Deviation",
+        "tr": "Proses Standart Sapması",
         "de": "Process Standard Deviation",
         "fr": "Process Standard Deviation",
         "es": "Process Standard Deviation",
         "ar": "Process Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of the filling process",
+        "tr": "Dolum prosesinin standart sapması"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minimum legal net weight allowed",
       "label_i18n": {
         "en": "Legal Minimum Net Weight",
-        "tr": "Legal Minimum Net Weight",
+        "tr": "Yasal Minimum Net Ağırlık",
         "de": "Legal Minimum Net Weight",
         "fr": "Legal Minimum Net Weight",
         "es": "Legal Minimum Net Weight",
         "ar": "Legal Minimum Net Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum legal net weight allowed",
+        "tr": "İzin verilen minimum yasal net ağırlık"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Z-score for desired confidence level (e.g., 1.645 for 95% one-sided)",
       "label_i18n": {
         "en": "Safety Factor (Z-Score)",
-        "tr": "Safety Factor (Z-Score)",
+        "tr": "Güvenlik Faktörü (Z-Skoru)",
         "de": "Safety Factor (Z-Score)",
         "fr": "Safety Factor (Z-Score)",
         "es": "Safety Factor (Z-Score)",
         "ar": "Safety Factor (Z-Score)"
+      },
+      "businessContext_i18n": {
+        "en": "Z-score for desired confidence level (e.g., 1.645 for 95% one-sided)",
+        "tr": "İstenen güven düzeyi için Z-skoru (ör. tek taraflı %95 için 1,645)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Weight of packaging/container",
       "label_i18n": {
         "en": "Tare Weight",
-        "tr": "Tare Weight",
+        "tr": "Dara Ağırlığı",
         "de": "Tare Weight",
         "fr": "Tare Weight",
         "es": "Tare Weight",
         "ar": "Tare Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of packaging/container",
+        "tr": "Ambalaj/kabın ağırlığı"
       }
     }
   ],

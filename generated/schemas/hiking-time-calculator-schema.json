@@ -10,11 +10,15 @@
       "businessContext": "Total hiking distance in kilometers",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Distance (km)",
+        "tr": "Mesafe (km)",
         "de": "Distance (km)",
         "fr": "Distance (km)",
         "es": "Distance (km)",
         "ar": "Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Total hiking distance in kilometers",
+        "tr": "Toplam yürüyüş mesafesi (km)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total ascent in meters",
       "label_i18n": {
         "en": "Elevation Gain (m)",
-        "tr": "Elevation Gain (m)",
+        "tr": "İrtifa Kazancı (m)",
         "de": "Elevation Gain (m)",
         "fr": "Elevation Gain (m)",
         "es": "Elevation Gain (m)",
         "ar": "Elevation Gain (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Total ascent in meters",
+        "tr": "Toplam tırmanış (metre)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Flat walking pace in minutes per kilometer",
       "label_i18n": {
         "en": "Walking Pace (min/km)",
-        "tr": "Walking Pace (min/km)",
+        "tr": "Yürüyüş Hızı (dak/km)",
         "de": "Walking Pace (min/km)",
         "fr": "Walking Pace (min/km)",
         "es": "Walking Pace (min/km)",
         "ar": "Walking Pace (min/km)"
+      },
+      "businessContext_i18n": {
+        "en": "Flat walking pace in minutes per kilometer",
+        "tr": "Düz zeminde yürüyüş hızı (dakika/kilometre)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for rough terrain (1 = easy, 1.5 = moderate, 2 = difficult)",
       "label_i18n": {
         "en": "Terrain Factor",
-        "tr": "Terrain Factor",
+        "tr": "Arazi Faktörü",
         "de": "Terrain Factor",
         "fr": "Terrain Factor",
         "es": "Terrain Factor",
         "ar": "Terrain Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for rough terrain (1 = easy, 1.5 = moderate, 2 = difficult)",
+        "tr": "Engebeli arazi çarpanı (1 = kolay, 1.5 = orta, 2 = zor)"
       }
     }
   ],

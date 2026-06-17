@@ -10,11 +10,15 @@
       "businessContext": "Total number of individuals using water (family, employees, etc.)",
       "label_i18n": {
         "en": "Number of People",
-        "tr": "Number of People",
+        "tr": "Kişi Sayısı",
         "de": "Number of People",
         "fr": "Number of People",
         "es": "Number of People",
         "ar": "Number of People"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of individuals using water (family, employees, etc.)",
+        "tr": "Suyu kullanan toplam birey sayısı (aile, çalışanlar vb.)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average shower duration per person per day in minutes",
       "label_i18n": {
         "en": "Shower Minutes per Day per Person",
-        "tr": "Shower Minutes per Day per Person",
+        "tr": "Kişi başı günlük duş dakikası",
         "de": "Shower Minutes per Day per Person",
         "fr": "Shower Minutes per Day per Person",
         "es": "Shower Minutes per Day per Person",
         "ar": "Shower Minutes per Day per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Average shower duration per person per day in minutes",
+        "tr": "Kişi başı günlük ortalama duş süresi (dakika)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Water flow rate of the shower head in liters per minute",
       "label_i18n": {
         "en": "Shower Flow Rate",
-        "tr": "Shower Flow Rate",
+        "tr": "Duş Akış Hızı",
         "de": "Shower Flow Rate",
         "fr": "Shower Flow Rate",
         "es": "Shower Flow Rate",
         "ar": "Shower Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Water flow rate of the shower head in liters per minute",
+        "tr": "Duş başlığının dakikadaki su akış hızı (litre)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average number of toilet flushes per person per day",
       "label_i18n": {
         "en": "Toilet Flushes per Day per Person",
-        "tr": "Toilet Flushes per Day per Person",
+        "tr": "Kişi Başına Günlük Tuvalet Sifonu Sayısı",
         "de": "Toilet Flushes per Day per Person",
         "fr": "Toilet Flushes per Day per Person",
         "es": "Toilet Flushes per Day per Person",
         "ar": "Toilet Flushes per Day per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of toilet flushes per person per day",
+        "tr": "Kişi başına günlük ortalama tuvalet sifonu sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Water volume per toilet flush in liters (modern dual-flush ~6L)",
       "label_i18n": {
         "en": "Flush Volume",
-        "tr": "Flush Volume",
+        "tr": "Sifon Hacmi",
         "de": "Flush Volume",
         "fr": "Flush Volume",
         "es": "Flush Volume",
         "ar": "Flush Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Water volume per toilet flush in liters (modern dual-flush ~6L)",
+        "tr": "Tuvalet sifonu başına su hacmi (litre) (modern çift sifonlu ~6L)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of washing machine cycles per week (total for all people)",
       "label_i18n": {
         "en": "Washing Machine Loads per Week",
-        "tr": "Washing Machine Loads per Week",
+        "tr": "Haftalık Çamaşır Makinesi Yükü",
         "de": "Washing Machine Loads per Week",
         "fr": "Washing Machine Loads per Week",
         "es": "Washing Machine Loads per Week",
         "ar": "Washing Machine Loads per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Number of washing machine cycles per week (total for all people)",
+        "tr": "Haftalık çamaşır makinesi döngü sayısı (tüm kişiler için toplam)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Water consumption per washing machine cycle in liters",
       "label_i18n": {
         "en": "Water per Load",
-        "tr": "Water per Load",
+        "tr": "Yük Başına Su",
         "de": "Water per Load",
         "fr": "Water per Load",
         "es": "Water per Load",
         "ar": "Water per Load"
+      },
+      "businessContext_i18n": {
+        "en": "Water consumption per washing machine cycle in liters",
+        "tr": "Çamaşır makinesi döngüsü başına su tüketimi (litre)"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Additional water usage per person per day (drinking, cooking, cleaning, etc.)",
       "label_i18n": {
         "en": "Other Daily Usage per Person",
-        "tr": "Other Daily Usage per Person",
+        "tr": "Kişi Başına Diğer Günlük Kullanım",
         "de": "Other Daily Usage per Person",
         "fr": "Other Daily Usage per Person",
         "es": "Other Daily Usage per Person",
         "ar": "Other Daily Usage per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Additional water usage per person per day (drinking, cooking, cleaning, etc.)",
+        "tr": "Kişi başına günlük ek su kullanımı (içme, yemek pişirme, temizlik vb.)"
       }
     }
   ],

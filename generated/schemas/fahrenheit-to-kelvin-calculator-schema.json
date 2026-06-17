@@ -10,11 +10,15 @@
       "businessContext": "Measured temperature in Fahrenheit",
       "label_i18n": {
         "en": "Temperature (°F)",
-        "tr": "Temperature (°F)",
+        "tr": "Sıcaklık (°F)",
         "de": "Temperature (°F)",
         "fr": "Temperature (°F)",
         "es": "Temperature (°F)",
         "ar": "Temperature (°F)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured temperature in Fahrenheit",
+        "tr": "Fahrenheit cinsinden ölçülen sıcaklık"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Offset to subtract for zero-point alignment (freezing point of water in °F)",
       "label_i18n": {
         "en": "Subtract Offset",
-        "tr": "Subtract Offset",
+        "tr": "Çıkarılacak Ofset",
         "de": "Subtract Offset",
         "fr": "Subtract Offset",
         "es": "Subtract Offset",
         "ar": "Subtract Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Offset to subtract for zero-point alignment (freezing point of water in °F)",
+        "tr": "Sıfır noktası hizalaması için çıkarılacak ofset (Fahrenheit cinsinden suyun donma noktası)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Conversion factor from Fahrenheit difference to Kelvin difference (5/9)",
       "label_i18n": {
         "en": "Multiply Factor",
-        "tr": "Multiply Factor",
+        "tr": "Çarpım Faktörü",
         "de": "Multiply Factor",
         "fr": "Multiply Factor",
         "es": "Multiply Factor",
         "ar": "Multiply Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from Fahrenheit difference to Kelvin difference (5/9)",
+        "tr": "Fahrenheit farkından Kelvin farkına dönüşüm faktörü (5/9)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Absolute zero offset in Kelvin",
       "label_i18n": {
         "en": "Add Offset",
-        "tr": "Add Offset",
+        "tr": "Eklenecek Ofset",
         "de": "Add Offset",
         "fr": "Add Offset",
         "es": "Add Offset",
         "ar": "Add Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute zero offset in Kelvin",
+        "tr": "Mutlak sıfır ofseti (Kelvin cinsinden)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for rounded output",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounded output",
+        "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı"
       }
     }
   ],

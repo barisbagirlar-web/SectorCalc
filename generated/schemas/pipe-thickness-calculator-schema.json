@@ -10,11 +10,15 @@
       "businessContext": "Internal design pressure of the pipe.",
       "label_i18n": {
         "en": "Design Pressure",
-        "tr": "Design Pressure",
+        "tr": "Tasarım Basıncı",
         "de": "Design Pressure",
         "fr": "Design Pressure",
         "es": "Design Pressure",
         "ar": "Design Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Internal design pressure of the pipe.",
+        "tr": "Boru iç tasarım basıncı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Outside diameter of the pipe.",
       "label_i18n": {
         "en": "Outside Diameter",
-        "tr": "Outside Diameter",
+        "tr": "Dış Çap",
         "de": "Outside Diameter",
         "fr": "Outside Diameter",
         "es": "Outside Diameter",
         "ar": "Outside Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Outside diameter of the pipe.",
+        "tr": "Borunun dış çapı."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Allowable Stress",
         "es": "Allowable Stress",
         "ar": "Allowable Stress"
+      },
+      "businessContext_i18n": {
+        "en": "Allowable stress of the pipe material at design temperature.",
+        "tr": "Boru malzemesinin tasarım sıcaklığındaki izin verilen gerilmesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Longitudinal joint efficiency factor (between 0 and 1).",
       "label_i18n": {
         "en": "Joint Efficiency",
-        "tr": "Joint Efficiency",
+        "tr": "Birleştirme Verimi",
         "de": "Joint Efficiency",
         "fr": "Joint Efficiency",
         "es": "Joint Efficiency",
         "ar": "Joint Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Longitudinal joint efficiency factor (between 0 and 1).",
+        "tr": "Boyuna birleştirme verim faktörü (0 ile 1 arasında)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional thickness to compensate for corrosion or erosion.",
       "label_i18n": {
         "en": "Corrosion Allowance",
-        "tr": "Corrosion Allowance",
+        "tr": "Korozyon Payı",
         "de": "Corrosion Allowance",
         "fr": "Corrosion Allowance",
         "es": "Corrosion Allowance",
         "ar": "Corrosion Allowance"
+      },
+      "businessContext_i18n": {
+        "en": "Additional thickness to compensate for corrosion or erosion.",
+        "tr": "Korozyon veya erozyonu telafi etmek için ek kalınlık."
       }
     }
   ],

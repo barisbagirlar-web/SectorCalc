@@ -10,11 +10,15 @@
       "businessContext": "Purchase price of the property",
       "label_i18n": {
         "en": "Property Price",
-        "tr": "Property Price",
+        "tr": "Mülk Fiyatı",
         "de": "Property Price",
         "fr": "Property Price",
         "es": "Property Price",
         "ar": "Property Price"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price of the property",
+        "tr": "Mülk satın alma fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of property price paid upfront",
       "label_i18n": {
         "en": "Down Payment Rate",
-        "tr": "Down Payment Rate",
+        "tr": "Peşinat Oranı",
         "de": "Down Payment Rate",
         "fr": "Down Payment Rate",
         "es": "Down Payment Rate",
         "ar": "Down Payment Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of property price paid upfront",
+        "tr": "Peşin ödenen mülk fiyatı yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Lender's fee as percentage of loan amount",
       "label_i18n": {
         "en": "Loan Origination Fee Rate",
-        "tr": "Loan Origination Fee Rate",
+        "tr": "Kredi Başvuru Ücreti Oranı",
         "de": "Loan Origination Fee Rate",
         "fr": "Loan Origination Fee Rate",
         "es": "Loan Origination Fee Rate",
         "ar": "Loan Origination Fee Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Lender's fee as percentage of loan amount",
+        "tr": "Borç verenin kredi tutarı üzerinden aldığı ücret yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of professional property appraisal",
       "label_i18n": {
         "en": "Appraisal Fee",
-        "tr": "Appraisal Fee",
+        "tr": "Değerleme Ücreti",
         "de": "Appraisal Fee",
         "fr": "Appraisal Fee",
         "es": "Appraisal Fee",
         "ar": "Appraisal Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of professional property appraisal",
+        "tr": "Profesyonel mülk değerleme maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Insurance protecting against title defects",
       "label_i18n": {
         "en": "Title Insurance",
-        "tr": "Title Insurance",
+        "tr": "Tapu Sigortası",
         "de": "Title Insurance",
         "fr": "Title Insurance",
         "es": "Title Insurance",
         "ar": "Title Insurance"
+      },
+      "businessContext_i18n": {
+        "en": "Insurance protecting against title defects",
+        "tr": "Tapu kusurlarına karşı koruma sağlayan sigorta"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Government fees for recording the deed",
       "label_i18n": {
         "en": "Recording Fees",
-        "tr": "Recording Fees",
+        "tr": "Tescil Ücretleri",
         "de": "Recording Fees",
         "fr": "Recording Fees",
         "es": "Recording Fees",
         "ar": "Recording Fees"
+      },
+      "businessContext_i18n": {
+        "en": "Government fees for recording the deed",
+        "tr": "Tapu kaydı için devlet ücretleri"
       }
     }
   ],

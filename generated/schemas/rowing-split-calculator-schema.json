@@ -10,11 +10,15 @@
       "businessContext": "Total rowing distance in meters",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total rowing distance in meters",
+        "tr": "Metre cinsinden toplam kürek çekme mesafesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Hours component of total time",
       "label_i18n": {
         "en": "Hours",
-        "tr": "Hours",
+        "tr": "Saat",
         "de": "Hours",
         "fr": "Hours",
         "es": "Hours",
         "ar": "Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Hours component of total time",
+        "tr": "Toplam sürenin saat bileşeni"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minutes component of total time",
       "label_i18n": {
         "en": "Minutes",
-        "tr": "Minutes",
+        "tr": "Dakika",
         "de": "Minutes",
         "fr": "Minutes",
         "es": "Minutes",
         "ar": "Minutes"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes component of total time",
+        "tr": "Toplam sürenin dakika bileşeni"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Seconds component of total time",
       "label_i18n": {
         "en": "Seconds",
-        "tr": "Seconds",
+        "tr": "Saniye",
         "de": "Seconds",
         "fr": "Seconds",
         "es": "Seconds",
         "ar": "Seconds"
+      },
+      "businessContext_i18n": {
+        "en": "Seconds component of total time",
+        "tr": "Toplam sürenin saniye bileşeni"
       }
     }
   ],

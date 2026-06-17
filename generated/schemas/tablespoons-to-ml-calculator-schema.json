@@ -10,11 +10,15 @@
       "businessContext": "Number of tablespoons to convert to milliliters.",
       "label_i18n": {
         "en": "Tablespoons",
-        "tr": "Tablespoons",
+        "tr": "Yemek Kaşığı",
         "de": "Tablespoons",
         "fr": "Tablespoons",
         "es": "Tablespoons",
         "ar": "Tablespoons"
+      },
+      "businessContext_i18n": {
+        "en": "Number of tablespoons to convert to milliliters.",
+        "tr": "Mililitreye dönüştürülecek yemek kaşığı sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of identical batches (multiplier for total tablespoons).",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical batches (multiplier for total tablespoons).",
+        "tr": "Özdeş parti sayısı (toplam yemek kaşığı için çarpan)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1=US (14.79 ml), 2=Metric (15 ml), 3=UK (17.76 ml), 4=Australian (20 ml).",
       "label_i18n": {
         "en": "Tablespoon Standard",
-        "tr": "Tablespoon Standard",
+        "tr": "Yemek Kaşığı Standardı",
         "de": "Tablespoon Standard",
         "fr": "Tablespoon Standard",
         "es": "Tablespoon Standard",
         "ar": "Tablespoon Standard"
+      },
+      "businessContext_i18n": {
+        "en": "1=US (14.79 ml), 2=Metric (15 ml), 3=UK (17.76 ml), 4=Australian (20 ml).",
+        "tr": "1=ABD (14,79 ml), 2=Metrik (15 ml), 3=İngiltere (17,76 ml), 4=Avustralya (20 ml)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the result.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the result.",
+        "tr": "Sonuç için ondalık basamak sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Override standard conversion factor (0 to use selected standard).",
       "label_i18n": {
         "en": "Custom Conversion Factor",
-        "tr": "Custom Conversion Factor",
+        "tr": "Özel Dönüşüm Faktörü",
         "de": "Custom Conversion Factor",
         "fr": "Custom Conversion Factor",
         "es": "Custom Conversion Factor",
         "ar": "Custom Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Override standard conversion factor (0 to use selected standard).",
+        "tr": "Standart dönüşüm faktörünü geçersiz kıl (seçilen standardı kullanmak için 0)."
       }
     }
   ],

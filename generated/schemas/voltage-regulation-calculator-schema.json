@@ -10,11 +10,15 @@
       "businessContext": "Nominal voltage at the load end of the transmission line.",
       "label_i18n": {
         "en": "Receiving End Voltage",
-        "tr": "Receiving End Voltage",
+        "tr": "Alıcı Uç Gerilimi",
         "de": "Receiving End Voltage",
         "fr": "Receiving End Voltage",
         "es": "Receiving End Voltage",
         "ar": "Receiving End Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal voltage at the load end of the transmission line.",
+        "tr": "İletim hattının yük ucundaki nominal gerilim."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current drawn by the load.",
       "label_i18n": {
         "en": "Load Current",
-        "tr": "Load Current",
+        "tr": "Yük Akımı",
         "de": "Load Current",
         "fr": "Load Current",
         "es": "Load Current",
         "ar": "Load Current"
+      },
+      "businessContext_i18n": {
+        "en": "Current drawn by the load.",
+        "tr": "Yük tarafından çekilen akım."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total resistance of the transmission line.",
       "label_i18n": {
         "en": "Line Resistance",
-        "tr": "Line Resistance",
+        "tr": "Hat Direnci",
         "de": "Line Resistance",
         "fr": "Line Resistance",
         "es": "Line Resistance",
         "ar": "Line Resistance"
+      },
+      "businessContext_i18n": {
+        "en": "Total resistance of the transmission line.",
+        "tr": "İletim hattının toplam direnci."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total inductive reactance of the transmission line.",
       "label_i18n": {
         "en": "Line Reactance",
-        "tr": "Line Reactance",
+        "tr": "Hat Reaktansı",
         "de": "Line Reactance",
         "fr": "Line Reactance",
         "es": "Line Reactance",
         "ar": "Line Reactance"
+      },
+      "businessContext_i18n": {
+        "en": "Total inductive reactance of the transmission line.",
+        "tr": "İletim hattının toplam endüktif reaktansı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Lagging power factor of the load (cos φ). Assumes inductive load.",
       "label_i18n": {
         "en": "Power Factor",
-        "tr": "Power Factor",
+        "tr": "Güç Faktörü",
         "de": "Power Factor",
         "fr": "Power Factor",
         "es": "Power Factor",
         "ar": "Power Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Lagging power factor of the load (cos φ). Assumes inductive load.",
+        "tr": "Yükün geri güç faktörü (cos φ). Endüktif yük varsayılır."
       }
     }
   ],

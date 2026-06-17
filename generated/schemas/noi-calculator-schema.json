@@ -10,11 +10,15 @@
       "businessContext": "Total rental income from property before any expenses.",
       "label_i18n": {
         "en": "Gross Rental Income",
-        "tr": "Gross Rental Income",
+        "tr": "Brüt Kira Geliri",
         "de": "Gross Rental Income",
         "fr": "Gross Rental Income",
         "es": "Gross Rental Income",
         "ar": "Gross Rental Income"
+      },
+      "businessContext_i18n": {
+        "en": "Total rental income from property before any expenses.",
+        "tr": "Giderler öncesi toplam kira geliri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Income lost due to vacant units or non-payment.",
       "label_i18n": {
         "en": "Vacancy Loss",
-        "tr": "Vacancy Loss",
+        "tr": "Boşluk Kaybı",
         "de": "Vacancy Loss",
         "fr": "Vacancy Loss",
         "es": "Vacancy Loss",
         "ar": "Vacancy Loss"
+      },
+      "businessContext_i18n": {
+        "en": "Income lost due to vacant units or non-payment.",
+        "tr": "Boş birimler veya ödeme yapılmaması nedeniyle kaybedilen gelir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fees paid to property management company.",
       "label_i18n": {
         "en": "Property Management Fees",
-        "tr": "Property Management Fees",
+        "tr": "Emlak Yönetim Ücretleri",
         "de": "Property Management Fees",
         "fr": "Property Management Fees",
         "es": "Property Management Fees",
         "ar": "Property Management Fees"
+      },
+      "businessContext_i18n": {
+        "en": "Fees paid to property management company.",
+        "tr": "Emlak yönetim şirketine ödenen ücretler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Costs for routine repairs and maintenance.",
       "label_i18n": {
         "en": "Repairs & Maintenance",
-        "tr": "Repairs & Maintenance",
+        "tr": "Onarım ve Bakım",
         "de": "Repairs & Maintenance",
         "fr": "Repairs & Maintenance",
         "es": "Repairs & Maintenance",
         "ar": "Repairs & Maintenance"
+      },
+      "businessContext_i18n": {
+        "en": "Costs for routine repairs and maintenance.",
+        "tr": "Rutin onarım ve bakım maliyetleri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Annual property tax expense.",
       "label_i18n": {
         "en": "Property Taxes",
-        "tr": "Property Taxes",
+        "tr": "Emlak Vergileri",
         "de": "Property Taxes",
         "fr": "Property Taxes",
         "es": "Property Taxes",
         "ar": "Property Taxes"
+      },
+      "businessContext_i18n": {
+        "en": "Annual property tax expense.",
+        "tr": "Yıllık emlak vergisi gideri."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual property insurance premium.",
       "label_i18n": {
         "en": "Insurance",
-        "tr": "Insurance",
+        "tr": "Sigorta",
         "de": "Insurance",
         "fr": "Insurance",
         "es": "Insurance",
         "ar": "Insurance"
+      },
+      "businessContext_i18n": {
+        "en": "Annual property insurance premium.",
+        "tr": "Yıllık emlak sigortası primi."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Utility costs not paid by tenants.",
       "label_i18n": {
         "en": "Utilities",
-        "tr": "Utilities",
+        "tr": "Faturalar",
         "de": "Utilities",
         "fr": "Utilities",
         "es": "Utilities",
         "ar": "Utilities"
+      },
+      "businessContext_i18n": {
+        "en": "Utility costs not paid by tenants.",
+        "tr": "Kiracılar tarafından ödenmeyen kamu hizmeti maliyetleri."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Miscellaneous operating expenses.",
       "label_i18n": {
         "en": "Other Operating Expenses",
-        "tr": "Other Operating Expenses",
+        "tr": "Diğer Faaliyet Giderleri",
         "de": "Other Operating Expenses",
         "fr": "Other Operating Expenses",
         "es": "Other Operating Expenses",
         "ar": "Other Operating Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Miscellaneous operating expenses.",
+        "tr": "Diğer işletme giderleri."
       }
     }
   ],

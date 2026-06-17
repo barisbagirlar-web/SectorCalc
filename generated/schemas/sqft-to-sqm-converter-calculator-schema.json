@@ -21,10 +21,12 @@
       "max": 1000000,
       "businessContext": "Total area to be converted from imperial to metric units. Typical range for industrial floors, warehouses, or production cells.",
       "label_i18n": {
-        "en": "Area in Square Feet"
+        "en": "Area in Square Feet",
+        "tr": "Fit Kare Cinsinden Alan"
       },
       "businessContext_i18n": {
-        "en": "Total area to be converted from imperial to metric units. Typical range for industrial floors, warehouses, or production cells."
+        "en": "Total area to be converted from imperial to metric units. Typical range for industrial floors, warehouses, or production cells.",
+        "tr": "İmperial birimlerden metrik birimlere dönüştürülecek toplam alan. Endüstriyel zeminler, depolar veya üretim hücreleri için tipik aralık."
       }
     },
     {
@@ -42,10 +44,12 @@
         "low"
       ],
       "label_i18n": {
-        "en": "Measurement Accuracy Class"
+        "en": "Measurement Accuracy Class",
+        "tr": "Ölçüm Doğruluk Sınıfı"
       },
       "businessContext_i18n": {
-        "en": "Defines the tolerance level of the original measurement per ISO 2768-1. Affects confidence interval and hidden loss drivers."
+        "en": "Defines the tolerance level of the original measurement per ISO 2768-1. Affects confidence interval and hidden loss drivers.",
+        "tr": "ISO 2768-1'e göre orijinal ölçümün tolerans seviyesini tanımlar. Güven aralığını ve görünmeyen kayıp sürücülerini etkiler."
       }
     },
     {
@@ -65,10 +69,12 @@
         "4"
       ],
       "label_i18n": {
-        "en": "Rounding Precision"
+        "en": "Rounding Precision",
+        "tr": "Yuvarlama Hassasiyeti"
       },
       "businessContext_i18n": {
-        "en": "Number of decimal places for the final result. Industrial standards often require 2-4 decimals for engineering documentation."
+        "en": "Number of decimal places for the final result. Industrial standards often require 2-4 decimals for engineering documentation.",
+        "tr": "Nihai sonuç için ondalık basamak sayısı. Endüstriyel standartlar mühendislik dokümantasyonu için genellikle 2-4 ondalık basamak gerektirir."
       }
     },
     {
@@ -81,10 +87,12 @@
       "max": null,
       "businessContext": "If enabled, the output will include upper and lower tolerance limits based on measurement accuracy class.",
       "label_i18n": {
-        "en": "Include Tolerance Band"
+        "en": "Include Tolerance Band",
+        "tr": "Tolerans Bandını Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "If enabled, the output will include upper and lower tolerance limits based on measurement accuracy class."
+        "en": "If enabled, the output will include upper and lower tolerance limits based on measurement accuracy class.",
+        "tr": "Etkinleştirilirse, çıktı ölçüm doğruluk sınıfına göre üst ve alt tolerans limitlerini içerir."
       }
     }
   ],

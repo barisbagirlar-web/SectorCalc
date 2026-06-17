@@ -10,11 +10,15 @@
       "businessContext": "Area of the catchment in hectares.",
       "label_i18n": {
         "en": "Catchment Area",
-        "tr": "Catchment Area",
+        "tr": "Toplama Alanı",
         "de": "Catchment Area",
         "fr": "Catchment Area",
         "es": "Catchment Area",
         "ar": "Catchment Area"
+      },
+      "businessContext_i18n": {
+        "en": "Area of the catchment in hectares.",
+        "tr": "Toplama alanının hektar cinsinden alanı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Dimensionless runoff coefficient (0-1).",
       "label_i18n": {
         "en": "Runoff Coefficient",
-        "tr": "Runoff Coefficient",
+        "tr": "Akış Katsayısı",
         "de": "Runoff Coefficient",
         "fr": "Runoff Coefficient",
         "es": "Runoff Coefficient",
         "ar": "Runoff Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Dimensionless runoff coefficient (0-1).",
+        "tr": "Boyutsuz akış katsayısı (0-1)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Design rainfall intensity in mm per hour.",
       "label_i18n": {
         "en": "Rainfall Intensity",
-        "tr": "Rainfall Intensity",
+        "tr": "Yağış Yoğunluğu",
         "de": "Rainfall Intensity",
         "fr": "Rainfall Intensity",
         "es": "Rainfall Intensity",
         "ar": "Rainfall Intensity"
+      },
+      "businessContext_i18n": {
+        "en": "Design rainfall intensity in mm per hour.",
+        "tr": "Tasarım yağış şiddeti, mm/saat cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Internal diameter of the circular sewer pipe in meters.",
       "label_i18n": {
         "en": "Pipe Diameter",
-        "tr": "Pipe Diameter",
+        "tr": "Boru Çapı",
         "de": "Pipe Diameter",
         "fr": "Pipe Diameter",
         "es": "Pipe Diameter",
         "ar": "Pipe Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Internal diameter of the circular sewer pipe in meters.",
+        "tr": "Dairesel kanalizasyon borusunun iç çapı, metre cinsinden."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Longitudinal slope of the pipe (rise/run).",
       "label_i18n": {
         "en": "Pipe Slope",
-        "tr": "Pipe Slope",
+        "tr": "Boru Eğimi",
         "de": "Pipe Slope",
         "fr": "Pipe Slope",
         "es": "Pipe Slope",
         "ar": "Pipe Slope"
+      },
+      "businessContext_i18n": {
+        "en": "Longitudinal slope of the pipe (rise/run).",
+        "tr": "Boru boyuna eğimi (yükselti/uzunluk)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Manning's roughness coefficient for the pipe material.",
       "label_i18n": {
         "en": "Manning's Roughness",
-        "tr": "Manning's Roughness",
+        "tr": "Manning Pürüzlülüğü",
         "de": "Manning's Roughness",
         "fr": "Manning's Roughness",
         "es": "Manning's Roughness",
         "ar": "Manning's Roughness"
+      },
+      "businessContext_i18n": {
+        "en": "Manning's roughness coefficient for the pipe material.",
+        "tr": "Boru malzemesi için Manning pürüzlülük katsayısı."
       }
     }
   ],

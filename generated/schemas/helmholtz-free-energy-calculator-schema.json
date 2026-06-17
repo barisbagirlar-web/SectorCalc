@@ -10,11 +10,15 @@
       "businessContext": "Total internal energy of the thermodynamic system.",
       "label_i18n": {
         "en": "Internal Energy (U)",
-        "tr": "Internal Energy (U)",
+        "tr": "İç enerji (U)",
         "de": "Internal Energy (U)",
         "fr": "Internal Energy (U)",
         "es": "Internal Energy (U)",
         "ar": "Internal Energy (U)"
+      },
+      "businessContext_i18n": {
+        "en": "Total internal energy of the thermodynamic system.",
+        "tr": "Termodinamik sistemin toplam iç enerjisi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Absolute temperature in Kelvin.",
       "label_i18n": {
         "en": "Temperature (T)",
-        "tr": "Temperature (T)",
+        "tr": "Sıcaklık (T)",
         "de": "Temperature (T)",
         "fr": "Temperature (T)",
         "es": "Temperature (T)",
         "ar": "Temperature (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute temperature in Kelvin.",
+        "tr": "Kelvin cinsinden mutlak sıcaklık."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Entropy of the system.",
       "label_i18n": {
         "en": "Entropy (S)",
-        "tr": "Entropy (S)",
+        "tr": "Entropi (S)",
         "de": "Entropy (S)",
         "fr": "Entropy (S)",
         "es": "Entropy (S)",
         "ar": "Entropy (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Entropy of the system.",
+        "tr": "Sistemin entropisi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Amount of substance in moles. Default is 1 for total system calculations.",
       "label_i18n": {
         "en": "Amount of Substance (n)",
-        "tr": "Amount of Substance (n)",
+        "tr": "Madde miktarı (n)",
         "de": "Amount of Substance (n)",
         "fr": "Amount of Substance (n)",
         "es": "Amount of Substance (n)",
         "ar": "Amount of Substance (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of substance in moles. Default is 1 for total system calculations.",
+        "tr": "Mol cinsinden madde miktarı. Toplam sistem hesaplamaları için varsayılan 1'dir."
       }
     }
   ],

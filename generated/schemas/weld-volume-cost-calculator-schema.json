@@ -30,10 +30,12 @@
         "double_bevel"
       ],
       "label_i18n": {
-        "en": "Joint Type"
+        "en": "Joint Type",
+        "tr": "Birleştirme Türü"
       },
       "businessContext_i18n": {
-        "en": "Select the weld joint geometry per ISO 9692. Affects volume calculation formula."
+        "en": "Select the weld joint geometry per ISO 9692. Affects volume calculation formula.",
+        "tr": "ISO 9692'ye göre kaynak birleştirme geometrisini seçin. Hacim hesaplama formülünü etkiler."
       }
     },
     {
@@ -46,10 +48,12 @@
       "max": 200,
       "businessContext": "Thickness of the base metal. Critical for groove volume calculation.",
       "label_i18n": {
-        "en": "Plate Thickness (t)"
+        "en": "Plate Thickness (t)",
+        "tr": "Plaka Kalınlığı (t)"
       },
       "businessContext_i18n": {
-        "en": "Thickness of the base metal. Critical for groove volume calculation."
+        "en": "Thickness of the base metal. Critical for groove volume calculation.",
+        "tr": "Temel metalin kalınlığı. Oluk hacmi hesaplaması için kritiktir."
       }
     },
     {
@@ -62,10 +66,12 @@
       "max": 10,
       "businessContext": "Land at the root of the groove. Affects effective depth.",
       "label_i18n": {
-        "en": "Root Face (f)"
+        "en": "Root Face (f)",
+        "tr": "Kök Yüzü (f)"
       },
       "businessContext_i18n": {
-        "en": "Land at the root of the groove. Affects effective depth."
+        "en": "Land at the root of the groove. Affects effective depth.",
+        "tr": "Oluğun kökündeki düzlük. Etkili derinliği etkiler."
       }
     },
     {
@@ -78,10 +84,12 @@
       "max": 10,
       "businessContext": "Gap between plates at root. Increases weld volume.",
       "label_i18n": {
-        "en": "Root Gap (g)"
+        "en": "Root Gap (g)",
+        "tr": "Kök Aralığı (g)"
       },
       "businessContext_i18n": {
-        "en": "Gap between plates at root. Increases weld volume."
+        "en": "Gap between plates at root. Increases weld volume.",
+        "tr": "Kök seviyesinde plakalar arasındaki boşluk. Kaynak hacmini artırır."
       }
     },
     {
@@ -94,10 +102,12 @@
       "max": 90,
       "businessContext": "Included angle of V-groove. Standard range per AWS D1.1.",
       "label_i18n": {
-        "en": "Groove Angle (α)"
+        "en": "Groove Angle (α)",
+        "tr": "Oluk Açısı (α)"
       },
       "businessContext_i18n": {
-        "en": "Included angle of V-groove. Standard range per AWS D1.1."
+        "en": "Included angle of V-groove. Standard range per AWS D1.1.",
+        "tr": "V-oluğun dahil açısı. AWS D1.1'e göre standart aralık."
       }
     },
     {
@@ -110,10 +120,12 @@
       "max": 100000,
       "businessContext": "Total length of the weld seam.",
       "label_i18n": {
-        "en": "Weld Length (L)"
+        "en": "Weld Length (L)",
+        "tr": "Kaynak Uzunluğu (L)"
       },
       "businessContext_i18n": {
-        "en": "Total length of the weld seam."
+        "en": "Total length of the weld seam.",
+        "tr": "Kaynak dikişinin toplam uzunluğu."
       }
     },
     {
@@ -126,10 +138,12 @@
       "max": 50,
       "businessContext": "Fillet weld leg size. Only used when joint_type = fillet.",
       "label_i18n": {
-        "en": "Leg Length (for fillet)"
+        "en": "Leg Length (for fillet)",
+        "tr": "Bacak Uzunluğu (köşe kaynağı için)"
       },
       "businessContext_i18n": {
-        "en": "Fillet weld leg size. Only used when joint_type = fillet."
+        "en": "Fillet weld leg size. Only used when joint_type = fillet.",
+        "tr": "Köşe kaynağı bacak boyutu. Yalnızca joint_type = fillet olduğunda kullanılır."
       }
     },
     {
@@ -149,10 +163,12 @@
         "GTAW"
       ],
       "label_i18n": {
-        "en": "Welding Process"
+        "en": "Welding Process",
+        "tr": "Kaynak Prosesi"
       },
       "businessContext_i18n": {
-        "en": "Select the welding process. Affects deposition efficiency and labor rate."
+        "en": "Select the welding process. Affects deposition efficiency and labor rate.",
+        "tr": "Kaynak prosesini seçin. Biriktirme verimliliğini ve işçilik ücretini etkiler."
       }
     }
   ],

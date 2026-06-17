@@ -10,11 +10,15 @@
       "businessContext": "Length of the area to cover with gravel (feet)",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the area to cover with gravel (feet)",
+        "tr": "Çakıl döşenecek alanın uzunluğu (feet)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the area to cover with gravel (feet)",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the area to cover with gravel (feet)",
+        "tr": "Çakıl döşenecek alanın genişliği (feet)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired depth of gravel layer (inches)",
       "label_i18n": {
         "en": "Depth",
-        "tr": "Depth",
+        "tr": "Derinlik",
         "de": "Depth",
         "fr": "Depth",
         "es": "Depth",
         "ar": "Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Desired depth of gravel layer (inches)",
+        "tr": "İstenen çakıl derinliği (inç)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of volume increase to account for compaction after installation",
       "label_i18n": {
         "en": "Compaction Factor",
-        "tr": "Compaction Factor",
+        "tr": "Sıkıştırma Faktörü",
         "de": "Compaction Factor",
         "fr": "Compaction Factor",
         "es": "Compaction Factor",
         "ar": "Compaction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of volume increase to account for compaction after installation",
+        "tr": "Sıkıştırma sonrası hacim artış yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of extra material to account for waste, spillage, and uneven ground",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra material to account for waste, spillage, and uneven ground",
+        "tr": "Atık, dökülme ve düz olmayan zemin için ek malzeme yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Bulk density of the gravel (typical gravel ~120 lb/ft³)",
       "label_i18n": {
         "en": "Gravel Density",
-        "tr": "Gravel Density",
+        "tr": "Çakıl Yoğunluğu",
         "de": "Gravel Density",
         "fr": "Gravel Density",
         "es": "Gravel Density",
         "ar": "Gravel Density"
+      },
+      "businessContext_i18n": {
+        "en": "Bulk density of the gravel (typical gravel ~120 lb/ft³)",
+        "tr": "Çakılın yığın yoğunluğu (tipik çakıl ~120 lb/ft³)"
       }
     }
   ],

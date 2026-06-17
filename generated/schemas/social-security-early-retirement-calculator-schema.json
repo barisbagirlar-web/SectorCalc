@@ -10,11 +10,15 @@
       "businessContext": "Your birth year determines your full retirement age (FRA). Enter year as integer (e.g., 1965).",
       "label_i18n": {
         "en": "Birth Year",
-        "tr": "Birth Year",
+        "tr": "Doğum Yılı",
         "de": "Birth Year",
         "fr": "Birth Year",
         "es": "Birth Year",
         "ar": "Birth Year"
+      },
+      "businessContext_i18n": {
+        "en": "Your birth year determines your full retirement age (FRA). Enter year as integer (e.g., 1965).",
+        "tr": "Doğum yılınız tam emeklilik yaşınızı (TEY) belirler. Yılı tam sayı olarak girin (ör. 1965)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The age at which you plan to start receiving benefits (minimum 62, maximum 70). Use decimal for months (e.g., 62 and 6 months = 62.5).",
       "label_i18n": {
         "en": "Early Retirement Age",
-        "tr": "Early Retirement Age",
+        "tr": "Erken Emeklilik Yaşı",
         "de": "Early Retirement Age",
         "fr": "Early Retirement Age",
         "es": "Early Retirement Age",
         "ar": "Early Retirement Age"
+      },
+      "businessContext_i18n": {
+        "en": "The age at which you plan to start receiving benefits (minimum 62, maximum 70). Use decimal for months (e.g., 62 and 6 months = 62.5).",
+        "tr": "Fayda almaya başlamayı planladığınız yaş (minimum 62, maksimum 70). Aylar için ondalık kullanın (ör. 62 yıl 6 ay = 62.5)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The monthly benefit you would receive if you wait until full retirement age (primary insurance amount).",
       "label_i18n": {
         "en": "Monthly Benefit at Full Retirement Age",
-        "tr": "Monthly Benefit at Full Retirement Age",
+        "tr": "Tam Emeklilik Yaşında Aylık Fayda",
         "de": "Monthly Benefit at Full Retirement Age",
         "fr": "Monthly Benefit at Full Retirement Age",
         "es": "Monthly Benefit at Full Retirement Age",
         "ar": "Monthly Benefit at Full Retirement Age"
+      },
+      "businessContext_i18n": {
+        "en": "The monthly benefit you would receive if you wait until full retirement age (primary insurance amount).",
+        "tr": "Tam emeklilik yaşına kadar beklerseniz alacağınız aylık fayda (temel sigorta tutarı)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to adjust for COLA (1 = no adjustment). Usually 1 for current benefit calculations.",
       "label_i18n": {
         "en": "Cost-of-Living Adjustment Factor",
-        "tr": "Cost-of-Living Adjustment Factor",
+        "tr": "Yaşam Maliyeti Ayarlama Faktörü",
         "de": "Cost-of-Living Adjustment Factor",
         "fr": "Cost-of-Living Adjustment Factor",
         "es": "Cost-of-Living Adjustment Factor",
         "ar": "Cost-of-Living Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to adjust for COLA (1 = no adjustment). Usually 1 for current benefit calculations.",
+        "tr": "COLA'ya göre ayarlama çarpanı (1 = ayarlama yok). Genellikle mevcut fayda hesaplamaları için 1."
       }
     }
   ],

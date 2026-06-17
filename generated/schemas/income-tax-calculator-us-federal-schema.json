@@ -10,11 +10,15 @@
       "businessContext": "Total annual income before any deductions",
       "label_i18n": {
         "en": "Annual Gross Income ($)",
-        "tr": "Annual Gross Income ($)",
+        "tr": "Yıllık Brüt Gelir ($)",
         "de": "Annual Gross Income ($)",
         "fr": "Annual Gross Income ($)",
         "es": "Annual Gross Income ($)",
         "ar": "Annual Gross Income ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual income before any deductions",
+        "tr": "Vergi öncesi toplam yıllık gelir"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Tax filing status affects tax brackets and standard deduction",
       "label_i18n": {
         "en": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
-        "tr": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
+        "tr": "Beyanname Durumu (0=Bekar, 1=Evli Ortak, 2=Hane Reisi)",
         "de": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
         "fr": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
         "es": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
         "ar": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)"
+      },
+      "businessContext_i18n": {
+        "en": "Tax filing status affects tax brackets and standard deduction",
+        "tr": "Vergi beyanname durumu, vergi dilimlerini ve standart kesintiyi etkiler"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "401(k), HSA, FSA, etc. subtracted from gross income",
       "label_i18n": {
         "en": "Pre-tax Deductions ($)",
-        "tr": "Pre-tax Deductions ($)",
+        "tr": "Vergi Öncesi Kesintiler ($)",
         "de": "Pre-tax Deductions ($)",
         "fr": "Pre-tax Deductions ($)",
         "es": "Pre-tax Deductions ($)",
         "ar": "Pre-tax Deductions ($)"
+      },
+      "businessContext_i18n": {
+        "en": "401(k), HSA, FSA, etc. subtracted from gross income",
+        "tr": "401(k), HSA, FSA vb. brüt gelirden düşülür"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard deduction amount for 2023 (single: 13850, married joint: 27700, head of household: 20800)",
       "label_i18n": {
         "en": "Standard Deduction ($)",
-        "tr": "Standard Deduction ($)",
+        "tr": "Standart Kesinti ($)",
         "de": "Standard Deduction ($)",
         "fr": "Standard Deduction ($)",
         "es": "Standard Deduction ($)",
         "ar": "Standard Deduction ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deduction amount for 2023 (single: 13850, married joint: 27700, head of household: 20800)",
+        "tr": "2023 yılı standart kesinti tutarı (bekar: 13850, evli ortak: 27700, hane reisi: 20800)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Interest, dividends, capital gains, etc.",
       "label_i18n": {
         "en": "Additional Taxable Income ($)",
-        "tr": "Additional Taxable Income ($)",
+        "tr": "Ek Vergiye Tabi Gelir ($)",
         "de": "Additional Taxable Income ($)",
         "fr": "Additional Taxable Income ($)",
         "es": "Additional Taxable Income ($)",
         "ar": "Additional Taxable Income ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Interest, dividends, capital gains, etc.",
+        "tr": "Faiz, temettü, sermaye kazancı vb."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Child tax credit, education credits, etc.",
       "label_i18n": {
         "en": "Non-refundable Tax Credits ($)",
-        "tr": "Non-refundable Tax Credits ($)",
+        "tr": "İade Edilmeyen Vergi Kredileri ($)",
         "de": "Non-refundable Tax Credits ($)",
         "fr": "Non-refundable Tax Credits ($)",
         "es": "Non-refundable Tax Credits ($)",
         "ar": "Non-refundable Tax Credits ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Child tax credit, education credits, etc.",
+        "tr": "Çocuk vergi kredisi, eğitim kredileri vb."
       }
     }
   ],

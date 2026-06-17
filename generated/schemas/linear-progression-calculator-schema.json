@@ -10,11 +10,15 @@
       "businessContext": "The initial value of the arithmetic progression.",
       "label_i18n": {
         "en": "First Term (a)",
-        "tr": "First Term (a)",
+        "tr": "İlk Terim (a)",
         "de": "First Term (a)",
         "fr": "First Term (a)",
         "es": "First Term (a)",
         "ar": "First Term (a)"
+      },
+      "businessContext_i18n": {
+        "en": "The initial value of the arithmetic progression.",
+        "tr": "Aritmetik dizinin başlangıç değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The constant increment between consecutive terms.",
       "label_i18n": {
         "en": "Common Difference (d)",
-        "tr": "Common Difference (d)",
+        "tr": "Ortak Fark (d)",
         "de": "Common Difference (d)",
         "fr": "Common Difference (d)",
         "es": "Common Difference (d)",
         "ar": "Common Difference (d)"
+      },
+      "businessContext_i18n": {
+        "en": "The constant increment between consecutive terms.",
+        "tr": "Ardışık terimler arasındaki sabit artış."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The total count of terms in the sequence.",
       "label_i18n": {
         "en": "Number of Terms (n)",
-        "tr": "Number of Terms (n)",
+        "tr": "Terim Sayısı (n)",
         "de": "Number of Terms (n)",
         "fr": "Number of Terms (n)",
         "es": "Number of Terms (n)",
         "ar": "Number of Terms (n)"
+      },
+      "businessContext_i18n": {
+        "en": "The total count of terms in the sequence.",
+        "tr": "Dizideki toplam terim sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The position of the term to find (1-indexed).",
       "label_i18n": {
         "en": "Term Position (k)",
-        "tr": "Term Position (k)",
+        "tr": "Terim Sırası (k)",
         "de": "Term Position (k)",
         "fr": "Term Position (k)",
         "es": "Term Position (k)",
         "ar": "Term Position (k)"
+      },
+      "businessContext_i18n": {
+        "en": "The position of the term to find (1-indexed).",
+        "tr": "Bulunacak terimin sırası (1'den başlayarak)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for the results.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the results.",
+        "tr": "Sonuçlar için ondalık basamak sayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Body weight of the person in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight of the person in kilograms",
+        "tr": "Kişinin kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of warm-up phase in minutes",
       "label_i18n": {
         "en": "Warm-up Duration",
-        "tr": "Warm-up Duration",
+        "tr": "Isınma Süresi",
         "de": "Warm-up Duration",
         "fr": "Warm-up Duration",
         "es": "Warm-up Duration",
         "ar": "Warm-up Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of warm-up phase in minutes",
+        "tr": "Isınma aşamasının dakika cinsinden süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of main Pilates exercises in minutes",
       "label_i18n": {
         "en": "Main Workout Duration",
-        "tr": "Main Workout Duration",
+        "tr": "Ana Egzersiz Süresi",
         "de": "Main Workout Duration",
         "fr": "Main Workout Duration",
         "es": "Main Workout Duration",
         "ar": "Main Workout Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of main Pilates exercises in minutes",
+        "tr": "Ana Pilates egzersizlerinin dakika cinsinden süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration of cool-down stretching in minutes",
       "label_i18n": {
         "en": "Cool-down Duration",
-        "tr": "Cool-down Duration",
+        "tr": "Soğuma Süresi",
         "de": "Cool-down Duration",
         "fr": "Cool-down Duration",
         "es": "Cool-down Duration",
         "ar": "Cool-down Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of cool-down stretching in minutes",
+        "tr": "Soğuma esneme hareketlerinin dakika cinsinden süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier for overall intensity (e.g. 1.0 = normal, 1.2 = advanced)",
       "label_i18n": {
         "en": "Difficulty Factor",
-        "tr": "Difficulty Factor",
+        "tr": "Zorluk Faktörü",
         "de": "Difficulty Factor",
         "fr": "Difficulty Factor",
         "es": "Difficulty Factor",
         "ar": "Difficulty Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for overall intensity (e.g. 1.0 = normal, 1.2 = advanced)",
+        "tr": "Genel yoğunluk için çarpan (örn. 1.0 = normal, 1.2 = ileri seviye)"
       }
     }
   ],

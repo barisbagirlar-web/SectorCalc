@@ -10,11 +10,15 @@
       "businessContext": "List price before any discount",
       "label_i18n": {
         "en": "Original Unit Price",
-        "tr": "Original Unit Price",
+        "tr": "Orijinal Birim Fiyatı",
         "de": "Original Unit Price",
         "fr": "Original Unit Price",
         "es": "Original Unit Price",
         "ar": "Original Unit Price"
+      },
+      "businessContext_i18n": {
+        "en": "List price before any discount",
+        "tr": "Herhangi bir indirim öncesi liste fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Discount percentage applied to original price",
       "label_i18n": {
         "en": "Markdown Percentage",
-        "tr": "Markdown Percentage",
+        "tr": "İndirim Yüzdesi",
         "de": "Markdown Percentage",
         "fr": "Markdown Percentage",
         "es": "Markdown Percentage",
         "ar": "Markdown Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Discount percentage applied to original price",
+        "tr": "Orijinal fiyata uygulanan indirim yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fixed amount off after percentage discount",
       "label_i18n": {
         "en": "Fixed Discount per Unit",
-        "tr": "Fixed Discount per Unit",
+        "tr": "Birim Başına Sabit İndirim",
         "de": "Fixed Discount per Unit",
         "fr": "Fixed Discount per Unit",
         "es": "Fixed Discount per Unit",
         "ar": "Fixed Discount per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed amount off after percentage discount",
+        "tr": "Yüzde indirimden sonra sabit tutar"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of items purchased",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items purchased",
+        "tr": "Satın alınan ürün sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Value Added Tax percentage",
       "label_i18n": {
         "en": "VAT Rate",
-        "tr": "VAT Rate",
+        "tr": "KDV Oranı",
         "de": "VAT Rate",
         "fr": "VAT Rate",
         "es": "VAT Rate",
         "ar": "VAT Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Value Added Tax percentage",
+        "tr": "Katma Değer Vergisi yüzdesi"
       }
     }
   ],

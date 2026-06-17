@@ -10,11 +10,15 @@
       "businessContext": "User's body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight in kilograms",
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of active rowing in minutes",
       "label_i18n": {
         "en": "Active Duration",
-        "tr": "Active Duration",
+        "tr": "Aktif Süre",
         "de": "Active Duration",
         "fr": "Active Duration",
         "es": "Active Duration",
         "ar": "Active Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of active rowing in minutes",
+        "tr": "Dakika cinsinden aktif kürek çekme süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of rest intervals in minutes",
       "label_i18n": {
         "en": "Rest Duration",
-        "tr": "Rest Duration",
+        "tr": "Dinlenme Süresi",
         "de": "Rest Duration",
         "fr": "Rest Duration",
         "es": "Rest Duration",
         "ar": "Rest Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of rest intervals in minutes",
+        "tr": "Dakika cinsinden dinlenme aralıklarının süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Metabolic Equivalent of Task for rowing intensity",
       "label_i18n": {
         "en": "MET Value",
-        "tr": "MET Value",
+        "tr": "MET Değeri",
         "de": "MET Value",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
+      },
+      "businessContext_i18n": {
+        "en": "Metabolic Equivalent of Task for rowing intensity",
+        "tr": "Kürek çekme yoğunluğu için metabolik eşdeğer"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Number of independent quality parameters",
       "label_i18n": {
         "en": "Number of Dice",
-        "tr": "Number of Dice",
+        "tr": "Zar Sayısı",
         "de": "Number of Dice",
         "fr": "Number of Dice",
         "es": "Number of Dice",
         "ar": "Number of Dice"
+      },
+      "businessContext_i18n": {
+        "en": "Number of independent quality parameters",
+        "tr": "Bağımsız kalite parametrelerinin sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Possible discrete levels per parameter",
       "label_i18n": {
         "en": "Sides per Die",
-        "tr": "Sides per Die",
+        "tr": "Zar Yüzeyi",
         "de": "Sides per Die",
         "fr": "Sides per Die",
         "es": "Sides per Die",
         "ar": "Sides per Die"
+      },
+      "businessContext_i18n": {
+        "en": "Possible discrete levels per parameter",
+        "tr": "Parametre başına olası ayrık seviye sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fixed allowance or penalty",
       "label_i18n": {
         "en": "Sum Modifier",
-        "tr": "Sum Modifier",
+        "tr": "Toplam Düzeltici",
         "de": "Sum Modifier",
         "fr": "Sum Modifier",
         "es": "Sum Modifier",
         "ar": "Sum Modifier"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed allowance or penalty",
+        "tr": "Sabit tolerans veya ceza"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sigma level for expected variation band",
       "label_i18n": {
         "en": "Range Multiplier",
-        "tr": "Range Multiplier",
+        "tr": "Aralık Çarpanı",
         "de": "Range Multiplier",
         "fr": "Range Multiplier",
         "es": "Range Multiplier",
         "ar": "Range Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Sigma level for expected variation band",
+        "tr": "Beklenen değişim bandı için sigma seviyesi"
       }
     }
   ],

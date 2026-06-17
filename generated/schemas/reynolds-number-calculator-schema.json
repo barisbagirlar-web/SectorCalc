@@ -21,10 +21,12 @@
       "max": null,
       "businessContext": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom.",
       "label_i18n": {
-        "en": "Fluid Type"
+        "en": "Fluid Type",
+        "tr": "Akışkan Türü"
       },
       "businessContext_i18n": {
-        "en": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom."
+        "en": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom.",
+        "tr": "Yoğunluk ve viskoziteyi otomatik doldurmak için çalışma akışkanını seçin. Seçenekler: su, hava, yağ ve özel."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 20000,
       "businessContext": "Mass density of the fluid at operating temperature. For water at 20°C: 998.2 kg/m³.",
       "label_i18n": {
-        "en": "Fluid Density"
+        "en": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu"
       },
       "businessContext_i18n": {
-        "en": "Mass density of the fluid at operating temperature. For water at 20°C: 998.2 kg/m³."
+        "en": "Mass density of the fluid at operating temperature. For water at 20°C: 998.2 kg/m³.",
+        "tr": "Akışkanın çalışma sıcaklığındaki kütle yoğunluğu. 20°C'de su için: 998.2 kg/m³."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 100,
       "businessContext": "Absolute viscosity of the fluid. For water at 20°C: 0.001002 Pa·s.",
       "label_i18n": {
-        "en": "Dynamic Viscosity"
+        "en": "Dynamic Viscosity",
+        "tr": "Dinamik viskozite"
       },
       "businessContext_i18n": {
-        "en": "Absolute viscosity of the fluid. For water at 20°C: 0.001002 Pa·s."
+        "en": "Absolute viscosity of the fluid. For water at 20°C: 0.001002 Pa·s.",
+        "tr": "Akışkanın mutlak viskozitesi. 20°C'de su için: 0.001002 Pa·s."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Average velocity of the fluid in the pipe cross-section.",
       "label_i18n": {
-        "en": "Flow Velocity"
+        "en": "Flow Velocity",
+        "tr": "Akış Hızı"
       },
       "businessContext_i18n": {
-        "en": "Average velocity of the fluid in the pipe cross-section."
+        "en": "Average velocity of the fluid in the pipe cross-section.",
+        "tr": "Boru kesitindeki akışkanın ortalama hızı."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 10,
       "businessContext": "Internal diameter of the pipe or conduit.",
       "label_i18n": {
-        "en": "Pipe Inner Diameter"
+        "en": "Pipe Inner Diameter",
+        "tr": "Boru İç Çapı"
       },
       "businessContext_i18n": {
-        "en": "Internal diameter of the pipe or conduit."
+        "en": "Internal diameter of the pipe or conduit.",
+        "tr": "Boru veya kanalın iç çapı."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 0.1,
       "businessContext": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m.",
       "label_i18n": {
-        "en": "Pipe Roughness"
+        "en": "Pipe Roughness",
+        "tr": "Boru Pürüzlülüğü"
       },
       "businessContext_i18n": {
-        "en": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m."
+        "en": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m.",
+        "tr": "Boru iç yüzeyindeki pürüzlülüklerin ortalama yüksekliği. Ticari çelik için: 0.000045 m."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 500,
       "businessContext": "Fluid temperature used for viscosity and density corrections if applicable.",
       "label_i18n": {
-        "en": "Operating Temperature"
+        "en": "Operating Temperature",
+        "tr": "Çalışma Sıcaklığı"
       },
       "businessContext_i18n": {
-        "en": "Fluid temperature used for viscosity and density corrections if applicable."
+        "en": "Fluid temperature used for viscosity and density corrections if applicable.",
+        "tr": "Varsa viskozite ve yoğunluk düzeltmeleri için kullanılan akışkan sıcaklığı."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": null,
       "businessContext": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent).",
       "label_i18n": {
-        "en": "Flow Regime Threshold"
+        "en": "Flow Regime Threshold",
+        "tr": "Akış Rejimi Eşiği"
       },
       "businessContext_i18n": {
-        "en": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent)."
+        "en": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent).",
+        "tr": "Eşik standardını seçin: 'standart' (Re<2300 laminer, 2300-4000 geçiş, >4000 türbülanslı) veya 'muhafazakar' (Re<2000 laminer, 2000-3000 geçiş, >3000 türbülanslı)."
       }
     }
   ],

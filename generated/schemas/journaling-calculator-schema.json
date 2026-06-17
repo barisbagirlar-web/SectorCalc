@@ -10,11 +10,15 @@
       "businessContext": "Diameter of the shaft in millimeters",
       "label_i18n": {
         "en": "Shaft Diameter",
-        "tr": "Shaft Diameter",
+        "tr": "Mil Çapı",
         "de": "Shaft Diameter",
         "fr": "Shaft Diameter",
         "es": "Shaft Diameter",
         "ar": "Shaft Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the shaft in millimeters",
+        "tr": "Mil çapı (milimetre cinsinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of the bearing in millimeters",
       "label_i18n": {
         "en": "Bearing Length",
-        "tr": "Bearing Length",
+        "tr": "Rulman Uzunluğu",
         "de": "Bearing Length",
         "fr": "Bearing Length",
         "es": "Bearing Length",
         "ar": "Bearing Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the bearing in millimeters",
+        "tr": "Rulman uzunluğu (milimetre cinsinden)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Applied radial load on the bearing in Newtons",
       "label_i18n": {
         "en": "Radial Load",
-        "tr": "Radial Load",
+        "tr": "Radyal Yük",
         "de": "Radial Load",
         "fr": "Radial Load",
         "es": "Radial Load",
         "ar": "Radial Load"
+      },
+      "businessContext_i18n": {
+        "en": "Applied radial load on the bearing in Newtons",
+        "tr": "Rulman üzerindeki uygulanan radyal yük (Newton cinsinden)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Shaft rotational speed in revolutions per minute",
       "label_i18n": {
         "en": "Rotational Speed",
-        "tr": "Rotational Speed",
+        "tr": "Dönüş Hızı",
         "de": "Rotational Speed",
         "fr": "Rotational Speed",
         "es": "Rotational Speed",
         "ar": "Rotational Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Shaft rotational speed in revolutions per minute",
+        "tr": "Mil dönüş hızı (dakikadaki devir sayısı)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Dynamic viscosity of the lubricant in centipoise",
       "label_i18n": {
         "en": "Oil Viscosity",
-        "tr": "Oil Viscosity",
+        "tr": "Yağ Viskozitesi",
         "de": "Oil Viscosity",
         "fr": "Oil Viscosity",
         "es": "Oil Viscosity",
         "ar": "Oil Viscosity"
+      },
+      "businessContext_i18n": {
+        "en": "Dynamic viscosity of the lubricant in centipoise",
+        "tr": "Yağlayıcının dinamik viskozitesi (centipoise cinsinden)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Radial clearance (half of diametral clearance) between shaft and bearing in millimeters",
       "label_i18n": {
         "en": "Radial Clearance",
-        "tr": "Radial Clearance",
+        "tr": "Radyal Boşluk",
         "de": "Radial Clearance",
         "fr": "Radial Clearance",
         "es": "Radial Clearance",
         "ar": "Radial Clearance"
+      },
+      "businessContext_i18n": {
+        "en": "Radial clearance (half of diametral clearance) between shaft and bearing in millimeters",
+        "tr": "Mil ile rulman arasındaki radyal boşluk (çapsal boşluğun yarısı) (milimetre cinsinden)"
       }
     }
   ],

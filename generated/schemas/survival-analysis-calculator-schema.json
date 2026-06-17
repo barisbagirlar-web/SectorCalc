@@ -10,11 +10,15 @@
       "businessContext": "The rate at which failures occur per unit time (exponential distribution parameter)",
       "label_i18n": {
         "en": "Failure Rate (λ)",
-        "tr": "Failure Rate (λ)",
+        "tr": "Arıza Oranı (λ)",
         "de": "Failure Rate (λ)",
         "fr": "Failure Rate (λ)",
         "es": "Failure Rate (λ)",
         "ar": "Failure Rate (λ)"
+      },
+      "businessContext_i18n": {
+        "en": "The rate at which failures occur per unit time (exponential distribution parameter)",
+        "tr": "Birim zaman başına meydana gelen arıza oranı (üstel dağılım parametresi)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time point at which to compute survival probability",
       "label_i18n": {
         "en": "Time (t)",
-        "tr": "Time (t)",
+        "tr": "Zaman (t)",
         "de": "Time (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Time point at which to compute survival probability",
+        "tr": "Hayatta kalma olasılığının hesaplanacağı zaman noktası"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired survival probability (between 0 and 1) to compute the required time (e.g., B10 life)",
       "label_i18n": {
         "en": "Target Survival Probability",
-        "tr": "Target Survival Probability",
+        "tr": "Hedef Hayatta Kalma Olasılığı",
         "de": "Target Survival Probability",
         "fr": "Target Survival Probability",
         "es": "Target Survival Probability",
         "ar": "Target Survival Probability"
+      },
+      "businessContext_i18n": {
+        "en": "Desired survival probability (between 0 and 1) to compute the required time (e.g., B10 life)",
+        "tr": "Gerekli zamanı hesaplamak için istenen hayatta kalma olasılığı (0 ile 1 arasında) (örneğin, B10 ömrü)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Observed number of failures in a test (for reference, not used in calculations)",
       "label_i18n": {
         "en": "Observed Failures",
-        "tr": "Observed Failures",
+        "tr": "Gözlemlenen Arızalar",
         "de": "Observed Failures",
         "fr": "Observed Failures",
         "es": "Observed Failures",
         "ar": "Observed Failures"
+      },
+      "businessContext_i18n": {
+        "en": "Observed number of failures in a test (for reference, not used in calculations)",
+        "tr": "Bir testte gözlemlenen arıza sayısı (referans için, hesaplamalarda kullanılmaz)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total operating time of all items under test (for reference, not used in calculations)",
       "label_i18n": {
         "en": "Total Test Time",
-        "tr": "Total Test Time",
+        "tr": "Toplam Test Süresi",
         "de": "Total Test Time",
         "fr": "Total Test Time",
         "es": "Total Test Time",
         "ar": "Total Test Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total operating time of all items under test (for reference, not used in calculations)",
+        "tr": "Test edilen tüm öğelerin toplam çalışma süresi (referans için, hesaplamalarda kullanılmaz)"
       }
     }
   ],

@@ -19,10 +19,12 @@
       "max": 100,
       "businessContext": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks).",
       "label_i18n": {
-        "en": "Bottleneck Utilization (%)"
+        "en": "Bottleneck Utilization (%)",
+        "tr": "Darboğaz Kullanımı (%)"
       },
       "businessContext_i18n": {
-        "en": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks)."
+        "en": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks).",
+        "tr": "Birincil darboğaz kaynağının temsili bir dönem (örneğin son 4 hafta) üzerinden ölçülen mevcut kullanım oranı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 10000,
       "businessContext": "Average customer demand rate for the product family flowing through the bottleneck.",
       "label_i18n": {
-        "en": "Average Demand Rate (units/hour)"
+        "en": "Average Demand Rate (units/hour)",
+        "tr": "Ortalama Talep Oranı (birim/saat)"
       },
       "businessContext_i18n": {
-        "en": "Average customer demand rate for the product family flowing through the bottleneck."
+        "en": "Average customer demand rate for the product family flowing through the bottleneck.",
+        "tr": "Darboğazdan geçen ürün ailesi için ortalama müşteri talep oranı."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 10000,
       "businessContext": "Maximum theoretical output rate of the bottleneck resource under ideal conditions.",
       "label_i18n": {
-        "en": "Bottleneck Capacity (units/hour)"
+        "en": "Bottleneck Capacity (units/hour)",
+        "tr": "Darboğaz Kapasitesi (birim/saat)"
       },
       "businessContext_i18n": {
-        "en": "Maximum theoretical output rate of the bottleneck resource under ideal conditions."
+        "en": "Maximum theoretical output rate of the bottleneck resource under ideal conditions.",
+        "tr": "Darboğaz kaynağının ideal koşullar altında maksimum teorik çıktı oranı."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 10000000,
       "businessContext": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation).",
       "label_i18n": {
-        "en": "Proposed Investment Cost ($)"
+        "en": "Proposed Investment Cost ($)",
+        "tr": "Önerilen Yatırım Maliyeti ($)"
       },
       "businessContext_i18n": {
-        "en": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation)."
+        "en": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation).",
+        "tr": "Darboğaz iyileştirmesi için gereken toplam sermaye harcaması (örneğin yeni ekipman, takım, otomasyon)."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 200,
       "businessContext": "Expected percentage increase in bottleneck capacity after the investment.",
       "label_i18n": {
-        "en": "Expected Capacity Increase (%)"
+        "en": "Expected Capacity Increase (%)",
+        "tr": "Beklenen Kapasite Artışı (%)"
       },
       "businessContext_i18n": {
-        "en": "Expected percentage increase in bottleneck capacity after the investment."
+        "en": "Expected percentage increase in bottleneck capacity after the investment.",
+        "tr": "Yatırım sonrası darboğaz kapasitesinde beklenen yüzde artış."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": 8760,
       "businessContext": "Total planned operating hours of the bottleneck resource per year.",
       "label_i18n": {
-        "en": "Operating Hours per Year"
+        "en": "Operating Hours per Year",
+        "tr": "Yıllık Çalışma Saati"
       },
       "businessContext_i18n": {
-        "en": "Total planned operating hours of the bottleneck resource per year."
+        "en": "Total planned operating hours of the bottleneck resource per year.",
+        "tr": "Darboğaz kaynağının yıllık toplam planlanan çalışma saati."
       }
     },
     {
@@ -115,10 +127,12 @@
       "max": 10000,
       "businessContext": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck.",
       "label_i18n": {
-        "en": "Profit Margin per Unit ($)"
+        "en": "Profit Margin per Unit ($)",
+        "tr": "Birim Başına Kar Marjı ($)"
       },
       "businessContext_i18n": {
-        "en": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck."
+        "en": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck.",
+        "tr": "Darboğazdan geçen ürünün birim başına katkı marjı (gelir eksi değişken maliyet)."
       }
     },
     {
@@ -131,10 +145,12 @@
       "max": 100,
       "businessContext": "First-pass yield (percentage of good units) at the bottleneck operation.",
       "label_i18n": {
-        "en": "Quality Yield at Bottleneck (%)"
+        "en": "Quality Yield at Bottleneck (%)",
+        "tr": "Darboğazda Kalite Verimi (%)"
       },
       "businessContext_i18n": {
-        "en": "First-pass yield (percentage of good units) at the bottleneck operation."
+        "en": "First-pass yield (percentage of good units) at the bottleneck operation.",
+        "tr": "Darboğaz operasyonunda ilk geçiş verimi (iyi birimlerin yüzdesi)."
       }
     }
   ],

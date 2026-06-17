@@ -10,11 +10,15 @@
       "businessContext": "Pipe outer diameter in millimeters. Standard sizes: 21.3mm to 219.1mm.",
       "label_i18n": {
         "en": "Outer Diameter",
-        "tr": "Outer Diameter",
+        "tr": "Dış Çap",
         "de": "Outer Diameter",
         "fr": "Outer Diameter",
         "es": "Outer Diameter",
         "ar": "Outer Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Pipe outer diameter in millimeters. Standard sizes: 21.3mm to 219.1mm.",
+        "tr": "Boru dış çapı milimetre cinsinden. Standart boyutlar: 21,3 mm - 219,1 mm."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Wall thickness in millimeters. Varies by schedule.",
       "label_i18n": {
         "en": "Wall Thickness",
-        "tr": "Wall Thickness",
+        "tr": "Duvar Kalınlığı (cm)",
         "de": "Wall Thickness",
         "fr": "Wall Thickness",
         "es": "Wall Thickness",
         "ar": "Wall Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Wall thickness in millimeters. Varies by schedule.",
+        "tr": "Milimetre cinsinden et kalınlığı. Schedule'a göre değişir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Pipe length in meters. Commonly 6m or 12m.",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Pipe length in meters. Commonly 6m or 12m.",
+        "tr": "Metre cinsinden boru uzunluğu. Genellikle 6 m veya 12 m."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Material density in kg/m³. Steel: 7850, aluminum: 2700, PVC: 1400.",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Material density in kg/m³. Steel: 7850, aluminum: 2700, PVC: 1400.",
+        "tr": "kg/m³ cinsinden malzeme yoğunluğu. Çelik: 7850, alüminyum: 2700, PVC: 1400."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of pipe pieces.",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of pipe pieces.",
+        "tr": "Boru parça sayısı."
       }
     }
   ],

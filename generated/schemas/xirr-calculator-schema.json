@@ -10,11 +10,15 @@
       "businessContext": "Initial amount invested (negative for outflow).",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Initial amount invested (negative for outflow).",
+        "tr": "Yatırılan başlangıç tutarı (çıkış için negatif)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of days from the start date to the initial investment date.",
       "label_i18n": {
         "en": "Initial Date (days from start)",
-        "tr": "Initial Date (days from start)",
+        "tr": "Başlangıç Tarihi (başlangıçtan itibaren gün)",
         "de": "Initial Date (days from start)",
         "fr": "Initial Date (days from start)",
         "es": "Initial Date (days from start)",
         "ar": "Initial Date (days from start)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days from the start date to the initial investment date.",
+        "tr": "Başlangıç tarihinden ilk yatırım tarihine kadar geçen gün sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Amount of the first intermediate cash flow (positive for inflow, negative for outflow).",
       "label_i18n": {
         "en": "Cash Flow 1 Amount",
-        "tr": "Cash Flow 1 Amount",
+        "tr": "Nakit Akışı 1 Tutarı",
         "de": "Cash Flow 1 Amount",
         "fr": "Cash Flow 1 Amount",
         "es": "Cash Flow 1 Amount",
         "ar": "Cash Flow 1 Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of the first intermediate cash flow (positive for inflow, negative for outflow).",
+        "tr": "İlk ara nakit akışının tutarı (giriş için pozitif, çıkış için negatif)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of days to the first intermediate cash flow.",
       "label_i18n": {
         "en": "Cash Flow 1 Days",
-        "tr": "Cash Flow 1 Days",
+        "tr": "Nakit Akışı 1 Gün",
         "de": "Cash Flow 1 Days",
         "fr": "Cash Flow 1 Days",
         "es": "Cash Flow 1 Days",
         "ar": "Cash Flow 1 Days"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days to the first intermediate cash flow.",
+        "tr": "İlk ara nakit akışına kalan gün sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Amount of the second intermediate cash flow.",
       "label_i18n": {
         "en": "Cash Flow 2 Amount",
-        "tr": "Cash Flow 2 Amount",
+        "tr": "Nakit Akışı 2 Tutarı",
         "de": "Cash Flow 2 Amount",
         "fr": "Cash Flow 2 Amount",
         "es": "Cash Flow 2 Amount",
         "ar": "Cash Flow 2 Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of the second intermediate cash flow.",
+        "tr": "İkinci ara nakit akışının tutarı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of days to the second intermediate cash flow.",
       "label_i18n": {
         "en": "Cash Flow 2 Days",
-        "tr": "Cash Flow 2 Days",
+        "tr": "Nakit Akışı 2 Gün",
         "de": "Cash Flow 2 Days",
         "fr": "Cash Flow 2 Days",
         "es": "Cash Flow 2 Days",
         "ar": "Cash Flow 2 Days"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days to the second intermediate cash flow.",
+        "tr": "İkinci ara nakit akışına kalan gün sayısı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Final value or cash flow at the end of the investment (typically positive).",
       "label_i18n": {
         "en": "Final Value",
-        "tr": "Final Value",
+        "tr": "Nihai Değer",
         "de": "Final Value",
         "fr": "Final Value",
         "es": "Final Value",
         "ar": "Final Value"
+      },
+      "businessContext_i18n": {
+        "en": "Final value or cash flow at the end of the investment (typically positive).",
+        "tr": "Yatırım sonundaki nihai değer veya nakit akışı (genellikle pozitif)."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Number of days from start to the final cash flow.",
       "label_i18n": {
         "en": "Final Days",
-        "tr": "Final Days",
+        "tr": "Son Gün",
         "de": "Final Days",
         "fr": "Final Days",
         "es": "Final Days",
         "ar": "Final Days"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days from start to the final cash flow.",
+        "tr": "Başlangıçtan son nakit akışına kadar geçen gün sayısı."
       }
     }
   ],

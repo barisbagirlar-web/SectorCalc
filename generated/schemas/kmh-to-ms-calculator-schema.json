@@ -10,11 +10,15 @@
       "businessContext": "User-provided speed in kilometers per hour for conversion.",
       "label_i18n": {
         "en": "Speed Value (km/h)",
-        "tr": "Speed Value (km/h)",
+        "tr": "Hız Değeri (km/s)",
         "de": "Speed Value (km/h)",
         "fr": "Speed Value (km/h)",
         "es": "Speed Value (km/h)",
         "ar": "Speed Value (km/h)"
+      },
+      "businessContext_i18n": {
+        "en": "User-provided speed in kilometers per hour for conversion.",
+        "tr": "Dönüşüm için kullanıcı tarafından sağlanan kilometre/saat cinsinden hız."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places to round the output value.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the output value.",
+        "tr": "Çıktı değerini yuvarlamak için ondalık basamak sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard factor for converting km/h to m/s (1 km/h = 1/3.6 m/s). Fixed.",
       "label_i18n": {
         "en": "Conversion Factor (km/h to m/s)",
-        "tr": "Conversion Factor (km/h to m/s)",
+        "tr": "Dönüşüm Faktörü (km/s'den m/s'ye)",
         "de": "Conversion Factor (km/h to m/s)",
         "fr": "Conversion Factor (km/h to m/s)",
         "es": "Conversion Factor (km/h to m/s)",
         "ar": "Conversion Factor (km/h to m/s)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard factor for converting km/h to m/s (1 km/h = 1/3.6 m/s). Fixed.",
+        "tr": "km/s'yi m/s'ye dönüştürmek için standart faktör (1 km/s = 1/3,6 m/s). Sabit."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated percentage uncertainty in the speed measurement for error propagation.",
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
-        "tr": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)",
         "de": "Measurement Uncertainty (%)",
         "fr": "Measurement Uncertainty (%)",
         "es": "Measurement Uncertainty (%)",
         "ar": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage uncertainty in the speed measurement for error propagation.",
+        "tr": "Hata yayılımı için hız ölçümündeki tahmini yüzde belirsizlik."
       }
     }
   ],

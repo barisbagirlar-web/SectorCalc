@@ -10,11 +10,15 @@
       "businessContext": "Total number of units that entered the production process.",
       "label_i18n": {
         "en": "Total Units Started",
-        "tr": "Total Units Started",
+        "tr": "Başlatılan Toplam Birim",
         "de": "Total Units Started",
         "fr": "Total Units Started",
         "es": "Total Units Started",
         "ar": "Total Units Started"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units that entered the production process.",
+        "tr": "Üretim sürecine giren toplam birim sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of units that passed quality inspection on the first attempt without rework.",
       "label_i18n": {
         "en": "Good Units (First Pass)",
-        "tr": "Good Units (First Pass)",
+        "tr": "İyi Birim (İlk Geçiş)",
         "de": "Good Units (First Pass)",
         "fr": "Good Units (First Pass)",
         "es": "Good Units (First Pass)",
         "ar": "Good Units (First Pass)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units that passed quality inspection on the first attempt without rework.",
+        "tr": "Yeniden işleme gerek kalmadan ilk denemede kalite kontrolünden geçen birim sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of units that required rework to meet quality standards.",
       "label_i18n": {
         "en": "Reworked Units",
-        "tr": "Reworked Units",
+        "tr": "Yeniden İşlenen Birim",
         "de": "Reworked Units",
         "fr": "Reworked Units",
         "es": "Reworked Units",
         "ar": "Reworked Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units that required rework to meet quality standards.",
+        "tr": "Kalite standartlarını karşılamak için yeniden işleme gerektiren birim sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of units that were scrapped or deemed irreparable.",
       "label_i18n": {
         "en": "Scrap Units",
-        "tr": "Scrap Units",
+        "tr": "Fire Birimler",
         "de": "Scrap Units",
         "fr": "Scrap Units",
         "es": "Scrap Units",
         "ar": "Scrap Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units that were scrapped or deemed irreparable.",
+        "tr": "Hurda veya onarılamaz olarak değerlendirilen birim sayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Length measured in the object's rest frame.",
       "label_i18n": {
         "en": "Proper Length",
-        "tr": "Proper Length",
+        "tr": "Uygun Uzunluk",
         "de": "Proper Length",
         "fr": "Proper Length",
         "es": "Proper Length",
         "ar": "Proper Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length measured in the object's rest frame.",
+        "tr": "Nesnenin durgun çerçevesinde ölçülen uzunluk."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Velocity of observer relative to object; must be < speed of light.",
       "label_i18n": {
         "en": "Relative Velocity",
-        "tr": "Relative Velocity",
+        "tr": "Bağıl Hız",
         "de": "Relative Velocity",
         "fr": "Relative Velocity",
         "es": "Relative Velocity",
         "ar": "Relative Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Velocity of observer relative to object; must be < speed of light.",
+        "tr": "Gözlemcinin nesneye göre hızı; ışık hızından küçük olmalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Speed of light in vacuum; adjustable for medium.",
       "label_i18n": {
         "en": "Speed of Light",
-        "tr": "Speed of Light",
+        "tr": "Işık Hızı",
         "de": "Speed of Light",
         "fr": "Speed of Light",
         "es": "Speed of Light",
         "ar": "Speed of Light"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of light in vacuum; adjustable for medium.",
+        "tr": "Vakumdaki ışık hızı; ortam için ayarlanabilir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to convert output to desired unit (e.g., 0.001 for km).",
       "label_i18n": {
         "en": "Output Unit Factor",
-        "tr": "Output Unit Factor",
+        "tr": "Çıktı Birim Faktörü",
         "de": "Output Unit Factor",
         "fr": "Output Unit Factor",
         "es": "Output Unit Factor",
         "ar": "Output Unit Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to convert output to desired unit (e.g., 0.001 for km).",
+        "tr": "Çıktıyı istenen birime dönüştürmek için çarpan (ör. km için 0,001)."
       }
     }
   ],

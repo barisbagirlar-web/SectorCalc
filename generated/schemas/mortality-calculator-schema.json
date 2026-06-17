@@ -10,11 +10,15 @@
       "businessContext": "Total observed deaths in the cohort or population during the time period.",
       "label_i18n": {
         "en": "Number of Deaths",
-        "tr": "Number of Deaths",
+        "tr": "Ölüm Sayısı",
         "de": "Number of Deaths",
         "fr": "Number of Deaths",
         "es": "Number of Deaths",
         "ar": "Number of Deaths"
+      },
+      "businessContext_i18n": {
+        "en": "Total observed deaths in the cohort or population during the time period.",
+        "tr": "Zaman diliminde kohort veya popülasyonda gözlemlenen toplam ölüm sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The average number of individuals at risk of death during the period.",
       "label_i18n": {
         "en": "Total Population at Risk",
-        "tr": "Total Population at Risk",
+        "tr": "Risk Altındaki Toplam Nüfus",
         "de": "Total Population at Risk",
         "fr": "Total Population at Risk",
         "es": "Total Population at Risk",
         "ar": "Total Population at Risk"
+      },
+      "businessContext_i18n": {
+        "en": "The average number of individuals at risk of death during the period.",
+        "tr": "Dönem boyunca ölüm riski altındaki ortalama birey sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The length of time over which deaths and population exposure are measured.",
       "label_i18n": {
         "en": "Observation Period",
-        "tr": "Observation Period",
+        "tr": "Gözlem Süresi",
         "de": "Observation Period",
         "fr": "Observation Period",
         "es": "Observation Period",
         "ar": "Observation Period"
+      },
+      "businessContext_i18n": {
+        "en": "The length of time over which deaths and population exposure are measured.",
+        "tr": "Ölümlerin ve nüfus maruziyetinin ölçüldüğü zaman aralığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard scaling factor for mortality rate (e.g., deaths per 100,000).",
       "label_i18n": {
         "en": "Rate Multiplier",
-        "tr": "Rate Multiplier",
+        "tr": "Oran Çarpanı",
         "de": "Rate Multiplier",
         "fr": "Rate Multiplier",
         "es": "Rate Multiplier",
         "ar": "Rate Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Standard scaling factor for mortality rate (e.g., deaths per 100,000).",
+        "tr": "Ölüm oranı için standart ölçekleme faktörü (ör. 100.000'de ölüm)."
       }
     }
   ],

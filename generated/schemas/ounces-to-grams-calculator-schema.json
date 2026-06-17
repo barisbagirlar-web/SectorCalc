@@ -10,11 +10,15 @@
       "businessContext": "Weight in avoirdupois ounces (1 oz = 28.349523125 g).",
       "label_i18n": {
         "en": "Ounces",
-        "tr": "Ounces",
+        "tr": "Ons",
         "de": "Ounces",
         "fr": "Ounces",
         "es": "Ounces",
         "ar": "Ounces"
+      },
+      "businessContext_i18n": {
+        "en": "Weight in avoirdupois ounces (1 oz = 28.349523125 g).",
+        "tr": "Avoirdupois ons cinsinden ağırlık (1 oz = 28,349523125 g)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Grams per ounce. Override for troy ounce (31.1034768 g) or other standards.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Grams per ounce. Override for troy ounce (31.1034768 g) or other standards.",
+        "tr": "Ons başına gram. Troy ons (31,1034768 g) veya diğer standartlar için geçersiz kılın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Uncertainty of the weighing device in ounces, for propagating error into grams.",
       "label_i18n": {
         "en": "Measurement Uncertainty (± oz)",
-        "tr": "Measurement Uncertainty (± oz)",
+        "tr": "Ölçüm Belirsizliği (± oz)",
         "de": "Measurement Uncertainty (± oz)",
         "fr": "Measurement Uncertainty (± oz)",
         "es": "Measurement Uncertainty (± oz)",
         "ar": "Measurement Uncertainty (± oz)"
+      },
+      "businessContext_i18n": {
+        "en": "Uncertainty of the weighing device in ounces, for propagating error into grams.",
+        "tr": "Tartı cihazının ons cinsinden belirsizliği, hatayı grama yaymak için."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired number of decimal places for the displayed converted value (informational, not used in raw computation).",
       "label_i18n": {
         "en": "Output Decimal Places",
-        "tr": "Output Decimal Places",
+        "tr": "Çıktı Ondalık Basamakları",
         "de": "Output Decimal Places",
         "fr": "Output Decimal Places",
         "es": "Output Decimal Places",
         "ar": "Output Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Desired number of decimal places for the displayed converted value (informational, not used in raw computation).",
+        "tr": "Görüntülenen dönüştürülmüş değer için istenen ondalık basamak sayısı (bilgilendirme amaçlıdır, ham hesaplamada kullanılmaz)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Factor to scale the conversion for multiple identical items (e.g., number of units in a batch).",
       "label_i18n": {
         "en": "Batch Multiplier",
-        "tr": "Batch Multiplier",
+        "tr": "Parti Çarpanı",
         "de": "Batch Multiplier",
         "fr": "Batch Multiplier",
         "es": "Batch Multiplier",
         "ar": "Batch Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to scale the conversion for multiple identical items (e.g., number of units in a batch).",
+        "tr": "Birden fazla özdeş öğe için dönüşümü ölçeklendirme faktörü (örneğin, bir partideki birim sayısı)."
       }
     }
   ],

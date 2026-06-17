@@ -10,11 +10,15 @@
       "businessContext": "The area to convert from square kilometers.",
       "label_i18n": {
         "en": "Area in square kilometers",
-        "tr": "Area in square kilometers",
+        "tr": "Kilometrekare cinsinden alan",
         "de": "Area in square kilometers",
         "fr": "Area in square kilometers",
         "es": "Area in square kilometers",
         "ar": "Area in square kilometers"
+      },
+      "businessContext_i18n": {
+        "en": "The area to convert from square kilometers.",
+        "tr": "Kilometrekareden dönüştürülecek alan."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor. Override for regional or historical definitions.",
       "label_i18n": {
         "en": "Conversion factor",
-        "tr": "Conversion factor",
+        "tr": "Dönüşüm faktörü",
         "de": "Conversion factor",
         "fr": "Conversion factor",
         "es": "Conversion factor",
         "ar": "Conversion factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor. Override for regional or historical definitions.",
+        "tr": "Standart dönüşüm faktörü. Bölgesel veya tarihsel tanımlar için geçersiz kılın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal precision",
-        "tr": "Decimal precision",
+        "tr": "Ondalık hassasiyet",
         "de": "Decimal precision",
         "fr": "Decimal precision",
         "es": "Decimal precision",
         "ar": "Decimal precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiply the input by this factor for batch conversions (e.g., if input is in thousands).",
       "label_i18n": {
         "en": "Batch multiplier",
-        "tr": "Batch multiplier",
+        "tr": "Parti çarpanı",
         "de": "Batch multiplier",
         "fr": "Batch multiplier",
         "es": "Batch multiplier",
         "ar": "Batch multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiply the input by this factor for batch conversions (e.g., if input is in thousands).",
+        "tr": "Toplu dönüşümler için girişi bu faktörle çarpın (örneğin, giriş binlerce ise)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Minimum valid area in km². Values below this are treated as invalid.",
       "label_i18n": {
         "en": "Validation threshold",
-        "tr": "Validation threshold",
+        "tr": "Doğrulama eşiği",
         "de": "Validation threshold",
         "fr": "Validation threshold",
         "es": "Validation threshold",
         "ar": "Validation threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum valid area in km². Values below this are treated as invalid.",
+        "tr": "Minimum geçerli alan km² cinsinden. Bunun altındaki değerler geçersiz sayılır."
       }
     }
   ],

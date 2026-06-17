@@ -10,11 +10,15 @@
       "businessContext": "The number to convert to words",
       "label_i18n": {
         "en": "Number",
-        "tr": "Number",
+        "tr": "Sayı",
         "de": "Number",
         "fr": "Number",
         "es": "Number",
         "ar": "Number"
+      },
+      "businessContext_i18n": {
+        "en": "The number to convert to words",
+        "tr": "Yazıya dönüştürülecek sayı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Numeric language code (1=English, 2=Turkish, etc.)",
       "label_i18n": {
         "en": "Language Code",
-        "tr": "Language Code",
+        "tr": "Dil Kodu",
         "de": "Language Code",
         "fr": "Language Code",
         "es": "Language Code",
         "ar": "Language Code"
+      },
+      "businessContext_i18n": {
+        "en": "Numeric language code (1=English, 2=Turkish, etc.)",
+        "tr": "Sayısal dil kodu (1=İngilizce, 2=Türkçe, vb.)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places to spell out",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to spell out",
+        "tr": "Yazıyla ifade edilecek ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0=lowercase, 1=Title Case, 2=UPPERCASE",
       "label_i18n": {
         "en": "Case Format",
-        "tr": "Case Format",
+        "tr": "Büyük/Küçük Harf Biçimi",
         "de": "Case Format",
         "fr": "Case Format",
         "es": "Case Format",
         "ar": "Case Format"
+      },
+      "businessContext_i18n": {
+        "en": "0=lowercase, 1=Title Case, 2=UPPERCASE",
+        "tr": "0=küçük harf, 1=Başlık Harfi, 2=TÜMÜ BÜYÜK HARF"
       }
     }
   ],

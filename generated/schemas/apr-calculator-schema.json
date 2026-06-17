@@ -10,11 +10,15 @@
       "businessContext": "Principal loan amount",
       "label_i18n": {
         "en": "Loan Amount",
-        "tr": "Loan Amount",
+        "tr": "Kredi Tutarı",
         "de": "Loan Amount",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Principal loan amount",
+        "tr": "Anapara kredi tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual nominal interest rate",
       "label_i18n": {
         "en": "Nominal Interest Rate",
-        "tr": "Nominal Interest Rate",
+        "tr": "Nominal Faiz Oranı",
         "de": "Nominal Interest Rate",
         "fr": "Nominal Interest Rate",
         "es": "Nominal Interest Rate",
         "ar": "Nominal Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate",
+        "tr": "Yıllık nominal faiz oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Loan term in years",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Loan term in years",
+        "tr": "Kredi vadesi yıl olarak"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of compounding periods per year",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı",
         "de": "Compounding Frequency",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of compounding periods per year",
+        "tr": "Yıllık bileşik dönem sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Any upfront fees or closing costs",
       "label_i18n": {
         "en": "Upfront Fees",
-        "tr": "Upfront Fees",
+        "tr": "Peşin Ücretler",
         "de": "Upfront Fees",
         "fr": "Upfront Fees",
         "es": "Upfront Fees",
         "ar": "Upfront Fees"
+      },
+      "businessContext_i18n": {
+        "en": "Any upfront fees or closing costs",
+        "tr": "Herhangi bir peşin ücret veya kapanış maliyeti"
       }
     }
   ],

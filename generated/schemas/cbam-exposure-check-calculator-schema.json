@@ -21,10 +21,12 @@
       "max": 10000000,
       "businessContext": "Total output of the primary product (e.g., steel, cement, aluminum) in metric tons per year.",
       "label_i18n": {
-        "en": "Annual Production Volume"
+        "en": "Annual Production Volume",
+        "tr": "Yıllık Üretim Hacmi"
       },
       "businessContext_i18n": {
-        "en": "Total output of the primary product (e.g., steel, cement, aluminum) in metric tons per year."
+        "en": "Total output of the primary product (e.g., steel, cement, aluminum) in metric tons per year.",
+        "tr": "Birincil ürünün (ör. çelik, çimento, alüminyum) yıllık toplam üretimi (metrik ton)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10,
       "businessContext": "Direct and indirect greenhouse gas emissions per ton of product, based on ISO 14064 or GHG Protocol.",
       "label_i18n": {
-        "en": "Carbon Intensity"
+        "en": "Carbon Intensity",
+        "tr": "Karbon Yoğunluğu"
       },
       "businessContext_i18n": {
-        "en": "Direct and indirect greenhouse gas emissions per ton of product, based on ISO 14064 or GHG Protocol."
+        "en": "Direct and indirect greenhouse gas emissions per ton of product, based on ISO 14064 or GHG Protocol.",
+        "tr": "ISO 14064 veya GHG Protokolü'ne göre ton ürün başına doğrudan ve dolaylı sera gazı emisyonları."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 500,
       "businessContext": "Expected or current EU ETS allowance price used for CBAM certificate calculation.",
       "label_i18n": {
-        "en": "CBAM Carbon Price"
+        "en": "CBAM Carbon Price",
+        "tr": "CBAM Karbon Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Expected or current EU ETS allowance price used for CBAM certificate calculation."
+        "en": "Expected or current EU ETS allowance price used for CBAM certificate calculation.",
+        "tr": "CBAM sertifika hesaplaması için beklenen veya mevcut AB ETS emisyon izni fiyatı."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Percentage of emissions covered by free allowances under CBAM transitional rules.",
       "label_i18n": {
-        "en": "Free Allocation Percentage"
+        "en": "Free Allocation Percentage",
+        "tr": "Ücretsiz Tahsisat Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Percentage of emissions covered by free allowances under CBAM transitional rules."
+        "en": "Percentage of emissions covered by free allowances under CBAM transitional rules.",
+        "tr": "CBAM geçiş kuralları kapsamında ücretsiz tahsisatlarla karşılanan emisyonların yüzdesi."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 1,
       "businessContext": "Overall equipment effectiveness (OEE) or similar lean metric; higher values reduce waste and emissions.",
       "label_i18n": {
-        "en": "Production Efficiency Index"
+        "en": "Production Efficiency Index",
+        "tr": "Üretim Verimlilik Endeksi"
       },
       "businessContext_i18n": {
-        "en": "Overall equipment effectiveness (OEE) or similar lean metric; higher values reduce waste and emissions."
+        "en": "Overall equipment effectiveness (OEE) or similar lean metric; higher values reduce waste and emissions.",
+        "tr": "Genel ekipman etkinliği (OEE) veya benzer yalın metrik; yüksek değerler atık ve emisyonları azaltır."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Assessment of data collection, reporting systems, and verification readiness per CBAM requirements.",
       "label_i18n": {
-        "en": "Compliance Readiness Score"
+        "en": "Compliance Readiness Score",
+        "tr": "Uyum Hazırlık Puanı"
       },
       "businessContext_i18n": {
-        "en": "Assessment of data collection, reporting systems, and verification readiness per CBAM requirements."
+        "en": "Assessment of data collection, reporting systems, and verification readiness per CBAM requirements.",
+        "tr": "CBAM gerekliliklerine göre veri toplama, raporlama sistemleri ve doğrulama hazırlığının değerlendirmesi."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 10,
       "businessContext": "Best available technology (BAT) or sector average carbon intensity for benchmarking (ISO 50001).",
       "label_i18n": {
-        "en": "Industry Benchmark Intensity"
+        "en": "Industry Benchmark Intensity",
+        "tr": "Sektör Kıyaslama Yoğunluğu"
       },
       "businessContext_i18n": {
-        "en": "Best available technology (BAT) or sector average carbon intensity for benchmarking (ISO 50001)."
+        "en": "Best available technology (BAT) or sector average carbon intensity for benchmarking (ISO 50001).",
+        "tr": "Kıyaslama için mevcut en iyi teknoloji (BAT) veya sektör ortalama karbon yoğunluğu (ISO 50001)."
       }
     },
     {
@@ -135,10 +149,12 @@
       "default": "Scope 1 & 2",
       "businessContext": "Defines which emission scopes are included in the carbon intensity calculation.",
       "label_i18n": {
-        "en": "Emission Scope"
+        "en": "Emission Scope",
+        "tr": "Emisyon Kapsamı"
       },
       "businessContext_i18n": {
-        "en": "Defines which emission scopes are included in the carbon intensity calculation."
+        "en": "Defines which emission scopes are included in the carbon intensity calculation.",
+        "tr": "Karbon yoğunluğu hesaplamasına hangi emisyon kapsamlarının dahil edildiğini tanımlar."
       },
       "unit": "unit"
     }

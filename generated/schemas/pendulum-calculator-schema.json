@@ -10,11 +10,15 @@
       "businessContext": "Effective length of the pendulum from pivot to center of mass.",
       "label_i18n": {
         "en": "Length (m)",
-        "tr": "Length (m)",
+        "tr": "Uzunluk (m)",
         "de": "Length (m)",
         "fr": "Length (m)",
         "es": "Length (m)",
         "ar": "Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Effective length of the pendulum from pivot to center of mass.",
+        "tr": "Sarkacın pivot noktasından kütle merkezine etkin uzunluk."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Acceleration due to gravity (standard Earth gravity is 9.81 m/s²).",
       "label_i18n": {
         "en": "Gravity (m/s²)",
-        "tr": "Gravity (m/s²)",
+        "tr": "Yerçekimi (m/s²)",
         "de": "Gravity (m/s²)",
         "fr": "Gravity (m/s²)",
         "es": "Gravity (m/s²)",
         "ar": "Gravity (m/s²)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity (standard Earth gravity is 9.81 m/s²).",
+        "tr": "Yerçekimi ivmesi (standart Dünya yerçekimi 9.81 m/s²'dir)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Initial release angle from vertical in degrees. Keep small for accurate simple harmonic approximation.",
       "label_i18n": {
         "en": "Initial Angle (deg)",
-        "tr": "Initial Angle (deg)",
+        "tr": "Başlangıç Açısı (derece)",
         "de": "Initial Angle (deg)",
         "fr": "Initial Angle (deg)",
         "es": "Initial Angle (deg)",
         "ar": "Initial Angle (deg)"
+      },
+      "businessContext_i18n": {
+        "en": "Initial release angle from vertical in degrees. Keep small for accurate simple harmonic approximation.",
+        "tr": "Dikeyden itibaren başlangıç bırakma açısı derece cinsinden. Doğru basit harmonik yaklaşım için küçük tutun."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of full oscillations for total time calculation.",
       "label_i18n": {
         "en": "Number of Oscillations",
-        "tr": "Number of Oscillations",
+        "tr": "Salınım Sayısı",
         "de": "Number of Oscillations",
         "fr": "Number of Oscillations",
         "es": "Number of Oscillations",
         "ar": "Number of Oscillations"
+      },
+      "businessContext_i18n": {
+        "en": "Number of full oscillations for total time calculation.",
+        "tr": "Toplam süre hesaplaması için tam salınım sayısı."
       }
     }
   ],

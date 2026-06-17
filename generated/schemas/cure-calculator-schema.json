@@ -10,11 +10,15 @@
       "businessContext": "Average temperature during the curing period.",
       "label_i18n": {
         "en": "Curing Temperature",
-        "tr": "Curing Temperature",
+        "tr": "Kür Sıcaklığı",
         "de": "Curing Temperature",
         "fr": "Curing Temperature",
         "es": "Curing Temperature",
         "ar": "Curing Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Average temperature during the curing period.",
+        "tr": "Kür süresi boyunca ortalama sıcaklık."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total duration of curing in hours.",
       "label_i18n": {
         "en": "Curing Time",
-        "tr": "Curing Time",
+        "tr": "Kür Süresi",
         "de": "Curing Time",
         "fr": "Curing Time",
         "es": "Curing Time",
         "ar": "Curing Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration of curing in hours.",
+        "tr": "Kürün toplam süresi (saat)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Temperature below which hydration ceases for the specific concrete mix.",
       "label_i18n": {
         "en": "Datum Temperature",
-        "tr": "Datum Temperature",
+        "tr": "Referans Sıcaklık",
         "de": "Datum Temperature",
         "fr": "Datum Temperature",
         "es": "Datum Temperature",
         "ar": "Datum Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature below which hydration ceases for the specific concrete mix.",
+        "tr": "Belirli beton karışımı için hidratasyonun durduğu sıcaklık."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Intercept of the maturity-strength logarithmic relationship.",
       "label_i18n": {
         "en": "Strength Coefficient A",
-        "tr": "Strength Coefficient A",
+        "tr": "Mukavemet Katsayısı A",
         "de": "Strength Coefficient A",
         "fr": "Strength Coefficient A",
         "es": "Strength Coefficient A",
         "ar": "Strength Coefficient A"
+      },
+      "businessContext_i18n": {
+        "en": "Intercept of the maturity-strength logarithmic relationship.",
+        "tr": "Olgunluk-mukavemet logaritmik ilişkisinin kesişimi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Slope of the maturity-strength logarithmic relationship.",
       "label_i18n": {
         "en": "Strength Coefficient B",
-        "tr": "Strength Coefficient B",
+        "tr": "Mukavemet Katsayısı B",
         "de": "Strength Coefficient B",
         "fr": "Strength Coefficient B",
         "es": "Strength Coefficient B",
         "ar": "Strength Coefficient B"
+      },
+      "businessContext_i18n": {
+        "en": "Slope of the maturity-strength logarithmic relationship.",
+        "tr": "Olgunluk-mukavemet logaritmik ilişkisinin eğimi."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Clear span of the beam between supports",
       "label_i18n": {
         "en": "Span",
-        "tr": "Span",
+        "tr": "Açıklık",
         "de": "Span",
         "fr": "Span",
         "es": "Span",
         "ar": "Span"
+      },
+      "businessContext_i18n": {
+        "en": "Clear span of the beam between supports",
+        "tr": "Destekler arasındaki kirişin açıklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total uniform load per meter (including dead and live loads)",
       "label_i18n": {
         "en": "Uniform Load",
-        "tr": "Uniform Load",
+        "tr": "Düzgün yayılı yük",
         "de": "Uniform Load",
         "fr": "Uniform Load",
         "es": "Uniform Load",
         "ar": "Uniform Load"
+      },
+      "businessContext_i18n": {
+        "en": "Total uniform load per meter (including dead and live loads)",
+        "tr": "Metre başına toplam düzgün yayılı yük (ölü ve hareketli yükler dahil)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of the LVL beam cross-section",
       "label_i18n": {
         "en": "Beam Width",
-        "tr": "Beam Width",
+        "tr": "Kiriş Genişliği",
         "de": "Beam Width",
         "fr": "Beam Width",
         "es": "Beam Width",
         "ar": "Beam Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the LVL beam cross-section",
+        "tr": "LVL kiriş kesit genişliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Depth of the LVL beam cross-section",
       "label_i18n": {
         "en": "Beam Depth",
-        "tr": "Beam Depth",
+        "tr": "Kiriş yüksekliği",
         "de": "Beam Depth",
         "fr": "Beam Depth",
         "es": "Beam Depth",
         "ar": "Beam Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Depth of the LVL beam cross-section",
+        "tr": "LVL kiriş kesit yüksekliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Allowable bending stress of the LVL material",
       "label_i18n": {
         "en": "Allowable Bending Stress",
-        "tr": "Allowable Bending Stress",
+        "tr": "İzin Verilen Eğilme Gerilmesi",
         "de": "Allowable Bending Stress",
         "fr": "Allowable Bending Stress",
         "es": "Allowable Bending Stress",
         "ar": "Allowable Bending Stress"
+      },
+      "businessContext_i18n": {
+        "en": "Allowable bending stress of the LVL material",
+        "tr": "LVL malzemenin izin verilen eğilme gerilmesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Modulus of elasticity of the LVL material",
       "label_i18n": {
         "en": "Elastic Modulus",
-        "tr": "Elastic Modulus",
+        "tr": "Elastisite Modülü",
         "de": "Elastic Modulus",
         "fr": "Elastic Modulus",
         "es": "Elastic Modulus",
         "ar": "Elastic Modulus"
+      },
+      "businessContext_i18n": {
+        "en": "Modulus of elasticity of the LVL material",
+        "tr": "LVL malzemenin elastisite modülü"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Current body weight in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Current body weight in kilograms",
+        "tr": "Kilogram cinsinden mevcut vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height in centimeters",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height in centimeters",
+        "tr": "Santimetre cinsinden boy"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age in years",
+        "tr": "Yıl cinsinden yaş"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Biological sex: 1 for male, 0 for female, used for BMR formula",
       "label_i18n": {
         "en": "Sex (Male=1, Female=0)",
-        "tr": "Sex (Male=1, Female=0)",
+        "tr": "Cinsiyet (Erkek=1, Kadın=0)",
         "de": "Sex (Male=1, Female=0)",
         "fr": "Sex (Male=1, Female=0)",
         "es": "Sex (Male=1, Female=0)",
         "ar": "Sex (Male=1, Female=0)"
+      },
+      "businessContext_i18n": {
+        "en": "Biological sex: 1 for male, 0 for female, used for BMR formula",
+        "tr": "Biyolojik cinsiyet: 1 erkek, 0 kadın, BMR formülü için kullanılır"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Physical activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 extra active)",
       "label_i18n": {
         "en": "Activity Factor",
-        "tr": "Activity Factor",
+        "tr": "Aktivite Faktörü",
         "de": "Activity Factor",
         "fr": "Activity Factor",
         "es": "Activity Factor",
         "ar": "Activity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Physical activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 extra active)",
+        "tr": "Fiziksel aktivite seviyesi çarpanı (1.2 hareketsiz, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ekstra aktif)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage calorie deficit from TDEE for weight loss (typically 10-20%)",
       "label_i18n": {
         "en": "Calorie Deficit",
-        "tr": "Calorie Deficit",
+        "tr": "Kalori Açığı",
         "de": "Calorie Deficit",
         "fr": "Calorie Deficit",
         "es": "Calorie Deficit",
         "ar": "Calorie Deficit"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage calorie deficit from TDEE for weight loss (typically 10-20%)",
+        "tr": "Kilo kaybı için TDEE'den yüzde kalori açığı (tipik olarak %10-20)"
       }
     }
   ],

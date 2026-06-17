@@ -10,11 +10,15 @@
       "businessContext": "Lipid panel total cholesterol measurement (typical range: 100–400 mg/dL)",
       "label_i18n": {
         "en": "Total Cholesterol",
-        "tr": "Total Cholesterol",
+        "tr": "Toplam Kolesterol",
         "de": "Total Cholesterol",
         "fr": "Total Cholesterol",
         "es": "Total Cholesterol",
         "ar": "Total Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "Lipid panel total cholesterol measurement (typical range: 100–400 mg/dL)",
+        "tr": "Lipid paneli toplam kolesterol ölçümü (tipik aralık: 100–400 mg/dL)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "High-density lipoprotein measurement (typical range: 20–100 mg/dL)",
       "label_i18n": {
         "en": "HDL Cholesterol",
-        "tr": "HDL Cholesterol",
+        "tr": "HDL Kolesterol",
         "de": "HDL Cholesterol",
         "fr": "HDL Cholesterol",
         "es": "HDL Cholesterol",
         "ar": "HDL Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "High-density lipoprotein measurement (typical range: 20–100 mg/dL)",
+        "tr": "Yüksek yoğunluklu lipoprotein ölçümü (tipik aralık: 20–100 mg/dL)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Triglycerides measurement (must be ≤400 mg/dL for Friedewald formula validity)",
       "label_i18n": {
         "en": "Triglycerides",
-        "tr": "Triglycerides",
+        "tr": "Trigliserit",
         "de": "Triglycerides",
         "fr": "Triglycerides",
         "es": "Triglycerides",
         "ar": "Triglycerides"
+      },
+      "businessContext_i18n": {
+        "en": "Triglycerides measurement (must be ≤400 mg/dL for Friedewald formula validity)",
+        "tr": "Trigliserit ölçümü (Friedewald formülü geçerliliği için ≤400 mg/dL olmalıdır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Set to >0 to override calculation with direct LDL measurement; 0 triggers Friedewald computation",
       "label_i18n": {
         "en": "Direct LDL (if available)",
-        "tr": "Direct LDL (if available)",
+        "tr": "Doğrudan LDL (varsa)",
         "de": "Direct LDL (if available)",
         "fr": "Direct LDL (if available)",
         "es": "Direct LDL (if available)",
         "ar": "Direct LDL (if available)"
+      },
+      "businessContext_i18n": {
+        "en": "Set to >0 to override calculation with direct LDL measurement; 0 triggers Friedewald computation",
+        "tr": "Doğrudan LDL ölçümü ile hesaplamayı geçersiz kılmak için >0 ayarlayın; 0, Friedewald hesaplamasını tetikler"
       }
     }
   ],

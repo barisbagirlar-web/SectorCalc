@@ -10,11 +10,15 @@
       "businessContext": "The current credit card balance.",
       "label_i18n": {
         "en": "Outstanding Balance",
-        "tr": "Outstanding Balance",
+        "tr": "Kalan Bakiye",
         "de": "Outstanding Balance",
         "fr": "Outstanding Balance",
         "es": "Outstanding Balance",
         "ar": "Outstanding Balance"
+      },
+      "businessContext_i18n": {
+        "en": "The current credit card balance.",
+        "tr": "Mevcut kredi kartı bakiyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The annual interest rate for the credit card.",
       "label_i18n": {
         "en": "Annual Percentage Rate (APR)",
-        "tr": "Annual Percentage Rate (APR)",
+        "tr": "Yıllık Yüzde Oranı (APR)",
         "de": "Annual Percentage Rate (APR)",
         "fr": "Annual Percentage Rate (APR)",
         "es": "Annual Percentage Rate (APR)",
         "ar": "Annual Percentage Rate (APR)"
+      },
+      "businessContext_i18n": {
+        "en": "The annual interest rate for the credit card.",
+        "tr": "Kredi kartı için yıllık faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of days in the billing cycle.",
       "label_i18n": {
         "en": "Billing Period (Days)",
-        "tr": "Billing Period (Days)",
+        "tr": "Fatura Dönemi (Gün)",
         "de": "Billing Period (Days)",
         "fr": "Billing Period (Days)",
         "es": "Billing Period (Days)",
         "ar": "Billing Period (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days in the billing cycle.",
+        "tr": "Fatura döngüsündeki gün sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The percentage of the outstanding balance required as minimum payment.",
       "label_i18n": {
         "en": "Minimum Payment (%)",
-        "tr": "Minimum Payment (%)",
+        "tr": "Asgari Ödeme (%)",
         "de": "Minimum Payment (%)",
         "fr": "Minimum Payment (%)",
         "es": "Minimum Payment (%)",
         "ar": "Minimum Payment (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage of the outstanding balance required as minimum payment.",
+        "tr": "Kalan bakiyenin asgari ödeme olarak gereken yüzdesi."
       }
     }
   ],

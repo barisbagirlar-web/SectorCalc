@@ -10,11 +10,15 @@
       "businessContext": "The initial principal balance of the FHA loan, excluding upfront MIP if financed separately.",
       "label_i18n": {
         "en": "Loan Amount",
-        "tr": "Loan Amount",
+        "tr": "Kredi Tutarı",
         "de": "Loan Amount",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The initial principal balance of the FHA loan, excluding upfront MIP if financed separately.",
+        "tr": "FHA kredisinin başlangıç anapara bakiyesi (finanse edilmişse peşin MIP hariç)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual nominal interest rate for the loan.",
       "label_i18n": {
         "en": "Interest Rate",
-        "tr": "Interest Rate",
+        "tr": "Faiz Oranı",
         "de": "Interest Rate",
         "fr": "Interest Rate",
         "es": "Interest Rate",
         "ar": "Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate for the loan.",
+        "tr": "Kredi için yıllık nominal faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total duration of the loan in years.",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration of the loan in years.",
+        "tr": "Kredinin toplam vadesi (yıl cinsinden)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total annual property tax amount for the home.",
       "label_i18n": {
         "en": "Annual Property Tax",
-        "tr": "Annual Property Tax",
+        "tr": "Yıllık Emlak Vergisi",
         "de": "Annual Property Tax",
         "fr": "Annual Property Tax",
         "es": "Annual Property Tax",
         "ar": "Annual Property Tax"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual property tax amount for the home.",
+        "tr": "Ev için toplam yıllık emlak vergisi tutarı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total annual premium for hazard/homeowners insurance.",
       "label_i18n": {
         "en": "Annual Hazard Insurance",
-        "tr": "Annual Hazard Insurance",
+        "tr": "Yıllık Tehlike Sigortası",
         "de": "Annual Hazard Insurance",
         "fr": "Annual Hazard Insurance",
         "es": "Annual Hazard Insurance",
         "ar": "Annual Hazard Insurance"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual premium for hazard/homeowners insurance.",
+        "tr": "Tehlike/ev sahibi sigortası için toplam yıllık prim."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual FHA Mortgage Insurance Premium rate as a percentage of the loan amount (e.g., 0.85 for 30-year, >95% LTV).",
       "label_i18n": {
         "en": "Annual MIP Rate",
-        "tr": "Annual MIP Rate",
+        "tr": "Yıllık MIP Oranı",
         "de": "Annual MIP Rate",
         "fr": "Annual MIP Rate",
         "es": "Annual MIP Rate",
         "ar": "Annual MIP Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual FHA Mortgage Insurance Premium rate as a percentage of the loan amount (e.g., 0.85 for 30-year, >95% LTV).",
+        "tr": "Kredi tutarının yüzdesi olarak yıllık FHA Mortgage Sigortası Prim oranı (örneğin, 30 yıl, >%95 LTV için 0,85)."
       }
     }
   ],

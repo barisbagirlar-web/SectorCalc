@@ -10,11 +10,15 @@
       "businessContext": "Total wall surface area to be covered with stucco.",
       "label_i18n": {
         "en": "Wall Area",
-        "tr": "Wall Area",
+        "tr": "Duvar alanı",
         "de": "Wall Area",
         "fr": "Wall Area",
         "es": "Wall Area",
         "ar": "Wall Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total wall surface area to be covered with stucco.",
+        "tr": "Fire Oranı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target thickness of the stucco layer (typically 3/4 in).",
       "label_i18n": {
         "en": "Stucco Thickness",
-        "tr": "Stucco Thickness",
+        "tr": "Uygulama sırasında oluşacak fire oranı (% cinsinden).",
         "de": "Stucco Thickness",
         "fr": "Stucco Thickness",
         "es": "Stucco Thickness",
         "ar": "Stucco Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Target thickness of the stucco layer (typically 3/4 in).",
+        "tr": "Toplam duvar alanı sıva ile kaplanacak."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of 94-lb cement bags per cubic yard of stucco mix (standard 1:3 mix).",
       "label_i18n": {
         "en": "Cement Content",
-        "tr": "Cement Content",
+        "tr": "Çimento Miktarı",
         "de": "Cement Content",
         "fr": "Cement Content",
         "es": "Cement Content",
         "ar": "Cement Content"
+      },
+      "businessContext_i18n": {
+        "en": "Number of 94-lb cement bags per cubic yard of stucco mix (standard 1:3 mix).",
+        "tr": "Sıva Kalınlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional material percentage to account for job-site waste and spillage.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional material percentage to account for job-site waste and spillage.",
+        "tr": "Sıva tabakasının hedef kalınlığı (genellikle 3/4 inç)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Hourly labor cost for stucco application crew.",
       "label_i18n": {
         "en": "Labor Rate",
-        "tr": "Labor Rate",
+        "tr": "İşçilik ücreti",
         "de": "Labor Rate",
         "fr": "Labor Rate",
         "es": "Labor Rate",
         "ar": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly labor cost for stucco application crew.",
+        "tr": "Metreküp sıva karışımı başına 94 lb'lik çimento torbası sayısı (standart 1:3 karışım)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average stucco application rate per worker-hour.",
       "label_i18n": {
         "en": "Productivity",
-        "tr": "Productivity",
+        "tr": "İş yerindeki atık ve dökülmeleri hesaba katmak için ek malzeme yüzdesi.",
         "de": "Productivity",
         "fr": "Productivity",
         "es": "Productivity",
         "ar": "Productivity"
+      },
+      "businessContext_i18n": {
+        "en": "Average stucco application rate per worker-hour.",
+        "tr": "Sıva uygulama ekibi için saatlik işçilik maliyeti."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Unit cost per 94-lb bag of Portland cement.",
       "label_i18n": {
         "en": "Cement Cost",
-        "tr": "Cement Cost",
+        "tr": "Çimento Maliyeti",
         "de": "Cement Cost",
         "fr": "Cement Cost",
         "es": "Cement Cost",
         "ar": "Cement Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Unit cost per 94-lb bag of Portland cement.",
+        "tr": "94 lb'lik Portland çimentosu torbasının birim maliyeti."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Unit cost per ton of clean masonry sand.",
       "label_i18n": {
         "en": "Sand Cost",
-        "tr": "Sand Cost",
+        "tr": "Kum Maliyeti",
         "de": "Sand Cost",
         "fr": "Sand Cost",
         "es": "Sand Cost",
         "ar": "Sand Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Unit cost per ton of clean masonry sand.",
+        "tr": "Temiz duvar kumunun ton başına birim maliyeti."
       }
     }
   ],

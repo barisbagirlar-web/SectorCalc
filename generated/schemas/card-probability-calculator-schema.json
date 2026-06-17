@@ -10,11 +10,15 @@
       "businessContext": "Total number of cards in the deck.",
       "label_i18n": {
         "en": "Deck Size",
-        "tr": "Deck Size",
+        "tr": "Deste Boyutu",
         "de": "Deck Size",
         "fr": "Deck Size",
         "es": "Deck Size",
         "ar": "Deck Size"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of cards in the deck.",
+        "tr": "Destedeki toplam kart sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of cards in the deck that are considered favorable outcomes.",
       "label_i18n": {
         "en": "Successes in Deck",
-        "tr": "Successes in Deck",
+        "tr": "Destedeki Başarılar",
         "de": "Successes in Deck",
         "fr": "Successes in Deck",
         "es": "Successes in Deck",
         "ar": "Successes in Deck"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cards in the deck that are considered favorable outcomes.",
+        "tr": "Destede olumlu sonuç olarak kabul edilen kart sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of cards drawn from the deck without replacement.",
       "label_i18n": {
         "en": "Number of Draws",
-        "tr": "Number of Draws",
+        "tr": "Çekiliş Sayısı",
         "de": "Number of Draws",
         "fr": "Number of Draws",
         "es": "Number of Draws",
         "ar": "Number of Draws"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cards drawn from the deck without replacement.",
+        "tr": "Desteden iadesiz çekilen kart sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of successful cards you want to appear in the draw.",
       "label_i18n": {
         "en": "Wanted Successes",
-        "tr": "Wanted Successes",
+        "tr": "İstenen Başarılar",
         "de": "Wanted Successes",
         "fr": "Wanted Successes",
         "es": "Wanted Successes",
         "ar": "Wanted Successes"
+      },
+      "businessContext_i18n": {
+        "en": "Number of successful cards you want to appear in the draw.",
+        "tr": "Çekilişte görünmesini istediğiniz başarılı kart sayısı."
       }
     }
   ],

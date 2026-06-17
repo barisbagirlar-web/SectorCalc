@@ -10,11 +10,15 @@
       "businessContext": "Lower bound of integration",
       "label_i18n": {
         "en": "Lower Limit",
-        "tr": "Lower Limit",
+        "tr": "Alt Sınır",
         "de": "Lower Limit",
         "fr": "Lower Limit",
         "es": "Lower Limit",
         "ar": "Lower Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Lower bound of integration",
+        "tr": "İntegralin alt sınırı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Upper bound of integration",
       "label_i18n": {
         "en": "Upper Limit",
-        "tr": "Upper Limit",
+        "tr": "Üst Sınır",
         "de": "Upper Limit",
         "fr": "Upper Limit",
         "es": "Upper Limit",
         "ar": "Upper Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Upper bound of integration",
+        "tr": "İntegralin üst sınırı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of subintervals (will be rounded to nearest even number for Simpson's rule)",
       "label_i18n": {
         "en": "Number of Intervals",
-        "tr": "Number of Intervals",
+        "tr": "Aralık Sayısı",
         "de": "Number of Intervals",
         "fr": "Number of Intervals",
         "es": "Number of Intervals",
         "ar": "Number of Intervals"
+      },
+      "businessContext_i18n": {
+        "en": "Number of subintervals (will be rounded to nearest even number for Simpson's rule)",
+        "tr": "Alt aralık sayısı (Simpson kuralı için en yakın çift sayıya yuvarlanır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Coefficient for x² term in f(x) = a·x² + b·x + c",
       "label_i18n": {
         "en": "Coefficient a (quadratic)",
-        "tr": "Coefficient a (quadratic)",
+        "tr": "Katsayı a (kuadratik)",
         "de": "Coefficient a (quadratic)",
         "fr": "Coefficient a (quadratic)",
         "es": "Coefficient a (quadratic)",
         "ar": "Coefficient a (quadratic)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for x² term in f(x) = a·x² + b·x + c",
+        "tr": "f(x) = a·x² + b·x + c'deki x² teriminin katsayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Coefficient for x term in f(x) = a·x² + b·x + c",
       "label_i18n": {
         "en": "Coefficient b (linear)",
-        "tr": "Coefficient b (linear)",
+        "tr": "Katsayı b (doğrusal)",
         "de": "Coefficient b (linear)",
         "fr": "Coefficient b (linear)",
         "es": "Coefficient b (linear)",
         "ar": "Coefficient b (linear)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for x term in f(x) = a·x² + b·x + c",
+        "tr": "f(x) = a·x² + b·x + c'deki x teriminin katsayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Constant term in f(x) = a·x² + b·x + c",
       "label_i18n": {
         "en": "Coefficient c (constant)",
-        "tr": "Coefficient c (constant)",
+        "tr": "Katsayı c (sabit)",
         "de": "Coefficient c (constant)",
         "fr": "Coefficient c (constant)",
         "es": "Coefficient c (constant)",
         "ar": "Coefficient c (constant)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term in f(x) = a·x² + b·x + c",
+        "tr": "f(x) = a·x² + b·x + c'deki sabit terim"
       }
     }
   ],

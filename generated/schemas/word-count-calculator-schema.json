@@ -10,11 +10,15 @@
       "businessContext": "The total number of characters in the text, including spaces and punctuation.",
       "label_i18n": {
         "en": "Total Characters (including spaces)",
-        "tr": "Total Characters (including spaces)",
+        "tr": "Toplam Karakter (boşluklar dahil)",
         "de": "Total Characters (including spaces)",
         "fr": "Total Characters (including spaces)",
         "es": "Total Characters (including spaces)",
         "ar": "Total Characters (including spaces)"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of characters in the text, including spaces and punctuation.",
+        "tr": "Metindeki toplam karakter sayısı, boşluklar ve noktalama işaretleri dahil."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "If you already know the exact word count, enter it here; otherwise, it will be estimated.",
       "label_i18n": {
         "en": "Total Words (if known, otherwise leave 0)",
-        "tr": "Total Words (if known, otherwise leave 0)",
+        "tr": "Toplam Kelime (biliniyorsa, aksi halde 0 bırakın)",
         "de": "Total Words (if known, otherwise leave 0)",
         "fr": "Total Words (if known, otherwise leave 0)",
         "es": "Total Words (if known, otherwise leave 0)",
         "ar": "Total Words (if known, otherwise leave 0)"
+      },
+      "businessContext_i18n": {
+        "en": "If you already know the exact word count, enter it here; otherwise, it will be estimated.",
+        "tr": "Tam kelime sayısını biliyorsanız buraya girin; aksi halde tahmin edilecektir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Typical average word length in English is about 5 characters. Adjust based on language/content.",
       "label_i18n": {
         "en": "Average Word Length",
-        "tr": "Average Word Length",
+        "tr": "Ortalama Kelime Uzunluğu",
         "de": "Average Word Length",
         "fr": "Average Word Length",
         "es": "Average Word Length",
         "ar": "Average Word Length"
+      },
+      "businessContext_i18n": {
+        "en": "Typical average word length in English is about 5 characters. Adjust based on language/content.",
+        "tr": "İngilizce'de tipik ortalama kelime uzunluğu yaklaşık 5 karakterdir. Dile/içeriğe göre ayarlayın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average reading speed for adults is around 200-250 words per minute.",
       "label_i18n": {
         "en": "Reading Speed",
-        "tr": "Reading Speed",
+        "tr": "Okuma Hızı",
         "de": "Reading Speed",
         "fr": "Reading Speed",
         "es": "Reading Speed",
         "ar": "Reading Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Average reading speed for adults is around 200-250 words per minute.",
+        "tr": "Yetişkinler için ortalama okuma hızı dakikada yaklaşık 200-250 kelimedir."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "If known, number of pages, used for page-based estimates (average 250-300 words per page).",
       "label_i18n": {
         "en": "Total Pages",
-        "tr": "Total Pages",
+        "tr": "Toplam Sayfa",
         "de": "Total Pages",
         "fr": "Total Pages",
         "es": "Total Pages",
         "ar": "Total Pages"
+      },
+      "businessContext_i18n": {
+        "en": "If known, number of pages, used for page-based estimates (average 250-300 words per page).",
+        "tr": "Biliniyorsa sayfa sayısı, sayfa bazlı tahminler için kullanılır (sayfa başına ortalama 250-300 kelime)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Standard words per page assuming double-spaced, 12pt font.",
       "label_i18n": {
         "en": "Words Per Page",
-        "tr": "Words Per Page",
+        "tr": "Sayfa Başına Kelime",
         "de": "Words Per Page",
         "fr": "Words Per Page",
         "es": "Words Per Page",
         "ar": "Words Per Page"
+      },
+      "businessContext_i18n": {
+        "en": "Standard words per page assuming double-spaced, 12pt font.",
+        "tr": "Çift aralıklı, 12 punto yazı tipi varsayılarak standart sayfa başına kelime."
       }
     }
   ],

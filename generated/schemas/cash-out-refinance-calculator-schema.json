@@ -10,11 +10,15 @@
       "businessContext": "The appraised market value of the property.",
       "label_i18n": {
         "en": "Current Property Value",
-        "tr": "Current Property Value",
+        "tr": "Mevcut Mülk Değeri",
         "de": "Current Property Value",
         "fr": "Current Property Value",
         "es": "Current Property Value",
         "ar": "Current Property Value"
+      },
+      "businessContext_i18n": {
+        "en": "The appraised market value of the property.",
+        "tr": "Mülkün ekspertiz değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The outstanding balance on the current mortgage.",
       "label_i18n": {
         "en": "Existing Mortgage Balance",
-        "tr": "Existing Mortgage Balance",
+        "tr": "Mevcut İpotek Bakiyesi",
         "de": "Existing Mortgage Balance",
         "fr": "Existing Mortgage Balance",
         "es": "Existing Mortgage Balance",
         "ar": "Existing Mortgage Balance"
+      },
+      "businessContext_i18n": {
+        "en": "The outstanding balance on the current mortgage.",
+        "tr": "Mevcut ipotek üzerindeki ödenmemiş bakiye."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The amount of equity to withdraw in cash.",
       "label_i18n": {
         "en": "Desired Cash-Out Amount",
-        "tr": "Desired Cash-Out Amount",
+        "tr": "İstenen Nakit Çıkış Tutarı",
         "de": "Desired Cash-Out Amount",
         "fr": "Desired Cash-Out Amount",
         "es": "Desired Cash-Out Amount",
         "ar": "Desired Cash-Out Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of equity to withdraw in cash.",
+        "tr": "Nakit olarak çekilecek öz sermaye miktarı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual interest rate for the new refinance loan.",
       "label_i18n": {
         "en": "Interest Rate",
-        "tr": "Interest Rate",
+        "tr": "Faiz Oranı",
         "de": "Interest Rate",
         "fr": "Interest Rate",
         "es": "Interest Rate",
         "ar": "Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate for the new refinance loan.",
+        "tr": "Yeni refinansman kredisi için yıllık faiz oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The duration of the new loan in years.",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "The duration of the new loan in years.",
+        "tr": "Yeni kredinin yıl cinsinden süresi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total closing costs and fees for the refinance.",
       "label_i18n": {
         "en": "Closing Costs",
-        "tr": "Closing Costs",
+        "tr": "Kapanış Maliyetleri",
         "de": "Closing Costs",
         "fr": "Closing Costs",
         "es": "Closing Costs",
         "ar": "Closing Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Total closing costs and fees for the refinance.",
+        "tr": "Refinansman için toplam kapanış maliyetleri ve ücretleri."
       }
     }
   ],

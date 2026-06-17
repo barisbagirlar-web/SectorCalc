@@ -10,11 +10,15 @@
       "businessContext": "Total grams of carbohydrate in the meal to be covered by insulin",
       "label_i18n": {
         "en": "Carbohydrate Intake (g)",
-        "tr": "Carbohydrate Intake (g)",
+        "tr": "Karbonhidrat Alımı (g)",
         "de": "Carbohydrate Intake (g)",
         "fr": "Carbohydrate Intake (g)",
         "es": "Carbohydrate Intake (g)",
         "ar": "Carbohydrate Intake (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Total grams of carbohydrate in the meal to be covered by insulin",
+        "tr": "İnsülin ile karşılanacak öğündeki toplam karbonhidrat gramı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured blood glucose level before meal",
       "label_i18n": {
         "en": "Current Blood Glucose (mg/dL)",
-        "tr": "Current Blood Glucose (mg/dL)",
+        "tr": "Mevcut Kan Şekeri (mg/dL)",
         "de": "Current Blood Glucose (mg/dL)",
         "fr": "Current Blood Glucose (mg/dL)",
         "es": "Current Blood Glucose (mg/dL)",
         "ar": "Current Blood Glucose (mg/dL)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured blood glucose level before meal",
+        "tr": "Yemek öncesi ölçülen kan şekeri seviyesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired blood glucose level after correction",
       "label_i18n": {
         "en": "Target Blood Glucose (mg/dL)",
-        "tr": "Target Blood Glucose (mg/dL)",
+        "tr": "Hedef Kan Şekeri (mg/dL)",
         "de": "Target Blood Glucose (mg/dL)",
         "fr": "Target Blood Glucose (mg/dL)",
         "es": "Target Blood Glucose (mg/dL)",
         "ar": "Target Blood Glucose (mg/dL)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired blood glucose level after correction",
+        "tr": "Düzeltme sonrası istenen kan şekeri seviyesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Grams of carbohydrate covered by one unit of rapid-acting insulin",
       "label_i18n": {
         "en": "Carbohydrate Ratio (g/U)",
-        "tr": "Carbohydrate Ratio (g/U)",
+        "tr": "Karbonhidrat Oranı (g/U)",
         "de": "Carbohydrate Ratio (g/U)",
         "fr": "Carbohydrate Ratio (g/U)",
         "es": "Carbohydrate Ratio (g/U)",
         "ar": "Carbohydrate Ratio (g/U)"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of carbohydrate covered by one unit of rapid-acting insulin",
+        "tr": "Bir ünite hızlı etkili insülinin karşıladığı karbonhidrat gramı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected drop in blood glucose per unit of rapid-acting insulin",
       "label_i18n": {
         "en": "Insulin Sensitivity Factor (mg/dL/U)",
-        "tr": "Insulin Sensitivity Factor (mg/dL/U)",
+        "tr": "İnsülin Duyarlılık Faktörü (mg/dL/U)",
         "de": "Insulin Sensitivity Factor (mg/dL/U)",
         "fr": "Insulin Sensitivity Factor (mg/dL/U)",
         "es": "Insulin Sensitivity Factor (mg/dL/U)",
         "ar": "Insulin Sensitivity Factor (mg/dL/U)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected drop in blood glucose per unit of rapid-acting insulin",
+        "tr": "Bir ünite hızlı etkili insülin başına beklenen kan şekeri düşüşü"
       }
     }
   ],

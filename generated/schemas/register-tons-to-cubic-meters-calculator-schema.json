@@ -10,11 +10,15 @@
       "businessContext": "Volume in register tons (1 RT = 100 cubic feet)",
       "label_i18n": {
         "en": "Register Tons",
-        "tr": "Register Tons",
+        "tr": "Kayıt Tonu",
         "de": "Register Tons",
         "fr": "Register Tons",
         "es": "Register Tons",
         "ar": "Register Tons"
+      },
+      "businessContext_i18n": {
+        "en": "Volume in register tons (1 RT = 100 cubic feet)",
+        "tr": "Kayıt tonu cinsinden hacim (1 RT = 100 fit küp)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Volume in cubic meters (for reverse conversion)",
       "label_i18n": {
         "en": "Cubic Meters",
-        "tr": "Cubic Meters",
+        "tr": "Metreküp",
         "de": "Cubic Meters",
         "fr": "Cubic Meters",
         "es": "Cubic Meters",
         "ar": "Cubic Meters"
+      },
+      "businessContext_i18n": {
+        "en": "Volume in cubic meters (for reverse conversion)",
+        "tr": "Metreküp cinsinden hacim (ters dönüşüm için)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Select direction: 0 for register tons to cubic meters, 1 for cubic meters to register tons",
       "label_i18n": {
         "en": "Conversion Direction",
-        "tr": "Conversion Direction",
+        "tr": "Dönüşüm yönü",
         "de": "Conversion Direction",
         "fr": "Conversion Direction",
         "es": "Conversion Direction",
         "ar": "Conversion Direction"
+      },
+      "businessContext_i18n": {
+        "en": "Select direction: 0 for register tons to cubic meters, 1 for cubic meters to register tons",
+        "tr": "Yön seçin: 0 kayıt tondan metreküpe, 1 metreküpten kayıt tona"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounding result",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding result",
+        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Use standard conversion factor (2.8316846592 m³/RT) if 1, else custom",
       "label_i18n": {
         "en": "Use Standard Factor",
-        "tr": "Use Standard Factor",
+        "tr": "Standart Faktör Kullan",
         "de": "Use Standard Factor",
         "fr": "Use Standard Factor",
         "es": "Use Standard Factor",
         "ar": "Use Standard Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Use standard conversion factor (2.8316846592 m³/RT) if 1, else custom",
+        "tr": "Standart dönüşüm faktörü (2,8316846592 m³/RT) kullanılıyorsa 1, aksi halde özel"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Custom conversion factor when not using standard. Default is standard factor.",
       "label_i18n": {
         "en": "Custom Factor",
-        "tr": "Custom Factor",
+        "tr": "Özel Faktör",
         "de": "Custom Factor",
         "fr": "Custom Factor",
         "es": "Custom Factor",
         "ar": "Custom Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Custom conversion factor when not using standard. Default is standard factor.",
+        "tr": "Standart kullanılmadığında özel dönüşüm faktörü. Varsayılan standart faktördür."
       }
     }
   ],

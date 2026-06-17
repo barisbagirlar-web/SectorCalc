@@ -10,11 +10,15 @@
       "businessContext": "Patient's ability to perform normal daily activities independently.",
       "label_i18n": {
         "en": "Functional Capacity (0-10)",
-        "tr": "Functional Capacity (0-10)",
+        "tr": "Fonksiyonel Kapasite (0-10)",
         "de": "Functional Capacity (0-10)",
         "fr": "Functional Capacity (0-10)",
         "es": "Functional Capacity (0-10)",
         "ar": "Functional Capacity (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's ability to perform normal daily activities independently.",
+        "tr": "Hastanın normal günlük aktivitelerini bağımsız olarak gerçekleştirme yeteneği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ability to handle personal care without assistance.",
       "label_i18n": {
         "en": "Self-Care (0-10)",
-        "tr": "Self-Care (0-10)",
+        "tr": "Öz Bakım (0-10)",
         "de": "Self-Care (0-10)",
         "fr": "Self-Care (0-10)",
         "es": "Self-Care (0-10)",
         "ar": "Self-Care (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Ability to handle personal care without assistance.",
+        "tr": "Kişisel bakımı yardımsız yapabilme yeteneği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Severity of disease-related symptoms, higher means fewer symptoms.",
       "label_i18n": {
         "en": "Disease Symptoms (0-10)",
-        "tr": "Disease Symptoms (0-10)",
+        "tr": "Hastalık Belirtileri (0-10)",
         "de": "Disease Symptoms (0-10)",
         "fr": "Disease Symptoms (0-10)",
         "es": "Disease Symptoms (0-10)",
         "ar": "Disease Symptoms (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Severity of disease-related symptoms, higher means fewer symptoms.",
+        "tr": "Hastalıkla ilgili semptomların şiddeti; yüksek değer daha az semptom anlamına gelir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Adequacy of nutritional intake and weight maintenance.",
       "label_i18n": {
         "en": "Nutritional Status (0-10)",
-        "tr": "Nutritional Status (0-10)",
+        "tr": "Beslenme Durumu (0-10)",
         "de": "Nutritional Status (0-10)",
         "fr": "Nutritional Status (0-10)",
         "es": "Nutritional Status (0-10)",
         "ar": "Nutritional Status (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Adequacy of nutritional intake and weight maintenance.",
+        "tr": "Besin alımının yeterliliği ve kilo korunumu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cognitive clarity and emotional well-being.",
       "label_i18n": {
         "en": "Mental Status (0-10)",
-        "tr": "Mental Status (0-10)",
+        "tr": "Zihinsel Durum (0-10)",
         "de": "Mental Status (0-10)",
         "fr": "Mental Status (0-10)",
         "es": "Mental Status (0-10)",
         "ar": "Mental Status (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Cognitive clarity and emotional well-being.",
+        "tr": "Bilişsel berraklık ve duygusal iyilik hali."
       }
     }
   ],

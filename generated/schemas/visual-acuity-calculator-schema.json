@@ -10,11 +10,15 @@
       "businessContext": "Distance between patient and eye chart in feet.",
       "label_i18n": {
         "en": "Testing Distance",
-        "tr": "Testing Distance",
+        "tr": "Test Mesafesi",
         "de": "Testing Distance",
         "fr": "Testing Distance",
         "es": "Testing Distance",
         "ar": "Testing Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between patient and eye chart in feet.",
+        "tr": "Hasta ile göz tablosu arasındaki mesafe (feet)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the smallest readable Snellen letter in millimeters.",
       "label_i18n": {
         "en": "Letter Height",
-        "tr": "Letter Height",
+        "tr": "Harf Yüksekliği",
         "de": "Letter Height",
         "fr": "Letter Height",
         "es": "Letter Height",
         "ar": "Letter Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the smallest readable Snellen letter in millimeters.",
+        "tr": "Okunabilen en küçük Snellen harfinin milimetre cinsinden yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard testing distance numerator, typically 20 for feet or 6 for meters.",
       "label_i18n": {
         "en": "Snellen Numerator",
-        "tr": "Snellen Numerator",
+        "tr": "Snellen Payı",
         "de": "Snellen Numerator",
         "fr": "Snellen Numerator",
         "es": "Snellen Numerator",
         "ar": "Snellen Numerator"
+      },
+      "businessContext_i18n": {
+        "en": "Standard testing distance numerator, typically 20 for feet or 6 for meters.",
+        "tr": "Standart test mesafesi payı, genellikle feet için 20 veya metre için 6."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "If known, directly set the Snellen denominator; otherwise calculated from distance and letter height.",
       "label_i18n": {
         "en": "Override Denominator",
-        "tr": "Override Denominator",
+        "tr": "Paydayı Geçersiz Kıl",
         "de": "Override Denominator",
         "fr": "Override Denominator",
         "es": "Override Denominator",
         "ar": "Override Denominator"
+      },
+      "businessContext_i18n": {
+        "en": "If known, directly set the Snellen denominator; otherwise calculated from distance and letter height.",
+        "tr": "Biliniyorsa Snellen paydasını doğrudan ayarlayın; aksi halde mesafe ve harf yüksekliğinden hesaplanır."
       }
     }
   ],

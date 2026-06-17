@@ -10,11 +10,15 @@
       "businessContext": "The value from which another number is to be subtracted.",
       "label_i18n": {
         "en": "First Number (Minuend)",
-        "tr": "First Number (Minuend)",
+        "tr": "Birinci Sayı (Eksilen)",
         "de": "First Number (Minuend)",
         "fr": "First Number (Minuend)",
         "es": "First Number (Minuend)",
         "ar": "First Number (Minuend)"
+      },
+      "businessContext_i18n": {
+        "en": "The value from which another number is to be subtracted.",
+        "tr": "Başka bir sayının çıkarılacağı değer."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The value to be subtracted from the first number.",
       "label_i18n": {
         "en": "Second Number (Subtrahend)",
-        "tr": "Second Number (Subtrahend)",
+        "tr": "İkinci Sayı (Çıkan)",
         "de": "Second Number (Subtrahend)",
         "fr": "Second Number (Subtrahend)",
         "es": "Second Number (Subtrahend)",
         "ar": "Second Number (Subtrahend)"
+      },
+      "businessContext_i18n": {
+        "en": "The value to be subtracted from the first number.",
+        "tr": "Birinci sayıdan çıkarılacak değer."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places to round the intermediate difference for final output.",
       "label_i18n": {
         "en": "Rounding Precision",
-        "tr": "Rounding Precision",
+        "tr": "Yuvarlama Hassasiyeti",
         "de": "Rounding Precision",
         "fr": "Rounding Precision",
         "es": "Rounding Precision",
         "ar": "Rounding Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the intermediate difference for final output.",
+        "tr": "Nihai çıktı için ara farkın yuvarlanacağı ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "A constant added to the rounded difference (e.g., calibration or zero-offset).",
       "label_i18n": {
         "en": "Offset",
-        "tr": "Offset",
+        "tr": "Ofset",
         "de": "Offset",
         "fr": "Offset",
         "es": "Offset",
         "ar": "Offset"
+      },
+      "businessContext_i18n": {
+        "en": "A constant added to the rounded difference (e.g., calibration or zero-offset).",
+        "tr": "Yuvarlanmış farka eklenen sabit (örn. kalibrasyon veya sıfır ofseti)."
       }
     }
   ],

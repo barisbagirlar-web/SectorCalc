@@ -2,9 +2,8 @@
 
 import { useMemo } from "react";
 import { useLocale } from "next-intl";
-import { resolveFreeToolFieldDisplay } from "@/lib/i18n/free-tool-form-i18n";
-import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
+import { resolveGeneratedFieldDisplay } from "@/lib/i18n/generated-field-display";
 
 export type GeneratedToolFieldDisplay = {
   readonly label: string;
@@ -22,32 +21,16 @@ export function useGeneratedToolFieldDisplay(
 ): GeneratedToolFieldDisplay {
   const locale = useLocale();
 
-  return useMemo(() => {
-    const fallbackLabel = resolveGeneratedI18nText(input.label_i18n, locale, input.label);
-    const fallbackHelper = resolveGeneratedI18nText(
+  return useMemo(
+    () => resolveGeneratedFieldDisplay(slug, input, locale),
+    [
+      slug,
+      input.id,
+      input.label,
+      input.label_i18n,
+      input.businessContext,
       input.businessContext_i18n,
       locale,
-      input.businessContext,
-    );
-
-    const resolved = resolveFreeToolFieldDisplay(slug, input.id, locale, {
-      label: fallbackLabel,
-      placeholder: fallbackHelper,
-      helper: fallbackHelper,
-    });
-
-    return {
-      label: resolved.label,
-      placeholder: resolved.placeholder,
-      helper: resolved.helper ?? fallbackHelper,
-    };
-  }, [
-    slug,
-    input.id,
-    input.label,
-    input.label_i18n,
-    input.businessContext,
-    input.businessContext_i18n,
-    locale,
-  ]);
+    ],
+  );
 }

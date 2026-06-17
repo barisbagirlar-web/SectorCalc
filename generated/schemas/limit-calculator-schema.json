@@ -10,11 +10,15 @@
       "businessContext": "Coefficient a0 in numerator polynomial a0 + a1*x + a2*x^2",
       "label_i18n": {
         "en": "Numerator constant term (a0)",
-        "tr": "Numerator constant term (a0)",
+        "tr": "Pay sabit terimi (a0)",
         "de": "Numerator constant term (a0)",
         "fr": "Numerator constant term (a0)",
         "es": "Numerator constant term (a0)",
         "ar": "Numerator constant term (a0)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient a0 in numerator polynomial a0 + a1*x + a2*x^2",
+        "tr": "Pay polinomundaki a0 + a1*x + a2*x^2 katsayısı a0"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Coefficient a1 in numerator polynomial a0 + a1*x + a2*x^2",
       "label_i18n": {
         "en": "Numerator linear coefficient (a1)",
-        "tr": "Numerator linear coefficient (a1)",
+        "tr": "Pay doğrusal katsayısı (a1)",
         "de": "Numerator linear coefficient (a1)",
         "fr": "Numerator linear coefficient (a1)",
         "es": "Numerator linear coefficient (a1)",
         "ar": "Numerator linear coefficient (a1)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient a1 in numerator polynomial a0 + a1*x + a2*x^2",
+        "tr": "Pay polinomundaki a0 + a1*x + a2*x^2 katsayısı a1"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Coefficient a2 in numerator polynomial a0 + a1*x + a2*x^2",
       "label_i18n": {
         "en": "Numerator quadratic coefficient (a2)",
-        "tr": "Numerator quadratic coefficient (a2)",
+        "tr": "Pay ikinci derece katsayısı (a2)",
         "de": "Numerator quadratic coefficient (a2)",
         "fr": "Numerator quadratic coefficient (a2)",
         "es": "Numerator quadratic coefficient (a2)",
         "ar": "Numerator quadratic coefficient (a2)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient a2 in numerator polynomial a0 + a1*x + a2*x^2",
+        "tr": "Pay polinomundaki a0 + a1*x + a2*x^2 katsayısı a2"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Coefficient b0 in denominator polynomial b0 + b1*x + b2*x^2",
       "label_i18n": {
         "en": "Denominator constant term (b0)",
-        "tr": "Denominator constant term (b0)",
+        "tr": "Payda sabit terimi (b0)",
         "de": "Denominator constant term (b0)",
         "fr": "Denominator constant term (b0)",
         "es": "Denominator constant term (b0)",
         "ar": "Denominator constant term (b0)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient b0 in denominator polynomial b0 + b1*x + b2*x^2",
+        "tr": "Payda polinomundaki b0 + b1*x + b2*x^2 katsayısı b0"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Coefficient b1 in denominator polynomial b0 + b1*x + b2*x^2",
       "label_i18n": {
         "en": "Denominator linear coefficient (b1)",
-        "tr": "Denominator linear coefficient (b1)",
+        "tr": "Payda doğrusal katsayısı (b1)",
         "de": "Denominator linear coefficient (b1)",
         "fr": "Denominator linear coefficient (b1)",
         "es": "Denominator linear coefficient (b1)",
         "ar": "Denominator linear coefficient (b1)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient b1 in denominator polynomial b0 + b1*x + b2*x^2",
+        "tr": "Payda polinomundaki b0 + b1*x + b2*x^2 katsayısı b1"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Coefficient b2 in denominator polynomial b0 + b1*x + b2*x^2",
       "label_i18n": {
         "en": "Denominator quadratic coefficient (b2)",
-        "tr": "Denominator quadratic coefficient (b2)",
+        "tr": "Payda ikinci derece katsayısı (b2)",
         "de": "Denominator quadratic coefficient (b2)",
         "fr": "Denominator quadratic coefficient (b2)",
         "es": "Denominator quadratic coefficient (b2)",
         "ar": "Denominator quadratic coefficient (b2)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient b2 in denominator polynomial b0 + b1*x + b2*x^2",
+        "tr": "Payda polinomundaki b0 + b1*x + b2*x^2 katsayısı b2"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "The value that x approaches to evaluate the limit",
       "label_i18n": {
         "en": "Approach point (x →)",
-        "tr": "Approach point (x →)",
+        "tr": "Yaklaşma noktası (x →)",
         "de": "Approach point (x →)",
         "fr": "Approach point (x →)",
         "es": "Approach point (x →)",
         "ar": "Approach point (x →)"
+      },
+      "businessContext_i18n": {
+        "en": "The value that x approaches to evaluate the limit",
+        "tr": "Limitin hesaplanması için x'in yaklaştığı değer"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Small increment for numerical approximation of left- and right-hand limits; use e.g., 1e-4 or smaller",
       "label_i18n": {
         "en": "Epsilon (small number)",
-        "tr": "Epsilon (small number)",
+        "tr": "Epsilon (küçük sayı)",
         "de": "Epsilon (small number)",
         "fr": "Epsilon (small number)",
         "es": "Epsilon (small number)",
         "ar": "Epsilon (small number)"
+      },
+      "businessContext_i18n": {
+        "en": "Small increment for numerical approximation of left- and right-hand limits; use e.g., 1e-4 or smaller",
+        "tr": "Sol ve sağ limitlerin sayısal yaklaşımı için küçük artış; örn. 1e-4 veya daha küçük kullanın"
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 18000,
       "businessContext": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses.",
       "label_i18n": {
-        "en": "Rack Height (mm)"
+        "en": "Rack Height (mm)",
+        "tr": "Raf Yüksekliği (mm)"
       },
       "businessContext_i18n": {
-        "en": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses."
+        "en": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses.",
+        "tr": "Bir raf bölmesinin toplam dikey depolama yüksekliği, yüksek raflı depolarda tipik olarak 3-18 m."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 1500,
       "businessContext": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm).",
       "label_i18n": {
-        "en": "Pallet Depth (mm)"
+        "en": "Pallet Depth (mm)",
+        "tr": "Palet Derinliği (mm)"
       },
       "businessContext_i18n": {
-        "en": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm)."
+        "en": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm).",
+        "tr": "Standart palet derinliği (örneğin, EUR palet 1200 mm, ABD palet 1200 mm)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1200,
       "businessContext": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm).",
       "label_i18n": {
-        "en": "Pallet Width (mm)"
+        "en": "Pallet Width (mm)",
+        "tr": "Palet Genişliği (mm)"
       },
       "businessContext_i18n": {
-        "en": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm)."
+        "en": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm).",
+        "tr": "Standart palet genişliği (örneğin, EUR palet 800 mm, ABD palet 1000 mm)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 2500,
       "businessContext": "Height of a single loaded pallet including pallet base.",
       "label_i18n": {
-        "en": "Pallet Height (mm)"
+        "en": "Pallet Height (mm)",
+        "tr": "Palet Yüksekliği (mm)"
       },
       "businessContext_i18n": {
-        "en": "Height of a single loaded pallet including pallet base."
+        "en": "Height of a single loaded pallet including pallet base.",
+        "tr": "Palet tabanı dahil tek bir yüklü paletin yüksekliği."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 200,
       "businessContext": "Vertical thickness of horizontal load beams, affects usable height per level.",
       "label_i18n": {
-        "en": "Beam Thickness (mm)"
+        "en": "Beam Thickness (mm)",
+        "tr": "Kiriş Kalınlığı (mm)"
       },
       "businessContext_i18n": {
-        "en": "Vertical thickness of horizontal load beams, affects usable height per level."
+        "en": "Vertical thickness of horizontal load beams, affects usable height per level.",
+        "tr": "Yatay yük kirişlerinin dikey kalınlığı, seviye başına kullanılabilir yüksekliği etkiler."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 300,
       "businessContext": "Safety gap between top of pallet and next beam for handling equipment.",
       "label_i18n": {
-        "en": "Vertical Clearance (mm)"
+        "en": "Vertical Clearance (mm)",
+        "tr": "Dikey Açıklık (mm)"
       },
       "businessContext_i18n": {
-        "en": "Safety gap between top of pallet and next beam for handling equipment."
+        "en": "Safety gap between top of pallet and next beam for handling equipment.",
+        "tr": "Palet üstü ile bir sonraki kiriş arasında, taşıma ekipmanı için güvenlik boşluğu."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 5000,
       "businessContext": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691.",
       "label_i18n": {
-        "en": "Aisle Width (mm)"
+        "en": "Aisle Width (mm)",
+        "tr": "Koridor Genişliği (mm)"
       },
       "businessContext_i18n": {
-        "en": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691."
+        "en": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691.",
+        "tr": "OSHA/ISO 3691'e göre raf sıraları arasındaki forklift geçiş koridoru genişliği."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 3600,
       "businessContext": "Horizontal length of a single rack bay (center-to-center of uprights).",
       "label_i18n": {
-        "en": "Rack Bay Length (mm)"
+        "en": "Rack Bay Length (mm)",
+        "tr": "Raf Bölmesi Uzunluğu (mm)"
       },
       "businessContext_i18n": {
-        "en": "Horizontal length of a single rack bay (center-to-center of uprights)."
+        "en": "Horizontal length of a single rack bay (center-to-center of uprights).",
+        "tr": "Tek bir raf bölmesinin yatay uzunluğu (dikmelerin merkezinden merkezine)."
       }
     }
   ],

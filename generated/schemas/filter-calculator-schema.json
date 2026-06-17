@@ -10,11 +10,15 @@
       "businessContext": "Volumetric flow rate through the filter",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate through the filter",
+        "tr": "Filtreden geçen hacimsel debi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Dynamic viscosity of the fluid",
       "label_i18n": {
         "en": "Fluid Viscosity",
-        "tr": "Fluid Viscosity",
+        "tr": "Akışkan viskozitesi",
         "de": "Fluid Viscosity",
         "fr": "Fluid Viscosity",
         "es": "Fluid Viscosity",
         "ar": "Fluid Viscosity"
+      },
+      "businessContext_i18n": {
+        "en": "Dynamic viscosity of the fluid",
+        "tr": "Akışkanın dinamik viskozitesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Thickness of the filter medium",
       "label_i18n": {
         "en": "Filter Thickness",
-        "tr": "Filter Thickness",
+        "tr": "Filtre kalınlığı",
         "de": "Filter Thickness",
         "fr": "Filter Thickness",
         "es": "Filter Thickness",
         "ar": "Filter Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the filter medium",
+        "tr": "Filtre ortamı kalınlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Void fraction of the filter medium",
       "label_i18n": {
         "en": "Porosity",
-        "tr": "Porosity",
+        "tr": "Gözeneklilik",
         "de": "Porosity",
         "fr": "Porosity",
         "es": "Porosity",
         "ar": "Porosity"
+      },
+      "businessContext_i18n": {
+        "en": "Void fraction of the filter medium",
+        "tr": "Filtre ortamının boşluk oranı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Mean diameter of filter medium particles/grains",
       "label_i18n": {
         "en": "Particle Diameter",
-        "tr": "Particle Diameter",
+        "tr": "Partikül çapı",
         "de": "Particle Diameter",
         "fr": "Particle Diameter",
         "es": "Particle Diameter",
         "ar": "Particle Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Mean diameter of filter medium particles/grains",
+        "tr": "Filtre ortamı partiküllerinin/tanelerinin ortalama çapı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cross-sectional area of the filter",
       "label_i18n": {
         "en": "Filter Area",
-        "tr": "Filter Area",
+        "tr": "Filtre alanı",
         "de": "Filter Area",
         "fr": "Filter Area",
         "es": "Filter Area",
         "ar": "Filter Area"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional area of the filter",
+        "tr": "Filtrenin kesit alanı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Outer radius of the cylinder (pipe/tank)",
       "label_i18n": {
         "en": "Outer Radius",
-        "tr": "Outer Radius",
+        "tr": "Dış yarıçap",
         "de": "Outer Radius",
         "fr": "Outer Radius",
         "es": "Outer Radius",
         "ar": "Outer Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Outer radius of the cylinder (pipe/tank)",
+        "tr": "Silindirin dış yarıçapı (boru/tank)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Inner radius of the cylinder (set to 0 for solid cylinder)",
       "label_i18n": {
         "en": "Inner Radius",
-        "tr": "Inner Radius",
+        "tr": "İç yarıçap",
         "de": "Inner Radius",
         "fr": "Inner Radius",
         "es": "Inner Radius",
         "ar": "Inner Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Inner radius of the cylinder (set to 0 for solid cylinder)",
+        "tr": "Silindirin iç yarıçapı (dolu silindir için 0 girin)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height or length of the cylinder",
       "label_i18n": {
         "en": "Height / Length",
-        "tr": "Height / Length",
+        "tr": "Yükseklik / Uzunluk",
         "de": "Height / Length",
         "fr": "Height / Length",
         "es": "Height / Length",
         "ar": "Height / Length"
+      },
+      "businessContext_i18n": {
+        "en": "Height or length of the cylinder",
+        "tr": "Silindirin yüksekliği veya uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 = include surface area of both annular end faces, 0 = exclude (e.g., open pipe)",
       "label_i18n": {
         "en": "Include Annular Ends",
-        "tr": "Include Annular Ends",
+        "tr": "Halka şeklindeki uçları dahil et",
         "de": "Include Annular Ends",
         "fr": "Include Annular Ends",
         "es": "Include Annular Ends",
         "ar": "Include Annular Ends"
+      },
+      "businessContext_i18n": {
+        "en": "1 = include surface area of both annular end faces, 0 = exclude (e.g., open pipe)",
+        "tr": "1 = her iki halka şeklindeki uç yüzeyinin alanını dahil et, 0 = hariç tut (örn. açık boru)"
       }
     }
   ],

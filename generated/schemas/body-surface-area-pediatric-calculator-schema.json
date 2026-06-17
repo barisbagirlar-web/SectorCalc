@@ -10,11 +10,15 @@
       "businessContext": "Patient weight in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Patient weight in kilograms",
+        "tr": "Hasta ağırlığı (kg)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Patient height in centimeters",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Patient height in centimeters",
+        "tr": "Hasta boyu (cm)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George",
       "label_i18n": {
         "en": "Formula Selection",
-        "tr": "Formula Selection",
+        "tr": "Formül Seçimi",
         "de": "Formula Selection",
         "fr": "Formula Selection",
         "es": "Formula Selection",
         "ar": "Formula Selection"
+      },
+      "businessContext_i18n": {
+        "en": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George",
+        "tr": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplicative clinical adjustment (e.g., 1 for standard, 0.85 for reduced dose)",
       "label_i18n": {
         "en": "Adjustment Factor",
-        "tr": "Adjustment Factor",
+        "tr": "Düzeltme Faktörü",
         "de": "Adjustment Factor",
         "fr": "Adjustment Factor",
         "es": "Adjustment Factor",
         "ar": "Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplicative clinical adjustment (e.g., 1 for standard, 0.85 for reduced dose)",
+        "tr": "Çarpımsal klinik düzeltme (örn. standart için 1, azaltılmış doz için 0.85)"
       }
     }
   ],

@@ -22,10 +22,12 @@
       "max": 5000,
       "businessContext": "Total distance of the planned route as per logistics plan.",
       "label_i18n": {
-        "en": "Planned Route Distance"
+        "en": "Planned Route Distance",
+        "tr": "Planlanan Rota Mesafesi"
       },
       "businessContext_i18n": {
-        "en": "Total distance of the planned route as per logistics plan."
+        "en": "Total distance of the planned route as per logistics plan.",
+        "tr": "Lojistik planına göre planlanan rotanın toplam mesafesi."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 5000,
       "businessContext": "Total distance actually driven, including deviations.",
       "label_i18n": {
-        "en": "Actual Route Distance"
+        "en": "Actual Route Distance",
+        "tr": "Gerçek Rota Mesafesi"
       },
       "businessContext_i18n": {
-        "en": "Total distance actually driven, including deviations."
+        "en": "Total distance actually driven, including deviations.",
+        "tr": "Sapmalar dahil fiilen sürülen toplam mesafe."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 100,
       "businessContext": "Vehicle fuel consumption rate under standard conditions (ISO 14040).",
       "label_i18n": {
-        "en": "Average Fuel Consumption Rate"
+        "en": "Average Fuel Consumption Rate",
+        "tr": "Ortalama Yakıt Tüketim Oranı"
       },
       "businessContext_i18n": {
-        "en": "Vehicle fuel consumption rate under standard conditions (ISO 14040)."
+        "en": "Vehicle fuel consumption rate under standard conditions (ISO 14040).",
+        "tr": "Standart koşullar altında (ISO 14040) araç yakıt tüketim oranı."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 10,
       "businessContext": "Current market price of diesel or gasoline per liter.",
       "label_i18n": {
-        "en": "Fuel Price per Liter"
+        "en": "Fuel Price per Liter",
+        "tr": "Litre Başına Yakıt Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Current market price of diesel or gasoline per liter."
+        "en": "Current market price of diesel or gasoline per liter.",
+        "tr": "Litre başına dizel veya benzinin güncel piyasa fiyatı."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 50,
       "businessContext": "Total weight of cargo carried, affects fuel consumption.",
       "label_i18n": {
-        "en": "Load Weight"
+        "en": "Load Weight",
+        "tr": "Yük Ağırlığı"
       },
       "businessContext_i18n": {
-        "en": "Total weight of cargo carried, affects fuel consumption."
+        "en": "Total weight of cargo carried, affects fuel consumption.",
+        "tr": "Taşınan toplam yük ağırlığı, yakıt tüketimini etkiler."
       }
     },
     {
@@ -104,10 +114,12 @@
       "default": "flat",
       "businessContext": "Terrain classification affecting fuel efficiency (WERC guidelines).",
       "label_i18n": {
-        "en": "Terrain Type"
+        "en": "Terrain Type",
+        "tr": "Arazi Türü"
       },
       "businessContext_i18n": {
-        "en": "Terrain classification affecting fuel efficiency (WERC guidelines)."
+        "en": "Terrain classification affecting fuel efficiency (WERC guidelines).",
+        "tr": "Yakıt verimliliğini etkileyen arazi sınıflandırması (WERC yönergeleri)."
       },
       "unit": "unit"
     },
@@ -123,10 +135,12 @@
       "default": "low",
       "businessContext": "Traffic density impact on fuel consumption and route drift.",
       "label_i18n": {
-        "en": "Traffic Condition"
+        "en": "Traffic Condition",
+        "tr": "Trafik Durumu"
       },
       "businessContext_i18n": {
-        "en": "Traffic density impact on fuel consumption and route drift."
+        "en": "Traffic density impact on fuel consumption and route drift.",
+        "tr": "Yakıt tüketimi ve rota sapması üzerinde trafik yoğunluğu etkisi."
       },
       "unit": "unit"
     },
@@ -140,10 +154,12 @@
       "max": 100,
       "businessContext": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric).",
       "label_i18n": {
-        "en": "Driver Behavior Score"
+        "en": "Driver Behavior Score",
+        "tr": "Sürücü Davranış Puanı"
       },
       "businessContext_i18n": {
-        "en": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric)."
+        "en": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric).",
+        "tr": "Hızlanma, frenleme, rölantiye dayalı eko-sürüş puanı (Yalın Altı Sigma metriği)."
       }
     }
   ],

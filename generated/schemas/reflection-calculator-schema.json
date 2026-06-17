@@ -10,11 +10,15 @@
       "businessContext": "Angle between the incident ray and the surface normal, measured in degrees. This is the primary variable determining the reflectivity via Fresnel equations.",
       "label_i18n": {
         "en": "Incident Angle",
-        "tr": "Incident Angle",
+        "tr": "Geliş Açısı",
         "de": "Incident Angle",
         "fr": "Incident Angle",
         "es": "Incident Angle",
         "ar": "Incident Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between the incident ray and the surface normal, measured in degrees. This is the primary variable determining the reflectivity via Fresnel equations.",
+        "tr": "Gelen ışın ile yüzey normali arasındaki açı, derece cinsinden. Fresnel denklemleri ile yansıtıcılığı belirleyen ana değişkendir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Refractive index of the incident medium (e.g., air = 1.0). Governs the speed of light and the angle of refraction.",
       "label_i18n": {
         "en": "Refractive Index (n₁)",
-        "tr": "Refractive Index (n₁)",
+        "tr": "Kırılma İndisi (n₁)",
         "de": "Refractive Index (n₁)",
         "fr": "Refractive Index (n₁)",
         "es": "Refractive Index (n₁)",
         "ar": "Refractive Index (n₁)"
+      },
+      "businessContext_i18n": {
+        "en": "Refractive index of the incident medium (e.g., air = 1.0). Governs the speed of light and the angle of refraction.",
+        "tr": "Gelen ortamın kırılma indisi (örneğin hava = 1.0). Işığın hızını ve kırılma açısını belirler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Refractive index of the transmitting medium (e.g., glass ≈ 1.5). Influences the reflectivity and critical angle for total internal reflection.",
       "label_i18n": {
         "en": "Refractive Index (n₂)",
-        "tr": "Refractive Index (n₂)",
+        "tr": "Kırılma İndisi (n₂)",
         "de": "Refractive Index (n₂)",
         "fr": "Refractive Index (n₂)",
         "es": "Refractive Index (n₂)",
         "ar": "Refractive Index (n₂)"
+      },
+      "businessContext_i18n": {
+        "en": "Refractive index of the transmitting medium (e.g., glass ≈ 1.5). Influences the reflectivity and critical angle for total internal reflection.",
+        "tr": "İletim ortamının kırılma indisi (örneğin cam ≈ 1.5). Yansıtıcılığı ve toplam iç yansıma için kritik açıyı etkiler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Wavelength of light in vacuum (nominal). For documentation and dispersion reference only; not used in this calculation.",
       "label_i18n": {
         "en": "Wavelength",
-        "tr": "Wavelength",
+        "tr": "Dalgaboyu",
         "de": "Wavelength",
         "fr": "Wavelength",
         "es": "Wavelength",
         "ar": "Wavelength"
+      },
+      "businessContext_i18n": {
+        "en": "Wavelength of light in vacuum (nominal). For documentation and dispersion reference only; not used in this calculation.",
+        "tr": "Işığın vakumdaki dalga boyu (nominal). Yalnızca dokümantasyon ve dispersiyon referansı içindir; bu hesaplamada kullanılmaz."
       }
     }
   ],

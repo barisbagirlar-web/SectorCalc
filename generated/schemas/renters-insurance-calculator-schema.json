@@ -10,11 +10,15 @@
       "businessContext": "Estimated value of personal belongings to be insured.",
       "label_i18n": {
         "en": "Personal Property Value",
-        "tr": "Personal Property Value",
+        "tr": "Kişisel Mülk Değeri",
         "de": "Personal Property Value",
         "fr": "Personal Property Value",
         "es": "Personal Property Value",
         "ar": "Personal Property Value"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated value of personal belongings to be insured.",
+        "tr": "Sigortalanacak kişisel eşyaların tahmini değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount of liability protection desired.",
       "label_i18n": {
         "en": "Liability Coverage",
-        "tr": "Liability Coverage",
+        "tr": "Sorumluluk Teminatı",
         "de": "Liability Coverage",
         "fr": "Liability Coverage",
         "es": "Liability Coverage",
         "ar": "Liability Coverage"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of liability protection desired.",
+        "tr": "İstenen sorumluluk koruma tutarı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Amount you pay out-of-pocket before insurance kicks in.",
       "label_i18n": {
         "en": "Deductible",
-        "tr": "Deductible",
+        "tr": "Muafiyet",
         "de": "Deductible",
         "fr": "Deductible",
         "es": "Deductible",
         "ar": "Deductible"
+      },
+      "businessContext_i18n": {
+        "en": "Amount you pay out-of-pocket before insurance kicks in.",
+        "tr": "Sigorta devreye girmeden önce cepten ödediğiniz tutar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier based on crime rate and disaster risk (1.0 = average).",
       "label_i18n": {
         "en": "Location Risk Factor",
-        "tr": "Location Risk Factor",
+        "tr": "Konum Risk Faktörü",
         "de": "Location Risk Factor",
         "fr": "Location Risk Factor",
         "es": "Location Risk Factor",
         "ar": "Location Risk Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier based on crime rate and disaster risk (1.0 = average).",
+        "tr": "Suç oranı ve afet riskine dayalı çarpan (1.0 = ortalama)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Discount percentage off premium for having an approved security system.",
       "label_i18n": {
         "en": "Security System Discount",
-        "tr": "Security System Discount",
+        "tr": "Güvenlik Sistemi İndirimi",
         "de": "Security System Discount",
         "fr": "Security System Discount",
         "es": "Security System Discount",
         "ar": "Security System Discount"
+      },
+      "businessContext_i18n": {
+        "en": "Discount percentage off premium for having an approved security system.",
+        "tr": "Onaylı bir güvenlik sistemine sahip olmanın prim üzerinden indirim yüzdesi."
       }
     }
   ],

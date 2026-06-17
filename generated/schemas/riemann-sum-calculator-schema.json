@@ -10,11 +10,15 @@
       "businessContext": "Select the integrand function for Riemann approximation.",
       "label_i18n": {
         "en": "Function",
-        "tr": "Function",
+        "tr": "Fonksiyon",
         "de": "Function",
         "fr": "Function",
         "es": "Function",
         "ar": "Function"
+      },
+      "businessContext_i18n": {
+        "en": "Select the integrand function for Riemann approximation.",
+        "tr": "Riemann yaklaşımı için integrand fonksiyonunu seçin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Start of integration interval.",
       "label_i18n": {
         "en": "Lower Bound",
-        "tr": "Lower Bound",
+        "tr": "Alt Sınır",
         "de": "Lower Bound",
         "fr": "Lower Bound",
         "es": "Lower Bound",
         "ar": "Lower Bound"
+      },
+      "businessContext_i18n": {
+        "en": "Start of integration interval.",
+        "tr": "İntegral aralığının başlangıcı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "End of integration interval.",
       "label_i18n": {
         "en": "Upper Bound",
-        "tr": "Upper Bound",
+        "tr": "Üst Sınır",
         "de": "Upper Bound",
         "fr": "Upper Bound",
         "es": "Upper Bound",
         "ar": "Upper Bound"
+      },
+      "businessContext_i18n": {
+        "en": "End of integration interval.",
+        "tr": "İntegral aralığının sonu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of subintervals for Riemann sum (higher gives better accuracy).",
       "label_i18n": {
         "en": "Number of Intervals",
-        "tr": "Number of Intervals",
+        "tr": "Aralık Sayısı",
         "de": "Number of Intervals",
         "fr": "Number of Intervals",
         "es": "Number of Intervals",
         "ar": "Number of Intervals"
+      },
+      "businessContext_i18n": {
+        "en": "Number of subintervals for Riemann sum (higher gives better accuracy).",
+        "tr": "Riemann toplamı için alt aralık sayısı (daha yüksek değer daha iyi doğruluk sağlar)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Riemann sum approximation method.",
       "label_i18n": {
         "en": "Method",
-        "tr": "Method",
+        "tr": "Yöntem",
         "de": "Method",
         "fr": "Method",
         "es": "Method",
         "ar": "Method"
+      },
+      "businessContext_i18n": {
+        "en": "Riemann sum approximation method.",
+        "tr": "Riemann toplamı yaklaşım yöntemi."
       }
     }
   ],

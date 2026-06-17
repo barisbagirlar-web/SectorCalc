@@ -10,11 +10,15 @@
       "businessContext": "Length of the basement wall",
       "label_i18n": {
         "en": "Wall Length",
-        "tr": "Wall Length",
+        "tr": "Duvar Uzunluğu (m)",
         "de": "Wall Length",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the basement wall",
+        "tr": "Bodrum duvarının uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the basement wall",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the basement wall",
+        "tr": "Bodrum duvarının yüksekliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Thickness of the basement wall",
       "label_i18n": {
         "en": "Wall Thickness",
-        "tr": "Wall Thickness",
+        "tr": "Duvar Kalınlığı (cm)",
         "de": "Wall Thickness",
         "fr": "Wall Thickness",
         "es": "Wall Thickness",
         "ar": "Wall Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the basement wall",
+        "tr": "Bodrum duvarının kalınlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Compressive strength of concrete",
       "label_i18n": {
         "en": "Concrete Strength",
-        "tr": "Concrete Strength",
+        "tr": "Beton Dayanımı (MPa)",
         "de": "Concrete Strength",
         "fr": "Concrete Strength",
         "es": "Concrete Strength",
         "ar": "Concrete Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Compressive strength of concrete",
+        "tr": "Betonun basınç dayanımı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of steel reinforcement by volume",
       "label_i18n": {
         "en": "Steel Reinforcement Ratio",
-        "tr": "Steel Reinforcement Ratio",
+        "tr": "Donatı Oranı (%)",
         "de": "Steel Reinforcement Ratio",
         "fr": "Steel Reinforcement Ratio",
         "es": "Steel Reinforcement Ratio",
         "ar": "Steel Reinforcement Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of steel reinforcement by volume",
+        "tr": "Hacimce donatı yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Lateral pressure from soil",
       "label_i18n": {
         "en": "Soil Lateral Pressure",
-        "tr": "Soil Lateral Pressure",
+        "tr": "Zemin Yanal Basıncı (kN/m²)",
         "de": "Soil Lateral Pressure",
         "fr": "Soil Lateral Pressure",
         "es": "Soil Lateral Pressure",
         "ar": "Soil Lateral Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Lateral pressure from soil",
+        "tr": "Zeminden gelen yanal basınç"
       }
     }
   ],

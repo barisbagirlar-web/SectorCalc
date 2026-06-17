@@ -10,11 +10,15 @@
       "businessContext": "The total value of your investment portfolio at the start of retirement.",
       "label_i18n": {
         "en": "Initial Portfolio Value",
-        "tr": "Initial Portfolio Value",
+        "tr": "Başlangıç Portföy Değeri",
         "de": "Initial Portfolio Value",
         "fr": "Initial Portfolio Value",
         "es": "Initial Portfolio Value",
         "ar": "Initial Portfolio Value"
+      },
+      "businessContext_i18n": {
+        "en": "The total value of your investment portfolio at the start of retirement.",
+        "tr": "Emeklilik başlangıcında yatırım portföyünüzün toplam değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Assumed average annual return of the portfolio. Typically 5-8% for a balanced portfolio.",
       "label_i18n": {
         "en": "Expected Annual Return",
-        "tr": "Expected Annual Return",
+        "tr": "Beklenen Yıllık Getiri",
         "de": "Expected Annual Return",
         "fr": "Expected Annual Return",
         "es": "Expected Annual Return",
         "ar": "Expected Annual Return"
+      },
+      "businessContext_i18n": {
+        "en": "Assumed average annual return of the portfolio. Typically 5-8% for a balanced portfolio.",
+        "tr": "Portföyün varsayılan ortalama yıllık getirisi. Dengeli bir portföy için tipik olarak %5-8."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected long-term average inflation rate. Used to adjust withdrawals for purchasing power.",
       "label_i18n": {
         "en": "Expected Inflation Rate",
-        "tr": "Expected Inflation Rate",
+        "tr": "Beklenen Enflasyon Oranı",
         "de": "Expected Inflation Rate",
         "fr": "Expected Inflation Rate",
         "es": "Expected Inflation Rate",
         "ar": "Expected Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected long-term average inflation rate. Used to adjust withdrawals for purchasing power.",
+        "tr": "Beklenen uzun vadeli ortalama enflasyon oranı. Satın alma gücü için çekimleri ayarlamak amacıyla kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of years you expect to live in retirement (life expectancy).",
       "label_i18n": {
         "en": "Retirement Period",
-        "tr": "Retirement Period",
+        "tr": "Emeklilik Süresi",
         "de": "Retirement Period",
         "fr": "Retirement Period",
         "es": "Retirement Period",
         "ar": "Retirement Period"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years you expect to live in retirement (life expectancy).",
+        "tr": "Emeklilikte yaşamayı beklediğiniz yıl sayısı (yaşam beklentisi)."
       }
     }
   ],

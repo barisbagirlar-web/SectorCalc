@@ -10,11 +10,15 @@
       "businessContext": "Measured or calculated absorbed dose in Gray",
       "label_i18n": {
         "en": "Absorbed Dose (Gy)",
-        "tr": "Absorbed Dose (Gy)",
+        "tr": "Soğrulan Doz (Gy)",
         "de": "Absorbed Dose (Gy)",
         "fr": "Absorbed Dose (Gy)",
         "es": "Absorbed Dose (Gy)",
         "ar": "Absorbed Dose (Gy)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured or calculated absorbed dose in Gray",
+        "tr": "Gray cinsinden ölçülen veya hesaplanan soğrulan doz"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Multiplier for instrument calibration",
       "label_i18n": {
         "en": "Calibration Factor",
-        "tr": "Calibration Factor",
+        "tr": "Kalibrasyon Faktörü",
         "de": "Calibration Factor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for instrument calibration",
+        "tr": "Cihaz kalibrasyonu için çarpan"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Safety factor to apply for regulatory limits",
       "label_i18n": {
         "en": "Safety Margin",
-        "tr": "Safety Margin",
+        "tr": "Güvenlik Marjı",
         "de": "Safety Margin",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Safety factor to apply for regulatory limits",
+        "tr": "Düzenleyici limitler için uygulanacak güvenlik faktörü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Smallest dose reliably measurable",
       "label_i18n": {
         "en": "Minimal Detection Limit",
-        "tr": "Minimal Detection Limit",
+        "tr": "Minimum Tespit Limiti",
         "de": "Minimal Detection Limit",
         "fr": "Minimal Detection Limit",
         "es": "Minimal Detection Limit",
         "ar": "Minimal Detection Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Smallest dose reliably measurable",
+        "tr": "Güvenilir şekilde ölçülebilen en küçük doz"
       }
     }
   ],

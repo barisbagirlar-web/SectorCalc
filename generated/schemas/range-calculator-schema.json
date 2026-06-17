@@ -10,11 +10,15 @@
       "businessContext": "The lower bound of the measured data set.",
       "label_i18n": {
         "en": "Minimum Value",
-        "tr": "Minimum Value",
+        "tr": "Minimum Değer",
         "de": "Minimum Value",
         "fr": "Minimum Value",
         "es": "Minimum Value",
         "ar": "Minimum Value"
+      },
+      "businessContext_i18n": {
+        "en": "The lower bound of the measured data set.",
+        "tr": "Ölçülen veri setinin alt sınırı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The upper bound of the measured data set.",
       "label_i18n": {
         "en": "Maximum Value",
-        "tr": "Maximum Value",
+        "tr": "Maksimum Değer",
         "de": "Maximum Value",
         "fr": "Maximum Value",
         "es": "Maximum Value",
         "ar": "Maximum Value"
+      },
+      "businessContext_i18n": {
+        "en": "The upper bound of the measured data set.",
+        "tr": "Ölçülen veri setinin üst sınırı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The target or expected value for the measurement.",
       "label_i18n": {
         "en": "Nominal Value",
-        "tr": "Nominal Value",
+        "tr": "Nominal Değer",
         "de": "Nominal Value",
         "fr": "Nominal Value",
         "es": "Nominal Value",
         "ar": "Nominal Value"
+      },
+      "businessContext_i18n": {
+        "en": "The target or expected value for the measurement.",
+        "tr": "Ölçüm için hedef veya beklenen değer."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The permissible deviation from nominal; used to compute out-of-tolerance margins.",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "The permissible deviation from nominal; used to compute out-of-tolerance margins.",
+        "tr": "Nominalden izin verilen sapma; tolerans dışı marjları hesaplamak için kullanılır."
       }
     }
   ],

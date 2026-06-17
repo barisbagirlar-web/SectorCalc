@@ -10,11 +10,15 @@
       "businessContext": "The initial price before any discounts.",
       "label_i18n": {
         "en": "Original Price",
-        "tr": "Original Price",
+        "tr": "Orijinal Fiyat",
         "de": "Original Price",
         "fr": "Original Price",
         "es": "Original Price",
         "ar": "Original Price"
+      },
+      "businessContext_i18n": {
+        "en": "The initial price before any discounts.",
+        "tr": "Herhangi bir indirim öncesindeki başlangıç fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The primary discount percentage.",
       "label_i18n": {
         "en": "Discount Percent",
-        "tr": "Discount Percent",
+        "tr": "İndirim Yüzdesi",
         "de": "Discount Percent",
         "fr": "Discount Percent",
         "es": "Discount Percent",
         "ar": "Discount Percent"
+      },
+      "businessContext_i18n": {
+        "en": "The primary discount percentage.",
+        "tr": "Birincil indirim yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "An extra discount applied after the first discount (e.g., loyalty discount).",
       "label_i18n": {
         "en": "Additional Discount Percent",
-        "tr": "Additional Discount Percent",
+        "tr": "Ek İndirim Yüzdesi",
         "de": "Additional Discount Percent",
         "fr": "Additional Discount Percent",
         "es": "Additional Discount Percent",
         "ar": "Additional Discount Percent"
+      },
+      "businessContext_i18n": {
+        "en": "An extra discount applied after the first discount (e.g., loyalty discount).",
+        "tr": "İlk indirimden sonra uygulanan ek indirim (örneğin, sadakat indirimi)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sales tax rate applied to the discounted price.",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Sales tax rate applied to the discounted price.",
+        "tr": "İndirimli fiyata uygulanan satış vergisi oranı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Length of the beam",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the beam",
+        "tr": "Kiriş uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the cross-section",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the cross-section",
+        "tr": "Kesit genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height of the cross-section",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the cross-section",
+        "tr": "Kesit yüksekliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Material density (steel: 7850 kg/m³)",
       "label_i18n": {
         "en": "Density",
-        "tr": "Density",
+        "tr": "Yoğunluk",
         "de": "Density",
         "fr": "Density",
         "es": "Density",
         "ar": "Density"
+      },
+      "businessContext_i18n": {
+        "en": "Material density (steel: 7850 kg/m³)",
+        "tr": "Malzeme yoğunluğu (çelik: 7850 kg/m³)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Material yield strength (e.g., 250 MPa for S235)",
       "label_i18n": {
         "en": "Yield Strength",
-        "tr": "Yield Strength",
+        "tr": "Akma Dayanımı",
         "de": "Yield Strength",
         "fr": "Yield Strength",
         "es": "Yield Strength",
         "ar": "Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Material yield strength (e.g., 250 MPa for S235)",
+        "tr": "Malzeme akma dayanımı (ör. S235 için 250 MPa)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Design safety factor (≥1.0)",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor (≥1.0)",
+        "tr": "Tasarım güvenlik faktörü (≥1.0)"
       }
     }
   ],

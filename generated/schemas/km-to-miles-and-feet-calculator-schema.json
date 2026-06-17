@@ -10,11 +10,15 @@
       "businessContext": "Distance in kilometers to convert.",
       "label_i18n": {
         "en": "Kilometers",
-        "tr": "Kilometers",
+        "tr": "Kilometre",
         "de": "Kilometers",
         "fr": "Kilometers",
         "es": "Kilometers",
         "ar": "Kilometers"
+      },
+      "businessContext_i18n": {
+        "en": "Distance in kilometers to convert.",
+        "tr": "Dönüştürülecek kilometre cinsinden mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor from kilometers to miles. Standard value 0.621371192.",
       "label_i18n": {
         "en": "Miles per km",
-        "tr": "Miles per km",
+        "tr": "Km başına mil",
         "de": "Miles per km",
         "fr": "Miles per km",
         "es": "Miles per km",
         "ar": "Miles per km"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from kilometers to miles. Standard value 0.621371192.",
+        "tr": "Kilometreden mile dönüşüm faktörü. Standart değer 0,621371192."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of feet in one mile. Standard value 5280.",
       "label_i18n": {
         "en": "Feet per mile",
-        "tr": "Feet per mile",
+        "tr": "Mil başına fit",
         "de": "Feet per mile",
         "fr": "Feet per mile",
         "es": "Feet per mile",
         "ar": "Feet per mile"
+      },
+      "businessContext_i18n": {
+        "en": "Number of feet in one mile. Standard value 5280.",
+        "tr": "Bir mildeki fit sayısı. Standart değer 5280."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the output values.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output values.",
+        "tr": "Çıktı değerleri için ondalık basamak sayısı."
       }
     }
   ],

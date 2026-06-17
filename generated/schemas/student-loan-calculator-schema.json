@@ -10,11 +10,15 @@
       "businessContext": "Total principal amount borrowed for education expenses",
       "label_i18n": {
         "en": "Loan Amount",
-        "tr": "Loan Amount",
+        "tr": "Kredi Tutarı",
         "de": "Loan Amount",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total principal amount borrowed for education expenses",
+        "tr": "Eğitim masrafları için borçlanılan toplam anapara tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Fixed annual interest rate on the student loan",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed annual interest rate on the student loan",
+        "tr": "Öğrenci kredisine uygulanan sabit yıllık faiz oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Repayment period in years after any deferment ends",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Repayment period in years after any deferment ends",
+        "tr": "Herhangi bir erteleme dönemi sonrası geri ödeme süresi (yıl olarak)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of months before repayment starts, during which interest accrues and capitalizes",
       "label_i18n": {
         "en": "Deferment Period",
-        "tr": "Deferment Period",
+        "tr": "Erteleme Dönemi",
         "de": "Deferment Period",
         "fr": "Deferment Period",
         "es": "Deferment Period",
         "ar": "Deferment Period"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months before repayment starts, during which interest accrues and capitalizes",
+        "tr": "Geri ödeme başlamadan önceki ay sayısı; bu sürede faiz tahakkuk eder ve anaparaya eklenir."
       }
     }
   ],

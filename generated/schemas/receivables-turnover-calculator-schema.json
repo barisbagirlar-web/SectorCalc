@@ -10,11 +10,15 @@
       "businessContext": "Total credit sales minus returns and allowances.",
       "label_i18n": {
         "en": "Net Credit Sales",
-        "tr": "Net Credit Sales",
+        "tr": "Net Kredi Satışları",
         "de": "Net Credit Sales",
         "fr": "Net Credit Sales",
         "es": "Net Credit Sales",
         "ar": "Net Credit Sales"
+      },
+      "businessContext_i18n": {
+        "en": "Total credit sales minus returns and allowances.",
+        "tr": "İadeler ve indirimler hariç toplam kredi satışları."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Accounts receivable at start of period.",
       "label_i18n": {
         "en": "Beginning Accounts Receivable",
-        "tr": "Beginning Accounts Receivable",
+        "tr": "Dönem Başı Alacak Hesapları",
         "de": "Beginning Accounts Receivable",
         "fr": "Beginning Accounts Receivable",
         "es": "Beginning Accounts Receivable",
         "ar": "Beginning Accounts Receivable"
+      },
+      "businessContext_i18n": {
+        "en": "Accounts receivable at start of period.",
+        "tr": "Dönem başındaki alacak hesapları."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Accounts receivable at end of period.",
       "label_i18n": {
         "en": "Ending Accounts Receivable",
-        "tr": "Ending Accounts Receivable",
+        "tr": "Dönem Sonu Alacak Hesapları",
         "de": "Ending Accounts Receivable",
         "fr": "Ending Accounts Receivable",
         "es": "Ending Accounts Receivable",
         "ar": "Ending Accounts Receivable"
+      },
+      "businessContext_i18n": {
+        "en": "Accounts receivable at end of period.",
+        "tr": "Dönem sonundaki alacak hesapları."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of days in the accounting period (e.g., 365 for year).",
       "label_i18n": {
         "en": "Days in Period",
-        "tr": "Days in Period",
+        "tr": "Dönemdeki Gün Sayısı",
         "de": "Days in Period",
         "fr": "Days in Period",
         "es": "Days in Period",
         "ar": "Days in Period"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days in the accounting period (e.g., 365 for year).",
+        "tr": "Muhasebe dönemindeki gün sayısı (örneğin, yıl için 365)."
       }
     }
   ],

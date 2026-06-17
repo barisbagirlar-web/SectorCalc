@@ -10,11 +10,15 @@
       "businessContext": "The amount you spend daily on the item you're eliminating",
       "label_i18n": {
         "en": "Daily Expense Amount",
-        "tr": "Daily Expense Amount",
+        "tr": "Günlük Harcama Tutarı",
         "de": "Daily Expense Amount",
         "fr": "Daily Expense Amount",
         "es": "Daily Expense Amount",
         "ar": "Daily Expense Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The amount you spend daily on the item you're eliminating",
+        "tr": "Elimine ettiğiniz ürüne günlük harcadığınız miktar"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of days per week you make this purchase",
       "label_i18n": {
         "en": "Days per Week",
-        "tr": "Days per Week",
+        "tr": "Gün/Hafta",
         "de": "Days per Week",
         "fr": "Days per Week",
         "es": "Days per Week",
         "ar": "Days per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days per week you make this purchase",
+        "tr": "Bu alışverişi haftada kaç gün yaptığınız"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of years you plan to invest the saved money",
       "label_i18n": {
         "en": "Investment Horizon",
-        "tr": "Investment Horizon",
+        "tr": "Yatırım Süresi",
         "de": "Investment Horizon",
         "fr": "Investment Horizon",
         "es": "Investment Horizon",
         "ar": "Investment Horizon"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years you plan to invest the saved money",
+        "tr": "Biriktirilen parayı yatırmayı planladığınız yıl sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected annual return rate on investment (e.g., 7 for 7%)",
       "label_i18n": {
         "en": "Expected Annual Return",
-        "tr": "Expected Annual Return",
+        "tr": "Beklenen Yıllık Getiri",
         "de": "Expected Annual Return",
         "fr": "Expected Annual Return",
         "es": "Expected Annual Return",
         "ar": "Expected Annual Return"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual return rate on investment (e.g., 7 for 7%)",
+        "tr": "Yatırımdan beklenen yıllık getiri oranı (örneğin %7 için 7)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The quantity to convert from rods to feet.",
       "label_i18n": {
         "en": "Number of Rods",
-        "tr": "Number of Rods",
+        "tr": "Rod Sayısı",
         "de": "Number of Rods",
         "fr": "Number of Rods",
         "es": "Number of Rods",
         "ar": "Number of Rods"
+      },
+      "businessContext_i18n": {
+        "en": "The quantity to convert from rods to feet.",
+        "tr": "Roddan feet'e dönüştürülecek miktar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor. Standard US survey rod is 16.5 feet. Adjust if using a different definition.",
       "label_i18n": {
         "en": "Feet per Rod",
-        "tr": "Feet per Rod",
+        "tr": "Feet başına Rod",
         "de": "Feet per Rod",
         "fr": "Feet per Rod",
         "es": "Feet per Rod",
         "ar": "Feet per Rod"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor. Standard US survey rod is 16.5 feet. Adjust if using a different definition.",
+        "tr": "Dönüşüm faktörü. Standart ABD araştırma rod'u 16,5 feet'tir. Farklı bir tanım kullanılıyorsa ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional percentage to add for safety margin in engineering calculations.",
       "label_i18n": {
         "en": "Safety Factor (%)",
-        "tr": "Safety Factor (%)",
+        "tr": "Güvenlik Faktörü (%)",
         "de": "Safety Factor (%)",
         "fr": "Safety Factor (%)",
         "es": "Safety Factor (%)",
         "ar": "Safety Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage to add for safety margin in engineering calculations.",
+        "tr": "Mühendislik hesaplamalarında güvenlik marjı için eklenecek ek yüzde."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Tolerance band for the converted length.",
       "label_i18n": {
         "en": "Tolerance (± ft)",
-        "tr": "Tolerance (± ft)",
+        "tr": "Tolerans (± ft)",
         "de": "Tolerance (± ft)",
         "fr": "Tolerance (± ft)",
         "es": "Tolerance (± ft)",
         "ar": "Tolerance (± ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Tolerance band for the converted length.",
+        "tr": "Dönüştürülen uzunluk için tolerans bandı."
       }
     }
   ],

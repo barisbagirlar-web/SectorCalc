@@ -10,11 +10,15 @@
       "businessContext": "Frequency emitted by the source in Hertz",
       "label_i18n": {
         "en": "Source Frequency",
-        "tr": "Source Frequency",
+        "tr": "Kaynak Frekansı",
         "de": "Source Frequency",
         "fr": "Source Frequency",
         "es": "Source Frequency",
         "ar": "Source Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency emitted by the source in Hertz",
+        "tr": "Kaynak tarafından yayılan frekans (Hertz)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Speed of sound in the medium (e.g., 343 m/s in air at 20°C)",
       "label_i18n": {
         "en": "Wave Speed",
-        "tr": "Wave Speed",
+        "tr": "Dalga Hızı",
         "de": "Wave Speed",
         "fr": "Wave Speed",
         "es": "Wave Speed",
         "ar": "Wave Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of sound in the medium (e.g., 343 m/s in air at 20°C)",
+        "tr": "Ortamdaki ses hızı (örneğin, 20°C'de havada 343 m/s)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Velocity of the source relative to the medium; positive when moving towards the observer",
       "label_i18n": {
         "en": "Source Velocity",
-        "tr": "Source Velocity",
+        "tr": "Kaynak Hızı",
         "de": "Source Velocity",
         "fr": "Source Velocity",
         "es": "Source Velocity",
         "ar": "Source Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Velocity of the source relative to the medium; positive when moving towards the observer",
+        "tr": "Kaynağın ortama göre hızı; gözlemciye doğru hareket ediyorsa pozitif"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Velocity of the observer relative to the medium; positive when moving towards the source",
       "label_i18n": {
         "en": "Observer Velocity",
-        "tr": "Observer Velocity",
+        "tr": "Gözlemci Hızı",
         "de": "Observer Velocity",
         "fr": "Observer Velocity",
         "es": "Observer Velocity",
         "ar": "Observer Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Velocity of the observer relative to the medium; positive when moving towards the source",
+        "tr": "Gözlemcinin ortama göre hızı; kaynağa doğru hareket ediyorsa pozitif"
       }
     }
   ],

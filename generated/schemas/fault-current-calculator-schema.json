@@ -10,11 +10,15 @@
       "businessContext": "Line-to-line voltage on the primary side of the transformer.",
       "label_i18n": {
         "en": "Primary Voltage",
-        "tr": "Primary Voltage",
+        "tr": "Birincil Gerilim",
         "de": "Primary Voltage",
         "fr": "Primary Voltage",
         "es": "Primary Voltage",
         "ar": "Primary Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Line-to-line voltage on the primary side of the transformer.",
+        "tr": "Transformatörün birincil tarafındaki hatlar arası gerilim."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Line-to-line voltage on the secondary side of the transformer (fault location).",
       "label_i18n": {
         "en": "Secondary Voltage",
-        "tr": "Secondary Voltage",
+        "tr": "İkincil Gerilim",
         "de": "Secondary Voltage",
         "fr": "Secondary Voltage",
         "es": "Secondary Voltage",
         "ar": "Secondary Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Line-to-line voltage on the secondary side of the transformer (fault location).",
+        "tr": "Transformatörün ikincil tarafındaki (arıza konumu) hatlar arası gerilim."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Available short-circuit MVA from the upstream source at the primary voltage level.",
       "label_i18n": {
         "en": "Source Short-Circuit MVA",
-        "tr": "Source Short-Circuit MVA",
+        "tr": "Kaynak Kısa Devre MVA",
         "de": "Source Short-Circuit MVA",
         "fr": "Source Short-Circuit MVA",
         "es": "Source Short-Circuit MVA",
         "ar": "Source Short-Circuit MVA"
+      },
+      "businessContext_i18n": {
+        "en": "Available short-circuit MVA from the upstream source at the primary voltage level.",
+        "tr": "Birincil gerilim seviyesinde yukarı akış kaynağından mevcut kısa devre MVA'sı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Power rating of the transformer.",
       "label_i18n": {
         "en": "Transformer Rating",
-        "tr": "Transformer Rating",
+        "tr": "Transformatör Anma Gücü",
         "de": "Transformer Rating",
         "fr": "Transformer Rating",
         "es": "Transformer Rating",
         "ar": "Transformer Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Power rating of the transformer.",
+        "tr": "Transformatörün güç değeri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percent impedance of the transformer based on its own kVA rating.",
       "label_i18n": {
         "en": "Transformer %Z",
-        "tr": "Transformer %Z",
+        "tr": "Transformatör %Z",
         "de": "Transformer %Z",
         "fr": "Transformer %Z",
         "es": "Transformer %Z",
         "ar": "Transformer %Z"
+      },
+      "businessContext_i18n": {
+        "en": "Percent impedance of the transformer based on its own kVA rating.",
+        "tr": "Transformatörün kendi kVA değerine göre yüzde empedansı."
       }
     }
   ],

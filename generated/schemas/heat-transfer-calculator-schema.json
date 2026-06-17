@@ -10,11 +10,15 @@
       "businessContext": "Heat transfer surface area",
       "label_i18n": {
         "en": "Area",
-        "tr": "Area",
+        "tr": "Alan",
         "de": "Area",
         "fr": "Area",
         "es": "Area",
         "ar": "Area"
+      },
+      "businessContext_i18n": {
+        "en": "Heat transfer surface area",
+        "tr": "Isı transfer yüzey alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Thickness of the wall material",
       "label_i18n": {
         "en": "Wall Thickness",
-        "tr": "Wall Thickness",
+        "tr": "Duvar Kalınlığı (cm)",
         "de": "Wall Thickness",
         "fr": "Wall Thickness",
         "es": "Wall Thickness",
         "ar": "Wall Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the wall material",
+        "tr": "Duvar malzemesinin kalınlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Thermal conductivity of wall material",
       "label_i18n": {
         "en": "Thermal Conductivity",
-        "tr": "Thermal Conductivity",
+        "tr": "Isıl İletkenlik",
         "de": "Thermal Conductivity",
         "fr": "Thermal Conductivity",
         "es": "Thermal Conductivity",
         "ar": "Thermal Conductivity"
+      },
+      "businessContext_i18n": {
+        "en": "Thermal conductivity of wall material",
+        "tr": "Duvar malzemesinin termal iletkenliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Convective heat transfer coefficient on the hot side",
       "label_i18n": {
         "en": "Inside Convection Coefficient",
-        "tr": "Inside Convection Coefficient",
+        "tr": "İç Konveksiyon Katsayısı",
         "de": "Inside Convection Coefficient",
         "fr": "Inside Convection Coefficient",
         "es": "Inside Convection Coefficient",
         "ar": "Inside Convection Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Convective heat transfer coefficient on the hot side",
+        "tr": "Sıcak taraftaki konvektif ısı transfer katsayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Convective heat transfer coefficient on the cold side",
       "label_i18n": {
         "en": "Outside Convection Coefficient",
-        "tr": "Outside Convection Coefficient",
+        "tr": "Dış Konveksiyon Katsayısı",
         "de": "Outside Convection Coefficient",
         "fr": "Outside Convection Coefficient",
         "es": "Outside Convection Coefficient",
         "ar": "Outside Convection Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Convective heat transfer coefficient on the cold side",
+        "tr": "Soğuk taraftaki konvektif ısı transfer katsayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Temperature of the hot fluid",
       "label_i18n": {
         "en": "Inside Temperature",
-        "tr": "Inside Temperature",
+        "tr": "İç Sıcaklık",
         "de": "Inside Temperature",
         "fr": "Inside Temperature",
         "es": "Inside Temperature",
         "ar": "Inside Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the hot fluid",
+        "tr": "Sıcak akışkanın sıcaklığı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Temperature of the cold fluid",
       "label_i18n": {
         "en": "Outside Temperature",
-        "tr": "Outside Temperature",
+        "tr": "Dış Sıcaklık",
         "de": "Outside Temperature",
         "fr": "Outside Temperature",
         "es": "Outside Temperature",
         "ar": "Outside Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the cold fluid",
+        "tr": "Soğuk akışkanın sıcaklığı"
       }
     }
   ],

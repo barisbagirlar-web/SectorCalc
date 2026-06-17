@@ -10,11 +10,15 @@
       "businessContext": "How many dice are rolled",
       "label_i18n": {
         "en": "Number of Dice",
-        "tr": "Number of Dice",
+        "tr": "Zar Sayısı",
         "de": "Number of Dice",
         "fr": "Number of Dice",
         "es": "Number of Dice",
         "ar": "Number of Dice"
+      },
+      "businessContext_i18n": {
+        "en": "How many dice are rolled",
+        "tr": "Kaç zar atılıyor"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of faces on each die",
       "label_i18n": {
         "en": "Sides per Die",
-        "tr": "Sides per Die",
+        "tr": "Zar Yüzeyi",
         "de": "Sides per Die",
         "fr": "Sides per Die",
         "es": "Sides per Die",
         "ar": "Sides per Die"
+      },
+      "businessContext_i18n": {
+        "en": "Number of faces on each die",
+        "tr": "Her zardaki yüz sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minimum roll needed to succeed on a single die",
       "label_i18n": {
         "en": "Target Number",
-        "tr": "Target Number",
+        "tr": "Hedef Sayı",
         "de": "Target Number",
         "fr": "Target Number",
         "es": "Target Number",
         "ar": "Target Number"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum roll needed to succeed on a single die",
+        "tr": "Tek bir zarda başarılı olmak için gereken minimum atış"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Flat bonus added to total expected sum",
       "label_i18n": {
         "en": "Modifier",
-        "tr": "Modifier",
+        "tr": "Düzeltici",
         "de": "Modifier",
         "fr": "Modifier",
         "es": "Modifier",
         "ar": "Modifier"
+      },
+      "businessContext_i18n": {
+        "en": "Flat bonus added to total expected sum",
+        "tr": "Beklenen toplam toplama eklenen sabit bonus"
       }
     }
   ],

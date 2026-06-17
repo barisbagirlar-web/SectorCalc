@@ -10,11 +10,15 @@
       "businessContext": "Standard deviation of position measurement (nanometer scale typical).",
       "label_i18n": {
         "en": "Position uncertainty (Δx)",
-        "tr": "Position uncertainty (Δx)",
+        "tr": "Konum belirsizliği (Δx)",
         "de": "Position uncertainty (Δx)",
         "fr": "Position uncertainty (Δx)",
         "es": "Position uncertainty (Δx)",
         "ar": "Position uncertainty (Δx)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of position measurement (nanometer scale typical).",
+        "tr": "Konum ölçümünün standart sapması (tipik olarak nanometre ölçeği)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard deviation of momentum measurement. Adjust based on measurement system.",
       "label_i18n": {
         "en": "Momentum uncertainty (Δp)",
-        "tr": "Momentum uncertainty (Δp)",
+        "tr": "Momentum belirsizliği (Δp)",
         "de": "Momentum uncertainty (Δp)",
         "fr": "Momentum uncertainty (Δp)",
         "es": "Momentum uncertainty (Δp)",
         "ar": "Momentum uncertainty (Δp)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of momentum measurement. Adjust based on measurement system.",
+        "tr": "Momentum ölçümünün standart sapması. Ölçüm sistemine göre ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fundamental quantum constant. Typically fixed, but adjustable for theoretical scenarios.",
       "label_i18n": {
         "en": "Reduced Planck constant (ħ)",
-        "tr": "Reduced Planck constant (ħ)",
+        "tr": "İndirgenmiş Planck sabiti (ħ)",
         "de": "Reduced Planck constant (ħ)",
         "fr": "Reduced Planck constant (ħ)",
         "es": "Reduced Planck constant (ħ)",
         "ar": "Reduced Planck constant (ħ)"
+      },
+      "businessContext_i18n": {
+        "en": "Fundamental quantum constant. Typically fixed, but adjustable for theoretical scenarios.",
+        "tr": "Temel kuantum sabiti. Genellikle sabittir, ancak teorik senaryolar için ayarlanabilir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Safety factor multiplier for minimum uncertainty product. >=1 ensures strict Heisenberg compliance.",
       "label_i18n": {
         "en": "Compliance tolerance",
-        "tr": "Compliance tolerance",
+        "tr": "Uyum toleransı",
         "de": "Compliance tolerance",
         "fr": "Compliance tolerance",
         "es": "Compliance tolerance",
         "ar": "Compliance tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Safety factor multiplier for minimum uncertainty product. >=1 ensures strict Heisenberg compliance.",
+        "tr": "Minimum belirsizlik çarpımı için güvenlik faktörü çarpanı. >=1, sıkı Heisenberg uyumluluğunu sağlar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Mass of the particle (e.g., electron) for velocity uncertainty derivation.",
       "label_i18n": {
         "en": "Particle mass",
-        "tr": "Particle mass",
+        "tr": "Parçacık kütlesi",
         "de": "Particle mass",
         "fr": "Particle mass",
         "es": "Particle mass",
         "ar": "Particle mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the particle (e.g., electron) for velocity uncertainty derivation.",
+        "tr": "Hız belirsizliği türetimi için parçacığın (ör. elektron) kütlesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "If 0, will be calculated as Δp/mass. Else used as direct input for alternative computations.",
       "label_i18n": {
         "en": "Velocity uncertainty (Δv)",
-        "tr": "Velocity uncertainty (Δv)",
+        "tr": "Hız belirsizliği (Δv)",
         "de": "Velocity uncertainty (Δv)",
         "fr": "Velocity uncertainty (Δv)",
         "es": "Velocity uncertainty (Δv)",
         "ar": "Velocity uncertainty (Δv)"
+      },
+      "businessContext_i18n": {
+        "en": "If 0, will be calculated as Δp/mass. Else used as direct input for alternative computations.",
+        "tr": "0 ise Δp/kütle olarak hesaplanır. Aksi halde alternatif hesaplamalar için doğrudan girdi olarak kullanılır."
       }
     }
   ],

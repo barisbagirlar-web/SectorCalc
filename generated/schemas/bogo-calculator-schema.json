@@ -10,11 +10,15 @@
       "businessContext": "The regular unit selling price of the item before any promotion.",
       "label_i18n": {
         "en": "Original Price per Item",
-        "tr": "Original Price per Item",
+        "tr": "Birim Fiyat",
         "de": "Original Price per Item",
         "fr": "Original Price per Item",
         "es": "Original Price per Item",
         "ar": "Original Price per Item"
+      },
+      "businessContext_i18n": {
+        "en": "The regular unit selling price of the item before any promotion.",
+        "tr": "Herhangi bir promosyon öncesi ürünün normal birim satış fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of items the customer must purchase to qualify for the free items (the 'Buy' part).",
       "label_i18n": {
         "en": "Buy Quantity",
-        "tr": "Buy Quantity",
+        "tr": "Satın Alma Adedi",
         "de": "Buy Quantity",
         "fr": "Buy Quantity",
         "es": "Buy Quantity",
         "ar": "Buy Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items the customer must purchase to qualify for the free items (the 'Buy' part).",
+        "tr": "Müşterinin ücretsiz ürünleri almaya hak kazanması için satın alması gereken ürün sayısı ('Al' kısmı)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of items the customer receives for free (the 'Get' part).",
       "label_i18n": {
         "en": "Get Quantity (Free)",
-        "tr": "Get Quantity (Free)",
+        "tr": "Ücretsiz Adet",
         "de": "Get Quantity (Free)",
         "fr": "Get Quantity (Free)",
         "es": "Get Quantity (Free)",
         "ar": "Get Quantity (Free)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items the customer receives for free (the 'Get' part).",
+        "tr": "Müşterinin ücretsiz aldığı ürün sayısı ('Ver' kısmı)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "How many times the BOGO deal is applied (e.g., buy 2 get 1 free repeated twice).",
       "label_i18n": {
         "en": "Number of Sets",
-        "tr": "Number of Sets",
+        "tr": "Set Sayısı",
         "de": "Number of Sets",
         "fr": "Number of Sets",
         "es": "Number of Sets",
         "ar": "Number of Sets"
+      },
+      "businessContext_i18n": {
+        "en": "How many times the BOGO deal is applied (e.g., buy 2 get 1 free repeated twice).",
+        "tr": "BOGO anlaşmasının kaç kez uygulandığı (örneğin, 2 al 1 bedava iki kez tekrarlanırsa)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Applicable tax percentage on the purchase. Set to 0 if tax is not considered.",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable tax percentage on the purchase. Set to 0 if tax is not considered.",
+        "tr": "Alışverişe uygulanan vergi yüzdesi. Vergi dikkate alınmıyorsa 0 olarak ayarlayın."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Any extra percentage discount applied to the total (e.g., store-wide sale).",
       "label_i18n": {
         "en": "Additional Discount",
-        "tr": "Additional Discount",
+        "tr": "Ek İndirim",
         "de": "Additional Discount",
         "fr": "Additional Discount",
         "es": "Additional Discount",
         "ar": "Additional Discount"
+      },
+      "businessContext_i18n": {
+        "en": "Any extra percentage discount applied to the total (e.g., store-wide sale).",
+        "tr": "Toplam tutara uygulanan herhangi bir ek yüzde indirim (örneğin, mağaza genelinde indirim)."
       }
     }
   ],

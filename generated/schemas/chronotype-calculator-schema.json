@@ -10,11 +10,15 @@
       "businessContext": "Typical bedtime on workdays, in decimal hours (e.g., 23.5 = 11:30 PM)",
       "label_i18n": {
         "en": "Workday Bedtime",
-        "tr": "Workday Bedtime",
+        "tr": "İş Günü Yatma Saati",
         "de": "Workday Bedtime",
         "fr": "Workday Bedtime",
         "es": "Workday Bedtime",
         "ar": "Workday Bedtime"
+      },
+      "businessContext_i18n": {
+        "en": "Typical bedtime on workdays, in decimal hours (e.g., 23.5 = 11:30 PM)",
+        "tr": "İş günlerinde tipik yatma saati, ondalık saat cinsinden (ör. 23,5 = 23:30)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Typical wake time on workdays, in decimal hours (e.g., 7.0 = 7:00 AM)",
       "label_i18n": {
         "en": "Workday Wake Time",
-        "tr": "Workday Wake Time",
+        "tr": "İş Günü Uyanma Saati",
         "de": "Workday Wake Time",
         "fr": "Workday Wake Time",
         "es": "Workday Wake Time",
         "ar": "Workday Wake Time"
+      },
+      "businessContext_i18n": {
+        "en": "Typical wake time on workdays, in decimal hours (e.g., 7.0 = 7:00 AM)",
+        "tr": "İş günlerinde tipik uyanma saati, ondalık saat cinsinden (ör. 7,0 = 07:00)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Typical bedtime on free days, in decimal hours (e.g., 0 = midnight, 1.5 = 1:30 AM)",
       "label_i18n": {
         "en": "Free Day Bedtime",
-        "tr": "Free Day Bedtime",
+        "tr": "Tatil Günü Yatma Saati",
         "de": "Free Day Bedtime",
         "fr": "Free Day Bedtime",
         "es": "Free Day Bedtime",
         "ar": "Free Day Bedtime"
+      },
+      "businessContext_i18n": {
+        "en": "Typical bedtime on free days, in decimal hours (e.g., 0 = midnight, 1.5 = 1:30 AM)",
+        "tr": "Tatil günlerinde tipik yatma saati, ondalık saat cinsinden (ör. 0 = gece yarısı, 1,5 = 01:30)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Typical wake time on free days, in decimal hours (e.g., 8 = 8:00 AM)",
       "label_i18n": {
         "en": "Free Day Wake Time",
-        "tr": "Free Day Wake Time",
+        "tr": "Tatil Günü Uyanma Saati",
         "de": "Free Day Wake Time",
         "fr": "Free Day Wake Time",
         "es": "Free Day Wake Time",
         "ar": "Free Day Wake Time"
+      },
+      "businessContext_i18n": {
+        "en": "Typical wake time on free days, in decimal hours (e.g., 8 = 8:00 AM)",
+        "tr": "Tatil günlerinde tipik uyanma saati, ondalık saat cinsinden (ör. 8 = 08:00)"
       }
     }
   ],

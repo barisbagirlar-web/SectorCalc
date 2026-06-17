@@ -10,11 +10,15 @@
       "businessContext": "Concentration of the standard solution used for titration.",
       "label_i18n": {
         "en": "Titrant Concentration",
-        "tr": "Titrant Concentration",
+        "tr": "Titrant Konsantrasyonu",
         "de": "Titrant Concentration",
         "fr": "Titrant Concentration",
         "es": "Titrant Concentration",
         "ar": "Titrant Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Concentration of the standard solution used for titration.",
+        "tr": "Titrasyon için kullanılan standart çözeltinin konsantrasyonu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Volume of titrant added to reach the endpoint.",
       "label_i18n": {
         "en": "Volume of Titrant",
-        "tr": "Volume of Titrant",
+        "tr": "Titrant Hacmi",
         "de": "Volume of Titrant",
         "fr": "Volume of Titrant",
         "es": "Volume of Titrant",
         "ar": "Volume of Titrant"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of titrant added to reach the endpoint.",
+        "tr": "Dönüm noktasına ulaşmak için eklenen titrant hacmi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Volume of the sample solution being titrated.",
       "label_i18n": {
         "en": "Volume of Analyte",
-        "tr": "Volume of Analyte",
+        "tr": "Analit Hacmi",
         "de": "Volume of Analyte",
         "fr": "Volume of Analyte",
         "es": "Volume of Analyte",
         "ar": "Volume of Analyte"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of the sample solution being titrated.",
+        "tr": "Titre edilen numune çözeltisinin hacmi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Mole ratio of titrant in the balanced reaction equation.",
       "label_i18n": {
         "en": "Stoichiometric Coefficient (Titrant)",
-        "tr": "Stoichiometric Coefficient (Titrant)",
+        "tr": "Stokiyometrik Katsayı (Titrant)",
         "de": "Stoichiometric Coefficient (Titrant)",
         "fr": "Stoichiometric Coefficient (Titrant)",
         "es": "Stoichiometric Coefficient (Titrant)",
         "ar": "Stoichiometric Coefficient (Titrant)"
+      },
+      "businessContext_i18n": {
+        "en": "Mole ratio of titrant in the balanced reaction equation.",
+        "tr": "Dengeli reaksiyon denkleminde titrantın mol oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Mole ratio of analyte in the balanced reaction equation.",
       "label_i18n": {
         "en": "Stoichiometric Coefficient (Analyte)",
-        "tr": "Stoichiometric Coefficient (Analyte)",
+        "tr": "Stokiyometrik Katsayı (Analit)",
         "de": "Stoichiometric Coefficient (Analyte)",
         "fr": "Stoichiometric Coefficient (Analyte)",
         "es": "Stoichiometric Coefficient (Analyte)",
         "ar": "Stoichiometric Coefficient (Analyte)"
+      },
+      "businessContext_i18n": {
+        "en": "Mole ratio of analyte in the balanced reaction equation.",
+        "tr": "Dengeli reaksiyon denkleminde analitin mol oranı."
       }
     }
   ],

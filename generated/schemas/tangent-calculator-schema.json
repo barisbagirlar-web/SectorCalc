@@ -10,11 +10,15 @@
       "businessContext": "Angle value. If using degrees, unitRadians should be 0; if radians, set unitRadians to 1.",
       "label_i18n": {
         "en": "Angle",
-        "tr": "Angle",
+        "tr": "Açı",
         "de": "Angle",
         "fr": "Angle",
         "es": "Angle",
         "ar": "Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle value. If using degrees, unitRadians should be 0; if radians, set unitRadians to 1.",
+        "tr": "Açı değeri. Derece kullanılıyorsa unitRadians 0 olmalı; radyan kullanılıyorsa unitRadians 1 olarak ayarlanmalıdır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Set to 1 if the angle is in radians; set to 0 for degrees.",
       "label_i18n": {
         "en": "Use Radians",
-        "tr": "Use Radians",
+        "tr": "Radyan Kullan",
         "de": "Use Radians",
         "fr": "Use Radians",
         "es": "Use Radians",
         "ar": "Use Radians"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 if the angle is in radians; set to 0 for degrees.",
+        "tr": "Açı radyan cinsindense 1, derece cinsindense 0 olarak ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output tangent.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output tangent.",
+        "tr": "Çıktı tanjantı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Set to 1 to compute tangent of double the angle (2θ); 0 for tan(θ).",
       "label_i18n": {
         "en": "Compute tan(2θ)?",
-        "tr": "Compute tan(2θ)?",
+        "tr": "tan(2θ) hesaplansın mı?",
         "de": "Compute tan(2θ)?",
         "fr": "Compute tan(2θ)?",
         "es": "Compute tan(2θ)?",
         "ar": "Compute tan(2θ)?"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to compute tangent of double the angle (2θ); 0 for tan(θ).",
+        "tr": "Açının iki katının tanjantını (2θ) hesaplamak için 1, tan(θ) için 0 olarak ayarlayın."
       }
     }
   ],

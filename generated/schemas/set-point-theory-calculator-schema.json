@@ -10,11 +10,15 @@
       "businessContext": "Desired process target value (e.g., temperature)",
       "label_i18n": {
         "en": "Target Value",
-        "tr": "Target Value",
+        "tr": "Hedef Değer",
         "de": "Target Value",
         "fr": "Target Value",
         "es": "Target Value",
         "ar": "Target Value"
+      },
+      "businessContext_i18n": {
+        "en": "Desired process target value (e.g., temperature)",
+        "tr": "İstenen proses hedef değeri (örn. sıcaklık)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured actual process value",
       "label_i18n": {
         "en": "Current Process Value",
-        "tr": "Current Process Value",
+        "tr": "Mevcut Proses Değeri",
         "de": "Current Process Value",
         "fr": "Current Process Value",
         "es": "Current Process Value",
         "ar": "Current Process Value"
+      },
+      "businessContext_i18n": {
+        "en": "Measured actual process value",
+        "tr": "Ölçülen gerçek proses değeri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Proportional gain factor for control",
       "label_i18n": {
         "en": "Controller Gain",
-        "tr": "Controller Gain",
+        "tr": "Kontrolör Kazancı",
         "de": "Controller Gain",
         "fr": "Controller Gain",
         "es": "Controller Gain",
         "ar": "Controller Gain"
+      },
+      "businessContext_i18n": {
+        "en": "Proportional gain factor for control",
+        "tr": "Kontrol için oransal kazanç faktörü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Initial or bias set point value",
       "label_i18n": {
         "en": "Base Set Point",
-        "tr": "Base Set Point",
+        "tr": "Temel Ayarlanan Değer",
         "de": "Base Set Point",
         "fr": "Base Set Point",
         "es": "Base Set Point",
         "ar": "Base Set Point"
+      },
+      "businessContext_i18n": {
+        "en": "Initial or bias set point value",
+        "tr": "Başlangıç veya referans ayar noktası değeri"
       }
     }
   ],

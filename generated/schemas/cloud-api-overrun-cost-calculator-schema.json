@@ -21,10 +21,12 @@
       "max": 1000000000,
       "businessContext": "Total number of API calls made per month, including successful and overrun calls.",
       "label_i18n": {
-        "en": "Monthly API Call Volume"
+        "en": "Monthly API Call Volume",
+        "tr": "Aylık API Çağrı Hacmi"
       },
       "businessContext_i18n": {
-        "en": "Total number of API calls made per month, including successful and overrun calls."
+        "en": "Total number of API calls made per month, including successful and overrun calls.",
+        "tr": "Başarılı ve aşım çağrıları dahil aylık toplam API çağrısı sayısı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100,
       "businessContext": "Percentage of API calls that exceed the agreed response time threshold (e.g., >200ms).",
       "label_i18n": {
-        "en": "Overrun Rate"
+        "en": "Overrun Rate",
+        "tr": "Aşım Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of API calls that exceed the agreed response time threshold (e.g., >200ms)."
+        "en": "Percentage of API calls that exceed the agreed response time threshold (e.g., >200ms).",
+        "tr": "Kabul edilen yanıt süresi eşiğini (örn. >200ms) aşan API çağrılarının yüzdesi."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 30000,
       "businessContext": "Average extra time beyond the SLA threshold for overrun calls.",
       "label_i18n": {
-        "en": "Average Overrun Duration"
+        "en": "Average Overrun Duration",
+        "tr": "Ortalama Aşım Süresi"
       },
       "businessContext_i18n": {
-        "en": "Average extra time beyond the SLA threshold for overrun calls."
+        "en": "Average extra time beyond the SLA threshold for overrun calls.",
+        "tr": "Aşım çağrıları için SLA eşiğinin ötesindeki ortalama ek süre."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 1,
       "businessContext": "Direct cost per API call (compute, network, storage).",
       "label_i18n": {
-        "en": "Cost per API Call"
+        "en": "Cost per API Call",
+        "tr": "API Çağrısı Başına Maliyet"
       },
       "businessContext_i18n": {
-        "en": "Direct cost per API call (compute, network, storage)."
+        "en": "Direct cost per API call (compute, network, storage).",
+        "tr": "API çağrısı başına doğrudan maliyet (işlem, ağ, depolama)."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 2,
       "businessContext": "Additional cost incurred when a call is retried due to timeout or error.",
       "label_i18n": {
-        "en": "Retry Cost per Call"
+        "en": "Retry Cost per Call",
+        "tr": "Yeniden Deneme Başına Maliyet"
       },
       "businessContext_i18n": {
-        "en": "Additional cost incurred when a call is retried due to timeout or error."
+        "en": "Additional cost incurred when a call is retried due to timeout or error.",
+        "tr": "Zaman aşımı veya hata nedeniyle bir çağrı yeniden denendiğinde oluşan ek maliyet."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Percentage of overrun calls that trigger a retry.",
       "label_i18n": {
-        "en": "Retry Rate"
+        "en": "Retry Rate",
+        "tr": "Yeniden Deneme Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of overrun calls that trigger a retry."
+        "en": "Percentage of overrun calls that trigger a retry.",
+        "tr": "Yeniden denemeyi tetikleyen aşım çağrılarının yüzdesi."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 1000000,
       "businessContext": "Total data transferred out of the cloud per month.",
       "label_i18n": {
-        "en": "Monthly Data Egress"
+        "en": "Monthly Data Egress",
+        "tr": "Aylık Veri Çıkışı"
       },
       "businessContext_i18n": {
-        "en": "Total data transferred out of the cloud per month."
+        "en": "Total data transferred out of the cloud per month.",
+        "tr": "Buluttan aylık toplam dışa aktarılan veri."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 0.5,
       "businessContext": "Cost per GB of data egress (varies by provider and region).",
       "label_i18n": {
-        "en": "Egress Cost per GB"
+        "en": "Egress Cost per GB",
+        "tr": "GB başına çıkış maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost per GB of data egress (varies by provider and region)."
+        "en": "Cost per GB of data egress (varies by provider and region).",
+        "tr": "Veri çıkışının GB başına maliyeti (sağlayıcıya ve bölgeye göre değişir)."
       }
     }
   ],

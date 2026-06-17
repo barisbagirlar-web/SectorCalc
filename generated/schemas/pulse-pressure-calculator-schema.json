@@ -10,11 +10,15 @@
       "businessContext": "Measured systolic pressure in the brachial artery using a validated oscillometric device.",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Measured systolic pressure in the brachial artery using a validated oscillometric device.",
+        "tr": "Geçerli bir osilometrik cihaz kullanılarak brakial arterde ölçülen sistolik basınç."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured diastolic pressure, Korotkoff phase V.",
       "label_i18n": {
         "en": "Diastolic Blood Pressure",
-        "tr": "Diastolic Blood Pressure",
+        "tr": "Diyastolik Kan Basıncı",
         "de": "Diastolic Blood Pressure",
         "fr": "Diastolic Blood Pressure",
         "es": "Diastolic Blood Pressure",
         "ar": "Diastolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Measured diastolic pressure, Korotkoff phase V.",
+        "tr": "Ölçülen diyastolik basınç, Korotkoff faz V."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Palpated or electronically measured pulse rate per minute, at rest for at least 5 minutes.",
       "label_i18n": {
         "en": "Resting Heart Rate",
-        "tr": "Resting Heart Rate",
+        "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Resting Heart Rate",
         "fr": "Resting Heart Rate",
         "es": "Resting Heart Rate",
         "ar": "Resting Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Palpated or electronically measured pulse rate per minute, at rest for at least 5 minutes.",
+        "tr": "Palpasyonla veya elektronik olarak ölçülen dakikadaki nabız sayısı, en az 5 dakika dinlenme sonrası."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Age of the patient for normalization of expected pulse pressure.",
       "label_i18n": {
         "en": "Patient Age",
-        "tr": "Patient Age",
+        "tr": "Hasta Yaşı",
         "de": "Patient Age",
         "fr": "Patient Age",
         "es": "Patient Age",
         "ar": "Patient Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the patient for normalization of expected pulse pressure.",
+        "tr": "Beklenen nabız basıncının normalizasyonu için hastanın yaşı."
       }
     }
   ],

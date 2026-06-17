@@ -10,11 +10,15 @@
       "businessContext": "Number of expected failures per year for the equipment/system.",
       "label_i18n": {
         "en": "Failure Rate",
-        "tr": "Failure Rate",
+        "tr": "Arıza Oranı",
         "de": "Failure Rate",
         "fr": "Failure Rate",
         "es": "Failure Rate",
         "ar": "Failure Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Number of expected failures per year for the equipment/system.",
+        "tr": "Ekipman/sistem için yıllık beklenen arıza sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average downtime in hours per failure event.",
       "label_i18n": {
         "en": "Downtime per Failure",
-        "tr": "Downtime per Failure",
+        "tr": "Arıza Başına Duruş Süresi",
         "de": "Downtime per Failure",
         "fr": "Downtime per Failure",
         "es": "Downtime per Failure",
         "ar": "Downtime per Failure"
+      },
+      "businessContext_i18n": {
+        "en": "Average downtime in hours per failure event.",
+        "tr": "Arıza başına ortalama duruş süresi (saat)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost incurred per hour of downtime, including lost production, labor, etc.",
       "label_i18n": {
         "en": "Cost per Downtime Hour",
-        "tr": "Cost per Downtime Hour",
+        "tr": "Saat Başına Durma Maliyeti",
         "de": "Cost per Downtime Hour",
         "fr": "Cost per Downtime Hour",
         "es": "Cost per Downtime Hour",
         "ar": "Cost per Downtime Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Cost incurred per hour of downtime, including lost production, labor, etc.",
+        "tr": "Duruş saati başına maliyet (kayıp üretim, işçilik vb.)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Probability of detecting a failure before it causes downtime (0 to 1).",
       "label_i18n": {
         "en": "Detection Probability",
-        "tr": "Detection Probability",
+        "tr": "Tespit Olasılığı",
         "de": "Detection Probability",
         "fr": "Detection Probability",
         "es": "Detection Probability",
         "ar": "Detection Probability"
+      },
+      "businessContext_i18n": {
+        "en": "Probability of detecting a failure before it causes downtime (0 to 1).",
+        "tr": "Arızanın duruşa neden olmadan önce tespit edilme olasılığı (0-1)."
       }
     }
   ],

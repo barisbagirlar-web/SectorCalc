@@ -10,11 +10,15 @@
       "businessContext": "Total cost of goods or services before additional costs and discounts.",
       "label_i18n": {
         "en": "Total Cost",
-        "tr": "Total Cost",
+        "tr": "Toplam Maliyet",
         "de": "Total Cost",
         "fr": "Total Cost",
         "es": "Total Cost",
         "ar": "Total Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of goods or services before additional costs and discounts.",
+        "tr": "Ek maliyet ve indirimler öncesi mal veya hizmetlerin toplam maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of units purchased.",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units purchased.",
+        "tr": "Satın alınan birim sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Extra costs such as shipping, handling, or setup fees.",
       "label_i18n": {
         "en": "Additional Costs",
-        "tr": "Additional Costs",
+        "tr": "Ek Maliyetler",
         "de": "Additional Costs",
         "fr": "Additional Costs",
         "es": "Additional Costs",
         "ar": "Additional Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Extra costs such as shipping, handling, or setup fees.",
+        "tr": "Nakliye, taşıma veya kurulum ücretleri gibi ek maliyetler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Discount percentage applied to the total cost.",
       "label_i18n": {
         "en": "Discount (%)",
-        "tr": "Discount (%)",
+        "tr": "İndirim (%)",
         "de": "Discount (%)",
         "fr": "Discount (%)",
         "es": "Discount (%)",
         "ar": "Discount (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Discount percentage applied to the total cost.",
+        "tr": "Toplam maliyete uygulanan indirim yüzdesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Sales tax or VAT percentage applied after discount.",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)",
         "de": "Tax Rate (%)",
         "fr": "Tax Rate (%)",
         "es": "Tax Rate (%)",
         "ar": "Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Sales tax or VAT percentage applied after discount.",
+        "tr": "İndirim sonrası uygulanan satış vergisi veya KDV yüzdesi."
       }
     }
   ],

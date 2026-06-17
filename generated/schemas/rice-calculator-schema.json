@@ -10,11 +10,15 @@
       "businessContext": "Weight of uncooked rice to be cooked",
       "label_i18n": {
         "en": "Uncooked Rice Weight",
-        "tr": "Uncooked Rice Weight",
+        "tr": "Pişmemiş Pirinç Ağırlığı",
         "de": "Uncooked Rice Weight",
         "fr": "Uncooked Rice Weight",
         "es": "Uncooked Rice Weight",
         "ar": "Uncooked Rice Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of uncooked rice to be cooked",
+        "tr": "Pişirilecek pişmemiş pirincin ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ratio of water volume to rice weight (e.g., 2 for 2 ml water per 1 g rice)",
       "label_i18n": {
         "en": "Water to Rice Ratio",
-        "tr": "Water to Rice Ratio",
+        "tr": "Su-Pirinç Oranı",
         "de": "Water to Rice Ratio",
         "fr": "Water to Rice Ratio",
         "es": "Water to Rice Ratio",
         "ar": "Water to Rice Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of water volume to rice weight (e.g., 2 for 2 ml water per 1 g rice)",
+        "tr": "Su hacminin pirinç ağırlığına oranı (örneğin, 1 g pirinç başına 2 ml su için 2)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "How many times the uncooked weight the cooked rice becomes (typical: 2.5-3)",
       "label_i18n": {
         "en": "Cooked Yield Factor",
-        "tr": "Cooked Yield Factor",
+        "tr": "Pişmiş Verim Faktörü",
         "de": "Cooked Yield Factor",
         "fr": "Cooked Yield Factor",
         "es": "Cooked Yield Factor",
         "ar": "Cooked Yield Factor"
+      },
+      "businessContext_i18n": {
+        "en": "How many times the uncooked weight the cooked rice becomes (typical: 2.5-3)",
+        "tr": "Pişmemiş ağırlığın kaç katı pişmiş pirinç elde edildiği (tipik: 2.5-3)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Amount of cooked rice per serving",
       "label_i18n": {
         "en": "Serving Size per Person",
-        "tr": "Serving Size per Person",
+        "tr": "Kişi Başı Porsiyon Boyutu",
         "de": "Serving Size per Person",
         "fr": "Serving Size per Person",
         "es": "Serving Size per Person",
         "ar": "Serving Size per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of cooked rice per serving",
+        "tr": "Porsiyon başına pişmiş pirinç miktarı"
       }
     }
   ],

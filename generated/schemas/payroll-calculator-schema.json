@@ -10,11 +10,15 @@
       "businessContext": "Regular monthly working hours",
       "label_i18n": {
         "en": "Hours Worked",
-        "tr": "Hours Worked",
+        "tr": "Çalışılan Saat",
         "de": "Hours Worked",
         "fr": "Hours Worked",
         "es": "Hours Worked",
         "ar": "Hours Worked"
+      },
+      "businessContext_i18n": {
+        "en": "Regular monthly working hours",
+        "tr": "Normal aylık çalışma saatleri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Regular hourly pay rate",
       "label_i18n": {
         "en": "Hourly Rate",
-        "tr": "Hourly Rate",
+        "tr": "Saatlik Ücret",
         "de": "Hourly Rate",
         "fr": "Hourly Rate",
         "es": "Hourly Rate",
         "ar": "Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Regular hourly pay rate",
+        "tr": "Normal saatlik ücret"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Overtime hours worked",
       "label_i18n": {
         "en": "Overtime Hours",
-        "tr": "Overtime Hours",
+        "tr": "Fazla Mesai Saatleri",
         "de": "Overtime Hours",
         "fr": "Overtime Hours",
         "es": "Overtime Hours",
         "ar": "Overtime Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Overtime hours worked",
+        "tr": "Fazla mesai saati"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for overtime pay",
       "label_i18n": {
         "en": "Overtime Multiplier",
-        "tr": "Overtime Multiplier",
+        "tr": "Fazla Mesai Çarpanı",
         "de": "Overtime Multiplier",
         "fr": "Overtime Multiplier",
         "es": "Overtime Multiplier",
         "ar": "Overtime Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for overtime pay",
+        "tr": "Fazla mesai ücreti çarpanı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Income tax rate",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Income tax rate",
+        "tr": "Gelir vergisi oranı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Social insurance contribution rate",
       "label_i18n": {
         "en": "Insurance Rate",
-        "tr": "Insurance Rate",
+        "tr": "Sigorta Oranı",
         "de": "Insurance Rate",
         "fr": "Insurance Rate",
         "es": "Insurance Rate",
         "ar": "Insurance Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Social insurance contribution rate",
+        "tr": "Sosyal sigorta prim oranı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Additional deductions (e.g., union fees, advances)",
       "label_i18n": {
         "en": "Other Deductions",
-        "tr": "Other Deductions",
+        "tr": "Diğer Kesintiler",
         "de": "Other Deductions",
         "fr": "Other Deductions",
         "es": "Other Deductions",
         "ar": "Other Deductions"
+      },
+      "businessContext_i18n": {
+        "en": "Additional deductions (e.g., union fees, advances)",
+        "tr": "Ek kesintiler (ör. sendika aidatı, avanslar)"
       }
     }
   ],

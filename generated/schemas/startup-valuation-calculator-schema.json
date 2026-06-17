@@ -10,11 +10,15 @@
       "businessContext": "The projected annual revenue of the startup at the time of exit (e.g., 5 years from now).",
       "label_i18n": {
         "en": "Projected Revenue at Exit",
-        "tr": "Projected Revenue at Exit",
+        "tr": "Çıkışta Tahmini Gelir",
         "de": "Projected Revenue at Exit",
         "fr": "Projected Revenue at Exit",
         "es": "Projected Revenue at Exit",
         "ar": "Projected Revenue at Exit"
+      },
+      "businessContext_i18n": {
+        "en": "The projected annual revenue of the startup at the time of exit (e.g., 5 years from now).",
+        "tr": "Çıkış anında (örneğin, bugünden 5 yıl sonra) girişimin tahmini yıllık geliri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected net profit margin at exit, expressed as a percentage.",
       "label_i18n": {
         "en": "Net Profit Margin",
-        "tr": "Net Profit Margin",
+        "tr": "Net Kar Marjı",
         "de": "Net Profit Margin",
         "fr": "Net Profit Margin",
         "es": "Net Profit Margin",
         "ar": "Net Profit Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Expected net profit margin at exit, expressed as a percentage.",
+        "tr": "Çıkışta beklenen net kar marjı, yüzde olarak ifade edilir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Price-to-earnings ratio typical for comparable public companies in the sector.",
       "label_i18n": {
         "en": "P/E Ratio",
-        "tr": "P/E Ratio",
+        "tr": "F/K Oranı",
         "de": "P/E Ratio",
         "fr": "P/E Ratio",
         "es": "P/E Ratio",
         "ar": "P/E Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Price-to-earnings ratio typical for comparable public companies in the sector.",
+        "tr": "Sektördeki benzer halka açık şirketler için tipik fiyat-kazanç oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Target return multiple for the investor (e.g., 3x means the investor aims to triple their investment).",
       "label_i18n": {
         "en": "Required ROI",
-        "tr": "Required ROI",
+        "tr": "Gerekli ROI",
         "de": "Required ROI",
         "fr": "Required ROI",
         "es": "Required ROI",
         "ar": "Required ROI"
+      },
+      "businessContext_i18n": {
+        "en": "Target return multiple for the investor (e.g., 3x means the investor aims to triple their investment).",
+        "tr": "Yatırımcı için hedef getiri katı (örneğin, 3x yatırımcının yatırımını üçe katlamayı hedeflediği anlamına gelir)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The amount of capital being invested in the startup.",
       "label_i18n": {
         "en": "Investment Amount",
-        "tr": "Investment Amount",
+        "tr": "Yatırım Tutarı",
         "de": "Investment Amount",
         "fr": "Investment Amount",
         "es": "Investment Amount",
         "ar": "Investment Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of capital being invested in the startup.",
+        "tr": "Startup'a yatırılan sermaye miktarı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total time of training session in minutes.",
       "label_i18n": {
         "en": "Session Duration",
-        "tr": "Session Duration",
+        "tr": "Seans Süresi",
         "de": "Session Duration",
         "fr": "Session Duration",
         "es": "Session Duration",
         "ar": "Session Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Total time of training session in minutes.",
+        "tr": "Antrenman seansının toplam süresi (dakika)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average heart rate during the session.",
       "label_i18n": {
         "en": "Average Heart Rate",
-        "tr": "Average Heart Rate",
+        "tr": "Ortalama Kalp Atış Hızı",
         "de": "Average Heart Rate",
         "fr": "Average Heart Rate",
         "es": "Average Heart Rate",
         "ar": "Average Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average heart rate during the session.",
+        "tr": "Seans sırasındaki ortalama kalp atış hızı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Resting heart rate measured in the morning.",
       "label_i18n": {
         "en": "Resting Heart Rate",
-        "tr": "Resting Heart Rate",
+        "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Resting Heart Rate",
         "fr": "Resting Heart Rate",
         "es": "Resting Heart Rate",
         "ar": "Resting Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Resting heart rate measured in the morning.",
+        "tr": "Sabah ölçülen dinlenik kalp atış hızı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum heart rate from a stress test or age-predicted (220-age).",
       "label_i18n": {
         "en": "Maximum Heart Rate",
-        "tr": "Maximum Heart Rate",
+        "tr": "Maksimum Kalp Atış Hızı",
         "de": "Maximum Heart Rate",
         "fr": "Maximum Heart Rate",
         "es": "Maximum Heart Rate",
         "ar": "Maximum Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum heart rate from a stress test or age-predicted (220-age).",
+        "tr": "Stres testinden veya yaşa göre tahmin edilen (220-yaş) maksimum kalp atış hızı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Exponential factor: 0.64 for males, 0.86 for females per Banister TRIMP.",
       "label_i18n": {
         "en": "Gender-Specific Factor",
-        "tr": "Gender-Specific Factor",
+        "tr": "Cinsiyete Özgü Faktör",
         "de": "Gender-Specific Factor",
         "fr": "Gender-Specific Factor",
         "es": "Gender-Specific Factor",
         "ar": "Gender-Specific Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Exponential factor: 0.64 for males, 0.86 for females per Banister TRIMP.",
+        "tr": "Üstel faktör: Banister TRIMP'e göre erkekler için 0,64, kadınlar için 0,86."
       }
     }
   ],

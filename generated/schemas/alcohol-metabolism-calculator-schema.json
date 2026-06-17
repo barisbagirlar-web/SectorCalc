@@ -10,11 +10,15 @@
       "businessContext": "Select gender: 1 for male, 0 for female",
       "label_i18n": {
         "en": "Gender (Male=1, Female=0)",
-        "tr": "Gender (Male=1, Female=0)",
+        "tr": "Cinsiyet (Erkek=1, Kadın=0)",
         "de": "Gender (Male=1, Female=0)",
         "fr": "Gender (Male=1, Female=0)",
         "es": "Gender (Male=1, Female=0)",
         "ar": "Gender (Male=1, Female=0)"
+      },
+      "businessContext_i18n": {
+        "en": "Select gender: 1 for male, 0 for female",
+        "tr": "Cinsiyet seçin: 1 erkek, 0 kadın"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total pure alcohol in grams (typical drink: 14g)",
       "label_i18n": {
         "en": "Pure Alcohol Consumed",
-        "tr": "Pure Alcohol Consumed",
+        "tr": "Tüketilen Saf Alkol",
         "de": "Pure Alcohol Consumed",
         "fr": "Pure Alcohol Consumed",
         "es": "Pure Alcohol Consumed",
         "ar": "Pure Alcohol Consumed"
+      },
+      "businessContext_i18n": {
+        "en": "Total pure alcohol in grams (typical drink: 14g)",
+        "tr": "Toplam saf alkol miktarı (gram cinsinden; tipik bir içecek 14g)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms",
+        "tr": "Vücut ağırlığı (kilogram cinsinden)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time since drinking began in hours",
       "label_i18n": {
         "en": "Time Elapsed",
-        "tr": "Time Elapsed",
+        "tr": "Geçen Süre",
         "de": "Time Elapsed",
         "fr": "Time Elapsed",
         "es": "Time Elapsed",
         "ar": "Time Elapsed"
+      },
+      "businessContext_i18n": {
+        "en": "Time since drinking began in hours",
+        "tr": "İçmeye başladıktan sonra geçen süre (saat cinsinden)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Alcohol elimination rate (standard 0.015 g/dL per hour)",
       "label_i18n": {
         "en": "Elimination Rate",
-        "tr": "Elimination Rate",
+        "tr": "Eliminasyon Hızı",
         "de": "Elimination Rate",
         "fr": "Elimination Rate",
         "es": "Elimination Rate",
         "ar": "Elimination Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Alcohol elimination rate (standard 0.015 g/dL per hour)",
+        "tr": "Alkol eliminasyon hızı (standart 0.015 g/dL/saat)."
       }
     }
   ],

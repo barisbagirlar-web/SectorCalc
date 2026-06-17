@@ -10,11 +10,15 @@
       "businessContext": "The elevation at the starting point.",
       "label_i18n": {
         "en": "Initial Elevation",
-        "tr": "Initial Elevation",
+        "tr": "Başlangıç Yüksekliği",
         "de": "Initial Elevation",
         "fr": "Initial Elevation",
         "es": "Initial Elevation",
         "ar": "Initial Elevation"
+      },
+      "businessContext_i18n": {
+        "en": "The elevation at the starting point.",
+        "tr": "Başlangıç noktasındaki yükseklik."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The elevation at the ending point.",
       "label_i18n": {
         "en": "Final Elevation",
-        "tr": "Final Elevation",
+        "tr": "Bitiş Yüksekliği",
         "de": "Final Elevation",
         "fr": "Final Elevation",
         "es": "Final Elevation",
         "ar": "Final Elevation"
+      },
+      "businessContext_i18n": {
+        "en": "The elevation at the ending point.",
+        "tr": "Bitiş noktasındaki yükseklik."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The horizontal distance between the two points.",
       "label_i18n": {
         "en": "Horizontal Distance",
-        "tr": "Horizontal Distance",
+        "tr": "Yatay Mesafe",
         "de": "Horizontal Distance",
         "fr": "Horizontal Distance",
         "es": "Horizontal Distance",
         "ar": "Horizontal Distance"
+      },
+      "businessContext_i18n": {
+        "en": "The horizontal distance between the two points.",
+        "tr": "İki nokta arasındaki yatay mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places to round the output values.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the output values.",
+        "tr": "Çıktı değerlerinin yuvarlanacağı ondalık basamak sayısı."
       }
     }
   ],

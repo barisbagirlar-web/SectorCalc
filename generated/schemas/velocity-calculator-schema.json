@@ -10,11 +10,15 @@
       "businessContext": "Starting velocity of the object",
       "label_i18n": {
         "en": "Initial Velocity (u)",
-        "tr": "Initial Velocity (u)",
+        "tr": "Başlangıç Hızı (u)",
         "de": "Initial Velocity (u)",
         "fr": "Initial Velocity (u)",
         "es": "Initial Velocity (u)",
         "ar": "Initial Velocity (u)"
+      },
+      "businessContext_i18n": {
+        "en": "Starting velocity of the object",
+        "tr": "Cismin başlangıç hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Constant acceleration applied",
       "label_i18n": {
         "en": "Acceleration (a)",
-        "tr": "Acceleration (a)",
+        "tr": "İvme (a)",
         "de": "Acceleration (a)",
         "fr": "Acceleration (a)",
         "es": "Acceleration (a)",
         "ar": "Acceleration (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant acceleration applied",
+        "tr": "Uygulanan sabit ivme"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time interval for the motion",
       "label_i18n": {
         "en": "Time (t)",
-        "tr": "Time (t)",
+        "tr": "Zaman (t)",
         "de": "Time (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Time interval for the motion",
+        "tr": "Hareket için zaman aralığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional: known distance traveled, for comparison with calculated value",
       "label_i18n": {
         "en": "Distance (s)",
-        "tr": "Distance (s)",
+        "tr": "Mesafe (s)",
         "de": "Distance (s)",
         "fr": "Distance (s)",
         "es": "Distance (s)",
         "ar": "Distance (s)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: known distance traveled, for comparison with calculated value",
+        "tr": "İsteğe bağlı: bilinen kat edilen mesafe, hesaplanan değerle karşılaştırma için"
       }
     }
   ],

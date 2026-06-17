@@ -10,11 +10,15 @@
       "businessContext": "Frequency factor or pre-exponential factor in Arrhenius equation, representing collision frequency and orientation.",
       "label_i18n": {
         "en": "Pre-exponential Factor (A)",
-        "tr": "Pre-exponential Factor (A)",
+        "tr": "Ön-Üstel Faktör (A)",
         "de": "Pre-exponential Factor (A)",
         "fr": "Pre-exponential Factor (A)",
         "es": "Pre-exponential Factor (A)",
         "ar": "Pre-exponential Factor (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency factor or pre-exponential factor in Arrhenius equation, representing collision frequency and orientation.",
+        "tr": "Arrhenius denkleminde frekans faktörü veya ön-üssel faktör, çarpışma frekansı ve yönelimi temsil eder."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Minimum energy required for reaction to occur, in joules per mole.",
       "label_i18n": {
         "en": "Activation Energy (Ea)",
-        "tr": "Activation Energy (Ea)",
+        "tr": "Aktivasyon Enerjisi (Ea)",
         "de": "Activation Energy (Ea)",
         "fr": "Activation Energy (Ea)",
         "es": "Activation Energy (Ea)",
         "ar": "Activation Energy (Ea)"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum energy required for reaction to occur, in joules per mole.",
+        "tr": "Reaksiyonun gerçekleşmesi için gereken minimum enerji, joule/mol cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Absolute temperature of the reaction in Kelvin.",
       "label_i18n": {
         "en": "Temperature (T)",
-        "tr": "Temperature (T)",
+        "tr": "Sıcaklık (T)",
         "de": "Temperature (T)",
         "fr": "Temperature (T)",
         "es": "Temperature (T)",
         "ar": "Temperature (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute temperature of the reaction in Kelvin.",
+        "tr": "Reaksiyonun mutlak sıcaklığı (Kelvin)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Universal gas constant, typically 8.314 J/(mol·K).",
       "label_i18n": {
         "en": "Gas Constant (R)",
-        "tr": "Gas Constant (R)",
+        "tr": "Gaz Sabiti (R)",
         "de": "Gas Constant (R)",
         "fr": "Gas Constant (R)",
         "es": "Gas Constant (R)",
         "ar": "Gas Constant (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Universal gas constant, typically 8.314 J/(mol·K).",
+        "tr": "Evrensel gaz sabiti, tipik olarak 8,314 J/(mol·K)."
       }
     }
   ],

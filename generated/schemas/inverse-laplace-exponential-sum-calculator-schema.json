@@ -10,11 +10,15 @@
       "businessContext": "Coefficient of the first exponential term in the Laplace inverse",
       "label_i18n": {
         "en": "Amplitude 1",
-        "tr": "Amplitude 1",
+        "tr": "Genlik 1",
         "de": "Amplitude 1",
         "fr": "Amplitude 1",
         "es": "Amplitude 1",
         "ar": "Amplitude 1"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of the first exponential term in the Laplace inverse",
+        "tr": "Laplace tersinde birinci üstel terimin katsayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Pole location for the first exponential (positive for stable decay)",
       "label_i18n": {
         "en": "Decay Rate 1",
-        "tr": "Decay Rate 1",
+        "tr": "Sönüm Hızı 1",
         "de": "Decay Rate 1",
         "fr": "Decay Rate 1",
         "es": "Decay Rate 1",
         "ar": "Decay Rate 1"
+      },
+      "businessContext_i18n": {
+        "en": "Pole location for the first exponential (positive for stable decay)",
+        "tr": "Birinci üstel için kutup konumu (kararlı sönüm için pozitif)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Coefficient of the second exponential term",
       "label_i18n": {
         "en": "Amplitude 2",
-        "tr": "Amplitude 2",
+        "tr": "Genlik 2",
         "de": "Amplitude 2",
         "fr": "Amplitude 2",
         "es": "Amplitude 2",
         "ar": "Amplitude 2"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of the second exponential term",
+        "tr": "İkinci üstel terimin katsayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Pole location for the second exponential",
       "label_i18n": {
         "en": "Decay Rate 2",
-        "tr": "Decay Rate 2",
+        "tr": "Sönüm Hızı 2",
         "de": "Decay Rate 2",
         "fr": "Decay Rate 2",
         "es": "Decay Rate 2",
         "ar": "Decay Rate 2"
+      },
+      "businessContext_i18n": {
+        "en": "Pole location for the second exponential",
+        "tr": "İkinci üstel için kutup konumu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Coefficient of the third exponential term",
       "label_i18n": {
         "en": "Amplitude 3",
-        "tr": "Amplitude 3",
+        "tr": "Genlik 3",
         "de": "Amplitude 3",
         "fr": "Amplitude 3",
         "es": "Amplitude 3",
         "ar": "Amplitude 3"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of the third exponential term",
+        "tr": "Üçüncü üstel terimin katsayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Pole location for the third exponential",
       "label_i18n": {
         "en": "Decay Rate 3",
-        "tr": "Decay Rate 3",
+        "tr": "Sönüm Hızı 3",
         "de": "Decay Rate 3",
         "fr": "Decay Rate 3",
         "es": "Decay Rate 3",
         "ar": "Decay Rate 3"
+      },
+      "businessContext_i18n": {
+        "en": "Pole location for the third exponential",
+        "tr": "Üçüncü üstel için kutup konumu"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Time point at which to evaluate the inverse Laplace transform",
       "label_i18n": {
         "en": "Time",
-        "tr": "Time",
+        "tr": "Zaman",
         "de": "Time",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time point at which to evaluate the inverse Laplace transform",
+        "tr": "Ters Laplace dönüşümünün değerlendirileceği zaman noktası"
       }
     }
   ],

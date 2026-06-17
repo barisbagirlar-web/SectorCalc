@@ -10,11 +10,15 @@
       "businessContext": "Number of exposed subjects who have the outcome of interest",
       "label_i18n": {
         "en": "Exposed with Outcome (a)",
-        "tr": "Exposed with Outcome (a)",
+        "tr": "Maruz Kalan ve Sonuç (a)",
         "de": "Exposed with Outcome (a)",
         "fr": "Exposed with Outcome (a)",
         "es": "Exposed with Outcome (a)",
         "ar": "Exposed with Outcome (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of exposed subjects who have the outcome of interest",
+        "tr": "Maruz kalan ve ilgilenilen sonuca sahip olan denek sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of exposed subjects who do not have the outcome",
       "label_i18n": {
         "en": "Exposed without Outcome (b)",
-        "tr": "Exposed without Outcome (b)",
+        "tr": "Maruz Kalan ve Sonuçsuz (b)",
         "de": "Exposed without Outcome (b)",
         "fr": "Exposed without Outcome (b)",
         "es": "Exposed without Outcome (b)",
         "ar": "Exposed without Outcome (b)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of exposed subjects who do not have the outcome",
+        "tr": "Maruz kalan ve sonuca sahip olmayan denek sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of unexposed subjects who have the outcome",
       "label_i18n": {
         "en": "Unexposed with Outcome (c)",
-        "tr": "Unexposed with Outcome (c)",
+        "tr": "Maruz Kalmayan ve Sonuç (c)",
         "de": "Unexposed with Outcome (c)",
         "fr": "Unexposed with Outcome (c)",
         "es": "Unexposed with Outcome (c)",
         "ar": "Unexposed with Outcome (c)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of unexposed subjects who have the outcome",
+        "tr": "Maruz kalmayan ve sonuca sahip olan denek sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of unexposed subjects who do not have the outcome",
       "label_i18n": {
         "en": "Unexposed without Outcome (d)",
-        "tr": "Unexposed without Outcome (d)",
+        "tr": "Maruz Kalmayan ve Sonuçsuz (d)",
         "de": "Unexposed without Outcome (d)",
         "fr": "Unexposed without Outcome (d)",
         "es": "Unexposed without Outcome (d)",
         "ar": "Unexposed without Outcome (d)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of unexposed subjects who do not have the outcome",
+        "tr": "Maruz kalmayan ve sonuca sahip olmayan denek sayısı"
       }
     }
   ],

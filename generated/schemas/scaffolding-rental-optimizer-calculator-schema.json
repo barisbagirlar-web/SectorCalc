@@ -21,10 +21,12 @@
       "max": 365,
       "businessContext": "Total planned duration of scaffolding usage on site.",
       "label_i18n": {
-        "en": "Project Duration (days)"
+        "en": "Project Duration (days)",
+        "tr": "Proje Süresi (gün)"
       },
       "businessContext_i18n": {
-        "en": "Total planned duration of scaffolding usage on site."
+        "en": "Total planned duration of scaffolding usage on site.",
+        "tr": "İskele kullanımının sahada planlanan toplam süresi."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000,
       "businessContext": "Total surface area of scaffolding required.",
       "label_i18n": {
-        "en": "Total Scaffold Area (sqm)"
+        "en": "Total Scaffold Area (sqm)",
+        "tr": "Toplam İskele Alanı (m²)"
       },
       "businessContext_i18n": {
-        "en": "Total surface area of scaffolding required."
+        "en": "Total surface area of scaffolding required.",
+        "tr": "Gerekli iskelenin toplam yüzey alanı."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 20,
       "businessContext": "Daily rental cost per square meter of scaffolding.",
       "label_i18n": {
-        "en": "Rental Rate per sqm per day"
+        "en": "Rental Rate per sqm per day",
+        "tr": "m² başına günlük kiralama ücreti"
       },
       "businessContext_i18n": {
-        "en": "Daily rental cost per square meter of scaffolding."
+        "en": "Daily rental cost per square meter of scaffolding.",
+        "tr": "İskelenin metrekare başına günlük kiralama maliyeti."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 2000,
       "businessContext": "Cost per delivery or pickup trip for scaffolding materials.",
       "label_i18n": {
-        "en": "Transport Cost per Trip"
+        "en": "Transport Cost per Trip",
+        "tr": "Sefer Başına Nakliye Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost per delivery or pickup trip for scaffolding materials."
+        "en": "Cost per delivery or pickup trip for scaffolding materials.",
+        "tr": "İskele malzemelerinin teslimat veya toplama seferi başına maliyeti."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 50,
       "businessContext": "Total trips for delivery and return of scaffolding.",
       "label_i18n": {
-        "en": "Number of Transport Trips"
+        "en": "Number of Transport Trips",
+        "tr": "Nakliye Sefer Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total trips for delivery and return of scaffolding."
+        "en": "Total trips for delivery and return of scaffolding.",
+        "tr": "İskelenin teslimatı ve iadesi için toplam sefer sayısı."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Hourly wage for scaffolding erectors/dismantlers.",
       "label_i18n": {
-        "en": "Labor Cost per Hour"
+        "en": "Labor Cost per Hour",
+        "tr": "Saatlik işçilik maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Hourly wage for scaffolding erectors/dismantlers."
+        "en": "Hourly wage for scaffolding erectors/dismantlers.",
+        "tr": "İskele montajcıları/sökücüleri için saatlik ücret."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 1,
       "businessContext": "Standard labor hours to erect one square meter of scaffolding.",
       "label_i18n": {
-        "en": "Erection Hours per sqm"
+        "en": "Erection Hours per sqm",
+        "tr": "Metrekare Başına Montaj Saati"
       },
       "businessContext_i18n": {
-        "en": "Standard labor hours to erect one square meter of scaffolding."
+        "en": "Standard labor hours to erect one square meter of scaffolding.",
+        "tr": "Bir metrekare iskele kurmak için standart işçilik saati."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 0.8,
       "businessContext": "Standard labor hours to dismantle one square meter.",
       "label_i18n": {
-        "en": "Dismantle Hours per sqm"
+        "en": "Dismantle Hours per sqm",
+        "tr": "Metrekare Başına Söküm Saati"
       },
       "businessContext_i18n": {
-        "en": "Standard labor hours to dismantle one square meter."
+        "en": "Standard labor hours to dismantle one square meter.",
+        "tr": "Bir metrekare iskeleyi sökmek için standart işçilik saati."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total monthly net income of the borrower after taxes.",
       "label_i18n": {
         "en": "Monthly Net Income",
-        "tr": "Monthly Net Income",
+        "tr": "Aylık Net Gelir",
         "de": "Monthly Net Income",
         "fr": "Monthly Net Income",
         "es": "Monthly Net Income",
         "ar": "Monthly Net Income"
+      },
+      "businessContext_i18n": {
+        "en": "Total monthly net income of the borrower after taxes.",
+        "tr": "Borçlunun vergiler sonrası toplam aylık net geliri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total monthly living expenses excluding any loan payments.",
       "label_i18n": {
         "en": "Monthly Expenses",
-        "tr": "Monthly Expenses",
+        "tr": "Aylık Giderler",
         "de": "Monthly Expenses",
         "fr": "Monthly Expenses",
         "es": "Monthly Expenses",
         "ar": "Monthly Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Total monthly living expenses excluding any loan payments.",
+        "tr": "Kredi ödemeleri hariç toplam aylık yaşam giderleri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Annual nominal interest rate for the loan.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate for the loan.",
+        "tr": "Kredi için yıllık nominal faiz oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The repayment period in years.",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "The repayment period in years.",
+        "tr": "Geri ödeme süresi (yıl olarak)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The total loan amount the borrower wishes to take.",
       "label_i18n": {
         "en": "Desired Loan Amount",
-        "tr": "Desired Loan Amount",
+        "tr": "İstenen Kredi Tutarı",
         "de": "Desired Loan Amount",
         "fr": "Desired Loan Amount",
         "es": "Desired Loan Amount",
         "ar": "Desired Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The total loan amount the borrower wishes to take.",
+        "tr": "Borçlunun almak istediği toplam kredi tutarı."
       }
     }
   ],

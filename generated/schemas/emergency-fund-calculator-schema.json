@@ -10,11 +10,15 @@
       "businessContext": "Total essential monthly living expenses (e.g., housing, food, utilities, transportation, insurance).",
       "label_i18n": {
         "en": "Monthly Essential Expenses",
-        "tr": "Monthly Essential Expenses",
+        "tr": "Aylık Temel Giderler",
         "de": "Monthly Essential Expenses",
         "fr": "Monthly Essential Expenses",
         "es": "Monthly Essential Expenses",
         "ar": "Monthly Essential Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Total essential monthly living expenses (e.g., housing, food, utilities, transportation, insurance).",
+        "tr": "Aylık temel yaşam giderleri toplamı (örneğin, konut, gıda, faturalar, ulaşım, sigorta)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of months of expenses the emergency fund should cover (typically 3-6).",
       "label_i18n": {
         "en": "Desired Coverage (Months)",
-        "tr": "Desired Coverage (Months)",
+        "tr": "İstenen Kapsam (Ay)",
         "de": "Desired Coverage (Months)",
         "fr": "Desired Coverage (Months)",
         "es": "Desired Coverage (Months)",
         "ar": "Desired Coverage (Months)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months of expenses the emergency fund should cover (typically 3-6).",
+        "tr": "Acil durum fonunun karşılaması gereken ay sayısı (genellikle 3-6)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Amount already saved toward the emergency fund.",
       "label_i18n": {
         "en": "Current Emergency Savings",
-        "tr": "Current Emergency Savings",
+        "tr": "Mevcut Acil Durum Birikimi",
         "de": "Current Emergency Savings",
         "fr": "Current Emergency Savings",
         "es": "Current Emergency Savings",
         "ar": "Current Emergency Savings"
+      },
+      "businessContext_i18n": {
+        "en": "Amount already saved toward the emergency fund.",
+        "tr": "Acil durum fonu için halihazırda biriktirilen miktar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional percentage buffer for unforeseen costs.",
       "label_i18n": {
         "en": "Safety Margin (%)",
-        "tr": "Safety Margin (%)",
+        "tr": "Güvenlik Marjı (%)",
         "de": "Safety Margin (%)",
         "fr": "Safety Margin (%)",
         "es": "Safety Margin (%)",
         "ar": "Safety Margin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage buffer for unforeseen costs.",
+        "tr": "Öngörülemeyen maliyetler için ek yüzde tamponu."
       }
     }
   ],

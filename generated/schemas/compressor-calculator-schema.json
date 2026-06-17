@@ -10,11 +10,15 @@
       "businessContext": "The absolute pressure at compressor inlet, typically atmospheric pressure (1 bar).",
       "label_i18n": {
         "en": "Inlet Pressure",
-        "tr": "Inlet Pressure",
+        "tr": "Giriş basıncı",
         "de": "Inlet Pressure",
         "fr": "Inlet Pressure",
         "es": "Inlet Pressure",
         "ar": "Inlet Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "The absolute pressure at compressor inlet, typically atmospheric pressure (1 bar).",
+        "tr": "Kompresör girişindeki mutlak basınç, tipik olarak atmosfer basıncı (1 bar)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The desired discharge pressure after compression.",
       "label_i18n": {
         "en": "Outlet Pressure",
-        "tr": "Outlet Pressure",
+        "tr": "Çıkış basıncı",
         "de": "Outlet Pressure",
         "fr": "Outlet Pressure",
         "es": "Outlet Pressure",
         "ar": "Outlet Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "The desired discharge pressure after compression.",
+        "tr": "Sıkıştırma sonrası istenen boşaltma basıncı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Volumetric flow rate at inlet pressure and temperature.",
       "label_i18n": {
         "en": "Flow Rate (Inlet Conditions)",
-        "tr": "Flow Rate (Inlet Conditions)",
+        "tr": "Debi (Giriş koşulları)",
         "de": "Flow Rate (Inlet Conditions)",
         "fr": "Flow Rate (Inlet Conditions)",
         "es": "Flow Rate (Inlet Conditions)",
         "ar": "Flow Rate (Inlet Conditions)"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate at inlet pressure and temperature.",
+        "tr": "Giriş basıncı ve sıcaklığındaki hacimsel debi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ratio of specific heats (Cp/Cv) for the gas, typically 1.4 for air.",
       "label_i18n": {
         "en": "Adiabatic Index (k)",
-        "tr": "Adiabatic Index (k)",
+        "tr": "Adyabatik indeks (k)",
         "de": "Adiabatic Index (k)",
         "fr": "Adiabatic Index (k)",
         "es": "Adiabatic Index (k)",
         "ar": "Adiabatic Index (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of specific heats (Cp/Cv) for the gas, typically 1.4 for air.",
+        "tr": "Gazın özgül ısı oranı (Cp/Cv), tipik olarak hava için 1.4."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Efficiency of the compressor in converting adiabatic work to shaft work.",
       "label_i18n": {
         "en": "Compressor Isentropic Efficiency",
-        "tr": "Compressor Isentropic Efficiency",
+        "tr": "Kompresör izentropik verimliliği",
         "de": "Compressor Isentropic Efficiency",
         "fr": "Compressor Isentropic Efficiency",
         "es": "Compressor Isentropic Efficiency",
         "ar": "Compressor Isentropic Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the compressor in converting adiabatic work to shaft work.",
+        "tr": "Kompresörün adyabatik işi mil işine dönüştürme verimliliği."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Efficiency of the electric motor driving the compressor.",
       "label_i18n": {
         "en": "Motor Efficiency",
-        "tr": "Motor Efficiency",
+        "tr": "Motor verimliliği",
         "de": "Motor Efficiency",
         "fr": "Motor Efficiency",
         "es": "Motor Efficiency",
         "ar": "Motor Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the electric motor driving the compressor.",
+        "tr": "Kompresörü tahrik eden elektrik motorunun verimliliği."
       }
     }
   ],

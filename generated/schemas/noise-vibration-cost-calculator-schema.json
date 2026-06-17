@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop).",
       "label_i18n": {
-        "en": "Number of workers exposed"
+        "en": "Number of workers exposed",
+        "tr": "Maruz kalan işçi sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop)."
+        "en": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop).",
+        "tr": "Gürültü/titreşim bölgesindeki (ör. montaj hattı, pres atölyesi) toplam personel sayısı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 16,
       "businessContext": "Per worker, typical shift duration in the affected area.",
       "label_i18n": {
-        "en": "Average daily exposure hours"
+        "en": "Average daily exposure hours",
+        "tr": "Ortalama günlük maruziyet saati"
       },
       "businessContext_i18n": {
-        "en": "Per worker, typical shift duration in the affected area."
+        "en": "Per worker, typical shift duration in the affected area.",
+        "tr": "İşçi başına, etkilenen alandaki tipik vardiya süresi."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 130,
       "businessContext": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level.",
       "label_i18n": {
-        "en": "Noise level (A-weighted)"
+        "en": "Noise level (A-weighted)",
+        "tr": "Gürültü seviyesi (A-ağırlıklı)"
       },
       "businessContext_i18n": {
-        "en": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level."
+        "en": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level.",
+        "tr": "ISO 9612'ye göre operatör pozisyonunda ölçülür. 85 dB(A) tipik eylem seviyesidir."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 20,
       "businessContext": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body.",
       "label_i18n": {
-        "en": "Vibration level (RMS acceleration)"
+        "en": "Vibration level (RMS acceleration)",
+        "tr": "Titreşim seviyesi (RMS ivme)"
       },
       "businessContext_i18n": {
-        "en": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body."
+        "en": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body.",
+        "tr": "ISO 2631-1'e göre ağırlıklı ivme. El-kol veya tüm vücut."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 24,
       "businessContext": "Total operating hours of the primary noise/vibration source.",
       "label_i18n": {
-        "en": "Machine runtime per day"
+        "en": "Machine runtime per day",
+        "tr": "Makine günlük çalışma süresi"
       },
       "businessContext_i18n": {
-        "en": "Total operating hours of the primary noise/vibration source."
+        "en": "Total operating hours of the primary noise/vibration source.",
+        "tr": "Birincil gürültü/titreşim kaynağının toplam çalışma saatleri."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 1000000,
       "businessContext": "Current average spend on repairs and parts for each affected machine.",
       "label_i18n": {
-        "en": "Annual maintenance cost per machine"
+        "en": "Annual maintenance cost per machine",
+        "tr": "Makine başına yıllık bakım maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Current average spend on repairs and parts for each affected machine."
+        "en": "Current average spend on repairs and parts for each affected machine.",
+        "tr": "Etkilenen her makine için onarım ve yedek parçalara yapılan mevcut ortalama harcama."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 500,
       "businessContext": "Count of equipment generating noise/vibration in the assessed area.",
       "label_i18n": {
-        "en": "Number of machines in zone"
+        "en": "Number of machines in zone",
+        "tr": "Bölgedeki makine sayısı"
       },
       "businessContext_i18n": {
-        "en": "Count of equipment generating noise/vibration in the assessed area."
+        "en": "Count of equipment generating noise/vibration in the assessed area.",
+        "tr": "Değerlendirilen alanda gürültü/titreşim üreten ekipman sayısı."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 200000,
       "businessContext": "Includes wages, benefits, overhead. Used to estimate productivity loss.",
       "label_i18n": {
-        "en": "Average worker annual salary (fully loaded)"
+        "en": "Average worker annual salary (fully loaded)",
+        "tr": "Ortalama işçi yıllık maaşı (tam yüklü)"
       },
       "businessContext_i18n": {
-        "en": "Includes wages, benefits, overhead. Used to estimate productivity loss."
+        "en": "Includes wages, benefits, overhead. Used to estimate productivity loss.",
+        "tr": "Maaş, yan haklar, genel giderleri içerir. Verimlilik kaybını tahmin etmek için kullanılır."
       }
     }
   ],

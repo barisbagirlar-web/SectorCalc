@@ -10,11 +10,15 @@
       "businessContext": "The upfront capital cost required for the process improvement or new equipment.",
       "label_i18n": {
         "en": "Initial Capital Investment",
-        "tr": "Initial Capital Investment",
+        "tr": "Başlangıç Sermaye Yatırımı",
         "de": "Initial Capital Investment",
         "fr": "Initial Capital Investment",
         "es": "Initial Capital Investment",
         "ar": "Initial Capital Investment"
+      },
+      "businessContext_i18n": {
+        "en": "The upfront capital cost required for the process improvement or new equipment.",
+        "tr": "Süreç iyileştirme veya yeni ekipman için gereken peşin sermaye maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected annual reduction in operating costs (e.g., labor, materials, energy) from the investment.",
       "label_i18n": {
         "en": "Annual Cost Savings",
-        "tr": "Annual Cost Savings",
+        "tr": "Yıllık Maliyet Tasarrufu",
         "de": "Annual Cost Savings",
         "fr": "Annual Cost Savings",
         "es": "Annual Cost Savings",
         "ar": "Annual Cost Savings"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual reduction in operating costs (e.g., labor, materials, energy) from the investment.",
+        "tr": "Yatırımdan beklenen yıllık işletme maliyeti azalması (ör. işçilik, malzeme, enerji)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The number of years over which the investment will generate savings.",
       "label_i18n": {
         "en": "Project Life",
-        "tr": "Project Life",
+        "tr": "Proje Ömrü",
         "de": "Project Life",
         "fr": "Project Life",
         "es": "Project Life",
         "ar": "Project Life"
+      },
+      "businessContext_i18n": {
+        "en": "The number of years over which the investment will generate savings.",
+        "tr": "Yatırımın tasarruf sağlayacağı yıl sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The annual discount rate reflecting the cost of capital or required rate of return.",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The annual discount rate reflecting the cost of capital or required rate of return.",
+        "tr": "Sermaye maliyetini veya gerekli getiri oranını yansıtan yıllık iskonto oranı."
       }
     }
   ],

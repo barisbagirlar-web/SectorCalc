@@ -10,11 +10,15 @@
       "businessContext": "Current age of kitten in weeks",
       "label_i18n": {
         "en": "Age (weeks)",
-        "tr": "Age (weeks)",
+        "tr": "Yaş (hafta)",
         "de": "Age (weeks)",
         "fr": "Age (weeks)",
         "es": "Age (weeks)",
         "ar": "Age (weeks)"
+      },
+      "businessContext_i18n": {
+        "en": "Current age of kitten in weeks",
+        "tr": "Yavru kedinin hafta cinsinden mevcut yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current weight of kitten in grams",
       "label_i18n": {
         "en": "Current Weight",
-        "tr": "Current Weight",
+        "tr": "Mevcut Ağırlık",
         "de": "Current Weight",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Current weight of kitten in grams",
+        "tr": "Yavru kedinin gram cinsinden mevcut ağırlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight at birth in grams",
       "label_i18n": {
         "en": "Birth Weight",
-        "tr": "Birth Weight",
+        "tr": "Doğum Ağırlığı",
         "de": "Birth Weight",
         "fr": "Birth Weight",
         "es": "Birth Weight",
         "ar": "Birth Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight at birth in grams",
+        "tr": "Gram cinsinden doğum ağırlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Breed size multiplier (e.g., 0.8 small, 1.0 medium, 1.2 large)",
       "label_i18n": {
         "en": "Breed Size Factor",
-        "tr": "Breed Size Factor",
+        "tr": "Irk Boyut Faktörü",
         "de": "Breed Size Factor",
         "fr": "Breed Size Factor",
         "es": "Breed Size Factor",
         "ar": "Breed Size Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Breed size multiplier (e.g., 0.8 small, 1.0 medium, 1.2 large)",
+        "tr": "Irk boyut çarpanı (ör. küçük 0.8, orta 1.0, büyük 1.2)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Sex multiplier (1.0 female, 1.1 male)",
       "label_i18n": {
         "en": "Sex Factor",
-        "tr": "Sex Factor",
+        "tr": "Cinsiyet Faktörü",
         "de": "Sex Factor",
         "fr": "Sex Factor",
         "es": "Sex Factor",
         "ar": "Sex Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Sex multiplier (1.0 female, 1.1 male)",
+        "tr": "Cinsiyet çarpanı (dişi 1.0, erkek 1.1)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average daily calorie intake affecting growth rate",
       "label_i18n": {
         "en": "Daily Calorie Intake",
-        "tr": "Daily Calorie Intake",
+        "tr": "Günlük Kalori Alımı",
         "de": "Daily Calorie Intake",
         "fr": "Daily Calorie Intake",
         "es": "Daily Calorie Intake",
         "ar": "Daily Calorie Intake"
+      },
+      "businessContext_i18n": {
+        "en": "Average daily calorie intake affecting growth rate",
+        "tr": "Büyüme hızını etkileyen ortalama günlük kalori alımı"
       }
     }
   ],

@@ -23,10 +23,12 @@
       "max": 500,
       "businessContext": "Physical length of the package in centimeters. ISO 1:2016 standard for geometric product specifications.",
       "label_i18n": {
-        "en": "Length (cm)"
+        "en": "Length (cm)",
+        "tr": "Boy (cm)"
       },
       "businessContext_i18n": {
-        "en": "Physical length of the package in centimeters. ISO 1:2016 standard for geometric product specifications."
+        "en": "Physical length of the package in centimeters. ISO 1:2016 standard for geometric product specifications.",
+        "tr": "Paketin fiziksel uzunluğu (cm). Geometrik ürün özellikleri için ISO 1:2016 standardı."
       }
     },
     {
@@ -39,10 +41,12 @@
       "max": 500,
       "businessContext": "Physical width of the package in centimeters.",
       "label_i18n": {
-        "en": "Width (cm)"
+        "en": "Width (cm)",
+        "tr": "Genişlik (cm)"
       },
       "businessContext_i18n": {
-        "en": "Physical width of the package in centimeters."
+        "en": "Physical width of the package in centimeters.",
+        "tr": "Paketin fiziksel genişliği (cm)."
       }
     },
     {
@@ -55,10 +59,12 @@
       "max": 500,
       "businessContext": "Physical height of the package in centimeters.",
       "label_i18n": {
-        "en": "Height (cm)"
+        "en": "Height (cm)",
+        "tr": "Boy (cm)"
       },
       "businessContext_i18n": {
-        "en": "Physical height of the package in centimeters."
+        "en": "Physical height of the package in centimeters.",
+        "tr": "Paketin fiziksel yüksekliği (cm)."
       }
     },
     {
@@ -71,10 +77,12 @@
       "max": 1000,
       "businessContext": "Gross weight of the package including packaging. Per ISO 80000-4:2006.",
       "label_i18n": {
-        "en": "Actual Weight (kg)"
+        "en": "Actual Weight (kg)",
+        "tr": "Gerçek ağırlık (kg)"
       },
       "businessContext_i18n": {
-        "en": "Gross weight of the package including packaging. Per ISO 80000-4:2006."
+        "en": "Gross weight of the package including packaging. Per ISO 80000-4:2006.",
+        "tr": "Paketleme dahil brüt ağırlık. ISO 80000-4:2006 standardına göre."
       }
     },
     {
@@ -93,10 +101,12 @@
         "7000"
       ],
       "label_i18n": {
-        "en": "Carrier DIM Factor"
+        "en": "Carrier DIM Factor",
+        "tr": "Taşıyıcı DIM Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Volumetric divisor used by carrier (e.g., FedEx/UPS: 5000, DHL: 5000, Air freight: 6000). WERC standard."
+        "en": "Volumetric divisor used by carrier (e.g., FedEx/UPS: 5000, DHL: 5000, Air freight: 6000). WERC standard.",
+        "tr": "Taşıyıcı tarafından kullanılan hacimsel bölen (örn. FedEx/UPS: 5000, DHL: 5000, Hava kargo: 6000). WERC standardı."
       }
     },
     {
@@ -115,10 +125,12 @@
         "irregular"
       ],
       "label_i18n": {
-        "en": "Package Type"
+        "en": "Package Type",
+        "tr": "Paket türü"
       },
       "businessContext_i18n": {
-        "en": "Type of packaging influences dimensional stability and handling. Lean packaging standard."
+        "en": "Type of packaging influences dimensional stability and handling. Lean packaging standard.",
+        "tr": "Paketleme türü boyutsal stabiliteyi ve taşımayı etkiler. Yalın paketleme standardı."
       }
     },
     {
@@ -131,10 +143,12 @@
       "max": null,
       "businessContext": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization.",
       "label_i18n": {
-        "en": "Stackable"
+        "en": "Stackable",
+        "tr": "İstiflenebilir"
       },
       "businessContext_i18n": {
-        "en": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization."
+        "en": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization.",
+        "tr": "Paketin istiflenip istiflenemeyeceğini belirtir. Depolama yoğunluğunu ve taşıma maliyetini etkiler. Altı Sigma malzeme akışı optimizasyonu."
       }
     },
     {
@@ -147,10 +161,12 @@
       "max": null,
       "businessContext": "Indicates if contents are hazardous (IMO/ADR/IATA). Affects surcharges and handling restrictions.",
       "label_i18n": {
-        "en": "Hazardous Material"
+        "en": "Hazardous Material",
+        "tr": "Tehlikeli Madde"
       },
       "businessContext_i18n": {
-        "en": "Indicates if contents are hazardous (IMO/ADR/IATA). Affects surcharges and handling restrictions."
+        "en": "Indicates if contents are hazardous (IMO/ADR/IATA). Affects surcharges and handling restrictions.",
+        "tr": "İçeriğin tehlikeli olup olmadığını belirtir (IMO/ADR/IATA). Ek ücretleri ve taşıma kısıtlamalarını etkiler."
       }
     }
   ],

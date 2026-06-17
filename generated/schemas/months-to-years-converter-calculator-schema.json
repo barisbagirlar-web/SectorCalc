@@ -10,11 +10,15 @@
       "businessContext": "Total number of months to convert to years",
       "label_i18n": {
         "en": "Months",
-        "tr": "Months",
+        "tr": "Ay",
         "de": "Months",
         "fr": "Months",
         "es": "Months",
         "ar": "Months"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of months to convert to years",
+        "tr": "Yıla dönüştürülecek toplam ay sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of months in a year (typically 12)",
       "label_i18n": {
         "en": "Months per Year",
-        "tr": "Months per Year",
+        "tr": "Yıldaki Ay Sayısı",
         "de": "Months per Year",
         "fr": "Months per Year",
         "es": "Months per Year",
         "ar": "Months per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months in a year (typically 12)",
+        "tr": "Bir yıldaki ay sayısı (genellikle 12)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the years output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the years output",
+        "tr": "Yıl çıktısı için ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = decimal years only, 1 = years and months breakdown (not used in primary)",
       "label_i18n": {
         "en": "Output Mode",
-        "tr": "Output Mode",
+        "tr": "Çıktı Modu",
         "de": "Output Mode",
         "fr": "Output Mode",
         "es": "Output Mode",
         "ar": "Output Mode"
+      },
+      "businessContext_i18n": {
+        "en": "0 = decimal years only, 1 = years and months breakdown (not used in primary)",
+        "tr": "0 = yalnızca ondalık yıl, 1 = yıl ve ay dökümü (birincilde kullanılmaz)"
       }
     }
   ],

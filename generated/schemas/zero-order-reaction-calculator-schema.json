@@ -10,11 +10,15 @@
       "businessContext": "Initial concentration of the reactant before the reaction starts.",
       "label_i18n": {
         "en": "Initial Concentration",
-        "tr": "Initial Concentration",
+        "tr": "Başlangıç Konsantrasyonu",
         "de": "Initial Concentration",
         "fr": "Initial Concentration",
         "es": "Initial Concentration",
         "ar": "Initial Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Initial concentration of the reactant before the reaction starts.",
+        "tr": "Reaksiyon başlamadan önce reaktantın başlangıç konsantrasyonu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Zero-order rate constant, representing the consumption rate per unit time.",
       "label_i18n": {
         "en": "Rate Constant",
-        "tr": "Rate Constant",
+        "tr": "Hız Sabiti",
         "de": "Rate Constant",
         "fr": "Rate Constant",
         "es": "Rate Constant",
         "ar": "Rate Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Zero-order rate constant, representing the consumption rate per unit time.",
+        "tr": "Sıfırıncı derece hız sabiti, birim zaman başına tüketim oranını temsil eder."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The time elapsed since the start of the reaction.",
       "label_i18n": {
         "en": "Reaction Time",
-        "tr": "Reaction Time",
+        "tr": "Reaksiyon Süresi",
         "de": "Reaction Time",
         "fr": "Reaction Time",
         "es": "Reaction Time",
         "ar": "Reaction Time"
+      },
+      "businessContext_i18n": {
+        "en": "The time elapsed since the start of the reaction.",
+        "tr": "Reaksiyonun başlangıcından bu yana geçen süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired concentration of the reactant to calculate the required reaction time.",
       "label_i18n": {
         "en": "Target Concentration",
-        "tr": "Target Concentration",
+        "tr": "Hedef Konsantrasyon",
         "de": "Target Concentration",
         "fr": "Target Concentration",
         "es": "Target Concentration",
         "ar": "Target Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Desired concentration of the reactant to calculate the required reaction time.",
+        "tr": "Gerekli reaksiyon süresini hesaplamak için istenen reaktant konsantrasyonu."
       }
     }
   ],

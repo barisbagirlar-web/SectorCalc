@@ -10,11 +10,15 @@
       "businessContext": "The weight in pounds to convert to calories. Standard use is for body fat energy content.",
       "label_i18n": {
         "en": "Weight in Pounds",
-        "tr": "Weight in Pounds",
+        "tr": "Pound cinsinden ağırlık",
         "de": "Weight in Pounds",
         "fr": "Weight in Pounds",
         "es": "Weight in Pounds",
         "ar": "Weight in Pounds"
+      },
+      "businessContext_i18n": {
+        "en": "The weight in pounds to convert to calories. Standard use is for body fat energy content.",
+        "tr": "Kaloriye dönüştürülecek pound cinsinden ağırlık. Standart kullanım vücut yağ enerji içeriği içindir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor from pounds to calories. Default 3500 kcal/lb is the widely accepted value for body fat.",
       "label_i18n": {
         "en": "Calories per Pound",
-        "tr": "Calories per Pound",
+        "tr": "Pound Başına Kalori",
         "de": "Calories per Pound",
         "fr": "Calories per Pound",
         "es": "Calories per Pound",
         "ar": "Calories per Pound"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from pounds to calories. Default 3500 kcal/lb is the widely accepted value for body fat.",
+        "tr": "Pound'dan kaloriye dönüşüm faktörü. Varsayılan 3500 kcal/lb, vücut yağı için yaygın olarak kabul edilen değerdir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Set to 1 to also display the equivalent energy in kilojoules.",
       "label_i18n": {
         "en": "Include Kilojoules",
-        "tr": "Include Kilojoules",
+        "tr": "Kilojul Dahil Et",
         "de": "Include Kilojoules",
         "fr": "Include Kilojoules",
         "es": "Include Kilojoules",
         "ar": "Include Kilojoules"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to also display the equivalent energy in kilojoules.",
+        "tr": "Eşdeğer enerjiyi kilojul cinsinden de göstermek için 1 olarak ayarlayın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places to round the output values.",
       "label_i18n": {
         "en": "Rounding Precision",
-        "tr": "Rounding Precision",
+        "tr": "Yuvarlama Hassasiyeti",
         "de": "Rounding Precision",
         "fr": "Rounding Precision",
         "es": "Rounding Precision",
         "ar": "Rounding Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the output values.",
+        "tr": "Çıktı değerlerinin yuvarlanacağı ondalık basamak sayısı."
       }
     }
   ],

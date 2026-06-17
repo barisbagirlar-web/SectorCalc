@@ -10,11 +10,15 @@
       "businessContext": "Diameter of the resistance wire used in the coil.",
       "label_i18n": {
         "en": "Wire Diameter",
-        "tr": "Wire Diameter",
+        "tr": "Tel Çapı",
         "de": "Wire Diameter",
         "fr": "Wire Diameter",
         "es": "Wire Diameter",
         "ar": "Wire Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the resistance wire used in the coil.",
+        "tr": "Bobinde kullanılan direnç telinin çapı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Inner diameter of the coil, typically the jig or drill bit size.",
       "label_i18n": {
         "en": "Inner Coil Diameter",
-        "tr": "Inner Coil Diameter",
+        "tr": "İç Bobin Çapı",
         "de": "Inner Coil Diameter",
         "fr": "Inner Coil Diameter",
         "es": "Inner Coil Diameter",
         "ar": "Inner Coil Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the coil, typically the jig or drill bit size.",
+        "tr": "Bobinin iç çapı, genellikle mastar veya matkap ucu boyutu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Full wraps of the coil.",
       "label_i18n": {
         "en": "Number of Wraps",
-        "tr": "Number of Wraps",
+        "tr": "Sarım Sayısı",
         "de": "Number of Wraps",
         "fr": "Number of Wraps",
         "es": "Number of Wraps",
         "ar": "Number of Wraps"
+      },
+      "businessContext_i18n": {
+        "en": "Full wraps of the coil.",
+        "tr": "Bobinin tam sarımları."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Length of each leg from coil to attachment post.",
       "label_i18n": {
         "en": "Leg Length (per leg)",
-        "tr": "Leg Length (per leg)",
+        "tr": "Bacak Uzunluğu (bacak başına)",
         "de": "Leg Length (per leg)",
         "fr": "Leg Length (per leg)",
         "es": "Leg Length (per leg)",
         "ar": "Leg Length (per leg)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of each leg from coil to attachment post.",
+        "tr": "Her bir bacağın bobinden bağlantı direğine kadar olan uzunluğu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Electrical resistivity of the wire material (e.g., Kanthal A1: 1.45×10⁻⁶ Ω·m).",
       "label_i18n": {
         "en": "Resistivity",
-        "tr": "Resistivity",
+        "tr": "Özdirenç",
         "de": "Resistivity",
         "fr": "Resistivity",
         "es": "Resistivity",
         "ar": "Resistivity"
+      },
+      "businessContext_i18n": {
+        "en": "Electrical resistivity of the wire material (e.g., Kanthal A1: 1.45×10⁻⁶ Ω·m).",
+        "tr": "Tel malzemesinin elektriksel özdirenci (ör. Kanthal A1: 1,45×10⁻⁶ Ω·m)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Output voltage of the battery or regulated mod.",
       "label_i18n": {
         "en": "Applied Voltage",
-        "tr": "Applied Voltage",
+        "tr": "Uygulanan Voltaj",
         "de": "Applied Voltage",
         "fr": "Applied Voltage",
         "es": "Applied Voltage",
         "ar": "Applied Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Output voltage of the battery or regulated mod.",
+        "tr": "Pil veya regüleli modun çıkış voltajı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The current year for age calculation.",
       "label_i18n": {
         "en": "Current Year",
-        "tr": "Current Year",
+        "tr": "Mevcut Yıl",
         "de": "Current Year",
         "fr": "Current Year",
         "es": "Current Year",
         "ar": "Current Year"
+      },
+      "businessContext_i18n": {
+        "en": "The current year for age calculation.",
+        "tr": "Yaş hesaplaması için mevcut yıl."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The year the cited work was published.",
       "label_i18n": {
         "en": "Publication Year",
-        "tr": "Publication Year",
+        "tr": "Yayın Yılı",
         "de": "Publication Year",
         "fr": "Publication Year",
         "es": "Publication Year",
         "ar": "Publication Year"
+      },
+      "businessContext_i18n": {
+        "en": "The year the cited work was published.",
+        "tr": "Atıf yapılan çalışmanın yayımlandığı yıl."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The total number of authors of the cited work.",
       "label_i18n": {
         "en": "Number of Authors",
-        "tr": "Number of Authors",
+        "tr": "Yazar Sayısı",
         "de": "Number of Authors",
         "fr": "Number of Authors",
         "es": "Number of Authors",
         "ar": "Number of Authors"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of authors of the cited work.",
+        "tr": "Atıf yapılan çalışmanın toplam yazar sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of times the work has been cited, for impact estimation.",
       "label_i18n": {
         "en": "Citation Count",
-        "tr": "Citation Count",
+        "tr": "Atıf Sayısı",
         "de": "Citation Count",
         "fr": "Citation Count",
         "es": "Citation Count",
         "ar": "Citation Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times the work has been cited, for impact estimation.",
+        "tr": "Çalışmanın atıf alma sayısı, etki tahmini için."
       }
     }
   ],

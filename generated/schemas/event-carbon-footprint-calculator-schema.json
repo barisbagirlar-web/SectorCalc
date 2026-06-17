@@ -10,11 +10,15 @@
       "businessContext": "Total number of people attending the event.",
       "label_i18n": {
         "en": "Number of Attendees",
-        "tr": "Number of Attendees",
+        "tr": "Katılımcı Sayısı",
         "de": "Number of Attendees",
         "fr": "Number of Attendees",
         "es": "Number of Attendees",
         "ar": "Number of Attendees"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of people attending the event.",
+        "tr": "Etkinliğe katılan toplam kişi sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "One-way distance travelled by each attendee (return trip considered automatically).",
       "label_i18n": {
         "en": "Average Travel Distance per Attendee (one-way)",
-        "tr": "Average Travel Distance per Attendee (one-way)",
+        "tr": "Katılımcı Başına Ortalama Seyahat Mesafesi (tek yön)",
         "de": "Average Travel Distance per Attendee (one-way)",
         "fr": "Average Travel Distance per Attendee (one-way)",
         "es": "Average Travel Distance per Attendee (one-way)",
         "ar": "Average Travel Distance per Attendee (one-way)"
+      },
+      "businessContext_i18n": {
+        "en": "One-way distance travelled by each attendee (return trip considered automatically).",
+        "tr": "Her katılımcının kat ettiği tek yön mesafe (dönüş yolculuğu otomatik olarak dikkate alınır)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "CO2 emitted per passenger-km (0.2 for car, 0.04 for train, 0.255 for flight).",
       "label_i18n": {
         "en": "Travel Emission Factor",
-        "tr": "Travel Emission Factor",
+        "tr": "Seyahat Emisyon Faktörü",
         "de": "Travel Emission Factor",
         "fr": "Travel Emission Factor",
         "es": "Travel Emission Factor",
         "ar": "Travel Emission Factor"
+      },
+      "businessContext_i18n": {
+        "en": "CO2 emitted per passenger-km (0.2 for car, 0.04 for train, 0.255 for flight).",
+        "tr": "Yolcu-km başına salınan CO2 (araba için 0.2, tren için 0.04, uçuş için 0.255)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Daily electricity and heating consumption of the event venue.",
       "label_i18n": {
         "en": "Venue Energy Consumption per Day",
-        "tr": "Venue Energy Consumption per Day",
+        "tr": "Mekanın Günlük Enerji Tüketimi",
         "de": "Venue Energy Consumption per Day",
         "fr": "Venue Energy Consumption per Day",
         "es": "Venue Energy Consumption per Day",
         "ar": "Venue Energy Consumption per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Daily electricity and heating consumption of the event venue.",
+        "tr": "Etkinlik mekanının günlük elektrik ve ısıtma tüketimi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of days the event takes place.",
       "label_i18n": {
         "en": "Event Duration",
-        "tr": "Event Duration",
+        "tr": "Etkinlik Süresi",
         "de": "Event Duration",
         "fr": "Event Duration",
         "es": "Event Duration",
         "ar": "Event Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days the event takes place.",
+        "tr": "Etkinliğin gerçekleştiği gün sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average waste generated per attendee per day.",
       "label_i18n": {
         "en": "Waste per Attendee per Day",
-        "tr": "Waste per Attendee per Day",
+        "tr": "Katılımcı Başına Günlük Atık",
         "de": "Waste per Attendee per Day",
         "fr": "Waste per Attendee per Day",
         "es": "Waste per Attendee per Day",
         "ar": "Waste per Attendee per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Average waste generated per attendee per day.",
+        "tr": "Katılımcı başına günlük ortalama atık miktarı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of hotel nights per attendee.",
       "label_i18n": {
         "en": "Accommodation Nights per Attendee",
-        "tr": "Accommodation Nights per Attendee",
+        "tr": "Katılımcı Başına Konaklama Gecesi",
         "de": "Accommodation Nights per Attendee",
         "fr": "Accommodation Nights per Attendee",
         "es": "Accommodation Nights per Attendee",
         "ar": "Accommodation Nights per Attendee"
+      },
+      "businessContext_i18n": {
+        "en": "Number of hotel nights per attendee.",
+        "tr": "Katılımcı başına düşen otel gecesi sayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The first integer to compare.",
       "label_i18n": {
         "en": "First Number (a)",
-        "tr": "First Number (a)",
+        "tr": "Birinci Sayı (a)",
         "de": "First Number (a)",
         "fr": "First Number (a)",
         "es": "First Number (a)",
         "ar": "First Number (a)"
+      },
+      "businessContext_i18n": {
+        "en": "The first integer to compare.",
+        "tr": "Karşılaştırılacak ilk tam sayı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The second integer to compare.",
       "label_i18n": {
         "en": "Second Number (b)",
-        "tr": "Second Number (b)",
+        "tr": "İkinci Sayı (b)",
         "de": "Second Number (b)",
         "fr": "Second Number (b)",
         "es": "Second Number (b)",
         "ar": "Second Number (b)"
+      },
+      "businessContext_i18n": {
+        "en": "The second integer to compare.",
+        "tr": "Karşılaştırılacak ikinci tam sayı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Modulus for the congruence relation.",
       "label_i18n": {
         "en": "Modulus",
-        "tr": "Modulus",
+        "tr": "Modül",
         "de": "Modulus",
         "fr": "Modulus",
         "es": "Modulus",
         "ar": "Modulus"
+      },
+      "businessContext_i18n": {
+        "en": "Modulus for the congruence relation.",
+        "tr": "Kongruans ilişkisi için modül."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Value added to a before checking congruence.",
       "label_i18n": {
         "en": "Shift",
-        "tr": "Shift",
+        "tr": "Kaydırma",
         "de": "Shift",
         "fr": "Shift",
         "es": "Shift",
         "ar": "Shift"
+      },
+      "businessContext_i18n": {
+        "en": "Value added to a before checking congruence.",
+        "tr": "Kongruans kontrolünden önce a'ya eklenen değer."
       }
     }
   ],

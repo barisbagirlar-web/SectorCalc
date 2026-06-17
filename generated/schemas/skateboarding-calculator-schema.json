@@ -10,11 +10,15 @@
       "businessContext": "Length of the skateboard deck in inches",
       "label_i18n": {
         "en": "Deck Length",
-        "tr": "Deck Length",
+        "tr": "Deck Uzunluğu",
         "de": "Deck Length",
         "fr": "Deck Length",
         "es": "Deck Length",
         "ar": "Deck Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the skateboard deck in inches",
+        "tr": "Kaykay tahtasının inç cinsinden uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the skateboard deck in inches",
       "label_i18n": {
         "en": "Deck Width",
-        "tr": "Deck Width",
+        "tr": "Güverte Genişliği",
         "de": "Deck Width",
         "fr": "Deck Width",
         "es": "Deck Width",
         "ar": "Deck Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the skateboard deck in inches",
+        "tr": "Kaykay tahtasının inç cinsinden genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Diameter of the wheels in millimeters",
       "label_i18n": {
         "en": "Wheel Diameter",
-        "tr": "Wheel Diameter",
+        "tr": "Tekerlek Çapı",
         "de": "Wheel Diameter",
         "fr": "Wheel Diameter",
         "es": "Wheel Diameter",
         "ar": "Wheel Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the wheels in millimeters",
+        "tr": "Tekerlek çapı (milimetre)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Hardness of the wheels on the Shore A scale",
       "label_i18n": {
         "en": "Wheel Hardness (Durometer A)",
-        "tr": "Wheel Hardness (Durometer A)",
+        "tr": "Tekerlek Sertliği (Shore A)",
         "de": "Wheel Hardness (Durometer A)",
         "fr": "Wheel Hardness (Durometer A)",
         "es": "Wheel Hardness (Durometer A)",
         "ar": "Wheel Hardness (Durometer A)"
+      },
+      "businessContext_i18n": {
+        "en": "Hardness of the wheels on the Shore A scale",
+        "tr": "Tekerleklerin Shore A ölçeğinde sertliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "ABEC rating of the bearings (1,3,5,7,9)",
       "label_i18n": {
         "en": "Bearing Rating (ABEC)",
-        "tr": "Bearing Rating (ABEC)",
+        "tr": "Rulman Sınıfı (ABEC)",
         "de": "Bearing Rating (ABEC)",
         "fr": "Bearing Rating (ABEC)",
         "es": "Bearing Rating (ABEC)",
         "ar": "Bearing Rating (ABEC)"
+      },
+      "businessContext_i18n": {
+        "en": "ABEC rating of the bearings (1,3,5,7,9)",
+        "tr": "Rulmanların ABEC sınıfı (1,3,5,7,9)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Width of the truck axle in inches",
       "label_i18n": {
         "en": "Truck Width",
-        "tr": "Truck Width",
+        "tr": "Aks Genişliği",
         "de": "Truck Width",
         "fr": "Truck Width",
         "es": "Truck Width",
         "ar": "Truck Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the truck axle in inches",
+        "tr": "Aks milinin inç cinsinden genişliği"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Weight of the rider in pounds",
       "label_i18n": {
         "en": "Rider Weight",
-        "tr": "Rider Weight",
+        "tr": "Sürücü Ağırlığı",
         "de": "Rider Weight",
         "fr": "Rider Weight",
         "es": "Rider Weight",
         "ar": "Rider Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the rider in pounds",
+        "tr": "Sürücünün pound cinsinden ağırlığı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Type of skating: 1 for street, 2 for park, 3 for cruising",
       "label_i18n": {
         "en": "Skate Style (1=Street, 2=Park, 3=Cruise)",
-        "tr": "Skate Style (1=Street, 2=Park, 3=Cruise)",
+        "tr": "Kaykay Stili (1=Street, 2=Park, 3=Cruise)",
         "de": "Skate Style (1=Street, 2=Park, 3=Cruise)",
         "fr": "Skate Style (1=Street, 2=Park, 3=Cruise)",
         "es": "Skate Style (1=Street, 2=Park, 3=Cruise)",
         "ar": "Skate Style (1=Street, 2=Park, 3=Cruise)"
+      },
+      "businessContext_i18n": {
+        "en": "Type of skating: 1 for street, 2 for park, 3 for cruising",
+        "tr": "Kaykay türü: 1 sokak, 2 park, 3 gezi"
       }
     }
   ],

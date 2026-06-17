@@ -10,11 +10,15 @@
       "businessContext": "Amplitude of wave from source 1",
       "label_i18n": {
         "en": "Amplitude 1",
-        "tr": "Amplitude 1",
+        "tr": "Genlik 1",
         "de": "Amplitude 1",
         "fr": "Amplitude 1",
         "es": "Amplitude 1",
         "ar": "Amplitude 1"
+      },
+      "businessContext_i18n": {
+        "en": "Amplitude of wave from source 1",
+        "tr": "Kaynak 1'den gelen dalganın genliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amplitude of wave from source 2",
       "label_i18n": {
         "en": "Amplitude 2",
-        "tr": "Amplitude 2",
+        "tr": "Genlik 2",
         "de": "Amplitude 2",
         "fr": "Amplitude 2",
         "es": "Amplitude 2",
         "ar": "Amplitude 2"
+      },
+      "businessContext_i18n": {
+        "en": "Amplitude of wave from source 2",
+        "tr": "Kaynak 2'den gelen dalganın genliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Wavelength of the waves (assumed identical for both sources)",
       "label_i18n": {
         "en": "Wavelength",
-        "tr": "Wavelength",
+        "tr": "Dalgaboyu",
         "de": "Wavelength",
         "fr": "Wavelength",
         "es": "Wavelength",
         "ar": "Wavelength"
+      },
+      "businessContext_i18n": {
+        "en": "Wavelength of the waves (assumed identical for both sources)",
+        "tr": "Dalgaların dalga boyu (her iki kaynak için de aynı olduğu varsayılır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Difference in path lengths from the two sources to the point of interest",
       "label_i18n": {
         "en": "Path Difference",
-        "tr": "Path Difference",
+        "tr": "Yol Farkı",
         "de": "Path Difference",
         "fr": "Path Difference",
         "es": "Path Difference",
         "ar": "Path Difference"
+      },
+      "businessContext_i18n": {
+        "en": "Difference in path lengths from the two sources to the point of interest",
+        "tr": "İki kaynaktan ilgilenilen noktaya olan yol uzunlukları farkı"
       }
     }
   ],

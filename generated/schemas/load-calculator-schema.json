@@ -10,11 +10,15 @@
       "businessContext": "Nominal system voltage (V)",
       "label_i18n": {
         "en": "Voltage",
-        "tr": "Voltage",
+        "tr": "Voltaj",
         "de": "Voltage",
         "fr": "Voltage",
         "es": "Voltage",
         "ar": "Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal system voltage (V)",
+        "tr": "Nominal sistem voltajı (V)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Load current in amperes (A)",
       "label_i18n": {
         "en": "Current",
-        "tr": "Current",
+        "tr": "Akım",
         "de": "Current",
         "fr": "Current",
         "es": "Current",
         "ar": "Current"
+      },
+      "businessContext_i18n": {
+        "en": "Load current in amperes (A)",
+        "tr": "Amper cinsinden yük akımı (A)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Power factor of the load (0-1)",
       "label_i18n": {
         "en": "Power Factor",
-        "tr": "Power Factor",
+        "tr": "Güç Faktörü",
         "de": "Power Factor",
         "fr": "Power Factor",
         "es": "Power Factor",
         "ar": "Power Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Power factor of the load (0-1)",
+        "tr": "Yükün güç faktörü (0-1)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of phases (1 for single-phase, 3 for three-phase)",
       "label_i18n": {
         "en": "Phase Count",
-        "tr": "Phase Count",
+        "tr": "Faz Sayısı",
         "de": "Phase Count",
         "fr": "Phase Count",
         "es": "Phase Count",
         "ar": "Phase Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of phases (1 for single-phase, 3 for three-phase)",
+        "tr": "Faz sayısı (tek faz için 1, üç faz için 3)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Efficiency of the load equipment in percentage (%)",
       "label_i18n": {
         "en": "Efficiency",
-        "tr": "Efficiency",
+        "tr": "Verim",
         "de": "Efficiency",
         "fr": "Efficiency",
         "es": "Efficiency",
         "ar": "Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the load equipment in percentage (%)",
+        "tr": "Yük ekipmanının yüzde olarak verimliliği (%)"
       }
     }
   ],

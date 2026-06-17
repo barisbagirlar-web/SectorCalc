@@ -10,11 +10,15 @@
       "businessContext": "The purchase price of the asset (equipment, software, etc.)",
       "label_i18n": {
         "en": "Cost of Qualifying Property",
-        "tr": "Cost of Qualifying Property",
+        "tr": "Nitelikli Varlık Maliyeti",
         "de": "Cost of Qualifying Property",
         "fr": "Cost of Qualifying Property",
         "es": "Cost of Qualifying Property",
         "ar": "Cost of Qualifying Property"
+      },
+      "businessContext_i18n": {
+        "en": "The purchase price of the asset (equipment, software, etc.)",
+        "tr": "Varlığın (ekipman, yazılım vb.) satın alma fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of the asset used for business purposes (0-100)",
       "label_i18n": {
         "en": "Business Use Percentage",
-        "tr": "Business Use Percentage",
+        "tr": "İşletme Kullanım Yüzdesi",
         "de": "Business Use Percentage",
         "fr": "Business Use Percentage",
         "es": "Business Use Percentage",
         "ar": "Business Use Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of the asset used for business purposes (0-100)",
+        "tr": "Varlığın iş amaçlı kullanım yüzdesi (0-100)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum annual Section 179 deduction allowed by IRS (2025 limit)",
       "label_i18n": {
         "en": "Section 179 Deduction Limit",
-        "tr": "Section 179 Deduction Limit",
+        "tr": "Bölüm 179 İndirim Limiti",
         "de": "Section 179 Deduction Limit",
         "fr": "Section 179 Deduction Limit",
         "es": "Section 179 Deduction Limit",
         "ar": "Section 179 Deduction Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum annual Section 179 deduction allowed by IRS (2025 limit)",
+        "tr": "IRS tarafından izin verilen maksimum yıllık Bölüm 179 indirimi (2025 limiti)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total asset additions above which the Section 179 deduction is reduced dollar-for-dollar",
       "label_i18n": {
         "en": "Phase-Out Threshold",
-        "tr": "Phase-Out Threshold",
+        "tr": "Aşamalı Sona Erme Eşiği",
         "de": "Phase-Out Threshold",
         "fr": "Phase-Out Threshold",
         "es": "Phase-Out Threshold",
         "ar": "Phase-Out Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Total asset additions above which the Section 179 deduction is reduced dollar-for-dollar",
+        "tr": "Bölüm 179 indiriminin dolar bazında azaltıldığı toplam varlık eklemeleri"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total cost of all qualifying property placed in service during the tax year (for phase-out calculation)",
       "label_i18n": {
         "en": "Total Asset Additions",
-        "tr": "Total Asset Additions",
+        "tr": "Toplam Varlık Eklemeleri",
         "de": "Total Asset Additions",
         "fr": "Total Asset Additions",
         "es": "Total Asset Additions",
         "ar": "Total Asset Additions"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of all qualifying property placed in service during the tax year (for phase-out calculation)",
+        "tr": "Vergi yılı boyunca hizmete alınan tüm nitelikli varlıkların toplam maliyeti (aşamalı sona erme hesaplaması için)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The volume of wood in steres to convert",
       "label_i18n": {
         "en": "Volume (Stere)",
-        "tr": "Volume (Stere)",
+        "tr": "Hacim (Ster)",
         "de": "Volume (Stere)",
         "fr": "Volume (Stere)",
         "es": "Volume (Stere)",
         "ar": "Volume (Stere)"
+      },
+      "businessContext_i18n": {
+        "en": "The volume of wood in steres to convert",
+        "tr": "Dönüştürülecek odun hacmi (ster cinsinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor, typically 1 stere = 1 m³. Adjust for specific stacking variants.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor, typically 1 stere = 1 m³. Adjust for specific stacking variants.",
+        "tr": "Dönüşüm faktörü, tipik olarak 1 ster = 1 m³. Belirli istifleme varyantları için ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1.0 for standard stacked steres. Use 0.7–0.8 for loose chainsaw chips.",
       "label_i18n": {
         "en": "Stacking Factor",
-        "tr": "Stacking Factor",
+        "tr": "İstifleme Faktörü",
         "de": "Stacking Factor",
         "fr": "Stacking Factor",
         "es": "Stacking Factor",
         "ar": "Stacking Factor"
+      },
+      "businessContext_i18n": {
+        "en": "1.0 for standard stacked steres. Use 0.7–0.8 for loose chainsaw chips.",
+        "tr": "Standart istiflenmiş sterler için 1.0. Gevşek zincir talaşı için 0.7–0.8 kullanın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional: price per stere for cost calculations",
       "label_i18n": {
         "en": "Price per Stere",
-        "tr": "Price per Stere",
+        "tr": "Ster Başına Fiyat",
         "de": "Price per Stere",
         "fr": "Price per Stere",
         "es": "Price per Stere",
         "ar": "Price per Stere"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: price per stere for cost calculations",
+        "tr": "İsteğe bağlı: maliyet hesaplamaları için ster başına fiyat"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional: price per cubic meter for cost comparison",
       "label_i18n": {
         "en": "Price per Cubic Meter",
-        "tr": "Price per Cubic Meter",
+        "tr": "Metreküp Başına Fiyat",
         "de": "Price per Cubic Meter",
         "fr": "Price per Cubic Meter",
         "es": "Price per Cubic Meter",
         "ar": "Price per Cubic Meter"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: price per cubic meter for cost comparison",
+        "tr": "İsteğe bağlı: maliyet karşılaştırması için metreküp başına fiyat"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of decimal places for final result",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for final result",
+        "tr": "Nihai sonuç için ondalık basamak sayısı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Average number of units consumed per day",
       "label_i18n": {
         "en": "Average Daily Usage",
-        "tr": "Average Daily Usage",
+        "tr": "Ortalama Günlük Kullanım",
         "de": "Average Daily Usage",
         "fr": "Average Daily Usage",
         "es": "Average Daily Usage",
         "ar": "Average Daily Usage"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of units consumed per day",
+        "tr": "Günlük ortalama tüketilen birim sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average time between ordering and receiving inventory",
       "label_i18n": {
         "en": "Lead Time",
-        "tr": "Lead Time",
+        "tr": "Teslim Süresi",
         "de": "Lead Time",
         "fr": "Lead Time",
         "es": "Lead Time",
         "ar": "Lead Time"
+      },
+      "businessContext_i18n": {
+        "en": "Average time between ordering and receiving inventory",
+        "tr": "Sipariş verme ile envanteri teslim alma arasındaki ortalama süre"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard deviation of daily demand, measures variability",
       "label_i18n": {
         "en": "Daily Demand Std Dev",
-        "tr": "Daily Demand Std Dev",
+        "tr": "Günlük Talep Standart Sapması",
         "de": "Daily Demand Std Dev",
         "fr": "Daily Demand Std Dev",
         "es": "Daily Demand Std Dev",
         "ar": "Daily Demand Std Dev"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of daily demand, measures variability",
+        "tr": "Günlük talebin standart sapması, değişkenliği ölçer"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Z-score for desired service level (e.g., 1.65 for 95%)",
       "label_i18n": {
         "en": "Service Level (z)",
-        "tr": "Service Level (z)",
+        "tr": "Hizmet Seviyesi (z)",
         "de": "Service Level (z)",
         "fr": "Service Level (z)",
         "es": "Service Level (z)",
         "ar": "Service Level (z)"
+      },
+      "businessContext_i18n": {
+        "en": "Z-score for desired service level (e.g., 1.65 for 95%)",
+        "tr": "İstenen hizmet seviyesi için z-skoru (örneğin %95 için 1.65)"
       }
     }
   ],

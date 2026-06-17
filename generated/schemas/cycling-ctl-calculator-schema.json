@@ -10,11 +10,15 @@
       "businessContext": "Current Chronic Training Load value",
       "label_i18n": {
         "en": "Current CTL",
-        "tr": "Current CTL",
+        "tr": "Mevcut CTL",
         "de": "Current CTL",
         "fr": "Current CTL",
         "es": "Current CTL",
         "ar": "Current CTL"
+      },
+      "businessContext_i18n": {
+        "en": "Current Chronic Training Load value",
+        "tr": "Mevcut Kronik Antrenman Yükü değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Training Stress Score per day for the forecast period",
       "label_i18n": {
         "en": "Daily TSS",
-        "tr": "Daily TSS",
+        "tr": "Günlük TSS",
         "de": "Daily TSS",
         "fr": "Daily TSS",
         "es": "Daily TSS",
         "ar": "Daily TSS"
+      },
+      "businessContext_i18n": {
+        "en": "Training Stress Score per day for the forecast period",
+        "tr": "Tahmin dönemi için günlük Antrenman Stres Skoru"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Decay time constant for CTL (typically 42 days)",
       "label_i18n": {
         "en": "Time Constant",
-        "tr": "Time Constant",
+        "tr": "Zaman Sabiti",
         "de": "Time Constant",
         "fr": "Time Constant",
         "es": "Time Constant",
         "ar": "Time Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Decay time constant for CTL (typically 42 days)",
+        "tr": "CTL için sönüm zaman sabiti (genellikle 42 gün)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of consecutive days with the given Daily TSS",
       "label_i18n": {
         "en": "Number of Days",
-        "tr": "Number of Days",
+        "tr": "Gün Sayısı",
         "de": "Number of Days",
         "fr": "Number of Days",
         "es": "Number of Days",
         "ar": "Number of Days"
+      },
+      "businessContext_i18n": {
+        "en": "Number of consecutive days with the given Daily TSS",
+        "tr": "Verilen Günlük TSS ile ardışık gün sayısı"
       }
     }
   ],

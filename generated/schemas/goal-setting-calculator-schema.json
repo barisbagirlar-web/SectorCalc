@@ -10,11 +10,15 @@
       "businessContext": "Current Overall Equipment Effectiveness percentage",
       "label_i18n": {
         "en": "Current OEE",
-        "tr": "Current OEE",
+        "tr": "Mevcut OEE",
         "de": "Current OEE",
         "fr": "Current OEE",
         "es": "Current OEE",
         "ar": "Current OEE"
+      },
+      "businessContext_i18n": {
+        "en": "Current Overall Equipment Effectiveness percentage",
+        "tr": "Mevcut Genel Ekipman Etkinliği yüzdesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target OEE percentage to achieve",
       "label_i18n": {
         "en": "Target OEE",
-        "tr": "Target OEE",
+        "tr": "Hedef OEE",
         "de": "Target OEE",
         "fr": "Target OEE",
         "es": "Target OEE",
         "ar": "Target OEE"
+      },
+      "businessContext_i18n": {
+        "en": "Target OEE percentage to achieve",
+        "tr": "Ulaşılacak hedef OEE yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time period in months to achieve the target OEE",
       "label_i18n": {
         "en": "Timeframe",
-        "tr": "Timeframe",
+        "tr": "Zaman Çerçevesi",
         "de": "Timeframe",
         "fr": "Timeframe",
         "es": "Timeframe",
         "ar": "Timeframe"
+      },
+      "businessContext_i18n": {
+        "en": "Time period in months to achieve the target OEE",
+        "tr": "Hedef OEE'ye ulaşmak için ay cinsinden süre"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current availability proportion of planned production time",
       "label_i18n": {
         "en": "Current Availability",
-        "tr": "Current Availability",
+        "tr": "Mevcut Kullanılabilirlik",
         "de": "Current Availability",
         "fr": "Current Availability",
         "es": "Current Availability",
         "ar": "Current Availability"
+      },
+      "businessContext_i18n": {
+        "en": "Current availability proportion of planned production time",
+        "tr": "Planlanan üretim zamanının mevcut kullanılabilirlik oranı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Current performance speed vs ideal cycle time",
       "label_i18n": {
         "en": "Current Performance",
-        "tr": "Current Performance",
+        "tr": "Mevcut Performans",
         "de": "Current Performance",
         "fr": "Current Performance",
         "es": "Current Performance",
         "ar": "Current Performance"
+      },
+      "businessContext_i18n": {
+        "en": "Current performance speed vs ideal cycle time",
+        "tr": "İdeal çevrim süresine göre mevcut performans hızı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Current quality rate (good units/total units)",
       "label_i18n": {
         "en": "Current Quality",
-        "tr": "Current Quality",
+        "tr": "Mevcut Kalite",
         "de": "Current Quality",
         "fr": "Current Quality",
         "es": "Current Quality",
         "ar": "Current Quality"
+      },
+      "businessContext_i18n": {
+        "en": "Current quality rate (good units/total units)",
+        "tr": "Mevcut kalite oranı (iyi birim/toplam birim)"
       }
     }
   ],

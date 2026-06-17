@@ -21,10 +21,12 @@
       "max": 5000,
       "businessContext": "Total route distance from origin to destination, used for fuel and time cost calculations.",
       "label_i18n": {
-        "en": "Distance (km)"
+        "en": "Distance (km)",
+        "tr": "Mesafe (km)"
       },
       "businessContext_i18n": {
-        "en": "Total route distance from origin to destination, used for fuel and time cost calculations."
+        "en": "Total route distance from origin to destination, used for fuel and time cost calculations.",
+        "tr": "Başlangıç noktasından varış noktasına toplam rota mesafesi, yakıt ve zaman maliyeti hesaplamaları için kullanılır."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10,
       "businessContext": "Current average fuel price per liter, directly impacts variable transport cost.",
       "label_i18n": {
-        "en": "Fuel Cost per Liter"
+        "en": "Fuel Cost per Liter",
+        "tr": "Litre Başına Yakıt Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Current average fuel price per liter, directly impacts variable transport cost."
+        "en": "Current average fuel price per liter, directly impacts variable transport cost.",
+        "tr": "Güncel ortalama yakıt fiyatı (litre başına), değişken taşıma maliyetini doğrudan etkiler."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 50,
       "businessContext": "Vehicle fuel consumption rate in kilometers per liter, key for fuel cost estimation.",
       "label_i18n": {
-        "en": "Fuel Efficiency (km/L)"
+        "en": "Fuel Efficiency (km/L)",
+        "tr": "Yakıt Verimliliği (km/L)"
       },
       "businessContext_i18n": {
-        "en": "Vehicle fuel consumption rate in kilometers per liter, key for fuel cost estimation."
+        "en": "Vehicle fuel consumption rate in kilometers per liter, key for fuel cost estimation.",
+        "tr": "Aracın kilometre başına litre cinsinden yakıt tüketim oranı, yakıt maliyeti tahmini için anahtar."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Hourly wage of the driver, including benefits and overtime provisions.",
       "label_i18n": {
-        "en": "Driver Wage per Hour"
+        "en": "Driver Wage per Hour",
+        "tr": "Sürücü Saatlik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Hourly wage of the driver, including benefits and overtime provisions."
+        "en": "Hourly wage of the driver, including benefits and overtime provisions.",
+        "tr": "Sürücünün saatlik ücreti, yan haklar ve fazla mesai hükümleri dahil."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 120,
       "businessContext": "Expected average travel speed including traffic and stops, used to compute travel time.",
       "label_i18n": {
-        "en": "Average Speed (km/h)"
+        "en": "Average Speed (km/h)",
+        "tr": "Ortalama Hız (km/s)"
       },
       "businessContext_i18n": {
-        "en": "Expected average travel speed including traffic and stops, used to compute travel time."
+        "en": "Expected average travel speed including traffic and stops, used to compute travel time.",
+        "tr": "Trafik ve duraklar dahil beklenen ortalama seyahat hızı, seyahat süresini hesaplamak için kullanılır."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 40000,
       "businessContext": "Total weight of cargo, affects fuel consumption and handling costs.",
       "label_i18n": {
-        "en": "Load Weight (kg)"
+        "en": "Load Weight (kg)",
+        "tr": "Yük Ağırlığı (kg)"
       },
       "businessContext_i18n": {
-        "en": "Total weight of cargo, affects fuel consumption and handling costs."
+        "en": "Total weight of cargo, affects fuel consumption and handling costs.",
+        "tr": "Toplam kargo ağırlığı, yakıt tüketimini ve elleçleme maliyetlerini etkiler."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 5,
       "businessContext": "Cost for loading/unloading and warehouse handling per kilogram of cargo.",
       "label_i18n": {
-        "en": "Handling Cost per kg"
+        "en": "Handling Cost per kg",
+        "tr": "Kg Başına Elleçleme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost for loading/unloading and warehouse handling per kilogram of cargo."
+        "en": "Cost for loading/unloading and warehouse handling per kilogram of cargo.",
+        "tr": "Kilogram kargo başına yükleme/boşaltma ve depo elleçleme maliyeti."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 1,
       "businessContext": "Average maintenance cost per kilometer, including tires, oil, and repairs.",
       "label_i18n": {
-        "en": "Vehicle Maintenance per km"
+        "en": "Vehicle Maintenance per km",
+        "tr": "Km Başına Araç Bakımı"
       },
       "businessContext_i18n": {
-        "en": "Average maintenance cost per kilometer, including tires, oil, and repairs."
+        "en": "Average maintenance cost per kilometer, including tires, oil, and repairs.",
+        "tr": "Lastik, yağ ve onarımlar dahil kilometre başına ortalama bakım maliyeti."
       }
     }
   ],

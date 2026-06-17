@@ -10,11 +10,15 @@
       "businessContext": "Total price paid by customer including all surcharges and taxes.",
       "label_i18n": {
         "en": "Final Price",
-        "tr": "Final Price",
+        "tr": "Nihai fiyat",
         "de": "Final Price",
         "fr": "Final Price",
         "es": "Final Price",
         "ar": "Final Price"
+      },
+      "businessContext_i18n": {
+        "en": "Total price paid by customer including all surcharges and taxes.",
+        "tr": "Tüm ek ücretler ve vergiler dahil müşterinin ödediği toplam fiyat"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional cost per unit for raw materials.",
       "label_i18n": {
         "en": "Raw Material Surcharge",
-        "tr": "Raw Material Surcharge",
+        "tr": "Hammadde ek ücreti",
         "de": "Raw Material Surcharge",
         "fr": "Raw Material Surcharge",
         "es": "Raw Material Surcharge",
         "ar": "Raw Material Surcharge"
+      },
+      "businessContext_i18n": {
+        "en": "Additional cost per unit for raw materials.",
+        "tr": "Birim başına hammadde için ek maliyet"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional labor cost per unit.",
       "label_i18n": {
         "en": "Labor Surcharge",
-        "tr": "Labor Surcharge",
+        "tr": "İşçilik ek ücreti",
         "de": "Labor Surcharge",
         "fr": "Labor Surcharge",
         "es": "Labor Surcharge",
         "ar": "Labor Surcharge"
+      },
+      "businessContext_i18n": {
+        "en": "Additional labor cost per unit.",
+        "tr": "Birim başına ek işçilik maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Factory overhead as percentage of base cost.",
       "label_i18n": {
         "en": "Overhead Percentage",
-        "tr": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi",
         "de": "Overhead Percentage",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Factory overhead as percentage of base cost.",
+        "tr": "Temel maliyetin yüzdesi olarak fabrika genel gideri"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Profit margin applied after overhead.",
       "label_i18n": {
         "en": "Profit Margin Percentage",
-        "tr": "Profit Margin Percentage",
+        "tr": "Kâr Marjı Yüzdesi",
         "de": "Profit Margin Percentage",
         "fr": "Profit Margin Percentage",
         "es": "Profit Margin Percentage",
         "ar": "Profit Margin Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Profit margin applied after overhead.",
+        "tr": "Genel gider sonrası uygulanan kar marjı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Value Added Tax percentage.",
       "label_i18n": {
         "en": "VAT Percentage",
-        "tr": "VAT Percentage",
+        "tr": "KDV yüzdesi",
         "de": "VAT Percentage",
         "fr": "VAT Percentage",
         "es": "VAT Percentage",
         "ar": "VAT Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Value Added Tax percentage.",
+        "tr": "Katma Değer Vergisi yüzdesi"
       }
     }
   ],

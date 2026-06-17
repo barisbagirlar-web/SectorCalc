@@ -10,11 +10,15 @@
       "businessContext": "The point established on the come-out roll (4,5,6,8,9,10).",
       "label_i18n": {
         "en": "Point Number",
-        "tr": "Point Number",
+        "tr": "Nokta Numarası",
         "de": "Point Number",
         "fr": "Point Number",
         "es": "Point Number",
         "ar": "Point Number"
+      },
+      "businessContext_i18n": {
+        "en": "The point established on the come-out roll (4,5,6,8,9,10).",
+        "tr": "Çıkış atışında belirlenen nokta (4,5,6,8,9,10)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of dice rolls to simulate or calculate probability for.",
       "label_i18n": {
         "en": "Number of Rolls",
-        "tr": "Number of Rolls",
+        "tr": "Atış Sayısı",
         "de": "Number of Rolls",
         "fr": "Number of Rolls",
         "es": "Number of Rolls",
         "ar": "Number of Rolls"
+      },
+      "businessContext_i18n": {
+        "en": "Number of dice rolls to simulate or calculate probability for.",
+        "tr": "Simüle edilecek veya olasılığı hesaplanacak zar atışı sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Amount wagered on the pass line or point.",
       "label_i18n": {
         "en": "Bet Amount",
-        "tr": "Bet Amount",
+        "tr": "Bahis Miktarı",
         "de": "Bet Amount",
         "fr": "Bet Amount",
         "es": "Bet Amount",
         "ar": "Bet Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Amount wagered on the pass line or point.",
+        "tr": "Pass line veya noktaya yatırılan miktar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Payout multiplier for winning bet (e.g., 1 for even money, 2 for 2:1).",
       "label_i18n": {
         "en": "Payout Odds (e.g., 2 for 2:1)",
-        "tr": "Payout Odds (e.g., 2 for 2:1)",
+        "tr": "Ödeme Oranı (örn. 2:1 için 2)",
         "de": "Payout Odds (e.g., 2 for 2:1)",
         "fr": "Payout Odds (e.g., 2 for 2:1)",
         "es": "Payout Odds (e.g., 2 for 2:1)",
         "ar": "Payout Odds (e.g., 2 for 2:1)"
+      },
+      "businessContext_i18n": {
+        "en": "Payout multiplier for winning bet (e.g., 1 for even money, 2 for 2:1).",
+        "tr": "Kazanan bahis için ödeme çarpanı (örn. eşit para için 1, 2:1 için 2)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Input distance in parsecs",
       "label_i18n": {
         "en": "Parsecs",
-        "tr": "Parsecs",
+        "tr": "Parsek",
         "de": "Parsecs",
         "fr": "Parsecs",
         "es": "Parsecs",
         "ar": "Parsecs"
+      },
+      "businessContext_i18n": {
+        "en": "Input distance in parsecs",
+        "tr": "Parsek cinsinden mesafe girin"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of light-years per parsec",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Number of light-years per parsec",
+        "tr": "Parsek başına ışık yılı sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for result display",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for result display",
+        "tr": "Sonuç görüntüleme için ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Use scientific notation (1 = yes, 0 = no)",
       "label_i18n": {
         "en": "Scientific Notation",
-        "tr": "Scientific Notation",
+        "tr": "Bilimsel Gösterim",
         "de": "Scientific Notation",
         "fr": "Scientific Notation",
         "es": "Scientific Notation",
         "ar": "Scientific Notation"
+      },
+      "businessContext_i18n": {
+        "en": "Use scientific notation (1 = yes, 0 = no)",
+        "tr": "Bilimsel gösterim kullan (1 = evet, 0 = hayır)"
       }
     }
   ],

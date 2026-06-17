@@ -10,11 +10,15 @@
       "businessContext": "Total land area of the plot",
       "label_i18n": {
         "en": "Land Area",
-        "tr": "Land Area",
+        "tr": "Arsa Alanı",
         "de": "Land Area",
         "fr": "Land Area",
         "es": "Land Area",
         "ar": "Land Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total land area of the plot",
+        "tr": "Arsanın toplam alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sum of floor areas of all floors",
       "label_i18n": {
         "en": "Total Floor Area",
-        "tr": "Total Floor Area",
+        "tr": "Toplam Kat Alanı",
         "de": "Total Floor Area",
         "fr": "Total Floor Area",
         "es": "Total Floor Area",
         "ar": "Total Floor Area"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of floor areas of all floors",
+        "tr": "Tüm katların kat alanlarının toplamı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Area covered by building footprint on the ground",
       "label_i18n": {
         "en": "Built Area Footprint",
-        "tr": "Built Area Footprint",
+        "tr": "İnşaat Alanı Ayak İzi",
         "de": "Built Area Footprint",
         "fr": "Built Area Footprint",
         "es": "Built Area Footprint",
         "ar": "Built Area Footprint"
+      },
+      "businessContext_i18n": {
+        "en": "Area covered by building footprint on the ground",
+        "tr": "Binanın zeminde kapladığı alan"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum allowable Floor Area Ratio per local regulations",
       "label_i18n": {
         "en": "Maximum Allowed FAR",
-        "tr": "Maximum Allowed FAR",
+        "tr": "İzin Verilen Maksimum TAKS",
         "de": "Maximum Allowed FAR",
         "fr": "Maximum Allowed FAR",
         "es": "Maximum Allowed FAR",
         "ar": "Maximum Allowed FAR"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable Floor Area Ratio per local regulations",
+        "tr": "Yerel yönetmeliklere göre izin verilen maksimum TAKS değeri"
       }
     }
   ],

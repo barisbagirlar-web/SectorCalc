@@ -10,11 +10,15 @@
       "businessContext": "Enter the number of bytes to convert to kilobytes",
       "label_i18n": {
         "en": "Bytes",
-        "tr": "Bytes",
+        "tr": "Bayt",
         "de": "Bytes",
         "fr": "Bytes",
         "es": "Bytes",
         "ar": "Bytes"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the number of bytes to convert to kilobytes",
+        "tr": "Kilobayta dönüştürmek için bayt sayısını girin"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for the output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output",
+        "tr": "Çıktı için ondalık basamak sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1024 for binary (IEC) kilobytes, 1000 for decimal (SI) kilobytes",
       "label_i18n": {
         "en": "Conversion Base",
-        "tr": "Conversion Base",
+        "tr": "Dönüşüm Tabanı",
         "de": "Conversion Base",
         "fr": "Conversion Base",
         "es": "Conversion Base",
         "ar": "Conversion Base"
+      },
+      "businessContext_i18n": {
+        "en": "1024 for binary (IEC) kilobytes, 1000 for decimal (SI) kilobytes",
+        "tr": "İkili (IEC) kilobayt için 1024, ondalık (SI) kilobayt için 1000"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0: No rounding, 1: Round half up, 2: Ceil, 3: Floor",
       "label_i18n": {
         "en": "Rounding Mode",
-        "tr": "Rounding Mode",
+        "tr": "Yuvarlama Modu",
         "de": "Rounding Mode",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
+      },
+      "businessContext_i18n": {
+        "en": "0: No rounding, 1: Round half up, 2: Ceil, 3: Floor",
+        "tr": "0: Yuvarlama yok, 1: Yarım yukarı yuvarla, 2: Tavan, 3: Taban"
       }
     }
   ],

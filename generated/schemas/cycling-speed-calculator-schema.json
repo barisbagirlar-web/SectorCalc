@@ -10,11 +10,15 @@
       "businessContext": "Total cycling distance in kilometers.",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total cycling distance in kilometers.",
+        "tr": "Toplam bisiklet mesafesi kilometre cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Hours spent cycling (moving time).",
       "label_i18n": {
         "en": "Time (hours)",
-        "tr": "Time (hours)",
+        "tr": "Süre (saat)",
         "de": "Time (hours)",
         "fr": "Time (hours)",
         "es": "Time (hours)",
         "ar": "Time (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Hours spent cycling (moving time).",
+        "tr": "Bisiklet sürüş saatleri (hareket süresi)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minutes spent cycling (moving time).",
       "label_i18n": {
         "en": "Time (minutes)",
-        "tr": "Time (minutes)",
+        "tr": "Süre (dakika)",
         "de": "Time (minutes)",
         "fr": "Time (minutes)",
         "es": "Time (minutes)",
         "ar": "Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes spent cycling (moving time).",
+        "tr": "Bisiklet sürüş dakikaları (hareket süresi)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Seconds spent cycling (moving time).",
       "label_i18n": {
         "en": "Time (seconds)",
-        "tr": "Time (seconds)",
+        "tr": "Süre (saniye)",
         "de": "Time (seconds)",
         "fr": "Time (seconds)",
         "es": "Time (seconds)",
         "ar": "Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Seconds spent cycling (moving time).",
+        "tr": "Bisiklet sürüş saniyeleri (hareket süresi)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total break time in minutes during the trip.",
       "label_i18n": {
         "en": "Break Time",
-        "tr": "Break Time",
+        "tr": "Mola Süresi",
         "de": "Break Time",
         "fr": "Break Time",
         "es": "Break Time",
         "ar": "Break Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total break time in minutes during the trip.",
+        "tr": "Sürüş sırasında toplam mola süresi dakika cinsinden."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Amount of energy to convert from kilocalories",
       "label_i18n": {
         "en": "Energy in Kilocalories",
-        "tr": "Energy in Kilocalories",
+        "tr": "Kilokalori cinsinden Enerji",
         "de": "Energy in Kilocalories",
         "fr": "Energy in Kilocalories",
         "es": "Energy in Kilocalories",
         "ar": "Energy in Kilocalories"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of energy to convert from kilocalories",
+        "tr": "Kilokaloriden dönüştürülecek enerji miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for the output joules value",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output joules value",
+        "tr": "Çıktı jul değeri için ondalık basamak sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Conversion factor: 1 kilocalorie equals this many joules (standard 4184 J/kcal)",
       "label_i18n": {
         "en": "Joules per Kilocalorie",
-        "tr": "Joules per Kilocalorie",
+        "tr": "Kilokalori başına Jul",
         "de": "Joules per Kilocalorie",
         "fr": "Joules per Kilocalorie",
         "es": "Joules per Kilocalorie",
         "ar": "Joules per Kilocalorie"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor: 1 kilocalorie equals this many joules (standard 4184 J/kcal)",
+        "tr": "Dönüşüm faktörü: 1 kilokalori bu kadar joule eşittir (standart 4184 J/kcal)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplicative scale factor applied to the conversion result (default 1)",
       "label_i18n": {
         "en": "Scale Factor",
-        "tr": "Scale Factor",
+        "tr": "Ölçek Faktörü",
         "de": "Scale Factor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplicative scale factor applied to the conversion result (default 1)",
+        "tr": "Dönüşüm sonucuna uygulanan çarpımsal ölçek faktörü (varsayılan 1)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The first percentage value for comparison",
       "label_i18n": {
         "en": "Percentage A",
-        "tr": "Percentage A",
+        "tr": "Yüzde A",
         "de": "Percentage A",
         "fr": "Percentage A",
         "es": "Percentage A",
         "ar": "Percentage A"
+      },
+      "businessContext_i18n": {
+        "en": "The first percentage value for comparison",
+        "tr": "Karşılaştırma için ilk yüzde değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The second percentage value for comparison",
       "label_i18n": {
         "en": "Percentage B",
-        "tr": "Percentage B",
+        "tr": "Yüzde B",
         "de": "Percentage B",
         "fr": "Percentage B",
         "es": "Percentage B",
         "ar": "Percentage B"
+      },
+      "businessContext_i18n": {
+        "en": "The second percentage value for comparison",
+        "tr": "Karşılaştırma için ikinci yüzde değeri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Set to 1 to calculate absolute difference, 0 for signed difference",
       "label_i18n": {
         "en": "Use Absolute Value",
-        "tr": "Use Absolute Value",
+        "tr": "Mutlak Değer Kullan",
         "de": "Use Absolute Value",
         "fr": "Use Absolute Value",
         "es": "Use Absolute Value",
         "ar": "Use Absolute Value"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to calculate absolute difference, 0 for signed difference",
+        "tr": "Mutlak farkı hesaplamak için 1, işaretli fark için 0 olarak ayarlayın"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places in the result",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places in the result",
+        "tr": "Sonuçtaki ondalık basamak sayısı"
       }
     }
   ],

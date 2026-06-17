@@ -10,11 +10,15 @@
       "businessContext": "Total mass of raw material to be processed.",
       "label_i18n": {
         "en": "Total Raw Material",
-        "tr": "Total Raw Material",
+        "tr": "Toplam Hammadde",
         "de": "Total Raw Material",
         "fr": "Total Raw Material",
         "es": "Total Raw Material",
         "ar": "Total Raw Material"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of raw material to be processed.",
+        "tr": "İşlenecek toplam hammadde kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of target substance in raw material.",
       "label_i18n": {
         "en": "Concentration",
-        "tr": "Concentration",
+        "tr": "Konsantrasyon",
         "de": "Concentration",
         "fr": "Concentration",
         "es": "Concentration",
         "ar": "Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of target substance in raw material.",
+        "tr": "Hammaddedeki hedef maddenin yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Efficiency of extraction process in recovering the target substance.",
       "label_i18n": {
         "en": "Recovery Rate",
-        "tr": "Recovery Rate",
+        "tr": "Geri Kazanım Oranı",
         "de": "Recovery Rate",
         "fr": "Recovery Rate",
         "es": "Recovery Rate",
         "ar": "Recovery Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of extraction process in recovering the target substance.",
+        "tr": "Ekstraksiyon prosesinin hedef maddeyi geri kazanma verimliliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired purity of the final extracted product.",
       "label_i18n": {
         "en": "Target Purity",
-        "tr": "Target Purity",
+        "tr": "Hedef Saflık",
         "de": "Target Purity",
         "fr": "Target Purity",
         "es": "Target Purity",
         "ar": "Target Purity"
+      },
+      "businessContext_i18n": {
+        "en": "Desired purity of the final extracted product.",
+        "tr": "Nihai ekstrakte edilen ürünün istenen saflığı."
       }
     }
   ],

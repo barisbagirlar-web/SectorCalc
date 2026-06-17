@@ -17,10 +17,12 @@
       "max": 120,
       "businessContext": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors.",
       "label_i18n": {
-        "en": "Age"
+        "en": "Age",
+        "tr": "Yaş"
       },
       "businessContext_i18n": {
-        "en": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors."
+        "en": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors.",
+        "tr": "Yaş, yağsız vücut kütlesi ve hormonal faktörlerdeki değişiklikler nedeniyle bazal metabolizma hızını (BMR) etkiler."
       }
     },
     {
@@ -37,10 +39,12 @@
       ],
       "businessContext": "Gender influences BMR through differences in body composition and hormonal profiles.",
       "label_i18n": {
-        "en": "Gender"
+        "en": "Gender",
+        "tr": "Cinsiyet"
       },
       "businessContext_i18n": {
-        "en": "Gender influences BMR through differences in body composition and hormonal profiles."
+        "en": "Gender influences BMR through differences in body composition and hormonal profiles.",
+        "tr": "Cinsiyet, vücut kompozisyonu ve hormonal profillerdeki farklılıklar yoluyla BMR'yi etkiler."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 500,
       "businessContext": "Body weight is a primary driver of energy expenditure and calorie needs.",
       "label_i18n": {
-        "en": "Weight"
+        "en": "Weight",
+        "tr": "Ağırlık"
       },
       "businessContext_i18n": {
-        "en": "Body weight is a primary driver of energy expenditure and calorie needs."
+        "en": "Body weight is a primary driver of energy expenditure and calorie needs.",
+        "tr": "Vücut ağırlığı, enerji harcaması ve kalori ihtiyacının birincil itici gücüdür."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 300,
       "businessContext": "Height is used in BMR equations to estimate lean body mass and metabolic rate.",
       "label_i18n": {
-        "en": "Height"
+        "en": "Height",
+        "tr": "Boy"
       },
       "businessContext_i18n": {
-        "en": "Height is used in BMR equations to estimate lean body mass and metabolic rate."
+        "en": "Height is used in BMR equations to estimate lean body mass and metabolic rate.",
+        "tr": "Boy, BMR denklemlerinde yağsız vücut kütlesini ve metabolizma hızını tahmin etmek için kullanılır."
       }
     },
     {
@@ -92,10 +100,12 @@
       ],
       "businessContext": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits.",
       "label_i18n": {
-        "en": "Activity Level"
+        "en": "Activity Level",
+        "tr": "Aktivite Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits."
+        "en": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits.",
+        "tr": "Fiziksel aktivite çarpanı, mesleki ve egzersiz alışkanlıklarına göre toplam günlük enerji harcamasını ayarlar."
       }
     },
     {
@@ -113,10 +123,12 @@
       ],
       "businessContext": "Desired weekly weight loss rate determines the daily calorie deficit target.",
       "label_i18n": {
-        "en": "Weight Loss Rate"
+        "en": "Weight Loss Rate",
+        "tr": "Kilo Verme Hızı"
       },
       "businessContext_i18n": {
-        "en": "Desired weekly weight loss rate determines the daily calorie deficit target."
+        "en": "Desired weekly weight loss rate determines the daily calorie deficit target.",
+        "tr": "İstenen haftalık kilo verme hızı, günlük kalori açığı hedefini belirler."
       }
     },
     {
@@ -129,10 +141,12 @@
       "max": 70,
       "businessContext": "Optional input for more accurate BMR estimation using the Katch-McArdle formula.",
       "label_i18n": {
-        "en": "Body Fat Percentage"
+        "en": "Body Fat Percentage",
+        "tr": "Vücut yağ yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Optional input for more accurate BMR estimation using the Katch-McArdle formula."
+        "en": "Optional input for more accurate BMR estimation using the Katch-McArdle formula.",
+        "tr": "Katch-McArdle formülü kullanılarak daha doğru BMR tahmini için isteğe bağlı girdi."
       }
     },
     {
@@ -145,10 +159,12 @@
       "max": null,
       "businessContext": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy.",
       "label_i18n": {
-        "en": "Pregnant"
+        "en": "Pregnant",
+        "tr": "Hamile"
       },
       "businessContext_i18n": {
-        "en": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy."
+        "en": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy.",
+        "tr": "Hamilelik enerji gereksinimlerini artırır; hamilelik sırasında kalori açığı önerilmez."
       }
     }
   ],

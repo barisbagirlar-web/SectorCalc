@@ -10,11 +10,15 @@
       "businessContext": "Constant term in the regression equation",
       "label_i18n": {
         "en": "Intercept (b0)",
-        "tr": "Intercept (b0)",
+        "tr": "Sabit (b0)",
         "de": "Intercept (b0)",
         "fr": "Intercept (b0)",
         "es": "Intercept (b0)",
         "ar": "Intercept (b0)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term in the regression equation",
+        "tr": "Regresyon denklemindeki sabit terim"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Coefficient for first predictor",
       "label_i18n": {
         "en": "Slope for Variable 1 (b1)",
-        "tr": "Slope for Variable 1 (b1)",
+        "tr": "Değişken 1 için Eğim (b1)",
         "de": "Slope for Variable 1 (b1)",
         "fr": "Slope for Variable 1 (b1)",
         "es": "Slope for Variable 1 (b1)",
         "ar": "Slope for Variable 1 (b1)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for first predictor",
+        "tr": "Birinci yordayıcı için katsayı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Coefficient for second predictor",
       "label_i18n": {
         "en": "Slope for Variable 2 (b2)",
-        "tr": "Slope for Variable 2 (b2)",
+        "tr": "Değişken 2 için Eğim (b2)",
         "de": "Slope for Variable 2 (b2)",
         "fr": "Slope for Variable 2 (b2)",
         "es": "Slope for Variable 2 (b2)",
         "ar": "Slope for Variable 2 (b2)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for second predictor",
+        "tr": "İkinci tahmin edici için katsayı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Coefficient for third predictor",
       "label_i18n": {
         "en": "Slope for Variable 3 (b3)",
-        "tr": "Slope for Variable 3 (b3)",
+        "tr": "Değişken 3 için eğim (b3)",
         "de": "Slope for Variable 3 (b3)",
         "fr": "Slope for Variable 3 (b3)",
         "es": "Slope for Variable 3 (b3)",
         "ar": "Slope for Variable 3 (b3)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for third predictor",
+        "tr": "Üçüncü tahmin edici için katsayı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Observed value for first independent variable",
       "label_i18n": {
         "en": "Value of Variable 1",
-        "tr": "Value of Variable 1",
+        "tr": "Değişken 1 değeri",
         "de": "Value of Variable 1",
         "fr": "Value of Variable 1",
         "es": "Value of Variable 1",
         "ar": "Value of Variable 1"
+      },
+      "businessContext_i18n": {
+        "en": "Observed value for first independent variable",
+        "tr": "Birinci bağımsız değişken için gözlenen değer"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Observed value for second independent variable",
       "label_i18n": {
         "en": "Value of Variable 2",
-        "tr": "Value of Variable 2",
+        "tr": "Değişken 2 değeri",
         "de": "Value of Variable 2",
         "fr": "Value of Variable 2",
         "es": "Value of Variable 2",
         "ar": "Value of Variable 2"
+      },
+      "businessContext_i18n": {
+        "en": "Observed value for second independent variable",
+        "tr": "İkinci bağımsız değişken için gözlenen değer"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Observed value for third independent variable",
       "label_i18n": {
         "en": "Value of Variable 3",
-        "tr": "Value of Variable 3",
+        "tr": "Değişken 3 değeri",
         "de": "Value of Variable 3",
         "fr": "Value of Variable 3",
         "es": "Value of Variable 3",
         "ar": "Value of Variable 3"
+      },
+      "businessContext_i18n": {
+        "en": "Observed value for third independent variable",
+        "tr": "Üçüncü bağımsız değişken için gözlenen değer"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Volume of liquid in one container, in quarts (US liquid or Imperial based on type).",
       "label_i18n": {
         "en": "Quarts per Container",
-        "tr": "Quarts per Container",
+        "tr": "Kap Başına Quart",
         "de": "Quarts per Container",
         "fr": "Quarts per Container",
         "es": "Quarts per Container",
         "ar": "Quarts per Container"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of liquid in one container, in quarts (US liquid or Imperial based on type).",
+        "tr": "Bir kaptaki sıvı hacmi, quart cinsinden (türe göre ABD sıvı veya İmparatorluk)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of containers to be processed or converted.",
       "label_i18n": {
         "en": "Number of Containers",
-        "tr": "Number of Containers",
+        "tr": "Kap Sayısı",
         "de": "Number of Containers",
         "fr": "Number of Containers",
         "es": "Number of Containers",
         "ar": "Number of Containers"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of containers to be processed or converted.",
+        "tr": "İşlenecek veya dönüştürülecek toplam kap sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Specify the quart system: 0 for US liquid quart (0.946352946 L), 1 for Imperial quart (1.1365225 L).",
       "label_i18n": {
         "en": "Quart Type (0=US Liquid, 1=Imperial)",
-        "tr": "Quart Type (0=US Liquid, 1=Imperial)",
+        "tr": "Quart Türü (0=ABD Sıvı, 1=İmparatorluk)",
         "de": "Quart Type (0=US Liquid, 1=Imperial)",
         "fr": "Quart Type (0=US Liquid, 1=Imperial)",
         "es": "Quart Type (0=US Liquid, 1=Imperial)",
         "ar": "Quart Type (0=US Liquid, 1=Imperial)"
+      },
+      "businessContext_i18n": {
+        "en": "Specify the quart system: 0 for US liquid quart (0.946352946 L), 1 for Imperial quart (1.1365225 L).",
+        "tr": "Quart sistemini belirtin: 0 ABD sıvı quart (0,946352946 L), 1 İmparatorluk quart (1,1365225 L)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of additional volume to account for waste, spillage, or safety margin.",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Waste Factor (%)",
+        "tr": "Fire Faktörü (%)",
         "de": "Waste Factor (%)",
         "fr": "Waste Factor (%)",
         "es": "Waste Factor (%)",
         "ar": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of additional volume to account for waste, spillage, or safety margin.",
+        "tr": "Atık, dökülme veya güvenlik marjı için eklenecek ek hacim yüzdesi."
       }
     }
   ],

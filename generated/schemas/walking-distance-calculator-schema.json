@@ -10,11 +10,15 @@
       "businessContext": "Total step count from pedometer or manual tally.",
       "label_i18n": {
         "en": "Number of Steps",
-        "tr": "Number of Steps",
+        "tr": "Adım Sayısı",
         "de": "Number of Steps",
         "fr": "Number of Steps",
         "es": "Number of Steps",
         "ar": "Number of Steps"
+      },
+      "businessContext_i18n": {
+        "en": "Total step count from pedometer or manual tally.",
+        "tr": "Pedometre veya manuel sayımdan toplam adım sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average step length in centimeters. Typical adult range: 60–80 cm.",
       "label_i18n": {
         "en": "Step Length",
-        "tr": "Step Length",
+        "tr": "Adım Uzunluğu",
         "de": "Step Length",
         "fr": "Step Length",
         "es": "Step Length",
         "ar": "Step Length"
+      },
+      "businessContext_i18n": {
+        "en": "Average step length in centimeters. Typical adult range: 60–80 cm.",
+        "tr": "Santimetre cinsinden ortalama adım uzunluğu. Tipik yetişkin aralığı: 60–80 cm."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Slope percentage. Positive for uphill, negative for downhill. 0 for flat.",
       "label_i18n": {
         "en": "Incline",
-        "tr": "Incline",
+        "tr": "Eğim",
         "de": "Incline",
         "fr": "Incline",
         "es": "Incline",
         "ar": "Incline"
+      },
+      "businessContext_i18n": {
+        "en": "Slope percentage. Positive for uphill, negative for downhill. 0 for flat.",
+        "tr": "Yüzde cinsinden eğim. Pozitif yokuş yukarı, negatif yokuş aşağı. Düz için 0."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for terrain difficulty. 1.0 = pavement, >1 for rough ground.",
       "label_i18n": {
         "en": "Terrain Factor",
-        "tr": "Terrain Factor",
+        "tr": "Arazi Faktörü",
         "de": "Terrain Factor",
         "fr": "Terrain Factor",
         "es": "Terrain Factor",
         "ar": "Terrain Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for terrain difficulty. 1.0 = pavement, >1 for rough ground.",
+        "tr": "Arazi zorluğu çarpanı. 1.0 = asfalt, engebeli zemin için >1."
       }
     }
   ],

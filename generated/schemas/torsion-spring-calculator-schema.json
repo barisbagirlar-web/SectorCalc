@@ -10,11 +10,15 @@
       "businessContext": "Wire diameter of the torsion spring (mm).",
       "label_i18n": {
         "en": "Wire Diameter",
-        "tr": "Wire Diameter",
+        "tr": "Tel Çapı",
         "de": "Wire Diameter",
         "fr": "Wire Diameter",
         "es": "Wire Diameter",
         "ar": "Wire Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Wire diameter of the torsion spring (mm).",
+        "tr": "Burulma yayının tel çapı (mm)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mean diameter of the spring coil (mm).",
       "label_i18n": {
         "en": "Mean Coil Diameter",
-        "tr": "Mean Coil Diameter",
+        "tr": "Ortalama bobin çapı",
         "de": "Mean Coil Diameter",
         "fr": "Mean Coil Diameter",
         "es": "Mean Coil Diameter",
         "ar": "Mean Coil Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Mean diameter of the spring coil (mm).",
+        "tr": "Yay sarımının ortalama çapı (mm)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of active coils in the spring.",
       "label_i18n": {
         "en": "Active Coils",
-        "tr": "Active Coils",
+        "tr": "Aktif Sarımlar",
         "de": "Active Coils",
         "fr": "Active Coils",
         "es": "Active Coils",
         "ar": "Active Coils"
+      },
+      "businessContext_i18n": {
+        "en": "Number of active coils in the spring.",
+        "tr": "Yaydaki aktif sarım sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Angular deflection from free position (degrees).",
       "label_i18n": {
         "en": "Deflection Angle",
-        "tr": "Deflection Angle",
+        "tr": "Sapma Açısı",
         "de": "Deflection Angle",
         "fr": "Deflection Angle",
         "es": "Deflection Angle",
         "ar": "Deflection Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angular deflection from free position (degrees).",
+        "tr": "Serbest konumdan açısal sapma (derece)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Shear modulus of the spring material (e.g., steel ≈ 79 300 MPa).",
       "label_i18n": {
         "en": "Shear Modulus",
-        "tr": "Shear Modulus",
+        "tr": "Kayma modülü",
         "de": "Shear Modulus",
         "fr": "Shear Modulus",
         "es": "Shear Modulus",
         "ar": "Shear Modulus"
+      },
+      "businessContext_i18n": {
+        "en": "Shear modulus of the spring material (e.g., steel ≈ 79 300 MPa).",
+        "tr": "Yay malzemesinin kayma modülü (örneğin çelik ≈ 79 300 MPa)."
       }
     }
   ],

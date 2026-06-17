@@ -10,11 +10,15 @@
       "businessContext": "Total area to be primed.",
       "label_i18n": {
         "en": "Surface Area",
-        "tr": "Surface Area",
+        "tr": "Yüzey Alanı",
         "de": "Surface Area",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total area to be primed.",
+        "tr": "Astarlanacak toplam alan."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Area covered per liter of primer as per technical data sheet.",
       "label_i18n": {
         "en": "Coverage Rate",
-        "tr": "Coverage Rate",
+        "tr": "Kaplama Oranı",
         "de": "Coverage Rate",
         "fr": "Coverage Rate",
         "es": "Coverage Rate",
         "ar": "Coverage Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Area covered per liter of primer as per technical data sheet.",
+        "tr": "Teknik veri sayfasına göre litre başına kaplanan alan."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Recommended number of primer coats.",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Number of Coats",
+        "tr": "Kat Sayısı",
         "de": "Number of Coats",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
+      },
+      "businessContext_i18n": {
+        "en": "Recommended number of primer coats.",
+        "tr": "Önerilen astar kat sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional material for wastage, overspray, etc.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional material for wastage, overspray, etc.",
+        "tr": "Fire, aşırı püskürtme vb. için ek malzeme."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Typical container volume for purchase.",
       "label_i18n": {
         "en": "Container Size",
-        "tr": "Container Size",
+        "tr": "Konteyner Boyutu",
         "de": "Container Size",
         "fr": "Container Size",
         "es": "Container Size",
         "ar": "Container Size"
+      },
+      "businessContext_i18n": {
+        "en": "Typical container volume for purchase.",
+        "tr": "Satın alma için tipik konteyner hacmi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Unit price per container of primer.",
       "label_i18n": {
         "en": "Price per Container",
-        "tr": "Price per Container",
+        "tr": "Konteyner Başına Fiyat",
         "de": "Price per Container",
         "fr": "Price per Container",
         "es": "Price per Container",
         "ar": "Price per Container"
+      },
+      "businessContext_i18n": {
+        "en": "Unit price per container of primer.",
+        "tr": "Astar konteyneri başına birim fiyat."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The initial principal or base value.",
       "label_i18n": {
         "en": "Base Amount",
-        "tr": "Base Amount",
+        "tr": "Temel Tutar",
         "de": "Base Amount",
         "fr": "Base Amount",
         "es": "Base Amount",
         "ar": "Base Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The initial principal or base value.",
+        "tr": "Başlangıç anaparası veya temel değer."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual interest rate for compensation calculation.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate for compensation calculation.",
+        "tr": "Tazminat hesaplaması için yıllık faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration in months.",
       "label_i18n": {
         "en": "Time Period",
-        "tr": "Time Period",
+        "tr": "Zaman Periyodu",
         "de": "Time Period",
         "fr": "Time Period",
         "es": "Time Period",
         "ar": "Time Period"
+      },
+      "businessContext_i18n": {
+        "en": "Duration in months.",
+        "tr": "Ay cinsinden süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Any additional expenses to include.",
       "label_i18n": {
         "en": "Additional Expenses",
-        "tr": "Additional Expenses",
+        "tr": "Ek Giderler",
         "de": "Additional Expenses",
         "fr": "Additional Expenses",
         "es": "Additional Expenses",
         "ar": "Additional Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Any additional expenses to include.",
+        "tr": "Dahil edilecek ek masraflar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "A factor to adjust the compensation (e.g., risk factor).",
       "label_i18n": {
         "en": "Adjustment Factor",
-        "tr": "Adjustment Factor",
+        "tr": "Düzeltme Faktörü",
         "de": "Adjustment Factor",
         "fr": "Adjustment Factor",
         "es": "Adjustment Factor",
         "ar": "Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "A factor to adjust the compensation (e.g., risk factor).",
+        "tr": "Tazminatı ayarlamak için bir faktör (örneğin, risk faktörü)."
       }
     }
   ],

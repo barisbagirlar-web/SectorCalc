@@ -10,11 +10,15 @@
       "businessContext": "Amount of substance in teaspoons",
       "label_i18n": {
         "en": "Teaspoons",
-        "tr": "Teaspoons",
+        "tr": "Çay Kaşığı",
         "de": "Teaspoons",
         "fr": "Teaspoons",
         "es": "Teaspoons",
         "ar": "Teaspoons"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of substance in teaspoons",
+        "tr": "Çay kaşığı cinsinden madde miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor; 5 for metric, 4.92892 for US customary, 5.91939 for UK imperial",
       "label_i18n": {
         "en": "Milliliters per Teaspoon",
-        "tr": "Milliliters per Teaspoon",
+        "tr": "Mililitre Başına Çay Kaşığı",
         "de": "Milliliters per Teaspoon",
         "fr": "Milliliters per Teaspoon",
         "es": "Milliliters per Teaspoon",
         "ar": "Milliliters per Teaspoon"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor; 5 for metric, 4.92892 for US customary, 5.91939 for UK imperial",
+        "tr": "Dönüşüm faktörü; metrik için 5, ABD geleneksel için 4.92892, İngiltere emperyal için 5.91939"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the result",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the result",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for batch scaling (e.g., number of identical portions)",
       "label_i18n": {
         "en": "Number of Conversions",
-        "tr": "Number of Conversions",
+        "tr": "Dönüşüm Sayısı",
         "de": "Number of Conversions",
         "fr": "Number of Conversions",
         "es": "Number of Conversions",
         "ar": "Number of Conversions"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for batch scaling (e.g., number of identical portions)",
+        "tr": "Toplu ölçekleme çarpanı (örneğin, aynı porsiyon sayısı)"
       }
     }
   ],

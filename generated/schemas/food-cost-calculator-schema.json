@@ -10,11 +10,15 @@
       "businessContext": "Cost of all ingredients used in recipe",
       "label_i18n": {
         "en": "Total Ingredient Cost",
-        "tr": "Total Ingredient Cost",
+        "tr": "Toplam Malzeme Maliyeti",
         "de": "Total Ingredient Cost",
         "fr": "Total Ingredient Cost",
         "es": "Total Ingredient Cost",
         "ar": "Total Ingredient Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of all ingredients used in recipe",
+        "tr": "Tarifte kullanılan tüm malzemelerin maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of servings the recipe yields",
       "label_i18n": {
         "en": "Number of Servings",
-        "tr": "Number of Servings",
+        "tr": "Porsiyon Sayısı",
         "de": "Number of Servings",
         "fr": "Number of Servings",
         "es": "Number of Servings",
         "ar": "Number of Servings"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of servings the recipe yields",
+        "tr": "Tarifin verdiği toplam porsiyon sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Hourly wage for labor",
       "label_i18n": {
         "en": "Labor Cost per Hour",
-        "tr": "Labor Cost per Hour",
+        "tr": "Saatlik işçilik maliyeti",
         "de": "Labor Cost per Hour",
         "fr": "Labor Cost per Hour",
         "es": "Labor Cost per Hour",
         "ar": "Labor Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage for labor",
+        "tr": "Saatlik işçilik ücreti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time taken to prepare the dish",
       "label_i18n": {
         "en": "Preparation Time",
-        "tr": "Preparation Time",
+        "tr": "Hazırlık Süresi",
         "de": "Preparation Time",
         "fr": "Preparation Time",
         "es": "Preparation Time",
         "ar": "Preparation Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time taken to prepare the dish",
+        "tr": "Yemeğin hazırlanması için geçen süre"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional overhead costs as percentage of ingredient cost",
       "label_i18n": {
         "en": "Overhead Percentage",
-        "tr": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi",
         "de": "Overhead Percentage",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Additional overhead costs as percentage of ingredient cost",
+        "tr": "Malzeme maliyetinin yüzdesi olarak ek genel gider maliyetleri"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Profit margin to apply as percentage of selling price",
       "label_i18n": {
         "en": "Desired Profit Margin",
-        "tr": "Desired Profit Margin",
+        "tr": "Hedef Kar Marjı",
         "de": "Desired Profit Margin",
         "fr": "Desired Profit Margin",
         "es": "Desired Profit Margin",
         "ar": "Desired Profit Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Profit margin to apply as percentage of selling price",
+        "tr": "Satış fiyatının yüzdesi olarak uygulanacak kar marjı"
       }
     }
   ],

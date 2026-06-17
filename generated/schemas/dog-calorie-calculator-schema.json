@@ -10,11 +10,15 @@
       "businessContext": "The dog's weight in kilograms, used as the base for calculating resting energy requirement.",
       "label_i18n": {
         "en": "Dog Weight",
-        "tr": "Dog Weight",
+        "tr": "Köpek Ağırlığı",
         "de": "Dog Weight",
         "fr": "Dog Weight",
         "es": "Dog Weight",
         "ar": "Dog Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The dog's weight in kilograms, used as the base for calculating resting energy requirement.",
+        "tr": "Köpeğin kilogram cinsinden ağırlığı, dinlenme enerji ihtiyacının hesaplanmasında temel olarak kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Multiplier for activity level and life stage. Typical values: 1.6 for neutered adult, 2.0 for active adult, 3.0 for working/pregnant dogs.",
       "label_i18n": {
         "en": "Activity & Life Stage Factor",
-        "tr": "Activity & Life Stage Factor",
+        "tr": "Aktivite ve Yaşam Evresi Faktörü",
         "de": "Activity & Life Stage Factor",
         "fr": "Activity & Life Stage Factor",
         "es": "Activity & Life Stage Factor",
         "ar": "Activity & Life Stage Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for activity level and life stage. Typical values: 1.6 for neutered adult, 2.0 for active adult, 3.0 for working/pregnant dogs.",
+        "tr": "Aktivite seviyesi ve yaşam evresi için çarpan. Tipik değerler: kısırlaştırılmış yetişkin için 1.6, aktif yetişkin için 2.0, çalışan/gebe köpekler için 3.0."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1=emaciated, 5=ideal, 9=obese. Used to adjust calories: underweight dogs need more, overweight need less.",
       "label_i18n": {
         "en": "Body Condition Score (1-9)",
-        "tr": "Body Condition Score (1-9)",
+        "tr": "Vücut Kondisyon Skoru (1-9)",
         "de": "Body Condition Score (1-9)",
         "fr": "Body Condition Score (1-9)",
         "es": "Body Condition Score (1-9)",
         "ar": "Body Condition Score (1-9)"
+      },
+      "businessContext_i18n": {
+        "en": "1=emaciated, 5=ideal, 9=obese. Used to adjust calories: underweight dogs need more, overweight need less.",
+        "tr": "1=zayıf, 5=ideal, 9=obez. Kalori ayarlamasında kullanılır: zayıf köpekler daha fazla, kilolu köpekler daha az kalori almalıdır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Target weight change per week as a percentage of current weight. Negative for loss, positive for gain. Affects calorie adjustment.",
       "label_i18n": {
         "en": "Desired Weekly Weight Change",
-        "tr": "Desired Weekly Weight Change",
+        "tr": "Hedeflenen Haftalık Kilo Değişimi",
         "de": "Desired Weekly Weight Change",
         "fr": "Desired Weekly Weight Change",
         "es": "Desired Weekly Weight Change",
         "ar": "Desired Weekly Weight Change"
+      },
+      "businessContext_i18n": {
+        "en": "Target weight change per week as a percentage of current weight. Negative for loss, positive for gain. Affects calorie adjustment.",
+        "tr": "Mevcut kilonun yüzdesi olarak haftalık hedef kilo değişimi. Kayıp için negatif, kazanç için pozitif. Kalori ayarlamasını etkiler."
       }
     }
   ],

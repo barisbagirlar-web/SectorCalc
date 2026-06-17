@@ -10,11 +10,15 @@
       "businessContext": "Number of distinct items to be arranged.",
       "label_i18n": {
         "en": "Total Distinct Items",
-        "tr": "Total Distinct Items",
+        "tr": "Toplam Farklı Öğe",
         "de": "Total Distinct Items",
         "fr": "Total Distinct Items",
         "es": "Total Distinct Items",
         "ar": "Total Distinct Items"
+      },
+      "businessContext_i18n": {
+        "en": "Number of distinct items to be arranged.",
+        "tr": "Düzenlenecek farklı öğe sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of items to select for arrangement.",
       "label_i18n": {
         "en": "Items to Arrange",
-        "tr": "Items to Arrange",
+        "tr": "Düzenlenecek Öğeler",
         "de": "Items to Arrange",
         "fr": "Items to Arrange",
         "es": "Items to Arrange",
         "ar": "Items to Arrange"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items to select for arrangement.",
+        "tr": "Düzenleme için seçilecek öğe sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost incurred for each possible permutation (e.g., changeover cost).",
       "label_i18n": {
         "en": "Cost per Permutation",
-        "tr": "Cost per Permutation",
+        "tr": "Permütasyon Başına Maliyet",
         "de": "Cost per Permutation",
         "fr": "Cost per Permutation",
         "es": "Cost per Permutation",
         "ar": "Cost per Permutation"
+      },
+      "businessContext_i18n": {
+        "en": "Cost incurred for each possible permutation (e.g., changeover cost).",
+        "tr": "Her olası permütasyon için katlanılan maliyet (örneğin, değişim maliyeti)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fixed setup cost independent of permutations.",
       "label_i18n": {
         "en": "Setup Cost",
-        "tr": "Setup Cost",
+        "tr": "Kurulum Maliyeti",
         "de": "Setup Cost",
         "fr": "Setup Cost",
         "es": "Setup Cost",
         "ar": "Setup Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed setup cost independent of permutations.",
+        "tr": "Permütasyonlardan bağımsız sabit kurulum maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Discount on total cost (0-100).",
       "label_i18n": {
         "en": "Discount Percentage",
-        "tr": "Discount Percentage",
+        "tr": "İndirim Yüzdesi",
         "de": "Discount Percentage",
         "fr": "Discount Percentage",
         "es": "Discount Percentage",
         "ar": "Discount Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Discount on total cost (0-100).",
+        "tr": "Toplam maliyette indirim (0-100)."
       }
     }
   ],

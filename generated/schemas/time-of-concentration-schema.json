@@ -10,11 +10,15 @@
       "businessContext": "Maximum length of overland flow path in the catchment",
       "label_i18n": {
         "en": "Flow Length (L)",
-        "tr": "Flow Length (L)",
+        "tr": "Akış Uzunluğu (L)",
         "de": "Flow Length (L)",
         "fr": "Flow Length (L)",
         "es": "Flow Length (L)",
         "ar": "Flow Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum length of overland flow path in the catchment",
+        "tr": "Havzadaki yüzey akış yolunun maksimum uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average slope of the flow path",
       "label_i18n": {
         "en": "Average Slope (S)",
-        "tr": "Average Slope (S)",
+        "tr": "Ortalama Eğim (S)",
         "de": "Average Slope (S)",
         "fr": "Average Slope (S)",
         "es": "Average Slope (S)",
         "ar": "Average Slope (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Average slope of the flow path",
+        "tr": "Akış yolunun ortalama eğimi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Surface roughness coefficient for overland flow",
       "label_i18n": {
         "en": "Manning's Roughness (n)",
-        "tr": "Manning's Roughness (n)",
+        "tr": "Manning Pürüzlülüğü (n)",
         "de": "Manning's Roughness (n)",
         "fr": "Manning's Roughness (n)",
         "es": "Manning's Roughness (n)",
         "ar": "Manning's Roughness (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Surface roughness coefficient for overland flow",
+        "tr": "Yüzey akışı için yüzey pürüzlülük katsayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Design rainfall intensity for the catchment",
       "label_i18n": {
         "en": "Rainfall Intensity (I)",
-        "tr": "Rainfall Intensity (I)",
+        "tr": "Yağış Şiddeti (I)",
         "de": "Rainfall Intensity (I)",
         "fr": "Rainfall Intensity (I)",
         "es": "Rainfall Intensity (I)",
         "ar": "Rainfall Intensity (I)"
+      },
+      "businessContext_i18n": {
+        "en": "Design rainfall intensity for the catchment",
+        "tr": "Havza için tasarım yağış yoğunluğu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total drainage area contributing to the point of interest",
       "label_i18n": {
         "en": "Catchment Area (A)",
-        "tr": "Catchment Area (A)",
+        "tr": "Havza Alanı (A)",
         "de": "Catchment Area (A)",
         "fr": "Catchment Area (A)",
         "es": "Catchment Area (A)",
         "ar": "Catchment Area (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Total drainage area contributing to the point of interest",
+        "tr": "Toplam drenaj alanı (ilgilenilen noktaya katkıda bulunan)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage of impervious area in the catchment",
       "label_i18n": {
         "en": "Percent Impervious",
-        "tr": "Percent Impervious",
+        "tr": "Geçirimsizlik Yüzdesi",
         "de": "Percent Impervious",
         "fr": "Percent Impervious",
         "es": "Percent Impervious",
         "ar": "Percent Impervious"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of impervious area in the catchment",
+        "tr": "Havzadaki geçirimsiz alan yüzdesi"
       }
     }
   ],

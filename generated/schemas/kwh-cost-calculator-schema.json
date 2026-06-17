@@ -22,10 +22,12 @@
       "max": 100000000,
       "businessContext": "Total metered kilowatt-hours for the billing period. Used as primary driver for energy cost.",
       "label_i18n": {
-        "en": "Energy Consumption (kWh)"
+        "en": "Energy Consumption (kWh)",
+        "tr": "Enerji Tüketimi (kWh)"
       },
       "businessContext_i18n": {
-        "en": "Total metered kilowatt-hours for the billing period. Used as primary driver for energy cost."
+        "en": "Total metered kilowatt-hours for the billing period. Used as primary driver for energy cost.",
+        "tr": "Fatura dönemi için ölçülen toplam kilovatsaat. Enerji maliyetinin ana sürücüsü olarak kullanılır."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 100000,
       "businessContext": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff.",
       "label_i18n": {
-        "en": "Peak Demand (kW)"
+        "en": "Peak Demand (kW)",
+        "tr": "Tepe Talebi (kW)"
       },
       "businessContext_i18n": {
-        "en": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff."
+        "en": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff.",
+        "tr": "Dönemdeki en yüksek 15 dakikalık ortalama talep. Tarifeye göre talep ücretlerini belirler."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 1,
       "businessContext": "Blended energy charge from utility bill, including generation and transmission.",
       "label_i18n": {
-        "en": "Energy Rate ($/kWh)"
+        "en": "Energy Rate ($/kWh)",
+        "tr": "Enerji Birim Fiyatı ($/kWh)"
       },
       "businessContext_i18n": {
-        "en": "Blended energy charge from utility bill, including generation and transmission."
+        "en": "Blended energy charge from utility bill, including generation and transmission.",
+        "tr": "Elektrik faturasından üretim ve iletimi içeren harmanlanmış enerji ücreti."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 100,
       "businessContext": "Monthly demand charge per kW of peak demand, varies by utility and region.",
       "label_i18n": {
-        "en": "Demand Rate ($/kW)"
+        "en": "Demand Rate ($/kW)",
+        "tr": "Talep Oranı ($/kW)"
       },
       "businessContext_i18n": {
-        "en": "Monthly demand charge per kW of peak demand, varies by utility and region."
+        "en": "Monthly demand charge per kW of peak demand, varies by utility and region.",
+        "tr": "kW başına aylık talep ücreti, bölgeye ve elektrik dağıtım şirketine göre değişir."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 1,
       "businessContext": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff.",
       "label_i18n": {
-        "en": "Power Factor"
+        "en": "Power Factor",
+        "tr": "Güç Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff."
+        "en": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff.",
+        "tr": "Gerçek gücün görünür güce oranı. Düşük güç faktörü tarifeye göre ceza uygulanmasına neden olur."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 1,
       "businessContext": "Minimum power factor before penalty applies, typically 0.9 per utility standards.",
       "label_i18n": {
-        "en": "PF Penalty Threshold"
+        "en": "PF Penalty Threshold",
+        "tr": "GF Cezası Eşiği"
       },
       "businessContext_i18n": {
-        "en": "Minimum power factor before penalty applies, typically 0.9 per utility standards."
+        "en": "Minimum power factor before penalty applies, typically 0.9 per utility standards.",
+        "tr": "Ceza uygulanmadan önceki minimum güç faktörü, tipik olarak standartlara göre 0.9."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 10,
       "businessContext": "Cost per reactive power (kvar) when PF below threshold.",
       "label_i18n": {
-        "en": "PF Penalty Rate ($/kvar)"
+        "en": "PF Penalty Rate ($/kvar)",
+        "tr": "GF Cezası Oranı ($/kvar)"
       },
       "businessContext_i18n": {
-        "en": "Cost per reactive power (kvar) when PF below threshold."
+        "en": "Cost per reactive power (kvar) when PF below threshold.",
+        "tr": "GF eşiğin altındayken reaktif güç (kvar) başına maliyet."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 100,
       "businessContext": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment.",
       "label_i18n": {
-        "en": "System Efficiency (%)"
+        "en": "System Efficiency (%)",
+        "tr": "Sistem Verimliliği (%)"
       },
       "businessContext_i18n": {
-        "en": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment."
+        "en": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment.",
+        "tr": "Transformatörler, kablolar ve motorlar dahil genel elektrik sistemi verimliliği. Kayıp düzeltmesi için kullanılır."
       }
     }
   ],

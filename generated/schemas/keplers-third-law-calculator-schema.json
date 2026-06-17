@@ -10,11 +10,15 @@
       "businessContext": "Average distance from the primary body, e.g., 1 AU = 149,597,870,691 m.",
       "label_i18n": {
         "en": "Semi-major axis",
-        "tr": "Semi-major axis",
+        "tr": "Yarı büyük eksen",
         "de": "Semi-major axis",
         "fr": "Semi-major axis",
         "es": "Semi-major axis",
         "ar": "Semi-major axis"
+      },
+      "businessContext_i18n": {
+        "en": "Average distance from the primary body, e.g., 1 AU = 149,597,870,691 m.",
+        "tr": "Birincil cisimden ortalama uzaklık, örn. 1 AU = 149.597.870.691 m."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass of the central body, e.g., Sun mass = 1.989 × 10^30 kg.",
       "label_i18n": {
         "en": "Mass of primary body",
-        "tr": "Mass of primary body",
+        "tr": "Birincil cismin kütlesi",
         "de": "Mass of primary body",
         "fr": "Mass of primary body",
         "es": "Mass of primary body",
         "ar": "Mass of primary body"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the central body, e.g., Sun mass = 1.989 × 10^30 kg.",
+        "tr": "Merkezi cismin kütlesi, örn. Güneş kütlesi = 1,989 × 10^30 kg."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of the orbiting body, e.g., Earth mass = 5.972 × 10^24 kg.",
       "label_i18n": {
         "en": "Mass of secondary body",
-        "tr": "Mass of secondary body",
+        "tr": "İkincil cismin kütlesi",
         "de": "Mass of secondary body",
         "fr": "Mass of secondary body",
         "es": "Mass of secondary body",
         "ar": "Mass of secondary body"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the orbiting body, e.g., Earth mass = 5.972 × 10^24 kg.",
+        "tr": "Yörüngedeki cismin kütlesi, örn. Dünya kütlesi = 5,972 × 10^24 kg."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Universal gravitational constant, standard value 6.67430 × 10^{-11} m^3 kg^{-1} s^{-2}.",
       "label_i18n": {
         "en": "Gravitational constant",
-        "tr": "Gravitational constant",
+        "tr": "Yerçekimi sabiti",
         "de": "Gravitational constant",
         "fr": "Gravitational constant",
         "es": "Gravitational constant",
         "ar": "Gravitational constant"
+      },
+      "businessContext_i18n": {
+        "en": "Universal gravitational constant, standard value 6.67430 × 10^{-11} m^3 kg^{-1} s^{-2}.",
+        "tr": "Evrensel çekim sabiti, standart değer 6,67430 × 10^{-11} m^3 kg^{-1} s^{-2}."
       }
     }
   ],

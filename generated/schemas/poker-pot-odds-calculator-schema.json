@@ -10,11 +10,15 @@
       "businessContext": "The size of the pot before the opponent's bet.",
       "label_i18n": {
         "en": "Pot Size Before Bet",
-        "tr": "Pot Size Before Bet",
+        "tr": "Bahis Öncesi Pot Büyüklüğü",
         "de": "Pot Size Before Bet",
         "fr": "Pot Size Before Bet",
         "es": "Pot Size Before Bet",
         "ar": "Pot Size Before Bet"
+      },
+      "businessContext_i18n": {
+        "en": "The size of the pot before the opponent's bet.",
+        "tr": "Rakibin bahisinden önceki pot büyüklüğü."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The amount the opponent bets.",
       "label_i18n": {
         "en": "Opponent's Bet",
-        "tr": "Opponent's Bet",
+        "tr": "Rakibin Bahsi",
         "de": "Opponent's Bet",
         "fr": "Opponent's Bet",
         "es": "Opponent's Bet",
         "ar": "Opponent's Bet"
+      },
+      "businessContext_i18n": {
+        "en": "The amount the opponent bets.",
+        "tr": "Rakibin bahis miktarı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The amount required to call. Usually equal to the opponent's bet.",
       "label_i18n": {
         "en": "Call Amount",
-        "tr": "Call Amount",
+        "tr": "Çağırma Miktarı",
         "de": "Call Amount",
         "fr": "Call Amount",
         "es": "Call Amount",
         "ar": "Call Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The amount required to call. Usually equal to the opponent's bet.",
+        "tr": "Çağırmak için gereken miktar. Genellikle rakibin bahsine eşittir."
       }
     }
   ],

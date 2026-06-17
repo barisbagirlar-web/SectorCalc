@@ -10,11 +10,15 @@
       "businessContext": "Total body mass in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total body mass in kilograms",
+        "tr": "Toplam vücut kütlesi (kg)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of body mass that is fat tissue",
       "label_i18n": {
         "en": "Body Fat Percentage",
-        "tr": "Body Fat Percentage",
+        "tr": "Vücut yağ yüzdesi",
         "de": "Body Fat Percentage",
         "fr": "Body Fat Percentage",
         "es": "Body Fat Percentage",
         "ar": "Body Fat Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of body mass that is fat tissue",
+        "tr": "Vücut kütlesinin yağ dokusu olan yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height in centimeters",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height in centimeters",
+        "tr": "Santimetre cinsinden boy"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age in years",
+        "tr": "Yıl cinsinden yaş"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Physical activity level factor (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 heavy, 1.9 athlete)",
       "label_i18n": {
         "en": "Activity Level Multiplier",
-        "tr": "Activity Level Multiplier",
+        "tr": "Aktivite seviyesi çarpanı",
         "de": "Activity Level Multiplier",
         "fr": "Activity Level Multiplier",
         "es": "Activity Level Multiplier",
         "ar": "Activity Level Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Physical activity level factor (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 heavy, 1.9 athlete)",
+        "tr": "Fiziksel aktivite seviyesi faktörü (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 ağır, 1.9 atlet)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The value for which the logarithm is calculated. Must be > 0.",
       "label_i18n": {
         "en": "Argument (x)",
-        "tr": "Argument (x)",
+        "tr": "Argüman (x)",
         "de": "Argument (x)",
         "fr": "Argument (x)",
         "es": "Argument (x)",
         "ar": "Argument (x)"
+      },
+      "businessContext_i18n": {
+        "en": "The value for which the logarithm is calculated. Must be > 0.",
+        "tr": "Logaritması hesaplanan değer. > 0 olmalıdır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The base of the logarithm. Common bases: 10, e (Math.E), 2. Must be > 0 and ≠ 1.",
       "label_i18n": {
         "en": "Log Base (b)",
-        "tr": "Log Base (b)",
+        "tr": "Log Tabanı (b)",
         "de": "Log Base (b)",
         "fr": "Log Base (b)",
         "es": "Log Base (b)",
         "ar": "Log Base (b)"
+      },
+      "businessContext_i18n": {
+        "en": "The base of the logarithm. Common bases: 10, e (Math.E), 2. Must be > 0 and ≠ 1.",
+        "tr": "Logaritmanın tabanı. Yaygın tabanlar: 10, e (Math.E), 2. > 0 ve ≠ 1 olmalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Scaling factor applied after taking the logarithm, e.g., 20 for dB conversion.",
       "label_i18n": {
         "en": "Multiplier (m)",
-        "tr": "Multiplier (m)",
+        "tr": "Çarpan (m)",
         "de": "Multiplier (m)",
         "fr": "Multiplier (m)",
         "es": "Multiplier (m)",
         "ar": "Multiplier (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Scaling factor applied after taking the logarithm, e.g., 20 for dB conversion.",
+        "tr": "Logaritma alındıktan sonra uygulanan ölçekleme faktörü, örn. dB dönüşümü için 20."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Constant added after multiplication, used in linear calibration or zero adjustment.",
       "label_i18n": {
         "en": "Offset (c)",
-        "tr": "Offset (c)",
+        "tr": "Ofset (c)",
         "de": "Offset (c)",
         "fr": "Offset (c)",
         "es": "Offset (c)",
         "ar": "Offset (c)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant added after multiplication, used in linear calibration or zero adjustment.",
+        "tr": "Çarpma işleminden sonra eklenen sabit, doğrusal kalibrasyon veya sıfır ayarında kullanılır."
       }
     }
   ],

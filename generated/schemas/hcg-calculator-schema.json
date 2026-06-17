@@ -10,11 +10,15 @@
       "businessContext": "Current HCG concentration in blood or urine sample",
       "label_i18n": {
         "en": "HCG Level (mIU/mL)",
-        "tr": "HCG Level (mIU/mL)",
+        "tr": "HCG Seviyesi (mIU/mL)",
         "de": "HCG Level (mIU/mL)",
         "fr": "HCG Level (mIU/mL)",
         "es": "HCG Level (mIU/mL)",
         "ar": "HCG Level (mIU/mL)"
+      },
+      "businessContext_i18n": {
+        "en": "Current HCG concentration in blood or urine sample",
+        "tr": "Kan veya idrar örneğindeki mevcut HCG konsantrasyonu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected time for HCG level to double in early pregnancy",
       "label_i18n": {
         "en": "Doubling Time (hours)",
-        "tr": "Doubling Time (hours)",
+        "tr": "İkiye Katlanma Süresi (saat)",
         "de": "Doubling Time (hours)",
         "fr": "Doubling Time (hours)",
         "es": "Doubling Time (hours)",
         "ar": "Doubling Time (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected time for HCG level to double in early pregnancy",
+        "tr": "Erken gebelikte HCG seviyesinin ikiye katlanması için beklenen süre"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time interval since the last measurement",
       "label_i18n": {
         "en": "Time Elapsed (hours)",
-        "tr": "Time Elapsed (hours)",
+        "tr": "Geçen Süre (saat)",
         "de": "Time Elapsed (hours)",
         "fr": "Time Elapsed (hours)",
         "es": "Time Elapsed (hours)",
         "ar": "Time Elapsed (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Time interval since the last measurement",
+        "tr": "Son ölçümden bu yana geçen zaman aralığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Previous HCG measurement for comparison",
       "label_i18n": {
         "en": "Initial HCG Level (mIU/mL)",
-        "tr": "Initial HCG Level (mIU/mL)",
+        "tr": "Başlangıç HCG Seviyesi (mIU/mL)",
         "de": "Initial HCG Level (mIU/mL)",
         "fr": "Initial HCG Level (mIU/mL)",
         "es": "Initial HCG Level (mIU/mL)",
         "ar": "Initial HCG Level (mIU/mL)"
+      },
+      "businessContext_i18n": {
+        "en": "Previous HCG measurement for comparison",
+        "tr": "Karşılaştırma için önceki HCG ölçümü"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Minutes portion of total swim time",
       "label_i18n": {
         "en": "Time (minutes)",
-        "tr": "Time (minutes)",
+        "tr": "Süre (dakika)",
         "de": "Time (minutes)",
         "fr": "Time (minutes)",
         "es": "Time (minutes)",
         "ar": "Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes portion of total swim time",
+        "tr": "Toplam yüzme süresinin dakika kısmı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Seconds portion of total swim time",
       "label_i18n": {
         "en": "Time (seconds)",
-        "tr": "Time (seconds)",
+        "tr": "Süre (saniye)",
         "de": "Time (seconds)",
         "fr": "Time (seconds)",
         "es": "Time (seconds)",
         "ar": "Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Seconds portion of total swim time",
+        "tr": "Toplam yüzme süresinin saniye kısmı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of strokes over the entire swim",
       "label_i18n": {
         "en": "Total strokes",
-        "tr": "Total strokes",
+        "tr": "Toplam kol çekme",
         "de": "Total strokes",
         "fr": "Total strokes",
         "es": "Total strokes",
         "ar": "Total strokes"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of strokes over the entire swim",
+        "tr": "Tüm yüzme boyunca toplam kol çekme sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of pool lengths swam",
       "label_i18n": {
         "en": "Number of lengths",
-        "tr": "Number of lengths",
+        "tr": "Boy sayısı",
         "de": "Number of lengths",
         "fr": "Number of lengths",
         "es": "Number of lengths",
         "ar": "Number of lengths"
+      },
+      "businessContext_i18n": {
+        "en": "Number of pool lengths swam",
+        "tr": "Yüzülen havuz boyu sayısı"
       }
     }
   ],

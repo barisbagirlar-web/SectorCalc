@@ -10,11 +10,15 @@
       "businessContext": "The volume of the scuba cylinder in liters.",
       "label_i18n": {
         "en": "Tank Volume",
-        "tr": "Tank Volume",
+        "tr": "Tank Hacmi",
         "de": "Tank Volume",
         "fr": "Tank Volume",
         "es": "Tank Volume",
         "ar": "Tank Volume"
+      },
+      "businessContext_i18n": {
+        "en": "The volume of the scuba cylinder in liters.",
+        "tr": "Tüp hacmi (litre)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The pressure of the full tank.",
       "label_i18n": {
         "en": "Starting Pressure",
-        "tr": "Starting Pressure",
+        "tr": "Başlangıç Basıncı",
         "de": "Starting Pressure",
         "fr": "Starting Pressure",
         "es": "Starting Pressure",
         "ar": "Starting Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "The pressure of the full tank.",
+        "tr": "Dolu tüpün basıncı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The pressure at which the dive should be ended, typically for safety reserve.",
       "label_i18n": {
         "en": "Reserve Pressure",
-        "tr": "Reserve Pressure",
+        "tr": "Rezerv Basıncı",
         "de": "Reserve Pressure",
         "fr": "Reserve Pressure",
         "es": "Reserve Pressure",
         "ar": "Reserve Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "The pressure at which the dive should be ended, typically for safety reserve.",
+        "tr": "Dalgıcın dalışı sonlandırması gereken basınç, genellikle güvenlik rezervi için."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The planned average depth of the dive.",
       "label_i18n": {
         "en": "Average Dive Depth",
-        "tr": "Average Dive Depth",
+        "tr": "Ortalama Dalış Derinliği",
         "de": "Average Dive Depth",
         "fr": "Average Dive Depth",
         "es": "Average Dive Depth",
         "ar": "Average Dive Depth"
+      },
+      "businessContext_i18n": {
+        "en": "The planned average depth of the dive.",
+        "tr": "Planlanan ortalama dalış derinliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The diver's personal surface air consumption rate.",
       "label_i18n": {
         "en": "Surface Air Consumption",
-        "tr": "Surface Air Consumption",
+        "tr": "Yüzey Hava Tüketimi",
         "de": "Surface Air Consumption",
         "fr": "Surface Air Consumption",
         "es": "Surface Air Consumption",
         "ar": "Surface Air Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "The diver's personal surface air consumption rate.",
+        "tr": "Dalgıcın kişisel yüzey hava tüketim hızı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1.00 for freshwater, 1.03 for saltwater; reflects pressure increase per 10m depth.",
       "label_i18n": {
         "en": "Water Density Factor",
-        "tr": "Water Density Factor",
+        "tr": "Su Yoğunluğu Faktörü",
         "de": "Water Density Factor",
         "fr": "Water Density Factor",
         "es": "Water Density Factor",
         "ar": "Water Density Factor"
+      },
+      "businessContext_i18n": {
+        "en": "1.00 for freshwater, 1.03 for saltwater; reflects pressure increase per 10m depth.",
+        "tr": "Tatlı su için 1.00, tuzlu su için 1.03; 10m derinlik başına basınç artışını yansıtır."
       }
     }
   ],

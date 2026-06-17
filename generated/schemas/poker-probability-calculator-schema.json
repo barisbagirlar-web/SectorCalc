@@ -10,11 +10,15 @@
       "businessContext": "Number of cards you have seen, including your hole cards and any community cards.",
       "label_i18n": {
         "en": "Known Cards",
-        "tr": "Known Cards",
+        "tr": "Bilinen Kartlar",
         "de": "Known Cards",
         "fr": "Known Cards",
         "es": "Known Cards",
         "ar": "Known Cards"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cards you have seen, including your hole cards and any community cards.",
+        "tr": "Gördüğünüz kart sayısı, kapalı kartlarınız ve topluluk kartları dahil."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of cards in the deck.",
       "label_i18n": {
         "en": "Deck Size",
-        "tr": "Deck Size",
+        "tr": "Deste Boyutu",
         "de": "Deck Size",
         "fr": "Deck Size",
         "es": "Deck Size",
         "ar": "Deck Size"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of cards in the deck.",
+        "tr": "Destedeki toplam kart sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of cards in the remaining deck that will improve your hand to a winner.",
       "label_i18n": {
         "en": "Outs",
-        "tr": "Outs",
+        "tr": "Çıkışlar",
         "de": "Outs",
         "fr": "Outs",
         "es": "Outs",
         "ar": "Outs"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cards in the remaining deck that will improve your hand to a winner.",
+        "tr": "Kalan destede elinizi kazanan yapacak kart sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of upcoming community cards to be dealt (e.g., 1 for turn only, 2 for turn and river).",
       "label_i18n": {
         "en": "Cards to Draw",
-        "tr": "Cards to Draw",
+        "tr": "Çekilecek Kartlar",
         "de": "Cards to Draw",
         "fr": "Cards to Draw",
         "es": "Cards to Draw",
         "ar": "Cards to Draw"
+      },
+      "businessContext_i18n": {
+        "en": "Number of upcoming community cards to be dealt (e.g., 1 for turn only, 2 for turn and river).",
+        "tr": "Dağıtılacak gelecek topluluk kartı sayısı (örneğin, sadece dönüş için 1, dönüş ve nehir için 2)."
       }
     }
   ],

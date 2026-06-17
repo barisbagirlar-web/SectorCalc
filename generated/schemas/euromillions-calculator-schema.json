@@ -10,11 +10,15 @@
       "businessContext": "Standard cost of one EuroMillions ticket line in euros. Default 2.50 EUR.",
       "label_i18n": {
         "en": "Ticket Cost per Line",
-        "tr": "Ticket Cost per Line",
+        "tr": "Bilet Başına Maliyet",
         "de": "Ticket Cost per Line",
         "fr": "Ticket Cost per Line",
         "es": "Ticket Cost per Line",
         "ar": "Ticket Cost per Line"
+      },
+      "businessContext_i18n": {
+        "en": "Standard cost of one EuroMillions ticket line in euros. Default 2.50 EUR.",
+        "tr": "Bir EuroMillions bilet satırının standart maliyeti euro cinsinden. Varsayılan 2.50 EUR."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of lines played per draw. Default 1.",
       "label_i18n": {
         "en": "Lines per Draw",
-        "tr": "Lines per Draw",
+        "tr": "Çekiliş Başına Satır",
         "de": "Lines per Draw",
         "fr": "Lines per Draw",
         "es": "Lines per Draw",
         "ar": "Lines per Draw"
+      },
+      "businessContext_i18n": {
+        "en": "Number of lines played per draw. Default 1.",
+        "tr": "Çekiliş başına oynanan satır sayısı. Varsayılan 1."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of EuroMillions draws per week (typically 2 on Tuesday and Friday).",
       "label_i18n": {
         "en": "Draws per Week",
-        "tr": "Draws per Week",
+        "tr": "Haftalık Çekiliş Sayısı",
         "de": "Draws per Week",
         "fr": "Draws per Week",
         "es": "Draws per Week",
         "ar": "Draws per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Number of EuroMillions draws per week (typically 2 on Tuesday and Friday).",
+        "tr": "EuroMillions haftalık çekiliş sayısı (genellikle Salı ve Cuma olmak üzere 2)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of weeks of continuous play.",
       "label_i18n": {
         "en": "Number of Weeks",
-        "tr": "Number of Weeks",
+        "tr": "Hafta Sayısı",
         "de": "Number of Weeks",
         "fr": "Number of Weeks",
         "es": "Number of Weeks",
         "ar": "Number of Weeks"
+      },
+      "businessContext_i18n": {
+        "en": "Number of weeks of continuous play.",
+        "tr": "Kesintisiz oynanan hafta sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage discount for multi-draw or subscription purchases (0-100).",
       "label_i18n": {
         "en": "Bulk Discount",
-        "tr": "Bulk Discount",
+        "tr": "Toplu İndirim",
         "de": "Bulk Discount",
         "fr": "Bulk Discount",
         "es": "Bulk Discount",
         "ar": "Bulk Discount"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage discount for multi-draw or subscription purchases (0-100).",
+        "tr": "Çoklu çekiliş veya abonelik alımlarında yüzde indirim (0-100)."
       }
     }
   ],

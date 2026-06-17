@@ -10,11 +10,15 @@
       "businessContext": "Athlete's body weight in kilograms, used to estimate energy expenditure.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Athlete's body weight in kilograms, used to estimate energy expenditure.",
+        "tr": "Sporcunun kilogram cinsinden vücut ağırlığı, enerji harcamasını tahmin etmek için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total duration of the CrossFit workout in minutes.",
       "label_i18n": {
         "en": "Workout Duration",
-        "tr": "Workout Duration",
+        "tr": "Antrenman Süresi",
         "de": "Workout Duration",
         "fr": "Workout Duration",
         "es": "Workout Duration",
         "ar": "Workout Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration of the CrossFit workout in minutes.",
+        "tr": "CrossFit antrenmanının dakika cinsinden toplam süresi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Metabolic Equivalent of Task (MET) for the workout intensity. CrossFit typically ranges 6-12 METs.",
       "label_i18n": {
         "en": "MET Value",
-        "tr": "MET Value",
+        "tr": "MET Değeri",
         "de": "MET Value",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
+      },
+      "businessContext_i18n": {
+        "en": "Metabolic Equivalent of Task (MET) for the workout intensity. CrossFit typically ranges 6-12 METs.",
+        "tr": "Antrenman yoğunluğu için Metabolik Eşdeğer (MET). CrossFit genellikle 6-12 MET aralığındadır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to adjust calories for gender differences (commonly 1.0 for males, 0.9 for females).",
       "label_i18n": {
         "en": "Gender Adjustment Factor",
-        "tr": "Gender Adjustment Factor",
+        "tr": "Cinsiyet Düzeltme Faktörü",
         "de": "Gender Adjustment Factor",
         "fr": "Gender Adjustment Factor",
         "es": "Gender Adjustment Factor",
         "ar": "Gender Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to adjust calories for gender differences (commonly 1.0 for males, 0.9 for females).",
+        "tr": "Cinsiyet farklılıklarına göre kaloriyi ayarlamak için çarpan (genellikle erkekler için 1.0, kadınlar için 0.9)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total quantity of pottery items to produce.",
       "label_i18n": {
         "en": "Number of Pieces",
-        "tr": "Number of Pieces",
+        "tr": "Parça Sayısı",
         "de": "Number of Pieces",
         "fr": "Number of Pieces",
         "es": "Number of Pieces",
         "ar": "Number of Pieces"
+      },
+      "businessContext_i18n": {
+        "en": "Total quantity of pottery items to produce.",
+        "tr": "Üretilecek toplam seramik ürün miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount of clay needed for one piece before firing.",
       "label_i18n": {
         "en": "Clay Weight per Piece",
-        "tr": "Clay Weight per Piece",
+        "tr": "Parça Başına Kil Ağırlığı",
         "de": "Clay Weight per Piece",
         "fr": "Clay Weight per Piece",
         "es": "Clay Weight per Piece",
         "ar": "Clay Weight per Piece"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of clay needed for one piece before firing.",
+        "tr": "Pişirmeden önce bir parça için gereken kil miktarı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Market price of clay per kilogram.",
       "label_i18n": {
         "en": "Clay Cost per Kg",
-        "tr": "Clay Cost per Kg",
+        "tr": "Kg Başına Kil Maliyeti",
         "de": "Clay Cost per Kg",
         "fr": "Clay Cost per Kg",
         "es": "Clay Cost per Kg",
         "ar": "Clay Cost per Kg"
+      },
+      "businessContext_i18n": {
+        "en": "Market price of clay per kilogram.",
+        "tr": "Kilogram başına kilin piyasa fiyatı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Volume of glaze applied on each piece.",
       "label_i18n": {
         "en": "Glaze Usage per Piece",
-        "tr": "Glaze Usage per Piece",
+        "tr": "Parça Başına Sır Kullanımı",
         "de": "Glaze Usage per Piece",
         "fr": "Glaze Usage per Piece",
         "es": "Glaze Usage per Piece",
         "ar": "Glaze Usage per Piece"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of glaze applied on each piece.",
+        "tr": "Her bir parçaya uygulanan sır hacmi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Market price of glaze per liter.",
       "label_i18n": {
         "en": "Glaze Cost per Liter",
-        "tr": "Glaze Cost per Liter",
+        "tr": "Sır Maliyeti (Litre başına)",
         "de": "Glaze Cost per Liter",
         "fr": "Glaze Cost per Liter",
         "es": "Glaze Cost per Liter",
         "ar": "Glaze Cost per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Market price of glaze per liter.",
+        "tr": "Sırın litre başına piyasa fiyatı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Energy and kiln maintenance cost for firing one piece.",
       "label_i18n": {
         "en": "Firing Cost per Piece",
-        "tr": "Firing Cost per Piece",
+        "tr": "Parça Başına Pişirme Maliyeti",
         "de": "Firing Cost per Piece",
         "fr": "Firing Cost per Piece",
         "es": "Firing Cost per Piece",
         "ar": "Firing Cost per Piece"
+      },
+      "businessContext_i18n": {
+        "en": "Energy and kiln maintenance cost for firing one piece.",
+        "tr": "Bir parçanın pişirilmesi için enerji ve fırın bakım maliyeti."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Indirect costs (labor, rent, tools) as a percentage of material and firing costs.",
       "label_i18n": {
         "en": "Overhead Percentage",
-        "tr": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi",
         "de": "Overhead Percentage",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect costs (labor, rent, tools) as a percentage of material and firing costs.",
+        "tr": "Malzeme ve pişirme maliyetlerinin yüzdesi olarak dolaylı maliyetler (işçilik, kira, aletler)."
       }
     }
   ],

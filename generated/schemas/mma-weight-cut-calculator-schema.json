@@ -10,11 +10,15 @@
       "businessContext": "The fighter's weight before cutting, in kilograms.",
       "label_i18n": {
         "en": "Current Weight",
-        "tr": "Current Weight",
+        "tr": "Mevcut Ağırlık",
         "de": "Current Weight",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The fighter's weight before cutting, in kilograms.",
+        "tr": "Sporcunun kesim öncesi ağırlığı, kilogram cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current body fat percentage.",
       "label_i18n": {
         "en": "Body Fat %",
-        "tr": "Body Fat %",
+        "tr": "Vücut Yağ Oranı (%)",
         "de": "Body Fat %",
         "fr": "Body Fat %",
         "es": "Body Fat %",
         "ar": "Body Fat %"
+      },
+      "businessContext_i18n": {
+        "en": "Current body fat percentage.",
+        "tr": "Mevcut vücut yağ yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The target weight to make, in kilograms.",
       "label_i18n": {
         "en": "Target Fight Weight",
-        "tr": "Target Fight Weight",
+        "tr": "Hedef Dövüş Ağırlığı",
         "de": "Target Fight Weight",
         "fr": "Target Fight Weight",
         "es": "Target Fight Weight",
         "ar": "Target Fight Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The target weight to make, in kilograms.",
+        "tr": "Ulaşılması gereken hedef ağırlık, kilogram cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum safe dehydration as percentage of current body weight (5% is common extreme).",
       "label_i18n": {
         "en": "Max Dehydration %",
-        "tr": "Max Dehydration %",
+        "tr": "Maksimum Dehidrasyon Oranı (%)",
         "de": "Max Dehydration %",
         "fr": "Max Dehydration %",
         "es": "Max Dehydration %",
         "ar": "Max Dehydration %"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum safe dehydration as percentage of current body weight (5% is common extreme).",
+        "tr": "Mevcut vücut ağırlığının yüzdesi olarak maksimum güvenli dehidrasyon (%5 yaygın uç noktadır)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of days until the official weigh-in.",
       "label_i18n": {
         "en": "Days Until Weigh-in",
-        "tr": "Days Until Weigh-in",
+        "tr": "Tartıya Kalan Gün Sayısı",
         "de": "Days Until Weigh-in",
         "fr": "Days Until Weigh-in",
         "es": "Days Until Weigh-in",
         "ar": "Days Until Weigh-in"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days until the official weigh-in.",
+        "tr": "Resmi tartıya kalan gün sayısı."
       }
     }
   ],

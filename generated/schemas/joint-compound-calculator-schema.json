@@ -10,11 +10,15 @@
       "businessContext": "Total number of drywall sheets to be taped and finished.",
       "label_i18n": {
         "en": "Number of Drywall Sheets",
-        "tr": "Number of Drywall Sheets",
+        "tr": "Alçıpan Levha Sayısı",
         "de": "Number of Drywall Sheets",
         "fr": "Number of Drywall Sheets",
         "es": "Number of Drywall Sheets",
         "ar": "Number of Drywall Sheets"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of drywall sheets to be taped and finished.",
+        "tr": "Bantlanacak ve son kat yapılacak toplam alçıpan levha sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average linear length of joints per sheet (including butt and tapered joints).",
       "label_i18n": {
         "en": "Average Joint Length per Sheet",
-        "tr": "Average Joint Length per Sheet",
+        "tr": "Levha Başına Ortalama Derz Uzunluğu",
         "de": "Average Joint Length per Sheet",
         "fr": "Average Joint Length per Sheet",
         "es": "Average Joint Length per Sheet",
         "ar": "Average Joint Length per Sheet"
+      },
+      "businessContext_i18n": {
+        "en": "Average linear length of joints per sheet (including butt and tapered joints).",
+        "tr": "Levha başına ortalama doğrusal derz uzunluğu (alın derzleri ve konik derzler dahil)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of the joint compound application area across the joint.",
       "label_i18n": {
         "en": "Joint Width",
-        "tr": "Joint Width",
+        "tr": "Derz Genişliği",
         "de": "Joint Width",
         "fr": "Joint Width",
         "es": "Joint Width",
         "ar": "Joint Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the joint compound application area across the joint.",
+        "tr": "Derz Bileşiği Uygulama Genişliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Applied wet thickness of joint compound per coat.",
       "label_i18n": {
         "en": "Compound Thickness per Coat",
-        "tr": "Compound Thickness per Coat",
+        "tr": "Kat Başına Bileşik Kalınlığı",
         "de": "Compound Thickness per Coat",
         "fr": "Compound Thickness per Coat",
         "es": "Compound Thickness per Coat",
         "ar": "Compound Thickness per Coat"
+      },
+      "businessContext_i18n": {
+        "en": "Applied wet thickness of joint compound per coat.",
+        "tr": "Kat başına uygulanan ıslak derz bileşiği kalınlığı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of coats applied (e.g., tape coat, fill coat, finish coat).",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Number of Coats",
+        "tr": "Kat Sayısı",
         "de": "Number of Coats",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
+      },
+      "businessContext_i18n": {
+        "en": "Number of coats applied (e.g., tape coat, fill coat, finish coat).",
+        "tr": "Uygulanan Kat Sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Manufacturer-specified coverage rate per mm thickness per kg of compound.",
       "label_i18n": {
         "en": "Coverage Factor",
-        "tr": "Coverage Factor",
+        "tr": "Kaplama Faktörü",
         "de": "Coverage Factor",
         "fr": "Coverage Factor",
         "es": "Coverage Factor",
         "ar": "Coverage Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturer-specified coverage rate per mm thickness per kg of compound.",
+        "tr": "Üretici tarafından belirtilen, mm kalınlık başına kg bileşik başına kaplama oranı."
       }
     }
   ],

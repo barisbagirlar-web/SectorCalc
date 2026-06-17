@@ -10,11 +10,15 @@
       "businessContext": "Enter your total annual taxable income.",
       "label_i18n": {
         "en": "Annual Income",
-        "tr": "Annual Income",
+        "tr": "Yıllık Gelir",
         "de": "Annual Income",
         "fr": "Annual Income",
         "es": "Annual Income",
         "ar": "Annual Income"
+      },
+      "businessContext_i18n": {
+        "en": "Enter your total annual taxable income.",
+        "tr": "Toplam yıllık vergiye tabi gelirinizi girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0 for Single, 1 for Married Filing Jointly.",
       "label_i18n": {
         "en": "Filing Status",
-        "tr": "Filing Status",
+        "tr": "Dosyalama Durumu",
         "de": "Filing Status",
         "fr": "Filing Status",
         "es": "Filing Status",
         "ar": "Filing Status"
+      },
+      "businessContext_i18n": {
+        "en": "0 for Single, 1 for Married Filing Jointly.",
+        "tr": "Bekar için 0, Birlikte Başvuran Evli için 1."
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

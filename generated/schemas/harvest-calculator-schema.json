@@ -10,11 +10,15 @@
       "businessContext": "Total land area used for the crop.",
       "label_i18n": {
         "en": "Field Area",
-        "tr": "Field Area",
+        "tr": "Tarla Alanı",
         "de": "Field Area",
         "fr": "Field Area",
         "es": "Field Area",
         "ar": "Field Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total land area used for the crop.",
+        "tr": "Mahsul için kullanılan toplam arazi alanı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected yield of the crop per hectare.",
       "label_i18n": {
         "en": "Crop Yield per Hectare",
-        "tr": "Crop Yield per Hectare",
+        "tr": "Hektar Başına Mahsul Verimi",
         "de": "Crop Yield per Hectare",
         "fr": "Crop Yield per Hectare",
         "es": "Crop Yield per Hectare",
         "ar": "Crop Yield per Hectare"
+      },
+      "businessContext_i18n": {
+        "en": "Expected yield of the crop per hectare.",
+        "tr": "Hektar başına beklenen mahsul verimi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Estimated percentage of harvest lost on the field due to factors like weather or pests.",
       "label_i18n": {
         "en": "Field Loss Percentage",
-        "tr": "Field Loss Percentage",
+        "tr": "Tarla Kayıp Yüzdesi",
         "de": "Field Loss Percentage",
         "fr": "Field Loss Percentage",
         "es": "Field Loss Percentage",
         "ar": "Field Loss Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of harvest lost on the field due to factors like weather or pests.",
+        "tr": "Hava veya zararlılar gibi faktörler nedeniyle tarlada kaybedilen hasatın tahmini yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated percentage of remaining harvest lost during storage and handling.",
       "label_i18n": {
         "en": "Storage Loss Percentage",
-        "tr": "Storage Loss Percentage",
+        "tr": "Depolama Kayıp Yüzdesi",
         "de": "Storage Loss Percentage",
         "fr": "Storage Loss Percentage",
         "es": "Storage Loss Percentage",
         "ar": "Storage Loss Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of remaining harvest lost during storage and handling.",
+        "tr": "Depolama ve elleçleme sırasında kaybedilen kalan hasatın tahmini yüzdesi."
       }
     }
   ],

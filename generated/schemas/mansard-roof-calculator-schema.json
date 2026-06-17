@@ -10,11 +10,15 @@
       "businessContext": "Total horizontal distance from eave to eave across the ridge.",
       "label_i18n": {
         "en": "Building Width (Span)",
-        "tr": "Building Width (Span)",
+        "tr": "Bina Genişliği (Açıklık)",
         "de": "Building Width (Span)",
         "fr": "Building Width (Span)",
         "es": "Building Width (Span)",
         "ar": "Building Width (Span)"
+      },
+      "businessContext_i18n": {
+        "en": "Total horizontal distance from eave to eave across the ridge.",
+        "tr": "Mahyadan saçağa kadar olan toplam yatay mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of building parallel to ridge.",
       "label_i18n": {
         "en": "Building Length",
-        "tr": "Building Length",
+        "tr": "Bina Uzunluğu",
         "de": "Building Length",
         "fr": "Building Length",
         "es": "Building Length",
         "ar": "Building Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of building parallel to ridge.",
+        "tr": "Mahyaya paralel bina uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle of lower slope from horizontal, typically steep (60-80°).",
       "label_i18n": {
         "en": "Lower Slope Angle",
-        "tr": "Lower Slope Angle",
+        "tr": "Alt Eğim Açısı",
         "de": "Lower Slope Angle",
         "fr": "Lower Slope Angle",
         "es": "Lower Slope Angle",
         "ar": "Lower Slope Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of lower slope from horizontal, typically steep (60-80°).",
+        "tr": "Alt eğimin yataydan açısı, tipik olarak dik (60-80°)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Angle of upper slope from horizontal, typically shallower (10-30°).",
       "label_i18n": {
         "en": "Upper Slope Angle",
-        "tr": "Upper Slope Angle",
+        "tr": "Üst Eğim Açısı",
         "de": "Upper Slope Angle",
         "fr": "Upper Slope Angle",
         "es": "Upper Slope Angle",
         "ar": "Upper Slope Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of upper slope from horizontal, typically shallower (10-30°).",
+        "tr": "Üst eğimin yataydan açısı, tipik olarak daha sığ (10-30°)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Vertical rise from eave to break point where slope changes.",
       "label_i18n": {
         "en": "Lower Vertical Height",
-        "tr": "Lower Vertical Height",
+        "tr": "Alt Dikey Yükseklik",
         "de": "Lower Vertical Height",
         "fr": "Lower Vertical Height",
         "es": "Lower Vertical Height",
         "ar": "Lower Vertical Height"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical rise from eave to break point where slope changes.",
+        "tr": "Saçaktan eğimin değiştiği kırılma noktasına kadar dikey yükselme."
       }
     }
   ],

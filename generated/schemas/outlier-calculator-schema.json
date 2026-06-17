@@ -10,11 +10,15 @@
       "businessContext": "Lower quartile of the dataset",
       "label_i18n": {
         "en": "First Quartile (Q1)",
-        "tr": "First Quartile (Q1)",
+        "tr": "Birinci Çeyrek (Q1)",
         "de": "First Quartile (Q1)",
         "fr": "First Quartile (Q1)",
         "es": "First Quartile (Q1)",
         "ar": "First Quartile (Q1)"
+      },
+      "businessContext_i18n": {
+        "en": "Lower quartile of the dataset",
+        "tr": "Veri setinin alt çeyreği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Upper quartile of the dataset",
       "label_i18n": {
         "en": "Third Quartile (Q3)",
-        "tr": "Third Quartile (Q3)",
+        "tr": "Üçüncü Çeyrek (Q3)",
         "de": "Third Quartile (Q3)",
         "fr": "Third Quartile (Q3)",
         "es": "Third Quartile (Q3)",
         "ar": "Third Quartile (Q3)"
+      },
+      "businessContext_i18n": {
+        "en": "Upper quartile of the dataset",
+        "tr": "Veri setinin üst çeyreği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Value to check for outlier status",
       "label_i18n": {
         "en": "Test Value",
-        "tr": "Test Value",
+        "tr": "Test Değeri",
         "de": "Test Value",
         "fr": "Test Value",
         "es": "Test Value",
         "ar": "Test Value"
+      },
+      "businessContext_i18n": {
+        "en": "Value to check for outlier status",
+        "tr": "Aykırı değer durumu kontrol edilecek değer"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Typically 1.5 for mild outliers, 3 for extreme",
       "label_i18n": {
         "en": "IQR Multiplier",
-        "tr": "IQR Multiplier",
+        "tr": "IQR Çarpanı",
         "de": "IQR Multiplier",
         "fr": "IQR Multiplier",
         "es": "IQR Multiplier",
         "ar": "IQR Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Typically 1.5 for mild outliers, 3 for extreme",
+        "tr": "Hafif aykırı değerler için tipik 1.5, aşırı için 3"
       }
     }
   ],

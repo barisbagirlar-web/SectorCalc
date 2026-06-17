@@ -10,11 +10,15 @@
       "businessContext": "Measured at the narrowest point, in cm",
       "label_i18n": {
         "en": "Waist Circumference",
-        "tr": "Waist Circumference",
+        "tr": "Bel Çevresi",
         "de": "Waist Circumference",
         "fr": "Waist Circumference",
         "es": "Waist Circumference",
         "ar": "Waist Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Measured at the narrowest point, in cm",
+        "tr": "En dar noktadan ölçülür, cm cinsinden"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0 for cm, 1 for inches",
       "label_i18n": {
         "en": "Waist Unit",
-        "tr": "Waist Unit",
+        "tr": "Bel Birimi",
         "de": "Waist Unit",
         "fr": "Waist Unit",
         "es": "Waist Unit",
         "ar": "Waist Unit"
+      },
+      "businessContext_i18n": {
+        "en": "0 for cm, 1 for inches",
+        "tr": "0 cm için, 1 inç için"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Measured without shoes, in cm",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Measured without shoes, in cm",
+        "tr": "Ayakkabısız ölçülür, cm cinsinden"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 for cm, 1 for inches",
       "label_i18n": {
         "en": "Height Unit",
-        "tr": "Height Unit",
+        "tr": "Boy Birimi",
         "de": "Height Unit",
         "fr": "Height Unit",
         "es": "Height Unit",
         "ar": "Height Unit"
+      },
+      "businessContext_i18n": {
+        "en": "0 for cm, 1 for inches",
+        "tr": "0 cm için, 1 inç için"
       }
     }
   ],

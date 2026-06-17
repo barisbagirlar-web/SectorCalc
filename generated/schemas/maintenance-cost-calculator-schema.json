@@ -10,11 +10,15 @@
       "businessContext": "Cost of one technician per hour including wages and benefits.",
       "label_i18n": {
         "en": "Hourly Labor Rate",
-        "tr": "Hourly Labor Rate",
+        "tr": "Saatlik İşçilik Ücreti",
         "de": "Hourly Labor Rate",
         "fr": "Hourly Labor Rate",
         "es": "Hourly Labor Rate",
         "ar": "Hourly Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of one technician per hour including wages and benefits.",
+        "tr": "Bir teknisyenin maaş ve yan haklar dahil saatlik maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of maintenance personnel assigned per task.",
       "label_i18n": {
         "en": "Number of Technicians",
-        "tr": "Number of Technicians",
+        "tr": "Teknisyen Sayısı",
         "de": "Number of Technicians",
         "fr": "Number of Technicians",
         "es": "Number of Technicians",
         "ar": "Number of Technicians"
+      },
+      "businessContext_i18n": {
+        "en": "Number of maintenance personnel assigned per task.",
+        "tr": "Her görev için atanan bakım personeli sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average time to complete one maintenance task.",
       "label_i18n": {
         "en": "Hours per Maintenance",
-        "tr": "Hours per Maintenance",
+        "tr": "Bakım başına saat",
         "de": "Hours per Maintenance",
         "fr": "Hours per Maintenance",
         "es": "Hours per Maintenance",
         "ar": "Hours per Maintenance"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to complete one maintenance task.",
+        "tr": "Bir bakım görevini tamamlamak için ortalama süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of maintenance tasks per year.",
       "label_i18n": {
         "en": "Maintenance Frequency",
-        "tr": "Maintenance Frequency",
+        "tr": "Bakım Sıklığı",
         "de": "Maintenance Frequency",
         "fr": "Maintenance Frequency",
         "es": "Maintenance Frequency",
         "ar": "Maintenance Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of maintenance tasks per year.",
+        "tr": "Yıllık bakım görevi sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of spare parts and consumables per maintenance event.",
       "label_i18n": {
         "en": "Parts Cost per Maintenance",
-        "tr": "Parts Cost per Maintenance",
+        "tr": "Bakım başına parça maliyeti",
         "de": "Parts Cost per Maintenance",
         "fr": "Parts Cost per Maintenance",
         "es": "Parts Cost per Maintenance",
         "ar": "Parts Cost per Maintenance"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of spare parts and consumables per maintenance event.",
+        "tr": "Her bakım olayı için yedek parça ve sarf malzemesi maliyeti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional costs such as tools, facilities, and indirect expenses per event.",
       "label_i18n": {
         "en": "Overhead Cost per Maintenance",
-        "tr": "Overhead Cost per Maintenance",
+        "tr": "Bakım başına genel gider maliyeti",
         "de": "Overhead Cost per Maintenance",
         "fr": "Overhead Cost per Maintenance",
         "es": "Overhead Cost per Maintenance",
         "ar": "Overhead Cost per Maintenance"
+      },
+      "businessContext_i18n": {
+        "en": "Additional costs such as tools, facilities, and indirect expenses per event.",
+        "tr": "Her olay için alet, tesis ve dolaylı giderler gibi ek maliyetler."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "1 point if active cancer (excluding skin cancers), else 0",
       "label_i18n": {
         "en": "Active cancer (treatment or palliation within 6 months)",
-        "tr": "Active cancer (treatment or palliation within 6 months)",
+        "tr": "Aktif kanser (6 ay içinde tedavi veya palyasyon)",
         "de": "Active cancer (treatment or palliation within 6 months)",
         "fr": "Active cancer (treatment or palliation within 6 months)",
         "es": "Active cancer (treatment or palliation within 6 months)",
         "ar": "Active cancer (treatment or palliation within 6 months)"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if active cancer (excluding skin cancers), else 0",
+        "tr": "Aktif kanser varsa (cilt kanserleri hariç) 1 puan, yoksa 0"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1 point if present, else 0",
       "label_i18n": {
         "en": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
-        "tr": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
+        "tr": "Alt ekstremitede felç, parezi veya yakın zamanda alçı immobilizasyonu",
         "de": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
         "fr": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
         "es": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
         "ar": "Paralysis, paresis, or recent plaster immobilization of the lower extremity"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if present, else 0",
+        "tr": "Mevcut ise 1 puan, değilse 0"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 point if yes, else 0",
       "label_i18n": {
         "en": "Recently bedridden >3 days or major surgery within 4 weeks",
-        "tr": "Recently bedridden >3 days or major surgery within 4 weeks",
+        "tr": "Son 4 hafta içinde >3 gün yatak istirahati veya büyük cerrahi",
         "de": "Recently bedridden >3 days or major surgery within 4 weeks",
         "fr": "Recently bedridden >3 days or major surgery within 4 weeks",
         "es": "Recently bedridden >3 days or major surgery within 4 weeks",
         "ar": "Recently bedridden >3 days or major surgery within 4 weeks"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if yes, else 0",
+        "tr": "Evet ise 1 puan, değilse 0"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 point if present (e.g., calf, thigh, popliteal fossa), else 0",
       "label_i18n": {
         "en": "Localized tenderness along the distribution of the deep veins",
-        "tr": "Localized tenderness along the distribution of the deep veins",
+        "tr": "Derin venler boyunca lokalize hassasiyet",
         "de": "Localized tenderness along the distribution of the deep veins",
         "fr": "Localized tenderness along the distribution of the deep veins",
         "es": "Localized tenderness along the distribution of the deep veins",
         "ar": "Localized tenderness along the distribution of the deep veins"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if present (e.g., calf, thigh, popliteal fossa), else 0",
+        "tr": "Mevcut ise (örn. baldır, uyluk, popliteal fossa) 1 puan, değilse 0"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1 point if the whole leg is swollen compared to the asymptomatic side, else 0",
       "label_i18n": {
         "en": "Entire leg swollen",
-        "tr": "Entire leg swollen",
+        "tr": "Tüm bacak şişmiş",
         "de": "Entire leg swollen",
         "fr": "Entire leg swollen",
         "es": "Entire leg swollen",
         "ar": "Entire leg swollen"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if the whole leg is swollen compared to the asymptomatic side, else 0",
+        "tr": "Asemptomatik tarafa kıyasla tüm bacak şişmişse 1 puan, değilse 0"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1 point if measured difference is >3 cm at 10 cm below tibial tuberosity, else 0",
       "label_i18n": {
         "en": "Calf swelling >3 cm compared to asymptomatic leg",
-        "tr": "Calf swelling >3 cm compared to asymptomatic leg",
+        "tr": "Asemptomatik bacağa göre >3 cm baldır şişliği",
         "de": "Calf swelling >3 cm compared to asymptomatic leg",
         "fr": "Calf swelling >3 cm compared to asymptomatic leg",
         "es": "Calf swelling >3 cm compared to asymptomatic leg",
         "ar": "Calf swelling >3 cm compared to asymptomatic leg"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if measured difference is >3 cm at 10 cm below tibial tuberosity, else 0",
+        "tr": "Ölçülen fark tibial tüberkülün 10 cm altında >3 cm ise 1 puan, değilse 0"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "1 point if edema is greater in the symptomatic leg, else 0",
       "label_i18n": {
         "en": "Pitting edema confined to the symptomatic leg",
-        "tr": "Pitting edema confined to the symptomatic leg",
+        "tr": "Semptomatik bacakla sınırlı pit ödemi",
         "de": "Pitting edema confined to the symptomatic leg",
         "fr": "Pitting edema confined to the symptomatic leg",
         "es": "Pitting edema confined to the symptomatic leg",
         "ar": "Pitting edema confined to the symptomatic leg"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if edema is greater in the symptomatic leg, else 0",
+        "tr": "Ödem semptomatik bacakta daha fazla ise 1 puan, değilse 0"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "If alternative diagnosis is at least as plausible, subtract 2 points (enter -2); else 0",
       "label_i18n": {
         "en": "Alternative diagnosis as likely or more likely than DVT",
-        "tr": "Alternative diagnosis as likely or more likely than DVT",
+        "tr": "DVT'den daha olası veya eşit olasılıkta alternatif tanı",
         "de": "Alternative diagnosis as likely or more likely than DVT",
         "fr": "Alternative diagnosis as likely or more likely than DVT",
         "es": "Alternative diagnosis as likely or more likely than DVT",
         "ar": "Alternative diagnosis as likely or more likely than DVT"
+      },
+      "businessContext_i18n": {
+        "en": "If alternative diagnosis is at least as plausible, subtract 2 points (enter -2); else 0",
+        "tr": "Alternatif tanı en az eşit olasılıkta ise 2 puan çıkarın (-2 girin); değilse 0"
       }
     }
   ],

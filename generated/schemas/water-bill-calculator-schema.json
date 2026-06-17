@@ -10,11 +10,15 @@
       "businessContext": "The meter reading at the start of the billing period, in cubic meters.",
       "label_i18n": {
         "en": "Previous Meter Reading (m³)",
-        "tr": "Previous Meter Reading (m³)",
+        "tr": "Önceki Sayaç Okuması (m³)",
         "de": "Previous Meter Reading (m³)",
         "fr": "Previous Meter Reading (m³)",
         "es": "Previous Meter Reading (m³)",
         "ar": "Previous Meter Reading (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "The meter reading at the start of the billing period, in cubic meters.",
+        "tr": "Fatura dönemi başlangıcındaki sayaç okuması, metreküp cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The meter reading at the end of the billing period, in cubic meters.",
       "label_i18n": {
         "en": "Current Meter Reading (m³)",
-        "tr": "Current Meter Reading (m³)",
+        "tr": "Mevcut Sayaç Okuması (m³)",
         "de": "Current Meter Reading (m³)",
         "fr": "Current Meter Reading (m³)",
         "es": "Current Meter Reading (m³)",
         "ar": "Current Meter Reading (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "The meter reading at the end of the billing period, in cubic meters.",
+        "tr": "Fatura dönemi sonundaki sayaç okuması, metreküp cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Monthly fixed service charge regardless of consumption.",
       "label_i18n": {
         "en": "Fixed Charge",
-        "tr": "Fixed Charge",
+        "tr": "Sabit Ücret",
         "de": "Fixed Charge",
         "fr": "Fixed Charge",
         "es": "Fixed Charge",
         "ar": "Fixed Charge"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly fixed service charge regardless of consumption.",
+        "tr": "Tüketimden bağımsız aylık sabit hizmet ücreti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Variable charge per cubic meter of water consumed.",
       "label_i18n": {
         "en": "Rate per Cubic Meter",
-        "tr": "Rate per Cubic Meter",
+        "tr": "Metreküp Başına Ücret",
         "de": "Rate per Cubic Meter",
         "fr": "Rate per Cubic Meter",
         "es": "Rate per Cubic Meter",
         "ar": "Rate per Cubic Meter"
+      },
+      "businessContext_i18n": {
+        "en": "Variable charge per cubic meter of water consumed.",
+        "tr": "Tüketilen her metreküp su için değişken ücret."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Tax percentage applied to the subtotal (usage + fixed charge).",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)",
         "de": "Tax Rate (%)",
         "fr": "Tax Rate (%)",
         "es": "Tax Rate (%)",
         "ar": "Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Tax percentage applied to the subtotal (usage + fixed charge).",
+        "tr": "Ara toplama (kullanım + sabit ücret) uygulanan vergi yüzdesi."
       }
     }
   ],

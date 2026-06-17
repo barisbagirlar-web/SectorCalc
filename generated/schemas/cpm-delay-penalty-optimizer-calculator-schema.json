@@ -22,10 +22,12 @@
       "max": 3650,
       "businessContext": "Total planned duration of the project from start to finish, as per CPM schedule baseline.",
       "label_i18n": {
-        "en": "Planned Duration (Days)"
+        "en": "Planned Duration (Days)",
+        "tr": "Planlanan Süre (Gün)"
       },
       "businessContext_i18n": {
-        "en": "Total planned duration of the project from start to finish, as per CPM schedule baseline."
+        "en": "Total planned duration of the project from start to finish, as per CPM schedule baseline.",
+        "tr": "CPM takvimi baz alınarak projenin başlangıcından bitişine kadar planlanan toplam süre."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 3650,
       "businessContext": "Actual elapsed duration from project start to current date or completion.",
       "label_i18n": {
-        "en": "Actual Duration (Days)"
+        "en": "Actual Duration (Days)",
+        "tr": "Gerçek Süre (Gün)"
       },
       "businessContext_i18n": {
-        "en": "Actual elapsed duration from project start to current date or completion."
+        "en": "Actual elapsed duration from project start to current date or completion.",
+        "tr": "Proje başlangıcından bugüne veya tamamlanmaya kadar geçen gerçek süre."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 1000000,
       "businessContext": "Contractual liquidated damages or penalty per day of delay beyond the planned duration.",
       "label_i18n": {
-        "en": "Daily Penalty Rate (Currency)"
+        "en": "Daily Penalty Rate (Currency)",
+        "tr": "Günlük Ceza Oranı (Para Birimi)"
       },
       "businessContext_i18n": {
-        "en": "Contractual liquidated damages or penalty per day of delay beyond the planned duration."
+        "en": "Contractual liquidated damages or penalty per day of delay beyond the planned duration.",
+        "tr": "Planlanan sürenin ötesindeki her gecikme günü için sözleşmeye bağlı gecikme cezası veya tazminat."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 365,
       "businessContext": "Sum of total float for all activities on the critical path. Zero or negative indicates schedule compression.",
       "label_i18n": {
-        "en": "Total Float on Critical Path (Days)"
+        "en": "Total Float on Critical Path (Days)",
+        "tr": "Kritik Yoldaki Toplam Bollaşma (Gün)"
       },
       "businessContext_i18n": {
-        "en": "Sum of total float for all activities on the critical path. Zero or negative indicates schedule compression."
+        "en": "Sum of total float for all activities on the critical path. Zero or negative indicates schedule compression.",
+        "tr": "Kritik yoldaki tüm faaliyetlerin toplam bollaşma toplamı. Sıfır veya negatif, program sıkışmasını gösterir."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 1,
       "businessContext": "Lean metric: ratio of actual output to standard output. Values below 0.8 indicate significant waste.",
       "label_i18n": {
-        "en": "Productivity Factor (0-1)"
+        "en": "Productivity Factor (0-1)",
+        "tr": "Verimlilik Faktörü (0-1)"
       },
       "businessContext_i18n": {
-        "en": "Lean metric: ratio of actual output to standard output. Values below 0.8 indicate significant waste."
+        "en": "Lean metric: ratio of actual output to standard output. Values below 0.8 indicate significant waste.",
+        "tr": "Yalın metrik: gerçek çıktının standart çıktıya oranı. 0,8'in altındaki değerler önemli israfı gösterir."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 100,
       "businessContext": "Percentage of completed work requiring rework, a key Six Sigma quality metric.",
       "label_i18n": {
-        "en": "Rework Percentage (%)"
+        "en": "Rework Percentage (%)",
+        "tr": "Yeniden İşleme Yüzdesi (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of completed work requiring rework, a key Six Sigma quality metric."
+        "en": "Percentage of completed work requiring rework, a key Six Sigma quality metric.",
+        "tr": "Tamamlanan işin yeniden işleme gerektiren yüzdesi, önemli bir Altı Sigma kalite metriği."
       }
     },
     {
@@ -122,10 +134,12 @@
       ],
       "businessContext": "Classification per standard construction delay analysis (AACE, SCL protocols).",
       "label_i18n": {
-        "en": "Delay Type"
+        "en": "Delay Type",
+        "tr": "Gecikme Türü"
       },
       "businessContext_i18n": {
-        "en": "Classification per standard construction delay analysis (AACE, SCL protocols)."
+        "en": "Classification per standard construction delay analysis (AACE, SCL protocols).",
+        "tr": "Standart inşaat gecikme analizine (AACE, SCL protokolleri) göre sınıflandırma."
       }
     },
     {
@@ -136,10 +150,12 @@
       "default": true,
       "businessContext": "If true, applies earned schedule (ES) metrics for more accurate delay impact assessment.",
       "label_i18n": {
-        "en": "Use Earned Schedule Method"
+        "en": "Use Earned Schedule Method",
+        "tr": "Kazanılmış Çizelge Yöntemini Kullan"
       },
       "businessContext_i18n": {
-        "en": "If true, applies earned schedule (ES) metrics for more accurate delay impact assessment."
+        "en": "If true, applies earned schedule (ES) metrics for more accurate delay impact assessment.",
+        "tr": "Doğruysa, gecikme etkisi değerlendirmesi için daha doğru kazanılmış çizelge (ES) metriklerini uygular."
       }
     }
   ],

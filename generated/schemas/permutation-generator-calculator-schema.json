@@ -10,11 +10,15 @@
       "businessContext": "Total number of distinct items in the set.",
       "label_i18n": {
         "en": "Total Items (n)",
-        "tr": "Total Items (n)",
+        "tr": "Toplam Öğe Sayısı (n)",
         "de": "Total Items (n)",
         "fr": "Total Items (n)",
         "es": "Total Items (n)",
         "ar": "Total Items (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of distinct items in the set.",
+        "tr": "Kümedeki toplam farklı öğe sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of items to select and arrange.",
       "label_i18n": {
         "en": "Items to Arrange (r)",
-        "tr": "Items to Arrange (r)",
+        "tr": "Düzenlenecek Öğeler (r)",
         "de": "Items to Arrange (r)",
         "fr": "Items to Arrange (r)",
         "es": "Items to Arrange (r)",
         "ar": "Items to Arrange (r)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items to select and arrange.",
+        "tr": "Seçilecek ve düzenlenecek öğe sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Whether the order of selection matters (permutation vs combination).",
       "label_i18n": {
         "en": "Order Matters (1=Yes, 0=No)",
-        "tr": "Order Matters (1=Yes, 0=No)",
+        "tr": "Sıra Önemli mi (1=Evet, 0=Hayır)",
         "de": "Order Matters (1=Yes, 0=No)",
         "fr": "Order Matters (1=Yes, 0=No)",
         "es": "Order Matters (1=Yes, 0=No)",
         "ar": "Order Matters (1=Yes, 0=No)"
+      },
+      "businessContext_i18n": {
+        "en": "Whether the order of selection matters (permutation vs combination).",
+        "tr": "Seçim sırasının önemli olup olmadığı (permütasyon vs kombinasyon)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Whether the same item can be selected more than once.",
       "label_i18n": {
         "en": "Repetition Allowed (1=Yes, 0=No)",
-        "tr": "Repetition Allowed (1=Yes, 0=No)",
+        "tr": "Tekrara İzin Ver (1=Evet, 0=Hayır)",
         "de": "Repetition Allowed (1=Yes, 0=No)",
         "fr": "Repetition Allowed (1=Yes, 0=No)",
         "es": "Repetition Allowed (1=Yes, 0=No)",
         "ar": "Repetition Allowed (1=Yes, 0=No)"
+      },
+      "businessContext_i18n": {
+        "en": "Whether the same item can be selected more than once.",
+        "tr": "Aynı öğenin birden fazla kez seçilip seçilemeyeceği."
       }
     }
   ],

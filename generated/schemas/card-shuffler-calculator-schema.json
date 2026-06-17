@@ -10,11 +10,15 @@
       "businessContext": "Number of cards in a standard deck.",
       "label_i18n": {
         "en": "Cards per Deck",
-        "tr": "Cards per Deck",
+        "tr": "Deste Başına Kart",
         "de": "Cards per Deck",
         "fr": "Cards per Deck",
         "es": "Cards per Deck",
         "ar": "Cards per Deck"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cards in a standard deck.",
+        "tr": "Standart bir destedeki kart sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of shuffles needed for adequate randomness.",
       "label_i18n": {
         "en": "Shuffle Cycles per Deck",
-        "tr": "Shuffle Cycles per Deck",
+        "tr": "Deste Başına Karıştırma Döngüsü",
         "de": "Shuffle Cycles per Deck",
         "fr": "Shuffle Cycles per Deck",
         "es": "Shuffle Cycles per Deck",
         "ar": "Shuffle Cycles per Deck"
+      },
+      "businessContext_i18n": {
+        "en": "Number of shuffles needed for adequate randomness.",
+        "tr": "Yeterli rastgelelik için gereken karıştırma sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Processing rate of the card shuffler.",
       "label_i18n": {
         "en": "Machine Speed",
-        "tr": "Machine Speed",
+        "tr": "Makine Hızı",
         "de": "Machine Speed",
         "fr": "Machine Speed",
         "es": "Machine Speed",
         "ar": "Machine Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Processing rate of the card shuffler.",
+        "tr": "Kart karıştırıcının işleme hızı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Electrical power consumed during operation.",
       "label_i18n": {
         "en": "Power Rating",
-        "tr": "Power Rating",
+        "tr": "Güç Değeri",
         "de": "Power Rating",
         "fr": "Power Rating",
         "es": "Power Rating",
         "ar": "Power Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Electrical power consumed during operation.",
+        "tr": "Çalışma sırasında tüketilen elektrik gücü."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Scheduled active time including maintenance.",
       "label_i18n": {
         "en": "Operating Hours per Day",
-        "tr": "Operating Hours per Day",
+        "tr": "Günlük Çalışma Saati",
         "de": "Operating Hours per Day",
         "fr": "Operating Hours per Day",
         "es": "Operating Hours per Day",
         "ar": "Operating Hours per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Scheduled active time including maintenance.",
+        "tr": "Bakım dahil planlanan aktif süre."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Downtime for cleaning and maintenance.",
       "label_i18n": {
         "en": "Maintenance Hours per Day",
-        "tr": "Maintenance Hours per Day",
+        "tr": "Günlük Bakım Saati",
         "de": "Maintenance Hours per Day",
         "fr": "Maintenance Hours per Day",
         "es": "Maintenance Hours per Day",
         "ar": "Maintenance Hours per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Downtime for cleaning and maintenance.",
+        "tr": "Temizlik ve bakım için duruş süresi."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Operator wage per hour.",
       "label_i18n": {
         "en": "Labor Cost",
-        "tr": "Labor Cost",
+        "tr": "İşçilik Maliyeti",
         "de": "Labor Cost",
         "fr": "Labor Cost",
         "es": "Labor Cost",
         "ar": "Labor Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Operator wage per hour.",
+        "tr": "Operatör saatlik ücreti."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Utility rate per kilowatt-hour.",
       "label_i18n": {
         "en": "Electricity Cost",
-        "tr": "Electricity Cost",
+        "tr": "Elektrik Maliyeti",
         "de": "Electricity Cost",
         "fr": "Electricity Cost",
         "es": "Electricity Cost",
         "ar": "Electricity Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Utility rate per kilowatt-hour.",
+        "tr": "Kilovat-saat başına elektrik tarifesi."
       }
     }
   ],

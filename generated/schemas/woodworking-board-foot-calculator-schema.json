@@ -10,11 +10,15 @@
       "businessContext": "Board length in inches",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Board length in inches",
+        "tr": "Levha uzunluğu (inç)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Board width in inches",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Board width in inches",
+        "tr": "Levha genişliği (inç)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Board thickness in inches (nominal or actual)",
       "label_i18n": {
         "en": "Thickness",
-        "tr": "Thickness",
+        "tr": "Kalınlık",
         "de": "Thickness",
         "fr": "Thickness",
         "es": "Thickness",
         "ar": "Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Board thickness in inches (nominal or actual)",
+        "tr": "Levha kalınlığı (inç, nominal veya gerçek)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical boards",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical boards",
+        "tr": "Aynı levhaların sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional material percentage for cutting waste, defects, etc.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional material percentage for cutting waste, defects, etc.",
+        "tr": "Kesim atığı, kusurlar vb. için ek malzeme yüzdesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Optional: cost per board foot (set to 0 if only board feet needed)",
       "label_i18n": {
         "en": "Price per Board Foot",
-        "tr": "Price per Board Foot",
+        "tr": "Board Foot Başına Fiyat",
         "de": "Price per Board Foot",
         "fr": "Price per Board Foot",
         "es": "Price per Board Foot",
         "ar": "Price per Board Foot"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: cost per board foot (set to 0 if only board feet needed)",
+        "tr": "İsteğe bağlı: board foot başına maliyet (sadece board foot gerekiyorsa 0 ayarlayın)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Caffeine dosage in milligrams",
       "label_i18n": {
         "en": "Caffeine (mg)",
-        "tr": "Caffeine (mg)",
+        "tr": "Kafein (mg)",
         "de": "Caffeine (mg)",
         "fr": "Caffeine (mg)",
         "es": "Caffeine (mg)",
         "ar": "Caffeine (mg)"
+      },
+      "businessContext_i18n": {
+        "en": "Caffeine dosage in milligrams",
+        "tr": "Kafein dozu miligram cinsinden"
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "L-Theanine (mg)",
         "es": "L-Theanine (mg)",
         "ar": "L-Theanine (mg)"
+      },
+      "businessContext_i18n": {
+        "en": "L-Theanine dosage in milligrams",
+        "tr": "L-Theanine dozu miligram cinsinden"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Piracetam (mg)",
         "es": "Piracetam (mg)",
         "ar": "Piracetam (mg)"
+      },
+      "businessContext_i18n": {
+        "en": "Piracetam dosage in milligrams",
+        "tr": "Piracetam dozu miligram cinsinden"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Alpha-GPC (mg)",
         "es": "Alpha-GPC (mg)",
         "ar": "Alpha-GPC (mg)"
+      },
+      "businessContext_i18n": {
+        "en": "Alpha-GPC dosage in milligrams",
+        "tr": "Alpha-GPC dozu miligram cinsinden"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "User body weight for dosage normalization",
       "label_i18n": {
         "en": "Body Weight (kg)",
-        "tr": "Body Weight (kg)",
+        "tr": "Vücut Ağırlığı (kg)",
         "de": "Body Weight (kg)",
         "fr": "Body Weight (kg)",
         "es": "Body Weight (kg)",
         "ar": "Body Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "User body weight for dosage normalization",
+        "tr": "Doz normalizasyonu için kullanıcı vücut ağırlığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Individual tolerance on a scale of 1 (low) to 10 (high)",
       "label_i18n": {
         "en": "Tolerance Level",
-        "tr": "Tolerance Level",
+        "tr": "Tolerans Seviyesi",
         "de": "Tolerance Level",
         "fr": "Tolerance Level",
         "es": "Tolerance Level",
         "ar": "Tolerance Level"
+      },
+      "businessContext_i18n": {
+        "en": "Individual tolerance on a scale of 1 (low) to 10 (high)",
+        "tr": "1 (düşük) ile 10 (yüksek) arasında bireysel tolerans"
       }
     }
   ],

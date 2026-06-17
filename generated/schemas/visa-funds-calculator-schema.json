@@ -10,11 +10,15 @@
       "businessContext": "Minimum daily funds required by the embassy per person.",
       "label_i18n": {
         "en": "Daily Expense Requirement (EUR)",
-        "tr": "Daily Expense Requirement (EUR)",
+        "tr": "Günlük Harcama Gereksinimi (EUR)",
         "de": "Daily Expense Requirement (EUR)",
         "fr": "Daily Expense Requirement (EUR)",
         "es": "Daily Expense Requirement (EUR)",
         "ar": "Daily Expense Requirement (EUR)"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum daily funds required by the embassy per person.",
+        "tr": "Elçilik tarafından kişi başına gereken minimum günlük fon."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total days of intended stay.",
       "label_i18n": {
         "en": "Number of Days of Stay",
-        "tr": "Number of Days of Stay",
+        "tr": "Kalış Gün Sayısı",
         "de": "Number of Days of Stay",
         "fr": "Number of Days of Stay",
         "es": "Number of Days of Stay",
         "ar": "Number of Days of Stay"
+      },
+      "businessContext_i18n": {
+        "en": "Total days of intended stay.",
+        "tr": "Planlanan toplam kalış günü."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current exchange rate from local currency to EUR.",
       "label_i18n": {
         "en": "Exchange Rate (Local to EUR)",
-        "tr": "Exchange Rate (Local to EUR)",
+        "tr": "Döviz Kuru (Yerel para biriminden EUR'ya)",
         "de": "Exchange Rate (Local to EUR)",
         "fr": "Exchange Rate (Local to EUR)",
         "es": "Exchange Rate (Local to EUR)",
         "ar": "Exchange Rate (Local to EUR)"
+      },
+      "businessContext_i18n": {
+        "en": "Current exchange rate from local currency to EUR.",
+        "tr": "Yerel para biriminden EUR'ya güncel döviz kuru."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional percentage to ensure sufficient funds.",
       "label_i18n": {
         "en": "Buffer (%)",
-        "tr": "Buffer (%)",
+        "tr": "Tampon (%)",
         "de": "Buffer (%)",
         "fr": "Buffer (%)",
         "es": "Buffer (%)",
         "ar": "Buffer (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage to ensure sufficient funds.",
+        "tr": "Yeterli fon sağlamak için ek yüzde."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Non-refundable visa processing fee in local currency.",
       "label_i18n": {
         "en": "Visa Application Fee (Local)",
-        "tr": "Visa Application Fee (Local)",
+        "tr": "Vize Başvuru Ücreti (Yerel para birimi)",
         "de": "Visa Application Fee (Local)",
         "fr": "Visa Application Fee (Local)",
         "es": "Visa Application Fee (Local)",
         "ar": "Visa Application Fee (Local)"
+      },
+      "businessContext_i18n": {
+        "en": "Non-refundable visa processing fee in local currency.",
+        "tr": "İade edilmeyen vize işlem ücreti (yerel para birimi cinsinden)."
       }
     }
   ],

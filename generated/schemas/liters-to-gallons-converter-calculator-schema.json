@@ -19,10 +19,12 @@
       "max": 1000000,
       "businessContext": "Total liquid volume to be converted, typically from production batch or storage tank measurement.",
       "label_i18n": {
-        "en": "Volume in Liters"
+        "en": "Volume in Liters",
+        "tr": "Litre cinsinden hacim"
       },
       "businessContext_i18n": {
-        "en": "Total liquid volume to be converted, typically from production batch or storage tank measurement."
+        "en": "Total liquid volume to be converted, typically from production batch or storage tank measurement.",
+        "tr": "Dönüştürülecek toplam sıvı hacmi, genellikle üretim partisi veya depolama tankı ölçümünden."
       }
     },
     {
@@ -39,10 +41,12 @@
       ],
       "businessContext": "Select the gallon standard based on regional regulatory or trade requirements (ISO 80000-1).",
       "label_i18n": {
-        "en": "Conversion Standard"
+        "en": "Conversion Standard",
+        "tr": "Dönüşüm Standardı"
       },
       "businessContext_i18n": {
-        "en": "Select the gallon standard based on regional regulatory or trade requirements (ISO 80000-1)."
+        "en": "Select the gallon standard based on regional regulatory or trade requirements (ISO 80000-1).",
+        "tr": "Bölgesel düzenleme veya ticaret gereksinimlerine göre galon standardını seçin (ISO 80000-1)."
       }
     },
     {
@@ -55,10 +59,12 @@
       "max": 1.1,
       "businessContext": "Correction factor for thermal expansion/contraction of liquid (per ASTM D1250). 1.0 = no adjustment.",
       "label_i18n": {
-        "en": "Temperature Adjustment Factor"
+        "en": "Temperature Adjustment Factor",
+        "tr": "Sıcaklık Ayarlama Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Correction factor for thermal expansion/contraction of liquid (per ASTM D1250). 1.0 = no adjustment."
+        "en": "Correction factor for thermal expansion/contraction of liquid (per ASTM D1250). 1.0 = no adjustment.",
+        "tr": "Sıvının termal genleşme/büzülmesi için düzeltme faktörü (ASTM D1250'ye göre). 1.0 = ayar yok."
       }
     },
     {
@@ -71,10 +77,12 @@
       "max": 10,
       "businessContext": "Expected percentage loss during transfer or processing (Lean Six Sigma waste reduction).",
       "label_i18n": {
-        "en": "Batch Loss Factor"
+        "en": "Batch Loss Factor",
+        "tr": "Parti Kayıp Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Expected percentage loss during transfer or processing (Lean Six Sigma waste reduction)."
+        "en": "Expected percentage loss during transfer or processing (Lean Six Sigma waste reduction).",
+        "tr": "Transfer veya işleme sırasında beklenen yüzde kayıp (Yalın Altı Sigma israf azaltma)."
       }
     },
     {
@@ -87,10 +95,12 @@
       "max": null,
       "businessContext": "If true, applies an additional evaporation loss factor based on standard industrial evaporation rates.",
       "label_i18n": {
-        "en": "Include Evaporation Loss"
+        "en": "Include Evaporation Loss",
+        "tr": "Buharlaşma Kaybını Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "If true, applies an additional evaporation loss factor based on standard industrial evaporation rates."
+        "en": "If true, applies an additional evaporation loss factor based on standard industrial evaporation rates.",
+        "tr": "Doğruysa, standart endüstriyel buharlaşma oranlarına dayalı ek bir buharlaşma kaybı faktörü uygular."
       }
     }
   ],

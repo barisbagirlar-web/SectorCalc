@@ -10,11 +10,15 @@
       "businessContext": "Current length of the nail from nail bed to tip in millimeters.",
       "label_i18n": {
         "en": "Initial Nail Length",
-        "tr": "Initial Nail Length",
+        "tr": "Başlangıç Tırnak Uzunluğu",
         "de": "Initial Nail Length",
         "fr": "Initial Nail Length",
         "es": "Initial Nail Length",
         "ar": "Initial Nail Length"
+      },
+      "businessContext_i18n": {
+        "en": "Current length of the nail from nail bed to tip in millimeters.",
+        "tr": "Tırnağın tırnak yatağından uca kadar mevcut uzunluğu (milimetre)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired final nail length in millimeters.",
       "label_i18n": {
         "en": "Target Nail Length",
-        "tr": "Target Nail Length",
+        "tr": "Hedef Tırnak Uzunluğu",
         "de": "Target Nail Length",
         "fr": "Target Nail Length",
         "es": "Target Nail Length",
         "ar": "Target Nail Length"
+      },
+      "businessContext_i18n": {
+        "en": "Desired final nail length in millimeters.",
+        "tr": "İstenen nihai tırnak uzunluğu (milimetre)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average nail growth rate in millimeters per month.",
       "label_i18n": {
         "en": "Growth Rate per Month",
-        "tr": "Growth Rate per Month",
+        "tr": "Aylık Büyüme Hızı",
         "de": "Growth Rate per Month",
         "fr": "Growth Rate per Month",
         "es": "Growth Rate per Month",
         "ar": "Growth Rate per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Average nail growth rate in millimeters per month.",
+        "tr": "Aylık milimetre cinsinden ortalama tırnak büyüme hızı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average nail breakage/loss per month without protection.",
       "label_i18n": {
         "en": "Breakage Rate per Month",
-        "tr": "Breakage Rate per Month",
+        "tr": "Aylık Kırılma Oranı",
         "de": "Breakage Rate per Month",
         "fr": "Breakage Rate per Month",
         "es": "Breakage Rate per Month",
         "ar": "Breakage Rate per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Average nail breakage/loss per month without protection.",
+        "tr": "Koruma olmadan aylık ortalama tırnak kırılması/kaybı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "How well you protect your nails (0 = no protection, 1 = full protection).",
       "label_i18n": {
         "en": "Protection Factor",
-        "tr": "Protection Factor",
+        "tr": "Koruma Faktörü",
         "de": "Protection Factor",
         "fr": "Protection Factor",
         "es": "Protection Factor",
         "ar": "Protection Factor"
+      },
+      "businessContext_i18n": {
+        "en": "How well you protect your nails (0 = no protection, 1 = full protection).",
+        "tr": "Tırnaklarınızı ne kadar iyi koruduğunuz (0 = koruma yok, 1 = tam koruma)."
       }
     }
   ],

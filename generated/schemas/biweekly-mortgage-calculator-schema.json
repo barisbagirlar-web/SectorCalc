@@ -10,11 +10,15 @@
       "businessContext": "Total principal borrowed.",
       "label_i18n": {
         "en": "Loan Amount",
-        "tr": "Loan Amount",
+        "tr": "Kredi Tutarı",
         "de": "Loan Amount",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total principal borrowed.",
+        "tr": "Toplam anapara borcu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual interest rate as a percentage.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate as a percentage.",
+        "tr": "Yıllık faiz oranı yüzde olarak."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Original loan term in years.",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Original loan term in years.",
+        "tr": "Orijinal kredi vadesi yıl olarak."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional amount paid each biweekly period beyond the half-monthly equivalent.",
       "label_i18n": {
         "en": "Extra Biweekly Payment",
-        "tr": "Extra Biweekly Payment",
+        "tr": "Ek İki Haftalık Ödeme",
         "de": "Extra Biweekly Payment",
         "fr": "Extra Biweekly Payment",
         "es": "Extra Biweekly Payment",
         "ar": "Extra Biweekly Payment"
+      },
+      "businessContext_i18n": {
+        "en": "Additional amount paid each biweekly period beyond the half-monthly equivalent.",
+        "tr": "Yarı aylık eşdeğerin ötesinde her iki haftalık dönemde ödenen ek tutar."
       }
     }
   ],

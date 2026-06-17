@@ -10,11 +10,15 @@
       "businessContext": "Full years of the cat's life.",
       "label_i18n": {
         "en": "Cat's Age (Years)",
-        "tr": "Cat's Age (Years)",
+        "tr": "Kedinin Yaşı (Yıl)",
         "de": "Cat's Age (Years)",
         "fr": "Cat's Age (Years)",
         "es": "Cat's Age (Years)",
         "ar": "Cat's Age (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Full years of the cat's life.",
+        "tr": "Kedinin tam yıl olarak yaşı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional months beyond full years (0–11).",
       "label_i18n": {
         "en": "Cat's Age (Months)",
-        "tr": "Cat's Age (Months)",
+        "tr": "Kedinin Yaşı (Ay)",
         "de": "Cat's Age (Months)",
         "fr": "Cat's Age (Months)",
         "es": "Cat's Age (Months)",
         "ar": "Cat's Age (Months)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional months beyond full years (0–11).",
+        "tr": "Tam yılların ötesindeki ek aylar (0–11)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight in kilograms; average adult cat is 4.5 kg, affecting aging rate.",
       "label_i18n": {
         "en": "Cat's Weight",
-        "tr": "Cat's Weight",
+        "tr": "Kedinin Ağırlığı",
         "de": "Cat's Weight",
         "fr": "Cat's Weight",
         "es": "Cat's Weight",
         "ar": "Cat's Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight in kilograms; average adult cat is 4.5 kg, affecting aging rate.",
+        "tr": "Kilogram cinsinden ağırlık; ortalama yetişkin kedi 4,5 kg'dır, yaşlanma hızını etkiler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 for primarily indoor, 0 for outdoor; outdoor cats age slightly faster.",
       "label_i18n": {
         "en": "Indoor Cat",
-        "tr": "Indoor Cat",
+        "tr": "İç Mekan Kedisi",
         "de": "Indoor Cat",
         "fr": "Indoor Cat",
         "es": "Indoor Cat",
         "ar": "Indoor Cat"
+      },
+      "businessContext_i18n": {
+        "en": "1 for primarily indoor, 0 for outdoor; outdoor cats age slightly faster.",
+        "tr": "1 tamamen iç mekan, 0 dış mekan; dış mekan kedileri biraz daha hızlı yaşlanır."
       }
     }
   ],

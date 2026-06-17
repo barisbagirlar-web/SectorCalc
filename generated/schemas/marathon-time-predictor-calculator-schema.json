@@ -10,11 +10,15 @@
       "businessContext": "Distance of a recent race used for prediction (e.g., half marathon)",
       "label_i18n": {
         "en": "Recent Race Distance",
-        "tr": "Recent Race Distance",
+        "tr": "Son Yarış Mesafesi",
         "de": "Recent Race Distance",
         "fr": "Recent Race Distance",
         "es": "Recent Race Distance",
         "ar": "Recent Race Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance of a recent race used for prediction (e.g., half marathon)",
+        "tr": "Tahmin için kullanılan son yarış mesafesi (örn. yarı maraton)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Finishing time of the recent race in minutes",
       "label_i18n": {
         "en": "Recent Race Time",
-        "tr": "Recent Race Time",
+        "tr": "Son Yarış Süresi",
         "de": "Recent Race Time",
         "fr": "Recent Race Time",
         "es": "Recent Race Time",
         "ar": "Recent Race Time"
+      },
+      "businessContext_i18n": {
+        "en": "Finishing time of the recent race in minutes",
+        "tr": "Son yarışın bitiş süresi (dakika cinsinden)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Target marathon distance (standard 42.195 km)",
       "label_i18n": {
         "en": "Marathon Distance",
-        "tr": "Marathon Distance",
+        "tr": "Maraton Mesafesi",
         "de": "Marathon Distance",
         "fr": "Marathon Distance",
         "es": "Marathon Distance",
         "ar": "Marathon Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Target marathon distance (standard 42.195 km)",
+        "tr": "Hedef maraton mesafesi (standart 42,195 km)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Empirical fatigue exponent for time prediction (Riegel formula uses 1.06)",
       "label_i18n": {
         "en": "Fatigue Exponent",
-        "tr": "Fatigue Exponent",
+        "tr": "Yorgunluk Üssü",
         "de": "Fatigue Exponent",
         "fr": "Fatigue Exponent",
         "es": "Fatigue Exponent",
         "ar": "Fatigue Exponent"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical fatigue exponent for time prediction (Riegel formula uses 1.06)",
+        "tr": "Zaman tahmini için ampirik yorgunluk üssü (Riegel formülü 1,06 kullanır)"
       }
     }
   ],

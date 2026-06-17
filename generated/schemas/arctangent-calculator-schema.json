@@ -10,11 +10,15 @@
       "businessContext": "The x-coordinate if using atan2, or the value for arctan.",
       "label_i18n": {
         "en": "X Value / Input",
-        "tr": "X Value / Input",
+        "tr": "X Değeri / Girdi",
         "de": "X Value / Input",
         "fr": "X Value / Input",
         "es": "X Value / Input",
         "ar": "X Value / Input"
+      },
+      "businessContext_i18n": {
+        "en": "The x-coordinate if using atan2, or the value for arctan.",
+        "tr": "atan2 kullanılıyorsa x-koordinatı, arctan için değer."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "If provided and non-zero, computes atan2(y, x) instead of arctan(x).",
       "label_i18n": {
         "en": "Y Value (optional)",
-        "tr": "Y Value (optional)",
+        "tr": "Y Değeri (isteğe bağlı)",
         "de": "Y Value (optional)",
         "fr": "Y Value (optional)",
         "es": "Y Value (optional)",
         "ar": "Y Value (optional)"
+      },
+      "businessContext_i18n": {
+        "en": "If provided and non-zero, computes atan2(y, x) instead of arctan(x).",
+        "tr": "Sağlanırsa ve sıfır değilse, arctan(x) yerine atan2(y, x) hesaplar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0 for radians, 1 for degrees.",
       "label_i18n": {
         "en": "Output Unit",
-        "tr": "Output Unit",
+        "tr": "Çıktı Birimi",
         "de": "Output Unit",
         "fr": "Output Unit",
         "es": "Output Unit",
         "ar": "Output Unit"
+      },
+      "businessContext_i18n": {
+        "en": "0 for radians, 1 for degrees.",
+        "tr": "0 radyan, 1 derece."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for final output.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for final output.",
+        "tr": "Nihai çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier applied to x and y before calculation.",
       "label_i18n": {
         "en": "Input Scale",
-        "tr": "Input Scale",
+        "tr": "Girdi Ölçeği",
         "de": "Input Scale",
         "fr": "Input Scale",
         "es": "Input Scale",
         "ar": "Input Scale"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier applied to x and y before calculation.",
+        "tr": "Hesaplamadan önce x ve y'ye uygulanan çarpan."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Angle added to the result in the output unit.",
       "label_i18n": {
         "en": "Offset Angle",
-        "tr": "Offset Angle",
+        "tr": "Ofset Açısı",
         "de": "Offset Angle",
         "fr": "Offset Angle",
         "es": "Offset Angle",
         "ar": "Offset Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle added to the result in the output unit.",
+        "tr": "Sonuca çıktı biriminde eklenen açı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Temperature of hot fluid entering the heat exchanger.",
       "label_i18n": {
         "en": "Hot Inlet Temperature",
-        "tr": "Hot Inlet Temperature",
+        "tr": "Sıcak Giriş Sıcaklığı",
         "de": "Hot Inlet Temperature",
         "fr": "Hot Inlet Temperature",
         "es": "Hot Inlet Temperature",
         "ar": "Hot Inlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of hot fluid entering the heat exchanger.",
+        "tr": "Isı değiştiriciye giren sıcak akışkanın sıcaklığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Temperature of hot fluid leaving the heat exchanger.",
       "label_i18n": {
         "en": "Hot Outlet Temperature",
-        "tr": "Hot Outlet Temperature",
+        "tr": "Sıcak Çıkış Sıcaklığı",
         "de": "Hot Outlet Temperature",
         "fr": "Hot Outlet Temperature",
         "es": "Hot Outlet Temperature",
         "ar": "Hot Outlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of hot fluid leaving the heat exchanger.",
+        "tr": "Isı değiştiriciden çıkan sıcak akışkanın sıcaklığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Temperature of cold fluid entering the heat exchanger.",
       "label_i18n": {
         "en": "Cold Inlet Temperature",
-        "tr": "Cold Inlet Temperature",
+        "tr": "Soğuk Giriş Sıcaklığı",
         "de": "Cold Inlet Temperature",
         "fr": "Cold Inlet Temperature",
         "es": "Cold Inlet Temperature",
         "ar": "Cold Inlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of cold fluid entering the heat exchanger.",
+        "tr": "Isı değiştiriciye giren soğuk akışkanın sıcaklığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of cold fluid leaving the heat exchanger.",
       "label_i18n": {
         "en": "Cold Outlet Temperature",
-        "tr": "Cold Outlet Temperature",
+        "tr": "Soğuk Çıkış Sıcaklığı",
         "de": "Cold Outlet Temperature",
         "fr": "Cold Outlet Temperature",
         "es": "Cold Outlet Temperature",
         "ar": "Cold Outlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of cold fluid leaving the heat exchanger.",
+        "tr": "Isı değiştiriciden çıkan soğuk akışkanın sıcaklığı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Heat exchanger flow configuration. Use 1 for counterflow, 2 for parallel flow.",
       "label_i18n": {
         "en": "Flow Arrangement (1=Counterflow, 2=Parallel)",
-        "tr": "Flow Arrangement (1=Counterflow, 2=Parallel)",
+        "tr": "Akış Düzeni (1=Ters Akış, 2=Paralel Akış)",
         "de": "Flow Arrangement (1=Counterflow, 2=Parallel)",
         "fr": "Flow Arrangement (1=Counterflow, 2=Parallel)",
         "es": "Flow Arrangement (1=Counterflow, 2=Parallel)",
         "ar": "Flow Arrangement (1=Counterflow, 2=Parallel)"
+      },
+      "businessContext_i18n": {
+        "en": "Heat exchanger flow configuration. Use 1 for counterflow, 2 for parallel flow.",
+        "tr": "Isı değiştirici akış konfigürasyonu. Ters akış için 1, paralel akış için 2 kullanın."
       }
     }
   ],

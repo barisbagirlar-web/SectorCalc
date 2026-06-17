@@ -10,11 +10,15 @@
       "businessContext": "The total capitalized cost of the asset.",
       "label_i18n": {
         "en": "Asset Cost ($)",
-        "tr": "Asset Cost ($)",
+        "tr": "Varlık Maliyeti ($)",
         "de": "Asset Cost ($)",
         "fr": "Asset Cost ($)",
         "es": "Asset Cost ($)",
         "ar": "Asset Cost ($)"
+      },
+      "businessContext_i18n": {
+        "en": "The total capitalized cost of the asset.",
+        "tr": "Varlığın toplam aktifleştirilmiş maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional first-year bonus depreciation percentage.",
       "label_i18n": {
         "en": "Bonus Depreciation (%)",
-        "tr": "Bonus Depreciation (%)",
+        "tr": "Bonus Amortisman (%)",
         "de": "Bonus Depreciation (%)",
         "fr": "Bonus Depreciation (%)",
         "es": "Bonus Depreciation (%)",
         "ar": "Bonus Depreciation (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional first-year bonus depreciation percentage.",
+        "tr": "Ek ilk yıl bonus amortisman yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Immediate expense deduction under Section 179.",
       "label_i18n": {
         "en": "Section 179 Expensing ($)",
-        "tr": "Section 179 Expensing ($)",
+        "tr": "Bölüm 179 Harcaması ($)",
         "de": "Section 179 Expensing ($)",
         "fr": "Section 179 Expensing ($)",
         "es": "Section 179 Expensing ($)",
         "ar": "Section 179 Expensing ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Immediate expense deduction under Section 179.",
+        "tr": "Bölüm 179 kapsamında anında gider indirimi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "MACRS depreciation rate for the first year based on asset class and convention.",
       "label_i18n": {
         "en": "Year 1 MACRS Rate (%)",
-        "tr": "Year 1 MACRS Rate (%)",
+        "tr": "1. Yıl MACRS Oranı (%)",
         "de": "Year 1 MACRS Rate (%)",
         "fr": "Year 1 MACRS Rate (%)",
         "es": "Year 1 MACRS Rate (%)",
         "ar": "Year 1 MACRS Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "MACRS depreciation rate for the first year based on asset class and convention.",
+        "tr": "Varlık sınıfı ve sözleşmeye dayalı ilk yıl MACRS amortisman oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The MACRS recovery period of the asset (3,5,7,10,15,20).",
       "label_i18n": {
         "en": "Recovery Period (years)",
-        "tr": "Recovery Period (years)",
+        "tr": "Geri Kazanım Süresi (yıl)",
         "de": "Recovery Period (years)",
         "fr": "Recovery Period (years)",
         "es": "Recovery Period (years)",
         "ar": "Recovery Period (years)"
+      },
+      "businessContext_i18n": {
+        "en": "The MACRS recovery period of the asset (3,5,7,10,15,20).",
+        "tr": "Varlığın MACRS amortisman süresi (3,5,7,10,15,20)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Corporate income tax rate for calculating tax savings from depreciation.",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)",
         "de": "Tax Rate (%)",
         "fr": "Tax Rate (%)",
         "es": "Tax Rate (%)",
         "ar": "Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Corporate income tax rate for calculating tax savings from depreciation.",
+        "tr": "Amortismandan kaynaklanan vergi tasarrufunu hesaplamak için kurumlar vergisi oranı."
       }
     }
   ],

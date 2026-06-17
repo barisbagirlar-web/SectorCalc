@@ -10,11 +10,15 @@
       "businessContext": "Standard viewing distance for Snellen chart in feet",
       "label_i18n": {
         "en": "Viewing Distance (ft)",
-        "tr": "Viewing Distance (ft)",
+        "tr": "Görüş Mesafesi (ft)",
         "de": "Viewing Distance (ft)",
         "fr": "Viewing Distance (ft)",
         "es": "Viewing Distance (ft)",
         "ar": "Viewing Distance (ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard viewing distance for Snellen chart in feet",
+        "tr": "Snellen tablosu için fit cinsinden standart görüş mesafesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance at which a person with normal vision can read the same line, in feet",
       "label_i18n": {
         "en": "Letter Size Distance (ft)",
-        "tr": "Letter Size Distance (ft)",
+        "tr": "Harf Boyutu Mesafesi (ft)",
         "de": "Letter Size Distance (ft)",
         "fr": "Letter Size Distance (ft)",
         "es": "Letter Size Distance (ft)",
         "ar": "Letter Size Distance (ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance at which a person with normal vision can read the same line, in feet",
+        "tr": "Normal görüşe sahip bir kişinin aynı satırı okuyabildiği fit cinsinden mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard viewing distance for metric Snellen chart in meters",
       "label_i18n": {
         "en": "Viewing Distance (m)",
-        "tr": "Viewing Distance (m)",
+        "tr": "Görüş Mesafesi (m)",
         "de": "Viewing Distance (m)",
         "fr": "Viewing Distance (m)",
         "es": "Viewing Distance (m)",
         "ar": "Viewing Distance (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard viewing distance for metric Snellen chart in meters",
+        "tr": "Metrik Snellen tablosu için metre cinsinden standart görüş mesafesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance at which a person with normal vision can read the same line, in meters",
       "label_i18n": {
         "en": "Letter Size Distance (m)",
-        "tr": "Letter Size Distance (m)",
+        "tr": "Harf Boyutu Mesafesi (m)",
         "de": "Letter Size Distance (m)",
         "fr": "Letter Size Distance (m)",
         "es": "Letter Size Distance (m)",
         "ar": "Letter Size Distance (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance at which a person with normal vision can read the same line, in meters",
+        "tr": "Normal görüşe sahip bir kişinin aynı satırı okuyabildiği metre cinsinden mesafe"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional: desired decimal acuity for reverse calculation of required letter distance",
       "label_i18n": {
         "en": "Target Decimal Acuity",
-        "tr": "Target Decimal Acuity",
+        "tr": "Hedef Ondalık Görme Keskinliği",
         "de": "Target Decimal Acuity",
         "fr": "Target Decimal Acuity",
         "es": "Target Decimal Acuity",
         "ar": "Target Decimal Acuity"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: desired decimal acuity for reverse calculation of required letter distance",
+        "tr": "İsteğe bağlı: gerekli harf mesafesinin ters hesaplaması için istenen ondalık görme keskinliği"
       }
     }
   ],

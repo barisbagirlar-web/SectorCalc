@@ -10,11 +10,15 @@
       "businessContext": "The length of the plate in millimeters.",
       "label_i18n": {
         "en": "Length (mm)",
-        "tr": "Length (mm)",
+        "tr": "Uzunluk (mm)",
         "de": "Length (mm)",
         "fr": "Length (mm)",
         "es": "Length (mm)",
         "ar": "Length (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "The length of the plate in millimeters.",
+        "tr": "Plakanın milimetre cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The width of the plate in millimeters.",
       "label_i18n": {
         "en": "Width (mm)",
-        "tr": "Width (mm)",
+        "tr": "Genişlik (mm)",
         "de": "Width (mm)",
         "fr": "Width (mm)",
         "es": "Width (mm)",
         "ar": "Width (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "The width of the plate in millimeters.",
+        "tr": "Plakanın milimetre cinsinden genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The thickness of the plate in millimeters.",
       "label_i18n": {
         "en": "Thickness (mm)",
-        "tr": "Thickness (mm)",
+        "tr": "Kalınlık (mm)",
         "de": "Thickness (mm)",
         "fr": "Thickness (mm)",
         "es": "Thickness (mm)",
         "ar": "Thickness (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "The thickness of the plate in millimeters.",
+        "tr": "Plakanın milimetre cinsinden kalınlığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Density of the plate material in kilograms per cubic meter.",
       "label_i18n": {
         "en": "Material Density (kg/m³)",
-        "tr": "Material Density (kg/m³)",
+        "tr": "Malzeme Yoğunluğu (kg/m³)",
         "de": "Material Density (kg/m³)",
         "fr": "Material Density (kg/m³)",
         "es": "Material Density (kg/m³)",
         "ar": "Material Density (kg/m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the plate material in kilograms per cubic meter.",
+        "tr": "Plaka malzemesinin metreküp başına kilogram cinsinden yoğunluğu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Unit cost of the material per kilogram in local currency.",
       "label_i18n": {
         "en": "Material Cost per kg",
-        "tr": "Material Cost per kg",
+        "tr": "Malzeme Maliyeti (kg başına)",
         "de": "Material Cost per kg",
         "fr": "Material Cost per kg",
         "es": "Material Cost per kg",
         "ar": "Material Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Unit cost of the material per kilogram in local currency.",
+        "tr": "Malzemenin kilogram başına birim maliyeti (yerel para birimi)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage overhead applied to material cost to cover manufacturing, labor, and other indirect costs.",
       "label_i18n": {
         "en": "Manufacturing Overhead (%)",
-        "tr": "Manufacturing Overhead (%)",
+        "tr": "Üretim Genel Gideri (%)",
         "de": "Manufacturing Overhead (%)",
         "fr": "Manufacturing Overhead (%)",
         "es": "Manufacturing Overhead (%)",
         "ar": "Manufacturing Overhead (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage overhead applied to material cost to cover manufacturing, labor, and other indirect costs.",
+        "tr": "Malzeme maliyetine uygulanan ve üretim, işçilik ve diğer dolaylı maliyetleri karşılayan yüzde oranı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Percentage of material expected to be wasted due to offcuts or defects.",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Waste Factor (%)",
+        "tr": "Fire Faktörü (%)",
         "de": "Waste Factor (%)",
         "fr": "Waste Factor (%)",
         "es": "Waste Factor (%)",
         "ar": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of material expected to be wasted due to offcuts or defects.",
+        "tr": "Kesim artıkları veya kusurlar nedeniyle israf edilmesi beklenen malzeme yüzdesi."
       }
     }
   ],

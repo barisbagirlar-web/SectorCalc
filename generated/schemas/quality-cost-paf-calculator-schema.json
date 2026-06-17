@@ -22,10 +22,12 @@
       "max": 1000000000,
       "businessContext": "Annual total sales revenue used as a baseline for cost ratio calculations.",
       "label_i18n": {
-        "en": "Total Sales Revenue"
+        "en": "Total Sales Revenue",
+        "tr": "Toplam Satış Geliri"
       },
       "businessContext_i18n": {
-        "en": "Annual total sales revenue used as a baseline for cost ratio calculations."
+        "en": "Annual total sales revenue used as a baseline for cost ratio calculations.",
+        "tr": "Maliyet oranı hesaplamaları için temel olarak kullanılan yıllık toplam satış geliri."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 500000,
       "businessContext": "Costs for quality training, process planning, and preventive maintenance.",
       "label_i18n": {
-        "en": "Prevention Training Cost"
+        "en": "Prevention Training Cost",
+        "tr": "Önleme Eğitim Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Costs for quality training, process planning, and preventive maintenance."
+        "en": "Costs for quality training, process planning, and preventive maintenance.",
+        "tr": "Kalite eğitimi, süreç planlaması ve önleyici bakım maliyetleri."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 500000,
       "businessContext": "Costs for FMEA, design reviews, and process control implementation.",
       "label_i18n": {
-        "en": "Prevention Design/Process Control Cost"
+        "en": "Prevention Design/Process Control Cost",
+        "tr": "Önleme Tasarım/Süreç Kontrol Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Costs for FMEA, design reviews, and process control implementation."
+        "en": "Costs for FMEA, design reviews, and process control implementation.",
+        "tr": "FMEA, tasarım incelemeleri ve süreç kontrol uygulama maliyetleri."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 500000,
       "businessContext": "Costs for incoming, in-process, and final inspection and testing.",
       "label_i18n": {
-        "en": "Appraisal Inspection & Testing Cost"
+        "en": "Appraisal Inspection & Testing Cost",
+        "tr": "Değerlendirme Muayene ve Test Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Costs for incoming, in-process, and final inspection and testing."
+        "en": "Costs for incoming, in-process, and final inspection and testing.",
+        "tr": "Gelen, süreç içi ve son muayene ve test maliyetleri."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 200000,
       "businessContext": "Costs for internal/external audits and equipment calibration.",
       "label_i18n": {
-        "en": "Appraisal Audit & Calibration Cost"
+        "en": "Appraisal Audit & Calibration Cost",
+        "tr": "Değerlendirme Denetim ve Kalibrasyon Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Costs for internal/external audits and equipment calibration."
+        "en": "Costs for internal/external audits and equipment calibration.",
+        "tr": "İç/dış denetimler ve ekipman kalibrasyonu maliyetleri."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 1000000,
       "businessContext": "Costs of scrap, rework, and downtime due to defects before delivery.",
       "label_i18n": {
-        "en": "Internal Failure Scrap & Rework Cost"
+        "en": "Internal Failure Scrap & Rework Cost",
+        "tr": "İç Başarısızlık Fire ve Yeniden İşleme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Costs of scrap, rework, and downtime due to defects before delivery."
+        "en": "Costs of scrap, rework, and downtime due to defects before delivery.",
+        "tr": "Teslimattan önce kusurlardan kaynaklanan fire, yeniden işleme ve duruş maliyetleri."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 500000,
       "businessContext": "Lost production time due to quality issues.",
       "label_i18n": {
-        "en": "Internal Failure Downtime Cost"
+        "en": "Internal Failure Downtime Cost",
+        "tr": "İç Başarısızlık Duruş Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Lost production time due to quality issues."
+        "en": "Lost production time due to quality issues.",
+        "tr": "Kalite sorunları nedeniyle kaybedilen üretim süresi."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 1000000,
       "businessContext": "Costs for warranty claims, returns, and replacements after delivery.",
       "label_i18n": {
-        "en": "External Failure Warranty & Returns Cost"
+        "en": "External Failure Warranty & Returns Cost",
+        "tr": "Dış Başarısızlık Garanti ve İade Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Costs for warranty claims, returns, and replacements after delivery."
+        "en": "Costs for warranty claims, returns, and replacements after delivery.",
+        "tr": "Teslimattan sonra garanti talepleri, iadeler ve değişim maliyetleri."
       }
     }
   ],

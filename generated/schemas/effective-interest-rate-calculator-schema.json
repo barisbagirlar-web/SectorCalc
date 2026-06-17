@@ -10,11 +10,15 @@
       "businessContext": "Stated annual interest rate before compounding, as a percentage.",
       "label_i18n": {
         "en": "Nominal Annual Interest Rate",
-        "tr": "Nominal Annual Interest Rate",
+        "tr": "Nominal Yıllık Faiz Oranı",
         "de": "Nominal Annual Interest Rate",
         "fr": "Nominal Annual Interest Rate",
         "es": "Nominal Annual Interest Rate",
         "ar": "Nominal Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Stated annual interest rate before compounding, as a percentage.",
+        "tr": "Bileşik faiz öncesi yıllık nominal faiz oranı, yüzde olarak."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of times interest is compounded per year (e.g., 12 for monthly, 4 for quarterly).",
       "label_i18n": {
         "en": "Compounding Periods per Year",
-        "tr": "Compounding Periods per Year",
+        "tr": "Yıllık Bileşik Dönem Sayısı",
         "de": "Compounding Periods per Year",
         "fr": "Compounding Periods per Year",
         "es": "Compounding Periods per Year",
         "ar": "Compounding Periods per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times interest is compounded per year (e.g., 12 for monthly, 4 for quarterly).",
+        "tr": "Yıllık bileşik faiz dönemi sayısı (ör. aylık için 12, üç aylık için 4)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of years over which to compute the effective rate. Use 1 for annual effective rate.",
       "label_i18n": {
         "en": "Time Period (Years)",
-        "tr": "Time Period (Years)",
+        "tr": "Süre (Yıl)",
         "de": "Time Period (Years)",
         "fr": "Time Period (Years)",
         "es": "Time Period (Years)",
         "ar": "Time Period (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years over which to compute the effective rate. Use 1 for annual effective rate.",
+        "tr": "Efektif oranın hesaplanacağı yıl sayısı. Yıllık efektif oran için 1 kullanın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounding the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the output.",
+        "tr": "Çıktının yuvarlanması için ondalık basamak sayısı."
       }
     }
   ],

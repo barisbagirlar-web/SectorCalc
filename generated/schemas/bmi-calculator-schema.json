@@ -22,10 +22,12 @@
       "max": 300,
       "businessContext": "Body weight measured in kilograms, per ISO 8996 anthropometric standards.",
       "label_i18n": {
-        "en": "Weight (kg)"
+        "en": "Weight (kg)",
+        "tr": "Ağırlık (kg)"
       },
       "businessContext_i18n": {
-        "en": "Body weight measured in kilograms, per ISO 8996 anthropometric standards."
+        "en": "Body weight measured in kilograms, per ISO 8996 anthropometric standards.",
+        "tr": "ISO 8996 antropometrik standartlarına göre kilogram cinsinden vücut ağırlığı."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 250,
       "businessContext": "Standing height in centimeters, measured per ISO 7250 ergonomic guidelines.",
       "label_i18n": {
-        "en": "Height (cm)"
+        "en": "Height (cm)",
+        "tr": "Boy (cm)"
       },
       "businessContext_i18n": {
-        "en": "Standing height in centimeters, measured per ISO 7250 ergonomic guidelines."
+        "en": "Standing height in centimeters, measured per ISO 7250 ergonomic guidelines.",
+        "tr": "ISO 7250 ergonomik yönergelerine göre santimetre cinsinden ayakta boy."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 120,
       "businessContext": "Chronological age used for metabolic risk adjustment, per Six Sigma health screening protocols.",
       "label_i18n": {
-        "en": "Age (years)"
+        "en": "Age (years)",
+        "tr": "Yaş (yıl)"
       },
       "businessContext_i18n": {
-        "en": "Chronological age used for metabolic risk adjustment, per Six Sigma health screening protocols."
+        "en": "Chronological age used for metabolic risk adjustment, per Six Sigma health screening protocols.",
+        "tr": "Altı Sigma sağlık tarama protokollerine göre metabolik risk ayarlaması için kullanılan kronolojik yaş."
       }
     },
     {
@@ -74,10 +80,12 @@
         "female"
       ],
       "label_i18n": {
-        "en": "Gender"
+        "en": "Gender",
+        "tr": "Cinsiyet"
       },
       "businessContext_i18n": {
-        "en": "Biological sex for lean body mass and risk stratification, per WHO standards."
+        "en": "Biological sex for lean body mass and risk stratification, per WHO standards.",
+        "tr": "WHO standartlarına göre yağsız vücut kütlesi ve risk sınıflandırması için biyolojik cinsiyet."
       }
     },
     {
@@ -97,10 +105,12 @@
         "very active"
       ],
       "label_i18n": {
-        "en": "Physical Activity Level"
+        "en": "Physical Activity Level",
+        "tr": "Fiziksel Aktivite Düzeyi"
       },
       "businessContext_i18n": {
-        "en": "Self-reported activity level for energy expenditure estimation, per ISO 8996 metabolic rate classification."
+        "en": "Self-reported activity level for energy expenditure estimation, per ISO 8996 metabolic rate classification.",
+        "tr": "ISO 8996 metabolik hız sınıflandırmasına göre enerji harcaması tahmini için kendinden bildirilen aktivite düzeyi."
       }
     },
     {
@@ -113,10 +123,12 @@
       "max": 200,
       "businessContext": "Waist measurement for central obesity risk assessment, per IDF and Lean Six Sigma health metrics.",
       "label_i18n": {
-        "en": "Waist Circumference (cm)"
+        "en": "Waist Circumference (cm)",
+        "tr": "Bel Çevresi (cm)"
       },
       "businessContext_i18n": {
-        "en": "Waist measurement for central obesity risk assessment, per IDF and Lean Six Sigma health metrics."
+        "en": "Waist measurement for central obesity risk assessment, per IDF and Lean Six Sigma health metrics.",
+        "tr": "IDF ve Yalın Altı Sigma sağlık metriklerine göre santral obezite risk değerlendirmesi için bel ölçümü."
       }
     }
   ],

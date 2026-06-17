@@ -10,11 +10,15 @@
       "businessContext": "Soil cohesion intercept, typically from 0 for sands to 150 kPa for hard clay.",
       "label_i18n": {
         "en": "Cohesion (c)",
-        "tr": "Cohesion (c)",
+        "tr": "Kohezyon (c)",
         "de": "Cohesion (c)",
         "fr": "Cohesion (c)",
         "es": "Cohesion (c)",
         "ar": "Cohesion (c)"
+      },
+      "businessContext_i18n": {
+        "en": "Soil cohesion intercept, typically from 0 for sands to 150 kPa for hard clay.",
+        "tr": "Zemin kohezyon kesme dayanımı, kumlar için 0'dan sert kil için 150 kPa'a kadar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Effective friction angle of soil. Common range 20-45°.",
       "label_i18n": {
         "en": "Angle of Internal Friction (φ)",
-        "tr": "Angle of Internal Friction (φ)",
+        "tr": "İçsel sürtünme açısı (φ)",
         "de": "Angle of Internal Friction (φ)",
         "fr": "Angle of Internal Friction (φ)",
         "es": "Angle of Internal Friction (φ)",
         "ar": "Angle of Internal Friction (φ)"
+      },
+      "businessContext_i18n": {
+        "en": "Effective friction angle of soil. Common range 20-45°.",
+        "tr": "Zeminin efektif sürtünme açısı. Yaygın aralık 20-45°."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "From 14 kN/m³ for soft clays to 22 kN/m³ for dense sand/gravel.",
       "label_i18n": {
         "en": "Unit Weight of Soil (γ)",
-        "tr": "Unit Weight of Soil (γ)",
+        "tr": "Zeminin birim hacim ağırlığı (γ)",
         "de": "Unit Weight of Soil (γ)",
         "fr": "Unit Weight of Soil (γ)",
         "es": "Unit Weight of Soil (γ)",
         "ar": "Unit Weight of Soil (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "From 14 kN/m³ for soft clays to 22 kN/m³ for dense sand/gravel.",
+        "tr": "Yumuşak killer için 14 kN/m³'ten yoğun kum/çakıl için 22 kN/m³'e kadar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Depth of footing base below ground surface.",
       "label_i18n": {
         "en": "Depth of Foundation (Df)",
-        "tr": "Depth of Foundation (Df)",
+        "tr": "Temel derinliği (Df)",
         "de": "Depth of Foundation (Df)",
         "fr": "Depth of Foundation (Df)",
         "es": "Depth of Foundation (Df)",
         "ar": "Depth of Foundation (Df)"
+      },
+      "businessContext_i18n": {
+        "en": "Depth of footing base below ground surface.",
+        "tr": "Temel tabanının zemin yüzeyinin altındaki derinliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Width of continuous strip footing, or equivalent diameter of circular footing.",
       "label_i18n": {
         "en": "Width of Foundation (B)",
-        "tr": "Width of Foundation (B)",
+        "tr": "Temel genişliği (B)",
         "de": "Width of Foundation (B)",
         "fr": "Width of Foundation (B)",
         "es": "Width of Foundation (B)",
         "ar": "Width of Foundation (B)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of continuous strip footing, or equivalent diameter of circular footing.",
+        "tr": "Sürekli şerit temelin genişliği veya dairesel temelin eşdeğer çapı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Factor of safety typically 2.5–4 for permanent structures.",
       "label_i18n": {
         "en": "Safety Factor (FS)",
-        "tr": "Safety Factor (FS)",
+        "tr": "Güvenlik faktörü (FS)",
         "de": "Safety Factor (FS)",
         "fr": "Safety Factor (FS)",
         "es": "Safety Factor (FS)",
         "ar": "Safety Factor (FS)"
+      },
+      "businessContext_i18n": {
+        "en": "Factor of safety typically 2.5–4 for permanent structures.",
+        "tr": "Kalıcı yapılar için tipik olarak 2,5–4 arası güvenlik faktörü."
       }
     }
   ],

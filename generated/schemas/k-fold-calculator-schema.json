@@ -10,11 +10,15 @@
       "businessContext": "Number of folds used in cross-validation",
       "label_i18n": {
         "en": "Number of Folds (k)",
-        "tr": "Number of Folds (k)",
+        "tr": "Kat Sayısı (k)",
         "de": "Number of Folds (k)",
         "fr": "Number of Folds (k)",
         "es": "Number of Folds (k)",
         "ar": "Number of Folds (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of folds used in cross-validation",
+        "tr": "Çapraz doğrulamada kullanılan katlama sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of observations in the dataset",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)",
         "de": "Sample Size (n)",
         "fr": "Sample Size (n)",
         "es": "Sample Size (n)",
         "ar": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of observations in the dataset",
+        "tr": "Veri setindeki toplam gözlem sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average accuracy across all folds",
       "label_i18n": {
         "en": "Mean Accuracy",
-        "tr": "Mean Accuracy",
+        "tr": "Ortalama Doğruluk",
         "de": "Mean Accuracy",
         "fr": "Mean Accuracy",
         "es": "Mean Accuracy",
         "ar": "Mean Accuracy"
+      },
+      "businessContext_i18n": {
+        "en": "Average accuracy across all folds",
+        "tr": "Tüm katlamalar arasındaki ortalama doğruluk"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard deviation of accuracy scores from each fold",
       "label_i18n": {
         "en": "Standard Deviation of Accuracy",
-        "tr": "Standard Deviation of Accuracy",
+        "tr": "Doğruluk Standart Sapması",
         "de": "Standard Deviation of Accuracy",
         "fr": "Standard Deviation of Accuracy",
         "es": "Standard Deviation of Accuracy",
         "ar": "Standard Deviation of Accuracy"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of accuracy scores from each fold",
+        "tr": "Her katlamadan alınan doğruluk puanlarının standart sapması"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Z-score for desired confidence level (e.g., 1.96 for 95%)",
       "label_i18n": {
         "en": "Z-Score",
-        "tr": "Z-Score",
+        "tr": "Z-Skoru",
         "de": "Z-Score",
         "fr": "Z-Score",
         "es": "Z-Score",
         "ar": "Z-Score"
+      },
+      "businessContext_i18n": {
+        "en": "Z-score for desired confidence level (e.g., 1.96 for 95%)",
+        "tr": "İstenen güven düzeyi için Z-skoru (ör. %95 için 1,96)"
       }
     }
   ],

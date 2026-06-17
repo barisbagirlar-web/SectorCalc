@@ -10,11 +10,15 @@
       "businessContext": "Design speed of the road",
       "label_i18n": {
         "en": "Design Speed (V)",
-        "tr": "Design Speed (V)",
+        "tr": "Tasarım Hızı (V)",
         "de": "Design Speed (V)",
         "fr": "Design Speed (V)",
         "es": "Design Speed (V)",
         "ar": "Design Speed (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Design speed of the road",
+        "tr": "Yolun tasarım hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Superelevation rate in percent",
       "label_i18n": {
         "en": "Superelevation (e)",
-        "tr": "Superelevation (e)",
+        "tr": "Dever (e)",
         "de": "Superelevation (e)",
         "fr": "Superelevation (e)",
         "es": "Superelevation (e)",
         "ar": "Superelevation (e)"
+      },
+      "businessContext_i18n": {
+        "en": "Superelevation rate in percent",
+        "tr": "Yüzde olarak dever oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Side friction factor (typically 0.1-0.2)",
       "label_i18n": {
         "en": "Side Friction Factor (f)",
-        "tr": "Side Friction Factor (f)",
+        "tr": "Yanal Sürtünme Katsayısı (f)",
         "de": "Side Friction Factor (f)",
         "fr": "Side Friction Factor (f)",
         "es": "Side Friction Factor (f)",
         "ar": "Side Friction Factor (f)"
+      },
+      "businessContext_i18n": {
+        "en": "Side friction factor (typically 0.1-0.2)",
+        "tr": "Yanal sürtünme katsayısı (genellikle 0.1-0.2)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Central or deflection angle of the curve",
       "label_i18n": {
         "en": "Central Angle (Δ)",
-        "tr": "Central Angle (Δ)",
+        "tr": "Merkez Açısı (Δ)",
         "de": "Central Angle (Δ)",
         "fr": "Central Angle (Δ)",
         "es": "Central Angle (Δ)",
         "ar": "Central Angle (Δ)"
+      },
+      "businessContext_i18n": {
+        "en": "Central or deflection angle of the curve",
+        "tr": "Kurp merkez veya dönüş açısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Station of Point of Intersection (PI)",
       "label_i18n": {
         "en": "Station at PI",
-        "tr": "Station at PI",
+        "tr": "PI Noktası",
         "de": "Station at PI",
         "fr": "Station at PI",
         "es": "Station at PI",
         "ar": "Station at PI"
+      },
+      "businessContext_i18n": {
+        "en": "Station of Point of Intersection (PI)",
+        "tr": "Kesişim Noktası (PI) istasyonu"
       }
     }
   ],

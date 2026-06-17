@@ -10,11 +10,15 @@
       "businessContext": "Purchase price of the residential property",
       "label_i18n": {
         "en": "Property Price (£)",
-        "tr": "Property Price (£)",
+        "tr": "Emlak Fiyatı (£)",
         "de": "Property Price (£)",
         "fr": "Property Price (£)",
         "es": "Property Price (£)",
         "ar": "Property Price (£)"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price of the residential property",
+        "tr": "Konut mülkünün satın alma fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1 if first-time buyer, else 0",
       "label_i18n": {
         "en": "First-Time Buyer?",
-        "tr": "First-Time Buyer?",
+        "tr": "İlk Kez Ev Sahibi mi?",
         "de": "First-Time Buyer?",
         "fr": "First-Time Buyer?",
         "es": "First-Time Buyer?",
         "ar": "First-Time Buyer?"
+      },
+      "businessContext_i18n": {
+        "en": "1 if first-time buyer, else 0",
+        "tr": "İlk kez ev sahibi ise 1, değilse 0"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 if buying an additional residential property, else 0",
       "label_i18n": {
         "en": "Additional Property?",
-        "tr": "Additional Property?",
+        "tr": "Ek Mülk?",
         "de": "Additional Property?",
         "fr": "Additional Property?",
         "es": "Additional Property?",
         "ar": "Additional Property?"
+      },
+      "businessContext_i18n": {
+        "en": "1 if buying an additional residential property, else 0",
+        "tr": "Ek bir konut mülkü satın alınıyorsa 1, değilse 0"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 if buyer is not a UK resident, else 0",
       "label_i18n": {
         "en": "Non-UK Resident?",
-        "tr": "Non-UK Resident?",
+        "tr": "Birleşik Krallık'ta İkamet Etmeyen?",
         "de": "Non-UK Resident?",
         "fr": "Non-UK Resident?",
         "es": "Non-UK Resident?",
         "ar": "Non-UK Resident?"
+      },
+      "businessContext_i18n": {
+        "en": "1 if buyer is not a UK resident, else 0",
+        "tr": "Alıcı Birleşik Krallık'ta ikamet etmiyorsa 1, değilse 0"
       }
     }
   ],

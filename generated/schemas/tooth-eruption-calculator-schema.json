@@ -10,11 +10,15 @@
       "businessContext": "Measured wear depth on the cutting tooth",
       "label_i18n": {
         "en": "Current Wear (mm)",
-        "tr": "Current Wear (mm)",
+        "tr": "Mevcut Aşınma (mm)",
         "de": "Current Wear (mm)",
         "fr": "Current Wear (mm)",
         "es": "Current Wear (mm)",
         "ar": "Current Wear (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured wear depth on the cutting tooth",
+        "tr": "Kesici diş üzerinde ölçülen aşınma derinliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Force applied on the tooth during operation",
       "label_i18n": {
         "en": "Applied Load (kN)",
-        "tr": "Applied Load (kN)",
+        "tr": "Uygulanan Yük (kN)",
         "de": "Applied Load (kN)",
         "fr": "Applied Load (kN)",
         "es": "Applied Load (kN)",
         "ar": "Applied Load (kN)"
+      },
+      "businessContext_i18n": {
+        "en": "Force applied on the tooth during operation",
+        "tr": "Çalışma sırasında dişe uygulanan kuvvet"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Rotational speed of the cutter head",
       "label_i18n": {
         "en": "Rotation Speed (rpm)",
-        "tr": "Rotation Speed (rpm)",
+        "tr": "Dönüş Hızı (dev/dak)",
         "de": "Rotation Speed (rpm)",
         "fr": "Rotation Speed (rpm)",
         "es": "Rotation Speed (rpm)",
         "ar": "Rotation Speed (rpm)"
+      },
+      "businessContext_i18n": {
+        "en": "Rotational speed of the cutter head",
+        "tr": "Kesici kafanın dönüş hızı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Brinell hardness of the material being cut",
       "label_i18n": {
         "en": "Material Hardness (HB)",
-        "tr": "Material Hardness (HB)",
+        "tr": "Malzeme Sertliği (HB)",
         "de": "Material Hardness (HB)",
         "fr": "Material Hardness (HB)",
         "es": "Material Hardness (HB)",
         "ar": "Material Hardness (HB)"
+      },
+      "businessContext_i18n": {
+        "en": "Brinell hardness of the material being cut",
+        "tr": "Kesilen malzemenin Brinell sertliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum permissible wear before tooth replacement",
       "label_i18n": {
         "en": "Wear Limit (mm)",
-        "tr": "Wear Limit (mm)",
+        "tr": "Aşınma Sınırı (mm)",
         "de": "Wear Limit (mm)",
         "fr": "Wear Limit (mm)",
         "es": "Wear Limit (mm)",
         "ar": "Wear Limit (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum permissible wear before tooth replacement",
+        "tr": "Diş değişiminden önce izin verilen maksimum aşınma"
       }
     }
   ],

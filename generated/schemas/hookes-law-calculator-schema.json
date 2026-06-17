@@ -10,11 +10,15 @@
       "businessContext": "Applied force on the spring",
       "label_i18n": {
         "en": "Force (F)",
-        "tr": "Force (F)",
+        "tr": "Kuvvet (F)",
         "de": "Force (F)",
         "fr": "Force (F)",
         "es": "Force (F)",
         "ar": "Force (F)"
+      },
+      "businessContext_i18n": {
+        "en": "Applied force on the spring",
+        "tr": "Yay üzerine uygulanan kuvvet"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Stiffness of the spring",
       "label_i18n": {
         "en": "Spring Constant (k)",
-        "tr": "Spring Constant (k)",
+        "tr": "Yay Sabiti (k)",
         "de": "Spring Constant (k)",
         "fr": "Spring Constant (k)",
         "es": "Spring Constant (k)",
         "ar": "Spring Constant (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Stiffness of the spring",
+        "tr": "Yayın sertliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Extension or compression from equilibrium",
       "label_i18n": {
         "en": "Displacement (x)",
-        "tr": "Displacement (x)",
+        "tr": "Yer Değiştirme (x)",
         "de": "Displacement (x)",
         "fr": "Displacement (x)",
         "es": "Displacement (x)",
         "ar": "Displacement (x)"
+      },
+      "businessContext_i18n": {
+        "en": "Extension or compression from equilibrium",
+        "tr": "Denge konumundan uzama veya sıkışma"
       }
     }
   ],

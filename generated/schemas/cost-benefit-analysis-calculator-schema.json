@@ -10,11 +10,15 @@
       "businessContext": "The upfront cost of the project or investment.",
       "label_i18n": {
         "en": "Initial Investment Cost",
-        "tr": "Initial Investment Cost",
+        "tr": "İlk Yatırım Maliyeti",
         "de": "Initial Investment Cost",
         "fr": "Initial Investment Cost",
         "es": "Initial Investment Cost",
         "ar": "Initial Investment Cost"
+      },
+      "businessContext_i18n": {
+        "en": "The upfront cost of the project or investment.",
+        "tr": "Proje veya yatırımın peşin maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected annual cash inflows from the project.",
       "label_i18n": {
         "en": "Annual Benefits",
-        "tr": "Annual Benefits",
+        "tr": "Yıllık Faydalar",
         "de": "Annual Benefits",
         "fr": "Annual Benefits",
         "es": "Annual Benefits",
         "ar": "Annual Benefits"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual cash inflows from the project.",
+        "tr": "Projeden beklenen yıllık nakit girişleri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Annual costs to operate and maintain the project.",
       "label_i18n": {
         "en": "Annual Operating Costs",
-        "tr": "Annual Operating Costs",
+        "tr": "Yıllık İşletme Maliyetleri",
         "de": "Annual Operating Costs",
         "fr": "Annual Operating Costs",
         "es": "Annual Operating Costs",
         "ar": "Annual Operating Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Annual costs to operate and maintain the project.",
+        "tr": "Yıllık Maliyetler"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The rate used to discount future cash flows to present value, reflecting opportunity cost of capital.",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The rate used to discount future cash flows to present value, reflecting opportunity cost of capital.",
+        "tr": "Gelecekteki nakit akışlarını bugünkü değere indirgemek için kullanılan oran; sermayenin fırsat maliyetini yansıtır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of years the project is expected to generate benefits.",
       "label_i18n": {
         "en": "Project Lifetime",
-        "tr": "Project Lifetime",
+        "tr": "Proje Ömrü",
         "de": "Project Lifetime",
         "fr": "Project Lifetime",
         "es": "Project Lifetime",
         "ar": "Project Lifetime"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the project is expected to generate benefits.",
+        "tr": "Projenin fayda sağlamasının beklendiği yıl sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Value of the investment at the end of its life.",
       "label_i18n": {
         "en": "Salvage Value",
-        "tr": "Salvage Value",
+        "tr": "Hurda Değeri",
         "de": "Salvage Value",
         "fr": "Salvage Value",
         "es": "Salvage Value",
         "ar": "Salvage Value"
+      },
+      "businessContext_i18n": {
+        "en": "Value of the investment at the end of its life.",
+        "tr": "Yatırımın ömrü sonundaki değeri."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total weight of cargo to be loaded (excluding pallets)",
       "label_i18n": {
         "en": "Cargo Weight",
-        "tr": "Cargo Weight",
+        "tr": "Kargo Ağırlığı",
         "de": "Cargo Weight",
         "fr": "Cargo Weight",
         "es": "Cargo Weight",
         "ar": "Cargo Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of cargo to be loaded (excluding pallets)",
+        "tr": "Yüklenecek toplam kargo ağırlığı (paletler hariç)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Maximum payload capacity of the vehicle",
       "label_i18n": {
         "en": "Vehicle Capacity",
-        "tr": "Vehicle Capacity",
+        "tr": "Araç Kapasitesi",
         "de": "Vehicle Capacity",
         "fr": "Vehicle Capacity",
         "es": "Vehicle Capacity",
         "ar": "Vehicle Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum payload capacity of the vehicle",
+        "tr": "Aracın maksimum taşıma kapasitesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total count of pallets in the load",
       "label_i18n": {
         "en": "Number of Pallets",
-        "tr": "Number of Pallets",
+        "tr": "Palet Sayısı",
         "de": "Number of Pallets",
         "fr": "Number of Pallets",
         "es": "Number of Pallets",
         "ar": "Number of Pallets"
+      },
+      "businessContext_i18n": {
+        "en": "Total count of pallets in the load",
+        "tr": "Yükteki toplam palet sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average weight of an empty pallet",
       "label_i18n": {
         "en": "Weight per Pallet",
-        "tr": "Weight per Pallet",
+        "tr": "Palet Başına Ağırlık",
         "de": "Weight per Pallet",
         "fr": "Weight per Pallet",
         "es": "Weight per Pallet",
         "ar": "Weight per Pallet"
+      },
+      "businessContext_i18n": {
+        "en": "Average weight of an empty pallet",
+        "tr": "Boş bir paletin ortalama ağırlığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier applied to total load for safety margin",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier applied to total load for safety margin",
+        "tr": "Güvenlik marjı için toplam yüke uygulanan çarpan"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Maximum permissible load per axle",
       "label_i18n": {
         "en": "Axle Load Limit",
-        "tr": "Axle Load Limit",
+        "tr": "Aks Yük Sınırı",
         "de": "Axle Load Limit",
         "fr": "Axle Load Limit",
         "es": "Axle Load Limit",
         "ar": "Axle Load Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum permissible load per axle",
+        "tr": "Aks başına izin verilen maksimum yük"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Total number of axles on the vehicle",
       "label_i18n": {
         "en": "Number of Axles",
-        "tr": "Number of Axles",
+        "tr": "Aks Sayısı",
         "de": "Number of Axles",
         "fr": "Number of Axles",
         "es": "Number of Axles",
         "ar": "Number of Axles"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of axles on the vehicle",
+        "tr": "Araçtaki toplam aks sayısı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The weight in carats (ct) to be converted to grams.",
       "label_i18n": {
         "en": "Carats",
-        "tr": "Carats",
+        "tr": "Karat",
         "de": "Carats",
         "fr": "Carats",
         "es": "Carats",
         "ar": "Carats"
+      },
+      "businessContext_i18n": {
+        "en": "The weight in carats (ct) to be converted to grams.",
+        "tr": "Gram'a dönüştürülecek karat (ct) cinsinden ağırlık."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The conversion factor from carats to grams. Standard is 0.2 g/ct. Adjust if needed for non-standard carats.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The conversion factor from carats to grams. Standard is 0.2 g/ct. Adjust if needed for non-standard carats.",
+        "tr": "Karattan grama dönüşüm faktörü. Standart 0,2 g/ct'dir. Standart olmayan karatlar için gerekiyorsa ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of items being converted, if multiple items of the same carat weight.",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items being converted, if multiple items of the same carat weight.",
+        "tr": "Aynı karat ağırlığında birden fazla öğe varsa, dönüştürülen öğe sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the output. Minimum 0.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output. Minimum 0.",
+        "tr": "Çıktı için ondalık basamak sayısı. Minimum 0."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional: price per gram to calculate total value. Leave as 0 to ignore.",
       "label_i18n": {
         "en": "Price per Gram",
-        "tr": "Price per Gram",
+        "tr": "Gram Başına Fiyat",
         "de": "Price per Gram",
         "fr": "Price per Gram",
         "es": "Price per Gram",
         "ar": "Price per Gram"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: price per gram to calculate total value. Leave as 0 to ignore.",
+        "tr": "İsteğe bağlı: toplam değeri hesaplamak için gram başına fiyat. Yoksaymak için 0 bırakın."
       }
     }
   ],

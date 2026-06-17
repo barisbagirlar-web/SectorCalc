@@ -10,11 +10,15 @@
       "businessContext": "Patient age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age in years",
+        "tr": "Hasta yaşı (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sex assigned at birth",
       "label_i18n": {
         "en": "Sex",
-        "tr": "Sex",
+        "tr": "Cinsiyet",
         "de": "Sex",
         "fr": "Sex",
         "es": "Sex",
         "ar": "Sex"
+      },
+      "businessContext_i18n": {
+        "en": "Sex assigned at birth",
+        "tr": "Doğumda atanan cinsiyet"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total cholesterol level",
       "label_i18n": {
         "en": "Total Cholesterol",
-        "tr": "Total Cholesterol",
+        "tr": "Toplam Kolesterol",
         "de": "Total Cholesterol",
         "fr": "Total Cholesterol",
         "es": "Total Cholesterol",
         "ar": "Total Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "Total cholesterol level",
+        "tr": "Toplam kolesterol seviyesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "HDL cholesterol level",
       "label_i18n": {
         "en": "HDL Cholesterol",
-        "tr": "HDL Cholesterol",
+        "tr": "HDL Kolesterol",
         "de": "HDL Cholesterol",
         "fr": "HDL Cholesterol",
         "es": "HDL Cholesterol",
         "ar": "HDL Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "HDL cholesterol level",
+        "tr": "HDL kolesterol seviyesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Systolic blood pressure",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Systolic blood pressure",
+        "tr": "Sistolik kan basıncı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Whether hypertension is treated",
       "label_i18n": {
         "en": "Treated Hypertension",
-        "tr": "Treated Hypertension",
+        "tr": "Tedavi Edilen Hipertansiyon",
         "de": "Treated Hypertension",
         "fr": "Treated Hypertension",
         "es": "Treated Hypertension",
         "ar": "Treated Hypertension"
+      },
+      "businessContext_i18n": {
+        "en": "Whether hypertension is treated",
+        "tr": "Hipertansiyonun tedavi edilip edilmediği"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Diabetes status",
       "label_i18n": {
         "en": "Diabetes",
-        "tr": "Diabetes",
+        "tr": "Diyabet",
         "de": "Diabetes",
         "fr": "Diabetes",
         "es": "Diabetes",
         "ar": "Diabetes"
+      },
+      "businessContext_i18n": {
+        "en": "Diabetes status",
+        "tr": "Diyabet durumu"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Current smoker status",
       "label_i18n": {
         "en": "Smoker",
-        "tr": "Smoker",
+        "tr": "Sigara içen",
         "de": "Smoker",
         "fr": "Smoker",
         "es": "Smoker",
         "ar": "Smoker"
+      },
+      "businessContext_i18n": {
+        "en": "Current smoker status",
+        "tr": "Mevcut sigara içme durumu"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Tempo or cycle rate of the process",
       "label_i18n": {
         "en": "BPM (Beats/Cycles per Minute)",
-        "tr": "BPM (Beats/Cycles per Minute)",
+        "tr": "BPM (Atım/Döngü Sayısı/Dakika)",
         "de": "BPM (Beats/Cycles per Minute)",
         "fr": "BPM (Beats/Cycles per Minute)",
         "es": "BPM (Beats/Cycles per Minute)",
         "ar": "BPM (Beats/Cycles per Minute)"
+      },
+      "businessContext_i18n": {
+        "en": "Tempo or cycle rate of the process",
+        "tr": "Sürecin tempo veya döngü hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sampling frequency for digital measurement",
       "label_i18n": {
         "en": "Sample Rate",
-        "tr": "Sample Rate",
+        "tr": "Örnekleme Hızı",
         "de": "Sample Rate",
         "fr": "Sample Rate",
         "es": "Sample Rate",
         "ar": "Sample Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Sampling frequency for digital measurement",
+        "tr": "Dijital ölçüm için örnekleme frekansı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of beats or cycles to calculate duration for",
       "label_i18n": {
         "en": "Number of Beats/Cycles",
-        "tr": "Number of Beats/Cycles",
+        "tr": "Atım/Döngü Sayısı",
         "de": "Number of Beats/Cycles",
         "fr": "Number of Beats/Cycles",
         "es": "Number of Beats/Cycles",
         "ar": "Number of Beats/Cycles"
+      },
+      "businessContext_i18n": {
+        "en": "Number of beats or cycles to calculate duration for",
+        "tr": "Süre hesaplanacak atım veya döngü sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for note subdivisions (1=quarter, 2=eighth, 0.5=half)",
       "label_i18n": {
         "en": "Beat Division Multiplier",
-        "tr": "Beat Division Multiplier",
+        "tr": "Vuruş Bölme Çarpanı",
         "de": "Beat Division Multiplier",
         "fr": "Beat Division Multiplier",
         "es": "Beat Division Multiplier",
         "ar": "Beat Division Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for note subdivisions (1=quarter, 2=eighth, 0.5=half)",
+        "tr": "Nota alt bölmeleri için çarpan (1=dörtlük, 2=sekizlik, 0.5=ikilik)"
       }
     }
   ],

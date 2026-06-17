@@ -27,10 +27,12 @@
       ],
       "businessContext": "Standard structural steel profiles per ASTM A6/A6M.",
       "label_i18n": {
-        "en": "Beam Type"
+        "en": "Beam Type",
+        "tr": "Kiriş Tipi"
       },
       "businessContext_i18n": {
-        "en": "Standard structural steel profiles per ASTM A6/A6M."
+        "en": "Standard structural steel profiles per ASTM A6/A6M.",
+        "tr": "ASTM A6/A6M'ye göre standart yapısal çelik profiller."
       }
     },
     {
@@ -43,10 +45,12 @@
       "max": 9000,
       "businessContext": "Typical steel density 7850 kg/m³; adjust for alloys (e.g., stainless ~8000).",
       "label_i18n": {
-        "en": "Material Density"
+        "en": "Material Density",
+        "tr": "Malzeme Yoğunluğu"
       },
       "businessContext_i18n": {
-        "en": "Typical steel density 7850 kg/m³; adjust for alloys (e.g., stainless ~8000)."
+        "en": "Typical steel density 7850 kg/m³; adjust for alloys (e.g., stainless ~8000).",
+        "tr": "Tipik çelik yoğunluğu 7850 kg/m³; alaşımlar için ayarlayın (örn. paslanmaz ~8000)."
       }
     },
     {
@@ -59,10 +63,12 @@
       "max": 30,
       "businessContext": "Standard stock lengths: 6m, 12m; custom up to 30m.",
       "label_i18n": {
-        "en": "Beam Length"
+        "en": "Beam Length",
+        "tr": "Kiriş Uzunluğu"
       },
       "businessContext_i18n": {
-        "en": "Standard stock lengths: 6m, 12m; custom up to 30m."
+        "en": "Standard stock lengths: 6m, 12m; custom up to 30m.",
+        "tr": "Standart stok boyları: 6m, 12m; özel sipariş 30m'ye kadar."
       }
     },
     {
@@ -75,10 +81,12 @@
       "max": 1000,
       "businessContext": "Width of top/bottom flange for I/H-beams.",
       "label_i18n": {
-        "en": "Flange Width"
+        "en": "Flange Width",
+        "tr": "Flanş Genişliği"
       },
       "businessContext_i18n": {
-        "en": "Width of top/bottom flange for I/H-beams."
+        "en": "Width of top/bottom flange for I/H-beams.",
+        "tr": "I/H-kirişler için üst/alt flanş genişliği."
       }
     },
     {
@@ -91,10 +99,12 @@
       "max": 100,
       "businessContext": "Thickness of flange plates.",
       "label_i18n": {
-        "en": "Flange Thickness"
+        "en": "Flange Thickness",
+        "tr": "Flanş Kalınlığı"
       },
       "businessContext_i18n": {
-        "en": "Thickness of flange plates."
+        "en": "Thickness of flange plates.",
+        "tr": "Flanş plakalarının kalınlığı."
       }
     },
     {
@@ -107,10 +117,12 @@
       "max": 1200,
       "businessContext": "Clear height between flanges (web depth).",
       "label_i18n": {
-        "en": "Web Height"
+        "en": "Web Height",
+        "tr": "Gövde Yüksekliği"
       },
       "businessContext_i18n": {
-        "en": "Clear height between flanges (web depth)."
+        "en": "Clear height between flanges (web depth).",
+        "tr": "Flanşlar arası net yükseklik (gövde derinliği)."
       }
     },
     {
@@ -123,10 +135,12 @@
       "max": 50,
       "businessContext": "Thickness of the vertical web.",
       "label_i18n": {
-        "en": "Web Thickness"
+        "en": "Web Thickness",
+        "tr": "Web Kalınlığı"
       },
       "businessContext_i18n": {
-        "en": "Thickness of the vertical web."
+        "en": "Thickness of the vertical web.",
+        "tr": "Dikey web'in kalınlığı."
       }
     },
     {
@@ -139,10 +153,12 @@
       "max": 10000,
       "businessContext": "Number of identical beams.",
       "label_i18n": {
-        "en": "Quantity"
+        "en": "Quantity",
+        "tr": "Miktar"
       },
       "businessContext_i18n": {
-        "en": "Number of identical beams."
+        "en": "Number of identical beams.",
+        "tr": "Özdeş kiriş sayısı."
       }
     }
   ],

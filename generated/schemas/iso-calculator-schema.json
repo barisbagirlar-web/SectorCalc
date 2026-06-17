@@ -10,11 +10,15 @@
       "businessContext": "Ratio of actual production time to planned production time, expressed as a percentage. Higher availability indicates less downtime.",
       "label_i18n": {
         "en": "Availability (%)",
-        "tr": "Availability (%)",
+        "tr": "Kullanılabilirlik (%)",
         "de": "Availability (%)",
         "fr": "Availability (%)",
         "es": "Availability (%)",
         "ar": "Availability (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of actual production time to planned production time, expressed as a percentage. Higher availability indicates less downtime.",
+        "tr": "Fiili üretim süresinin planlanan üretim süresine oranı, yüzde olarak ifade edilir. Yüksek kullanılabilirlik daha az duruş süresini gösterir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ratio of actual output to theoretical maximum output during actual production time, expressed as a percentage. Accounts for speed losses.",
       "label_i18n": {
         "en": "Performance (%)",
-        "tr": "Performance (%)",
+        "tr": "Performans (%)",
         "de": "Performance (%)",
         "fr": "Performance (%)",
         "es": "Performance (%)",
         "ar": "Performance (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of actual output to theoretical maximum output during actual production time, expressed as a percentage. Accounts for speed losses.",
+        "tr": "Fiili üretim süresinde fiili çıktının teorik maksimum çıktıya oranı, yüzde olarak ifade edilir. Hız kayıplarını hesaba katar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Ratio of good units produced to total units started, expressed as a percentage. Reflects defect rate.",
       "label_i18n": {
         "en": "Quality (%)",
-        "tr": "Quality (%)",
+        "tr": "Kalite (%)",
         "de": "Quality (%)",
         "fr": "Quality (%)",
         "es": "Quality (%)",
         "ar": "Quality (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of good units produced to total units started, expressed as a percentage. Reflects defect rate.",
+        "tr": "Üretilen iyi ürünlerin başlatılan toplam ürüne oranı, yüzde olarak ifade edilir. Hata oranını yansıtır."
       }
     }
   ],

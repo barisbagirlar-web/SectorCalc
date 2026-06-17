@@ -10,11 +10,15 @@
       "businessContext": "Nut factor or torque coefficient, typically 0.2 for dry threads",
       "label_i18n": {
         "en": "Torque Coefficient (c)",
-        "tr": "Torque Coefficient (c)",
+        "tr": "Tork Katsayısı (c)",
         "de": "Torque Coefficient (c)",
         "fr": "Torque Coefficient (c)",
         "es": "Torque Coefficient (c)",
         "ar": "Torque Coefficient (c)"
+      },
+      "businessContext_i18n": {
+        "en": "Nut factor or torque coefficient, typically 0.2 for dry threads",
+        "tr": "Somun faktörü veya tork katsayısı, kuru dişler için tipik olarak 0,2"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal diameter of the bolt",
       "label_i18n": {
         "en": "Bolt Diameter",
-        "tr": "Bolt Diameter",
+        "tr": "Cıvata Çapı",
         "de": "Bolt Diameter",
         "fr": "Bolt Diameter",
         "es": "Bolt Diameter",
         "ar": "Bolt Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal diameter of the bolt",
+        "tr": "Cıvatanın nominal çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired tension force in the bolt",
       "label_i18n": {
         "en": "Target Clamp Load",
-        "tr": "Target Clamp Load",
+        "tr": "Hedef Sıkma Kuvveti",
         "de": "Target Clamp Load",
         "fr": "Target Clamp Load",
         "es": "Target Clamp Load",
         "ar": "Target Clamp Load"
+      },
+      "businessContext_i18n": {
+        "en": "Desired tension force in the bolt",
+        "tr": "Cıvatada istenen gerilme kuvveti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to ensure clamping under uncertainty",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to ensure clamping under uncertainty",
+        "tr": "Belirsizlik altında sıkmayı garanti eden çarpan"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Normal stress in x-direction",
       "label_i18n": {
         "en": "Normal Stress σx",
-        "tr": "Normal Stress σx",
+        "tr": "Normal Gerilme σx",
         "de": "Normal Stress σx",
         "fr": "Normal Stress σx",
         "es": "Normal Stress σx",
         "ar": "Normal Stress σx"
+      },
+      "businessContext_i18n": {
+        "en": "Normal stress in x-direction",
+        "tr": "x yönündeki normal gerilme"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Normal stress in y-direction",
       "label_i18n": {
         "en": "Normal Stress σy",
-        "tr": "Normal Stress σy",
+        "tr": "Normal Gerilme σy",
         "de": "Normal Stress σy",
         "fr": "Normal Stress σy",
         "es": "Normal Stress σy",
         "ar": "Normal Stress σy"
+      },
+      "businessContext_i18n": {
+        "en": "Normal stress in y-direction",
+        "tr": "y yönündeki normal gerilme"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Shear stress on x-face in y-direction",
       "label_i18n": {
         "en": "Shear Stress τxy",
-        "tr": "Shear Stress τxy",
+        "tr": "Kayma Gerilmesi τxy",
         "de": "Shear Stress τxy",
         "fr": "Shear Stress τxy",
         "es": "Shear Stress τxy",
         "ar": "Shear Stress τxy"
+      },
+      "businessContext_i18n": {
+        "en": "Shear stress on x-face in y-direction",
+        "tr": "x yüzeyinde y yönündeki kayma gerilmesi"
       }
     }
   ],

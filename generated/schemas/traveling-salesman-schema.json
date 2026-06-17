@@ -10,11 +10,15 @@
       "businessContext": "Total number of cities to visit in the tour.",
       "label_i18n": {
         "en": "Number of Cities",
-        "tr": "Number of Cities",
+        "tr": "Şehir Sayısı",
         "de": "Number of Cities",
         "fr": "Number of Cities",
         "es": "Number of Cities",
         "ar": "Number of Cities"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of cities to visit in the tour.",
+        "tr": "Turda ziyaret edilecek toplam şehir sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average straight-line distance between any two cities.",
       "label_i18n": {
         "en": "Average Distance Between Cities",
-        "tr": "Average Distance Between Cities",
+        "tr": "Şehirler Arası Ortalama Mesafe",
         "de": "Average Distance Between Cities",
         "fr": "Average Distance Between Cities",
         "es": "Average Distance Between Cities",
         "ar": "Average Distance Between Cities"
+      },
+      "businessContext_i18n": {
+        "en": "Average straight-line distance between any two cities.",
+        "tr": "Herhangi iki şehir arasındaki ortalama kuş uçuşu mesafe."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard deviation of distances to model variability.",
       "label_i18n": {
         "en": "Distance Standard Deviation",
-        "tr": "Distance Standard Deviation",
+        "tr": "Mesafe Standart Sapması",
         "de": "Distance Standard Deviation",
         "fr": "Distance Standard Deviation",
         "es": "Distance Standard Deviation",
         "ar": "Distance Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of distances to model variability.",
+        "tr": "Değişkenliği modellemek için mesafelerin standart sapması."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average speed of the vehicle.",
       "label_i18n": {
         "en": "Travel Speed",
-        "tr": "Travel Speed",
+        "tr": "Seyahat Hızı",
         "de": "Travel Speed",
         "fr": "Travel Speed",
         "es": "Travel Speed",
         "ar": "Travel Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Average speed of the vehicle.",
+        "tr": "Aracın ortalama hızı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Operational cost per kilometer including fuel, maintenance, etc.",
       "label_i18n": {
         "en": "Cost per Kilometer",
-        "tr": "Cost per Kilometer",
+        "tr": "Kilometre Başına Maliyet",
         "de": "Cost per Kilometer",
         "fr": "Cost per Kilometer",
         "es": "Cost per Kilometer",
         "ar": "Cost per Kilometer"
+      },
+      "businessContext_i18n": {
+        "en": "Operational cost per kilometer including fuel, maintenance, etc.",
+        "tr": "Yakıt, bakım vb. dahil kilometre başına operasyonel maliyet."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Fixed cost incurred each time the vehicle stops at a city.",
       "label_i18n": {
         "en": "Fixed Cost per Stop",
-        "tr": "Fixed Cost per Stop",
+        "tr": "Durak Başına Sabit Maliyet",
         "de": "Fixed Cost per Stop",
         "fr": "Fixed Cost per Stop",
         "es": "Fixed Cost per Stop",
         "ar": "Fixed Cost per Stop"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed cost incurred each time the vehicle stops at a city.",
+        "tr": "Aracın bir şehirde durduğunda oluşan sabit maliyet."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of vehicles available for the tour.",
       "label_i18n": {
         "en": "Number of Vehicles",
-        "tr": "Number of Vehicles",
+        "tr": "Araç Sayısı",
         "de": "Number of Vehicles",
         "fr": "Number of Vehicles",
         "es": "Number of Vehicles",
         "ar": "Number of Vehicles"
+      },
+      "businessContext_i18n": {
+        "en": "Number of vehicles available for the tour.",
+        "tr": "Tur için mevcut araç sayısı."
       }
     }
   ],

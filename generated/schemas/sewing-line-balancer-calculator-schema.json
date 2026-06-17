@@ -19,10 +19,12 @@
       "max": 36000,
       "businessContext": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement).",
       "label_i18n": {
-        "en": "Total Work Content (TWC)"
+        "en": "Total Work Content (TWC)",
+        "tr": "Toplam İş İçeriği (TWC)"
       },
       "businessContext_i18n": {
-        "en": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement)."
+        "en": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement).",
+        "tr": "Dikiş hattındaki operasyonlar için tüm standart sürelerin toplamı (ISO 9001 zaman ölçümü)."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 200,
       "businessContext": "Total direct labor assigned to the line.",
       "label_i18n": {
-        "en": "Number of Operators"
+        "en": "Number of Operators",
+        "tr": "Operatör Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total direct labor assigned to the line."
+        "en": "Total direct labor assigned to the line.",
+        "tr": "Hatta atanan toplam direkt işgücü."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 600,
       "businessContext": "Customer demand rate: available production time divided by required output (Lean manufacturing).",
       "label_i18n": {
-        "en": "Takt Time"
+        "en": "Takt Time",
+        "tr": "Takt Süresi"
       },
       "businessContext_i18n": {
-        "en": "Customer demand rate: available production time divided by required output (Lean manufacturing)."
+        "en": "Customer demand rate: available production time divided by required output (Lean manufacturing).",
+        "tr": "Müşteri talep hızı: mevcut üretim süresinin gerekli çıktıya bölünmesi (Yalın üretim)."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 600,
       "businessContext": "Longest operation time among all stations (Theory of Constraints).",
       "label_i18n": {
-        "en": "Bottleneck Station Time"
+        "en": "Bottleneck Station Time",
+        "tr": "Darboğaz İstasyon Süresi"
       },
       "businessContext_i18n": {
-        "en": "Longest operation time among all stations (Theory of Constraints)."
+        "en": "Longest operation time among all stations (Theory of Constraints).",
+        "tr": "Tüm istasyonlar arasındaki en uzun operasyon süresi (Kısıtlar Teorisi)."
       }
     },
     {
@@ -88,10 +96,12 @@
         "modular"
       ],
       "label_i18n": {
-        "en": "Line Balance Type"
+        "en": "Line Balance Type",
+        "tr": "Hat Dengeleme Türü"
       },
       "businessContext_i18n": {
-        "en": "Configuration of the sewing line: straight, U-shape, or modular (Lean layout principles)."
+        "en": "Configuration of the sewing line: straight, U-shape, or modular (Lean layout principles).",
+        "tr": "Dikiş hattının konfigürasyonu: düz, U-şekilli veya modüler (Yalın yerleşim prensipleri)."
       }
     },
     {
@@ -104,10 +114,12 @@
       "max": null,
       "businessContext": "If true, the tool will suggest operator reassignment to improve balance.",
       "label_i18n": {
-        "en": "Allow Rebalancing"
+        "en": "Allow Rebalancing",
+        "tr": "Yeniden Dengelemeye İzin Ver"
       },
       "businessContext_i18n": {
-        "en": "If true, the tool will suggest operator reassignment to improve balance."
+        "en": "If true, the tool will suggest operator reassignment to improve balance.",
+        "tr": "Doğruysa, araç dengeyi iyileştirmek için operatör yeniden ataması önerecektir."
       }
     }
   ],

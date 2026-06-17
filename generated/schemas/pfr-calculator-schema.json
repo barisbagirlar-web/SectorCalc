@@ -10,11 +10,15 @@
       "businessContext": "First-order reaction rate constant",
       "label_i18n": {
         "en": "Rate Constant (k)",
-        "tr": "Rate Constant (k)",
+        "tr": "Hız Sabiti (k)",
         "de": "Rate Constant (k)",
         "fr": "Rate Constant (k)",
         "es": "Rate Constant (k)",
         "ar": "Rate Constant (k)"
+      },
+      "businessContext_i18n": {
+        "en": "First-order reaction rate constant",
+        "tr": "Birinci dereceden reaksiyon hız sabiti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired fractional conversion of reactant A",
       "label_i18n": {
         "en": "Conversion (X)",
-        "tr": "Conversion (X)",
+        "tr": "Dönüşüm (X)",
         "de": "Conversion (X)",
         "fr": "Conversion (X)",
         "es": "Conversion (X)",
         "ar": "Conversion (X)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired fractional conversion of reactant A",
+        "tr": "A reaktanının istenen dönüşüm kesri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Molar concentration of A in feed",
       "label_i18n": {
         "en": "Inlet Concentration (Cₐ₀)",
-        "tr": "Inlet Concentration (Cₐ₀)",
+        "tr": "Giriş Derişimi (Cₐ₀)",
         "de": "Inlet Concentration (Cₐ₀)",
         "fr": "Inlet Concentration (Cₐ₀)",
         "es": "Inlet Concentration (Cₐ₀)",
         "ar": "Inlet Concentration (Cₐ₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Molar concentration of A in feed",
+        "tr": "A'nın beslemedeki molar derişimi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Inlet volumetric flow rate",
       "label_i18n": {
         "en": "Volumetric Flow Rate (v₀)",
-        "tr": "Volumetric Flow Rate (v₀)",
+        "tr": "Hacimsel Akış Hızı (v₀)",
         "de": "Volumetric Flow Rate (v₀)",
         "fr": "Volumetric Flow Rate (v₀)",
         "es": "Volumetric Flow Rate (v₀)",
         "ar": "Volumetric Flow Rate (v₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Inlet volumetric flow rate",
+        "tr": "Giriş hacimsel akış hızı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Design margin to account for uncertainties",
       "label_i18n": {
         "en": "Safety Factor (SF)",
-        "tr": "Safety Factor (SF)",
+        "tr": "Güvenlik Faktörü (SF)",
         "de": "Safety Factor (SF)",
         "fr": "Safety Factor (SF)",
         "es": "Safety Factor (SF)",
         "ar": "Safety Factor (SF)"
+      },
+      "businessContext_i18n": {
+        "en": "Design margin to account for uncertainties",
+        "tr": "Belirsizlikleri hesaba katmak için tasarım marjı"
       }
     }
   ],

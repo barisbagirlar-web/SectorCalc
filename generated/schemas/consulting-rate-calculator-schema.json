@@ -10,11 +10,15 @@
       "businessContext": "The base daily rate charged by the consultant.",
       "label_i18n": {
         "en": "Consultant Daily Rate",
-        "tr": "Consultant Daily Rate",
+        "tr": "Danışman Günlük Ücreti",
         "de": "Consultant Daily Rate",
         "fr": "Consultant Daily Rate",
         "es": "Consultant Daily Rate",
         "ar": "Consultant Daily Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The base daily rate charged by the consultant.",
+        "tr": "Danışman tarafından talep edilen temel günlük ücret."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage added to cover administrative and operational overhead costs.",
       "label_i18n": {
         "en": "Overhead Percentage",
-        "tr": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi",
         "de": "Overhead Percentage",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage added to cover administrative and operational overhead costs.",
+        "tr": "İdari ve operasyonel genel gider maliyetlerini karşılamak için eklenen yüzde."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Target net profit margin desired on top of all costs.",
       "label_i18n": {
         "en": "Profit Margin Percentage",
-        "tr": "Profit Margin Percentage",
+        "tr": "Kâr Marjı Yüzdesi",
         "de": "Profit Margin Percentage",
         "fr": "Profit Margin Percentage",
         "es": "Profit Margin Percentage",
         "ar": "Profit Margin Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Target net profit margin desired on top of all costs.",
+        "tr": "Tüm maliyetlerin üzerinde hedeflenen net kâr marjı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of working days for the consulting engagement.",
       "label_i18n": {
         "en": "Days Worked",
-        "tr": "Days Worked",
+        "tr": "Çalışılan Gün Sayısı",
         "de": "Days Worked",
         "fr": "Days Worked",
         "es": "Days Worked",
         "ar": "Days Worked"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of working days for the consulting engagement.",
+        "tr": "Danışmanlık sözleşmesi için toplam çalışma günü sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Any extra reimbursable expenses such as travel, accommodation, or materials.",
       "label_i18n": {
         "en": "Additional Expenses",
-        "tr": "Additional Expenses",
+        "tr": "Ek Giderler",
         "de": "Additional Expenses",
         "fr": "Additional Expenses",
         "es": "Additional Expenses",
         "ar": "Additional Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Any extra reimbursable expenses such as travel, accommodation, or materials.",
+        "tr": "Seyahat, konaklama veya malzeme gibi geri ödenebilir ekstra masraflar."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "VAT or other applicable consumption tax rate on the final invoice amount.",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "VAT or other applicable consumption tax rate on the final invoice amount.",
+        "tr": "Nihai fatura tutarı üzerinden KDV veya uygulanabilir diğer tüketim vergisi oranı."
       }
     }
   ],

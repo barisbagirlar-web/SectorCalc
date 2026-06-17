@@ -21,10 +21,12 @@
       "max": 10000000,
       "businessContext": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock.",
       "label_i18n": {
-        "en": "Annual Demand (units)"
+        "en": "Annual Demand (units)",
+        "tr": "Yıllık Talep (birim)"
       },
       "businessContext_i18n": {
-        "en": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock."
+        "en": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock.",
+        "tr": "SKU için bir yıllık toplam tahmini talep. Sipariş sıklığı ve döngü stoku hesaplamak için kullanılır."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000,
       "businessContext": "Fixed cost per purchase order (setup, administrative, freight). Influences EOQ and total logistics cost.",
       "label_i18n": {
-        "en": "Ordering Cost per Order ($)"
+        "en": "Ordering Cost per Order ($)",
+        "tr": "Sipariş Başına Sipariş Maliyeti ($)"
       },
       "businessContext_i18n": {
-        "en": "Fixed cost per purchase order (setup, administrative, freight). Influences EOQ and total logistics cost."
+        "en": "Fixed cost per purchase order (setup, administrative, freight). Influences EOQ and total logistics cost.",
+        "tr": "Satın alma siparişi başına sabit maliyet (kurulum, idari, navlun). EOQ ve toplam lojistik maliyetini etkiler."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1000,
       "businessContext": "Cost to hold one unit in inventory for one year (storage, insurance, obsolescence). Key for inventory carrying cost.",
       "label_i18n": {
-        "en": "Holding Cost per Unit per Year ($)"
+        "en": "Holding Cost per Unit per Year ($)",
+        "tr": "Birim Başına Yıllık Elde Tutma Maliyeti ($)"
       },
       "businessContext_i18n": {
-        "en": "Cost to hold one unit in inventory for one year (storage, insurance, obsolescence). Key for inventory carrying cost."
+        "en": "Cost to hold one unit in inventory for one year (storage, insurance, obsolescence). Key for inventory carrying cost.",
+        "tr": "Bir birimi bir yıl boyunca stokta tutma maliyeti (depolama, sigorta, eskime). Stok taşıma maliyeti için anahtar."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100000,
       "businessContext": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact.",
       "label_i18n": {
-        "en": "Unit Cost ($)"
+        "en": "Unit Cost ($)",
+        "tr": "Birim Maliyet ($)"
       },
       "businessContext_i18n": {
-        "en": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact."
+        "en": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact.",
+        "tr": "Tedarikçiden birim başına satın alma maliyeti. Toplam maliyet hesaplamalarında ve MOQ finansal etkisinde kullanılır."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 1000000,
       "businessContext": "Supplier-imposed minimum batch size. If EOQ < MOQ, order quantity must be adjusted upward, increasing holding cost.",
       "label_i18n": {
-        "en": "Minimum Order Quantity (units)"
+        "en": "Minimum Order Quantity (units)",
+        "tr": "Minimum Sipariş Miktarı (birim)"
       },
       "businessContext_i18n": {
-        "en": "Supplier-imposed minimum batch size. If EOQ < MOQ, order quantity must be adjusted upward, increasing holding cost."
+        "en": "Supplier-imposed minimum batch size. If EOQ < MOQ, order quantity must be adjusted upward, increasing holding cost.",
+        "tr": "Tedarikçi tarafından uygulanan minimum parti büyüklüğü. EOQ < MOQ ise sipariş miktarı yukarı ayarlanmalı, elde tutma maliyeti artar."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 365,
       "businessContext": "Time from order placement to receipt. Used for safety stock calculation and reorder point.",
       "label_i18n": {
-        "en": "Lead Time (days)"
+        "en": "Lead Time (days)",
+        "tr": "Teslim Süresi (gün)"
       },
       "businessContext_i18n": {
-        "en": "Time from order placement to receipt. Used for safety stock calculation and reorder point."
+        "en": "Time from order placement to receipt. Used for safety stock calculation and reorder point.",
+        "tr": "Sipariş verme ile teslim alma arasındaki süre. Emniyet stoğu hesaplaması ve yeniden sipariş noktası için kullanılır."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 10000,
       "businessContext": "Daily demand variability. Critical for safety stock under Six Sigma service levels.",
       "label_i18n": {
-        "en": "Demand Standard Deviation (units/day)"
+        "en": "Demand Standard Deviation (units/day)",
+        "tr": "Talep Standart Sapması (birim/gün)"
       },
       "businessContext_i18n": {
-        "en": "Daily demand variability. Critical for safety stock under Six Sigma service levels."
+        "en": "Daily demand variability. Critical for safety stock under Six Sigma service levels.",
+        "tr": "Günlük talep değişkenliği. Altı Sigma hizmet seviyelerinde emniyet stoğu için kritiktir."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 99.99,
       "businessContext": "Desired probability of not stocking out during lead time. Used to derive z-score for safety stock.",
       "label_i18n": {
-        "en": "Service Level (%)"
+        "en": "Service Level (%)",
+        "tr": "Hizmet Seviyesi (%)"
       },
       "businessContext_i18n": {
-        "en": "Desired probability of not stocking out during lead time. Used to derive z-score for safety stock."
+        "en": "Desired probability of not stocking out during lead time. Used to derive z-score for safety stock.",
+        "tr": "Teslim süresi boyunca stokta kalmama olasılığı. Emniyet stoğu için z-skoru türetmek için kullanılır."
       }
     }
   ],

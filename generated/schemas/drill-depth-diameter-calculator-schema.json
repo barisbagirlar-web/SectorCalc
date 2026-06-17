@@ -10,11 +10,15 @@
       "businessContext": "Diameter of the drill bit",
       "label_i18n": {
         "en": "Drill Diameter",
-        "tr": "Drill Diameter",
+        "tr": "Matkap Çapı",
         "de": "Drill Diameter",
         "fr": "Drill Diameter",
         "es": "Drill Diameter",
         "ar": "Drill Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the drill bit",
+        "tr": "Matkap ucunun çapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Hole depth to be drilled",
       "label_i18n": {
         "en": "Drill Depth",
-        "tr": "Drill Depth",
+        "tr": "Matkap Derinliği",
         "de": "Drill Depth",
         "fr": "Drill Depth",
         "es": "Drill Depth",
         "ar": "Drill Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Hole depth to be drilled",
+        "tr": "Delik derinliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Spindle rotation speed",
       "label_i18n": {
         "en": "Rotation Speed",
-        "tr": "Rotation Speed",
+        "tr": "Dönüş Hızı",
         "de": "Rotation Speed",
         "fr": "Rotation Speed",
         "es": "Rotation Speed",
         "ar": "Rotation Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Spindle rotation speed",
+        "tr": "İş mili dönüş hızı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Feed per revolution",
       "label_i18n": {
         "en": "Feed Rate",
-        "tr": "Feed Rate",
+        "tr": "İlerleme Hızı",
         "de": "Feed Rate",
         "fr": "Feed Rate",
         "es": "Feed Rate",
         "ar": "Feed Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Feed per revolution",
+        "tr": "Devir Başına İlerleme"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Material-specific power coefficient",
       "label_i18n": {
         "en": "Material Factor",
-        "tr": "Material Factor",
+        "tr": "Malzeme Faktörü",
         "de": "Material Factor",
         "fr": "Material Factor",
         "es": "Material Factor",
         "ar": "Material Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Material-specific power coefficient",
+        "tr": "Malzemeye özgü güç katsayısı"
       }
     }
   ],

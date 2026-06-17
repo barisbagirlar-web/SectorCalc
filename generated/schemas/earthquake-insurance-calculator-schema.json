@@ -15,6 +15,10 @@
         "fr": "Bina Değeri (TL)",
         "es": "Bina Değeri (TL)",
         "ar": "Bina Değeri (TL)"
+      },
+      "businessContext_i18n": {
+        "en": "Sigorta edilecek binanın toplam değeri",
+        "tr": "Sigorta edilecek binanın toplam değeri"
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Deprem Bölgesi Katsayısı",
         "es": "Deprem Bölgesi Katsayısı",
         "ar": "Deprem Bölgesi Katsayısı"
+      },
+      "businessContext_i18n": {
+        "en": "Binanın bulunduğu deprem bölgesine göre risk katsayısı (0.5-2.0)",
+        "tr": "Binanın bulunduğu deprem bölgesine göre risk katsayısı (0.5-2.0)"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Yapı Tipi Katsayısı",
         "es": "Yapı Tipi Katsayısı",
         "ar": "Yapı Tipi Katsayısı"
+      },
+      "businessContext_i18n": {
+        "en": "Binanın yapı malzemesi ve taşıyıcı sistemine göre risk katsayısı (betonarme=1.0, çelik=0.8, ahşap=1.5, vs.)",
+        "tr": "Binanın yapı malzemesi ve taşıyıcı sistemine göre risk katsayısı (betonarme=1.0, çelik=0.8, ahşap=1.5, vs.)"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Bina Yaşı (yıl)",
         "es": "Bina Yaşı (yıl)",
         "ar": "Bina Yaşı (yıl)"
+      },
+      "businessContext_i18n": {
+        "en": "Binanın yaşı, yıpranma ve dayanıklılık faktörüne etki eder",
+        "tr": "Binanın yaşı, yıpranma ve dayanıklılık faktörüne etki eder"
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "Muafiyet Oranı (%)",
         "es": "Muafiyet Oranı (%)",
         "ar": "Muafiyet Oranı (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Hasar durumunda sigortalının karşılayacağı oran, prim indirimine yansır",
+        "tr": "Hasar durumunda sigortalının karşılayacağı oran, prim indirimine yansır"
       }
     }
   ],

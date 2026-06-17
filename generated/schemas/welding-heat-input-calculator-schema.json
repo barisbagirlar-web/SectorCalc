@@ -10,11 +10,15 @@
       "businessContext": "Arc voltage during welding, measured at the power source terminals. Affects total energy input.",
       "label_i18n": {
         "en": "Voltage",
-        "tr": "Voltage",
+        "tr": "Voltaj",
         "de": "Voltage",
         "fr": "Voltage",
         "es": "Voltage",
         "ar": "Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Arc voltage during welding, measured at the power source terminals. Affects total energy input.",
+        "tr": "Kaynak sırasında güç kaynağı terminallerinde ölçülen ark voltajı. Toplam enerji girdisini etkiler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Welding current, typically measured with a clamp meter. Higher current increases heat input.",
       "label_i18n": {
         "en": "Current",
-        "tr": "Current",
+        "tr": "Akım",
         "de": "Current",
         "fr": "Current",
         "es": "Current",
         "ar": "Current"
+      },
+      "businessContext_i18n": {
+        "en": "Welding current, typically measured with a clamp meter. Higher current increases heat input.",
+        "tr": "Kaynak akımı, tipik olarak bir pens ampermetre ile ölçülür. Yüksek akım, birim uzunluk başına ısı girdisini artırır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Speed of the welding torch along the joint. Faster speeds reduce heat input per unit length.",
       "label_i18n": {
         "en": "Travel Speed",
-        "tr": "Travel Speed",
+        "tr": "Seyahat Hızı",
         "de": "Travel Speed",
         "fr": "Travel Speed",
         "es": "Travel Speed",
         "ar": "Travel Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of the welding torch along the joint. Faster speeds reduce heat input per unit length.",
+        "tr": "Kaynak torcunun birleşme hattı boyunca hızı. Daha yüksek hızlar birim uzunluk başına ısı girdisini azaltır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Thermal efficiency factor of the welding process (e.g., 0.8 for SMAW, 0.9 for GMAW, 1.0 for SAW).",
       "label_i18n": {
         "en": "Arc Efficiency",
-        "tr": "Arc Efficiency",
+        "tr": "Ark Verimliliği",
         "de": "Arc Efficiency",
         "fr": "Arc Efficiency",
         "es": "Arc Efficiency",
         "ar": "Arc Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Thermal efficiency factor of the welding process (e.g., 0.8 for SMAW, 0.9 for GMAW, 1.0 for SAW).",
+        "tr": "Kaynak prosesinin termal verimlilik faktörü (örn. SMAW için 0.8, GMAW için 0.9, SAW için 1.0)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Current time expressed in minutes since midnight (0-1439).",
       "label_i18n": {
         "en": "Current Time (minutes past midnight)",
-        "tr": "Current Time (minutes past midnight)",
+        "tr": "Geçerli Saat (gece yarısından itibaren dakika)",
         "de": "Current Time (minutes past midnight)",
         "fr": "Current Time (minutes past midnight)",
         "es": "Current Time (minutes past midnight)",
         "ar": "Current Time (minutes past midnight)"
+      },
+      "businessContext_i18n": {
+        "en": "Current time expressed in minutes since midnight (0-1439).",
+        "tr": "Gece yarısından itibaren dakika cinsinden geçerli saat (0-1439)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Latest time by which you must be awake, in minutes since midnight.",
       "label_i18n": {
         "en": "Deadline Wake-Up Time (minutes past midnight)",
-        "tr": "Deadline Wake-Up Time (minutes past midnight)",
+        "tr": "Son Uyanma Saati (gece yarısından itibaren dakika)",
         "de": "Deadline Wake-Up Time (minutes past midnight)",
         "fr": "Deadline Wake-Up Time (minutes past midnight)",
         "es": "Deadline Wake-Up Time (minutes past midnight)",
         "ar": "Deadline Wake-Up Time (minutes past midnight)"
+      },
+      "businessContext_i18n": {
+        "en": "Latest time by which you must be awake, in minutes since midnight.",
+        "tr": "Uyanık olmanız gereken en son saat, gece yarısından itibaren dakika cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Estimated minutes needed to fall asleep after lying down.",
       "label_i18n": {
         "en": "Time to Fall Asleep",
-        "tr": "Time to Fall Asleep",
+        "tr": "Uykuya Dalma Süresi",
         "de": "Time to Fall Asleep",
         "fr": "Time to Fall Asleep",
         "es": "Time to Fall Asleep",
         "ar": "Time to Fall Asleep"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated minutes needed to fall asleep after lying down.",
+        "tr": "Yattıktan sonra uykuya dalmak için gereken tahmini dakika."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Subjective goal for post-nap alertness; 10 = maximum revitalization.",
       "label_i18n": {
         "en": "Desired Nap Quality (1-10)",
-        "tr": "Desired Nap Quality (1-10)",
+        "tr": "İstenen Şekerleme Kalitesi (1-10)",
         "de": "Desired Nap Quality (1-10)",
         "fr": "Desired Nap Quality (1-10)",
         "es": "Desired Nap Quality (1-10)",
         "ar": "Desired Nap Quality (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective goal for post-nap alertness; 10 = maximum revitalization.",
+        "tr": "Şekerleme sonrası uyanıklık için subjektif hedef; 10 = maksimum canlanma."
       }
     }
   ],

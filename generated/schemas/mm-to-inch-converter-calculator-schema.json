@@ -21,10 +21,12 @@
       "max": 100000,
       "businessContext": "The linear dimension to be converted from millimeters to inches. Typical range for industrial parts: 0.1 mm to 10,000 mm.",
       "label_i18n": {
-        "en": "Value in Millimeters"
+        "en": "Value in Millimeters",
+        "tr": "Milimetre cinsinden değer"
       },
       "businessContext_i18n": {
-        "en": "The linear dimension to be converted from millimeters to inches. Typical range for industrial parts: 0.1 mm to 10,000 mm."
+        "en": "The linear dimension to be converted from millimeters to inches. Typical range for industrial parts: 0.1 mm to 10,000 mm.",
+        "tr": "Milimetreden inçe dönüştürülecek doğrusal boyut. Endüstriyel parçalar için tipik aralık: 0,1 mm - 10.000 mm."
       }
     },
     {
@@ -46,10 +48,12 @@
       ],
       "businessContext": "Number of decimal places for the inch result. ISO 2768-m standard suggests 2-4 decimals for general tolerances.",
       "label_i18n": {
-        "en": "Decimal Precision"
+        "en": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet"
       },
       "businessContext_i18n": {
-        "en": "Number of decimal places for the inch result. ISO 2768-m standard suggests 2-4 decimals for general tolerances."
+        "en": "Number of decimal places for the inch result. ISO 2768-m standard suggests 2-4 decimals for general tolerances.",
+        "tr": "İnç sonucu için ondalık basamak sayısı. ISO 2768-m standardı genel toleranslar için 2-4 ondalık basamak önerir."
       }
     },
     {
@@ -62,10 +66,12 @@
       "max": 10,
       "businessContext": "Manufacturing tolerance in millimeters. Used to compute tolerance in inches and assess quality thresholds.",
       "label_i18n": {
-        "en": "Tolerance (mm)"
+        "en": "Tolerance (mm)",
+        "tr": "Tolerans (mm)"
       },
       "businessContext_i18n": {
-        "en": "Manufacturing tolerance in millimeters. Used to compute tolerance in inches and assess quality thresholds."
+        "en": "Manufacturing tolerance in millimeters. Used to compute tolerance in inches and assess quality thresholds.",
+        "tr": "Milimetre cinsinden üretim toleransı. İnç cinsinden toleransı hesaplamak ve kalite eşiklerini değerlendirmek için kullanılır."
       }
     },
     {
@@ -80,10 +86,12 @@
       ],
       "businessContext": "Select the output unit system. Imperial outputs inches; metric outputs millimeters (for cross-check).",
       "label_i18n": {
-        "en": "Target Unit System"
+        "en": "Target Unit System",
+        "tr": "Hedef Birim Sistemi"
       },
       "businessContext_i18n": {
-        "en": "Select the output unit system. Imperial outputs inches; metric outputs millimeters (for cross-check)."
+        "en": "Select the output unit system. Imperial outputs inches; metric outputs millimeters (for cross-check).",
+        "tr": "Çıktı birim sistemini seçin. Imperial inç çıktısı verir; metrik milimetre çıktısı verir (çapraz kontrol için)."
       }
     },
     {
@@ -94,10 +102,12 @@
       "default": false,
       "businessContext": "If true, applies a 1.5 sigma shift to account for process drift (Six Sigma DMAIC methodology).",
       "label_i18n": {
-        "en": "Apply Six Sigma Adjustment"
+        "en": "Apply Six Sigma Adjustment",
+        "tr": "Altı Sigma Ayarlamasını Uygula"
       },
       "businessContext_i18n": {
-        "en": "If true, applies a 1.5 sigma shift to account for process drift (Six Sigma DMAIC methodology)."
+        "en": "If true, applies a 1.5 sigma shift to account for process drift (Six Sigma DMAIC methodology).",
+        "tr": "Doğruysa, proses kaymasını hesaba katmak için 1,5 sigma kayması uygular (Altı Sigma DMAIC metodolojisi)."
       }
     }
   ],

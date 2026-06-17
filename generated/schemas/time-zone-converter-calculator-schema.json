@@ -10,11 +10,15 @@
       "businessContext": "Hour component of the source time.",
       "label_i18n": {
         "en": "Source Hour (0-23)",
-        "tr": "Source Hour (0-23)",
+        "tr": "Kaynak Saat (0-23)",
         "de": "Source Hour (0-23)",
         "fr": "Source Hour (0-23)",
         "es": "Source Hour (0-23)",
         "ar": "Source Hour (0-23)"
+      },
+      "businessContext_i18n": {
+        "en": "Hour component of the source time.",
+        "tr": "Kaynak zamanın saat bileşeni."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Minute component of the source time.",
       "label_i18n": {
         "en": "Source Minutes (0-59)",
-        "tr": "Source Minutes (0-59)",
+        "tr": "Kaynak Dakika (0-59)",
         "de": "Source Minutes (0-59)",
         "fr": "Source Minutes (0-59)",
         "es": "Source Minutes (0-59)",
         "ar": "Source Minutes (0-59)"
+      },
+      "businessContext_i18n": {
+        "en": "Minute component of the source time.",
+        "tr": "Kaynak zamanın dakika bileşeni."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Hour offset of source timezone from UTC (e.g., -5 for EST).",
       "label_i18n": {
         "en": "Source UTC Offset Hours",
-        "tr": "Source UTC Offset Hours",
+        "tr": "Kaynak UTC Farkı Saat",
         "de": "Source UTC Offset Hours",
         "fr": "Source UTC Offset Hours",
         "es": "Source UTC Offset Hours",
         "ar": "Source UTC Offset Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Hour offset of source timezone from UTC (e.g., -5 for EST).",
+        "tr": "Kaynak saat diliminin UTC'den saat farkı (örneğin, EST için -5)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional minute offset of source timezone from UTC.",
       "label_i18n": {
         "en": "Source UTC Offset Minutes",
-        "tr": "Source UTC Offset Minutes",
+        "tr": "Kaynak UTC Farkı Dakika",
         "de": "Source UTC Offset Minutes",
         "fr": "Source UTC Offset Minutes",
         "es": "Source UTC Offset Minutes",
         "ar": "Source UTC Offset Minutes"
+      },
+      "businessContext_i18n": {
+        "en": "Additional minute offset of source timezone from UTC.",
+        "tr": "Kaynak saat diliminin UTC'den ek dakika farkı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Hour offset of target timezone from UTC (e.g., 3 for EAT).",
       "label_i18n": {
         "en": "Target UTC Offset Hours",
-        "tr": "Target UTC Offset Hours",
+        "tr": "Hedef UTC Farkı Saat",
         "de": "Target UTC Offset Hours",
         "fr": "Target UTC Offset Hours",
         "es": "Target UTC Offset Hours",
         "ar": "Target UTC Offset Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Hour offset of target timezone from UTC (e.g., 3 for EAT).",
+        "tr": "Hedef saat diliminin UTC'den saat farkı (örneğin, EAT için 3)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional minute offset of target timezone from UTC.",
       "label_i18n": {
         "en": "Target UTC Offset Minutes",
-        "tr": "Target UTC Offset Minutes",
+        "tr": "Hedef UTC Farkı Dakika",
         "de": "Target UTC Offset Minutes",
         "fr": "Target UTC Offset Minutes",
         "es": "Target UTC Offset Minutes",
         "ar": "Target UTC Offset Minutes"
+      },
+      "businessContext_i18n": {
+        "en": "Additional minute offset of target timezone from UTC.",
+        "tr": "Hedef saat diliminin UTC'den ek dakika farkı."
       }
     }
   ],

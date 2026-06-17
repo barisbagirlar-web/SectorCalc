@@ -10,11 +10,15 @@
       "businessContext": "Total sales amount before fees",
       "label_i18n": {
         "en": "Transaction Amount",
-        "tr": "Transaction Amount",
+        "tr": "İşlem Tutarı",
         "de": "Transaction Amount",
         "fr": "Transaction Amount",
         "es": "Transaction Amount",
         "ar": "Transaction Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total sales amount before fees",
+        "tr": "Ücretler öncesi toplam satış tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage fee charged by payment processor",
       "label_i18n": {
         "en": "Fee Percentage",
-        "tr": "Fee Percentage",
+        "tr": "Ücret Yüzdesi",
         "de": "Fee Percentage",
         "fr": "Fee Percentage",
         "es": "Fee Percentage",
         "ar": "Fee Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage fee charged by payment processor",
+        "tr": "Ödeme işlemcisi tarafından alınan yüzde ücret"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fixed transaction fee per transaction",
       "label_i18n": {
         "en": "Fixed Fee",
-        "tr": "Fixed Fee",
+        "tr": "Sabit Ücret",
         "de": "Fixed Fee",
         "fr": "Fixed Fee",
         "es": "Fixed Fee",
         "ar": "Fixed Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed transaction fee per transaction",
+        "tr": "İşlem başına sabit işlem ücreti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Tax rate applied on the fee amount",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate applied on the fee amount",
+        "tr": "Ücret tutarına uygulanan vergi oranı"
       }
     }
   ],

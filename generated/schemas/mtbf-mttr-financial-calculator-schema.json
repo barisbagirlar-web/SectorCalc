@@ -22,10 +22,12 @@
       "max": 8760,
       "businessContext": "Total planned operating hours of the equipment per year. Used to calculate failure frequency and downtime.",
       "label_i18n": {
-        "en": "Operating Hours per Year"
+        "en": "Operating Hours per Year",
+        "tr": "Yıllık Çalışma Saati"
       },
       "businessContext_i18n": {
-        "en": "Total planned operating hours of the equipment per year. Used to calculate failure frequency and downtime."
+        "en": "Total planned operating hours of the equipment per year. Used to calculate failure frequency and downtime.",
+        "tr": "Ekipmanın yıllık planlanan toplam çalışma saati. Arıza sıklığı ve duruş süresini hesaplamak için kullanılır."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 10000,
       "businessContext": "Total number of identical or similar assets in the fleet.",
       "label_i18n": {
-        "en": "Number of Units"
+        "en": "Number of Units",
+        "tr": "Birim Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total number of identical or similar assets in the fleet."
+        "en": "Total number of identical or similar assets in the fleet.",
+        "tr": "Filotaki özdeş veya benzer varlıkların toplam sayısı."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 100000,
       "businessContext": "Average time between failures for a repairable system. Higher is better. ISO 14224.",
       "label_i18n": {
-        "en": "Mean Time Between Failures (MTBF)"
+        "en": "Mean Time Between Failures (MTBF)",
+        "tr": "Arızalar Arası Ortalama Süre (MTBF)"
       },
       "businessContext_i18n": {
-        "en": "Average time between failures for a repairable system. Higher is better. ISO 14224."
+        "en": "Average time between failures for a repairable system. Higher is better. ISO 14224.",
+        "tr": "Arızalar arası ortalama süre (MTBF). Daha yüksek daha iyidir. ISO 14224."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 1000,
       "businessContext": "Average time to restore a failed system to operational state. Lower is better. Includes diagnosis, repair, testing.",
       "label_i18n": {
-        "en": "Mean Time To Repair (MTTR)"
+        "en": "Mean Time To Repair (MTTR)",
+        "tr": "Ortalama onarım süresi (MTTR)"
       },
       "businessContext_i18n": {
-        "en": "Average time to restore a failed system to operational state. Lower is better. Includes diagnosis, repair, testing."
+        "en": "Average time to restore a failed system to operational state. Lower is better. Includes diagnosis, repair, testing.",
+        "tr": "Ortalama onarım süresi (MTTR). Daha düşük daha iyidir. Teşhis, onarım, test dahil."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 1000000,
       "businessContext": "Lost profit or cost incurred per hour of equipment downtime (lost production, labor, penalties).",
       "label_i18n": {
-        "en": "Cost per Downtime Hour"
+        "en": "Cost per Downtime Hour",
+        "tr": "Saat Başına Durma Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Lost profit or cost incurred per hour of equipment downtime (lost production, labor, penalties)."
+        "en": "Lost profit or cost incurred per hour of equipment downtime (lost production, labor, penalties).",
+        "tr": "Ekipman duruşu saat başına kaybedilen kar veya oluşan maliyet (kayıp üretim, işçilik, cezalar)."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 100000,
       "businessContext": "Fixed costs per failure: spare parts, logistics, contractor fees, administrative overhead.",
       "label_i18n": {
-        "en": "Cost per Failure Event (excluding downtime)"
+        "en": "Cost per Failure Event (excluding downtime)",
+        "tr": "Arıza Başına Maliyet (duruş hariç)"
       },
       "businessContext_i18n": {
-        "en": "Fixed costs per failure: spare parts, logistics, contractor fees, administrative overhead."
+        "en": "Fixed costs per failure: spare parts, logistics, contractor fees, administrative overhead.",
+        "tr": "Arıza başına sabit maliyetler: yedek parça, lojistik, yüklenici ücretleri, idari giderler."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 500,
       "businessContext": "Hourly cost of maintenance personnel (including overhead).",
       "label_i18n": {
-        "en": "Maintenance Labor Rate"
+        "en": "Maintenance Labor Rate",
+        "tr": "Bakım İşçilik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Hourly cost of maintenance personnel (including overhead)."
+        "en": "Hourly cost of maintenance personnel (including overhead).",
+        "tr": "Bakım personelinin saatlik maliyeti (genel giderler dahil)."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 10000000,
       "businessContext": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance).",
       "label_i18n": {
-        "en": "Reliability Improvement Investment (annual)"
+        "en": "Reliability Improvement Investment (annual)",
+        "tr": "Güvenilirlik İyileştirme Yatırımı (yıllık)"
       },
       "businessContext_i18n": {
-        "en": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance)."
+        "en": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance).",
+        "tr": "Güvenilirlik iyileştirme projelerine ayrılan yıllık bütçe (eğitim, yeniden tasarım, kestirimci bakım)."
       }
     }
   ],

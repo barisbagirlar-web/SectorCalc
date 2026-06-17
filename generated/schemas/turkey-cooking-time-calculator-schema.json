@@ -10,11 +10,15 @@
       "businessContext": "Net weight of the turkey before cooking, without giblets.",
       "label_i18n": {
         "en": "Turkey Weight",
-        "tr": "Turkey Weight",
+        "tr": "Hindi Ağırlığı",
         "de": "Turkey Weight",
         "fr": "Turkey Weight",
         "es": "Turkey Weight",
         "ar": "Turkey Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Net weight of the turkey before cooking, without giblets.",
+        "tr": "Pişirmeden önce hindinin sakatatsız net ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Set temperature of the oven. Standard roasting temperature is 175°C (350°F).",
       "label_i18n": {
         "en": "Oven Temperature",
-        "tr": "Oven Temperature",
+        "tr": "Fırın Sıcaklığı",
         "de": "Oven Temperature",
         "fr": "Oven Temperature",
         "es": "Oven Temperature",
         "ar": "Oven Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Set temperature of the oven. Standard roasting temperature is 175°C (350°F).",
+        "tr": "Fırının ayarlanan sıcaklığı. Standart kızartma sıcaklığı 175°C'dir (350°F)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Indicates whether the turkey cavity is filled with stuffing. Stuffed turkeys require longer cooking to ensure safe internal temperature.",
       "label_i18n": {
         "en": "Stuffed",
-        "tr": "Stuffed",
+        "tr": "Doldurulmuş",
         "de": "Stuffed",
         "fr": "Stuffed",
         "es": "Stuffed",
         "ar": "Stuffed"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether the turkey cavity is filled with stuffing. Stuffed turkeys require longer cooking to ensure safe internal temperature.",
+        "tr": "Hindi boşluğunun iç harçla doldurulup doldurulmadığını belirtir. Doldurulmuş hindiler, güvenli iç sıcaklığa ulaşmak için daha uzun pişirme süresi gerektirir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Initial temperature of the turkey. Typically refrigerated at 4°C.",
       "label_i18n": {
         "en": "Starting Temperature",
-        "tr": "Starting Temperature",
+        "tr": "Başlangıç Sıcaklığı",
         "de": "Starting Temperature",
         "fr": "Starting Temperature",
         "es": "Starting Temperature",
         "ar": "Starting Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Initial temperature of the turkey. Typically refrigerated at 4°C.",
+        "tr": "Hindinin başlangıç sıcaklığı. Genellikle 4°C'de soğutulur."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Width of the building (gable end span)",
       "label_i18n": {
         "en": "Building Width",
-        "tr": "Building Width",
+        "tr": "Bina Genişliği",
         "de": "Building Width",
         "fr": "Building Width",
         "es": "Building Width",
         "ar": "Building Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the building (gable end span)",
+        "tr": "Binanın genişliği (beşik duvar açıklığı)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of the building (ridge direction)",
       "label_i18n": {
         "en": "Building Length",
-        "tr": "Building Length",
+        "tr": "Bina Uzunluğu",
         "de": "Building Length",
         "fr": "Building Length",
         "es": "Building Length",
         "ar": "Building Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the building (ridge direction)",
+        "tr": "Binanın uzunluğu (mahya yönü)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle of roof slope from horizontal in degrees",
       "label_i18n": {
         "en": "Roof Pitch",
-        "tr": "Roof Pitch",
+        "tr": "Çatı Eğimi",
         "de": "Roof Pitch",
         "fr": "Roof Pitch",
         "es": "Roof Pitch",
         "ar": "Roof Pitch"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of roof slope from horizontal in degrees",
+        "tr": "Çatı eğiminin yataydan derece cinsinden açısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Horizontal projection of eaves beyond wall",
       "label_i18n": {
         "en": "Eave Overhang",
-        "tr": "Eave Overhang",
+        "tr": "Saçak çıkıntısı",
         "de": "Eave Overhang",
         "fr": "Eave Overhang",
         "es": "Eave Overhang",
         "ar": "Eave Overhang"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal projection of eaves beyond wall",
+        "tr": "Duvar ötesindeki saçağın yatay izdüşümü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Center-to-center distance between rafters",
       "label_i18n": {
         "en": "Rafter Spacing",
-        "tr": "Rafter Spacing",
+        "tr": "Kiriş aralığı",
         "de": "Rafter Spacing",
         "fr": "Rafter Spacing",
         "es": "Rafter Spacing",
         "ar": "Rafter Spacing"
+      },
+      "businessContext_i18n": {
+        "en": "Center-to-center distance between rafters",
+        "tr": "Kirişler arası merkezden merkeze mesafe"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional percentage for material waste",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage for material waste",
+        "tr": "Malzeme fire yüzdesi"
       }
     }
   ],

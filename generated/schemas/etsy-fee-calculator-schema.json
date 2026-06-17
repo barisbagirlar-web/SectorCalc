@@ -10,11 +10,15 @@
       "businessContext": "Selling price per item",
       "label_i18n": {
         "en": "Item Price (USD)",
-        "tr": "Item Price (USD)",
+        "tr": "Ürün Fiyatı (USD)",
         "de": "Item Price (USD)",
         "fr": "Item Price (USD)",
         "es": "Item Price (USD)",
         "ar": "Item Price (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Selling price per item",
+        "tr": "Ürün başına satış fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Shipping cost charged to buyer per item",
       "label_i18n": {
         "en": "Shipping Price (USD)",
-        "tr": "Shipping Price (USD)",
+        "tr": "Nakliye Fiyatı (USD)",
         "de": "Shipping Price (USD)",
         "fr": "Shipping Price (USD)",
         "es": "Shipping Price (USD)",
         "ar": "Shipping Price (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Shipping cost charged to buyer per item",
+        "tr": "Alıcıdan talep edilen ürün başına nakliye ücreti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of items sold",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items sold",
+        "tr": "Satılan ürün sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of goods sold per item",
       "label_i18n": {
         "en": "Item Cost (USD)",
-        "tr": "Item Cost (USD)",
+        "tr": "Ürün Maliyeti (USD)",
         "de": "Item Cost (USD)",
         "fr": "Item Cost (USD)",
         "es": "Item Cost (USD)",
         "ar": "Item Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of goods sold per item",
+        "tr": "Satılan malın birim maliyeti"
       }
     }
   ],

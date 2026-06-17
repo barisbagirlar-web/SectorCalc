@@ -10,11 +10,15 @@
       "businessContext": "Nominal line-to-line voltage from motor nameplate, typically 400 V for three-phase industrial motors.",
       "label_i18n": {
         "en": "Voltage (V)",
-        "tr": "Voltage (V)",
+        "tr": "Gerilim (V)",
         "de": "Voltage (V)",
         "fr": "Voltage (V)",
         "es": "Voltage (V)",
         "ar": "Voltage (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal line-to-line voltage from motor nameplate, typically 400 V for three-phase industrial motors.",
+        "tr": "Motor etiketinden anma hatlar arası gerilim, tipik olarak üç fazlı endüstriyel motorlar için 400 V."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Full-load amperage (FLA) from motor nameplate.",
       "label_i18n": {
         "en": "Current (A)",
-        "tr": "Current (A)",
+        "tr": "Akım (A)",
         "de": "Current (A)",
         "fr": "Current (A)",
         "es": "Current (A)",
         "ar": "Current (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Full-load amperage (FLA) from motor nameplate.",
+        "tr": "Motor etiketinden tam yük akımı (FLA)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Motor efficiency as a decimal fraction, e.g., 0.9 for 90% per ISO 1217 or manufacturer data.",
       "label_i18n": {
         "en": "Efficiency (decimal)",
-        "tr": "Efficiency (decimal)",
+        "tr": "Verim (ondalık)",
         "de": "Efficiency (decimal)",
         "fr": "Efficiency (decimal)",
         "es": "Efficiency (decimal)",
         "ar": "Efficiency (decimal)"
+      },
+      "businessContext_i18n": {
+        "en": "Motor efficiency as a decimal fraction, e.g., 0.9 for 90% per ISO 1217 or manufacturer data.",
+        "tr": "Motor verimi, ondalık kesir olarak, örn. ISO 1217 veya üretici verilerine göre %90 için 0,9."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Motor power factor under full load, typically 0.8–0.9 for induction motors.",
       "label_i18n": {
         "en": "Power Factor (decimal)",
-        "tr": "Power Factor (decimal)",
+        "tr": "Güç Faktörü (ondalık)",
         "de": "Power Factor (decimal)",
         "fr": "Power Factor (decimal)",
         "es": "Power Factor (decimal)",
         "ar": "Power Factor (decimal)"
+      },
+      "businessContext_i18n": {
+        "en": "Motor power factor under full load, typically 0.8–0.9 for induction motors.",
+        "tr": "Tam yükte motor güç faktörü, asenkron motorlar için tipik olarak 0,8–0,9."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1.0 for single-phase, √3 ≈ 1.732 for balanced three-phase. Default reflects common three-phase industrial supply.",
       "label_i18n": {
         "en": "Phase Factor",
-        "tr": "Phase Factor",
+        "tr": "Faz Faktörü",
         "de": "Phase Factor",
         "fr": "Phase Factor",
         "es": "Phase Factor",
         "ar": "Phase Factor"
+      },
+      "businessContext_i18n": {
+        "en": "1.0 for single-phase, √3 ≈ 1.732 for balanced three-phase. Default reflects common three-phase industrial supply.",
+        "tr": "Tek faz için 1,0, dengeli üç faz için √3 ≈ 1,732. Varsayılan, yaygın endüstriyel üç fazlı beslemeyi yansıtır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total energy produced by the system over the measurement period.",
       "label_i18n": {
         "en": "Total Energy Generated",
-        "tr": "Total Energy Generated",
+        "tr": "Üretilen Toplam Enerji",
         "de": "Total Energy Generated",
         "fr": "Total Energy Generated",
         "es": "Total Energy Generated",
         "ar": "Total Energy Generated"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy produced by the system over the measurement period.",
+        "tr": "Sistem tarafından ölçüm periyodu boyunca üretilen toplam enerji."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total energy utilized by core processes, excluding auxiliary systems.",
       "label_i18n": {
         "en": "Total Energy Consumed",
-        "tr": "Total Energy Consumed",
+        "tr": "Tüketilen Toplam Enerji",
         "de": "Total Energy Consumed",
         "fr": "Total Energy Consumed",
         "es": "Total Energy Consumed",
         "ar": "Total Energy Consumed"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy utilized by core processes, excluding auxiliary systems.",
+        "tr": "Yardımcı sistemler hariç, temel prosesler tarafından kullanılan toplam enerji."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of surplus energy lost during transmission and conversion.",
       "label_i18n": {
         "en": "Transmission Loss",
-        "tr": "Transmission Loss",
+        "tr": "İletim Kaybı",
         "de": "Transmission Loss",
         "fr": "Transmission Loss",
         "es": "Transmission Loss",
         "ar": "Transmission Loss"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of surplus energy lost during transmission and conversion.",
+        "tr": "İletim ve dönüşüm sırasında kaybedilen fazla enerjinin yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Efficiency of energy storage systems in recovering surplus energy.",
       "label_i18n": {
         "en": "Storage Efficiency",
-        "tr": "Storage Efficiency",
+        "tr": "Depolama Verimliliği",
         "de": "Storage Efficiency",
         "fr": "Storage Efficiency",
         "es": "Storage Efficiency",
         "ar": "Storage Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of energy storage systems in recovering surplus energy.",
+        "tr": "Enerji depolama sistemlerinin fazla enerjiyi geri kazanma verimliliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Energy consumed by auxiliary systems (e.g., cooling, controls).",
       "label_i18n": {
         "en": "Auxiliary Consumption",
-        "tr": "Auxiliary Consumption",
+        "tr": "Yardımcı Tüketim",
         "de": "Auxiliary Consumption",
         "fr": "Auxiliary Consumption",
         "es": "Auxiliary Consumption",
         "ar": "Auxiliary Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Energy consumed by auxiliary systems (e.g., cooling, controls).",
+        "tr": "Yardımcı sistemler (ör. soğutma, kontroller) tarafından tüketilen enerji."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Temperature in Celsius scale",
       "label_i18n": {
         "en": "Celsius",
-        "tr": "Celsius",
+        "tr": "Santigrat",
         "de": "Celsius",
         "fr": "Celsius",
         "es": "Celsius",
         "ar": "Celsius"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature in Celsius scale",
+        "tr": "Santigrat ölçeğinde sıcaklık"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for rounding",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding",
+        "tr": "Yuvarlama için ondalık basamak sayısı"
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

@@ -10,11 +10,15 @@
       "businessContext": "Length of the construction element",
       "label_i18n": {
         "en": "Length (m)",
-        "tr": "Length (m)",
+        "tr": "Uzunluk (m)",
         "de": "Length (m)",
         "fr": "Length (m)",
         "es": "Length (m)",
         "ar": "Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the construction element",
+        "tr": "İnşaat elemanının uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the construction element",
       "label_i18n": {
         "en": "Width (m)",
-        "tr": "Width (m)",
+        "tr": "Genişlik (m)",
         "de": "Width (m)",
         "fr": "Width (m)",
         "es": "Width (m)",
         "ar": "Width (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the construction element",
+        "tr": "İnşaat elemanının genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height of the construction element",
       "label_i18n": {
         "en": "Height (m)",
-        "tr": "Height (m)",
+        "tr": "Yükseklik (m)",
         "de": "Height (m)",
         "fr": "Height (m)",
         "es": "Height (m)",
         "ar": "Height (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the construction element",
+        "tr": "İnşaat elemanının yüksekliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Density of the construction material",
       "label_i18n": {
         "en": "Material Density (kg/m³)",
-        "tr": "Material Density (kg/m³)",
+        "tr": "Malzeme Yoğunluğu (kg/m³)",
         "de": "Material Density (kg/m³)",
         "fr": "Material Density (kg/m³)",
         "es": "Material Density (kg/m³)",
         "ar": "Material Density (kg/m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the construction material",
+        "tr": "İnşaat malzemesinin yoğunluğu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of material waste",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Waste Factor (%)",
+        "tr": "Fire Faktörü (%)",
         "de": "Waste Factor (%)",
         "fr": "Waste Factor (%)",
         "es": "Waste Factor (%)",
         "ar": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of material waste",
+        "tr": "Malzeme fire yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Hourly labor cost",
       "label_i18n": {
         "en": "Labor Rate (€/h)",
-        "tr": "Labor Rate (€/h)",
+        "tr": "İşçilik Ücreti (€/s)",
         "de": "Labor Rate (€/h)",
         "fr": "Labor Rate (€/h)",
         "es": "Labor Rate (€/h)",
         "ar": "Labor Rate (€/h)"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly labor cost",
+        "tr": "Saatlik işçilik maliyeti"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Total labor hours required",
       "label_i18n": {
         "en": "Labor Hours (h)",
-        "tr": "Labor Hours (h)",
+        "tr": "İşçilik Saati (s)",
         "de": "Labor Hours (h)",
         "fr": "Labor Hours (h)",
         "es": "Labor Hours (h)",
         "ar": "Labor Hours (h)"
+      },
+      "businessContext_i18n": {
+        "en": "Total labor hours required",
+        "tr": "Toplam işçilik saati gerekli"
       }
     }
   ],

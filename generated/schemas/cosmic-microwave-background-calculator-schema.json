@@ -10,11 +10,15 @@
       "businessContext": "Temperature of the CMB (default 2.725 K)",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the CMB (default 2.725 K)",
+        "tr": "Kozmik Mikrodalga Arka Plan (CMB) sıcaklığı (varsayılan 2.725 K)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Observation frequency (peak of CMB is ~160.2 GHz)",
       "label_i18n": {
         "en": "Frequency",
-        "tr": "Frequency",
+        "tr": "Frekans",
         "de": "Frequency",
         "fr": "Frequency",
         "es": "Frequency",
         "ar": "Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Observation frequency (peak of CMB is ~160.2 GHz)",
+        "tr": "Gözlem frekansı (CMB'nin tepe noktası ~160.2 GHz)"
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

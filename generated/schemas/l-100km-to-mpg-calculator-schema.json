@@ -10,11 +10,15 @@
       "businessContext": "Measured or rated fuel consumption in liters per 100 kilometers.",
       "label_i18n": {
         "en": "Fuel Consumption (L/100km)",
-        "tr": "Fuel Consumption (L/100km)",
+        "tr": "Yakıt Tüketimi (L/100km)",
         "de": "Fuel Consumption (L/100km)",
         "fr": "Fuel Consumption (L/100km)",
         "es": "Fuel Consumption (L/100km)",
         "ar": "Fuel Consumption (L/100km)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured or rated fuel consumption in liters per 100 kilometers.",
+        "tr": "100 kilometrede litre cinsinden ölçülen veya derecelendirilen yakıt tüketimi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1 = US gallon (3.785411784 L), 2 = UK gallon (4.54609 L).",
       "label_i18n": {
         "en": "Gallon Standard",
-        "tr": "Gallon Standard",
+        "tr": "Galon Standardı",
         "de": "Gallon Standard",
         "fr": "Gallon Standard",
         "es": "Gallon Standard",
         "ar": "Gallon Standard"
+      },
+      "businessContext_i18n": {
+        "en": "1 = US gallon (3.785411784 L), 2 = UK gallon (4.54609 L).",
+        "tr": "1 = ABD galonu (3.785411784 L), 2 = İngiltere galonu (4.54609 L)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for output rounding.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output rounding.",
+        "tr": "Çıktı yuvarlama için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = round, 1 = floor, 2 = ceil.",
       "label_i18n": {
         "en": "Rounding Method",
-        "tr": "Rounding Method",
+        "tr": "Yuvarlama yöntemi",
         "de": "Rounding Method",
         "fr": "Rounding Method",
         "es": "Rounding Method",
         "ar": "Rounding Method"
+      },
+      "businessContext_i18n": {
+        "en": "0 = round, 1 = floor, 2 = ceil.",
+        "tr": "0 = yuvarla, 1 = taban, 2 = tavan."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1 = EU, 2 = US, 3 = UK, for reporting context.",
       "label_i18n": {
         "en": "Measurement Standard",
-        "tr": "Measurement Standard",
+        "tr": "Ölçüm Standardı",
         "de": "Measurement Standard",
         "fr": "Measurement Standard",
         "es": "Measurement Standard",
         "ar": "Measurement Standard"
+      },
+      "businessContext_i18n": {
+        "en": "1 = EU, 2 = US, 3 = UK, for reporting context.",
+        "tr": "1 = AB, 2 = ABD, 3 = İngiltere, raporlama bağlamı için."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1 = petrol, 2 = diesel, 3 = electric equivalent (for context).",
       "label_i18n": {
         "en": "Fuel Type",
-        "tr": "Fuel Type",
+        "tr": "Yakıt Türü",
         "de": "Fuel Type",
         "fr": "Fuel Type",
         "es": "Fuel Type",
         "ar": "Fuel Type"
+      },
+      "businessContext_i18n": {
+        "en": "1 = petrol, 2 = diesel, 3 = electric equivalent (for context).",
+        "tr": "1 = benzin, 2 = dizel, 3 = elektrik eşdeğeri (bağlam için)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "1 = passenger car, 2 = light truck, 3 = heavy duty (for context).",
       "label_i18n": {
         "en": "Vehicle Class",
-        "tr": "Vehicle Class",
+        "tr": "Araç Sınıfı",
         "de": "Vehicle Class",
         "fr": "Vehicle Class",
         "es": "Vehicle Class",
         "ar": "Vehicle Class"
+      },
+      "businessContext_i18n": {
+        "en": "1 = passenger car, 2 = light truck, 3 = heavy duty (for context).",
+        "tr": "1 = binek araç, 2 = hafif kamyon, 3 = ağır hizmet (bağlam için)."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "1 = highway, 2 = city, 3 = combined (driving condition context).",
       "label_i18n": {
         "en": "Route Type",
-        "tr": "Route Type",
+        "tr": "Rota Türü",
         "de": "Route Type",
         "fr": "Route Type",
         "es": "Route Type",
         "ar": "Route Type"
+      },
+      "businessContext_i18n": {
+        "en": "1 = highway, 2 = city, 3 = combined (driving condition context).",
+        "tr": "1 = otoyol, 2 = şehir, 3 = karma (sürüş koşulu bağlamı)."
       }
     }
   ],

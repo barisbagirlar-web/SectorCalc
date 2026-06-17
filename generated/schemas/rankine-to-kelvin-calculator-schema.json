@@ -10,11 +10,15 @@
       "businessContext": "Measured temperature in Rankine scale",
       "label_i18n": {
         "en": "Temperature (°R)",
-        "tr": "Temperature (°R)",
+        "tr": "Sıcaklık (°R)",
         "de": "Temperature (°R)",
         "fr": "Temperature (°R)",
         "es": "Temperature (°R)",
         "ar": "Temperature (°R)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured temperature in Rankine scale",
+        "tr": "Rankine ölçeğinde ölçülen sıcaklık"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard deviation of temperature measurement",
       "label_i18n": {
         "en": "Measurement Uncertainty (±°R)",
-        "tr": "Measurement Uncertainty (±°R)",
+        "tr": "Ölçüm Belirsizliği (±°R)",
         "de": "Measurement Uncertainty (±°R)",
         "fr": "Measurement Uncertainty (±°R)",
         "es": "Measurement Uncertainty (±°R)",
         "ar": "Measurement Uncertainty (±°R)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of temperature measurement",
+        "tr": "Sıcaklık ölçümünün standart sapması"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "z-score for desired confidence interval (e.g., 1.96 for 95%)",
       "label_i18n": {
         "en": "Confidence Factor (z)",
-        "tr": "Confidence Factor (z)",
+        "tr": "Güven Faktörü (z)",
         "de": "Confidence Factor (z)",
         "fr": "Confidence Factor (z)",
         "es": "Confidence Factor (z)",
         "ar": "Confidence Factor (z)"
+      },
+      "businessContext_i18n": {
+        "en": "z-score for desired confidence interval (e.g., 1.96 for 95%)",
+        "tr": "İstenen güven aralığı için z-skoru (ör. %95 için 1,96)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for output rounding",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output rounding",
+        "tr": "Çıktı yuvarlama için ondalık basamak sayısı"
       }
     }
   ],

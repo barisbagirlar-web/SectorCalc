@@ -10,11 +10,15 @@
       "businessContext": "The expected future amount.",
       "label_i18n": {
         "en": "Future Value",
-        "tr": "Future Value",
+        "tr": "Gelecek Değer",
         "de": "Future Value",
         "fr": "Future Value",
         "es": "Future Value",
         "ar": "Future Value"
+      },
+      "businessContext_i18n": {
+        "en": "The expected future amount.",
+        "tr": "Beklenen gelecekteki tutar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual discount rate as a percentage.",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual discount rate as a percentage.",
+        "tr": "Yıllık iskonto oranı yüzde olarak."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time in years until future value is received.",
       "label_i18n": {
         "en": "Number of Periods",
-        "tr": "Number of Periods",
+        "tr": "Dönem Sayısı",
         "de": "Number of Periods",
         "fr": "Number of Periods",
         "es": "Number of Periods",
         "ar": "Number of Periods"
+      },
+      "businessContext_i18n": {
+        "en": "Time in years until future value is received.",
+        "tr": "Gelecek değerin alınacağı yıl cinsinden süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of compounding periods per year (1=annual, 2=semi-annual, 12=monthly, etc.).",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı",
         "de": "Compounding Frequency",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of compounding periods per year (1=annual, 2=semi-annual, 12=monthly, etc.).",
+        "tr": "Yıllık bileşik dönem sayısı (1=yıllık, 2=altı aylık, 12=aylık, vb.)."
       }
     }
   ],

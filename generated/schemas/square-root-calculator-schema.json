@@ -10,11 +10,15 @@
       "businessContext": "The number for which the square root is computed.",
       "label_i18n": {
         "en": "Radicand",
-        "tr": "Radicand",
+        "tr": "Kök içi",
         "de": "Radicand",
         "fr": "Radicand",
         "es": "Radicand",
         "ar": "Radicand"
+      },
+      "businessContext_i18n": {
+        "en": "The number for which the square root is computed.",
+        "tr": "Karekökü hesaplanacak sayı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places to round the result.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the result.",
+        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Optional starting value for iterative methods (if applicable).",
       "label_i18n": {
         "en": "Initial Guess",
-        "tr": "Initial Guess",
+        "tr": "İlk tahmin",
         "de": "Initial Guess",
         "fr": "Initial Guess",
         "es": "Initial Guess",
         "ar": "Initial Guess"
+      },
+      "businessContext_i18n": {
+        "en": "Optional starting value for iterative methods (if applicable).",
+        "tr": "Yinelemeli yöntemler için isteğe bağlı başlangıç değeri (varsa)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Convergence tolerance for iterative methods.",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Convergence tolerance for iterative methods.",
+        "tr": "Yinelemeli yöntemler için yakınsama toleransı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum number of iterations allowed for iterative methods.",
       "label_i18n": {
         "en": "Max Iterations",
-        "tr": "Max Iterations",
+        "tr": "Maksimum İterasyon",
         "de": "Max Iterations",
         "fr": "Max Iterations",
         "es": "Max Iterations",
         "ar": "Max Iterations"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum number of iterations allowed for iterative methods.",
+        "tr": "Yinelemeli yöntemler için izin verilen maksimum yineleme sayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The average number of days between the first day of one period and the first day of the next.",
       "label_i18n": {
         "en": "Average Cycle Length",
-        "tr": "Average Cycle Length",
+        "tr": "Ortalama Döngü Uzunluğu",
         "de": "Average Cycle Length",
         "fr": "Average Cycle Length",
         "es": "Average Cycle Length",
         "ar": "Average Cycle Length"
+      },
+      "businessContext_i18n": {
+        "en": "The average number of days between the first day of one period and the first day of the next.",
+        "tr": "Bir adetin ilk günü ile bir sonraki adetin ilk günü arasındaki ortalama gün sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The number of days between ovulation and the start of the next period, typically constant for an individual.",
       "label_i18n": {
         "en": "Luteal Phase Length",
-        "tr": "Luteal Phase Length",
+        "tr": "Luteal Faz Uzunluğu",
         "de": "Luteal Phase Length",
         "fr": "Luteal Phase Length",
         "es": "Luteal Phase Length",
         "ar": "Luteal Phase Length"
+      },
+      "businessContext_i18n": {
+        "en": "The number of days between ovulation and the start of the next period, typically constant for an individual.",
+        "tr": "Ovulasyon ile bir sonraki adetin başlangıcı arasındaki gün sayısı, genellikle birey için sabittir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum number of days sperm can survive in the female reproductive tract.",
       "label_i18n": {
         "en": "Sperm Lifespan",
-        "tr": "Sperm Lifespan",
+        "tr": "Sperm Ömrü",
         "de": "Sperm Lifespan",
         "fr": "Sperm Lifespan",
         "es": "Sperm Lifespan",
         "ar": "Sperm Lifespan"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum number of days sperm can survive in the female reproductive tract.",
+        "tr": "Spermin kadın üreme sisteminde hayatta kalabileceği maksimum gün sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of days the egg is viable after ovulation.",
       "label_i18n": {
         "en": "Egg Lifespan",
-        "tr": "Egg Lifespan",
+        "tr": "Yumurta Ömrü",
         "de": "Egg Lifespan",
         "fr": "Egg Lifespan",
         "es": "Egg Lifespan",
         "ar": "Egg Lifespan"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days the egg is viable after ovulation.",
+        "tr": "Ovulasyondan sonra yumurtanın canlı kaldığı gün sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Typical duration of menstrual bleeding.",
       "label_i18n": {
         "en": "Menstrual Period Length",
-        "tr": "Menstrual Period Length",
+        "tr": "Adet Süresi",
         "de": "Menstrual Period Length",
         "fr": "Menstrual Period Length",
         "es": "Menstrual Period Length",
         "ar": "Menstrual Period Length"
+      },
+      "businessContext_i18n": {
+        "en": "Typical duration of menstrual bleeding.",
+        "tr": "Adet kanamasının tipik süresi."
       }
     }
   ],

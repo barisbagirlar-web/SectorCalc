@@ -10,11 +10,15 @@
       "businessContext": "The density of the fluid through which the object moves. For air at sea level and 15°C, use 1.225 kg/m³.",
       "label_i18n": {
         "en": "Fluid Density (ρ)",
-        "tr": "Fluid Density (ρ)",
+        "tr": "Akışkan Yoğunluğu (ρ)",
         "de": "Fluid Density (ρ)",
         "fr": "Fluid Density (ρ)",
         "es": "Fluid Density (ρ)",
         "ar": "Fluid Density (ρ)"
+      },
+      "businessContext_i18n": {
+        "en": "The density of the fluid through which the object moves. For air at sea level and 15°C, use 1.225 kg/m³.",
+        "tr": "Nesnenin içinde hareket ettiği akışkanın yoğunluğu. Deniz seviyesinde ve 15°C'de hava için 1,225 kg/m³ kullanın."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Relative velocity between the object and the fluid.",
       "label_i18n": {
         "en": "Flow Velocity (v)",
-        "tr": "Flow Velocity (v)",
+        "tr": "Akış Hızı (v)",
         "de": "Flow Velocity (v)",
         "fr": "Flow Velocity (v)",
         "es": "Flow Velocity (v)",
         "ar": "Flow Velocity (v)"
+      },
+      "businessContext_i18n": {
+        "en": "Relative velocity between the object and the fluid.",
+        "tr": "Nesne ile akışkan arasındaki bağıl hız."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Empirical coefficient that depends on the shape of the object. Typical values: smooth sphere 0.47, streamlined body 0.04, cube 1.05.",
       "label_i18n": {
         "en": "Drag Coefficient (Cd)",
-        "tr": "Drag Coefficient (Cd)",
+        "tr": "Sürükleme Katsayısı (Cd)",
         "de": "Drag Coefficient (Cd)",
         "fr": "Drag Coefficient (Cd)",
         "es": "Drag Coefficient (Cd)",
         "ar": "Drag Coefficient (Cd)"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical coefficient that depends on the shape of the object. Typical values: smooth sphere 0.47, streamlined body 0.04, cube 1.05.",
+        "tr": "Nesnenin şekline bağlı ampirik katsayı. Tipik değerler: düzgün küre 0,47, aerodinamik gövde 0,04, küp 1,05."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The frontal area of the object perpendicular to the flow, or other appropriate reference area.",
       "label_i18n": {
         "en": "Reference Area (A)",
-        "tr": "Reference Area (A)",
+        "tr": "Referans Alanı (A)",
         "de": "Reference Area (A)",
         "fr": "Reference Area (A)",
         "es": "Reference Area (A)",
         "ar": "Reference Area (A)"
+      },
+      "businessContext_i18n": {
+        "en": "The frontal area of the object perpendicular to the flow, or other appropriate reference area.",
+        "tr": "Nesnenin akışa dik ön alanı veya uygun başka bir referans alanı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Least significant 32 bits of the timestamp (100-nanosecond intervals since UUID epoch)",
       "label_i18n": {
         "en": "Time Low",
-        "tr": "Time Low",
+        "tr": "Zaman Düşük",
         "de": "Time Low",
         "fr": "Time Low",
         "es": "Time Low",
         "ar": "Time Low"
+      },
+      "businessContext_i18n": {
+        "en": "Least significant 32 bits of the timestamp (100-nanosecond intervals since UUID epoch)",
+        "tr": "Zaman damgasının en az anlamlı 32 biti (UUID döneminden bu yana 100 nanosaniyelik aralıklar)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Middle 16 bits of the timestamp",
       "label_i18n": {
         "en": "Time Mid",
-        "tr": "Time Mid",
+        "tr": "Zaman Orta",
         "de": "Time Mid",
         "fr": "Time Mid",
         "es": "Time Mid",
         "ar": "Time Mid"
+      },
+      "businessContext_i18n": {
+        "en": "Middle 16 bits of the timestamp",
+        "tr": "Zaman damgasının orta 16 biti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "12 bits time high (most significant) + 4 bits UUID version (0001 for v1)",
       "label_i18n": {
         "en": "Time High & Version",
-        "tr": "Time High & Version",
+        "tr": "Zaman Yüksek ve Sürüm",
         "de": "Time High & Version",
         "fr": "Time High & Version",
         "es": "Time High & Version",
         "ar": "Time High & Version"
+      },
+      "businessContext_i18n": {
+        "en": "12 bits time high (most significant) + 4 bits UUID version (0001 for v1)",
+        "tr": "12 bit zaman yüksek (en anlamlı) + 4 bit UUID sürümü (v1 için 0001)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "14-bit clock sequence + 2-bit variant (10 for standard DCE)",
       "label_i18n": {
         "en": "Clock Sequence & Variant",
-        "tr": "Clock Sequence & Variant",
+        "tr": "Saat Dizisi ve Varyant",
         "de": "Clock Sequence & Variant",
         "fr": "Clock Sequence & Variant",
         "es": "Clock Sequence & Variant",
         "ar": "Clock Sequence & Variant"
+      },
+      "businessContext_i18n": {
+        "en": "14-bit clock sequence + 2-bit variant (10 for standard DCE)",
+        "tr": "14 bit saat dizisi + 2 bit varyant (standart DCE için 10)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "48-bit node identifier, typically the MAC address",
       "label_i18n": {
         "en": "Node (MAC)",
-        "tr": "Node (MAC)",
+        "tr": "Düğüm (MAC)",
         "de": "Node (MAC)",
         "fr": "Node (MAC)",
         "es": "Node (MAC)",
         "ar": "Node (MAC)"
+      },
+      "businessContext_i18n": {
+        "en": "48-bit node identifier, typically the MAC address",
+        "tr": "48 bit düğüm tanımlayıcısı, tipik olarak MAC adresi"
       }
     }
   ],

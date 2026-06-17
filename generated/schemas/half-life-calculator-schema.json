@@ -10,11 +10,15 @@
       "businessContext": "Initial quantity of substance before decay begins",
       "label_i18n": {
         "en": "Initial Amount",
-        "tr": "Initial Amount",
+        "tr": "Başlangıç Miktarı",
         "de": "Initial Amount",
         "fr": "Initial Amount",
         "es": "Initial Amount",
         "ar": "Initial Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Initial quantity of substance before decay begins",
+        "tr": "Bozunma başlamadan önceki madde miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time required for half of the substance to decay",
       "label_i18n": {
         "en": "Half-Life",
-        "tr": "Half-Life",
+        "tr": "Yarılanma Süresi",
         "de": "Half-Life",
         "fr": "Half-Life",
         "es": "Half-Life",
         "ar": "Half-Life"
+      },
+      "businessContext_i18n": {
+        "en": "Time required for half of the substance to decay",
+        "tr": "Maddenin yarısının bozunması için gereken süre"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time passed since initial measurement",
       "label_i18n": {
         "en": "Elapsed Time",
-        "tr": "Elapsed Time",
+        "tr": "Geçen Süre",
         "de": "Elapsed Time",
         "fr": "Elapsed Time",
         "es": "Elapsed Time",
         "ar": "Elapsed Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time passed since initial measurement",
+        "tr": "İlk ölçümden bu yana geçen süre"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired remaining quantity to compute required time",
       "label_i18n": {
         "en": "Target Amount",
-        "tr": "Target Amount",
+        "tr": "Hedef Miktar",
         "de": "Target Amount",
         "fr": "Target Amount",
         "es": "Target Amount",
         "ar": "Target Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Desired remaining quantity to compute required time",
+        "tr": "Gerekli süreyi hesaplamak için istenen kalan miktar"
       }
     }
   ],

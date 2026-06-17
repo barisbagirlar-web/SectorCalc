@@ -10,11 +10,15 @@
       "businessContext": "Inner diameter of the mill shell, measured without liners. Determines critical speed and power draw.",
       "label_i18n": {
         "en": "Internal Mill Diameter (D)",
-        "tr": "Internal Mill Diameter (D)",
+        "tr": "İç Değirmen Çapı (D)",
         "de": "Internal Mill Diameter (D)",
         "fr": "Internal Mill Diameter (D)",
         "es": "Internal Mill Diameter (D)",
         "ar": "Internal Mill Diameter (D)"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the mill shell, measured without liners. Determines critical speed and power draw.",
+        "tr": "Astarsız ölçülen değirmen gövdesinin iç çapı. Kritik hız ve güç tüketimini belirler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Effective grinding length of the mill. Affects charge volume and power.",
       "label_i18n": {
         "en": "Internal Mill Length (L)",
-        "tr": "Internal Mill Length (L)",
+        "tr": "Değirmen İç Uzunluğu (L)",
         "de": "Internal Mill Length (L)",
         "fr": "Internal Mill Length (L)",
         "es": "Internal Mill Length (L)",
         "ar": "Internal Mill Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Effective grinding length of the mill. Affects charge volume and power.",
+        "tr": "Değirmenin etkin öğütme uzunluğu. Şarj hacmini ve gücü etkiler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Actual rotational speed of the mill. Typically 65-80% of critical speed for optimal operation.",
       "label_i18n": {
         "en": "Mill Rotation Speed",
-        "tr": "Mill Rotation Speed",
+        "tr": "Değirmen Dönüş Hızı",
         "de": "Mill Rotation Speed",
         "fr": "Mill Rotation Speed",
         "es": "Mill Rotation Speed",
         "ar": "Mill Rotation Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Actual rotational speed of the mill. Typically 65-80% of critical speed for optimal operation.",
+        "tr": "Değirmenin gerçek dönüş hızı. Optimum çalışma için tipik olarak kritik hızın %65-80'i."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fraction of mill volume occupied by grinding media (balls). Affects power consumption and throughput.",
       "label_i18n": {
         "en": "Ball Filling Fraction (J)",
-        "tr": "Ball Filling Fraction (J)",
+        "tr": "Bilya Dolum Oranı (J)",
         "de": "Ball Filling Fraction (J)",
         "fr": "Ball Filling Fraction (J)",
         "es": "Ball Filling Fraction (J)",
         "ar": "Ball Filling Fraction (J)"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of mill volume occupied by grinding media (balls). Affects power consumption and throughput.",
+        "tr": "Değirmen hacminin öğütme ortamı (bilyalar) tarafından kaplanan oranı. Güç tüketimini ve verimi etkiler."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Bulk density of the grinding media charge. For steel balls, typical is 4800 kg/m³.",
       "label_i18n": {
         "en": "Ball Bulk Density",
-        "tr": "Ball Bulk Density",
+        "tr": "Bilya Yığın Yoğunluğu",
         "de": "Ball Bulk Density",
         "fr": "Ball Bulk Density",
         "es": "Ball Bulk Density",
         "ar": "Ball Bulk Density"
+      },
+      "businessContext_i18n": {
+        "en": "Bulk density of the grinding media charge. For steel balls, typical is 4800 kg/m³.",
+        "tr": "Öğütme ortamı şarjının yığın yoğunluğu. Çelik bilyalar için tipik değer 4800 kg/m³."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Efficiency of the motor and drive system. Used to calculate required input electrical power.",
       "label_i18n": {
         "en": "Motor Efficiency",
-        "tr": "Motor Efficiency",
+        "tr": "Motor verimliliği",
         "de": "Motor Efficiency",
         "fr": "Motor Efficiency",
         "es": "Motor Efficiency",
         "ar": "Motor Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the motor and drive system. Used to calculate required input electrical power.",
+        "tr": "Motor ve tahrik sisteminin verimliliği. Gerekli giriş elektrik gücünü hesaplamak için kullanılır."
       }
     }
   ],

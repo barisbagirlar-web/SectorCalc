@@ -10,11 +10,15 @@
       "businessContext": "Series resistance per unit length of the transmission line",
       "label_i18n": {
         "en": "Resistance per unit length (R)",
-        "tr": "Resistance per unit length (R)",
+        "tr": "Birim uzunluk başına direnç (R)",
         "de": "Resistance per unit length (R)",
         "fr": "Resistance per unit length (R)",
         "es": "Resistance per unit length (R)",
         "ar": "Resistance per unit length (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Series resistance per unit length of the transmission line",
+        "tr": "İletim hattının birim uzunluk başına seri direnci"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Series inductance per unit length",
       "label_i18n": {
         "en": "Inductance per unit length (L)",
-        "tr": "Inductance per unit length (L)",
+        "tr": "Birim uzunluk başına endüktans (L)",
         "de": "Inductance per unit length (L)",
         "fr": "Inductance per unit length (L)",
         "es": "Inductance per unit length (L)",
         "ar": "Inductance per unit length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Series inductance per unit length",
+        "tr": "Birim uzunluk başına seri endüktans"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Shunt conductance per unit length (use 0 for ideal lossless line)",
       "label_i18n": {
         "en": "Conductance per unit length (G)",
-        "tr": "Conductance per unit length (G)",
+        "tr": "Birim uzunluk başına iletkenlik (G)",
         "de": "Conductance per unit length (G)",
         "fr": "Conductance per unit length (G)",
         "es": "Conductance per unit length (G)",
         "ar": "Conductance per unit length (G)"
+      },
+      "businessContext_i18n": {
+        "en": "Shunt conductance per unit length (use 0 for ideal lossless line)",
+        "tr": "Birim uzunluk başına şönt iletkenlik (ideal kayıpsız hat için 0 kullanın)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Shunt capacitance per unit length",
       "label_i18n": {
         "en": "Capacitance per unit length (C)",
-        "tr": "Capacitance per unit length (C)",
+        "tr": "Birim uzunluk başına kapasitans (C)",
         "de": "Capacitance per unit length (C)",
         "fr": "Capacitance per unit length (C)",
         "es": "Capacitance per unit length (C)",
         "ar": "Capacitance per unit length (C)"
+      },
+      "businessContext_i18n": {
+        "en": "Shunt capacitance per unit length",
+        "tr": "Birim uzunluk başına şönt kapasitans"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Operating frequency of the signal",
       "label_i18n": {
         "en": "Frequency (f)",
-        "tr": "Frequency (f)",
+        "tr": "Frekans (f)",
         "de": "Frequency (f)",
         "fr": "Frequency (f)",
         "es": "Frequency (f)",
         "ar": "Frequency (f)"
+      },
+      "businessContext_i18n": {
+        "en": "Operating frequency of the signal",
+        "tr": "Sinyalin çalışma frekansı"
       }
     }
   ],

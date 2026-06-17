@@ -21,10 +21,12 @@
       "max": 100000,
       "businessContext": "Total units produced or delivered in the measurement period.",
       "label_i18n": {
-        "en": "Actual Throughput (units)"
+        "en": "Actual Throughput (units)",
+        "tr": "Gerçek Çıktı (birim)"
       },
       "businessContext_i18n": {
-        "en": "Total units produced or delivered in the measurement period."
+        "en": "Total units produced or delivered in the measurement period.",
+        "tr": "Ölçüm döneminde üretilen veya teslim edilen toplam birim sayısı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100000,
       "businessContext": "Contractually agreed throughput target.",
       "label_i18n": {
-        "en": "Target Throughput (units)"
+        "en": "Target Throughput (units)",
+        "tr": "Hedef Çıktı (birim)"
       },
       "businessContext_i18n": {
-        "en": "Contractually agreed throughput target."
+        "en": "Contractually agreed throughput target.",
+        "tr": "Sözleşmeyle belirlenen üretim hedefi."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1000000,
       "businessContext": "Parts per million defective, measured per Six Sigma standards.",
       "label_i18n": {
-        "en": "Defect Rate (ppm)"
+        "en": "Defect Rate (ppm)",
+        "tr": "Hata Oranı (ppm)"
       },
       "businessContext_i18n": {
-        "en": "Parts per million defective, measured per Six Sigma standards."
+        "en": "Parts per million defective, measured per Six Sigma standards.",
+        "tr": "Altı Sigma standartlarına göre ölçülen milyonda hatalı parça sayısı."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Percentage of orders delivered on or before the promised date.",
       "label_i18n": {
-        "en": "On-Time Delivery (%)"
+        "en": "On-Time Delivery (%)",
+        "tr": "Zamanında Teslimat (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of orders delivered on or before the promised date."
+        "en": "Percentage of orders delivered on or before the promised date.",
+        "tr": "Vaat edilen tarihte veya öncesinde teslim edilen siparişlerin yüzdesi."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 10000,
       "businessContext": "Total manufacturing cost per unit, including materials, labor, overhead.",
       "label_i18n": {
-        "en": "Cost per Unit ($)"
+        "en": "Cost per Unit ($)",
+        "tr": "Birim Başına Maliyet ($)"
       },
       "businessContext_i18n": {
-        "en": "Total manufacturing cost per unit, including materials, labor, overhead."
+        "en": "Total manufacturing cost per unit, including materials, labor, overhead.",
+        "tr": "Malzeme, işçilik ve genel giderler dahil birim başına toplam üretim maliyeti."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 10000,
       "businessContext": "Contractually agreed cost target per unit.",
       "label_i18n": {
-        "en": "Target Cost per Unit ($)"
+        "en": "Target Cost per Unit ($)",
+        "tr": "Hedef Birim Maliyet ($)"
       },
       "businessContext_i18n": {
-        "en": "Contractually agreed cost target per unit."
+        "en": "Contractually agreed cost target per unit.",
+        "tr": "Sözleşmeyle belirlenen birim başına hedef maliyet."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100,
       "businessContext": "Base incentive amount per unit, subject to performance multipliers.",
       "label_i18n": {
-        "en": "Incentive Base Rate ($/unit)"
+        "en": "Incentive Base Rate ($/unit)",
+        "tr": "Teşvik Taban Oranı ($/birim)"
       },
       "businessContext_i18n": {
-        "en": "Base incentive amount per unit, subject to performance multipliers."
+        "en": "Base incentive amount per unit, subject to performance multipliers.",
+        "tr": "Performans çarpanlarına tabi olan birim başına temel teşvik tutarı."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 1000000,
       "businessContext": "Maximum defect rate to qualify for any incentive.",
       "label_i18n": {
-        "en": "Quality Threshold (ppm)"
+        "en": "Quality Threshold (ppm)",
+        "tr": "Kalite Eşiği (ppm)"
       },
       "businessContext_i18n": {
-        "en": "Maximum defect rate to qualify for any incentive."
+        "en": "Maximum defect rate to qualify for any incentive.",
+        "tr": "Herhangi bir teşvik için gereken maksimum hata oranı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "0 for Cylindrical to Cartesian, 1 for Cartesian to Cylindrical",
       "label_i18n": {
         "en": "Conversion Direction",
-        "tr": "Conversion Direction",
+        "tr": "Dönüşüm yönü",
         "de": "Conversion Direction",
         "fr": "Conversion Direction",
         "es": "Conversion Direction",
         "ar": "Conversion Direction"
+      },
+      "businessContext_i18n": {
+        "en": "0 for Cylindrical to Cartesian, 1 for Cartesian to Cylindrical",
+        "tr": "0: Silindirikten Kartezyene, 1: Kartezyenden Silindiriğe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Radial distance in cylindrical coordinates",
       "label_i18n": {
         "en": "Radius (r)",
-        "tr": "Radius (r)",
+        "tr": "Yarıçap (r)",
         "de": "Radius (r)",
         "fr": "Radius (r)",
         "es": "Radius (r)",
         "ar": "Radius (r)"
+      },
+      "businessContext_i18n": {
+        "en": "Radial distance in cylindrical coordinates",
+        "tr": "Silindirik koordinatlarda radyal mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle in degrees, measured from positive x-axis",
       "label_i18n": {
         "en": "Azimuth (θ)",
-        "tr": "Azimuth (θ)",
+        "tr": "Azimut (θ)",
         "de": "Azimuth (θ)",
         "fr": "Azimuth (θ)",
         "es": "Azimuth (θ)",
         "ar": "Azimuth (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle in degrees, measured from positive x-axis",
+        "tr": "Derece cinsinden açı, pozitif x ekseninden ölçülür"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "X-coordinate in Cartesian system",
       "label_i18n": {
         "en": "X-coordinate",
-        "tr": "X-coordinate",
+        "tr": "X koordinatı",
         "de": "X-coordinate",
         "fr": "X-coordinate",
         "es": "X-coordinate",
         "ar": "X-coordinate"
+      },
+      "businessContext_i18n": {
+        "en": "X-coordinate in Cartesian system",
+        "tr": "Kartezyen sistemde X koordinatı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Y-coordinate in Cartesian system",
       "label_i18n": {
         "en": "Y-coordinate",
-        "tr": "Y-coordinate",
+        "tr": "Y koordinatı",
         "de": "Y-coordinate",
         "fr": "Y-coordinate",
         "es": "Y-coordinate",
         "ar": "Y-coordinate"
+      },
+      "businessContext_i18n": {
+        "en": "Y-coordinate in Cartesian system",
+        "tr": "Kartezyen sistemde Y koordinatı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Z-coordinate (common to both coordinate systems)",
       "label_i18n": {
         "en": "Z-coordinate",
-        "tr": "Z-coordinate",
+        "tr": "Z koordinatı",
         "de": "Z-coordinate",
         "fr": "Z-coordinate",
         "es": "Z-coordinate",
         "ar": "Z-coordinate"
+      },
+      "businessContext_i18n": {
+        "en": "Z-coordinate (common to both coordinate systems)",
+        "tr": "Z koordinatı (her iki koordinat sisteminde ortak)"
       }
     }
   ],

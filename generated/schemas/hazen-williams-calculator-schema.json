@@ -10,11 +10,15 @@
       "businessContext": "Typical water flow rate in pipeline design.",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Typical water flow rate in pipeline design.",
+        "tr": "Boru hattı tasarımında tipik su akış hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Inner diameter of the pipe.",
       "label_i18n": {
         "en": "Pipe Diameter",
-        "tr": "Pipe Diameter",
+        "tr": "Boru Çapı",
         "de": "Pipe Diameter",
         "fr": "Pipe Diameter",
         "es": "Pipe Diameter",
         "ar": "Pipe Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the pipe.",
+        "tr": "Boru iç çapı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of the pipe segment.",
       "label_i18n": {
         "en": "Pipe Length",
-        "tr": "Pipe Length",
+        "tr": "Boru Uzunluğu",
         "de": "Pipe Length",
         "fr": "Pipe Length",
         "es": "Pipe Length",
         "ar": "Pipe Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the pipe segment.",
+        "tr": "Boru bölümünün uzunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Roughness coefficient depending on pipe material (e.g., 130 for new steel, 140 for PVC).",
       "label_i18n": {
         "en": "Hazen-Williams Coefficient",
-        "tr": "Hazen-Williams Coefficient",
+        "tr": "Hazen-Williams Katsayısı",
         "de": "Hazen-Williams Coefficient",
         "fr": "Hazen-Williams Coefficient",
         "es": "Hazen-Williams Coefficient",
         "ar": "Hazen-Williams Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Roughness coefficient depending on pipe material (e.g., 130 for new steel, 140 for PVC).",
+        "tr": "Boru malzemesine bağlı pürüzlülük katsayısı (örneğin, yeni çelik için 130, PVC için 140)."
       }
     }
   ],

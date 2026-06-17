@@ -10,11 +10,15 @@
       "businessContext": "Student's academic performance score (0-100).",
       "label_i18n": {
         "en": "Academic Score",
-        "tr": "Academic Score",
+        "tr": "Akademik Puan",
         "de": "Academic Score",
         "fr": "Academic Score",
         "es": "Academic Score",
         "ar": "Academic Score"
+      },
+      "businessContext_i18n": {
+        "en": "Student's academic performance score (0-100).",
+        "tr": "Öğrencinin akademik performans puanı (0-100)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual family income in USD.",
       "label_i18n": {
         "en": "Family Income",
-        "tr": "Family Income",
+        "tr": "Aile Geliri",
         "de": "Family Income",
         "fr": "Family Income",
         "es": "Family Income",
         "ar": "Family Income"
+      },
+      "businessContext_i18n": {
+        "en": "Annual family income in USD.",
+        "tr": "Yıllık aile geliri (USD)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of dependents in the family (used to adjust need).",
       "label_i18n": {
         "en": "Number of Dependents",
-        "tr": "Number of Dependents",
+        "tr": "Bağımlı Sayısı",
         "de": "Number of Dependents",
         "fr": "Number of Dependents",
         "es": "Number of Dependents",
         "ar": "Number of Dependents"
+      },
+      "businessContext_i18n": {
+        "en": "Number of dependents in the family (used to adjust need).",
+        "tr": "Ailedeki bakmakla yükümlü olunan kişi sayısı (ihtiyacı ayarlamak için kullanılır)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Score based on extracurricular activities (0-100).",
       "label_i18n": {
         "en": "Extracurricular Score",
-        "tr": "Extracurricular Score",
+        "tr": "Ders Dışı Etkinlik Puanı",
         "de": "Extracurricular Score",
         "fr": "Extracurricular Score",
         "es": "Extracurricular Score",
         "ar": "Extracurricular Score"
+      },
+      "businessContext_i18n": {
+        "en": "Score based on extracurricular activities (0-100).",
+        "tr": "Ders dışı etkinliklere dayalı puan (0-100)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total community service hours.",
       "label_i18n": {
         "en": "Community Service Hours",
-        "tr": "Community Service Hours",
+        "tr": "Toplum Hizmeti Saatleri",
         "de": "Community Service Hours",
         "fr": "Community Service Hours",
         "es": "Community Service Hours",
         "ar": "Community Service Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total community service hours.",
+        "tr": "Toplam toplum hizmeti saati."
       }
     }
   ],

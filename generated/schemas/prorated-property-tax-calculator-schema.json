@@ -10,11 +10,15 @@
       "businessContext": "The total property tax for the full year as assessed by the local government.",
       "label_i18n": {
         "en": "Annual Property Tax",
-        "tr": "Annual Property Tax",
+        "tr": "Yıllık Emlak Vergisi",
         "de": "Annual Property Tax",
         "fr": "Annual Property Tax",
         "es": "Annual Property Tax",
         "ar": "Annual Property Tax"
+      },
+      "businessContext_i18n": {
+        "en": "The total property tax for the full year as assessed by the local government.",
+        "tr": "Yerel yönetim tarafından değerlendirilen tam yıl için toplam emlak vergisi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The number of days in the tax year (typically 365, or 366 for a leap year).",
       "label_i18n": {
         "en": "Days in Tax Year",
-        "tr": "Days in Tax Year",
+        "tr": "Vergi Yılındaki Gün Sayısı",
         "de": "Days in Tax Year",
         "fr": "Days in Tax Year",
         "es": "Days in Tax Year",
         "ar": "Days in Tax Year"
+      },
+      "businessContext_i18n": {
+        "en": "The number of days in the tax year (typically 365, or 366 for a leap year).",
+        "tr": "Vergi yılındaki gün sayısı (genellikle 365 veya artık yıl için 366)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of days the property was owned during the tax year.",
       "label_i18n": {
         "en": "Days Owned",
-        "tr": "Days Owned",
+        "tr": "Sahip Olunan Gün Sayısı",
         "de": "Days Owned",
         "fr": "Days Owned",
         "es": "Days Owned",
         "ar": "Days Owned"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days the property was owned during the tax year.",
+        "tr": "Vergi yılı boyunca mülkün sahip olunduğu gün sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Any additional fees or adjustments (e.g., closing costs, penalties, credits).",
       "label_i18n": {
         "en": "Other Fees",
-        "tr": "Other Fees",
+        "tr": "Diğer Ücretler",
         "de": "Other Fees",
         "fr": "Other Fees",
         "es": "Other Fees",
         "ar": "Other Fees"
+      },
+      "businessContext_i18n": {
+        "en": "Any additional fees or adjustments (e.g., closing costs, penalties, credits).",
+        "tr": "Ek ücretler veya düzeltmeler (örneğin, kapanış maliyetleri, cezalar, krediler)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Actual pressure of the gas",
       "label_i18n": {
         "en": "Pressure",
-        "tr": "Pressure",
+        "tr": "Basınç",
         "de": "Pressure",
         "fr": "Pressure",
         "es": "Pressure",
         "ar": "Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Actual pressure of the gas",
+        "tr": "Gazın gerçek basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Actual volume of the gas",
       "label_i18n": {
         "en": "Volume",
-        "tr": "Volume",
+        "tr": "Hacim",
         "de": "Volume",
         "fr": "Volume",
         "es": "Volume",
         "ar": "Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Actual volume of the gas",
+        "tr": "Gazın gerçek hacmi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Amount of gas in moles",
       "label_i18n": {
         "en": "Moles",
-        "tr": "Moles",
+        "tr": "Mol",
         "de": "Moles",
         "fr": "Moles",
         "es": "Moles",
         "ar": "Moles"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of gas in moles",
+        "tr": "Gaz miktarı (mol cinsinden)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Absolute temperature",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute temperature",
+        "tr": "Mutlak sıcaklık"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Universal gas constant, adjust for units",
       "label_i18n": {
         "en": "Gas Constant",
-        "tr": "Gas Constant",
+        "tr": "Gaz Sabiti",
         "de": "Gas Constant",
         "fr": "Gas Constant",
         "es": "Gas Constant",
         "ar": "Gas Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Universal gas constant, adjust for units",
+        "tr": "Evrensel gaz sabiti, birimlere göre ayarlayın"
       }
     }
   ],

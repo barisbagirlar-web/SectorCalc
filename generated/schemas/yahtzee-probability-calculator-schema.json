@@ -10,11 +10,15 @@
       "businessContext": "Total dice used in the game (standard Yahtzee uses 5).",
       "label_i18n": {
         "en": "Number of Dice",
-        "tr": "Number of Dice",
+        "tr": "Zar Sayısı",
         "de": "Number of Dice",
         "fr": "Number of Dice",
         "es": "Number of Dice",
         "ar": "Number of Dice"
+      },
+      "businessContext_i18n": {
+        "en": "Total dice used in the game (standard Yahtzee uses 5).",
+        "tr": "Oyunda kullanılan toplam zar sayısı (standart Yahtzee 5 kullanır)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of dice that must show the same value (e.g., 5 for a Yahtzee).",
       "label_i18n": {
         "en": "Target Matching Dice",
-        "tr": "Target Matching Dice",
+        "tr": "Hedef Eşleşen Zar",
         "de": "Target Matching Dice",
         "fr": "Target Matching Dice",
         "es": "Target Matching Dice",
         "ar": "Target Matching Dice"
+      },
+      "businessContext_i18n": {
+        "en": "Number of dice that must show the same value (e.g., 5 for a Yahtzee).",
+        "tr": "Aynı değeri göstermesi gereken zar sayısı (ör. Yahtzee için 5)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of dice already showing the desired value from previous rolls.",
       "label_i18n": {
         "en": "Current Matching Dice",
-        "tr": "Current Matching Dice",
+        "tr": "Mevcut Eşleşen Zar",
         "de": "Current Matching Dice",
         "fr": "Current Matching Dice",
         "es": "Current Matching Dice",
         "ar": "Current Matching Dice"
+      },
+      "businessContext_i18n": {
+        "en": "Number of dice already showing the desired value from previous rolls.",
+        "tr": "Önceki atışlardan istenen değeri gösteren zar sayısı."
       }
     }
   ],

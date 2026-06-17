@@ -10,11 +10,15 @@
       "businessContext": "User demographic data",
       "label_i18n": {
         "en": "Birth Year",
-        "tr": "Birth Year",
+        "tr": "Doğum Yılı",
         "de": "Birth Year",
         "fr": "Birth Year",
         "es": "Birth Year",
         "ar": "Birth Year"
+      },
+      "businessContext_i18n": {
+        "en": "User demographic data",
+        "tr": "Kullanıcı demografik verileri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Reference year for age calculation",
       "label_i18n": {
         "en": "Current Year",
-        "tr": "Current Year",
+        "tr": "Mevcut Yıl",
         "de": "Current Year",
         "fr": "Current Year",
         "es": "Current Year",
         "ar": "Current Year"
+      },
+      "businessContext_i18n": {
+        "en": "Reference year for age calculation",
+        "tr": "Yaş hesaplaması için referans yılı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "User health metric",
       "label_i18n": {
         "en": "Resting Heart Rate",
-        "tr": "Resting Heart Rate",
+        "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Resting Heart Rate",
         "fr": "Resting Heart Rate",
         "es": "Resting Heart Rate",
         "ar": "Resting Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "User health metric",
+        "tr": "Kullanıcı sağlık metriği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Target heart rate zone lower bound",
       "label_i18n": {
         "en": "Lower Intensity Zone",
-        "tr": "Lower Intensity Zone",
+        "tr": "Düşük Yoğunluk Bölgesi",
         "de": "Lower Intensity Zone",
         "fr": "Lower Intensity Zone",
         "es": "Lower Intensity Zone",
         "ar": "Lower Intensity Zone"
+      },
+      "businessContext_i18n": {
+        "en": "Target heart rate zone lower bound",
+        "tr": "Hedef kalp atış hızı bölgesi alt sınırı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Target heart rate zone upper bound",
       "label_i18n": {
         "en": "Upper Intensity Zone",
-        "tr": "Upper Intensity Zone",
+        "tr": "Yüksek Yoğunluk Bölgesi",
         "de": "Upper Intensity Zone",
         "fr": "Upper Intensity Zone",
         "es": "Upper Intensity Zone",
         "ar": "Upper Intensity Zone"
+      },
+      "businessContext_i18n": {
+        "en": "Target heart rate zone upper bound",
+        "tr": "Hedef kalp atış hızı bölgesi üst sınırı"
       }
     }
   ],

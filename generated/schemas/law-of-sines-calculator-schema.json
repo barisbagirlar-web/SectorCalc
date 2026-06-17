@@ -10,11 +10,15 @@
       "businessContext": "Length of side opposite angle A (in meters)",
       "label_i18n": {
         "en": "Side a",
-        "tr": "Side a",
+        "tr": "Kenar a",
         "de": "Side a",
         "fr": "Side a",
         "es": "Side a",
         "ar": "Side a"
+      },
+      "businessContext_i18n": {
+        "en": "Length of side opposite angle A (in meters)",
+        "tr": "A açısının karşısındaki kenarın uzunluğu (metre cinsinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Angle opposite side a (in degrees)",
       "label_i18n": {
         "en": "Angle A",
-        "tr": "Angle A",
+        "tr": "Açı A",
         "de": "Angle A",
         "fr": "Angle A",
         "es": "Angle A",
         "ar": "Angle A"
+      },
+      "businessContext_i18n": {
+        "en": "Angle opposite side a (in degrees)",
+        "tr": "a kenarının karşısındaki açı (derece cinsinden)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle opposite side b (target side, in degrees)",
       "label_i18n": {
         "en": "Angle B",
-        "tr": "Angle B",
+        "tr": "Açı B",
         "de": "Angle B",
         "fr": "Angle B",
         "es": "Angle B",
         "ar": "Angle B"
+      },
+      "businessContext_i18n": {
+        "en": "Angle opposite side b (target side, in degrees)",
+        "tr": "b kenarının karşısındaki açı (hedef kenar, derece cinsinden)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for output rounding",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output rounding",
+        "tr": "Çıktı yuvarlama için ondalık basamak sayısı"
       }
     }
   ],

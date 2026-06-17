@@ -10,11 +10,15 @@
       "businessContext": "Gauge or absolute pressure in millibars",
       "label_i18n": {
         "en": "Millibar Value",
-        "tr": "Millibar Value",
+        "tr": "Milibar Değeri",
         "de": "Millibar Value",
         "fr": "Millibar Value",
         "es": "Millibar Value",
         "ar": "Millibar Value"
+      },
+      "businessContext_i18n": {
+        "en": "Gauge or absolute pressure in millibars",
+        "tr": "Milibar cinsinden gösterge veya mutlak basınç"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard millibar to psi conversion factor",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard millibar to psi conversion factor",
+        "tr": "Standart milibar-psi dönüşüm faktörü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Instrument offset from last calibration certificate",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Instrument offset from last calibration certificate",
+        "tr": "Son kalibrasyon sertifikasından enstrüman ofseti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Dimensionless correction for medium temperature deviation from reference",
       "label_i18n": {
         "en": "Temperature Correction",
-        "tr": "Temperature Correction",
+        "tr": "Sıcaklık Düzeltmesi",
         "de": "Temperature Correction",
         "fr": "Temperature Correction",
         "es": "Temperature Correction",
         "ar": "Temperature Correction"
+      },
+      "businessContext_i18n": {
+        "en": "Dimensionless correction for medium temperature deviation from reference",
+        "tr": "Ortam sıcaklığının referanstan sapması için boyutsuz düzeltme"
       }
     }
   ],

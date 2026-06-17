@@ -10,11 +10,15 @@
       "businessContext": "Temperature reading on the Delisle scale.",
       "label_i18n": {
         "en": "Delisle Temperature",
-        "tr": "Delisle Temperature",
+        "tr": "Delisle Sıcaklığı",
         "de": "Delisle Temperature",
         "fr": "Delisle Temperature",
         "es": "Delisle Temperature",
         "ar": "Delisle Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature reading on the Delisle scale.",
+        "tr": "Delisle ölçeğindeki sıcaklık okuması."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Delisle value at the freezing point of water (0°C). Historically 150°De.",
       "label_i18n": {
         "en": "Freezing Point (Delisle)",
-        "tr": "Freezing Point (Delisle)",
+        "tr": "Donma Noktası (Delisle)",
         "de": "Freezing Point (Delisle)",
         "fr": "Freezing Point (Delisle)",
         "es": "Freezing Point (Delisle)",
         "ar": "Freezing Point (Delisle)"
+      },
+      "businessContext_i18n": {
+        "en": "Delisle value at the freezing point of water (0°C). Historically 150°De.",
+        "tr": "Suyun donma noktasındaki Delisle değeri (0°C). Tarihsel olarak 150°De."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Delisle value at the boiling point of water (100°C). Historically 0°De.",
       "label_i18n": {
         "en": "Boiling Point (Delisle)",
-        "tr": "Boiling Point (Delisle)",
+        "tr": "Kaynama Noktası (Delisle)",
         "de": "Boiling Point (Delisle)",
         "fr": "Boiling Point (Delisle)",
         "es": "Boiling Point (Delisle)",
         "ar": "Boiling Point (Delisle)"
+      },
+      "businessContext_i18n": {
+        "en": "Delisle value at the boiling point of water (100°C). Historically 0°De.",
+        "tr": "Suyun kaynama noktasındaki Delisle değeri (100°C). Tarihsel olarak 0°De."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     }
   ],

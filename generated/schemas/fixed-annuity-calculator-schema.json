@@ -10,11 +10,15 @@
       "businessContext": "The current amount of money to be financed or invested.",
       "label_i18n": {
         "en": "Present Value",
-        "tr": "Present Value",
+        "tr": "Bugünkü Değer",
         "de": "Present Value",
         "fr": "Present Value",
         "es": "Present Value",
         "ar": "Present Value"
+      },
+      "businessContext_i18n": {
+        "en": "The current amount of money to be financed or invested.",
+        "tr": "Finanse edilecek veya yatırılacak mevcut para miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The yearly interest rate as a percentage.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The yearly interest rate as a percentage.",
+        "tr": "Yıllık faiz oranı yüzde olarak."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The total number of payment periods (typically years).",
       "label_i18n": {
         "en": "Number of Periods",
-        "tr": "Number of Periods",
+        "tr": "Dönem Sayısı",
         "de": "Number of Periods",
         "fr": "Number of Periods",
         "es": "Number of Periods",
         "ar": "Number of Periods"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of payment periods (typically years).",
+        "tr": "Toplam ödeme dönemi sayısı (genellikle yıl)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The desired future value after the last payment; usually 0 for full repayment.",
       "label_i18n": {
         "en": "Future Value",
-        "tr": "Future Value",
+        "tr": "Gelecek Değer",
         "de": "Future Value",
         "fr": "Future Value",
         "es": "Future Value",
         "ar": "Future Value"
+      },
+      "businessContext_i18n": {
+        "en": "The desired future value after the last payment; usually 0 for full repayment.",
+        "tr": "Son ödemeden sonra istenen gelecek değer; genellikle tam geri ödeme için 0."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "0 for payments at the end of each period, 1 for payments at the beginning.",
       "label_i18n": {
         "en": "Payment Type",
-        "tr": "Payment Type",
+        "tr": "Ödeme Türü",
         "de": "Payment Type",
         "fr": "Payment Type",
         "es": "Payment Type",
         "ar": "Payment Type"
+      },
+      "businessContext_i18n": {
+        "en": "0 for payments at the end of each period, 1 for payments at the beginning.",
+        "tr": "0 dönem sonu ödemeleri, 1 dönem başı ödemeleri için."
       }
     }
   ],

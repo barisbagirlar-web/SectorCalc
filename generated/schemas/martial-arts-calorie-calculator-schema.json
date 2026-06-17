@@ -10,11 +10,15 @@
       "businessContext": "Your body weight in kilograms.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Your body weight in kilograms.",
+        "tr": "Vücut ağırlığınız (kg)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total duration of the martial arts session.",
       "label_i18n": {
         "en": "Exercise Duration",
-        "tr": "Exercise Duration",
+        "tr": "Egzersiz Süresi",
         "de": "Exercise Duration",
         "fr": "Exercise Duration",
         "es": "Exercise Duration",
         "ar": "Exercise Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration of the martial arts session.",
+        "tr": "Dövüş sanatları seansının toplam süresi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Metabolic Equivalent of Task for the specific martial art (e.g., judo=10, karate=10, kickboxing=10, tai chi=4).",
       "label_i18n": {
         "en": "MET Value",
-        "tr": "MET Value",
+        "tr": "MET Değeri",
         "de": "MET Value",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
+      },
+      "businessContext_i18n": {
+        "en": "Metabolic Equivalent of Task for the specific martial art (e.g., judo=10, karate=10, kickboxing=10, tai chi=4).",
+        "tr": "Belirli dövüş sanatı için metabolik eşdeğer (ör. judo=10, karate=10, kickboks=10, tai chi=4)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Personal multiplier to fine-tune calorie estimate based on individual variance.",
       "label_i18n": {
         "en": "Adjustment Factor",
-        "tr": "Adjustment Factor",
+        "tr": "Düzeltme Faktörü",
         "de": "Adjustment Factor",
         "fr": "Adjustment Factor",
         "es": "Adjustment Factor",
         "ar": "Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Personal multiplier to fine-tune calorie estimate based on individual variance.",
+        "tr": "Bireysel farklılığa göre kalori tahminini ince ayar yapmak için kişisel çarpan."
       }
     }
   ],

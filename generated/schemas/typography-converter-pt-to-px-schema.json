@@ -10,11 +10,15 @@
       "businessContext": "Font size in points, typically used in print design.",
       "label_i18n": {
         "en": "Point Size (pt)",
-        "tr": "Point Size (pt)",
+        "tr": "Punto Boyutu (pt)",
         "de": "Point Size (pt)",
         "fr": "Point Size (pt)",
         "es": "Point Size (pt)",
         "ar": "Point Size (pt)"
+      },
+      "businessContext_i18n": {
+        "en": "Font size in points, typically used in print design.",
+        "tr": "Punto cinsinden font boyutu, genellikle baskı tasarımında kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Screen resolution; common values: 72 (Mac), 96 (Windows), 300 (print).",
       "label_i18n": {
         "en": "Pixels Per Inch (PPI)",
-        "tr": "Pixels Per Inch (PPI)",
+        "tr": "İnç Başına Piksel (PPI)",
         "de": "Pixels Per Inch (PPI)",
         "fr": "Pixels Per Inch (PPI)",
         "es": "Pixels Per Inch (PPI)",
         "ar": "Pixels Per Inch (PPI)"
+      },
+      "businessContext_i18n": {
+        "en": "Screen resolution; common values: 72 (Mac), 96 (Windows), 300 (print).",
+        "tr": "Ekran çözünürlüğü; yaygın değerler: 72 (Mac), 96 (Windows), 300 (baskı)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Reference pixel size for relative conversions (e.g., em/rem).",
       "label_i18n": {
         "en": "Base Font Size (px)",
-        "tr": "Base Font Size (px)",
+        "tr": "Temel Font Boyutu (px)",
         "de": "Base Font Size (px)",
         "fr": "Base Font Size (px)",
         "es": "Base Font Size (px)",
         "ar": "Base Font Size (px)"
+      },
+      "businessContext_i18n": {
+        "en": "Reference pixel size for relative conversions (e.g., em/rem).",
+        "tr": "Göreli dönüşümler için referans piksel boyutu (örn. em/rem)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for responsive scaling (e.g., 1.25 for major third).",
       "label_i18n": {
         "en": "Scale Factor",
-        "tr": "Scale Factor",
+        "tr": "Ölçek Faktörü",
         "de": "Scale Factor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for responsive scaling (e.g., 1.25 for major third).",
+        "tr": "Duyarlı ölçekleme çarpanı (ör. majör üçlü için 1.25)."
       }
     }
   ],

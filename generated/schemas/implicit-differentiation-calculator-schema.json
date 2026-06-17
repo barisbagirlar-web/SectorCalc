@@ -10,11 +10,15 @@
       "businessContext": "Coefficient of x² in F(x,y)=a·x²+b·y²+c·xy+d·x+e·y+f=0",
       "label_i18n": {
         "en": "a (x² coefficient)",
-        "tr": "a (x² coefficient)",
+        "tr": "a (x² katsayısı)",
         "de": "a (x² coefficient)",
         "fr": "a (x² coefficient)",
         "es": "a (x² coefficient)",
         "ar": "a (x² coefficient)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of x² in F(x,y)=a·x²+b·y²+c·xy+d·x+e·y+f=0",
+        "tr": "F(x,y)=a·x²+b·y²+c·xy+d·x+e·y+f=0 denkleminde x² katsayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Coefficient of y²",
       "label_i18n": {
         "en": "b (y² coefficient)",
-        "tr": "b (y² coefficient)",
+        "tr": "b (y² katsayısı)",
         "de": "b (y² coefficient)",
         "fr": "b (y² coefficient)",
         "es": "b (y² coefficient)",
         "ar": "b (y² coefficient)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of y²",
+        "tr": "y² katsayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Coefficient of xy",
       "label_i18n": {
         "en": "c (xy coefficient)",
-        "tr": "c (xy coefficient)",
+        "tr": "c (xy katsayısı)",
         "de": "c (xy coefficient)",
         "fr": "c (xy coefficient)",
         "es": "c (xy coefficient)",
         "ar": "c (xy coefficient)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of xy",
+        "tr": "xy katsayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Coefficient of x",
       "label_i18n": {
         "en": "d (x coefficient)",
-        "tr": "d (x coefficient)",
+        "tr": "d (x katsayısı)",
         "de": "d (x coefficient)",
         "fr": "d (x coefficient)",
         "es": "d (x coefficient)",
         "ar": "d (x coefficient)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of x",
+        "tr": "x katsayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Coefficient of y",
       "label_i18n": {
         "en": "e (y coefficient)",
-        "tr": "e (y coefficient)",
+        "tr": "e (y katsayısı)",
         "de": "e (y coefficient)",
         "fr": "e (y coefficient)",
         "es": "e (y coefficient)",
         "ar": "e (y coefficient)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of y",
+        "tr": "y katsayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Constant term",
       "label_i18n": {
         "en": "f (constant)",
-        "tr": "f (constant)",
+        "tr": "f (sabit)",
         "de": "f (constant)",
         "fr": "f (constant)",
         "es": "f (constant)",
         "ar": "f (constant)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term",
+        "tr": "Sabit terim"
       }
     },
     {
@@ -111,6 +135,10 @@
         "fr": "x",
         "es": "x",
         "ar": "x"
+      },
+      "businessContext_i18n": {
+        "en": "x-coordinate at which to evaluate derivative",
+        "tr": "Türevin hesaplanacağı x koordinatı"
       }
     },
     {
@@ -127,6 +155,10 @@
         "fr": "y",
         "es": "y",
         "ar": "y"
+      },
+      "businessContext_i18n": {
+        "en": "y-coordinate at which to evaluate derivative",
+        "tr": "Türevin hesaplanacağı y koordinatı"
       }
     }
   ],

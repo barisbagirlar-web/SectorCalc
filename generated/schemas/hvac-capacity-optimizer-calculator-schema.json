@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Total sensible and latent heat load from building, equipment, and occupants (ISO 52000).",
       "label_i18n": {
-        "en": "Cooling Load"
+        "en": "Cooling Load",
+        "tr": "Soğutma Yükü"
       },
       "businessContext_i18n": {
-        "en": "Total sensible and latent heat load from building, equipment, and occupants (ISO 52000)."
+        "en": "Total sensible and latent heat load from building, equipment, and occupants (ISO 52000).",
+        "tr": "Bina, ekipman ve kullanıcılardan kaynaklanan toplam duyulur ve gizli ısı yükü (ISO 52000)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000,
       "businessContext": "Total heat loss from building envelope and ventilation (ASHRAE Handbook).",
       "label_i18n": {
-        "en": "Heating Load"
+        "en": "Heating Load",
+        "tr": "Isıtma Yükü"
       },
       "businessContext_i18n": {
-        "en": "Total heat loss from building envelope and ventilation (ASHRAE Handbook)."
+        "en": "Total heat loss from building envelope and ventilation (ASHRAE Handbook).",
+        "tr": "Bina kabuğu ve havalandırmadan kaynaklanan toplam ısı kaybı (ASHRAE El Kitabı)."
       }
     },
     {
@@ -58,10 +62,12 @@
       ],
       "businessContext": "HVAC system configuration affecting capacity and efficiency curves.",
       "label_i18n": {
-        "en": "System Type"
+        "en": "System Type",
+        "tr": "Sistem Tipi"
       },
       "businessContext_i18n": {
-        "en": "HVAC system configuration affecting capacity and efficiency curves."
+        "en": "HVAC system configuration affecting capacity and efficiency curves.",
+        "tr": "Kapasite ve verim eğrilerini etkileyen HVAC sistem konfigürasyonu."
       }
     },
     {
@@ -74,10 +80,12 @@
       "max": 55,
       "businessContext": "Outdoor dry-bulb temperature for design conditions (ISO 15927).",
       "label_i18n": {
-        "en": "Ambient Temperature"
+        "en": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı"
       },
       "businessContext_i18n": {
-        "en": "Outdoor dry-bulb temperature for design conditions (ISO 15927)."
+        "en": "Outdoor dry-bulb temperature for design conditions (ISO 15927).",
+        "tr": "Tasarım koşulları için dış hava kuru termometre sıcaklığı (ISO 15927)."
       }
     },
     {
@@ -90,10 +98,12 @@
       "max": 100,
       "businessContext": "Indoor relative humidity setpoint, impacts latent load and coil performance.",
       "label_i18n": {
-        "en": "Relative Humidity"
+        "en": "Relative Humidity",
+        "tr": "Bağıl Nem"
       },
       "businessContext_i18n": {
-        "en": "Indoor relative humidity setpoint, impacts latent load and coil performance."
+        "en": "Indoor relative humidity setpoint, impacts latent load and coil performance.",
+        "tr": "İç ortam bağıl nem set değeri, gizli yük ve serpantin performansını etkiler."
       }
     },
     {
@@ -106,10 +116,12 @@
       "max": 7,
       "businessContext": "Current system efficiency; baseline for improvement (ANSI/AHRI 210/240).",
       "label_i18n": {
-        "en": "Efficiency Ratio (EER/COP)"
+        "en": "Efficiency Ratio (EER/COP)",
+        "tr": "Verim Oranı (EER/COP)"
       },
       "businessContext_i18n": {
-        "en": "Current system efficiency; baseline for improvement (ANSI/AHRI 210/240)."
+        "en": "Current system efficiency; baseline for improvement (ANSI/AHRI 210/240).",
+        "tr": "Mevcut sistem verimi; iyileştirme için temel (ANSI/AHRI 210/240)."
       }
     },
     {
@@ -122,10 +134,12 @@
       "max": 50,
       "businessContext": "Supply air volume, critical for capacity and distribution (WERC DC guidelines).",
       "label_i18n": {
-        "en": "Airflow Rate"
+        "en": "Airflow Rate",
+        "tr": "Hava akış hızı"
       },
       "businessContext_i18n": {
-        "en": "Supply air volume, critical for capacity and distribution (WERC DC guidelines)."
+        "en": "Supply air volume, critical for capacity and distribution (WERC DC guidelines).",
+        "tr": "Besleme havası hacmi, kapasite ve dağıtım için kritik (WERC DC yönergeleri)."
       }
     },
     {
@@ -138,10 +152,12 @@
       "max": 30,
       "businessContext": "Estimated leakage as percentage of total airflow; affects effective capacity.",
       "label_i18n": {
-        "en": "Duct Leakage Factor"
+        "en": "Duct Leakage Factor",
+        "tr": "Kanal Kaçak Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Estimated leakage as percentage of total airflow; affects effective capacity."
+        "en": "Estimated leakage as percentage of total airflow; affects effective capacity.",
+        "tr": "Toplam hava akışının yüzdesi olarak tahmini kaçak; efektif kapasiteyi etkiler."
       }
     }
   ],

@@ -22,10 +22,12 @@
       "max": 100000,
       "businessContext": "Mean revenue per transaction. Used in CLV calculation. Typical range: $20-$200 for B2C, $500-$5000 for B2B.",
       "label_i18n": {
-        "en": "Average Order Value (AOV)"
+        "en": "Average Order Value (AOV)",
+        "tr": "Ortalama Sipariş Değeri (AOV)"
       },
       "businessContext_i18n": {
-        "en": "Mean revenue per transaction. Used in CLV calculation. Typical range: $20-$200 for B2C, $500-$5000 for B2B."
+        "en": "Mean revenue per transaction. Used in CLV calculation. Typical range: $20-$200 for B2C, $500-$5000 for B2B.",
+        "tr": "İşlem başına ortalama gelir. CLV hesaplamasında kullanılır. Tipik aralık: B2C için $20-$200, B2B için $500-$5000."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 365,
       "businessContext": "Number of purchases per customer per year. Derived from historical data or cohort analysis.",
       "label_i18n": {
-        "en": "Purchase Frequency per Year"
+        "en": "Purchase Frequency per Year",
+        "tr": "Yıllık Satın Alma Sıklığı"
       },
       "businessContext_i18n": {
-        "en": "Number of purchases per customer per year. Derived from historical data or cohort analysis."
+        "en": "Number of purchases per customer per year. Derived from historical data or cohort analysis.",
+        "tr": "Müşteri başına yıllık satın alma sayısı. Geçmiş verilerden veya kohort analizinden elde edilir."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 50,
       "businessContext": "Average retention period. For subscription models, use 1/churn rate.",
       "label_i18n": {
-        "en": "Customer Lifetime (Years)"
+        "en": "Customer Lifetime (Years)",
+        "tr": "Müşteri Ömrü (Yıl)"
       },
       "businessContext_i18n": {
-        "en": "Average retention period. For subscription models, use 1/churn rate."
+        "en": "Average retention period. For subscription models, use 1/churn rate.",
+        "tr": "Ortalama elde tutma süresi. Abonelik modelleri için 1/kayıp oranı kullanın."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 100,
       "businessContext": "Profit margin after COGS. Typical range: 30-70% for product businesses, 60-90% for SaaS.",
       "label_i18n": {
-        "en": "Gross Margin (%)"
+        "en": "Gross Margin (%)",
+        "tr": "Brüt Kar Marjı (%)"
       },
       "businessContext_i18n": {
-        "en": "Profit margin after COGS. Typical range: 30-70% for product businesses, 60-90% for SaaS."
+        "en": "Profit margin after COGS. Typical range: 30-70% for product businesses, 60-90% for SaaS.",
+        "tr": "SMM sonrası kar marjı. Tipik aralık: Ürün işletmeleri için %30-70, SaaS için %60-90."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 100000,
       "businessContext": "Sum of all marketing and sales costs divided by number of new customers. Includes ad spend, salaries, tools.",
       "label_i18n": {
-        "en": "Total Customer Acquisition Cost (CAC)"
+        "en": "Total Customer Acquisition Cost (CAC)",
+        "tr": "Toplam Müşteri Edinme Maliyeti (CAC)"
       },
       "businessContext_i18n": {
-        "en": "Sum of all marketing and sales costs divided by number of new customers. Includes ad spend, salaries, tools."
+        "en": "Sum of all marketing and sales costs divided by number of new customers. Includes ad spend, salaries, tools.",
+        "tr": "Tüm pazarlama ve satış maliyetlerinin yeni müşteri sayısına bölünmesi. Reklam harcamaları, maaşlar, araçlar dahildir."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 100,
       "businessContext": "Percentage of customers retained year over year. Used for churn adjustment. Industry benchmark: 60-90%.",
       "label_i18n": {
-        "en": "Annual Retention Rate"
+        "en": "Annual Retention Rate",
+        "tr": "Yıllık Elde Tutma Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of customers retained year over year. Used for churn adjustment. Industry benchmark: 60-90%."
+        "en": "Percentage of customers retained year over year. Used for churn adjustment. Industry benchmark: 60-90%.",
+        "tr": "Yıldan yıla elde tutulan müşteri yüzdesi. Kayıp düzeltmesi için kullanılır. Sektör referansı: %60-90."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 50,
       "businessContext": "Cost of capital or required rate of return. Typical range: 8-15%.",
       "label_i18n": {
-        "en": "Discount Rate (Annual)"
+        "en": "Discount Rate (Annual)",
+        "tr": "İndirim Oranı (Yıllık)"
       },
       "businessContext_i18n": {
-        "en": "Cost of capital or required rate of return. Typical range: 8-15%."
+        "en": "Cost of capital or required rate of return. Typical range: 8-15%.",
+        "tr": "Sermaye maliyeti veya gerekli getiri oranı. Tipik aralık: %8-15."
       }
     },
     {
@@ -136,10 +150,12 @@
       "default": "medium",
       "businessContext": "Subjective assessment of input data reliability. Low = estimates, High = audited data.",
       "label_i18n": {
-        "en": "Data Confidence Level"
+        "en": "Data Confidence Level",
+        "tr": "Veri Güven Düzeyi"
       },
       "businessContext_i18n": {
-        "en": "Subjective assessment of input data reliability. Low = estimates, High = audited data."
+        "en": "Subjective assessment of input data reliability. Low = estimates, High = audited data.",
+        "tr": "Girdi verilerinin güvenilirliğine ilişkin öznel değerlendirme. Düşük = tahminler, Yüksek = denetlenmiş veri."
       },
       "unit": "unit"
     }

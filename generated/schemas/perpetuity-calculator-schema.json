@@ -10,11 +10,15 @@
       "businessContext": "0 for constant perpetuity, 1 for growing perpetuity",
       "label_i18n": {
         "en": "Perpetuity Type",
-        "tr": "Perpetuity Type",
+        "tr": "Süreklilik Türü",
         "de": "Perpetuity Type",
         "fr": "Perpetuity Type",
         "es": "Perpetuity Type",
         "ar": "Perpetuity Type"
+      },
+      "businessContext_i18n": {
+        "en": "0 for constant perpetuity, 1 for growing perpetuity",
+        "tr": "Sabit süreklilik için 0, artan süreklilik için 1"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The constant cash flow per period",
       "label_i18n": {
         "en": "Periodic Payment",
-        "tr": "Periodic Payment",
+        "tr": "Dönemsel Ödeme",
         "de": "Periodic Payment",
         "fr": "Periodic Payment",
         "es": "Periodic Payment",
         "ar": "Periodic Payment"
+      },
+      "businessContext_i18n": {
+        "en": "The constant cash flow per period",
+        "tr": "Dönem başına sabit nakit akışı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The required rate of return per period",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The required rate of return per period",
+        "tr": "Dönem başına gerekli getiri oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The constant growth rate of the payment (only used for growing perpetuity)",
       "label_i18n": {
         "en": "Growth Rate",
-        "tr": "Growth Rate",
+        "tr": "Büyüme Oranı",
         "de": "Growth Rate",
         "fr": "Growth Rate",
         "es": "Growth Rate",
         "ar": "Growth Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The constant growth rate of the payment (only used for growing perpetuity)",
+        "tr": "Ödemenin sabit büyüme oranı (yalnızca artan süreklilik için kullanılır)"
       }
     }
   ],

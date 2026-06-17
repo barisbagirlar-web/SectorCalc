@@ -10,11 +10,15 @@
       "businessContext": "The total life capacity of the equipment or component when new.",
       "label_i18n": {
         "en": "Initial Hit Points",
-        "tr": "Initial Hit Points",
+        "tr": "Başlangıç Can Puanı",
         "de": "Initial Hit Points",
         "fr": "Initial Hit Points",
         "es": "Initial Hit Points",
         "ar": "Initial Hit Points"
+      },
+      "businessContext_i18n": {
+        "en": "The total life capacity of the equipment or component when new.",
+        "tr": "Ekipmanın veya bileşenin yeni halindeki toplam ömür kapasitesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The average damage incurred per operation cycle.",
       "label_i18n": {
         "en": "Damage per Cycle",
-        "tr": "Damage per Cycle",
+        "tr": "Çevrim başına hasar",
         "de": "Damage per Cycle",
         "fr": "Damage per Cycle",
         "es": "Damage per Cycle",
         "ar": "Damage per Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "The average damage incurred per operation cycle.",
+        "tr": "İşletme çevrimi başına oluşan ortalama hasar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of operation cycles performed.",
       "label_i18n": {
         "en": "Number of Cycles",
-        "tr": "Number of Cycles",
+        "tr": "Döngü Sayısı",
         "de": "Number of Cycles",
         "fr": "Number of Cycles",
         "es": "Number of Cycles",
         "ar": "Number of Cycles"
+      },
+      "businessContext_i18n": {
+        "en": "Number of operation cycles performed.",
+        "tr": "Gerçekleştirilen işletme çevrimi sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to account for variability and ensure conservative estimates.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to account for variability and ensure conservative estimates.",
+        "tr": "Değişkenliği hesaba katmak ve muhafazakar tahminler sağlamak için çarpan."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Hit points regained after maintenance, if any.",
       "label_i18n": {
         "en": "Repair HP Gain",
-        "tr": "Repair HP Gain",
+        "tr": "Onarım Can Puanı Kazancı",
         "de": "Repair HP Gain",
         "fr": "Repair HP Gain",
         "es": "Repair HP Gain",
         "ar": "Repair HP Gain"
+      },
+      "businessContext_i18n": {
+        "en": "Hit points regained after maintenance, if any.",
+        "tr": "Varsa bakım sonrası kazanılan can puanı."
       }
     }
   ],

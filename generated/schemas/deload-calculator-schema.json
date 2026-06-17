@@ -10,11 +10,15 @@
       "businessContext": "The lifter's current one-rep max for the exercise in kg.",
       "label_i18n": {
         "en": "Current Training Max",
-        "tr": "Current Training Max",
+        "tr": "Mevcut Antrenman Maksimumu",
         "de": "Current Training Max",
         "fr": "Current Training Max",
         "es": "Current Training Max",
         "ar": "Current Training Max"
+      },
+      "businessContext_i18n": {
+        "en": "The lifter's current one-rep max for the exercise in kg.",
+        "tr": "Sporcunun egzersiz için kg cinsinden mevcut bir tekrar maksimumu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average training intensity as percentage of 1RM.",
       "label_i18n": {
         "en": "Current Average Intensity",
-        "tr": "Current Average Intensity",
+        "tr": "Mevcut Ortalama Yoğunluk",
         "de": "Current Average Intensity",
         "fr": "Current Average Intensity",
         "es": "Current Average Intensity",
         "ar": "Current Average Intensity"
+      },
+      "businessContext_i18n": {
+        "en": "Average training intensity as percentage of 1RM.",
+        "tr": "Ortalama antrenman yoğunluğu, 1RM'nin yüzdesi olarak."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total weekly volume load in kilograms (sets x reps x weight).",
       "label_i18n": {
         "en": "Current Weekly Volume Load",
-        "tr": "Current Weekly Volume Load",
+        "tr": "Mevcut Haftalık Hacim Yükü",
         "de": "Current Weekly Volume Load",
         "fr": "Current Weekly Volume Load",
         "es": "Current Weekly Volume Load",
         "ar": "Current Weekly Volume Load"
+      },
+      "businessContext_i18n": {
+        "en": "Total weekly volume load in kilograms (sets x reps x weight).",
+        "tr": "Kilogram cinsinden toplam haftalık hacim yükü (set x tekrar x ağırlık)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration of the deload phase in weeks.",
       "label_i18n": {
         "en": "Deload Duration",
-        "tr": "Deload Duration",
+        "tr": "Yük Azaltma Süresi",
         "de": "Deload Duration",
         "fr": "Deload Duration",
         "es": "Deload Duration",
         "ar": "Deload Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the deload phase in weeks.",
+        "tr": "Yük azaltma aşamasının hafta cinsinden süresi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Reduction in intensity percentage points during deload.",
       "label_i18n": {
         "en": "Intensity Reduction",
-        "tr": "Intensity Reduction",
+        "tr": "Yoğunluk Azaltma",
         "de": "Intensity Reduction",
         "fr": "Intensity Reduction",
         "es": "Intensity Reduction",
         "ar": "Intensity Reduction"
+      },
+      "businessContext_i18n": {
+        "en": "Reduction in intensity percentage points during deload.",
+        "tr": "Yük azaltma sırasında yoğunluk yüzde puanındaki azalma."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage reduction in volume load during deload.",
       "label_i18n": {
         "en": "Volume Reduction",
-        "tr": "Volume Reduction",
+        "tr": "Hacim Azaltma",
         "de": "Volume Reduction",
         "fr": "Volume Reduction",
         "es": "Volume Reduction",
         "ar": "Volume Reduction"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage reduction in volume load during deload.",
+        "tr": "Yük azaltma sırasında hacim yükündeki yüzde azalma."
       }
     }
   ],

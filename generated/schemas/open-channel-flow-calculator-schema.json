@@ -10,11 +10,15 @@
       "businessContext": "Width of the channel base",
       "label_i18n": {
         "en": "Bottom Width (b)",
-        "tr": "Bottom Width (b)",
+        "tr": "Taban Genişliği (b)",
         "de": "Bottom Width (b)",
         "fr": "Bottom Width (b)",
         "es": "Bottom Width (b)",
         "ar": "Bottom Width (b)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the channel base",
+        "tr": "Kanal tabanının genişliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vertical distance from channel bottom to water surface",
       "label_i18n": {
         "en": "Flow Depth (y)",
-        "tr": "Flow Depth (y)",
+        "tr": "Akış Derinliği (y)",
         "de": "Flow Depth (y)",
         "fr": "Flow Depth (y)",
         "es": "Flow Depth (y)",
         "ar": "Flow Depth (y)"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical distance from channel bottom to water surface",
+        "tr": "Kanal tabanından su yüzeyine dikey mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Horizontal distance per unit vertical rise of the channel bank",
       "label_i18n": {
         "en": "Side Slope (z)",
-        "tr": "Side Slope (z)",
+        "tr": "Yan Eğim (z)",
         "de": "Side Slope (z)",
         "fr": "Side Slope (z)",
         "es": "Side Slope (z)",
         "ar": "Side Slope (z)"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal distance per unit vertical rise of the channel bank",
+        "tr": "Kanal bankının dikey birim yükselmesi başına yatay mesafe"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Roughness coefficient of the channel lining",
       "label_i18n": {
         "en": "Manning's n",
-        "tr": "Manning's n",
+        "tr": "Manning n",
         "de": "Manning's n",
         "fr": "Manning's n",
         "es": "Manning's n",
         "ar": "Manning's n"
+      },
+      "businessContext_i18n": {
+        "en": "Roughness coefficient of the channel lining",
+        "tr": "Kanal kaplamasının pürüzlülük katsayısı"
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "Channel Slope (S)",
         "es": "Channel Slope (S)",
         "ar": "Channel Slope (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Longitudinal slope of the channel bed",
+        "tr": "Kanal tabanının boyuna eğimi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Acceleration due to gravity",
       "label_i18n": {
         "en": "Gravity (g)",
-        "tr": "Gravity (g)",
+        "tr": "Yerçekimi (g)",
         "de": "Gravity (g)",
         "fr": "Gravity (g)",
         "es": "Gravity (g)",
         "ar": "Gravity (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity",
+        "tr": "Yerçekimi ivmesi"
       }
     }
   ],

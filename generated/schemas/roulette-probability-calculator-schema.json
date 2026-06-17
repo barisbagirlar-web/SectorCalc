@@ -10,11 +10,15 @@
       "businessContext": "Total number of roulette wheel spins to analyze.",
       "label_i18n": {
         "en": "Number of Spins",
-        "tr": "Number of Spins",
+        "tr": "Dönüş Sayısı",
         "de": "Number of Spins",
         "fr": "Number of Spins",
         "es": "Number of Spins",
         "ar": "Number of Spins"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of roulette wheel spins to analyze.",
+        "tr": "Analiz edilecek toplam rulet çarkı dönüş sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Quantity of numbers wagered on in each spin (e.g., 1 for straight-up).",
       "label_i18n": {
         "en": "Numbers Covered per Spin",
-        "tr": "Numbers Covered per Spin",
+        "tr": "Her Dönüşte Kapsanan Sayılar",
         "de": "Numbers Covered per Spin",
         "fr": "Numbers Covered per Spin",
         "es": "Numbers Covered per Spin",
         "ar": "Numbers Covered per Spin"
+      },
+      "businessContext_i18n": {
+        "en": "Quantity of numbers wagered on in each spin (e.g., 1 for straight-up).",
+        "tr": "Her dönüşte bahis oynanan sayı miktarı (örneğin, tek sayı için 1)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Payout ratio for a winning spin (e.g., 35 for straight-up bet in European roulette).",
       "label_i18n": {
         "en": "Payout Multiplier",
-        "tr": "Payout Multiplier",
+        "tr": "Ödeme Çarpanı",
         "de": "Payout Multiplier",
         "fr": "Payout Multiplier",
         "es": "Payout Multiplier",
         "ar": "Payout Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Payout ratio for a winning spin (e.g., 35 for straight-up bet in European roulette).",
+        "tr": "Kazanan bir dönüş için ödeme oranı (örneğin, Avrupa ruletinde tek sayı bahsi için 35)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Wager placed on each individual spin.",
       "label_i18n": {
         "en": "Bet Amount per Spin",
-        "tr": "Bet Amount per Spin",
+        "tr": "Her Dönüşte Bahis Miktarı",
         "de": "Bet Amount per Spin",
         "fr": "Bet Amount per Spin",
         "es": "Bet Amount per Spin",
         "ar": "Bet Amount per Spin"
+      },
+      "businessContext_i18n": {
+        "en": "Wager placed on each individual spin.",
+        "tr": "Her bir dönüşe yatırılan bahis."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total pockets (37 for European single-zero, 38 for American double-zero).",
       "label_i18n": {
         "en": "Total Numbers on Wheel",
-        "tr": "Total Numbers on Wheel",
+        "tr": "Çarktaki Toplam Sayı",
         "de": "Total Numbers on Wheel",
         "fr": "Total Numbers on Wheel",
         "es": "Total Numbers on Wheel",
         "ar": "Total Numbers on Wheel"
+      },
+      "businessContext_i18n": {
+        "en": "Total pockets (37 for European single-zero, 38 for American double-zero).",
+        "tr": "Toplam cep sayısı (Avrupa tek sıfır için 37, Amerikan çift sıfır için 38)."
       }
     }
   ],

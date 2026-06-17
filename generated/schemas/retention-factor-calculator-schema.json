@@ -10,11 +10,15 @@
       "businessContext": "Concentration of the solute in the incoming feed stream.",
       "label_i18n": {
         "en": "Feed Concentration",
-        "tr": "Feed Concentration",
+        "tr": "Besleme Konsantrasyonu",
         "de": "Feed Concentration",
         "fr": "Feed Concentration",
         "es": "Feed Concentration",
         "ar": "Feed Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Concentration of the solute in the incoming feed stream.",
+        "tr": "Gelen besleme akışındaki çözünen madde konsantrasyonu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Concentration of the solute in the permeate (filtered) stream.",
       "label_i18n": {
         "en": "Permeate Concentration",
-        "tr": "Permeate Concentration",
+        "tr": "Permeat Konsantrasyonu",
         "de": "Permeate Concentration",
         "fr": "Permeate Concentration",
         "es": "Permeate Concentration",
         "ar": "Permeate Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Concentration of the solute in the permeate (filtered) stream.",
+        "tr": "Permeat (filtrelenmiş) akışındaki çözünen madde konsantrasyonu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Volumetric flow rate of the feed stream.",
       "label_i18n": {
         "en": "Feed Flow Rate",
-        "tr": "Feed Flow Rate",
+        "tr": "Besleme Akış Hızı",
         "de": "Feed Flow Rate",
         "fr": "Feed Flow Rate",
         "es": "Feed Flow Rate",
         "ar": "Feed Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of the feed stream.",
+        "tr": "Besleme Akış Hızı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Volumetric flow rate of the permeate stream.",
       "label_i18n": {
         "en": "Permeate Flow Rate",
-        "tr": "Permeate Flow Rate",
+        "tr": "Permeat Akış Hızı",
         "de": "Permeate Flow Rate",
         "fr": "Permeate Flow Rate",
         "es": "Permeate Flow Rate",
         "ar": "Permeate Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of the permeate stream.",
+        "tr": "Permeat akışının hacimsel debisi."
       }
     }
   ],

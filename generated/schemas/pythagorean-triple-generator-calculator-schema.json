@@ -10,11 +10,15 @@
       "businessContext": "m > n, positive integer",
       "label_i18n": {
         "en": "First parameter (m)",
-        "tr": "First parameter (m)",
+        "tr": "Birinci parametre (m)",
         "de": "First parameter (m)",
         "fr": "First parameter (m)",
         "es": "First parameter (m)",
         "ar": "First parameter (m)"
+      },
+      "businessContext_i18n": {
+        "en": "m > n, positive integer",
+        "tr": "m > n, pozitif tam sayı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "n < m, non-negative integer",
       "label_i18n": {
         "en": "Second parameter (n)",
-        "tr": "Second parameter (n)",
+        "tr": "İkinci parametre (n)",
         "de": "Second parameter (n)",
         "fr": "Second parameter (n)",
         "es": "Second parameter (n)",
         "ar": "Second parameter (n)"
+      },
+      "businessContext_i18n": {
+        "en": "n < m, non-negative integer",
+        "tr": "n < m, negatif olmayan tam sayı"
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

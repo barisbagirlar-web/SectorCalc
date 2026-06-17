@@ -10,11 +10,15 @@
       "businessContext": "Amount invested in the convertible note.",
       "label_i18n": {
         "en": "Investment Amount",
-        "tr": "Investment Amount",
+        "tr": "Yatırım Tutarı",
         "de": "Investment Amount",
         "fr": "Investment Amount",
         "es": "Investment Amount",
         "ar": "Investment Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Amount invested in the convertible note.",
+        "tr": "Dönüştürülebilir senede yatırılan tutar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Discount applied to next round price per share.",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Discount applied to next round price per share.",
+        "tr": "Bir sonraki tur hisse başına fiyatına uygulanan iskonto."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum company valuation for conversion price cap.",
       "label_i18n": {
         "en": "Valuation Cap",
-        "tr": "Valuation Cap",
+        "tr": "Değerleme Tavanı",
         "de": "Valuation Cap",
         "fr": "Valuation Cap",
         "es": "Valuation Cap",
         "ar": "Valuation Cap"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum company valuation for conversion price cap.",
+        "tr": "Dönüşüm fiyatı tavanı için maksimum şirket değerlemesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Price per share in the qualified financing round.",
       "label_i18n": {
         "en": "Next Round Price Per Share",
-        "tr": "Next Round Price Per Share",
+        "tr": "Sonraki Tur Hisse Başına Fiyat",
         "de": "Next Round Price Per Share",
         "fr": "Next Round Price Per Share",
         "es": "Next Round Price Per Share",
         "ar": "Next Round Price Per Share"
+      },
+      "businessContext_i18n": {
+        "en": "Price per share in the qualified financing round.",
+        "tr": "Nitelikli finansman turunda hisse başına fiyat."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Annual simple interest rate accrued on the note.",
       "label_i18n": {
         "en": "Interest Rate",
-        "tr": "Interest Rate",
+        "tr": "Faiz Oranı",
         "de": "Interest Rate",
         "fr": "Interest Rate",
         "es": "Interest Rate",
         "ar": "Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual simple interest rate accrued on the note.",
+        "tr": "Senede tahakkuk eden yıllık basit faiz oranı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Time until conversion, used to calculate accrued interest.",
       "label_i18n": {
         "en": "Maturity",
-        "tr": "Maturity",
+        "tr": "Vade",
         "de": "Maturity",
         "fr": "Maturity",
         "es": "Maturity",
         "ar": "Maturity"
+      },
+      "businessContext_i18n": {
+        "en": "Time until conversion, used to calculate accrued interest.",
+        "tr": "Dönüşüme kadar geçen süre, tahakkuk eden faizi hesaplamak için kullanılır."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of fully diluted shares before the next round.",
       "label_i18n": {
         "en": "Pre-Money Fully Diluted Shares",
-        "tr": "Pre-Money Fully Diluted Shares",
+        "tr": "Para Öncesi Tam Seyreltilmiş Hisse Sayısı",
         "de": "Pre-Money Fully Diluted Shares",
         "fr": "Pre-Money Fully Diluted Shares",
         "es": "Pre-Money Fully Diluted Shares",
         "ar": "Pre-Money Fully Diluted Shares"
+      },
+      "businessContext_i18n": {
+        "en": "Number of fully diluted shares before the next round.",
+        "tr": "Bir sonraki tur öncesi tam seyreltilmiş hisse sayısı."
       }
     }
   ],

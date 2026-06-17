@@ -10,11 +10,15 @@
       "businessContext": "The maximum allowable value for a characteristic",
       "label_i18n": {
         "en": "Upper Specification Limit (USL)",
-        "tr": "Upper Specification Limit (USL)",
+        "tr": "Üst Spesifikasyon Limiti (USL)",
         "de": "Upper Specification Limit (USL)",
         "fr": "Upper Specification Limit (USL)",
         "es": "Upper Specification Limit (USL)",
         "ar": "Upper Specification Limit (USL)"
+      },
+      "businessContext_i18n": {
+        "en": "The maximum allowable value for a characteristic",
+        "tr": "Bir karakteristik için izin verilen maksimum değer"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The minimum allowable value for a characteristic",
       "label_i18n": {
         "en": "Lower Specification Limit (LSL)",
-        "tr": "Lower Specification Limit (LSL)",
+        "tr": "Alt Spesifikasyon Limiti (LSL)",
         "de": "Lower Specification Limit (LSL)",
         "fr": "Lower Specification Limit (LSL)",
         "es": "Lower Specification Limit (LSL)",
         "ar": "Lower Specification Limit (LSL)"
+      },
+      "businessContext_i18n": {
+        "en": "The minimum allowable value for a characteristic",
+        "tr": "Bir karakteristik için izin verilen minimum değer"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The ideal or nominal value",
       "label_i18n": {
         "en": "Target Value",
-        "tr": "Target Value",
+        "tr": "Hedef Değer",
         "de": "Target Value",
         "fr": "Target Value",
         "es": "Target Value",
         "ar": "Target Value"
+      },
+      "businessContext_i18n": {
+        "en": "The ideal or nominal value",
+        "tr": "İdeal veya nominal değer"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The arithmetic mean of the process output",
       "label_i18n": {
         "en": "Process Mean",
-        "tr": "Process Mean",
+        "tr": "Proses Ortalaması",
         "de": "Process Mean",
         "fr": "Process Mean",
         "es": "Process Mean",
         "ar": "Process Mean"
+      },
+      "businessContext_i18n": {
+        "en": "The arithmetic mean of the process output",
+        "tr": "Proses çıktısının aritmetik ortalaması"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The standard deviation of the process output, measuring spread",
       "label_i18n": {
         "en": "Process Standard Deviation",
-        "tr": "Process Standard Deviation",
+        "tr": "Proses Standart Sapması",
         "de": "Process Standard Deviation",
         "fr": "Process Standard Deviation",
         "es": "Process Standard Deviation",
         "ar": "Process Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "The standard deviation of the process output, measuring spread",
+        "tr": "Proses çıktısının standart sapması, yayılımı ölçer"
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 300,
       "businessContext": "Thickness of the base metal to be welded, measured in millimeters.",
       "label_i18n": {
-        "en": "Material Thickness (mm)"
+        "en": "Material Thickness (mm)",
+        "tr": "Malzeme Kalınlığı (mm)"
       },
       "businessContext_i18n": {
-        "en": "Thickness of the base metal to be welded, measured in millimeters."
+        "en": "Thickness of the base metal to be welded, measured in millimeters.",
+        "tr": "Kaynak yapılacak ana metalin kalınlığı, milimetre cinsinden."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 1.2,
       "businessContext": "Carbon equivalent value calculated from material composition (IIW formula).",
       "label_i18n": {
-        "en": "Carbon Equivalent (CE)"
+        "en": "Carbon Equivalent (CE)",
+        "tr": "Karbon Eşdeğeri (CE)"
       },
       "businessContext_i18n": {
-        "en": "Carbon equivalent value calculated from material composition (IIW formula)."
+        "en": "Carbon equivalent value calculated from material composition (IIW formula).",
+        "tr": "Malzeme bileşiminden hesaplanan karbon eşdeğeri değeri (IIW formülü)."
       }
     },
     {
@@ -56,10 +60,12 @@
       ],
       "businessContext": "Diffusible hydrogen content of the welding consumable, per ISO 3690.",
       "label_i18n": {
-        "en": "Hydrogen Level (ml/100g weld metal)"
+        "en": "Hydrogen Level (ml/100g weld metal)",
+        "tr": "Hidrojen Seviyesi (ml/100g kaynak metali)"
       },
       "businessContext_i18n": {
-        "en": "Diffusible hydrogen content of the welding consumable, per ISO 3690."
+        "en": "Diffusible hydrogen content of the welding consumable, per ISO 3690.",
+        "tr": "Kaynak sarf malzemesinin difüze olabilir hidrojen içeriği, ISO 3690'a göre."
       }
     },
     {
@@ -72,10 +78,12 @@
       "max": 5,
       "businessContext": "Arc energy per unit length of weld, calculated from voltage, current, and travel speed.",
       "label_i18n": {
-        "en": "Heat Input (kJ/mm)"
+        "en": "Heat Input (kJ/mm)",
+        "tr": "Isı Girdisi (kJ/mm)"
       },
       "businessContext_i18n": {
-        "en": "Arc energy per unit length of weld, calculated from voltage, current, and travel speed."
+        "en": "Arc energy per unit length of weld, calculated from voltage, current, and travel speed.",
+        "tr": "Voltaj, akım ve ilerleme hızından hesaplanan birim kaynak uzunluğu başına ark enerjisi."
       }
     },
     {
@@ -91,10 +99,12 @@
       ],
       "businessContext": "Degree of mechanical restraint on the weld joint, affecting crack susceptibility.",
       "label_i18n": {
-        "en": "Joint Restraint Factor"
+        "en": "Joint Restraint Factor",
+        "tr": "Birleştirme Sınırlama Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Degree of mechanical restraint on the weld joint, affecting crack susceptibility."
+        "en": "Degree of mechanical restraint on the weld joint, affecting crack susceptibility.",
+        "tr": "Kaynak birleştirmesindeki mekanik sınırlama derecesi, çatlak duyarlılığını etkiler."
       }
     },
     {
@@ -110,10 +120,12 @@
       ],
       "businessContext": "Method used to apply preheat, influences heating rate and uniformity.",
       "label_i18n": {
-        "en": "Preheat Method"
+        "en": "Preheat Method",
+        "tr": "Ön Isıtma Yöntemi"
       },
       "businessContext_i18n": {
-        "en": "Method used to apply preheat, influences heating rate and uniformity."
+        "en": "Method used to apply preheat, influences heating rate and uniformity.",
+        "tr": "Ön ısıtmayı uygulamak için kullanılan yöntem, ısıtma hızını ve homojenliğini etkiler."
       }
     }
   ],

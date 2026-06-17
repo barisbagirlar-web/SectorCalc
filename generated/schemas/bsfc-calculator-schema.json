@@ -10,11 +10,15 @@
       "businessContext": "Volumetric fuel flow rate measured in liters per hour.",
       "label_i18n": {
         "en": "Fuel Volume Flow",
-        "tr": "Fuel Volume Flow",
+        "tr": "Yakıt Hacimsel Akışı",
         "de": "Fuel Volume Flow",
         "fr": "Fuel Volume Flow",
         "es": "Fuel Volume Flow",
         "ar": "Fuel Volume Flow"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric fuel flow rate measured in liters per hour.",
+        "tr": "Saatte litre cinsinden ölçülen hacimsel yakıt akış hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Temperature of fuel at measurement point for density correction.",
       "label_i18n": {
         "en": "Fuel Temperature",
-        "tr": "Fuel Temperature",
+        "tr": "Yakıt Sıcaklığı",
         "de": "Fuel Temperature",
         "fr": "Fuel Temperature",
         "es": "Fuel Temperature",
         "ar": "Fuel Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of fuel at measurement point for density correction.",
+        "tr": "Yoğunluk düzeltmesi için ölçüm noktasındaki yakıt sıcaklığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fuel density at reference temperature (e.g., 15°C).",
       "label_i18n": {
         "en": "Reference Fuel Density",
-        "tr": "Reference Fuel Density",
+        "tr": "Referans Yakıt Yoğunluğu",
         "de": "Reference Fuel Density",
         "fr": "Reference Fuel Density",
         "es": "Reference Fuel Density",
         "ar": "Reference Fuel Density"
+      },
+      "businessContext_i18n": {
+        "en": "Fuel density at reference temperature (e.g., 15°C).",
+        "tr": "Referans sıcaklıkta (ör. 15°C) yakıt yoğunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Engine brake power output in kilowatts.",
       "label_i18n": {
         "en": "Brake Power",
-        "tr": "Brake Power",
+        "tr": "Fren Gücü",
         "de": "Brake Power",
         "fr": "Brake Power",
         "es": "Brake Power",
         "ar": "Brake Power"
+      },
+      "businessContext_i18n": {
+        "en": "Engine brake power output in kilowatts.",
+        "tr": "Kilovat cinsinden motor fren gücü çıkışı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Coefficient of thermal expansion for fuel (typically 0.00095/°C for diesel).",
       "label_i18n": {
         "en": "Fuel Thermal Expansion Coefficient",
-        "tr": "Fuel Thermal Expansion Coefficient",
+        "tr": "Yakıt Termal Genleşme Katsayısı",
         "de": "Fuel Thermal Expansion Coefficient",
         "fr": "Fuel Thermal Expansion Coefficient",
         "es": "Fuel Thermal Expansion Coefficient",
         "ar": "Fuel Thermal Expansion Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of thermal expansion for fuel (typically 0.00095/°C for diesel).",
+        "tr": "Yakıt için termal genleşme katsayısı (dizel için tipik olarak 0,00095/°C)."
       }
     }
   ],

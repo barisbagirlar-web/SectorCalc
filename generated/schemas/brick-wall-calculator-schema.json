@@ -10,11 +10,15 @@
       "businessContext": "Total horizontal length of the wall to be constructed.",
       "label_i18n": {
         "en": "Wall Length",
-        "tr": "Wall Length",
+        "tr": "Duvar Uzunluğu (m)",
         "de": "Wall Length",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total horizontal length of the wall to be constructed.",
+        "tr": "İnşa edilecek duvarın toplam yatay uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total vertical height of the wall.",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Total vertical height of the wall.",
+        "tr": "Duvarın toplam dikey yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of a single brick.",
       "label_i18n": {
         "en": "Brick Length",
-        "tr": "Brick Length",
+        "tr": "Tuğla uzunluğu",
         "de": "Brick Length",
         "fr": "Brick Length",
         "es": "Brick Length",
         "ar": "Brick Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single brick.",
+        "tr": "Tek bir tuğlanın uzunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of a single brick.",
       "label_i18n": {
         "en": "Brick Height",
-        "tr": "Brick Height",
+        "tr": "Tuğla yüksekliği",
         "de": "Brick Height",
         "fr": "Brick Height",
         "es": "Brick Height",
         "ar": "Brick Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of a single brick.",
+        "tr": "Tek bir tuğlanın yüksekliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Width of a brick, which determines the thickness of the wall.",
       "label_i18n": {
         "en": "Brick Width (Wall Thickness)",
-        "tr": "Brick Width (Wall Thickness)",
+        "tr": "Tuğla Genişliği (Duvar Kalınlığı)",
         "de": "Brick Width (Wall Thickness)",
         "fr": "Brick Width (Wall Thickness)",
         "es": "Brick Width (Wall Thickness)",
         "ar": "Brick Width (Wall Thickness)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a brick, which determines the thickness of the wall.",
+        "tr": "Duvar kalınlığını belirleyen tuğla genişliği."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Thickness of the mortar joint between bricks (both horizontal and vertical).",
       "label_i18n": {
         "en": "Mortar Joint Thickness",
-        "tr": "Mortar Joint Thickness",
+        "tr": "Harç Derz Kalınlığı",
         "de": "Mortar Joint Thickness",
         "fr": "Mortar Joint Thickness",
         "es": "Mortar Joint Thickness",
         "ar": "Mortar Joint Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the mortar joint between bricks (both horizontal and vertical).",
+        "tr": "Tuğlalar arasındaki derz kalınlığı (hem yatay hem dikey)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Cost of one brick in the selected currency.",
       "label_i18n": {
         "en": "Brick Price per Piece",
-        "tr": "Brick Price per Piece",
+        "tr": "Tuğla Birim Fiyatı",
         "de": "Brick Price per Piece",
         "fr": "Brick Price per Piece",
         "es": "Brick Price per Piece",
         "ar": "Brick Price per Piece"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of one brick in the selected currency.",
+        "tr": "Seçilen para biriminde bir tuğlanın maliyeti."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Cost of mortar per cubic meter in the selected currency.",
       "label_i18n": {
         "en": "Mortar Price per Cubic Meter",
-        "tr": "Mortar Price per Cubic Meter",
+        "tr": "Harç Metreküp Fiyatı",
         "de": "Mortar Price per Cubic Meter",
         "fr": "Mortar Price per Cubic Meter",
         "es": "Mortar Price per Cubic Meter",
         "ar": "Mortar Price per Cubic Meter"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of mortar per cubic meter in the selected currency.",
+        "tr": "Seçilen para biriminde metreküp başına harç maliyeti."
       }
     }
   ],

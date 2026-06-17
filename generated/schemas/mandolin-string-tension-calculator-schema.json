@@ -10,11 +10,15 @@
       "businessContext": "The distance from the nut to the bridge, representing the vibrating length of the string. Standard mandolin scale length is around 330 mm.",
       "label_i18n": {
         "en": "Scale Length",
-        "tr": "Scale Length",
+        "tr": "Skala Uzunluğu",
         "de": "Scale Length",
         "fr": "Scale Length",
         "es": "Scale Length",
         "ar": "Scale Length"
+      },
+      "businessContext_i18n": {
+        "en": "The distance from the nut to the bridge, representing the vibrating length of the string. Standard mandolin scale length is around 330 mm.",
+        "tr": "Somundan köprüye olan mesafe, telin titreşen uzunluğunu temsil eder. Standart mandolin skalası uzunluğu yaklaşık 330 mm'dir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The diameter of the string in millimeters. Typical mandolin strings range from 0.2 mm to 0.4 mm.",
       "label_i18n": {
         "en": "String Diameter",
-        "tr": "String Diameter",
+        "tr": "Tel Çapı",
         "de": "String Diameter",
         "fr": "String Diameter",
         "es": "String Diameter",
         "ar": "String Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "The diameter of the string in millimeters. Typical mandolin strings range from 0.2 mm to 0.4 mm.",
+        "tr": "Telin milimetre cinsinden çapı. Tipik mandolin telleri 0,2 mm ile 0,4 mm arasında değişir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The density of the string material in kilograms per cubic meter. Common values are 7800 for steel, 6500 for titanium, 1840 for nylon.",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "The density of the string material in kilograms per cubic meter. Common values are 7800 for steel, 6500 for titanium, 1840 for nylon.",
+        "tr": "Tel malzemesinin metreküp başına kilogram cinsinden yoğunluğu. Yaygın değerler çelik için 7800, titanyum için 6500, naylon için 1840'tır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The desired fundamental frequency of the string in Hertz. G3 (the lowest standard mandolin string) is 196 Hz.",
       "label_i18n": {
         "en": "Note Frequency",
-        "tr": "Note Frequency",
+        "tr": "Nota Frekansı",
         "de": "Note Frequency",
         "fr": "Note Frequency",
         "es": "Note Frequency",
         "ar": "Note Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "The desired fundamental frequency of the string in Hertz. G3 (the lowest standard mandolin string) is 196 Hz.",
+        "tr": "Telin Hertz cinsinden istenen temel frekansı. G3 (standart mandolinin en düşük teli) 196 Hz'dir."
       }
     }
   ],

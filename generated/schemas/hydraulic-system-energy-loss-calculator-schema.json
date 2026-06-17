@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Volumetric flow rate of hydraulic fluid through the system. Typical range for industrial systems: 10-500 L/min.",
       "label_i18n": {
-        "en": "Flow Rate"
+        "en": "Flow Rate",
+        "tr": "Debi"
       },
       "businessContext_i18n": {
-        "en": "Volumetric flow rate of hydraulic fluid through the system. Typical range for industrial systems: 10-500 L/min."
+        "en": "Volumetric flow rate of hydraulic fluid through the system. Typical range for industrial systems: 10-500 L/min.",
+        "tr": "Sistemden geçen hidrolik akışkanın hacimsel debisi. Endüstriyel sistemler için tipik aralık: 10-500 L/dak."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 500,
       "businessContext": "Sum of all pressure losses across components (pipes, valves, fittings). ISO 4409 recommends measurement at steady state.",
       "label_i18n": {
-        "en": "Total Pressure Drop"
+        "en": "Total Pressure Drop",
+        "tr": "Toplam Basınç Düşüşü"
       },
       "businessContext_i18n": {
-        "en": "Sum of all pressure losses across components (pipes, valves, fittings). ISO 4409 recommends measurement at steady state."
+        "en": "Sum of all pressure losses across components (pipes, valves, fittings). ISO 4409 recommends measurement at steady state.",
+        "tr": "Bileşenler (borular, vanalar, bağlantı parçaları) genelindeki tüm basınç kayıplarının toplamı. ISO 4409, kararlı durumda ölçüm yapılmasını önerir."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1200,
       "businessContext": "Density of hydraulic fluid at operating temperature. Typical mineral oil: 850-900 kg/m³.",
       "label_i18n": {
-        "en": "Fluid Density"
+        "en": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu"
       },
       "businessContext_i18n": {
-        "en": "Density of hydraulic fluid at operating temperature. Typical mineral oil: 850-900 kg/m³."
+        "en": "Density of hydraulic fluid at operating temperature. Typical mineral oil: 850-900 kg/m³.",
+        "tr": "Çalışma sıcaklığında hidrolik akışkanın yoğunluğu. Tipik mineral yağ: 850-900 kg/m³."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 500,
       "businessContext": "Fluid viscosity at operating temperature. ISO VG 46 is common for industrial hydraulics.",
       "label_i18n": {
-        "en": "Kinematic Viscosity"
+        "en": "Kinematic Viscosity",
+        "tr": "Kinematik Viskozite"
       },
       "businessContext_i18n": {
-        "en": "Fluid viscosity at operating temperature. ISO VG 46 is common for industrial hydraulics."
+        "en": "Fluid viscosity at operating temperature. ISO VG 46 is common for industrial hydraulics.",
+        "tr": "Çalışma sıcaklığında akışkan viskozitesi. Endüstriyel hidrolikte ISO VG 46 yaygındır."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 1000,
       "businessContext": "Total length of hydraulic piping in the system. Longer runs increase friction losses.",
       "label_i18n": {
-        "en": "Total Pipe Length"
+        "en": "Total Pipe Length",
+        "tr": "Toplam Boru Uzunluğu"
       },
       "businessContext_i18n": {
-        "en": "Total length of hydraulic piping in the system. Longer runs increase friction losses."
+        "en": "Total length of hydraulic piping in the system. Longer runs increase friction losses.",
+        "tr": "Sistemdeki hidrolik boruların toplam uzunluğu. Uzun hatlar sürtünme kayıplarını artırır."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 200,
       "businessContext": "Inner diameter of the main hydraulic pipe. Affects flow velocity and Reynolds number.",
       "label_i18n": {
-        "en": "Pipe Inner Diameter"
+        "en": "Pipe Inner Diameter",
+        "tr": "Boru İç Çapı"
       },
       "businessContext_i18n": {
-        "en": "Inner diameter of the main hydraulic pipe. Affects flow velocity and Reynolds number."
+        "en": "Inner diameter of the main hydraulic pipe. Affects flow velocity and Reynolds number.",
+        "tr": "Ana hidrolik borunun iç çapı. Akış hızını ve Reynolds sayısını etkiler."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 50,
       "businessContext": "Total number of directional, pressure, and flow control valves in the system.",
       "label_i18n": {
-        "en": "Number of Valves"
+        "en": "Number of Valves",
+        "tr": "Vana Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total number of directional, pressure, and flow control valves in the system."
+        "en": "Total number of directional, pressure, and flow control valves in the system.",
+        "tr": "Sistemdeki yön, basınç ve akış kontrol valflerinin toplam sayısı."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 200,
       "businessContext": "Total number of elbows, tees, reducers, and other fittings.",
       "label_i18n": {
-        "en": "Number of Fittings"
+        "en": "Number of Fittings",
+        "tr": "Bağlantı Elemanı Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total number of elbows, tees, reducers, and other fittings."
+        "en": "Total number of elbows, tees, reducers, and other fittings.",
+        "tr": "Dirsek, te, redüksiyon ve diğer bağlantı elemanlarının toplam sayısı."
       }
     }
   ],

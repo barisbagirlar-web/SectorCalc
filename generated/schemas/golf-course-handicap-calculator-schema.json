@@ -10,11 +10,15 @@
       "businessContext": "Player's adjusted gross score for the round (actual strokes taken after any adjustments).",
       "label_i18n": {
         "en": "Adjusted Gross Score",
-        "tr": "Adjusted Gross Score",
+        "tr": "Düzeltilmiş Brüt Skor",
         "de": "Adjusted Gross Score",
         "fr": "Adjusted Gross Score",
         "es": "Adjusted Gross Score",
         "ar": "Adjusted Gross Score"
+      },
+      "businessContext_i18n": {
+        "en": "Player's adjusted gross score for the round (actual strokes taken after any adjustments).",
+        "tr": "Oyuncunun tur için düzeltilmiş brüt skoru (herhangi bir düzeltmeden sonra atılan gerçek vuruşlar)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Course rating from scorecard, representing difficulty for a scratch golfer.",
       "label_i18n": {
         "en": "Course Rating",
-        "tr": "Course Rating",
+        "tr": "Saha Derecesi",
         "de": "Course Rating",
         "fr": "Course Rating",
         "es": "Course Rating",
         "ar": "Course Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Course rating from scorecard, representing difficulty for a scratch golfer.",
+        "tr": "Skor kartından saha derecesi, sıfır handikaplı golfçü için zorluğu temsil eder."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Slope rating from scorecard (typically 55-155), indicating relative difficulty for bogey golfers.",
       "label_i18n": {
         "en": "Slope Rating",
-        "tr": "Slope Rating",
+        "tr": "Eğim Derecesi",
         "de": "Slope Rating",
         "fr": "Slope Rating",
         "es": "Slope Rating",
         "ar": "Slope Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Slope rating from scorecard (typically 55-155), indicating relative difficulty for bogey golfers.",
+        "tr": "Skor kartından eğim derecesi (genellikle 55-155), boği golfçüler için göreceli zorluğu gösterir."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Par",
         "es": "Par",
         "ar": "Par"
+      },
+      "businessContext_i18n": {
+        "en": "Par for the course, used in course handicap calculation.",
+        "tr": "Sahanın parı, saha handikap hesaplamasında kullanılır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Player's current Handicap Index (for course handicap calculation; set to 0 if unknown).",
       "label_i18n": {
         "en": "Handicap Index",
-        "tr": "Handicap Index",
+        "tr": "Handikap İndeksi",
         "de": "Handicap Index",
         "fr": "Handicap Index",
         "es": "Handicap Index",
         "ar": "Handicap Index"
+      },
+      "businessContext_i18n": {
+        "en": "Player's current Handicap Index (for course handicap calculation; set to 0 if unknown).",
+        "tr": "Oyuncunun mevcut Handikap İndeksi (saha handikap hesaplaması için; bilinmiyorsa 0 olarak ayarlayın)."
       }
     }
   ],

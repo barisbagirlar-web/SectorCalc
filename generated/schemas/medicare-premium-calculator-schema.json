@@ -10,11 +10,15 @@
       "businessContext": "Annual income used to determine IRMAA brackets",
       "label_i18n": {
         "en": "Modified Adjusted Gross Income (MAGI)",
-        "tr": "Modified Adjusted Gross Income (MAGI)",
+        "tr": "Düzeltilmiş Brüt Gelir (MAGI)",
         "de": "Modified Adjusted Gross Income (MAGI)",
         "fr": "Modified Adjusted Gross Income (MAGI)",
         "es": "Modified Adjusted Gross Income (MAGI)",
         "ar": "Modified Adjusted Gross Income (MAGI)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual income used to determine IRMAA brackets",
+        "tr": "IRMAA dilimlerini belirlemek için kullanılan yıllık gelir"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1 = Single, 2 = Married Filing Jointly",
       "label_i18n": {
         "en": "Tax Filing Status",
-        "tr": "Tax Filing Status",
+        "tr": "Vergi Beyanname Durumu",
         "de": "Tax Filing Status",
         "fr": "Tax Filing Status",
         "es": "Tax Filing Status",
         "ar": "Tax Filing Status"
+      },
+      "businessContext_i18n": {
+        "en": "1 = Single, 2 = Married Filing Jointly",
+        "tr": "1 = Bekar, 2 = Birlikte Başvuran Evli"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard monthly Part B premium for current year",
       "label_i18n": {
         "en": "Part B Standard Premium",
-        "tr": "Part B Standard Premium",
+        "tr": "Bölüm B Standart Primi",
         "de": "Part B Standard Premium",
         "fr": "Part B Standard Premium",
         "es": "Part B Standard Premium",
         "ar": "Part B Standard Premium"
+      },
+      "businessContext_i18n": {
+        "en": "Standard monthly Part B premium for current year",
+        "tr": "Cari yıl için standart aylık Bölüm B primi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "National base beneficiary premium for Part D",
       "label_i18n": {
         "en": "Part D Base Beneficiary Premium",
-        "tr": "Part D Base Beneficiary Premium",
+        "tr": "Bölüm D Temel Yararlanıcı Primi",
         "de": "Part D Base Beneficiary Premium",
         "fr": "Part D Base Beneficiary Premium",
         "es": "Part D Base Beneficiary Premium",
         "ar": "Part D Base Beneficiary Premium"
+      },
+      "businessContext_i18n": {
+        "en": "National base beneficiary premium for Part D",
+        "tr": "Bölüm D için ulusal temel yararlanıcı primi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Premium for chosen Part D or Medicare Advantage plan",
       "label_i18n": {
         "en": "Medicare Advantage or Part D Plan Premium",
-        "tr": "Medicare Advantage or Part D Plan Premium",
+        "tr": "Medicare Advantage veya Bölüm D Plan Primi",
         "de": "Medicare Advantage or Part D Plan Premium",
         "fr": "Medicare Advantage or Part D Plan Premium",
         "es": "Medicare Advantage or Part D Plan Premium",
         "ar": "Medicare Advantage or Part D Plan Premium"
+      },
+      "businessContext_i18n": {
+        "en": "Premium for chosen Part D or Medicare Advantage plan",
+        "tr": "Seçilen Bölüm D veya Medicare Advantage planı için prim"
       }
     }
   ],

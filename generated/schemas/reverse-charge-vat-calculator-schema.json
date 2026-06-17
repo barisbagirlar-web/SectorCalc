@@ -10,11 +10,15 @@
       "businessContext": "Net amount on the supplier's invoice in foreign currency.",
       "label_i18n": {
         "en": "Invoice Net Amount",
-        "tr": "Invoice Net Amount",
+        "tr": "Fatura Net Tutarı",
         "de": "Invoice Net Amount",
         "fr": "Invoice Net Amount",
         "es": "Invoice Net Amount",
         "ar": "Invoice Net Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Net amount on the supplier's invoice in foreign currency.",
+        "tr": "Tedarikçi faturasındaki yabancı para cinsinden net tutar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Exchange rate to convert foreign currency to local currency for VAT calculation.",
       "label_i18n": {
         "en": "Exchange Rate",
-        "tr": "Exchange Rate",
+        "tr": "Döviz Kuru",
         "de": "Exchange Rate",
         "fr": "Exchange Rate",
         "es": "Exchange Rate",
         "ar": "Exchange Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Exchange rate to convert foreign currency to local currency for VAT calculation.",
+        "tr": "KDV hesaplaması için yabancı parayı yerel paraya çeviren döviz kuru."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Your domestic VAT rate applicable to the received service.",
       "label_i18n": {
         "en": "Domestic VAT Rate",
-        "tr": "Domestic VAT Rate",
+        "tr": "Yerel KDV Oranı",
         "de": "Domestic VAT Rate",
         "fr": "Domestic VAT Rate",
         "es": "Domestic VAT Rate",
         "ar": "Domestic VAT Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Your domestic VAT rate applicable to the received service.",
+        "tr": "Alınan hizmete uygulanan yerel KDV oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 if the service is from a foreign supplier, 0 if domestic reverse charge.",
       "label_i18n": {
         "en": "Cross-Border Transaction",
-        "tr": "Cross-Border Transaction",
+        "tr": "Sınır Ötesi İşlem",
         "de": "Cross-Border Transaction",
         "fr": "Cross-Border Transaction",
         "es": "Cross-Border Transaction",
         "ar": "Cross-Border Transaction"
+      },
+      "businessContext_i18n": {
+        "en": "1 if the service is from a foreign supplier, 0 if domestic reverse charge.",
+        "tr": "Hizmet yabancı bir tedarikçiden ise 1, yurt içi tersine KDV ise 0."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Age of the IRA account holder. Must be at least 70.5 for QCD eligibility.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the IRA account holder. Must be at least 70.5 for QCD eligibility.",
+        "tr": "IRA hesap sahibinin yaşı. QCD uygunluğu için en az 70,5 olmalıdır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount intended for charitable distribution directly from IRA (max $100,000 per year).",
       "label_i18n": {
         "en": "Distribution Amount",
-        "tr": "Distribution Amount",
+        "tr": "Dağıtım Tutarı",
         "de": "Distribution Amount",
         "fr": "Distribution Amount",
         "es": "Distribution Amount",
         "ar": "Distribution Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Amount intended for charitable distribution directly from IRA (max $100,000 per year).",
+        "tr": "IRA'dan doğrudan hayır amaçlı dağıtım için amaçlanan tutar (yılda maksimum 100.000 $)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Your top marginal income tax rate, used to estimate tax savings.",
       "label_i18n": {
         "en": "Marginal Tax Rate",
-        "tr": "Marginal Tax Rate",
+        "tr": "Marjinal Vergi Oranı",
         "de": "Marginal Tax Rate",
         "fr": "Marginal Tax Rate",
         "es": "Marginal Tax Rate",
         "ar": "Marginal Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Your top marginal income tax rate, used to estimate tax savings.",
+        "tr": "Vergi tasarrufunu tahmin etmek için kullanılan en yüksek marjinal gelir vergisi oranınız."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total value of your traditional IRA, for reference (RMD computation may apply).",
       "label_i18n": {
         "en": "IRA Balance",
-        "tr": "IRA Balance",
+        "tr": "IRA Bakiyesi",
         "de": "IRA Balance",
         "fr": "IRA Balance",
         "es": "IRA Balance",
         "ar": "IRA Balance"
+      },
+      "businessContext_i18n": {
+        "en": "Total value of your traditional IRA, for reference (RMD computation may apply).",
+        "tr": "Geleneksel IRA'nızın toplam değeri, referans amaçlı (RMD hesaplaması uygulanabilir)."
       }
     }
   ],

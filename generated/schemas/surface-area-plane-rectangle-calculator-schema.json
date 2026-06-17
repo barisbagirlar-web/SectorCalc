@@ -10,11 +10,15 @@
       "businessContext": "Partial derivative of surface height with respect to X.",
       "label_i18n": {
         "en": "Slope in X-direction (dz/dx)",
-        "tr": "Slope in X-direction (dz/dx)",
+        "tr": "X yönünde eğim (dz/dx)",
         "de": "Slope in X-direction (dz/dx)",
         "fr": "Slope in X-direction (dz/dx)",
         "es": "Slope in X-direction (dz/dx)",
         "ar": "Slope in X-direction (dz/dx)"
+      },
+      "businessContext_i18n": {
+        "en": "Partial derivative of surface height with respect to X.",
+        "tr": "Yüzey yüksekliğinin X'e göre kısmi türevi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Partial derivative of surface height with respect to Y.",
       "label_i18n": {
         "en": "Slope in Y-direction (dz/dy)",
-        "tr": "Slope in Y-direction (dz/dy)",
+        "tr": "Y yönünde eğim (dz/dy)",
         "de": "Slope in Y-direction (dz/dy)",
         "fr": "Slope in Y-direction (dz/dy)",
         "es": "Slope in Y-direction (dz/dy)",
         "ar": "Slope in Y-direction (dz/dy)"
+      },
+      "businessContext_i18n": {
+        "en": "Partial derivative of surface height with respect to Y.",
+        "tr": "Yüzey yüksekliğinin Y'ye göre kısmi türevi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Lower bound of X integration domain.",
       "label_i18n": {
         "en": "X Start",
-        "tr": "X Start",
+        "tr": "X Başlangıç",
         "de": "X Start",
         "fr": "X Start",
         "es": "X Start",
         "ar": "X Start"
+      },
+      "businessContext_i18n": {
+        "en": "Lower bound of X integration domain.",
+        "tr": "X entegrasyon bölgesinin alt sınırı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Upper bound of X integration domain.",
       "label_i18n": {
         "en": "X End",
-        "tr": "X End",
+        "tr": "X Bitiş",
         "de": "X End",
         "fr": "X End",
         "es": "X End",
         "ar": "X End"
+      },
+      "businessContext_i18n": {
+        "en": "Upper bound of X integration domain.",
+        "tr": "X entegrasyon bölgesinin üst sınırı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Lower bound of Y integration domain.",
       "label_i18n": {
         "en": "Y Start",
-        "tr": "Y Start",
+        "tr": "Y Başlangıç",
         "de": "Y Start",
         "fr": "Y Start",
         "es": "Y Start",
         "ar": "Y Start"
+      },
+      "businessContext_i18n": {
+        "en": "Lower bound of Y integration domain.",
+        "tr": "Y entegrasyon bölgesinin alt sınırı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Upper bound of Y integration domain.",
       "label_i18n": {
         "en": "Y End",
-        "tr": "Y End",
+        "tr": "Y Bitiş",
         "de": "Y End",
         "fr": "Y End",
         "es": "Y End",
         "ar": "Y End"
+      },
+      "businessContext_i18n": {
+        "en": "Upper bound of Y integration domain.",
+        "tr": "Y entegrasyon bölgesinin üst sınırı."
       }
     }
   ],

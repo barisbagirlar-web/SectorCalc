@@ -10,11 +10,15 @@
       "businessContext": "The number of days since the first day of the last menstrual period.",
       "label_i18n": {
         "en": "Days Since Last Menstrual Period",
-        "tr": "Days Since Last Menstrual Period",
+        "tr": "Son Adet Tarihinden Bu Yana Geçen Gün Sayısı",
         "de": "Days Since Last Menstrual Period",
         "fr": "Days Since Last Menstrual Period",
         "es": "Days Since Last Menstrual Period",
         "ar": "Days Since Last Menstrual Period"
+      },
+      "businessContext_i18n": {
+        "en": "The number of days since the first day of the last menstrual period.",
+        "tr": "Son adet döneminin ilk gününden bu yana geçen gün sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average length of the menstrual cycle, typically 28 days.",
       "label_i18n": {
         "en": "Menstrual Cycle Length",
-        "tr": "Menstrual Cycle Length",
+        "tr": "Adet Döngüsü Uzunluğu",
         "de": "Menstrual Cycle Length",
         "fr": "Menstrual Cycle Length",
         "es": "Menstrual Cycle Length",
         "ar": "Menstrual Cycle Length"
+      },
+      "businessContext_i18n": {
+        "en": "Average length of the menstrual cycle, typically 28 days.",
+        "tr": "Ortalama adet döngüsü uzunluğu, tipik olarak 28 gün."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight before pregnancy in kilograms.",
       "label_i18n": {
         "en": "Pre-pregnancy Weight",
-        "tr": "Pre-pregnancy Weight",
+        "tr": "Gebelik Öncesi Ağırlık",
         "de": "Pre-pregnancy Weight",
         "fr": "Pre-pregnancy Weight",
         "es": "Pre-pregnancy Weight",
         "ar": "Pre-pregnancy Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight before pregnancy in kilograms.",
+        "tr": "Hamilelik öncesi kilogram cinsinden ağırlık."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current weight during pregnancy in kilograms.",
       "label_i18n": {
         "en": "Current Weight",
-        "tr": "Current Weight",
+        "tr": "Mevcut Ağırlık",
         "de": "Current Weight",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Current weight during pregnancy in kilograms.",
+        "tr": "Hamilelik sırasında kilogram cinsinden mevcut ağırlık."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Height in centimeters.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height in centimeters.",
+        "tr": "Boy (cm)."
       }
     }
   ],

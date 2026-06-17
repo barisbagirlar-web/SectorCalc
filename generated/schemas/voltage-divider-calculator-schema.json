@@ -10,11 +10,15 @@
       "businessContext": "The input voltage supplied to the divider.",
       "label_i18n": {
         "en": "Input Voltage",
-        "tr": "Input Voltage",
+        "tr": "Giriş Voltajı",
         "de": "Input Voltage",
         "fr": "Input Voltage",
         "es": "Input Voltage",
         "ar": "Input Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "The input voltage supplied to the divider.",
+        "tr": "Bölücüye sağlanan giriş voltajı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Resistance of the first resistor (connected to Vin).",
       "label_i18n": {
         "en": "Resistance R1",
-        "tr": "Resistance R1",
+        "tr": "Direnç R1",
         "de": "Resistance R1",
         "fr": "Resistance R1",
         "es": "Resistance R1",
         "ar": "Resistance R1"
+      },
+      "businessContext_i18n": {
+        "en": "Resistance of the first resistor (connected to Vin).",
+        "tr": "Birinci direncin direnci (Vin'e bağlı)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Resistance of the second resistor (connected to ground).",
       "label_i18n": {
         "en": "Resistance R2",
-        "tr": "Resistance R2",
+        "tr": "Direnç R2",
         "de": "Resistance R2",
         "fr": "Resistance R2",
         "es": "Resistance R2",
         "ar": "Resistance R2"
+      },
+      "businessContext_i18n": {
+        "en": "Resistance of the second resistor (connected to ground).",
+        "tr": "İkinci direncin direnci (toprağa bağlı)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Resistor tolerance in percentage (e.g., ±1%, ±5%). Used to calculate worst-case output voltages.",
       "label_i18n": {
         "en": "Resistor Tolerance",
-        "tr": "Resistor Tolerance",
+        "tr": "Direnç Toleransı",
         "de": "Resistor Tolerance",
         "fr": "Resistor Tolerance",
         "es": "Resistor Tolerance",
         "ar": "Resistor Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Resistor tolerance in percentage (e.g., ±1%, ±5%). Used to calculate worst-case output voltages.",
+        "tr": "Direnç toleransı yüzde olarak (örn. ±%1, ±%5). En kötü durum çıkış voltajlarını hesaplamak için kullanılır."
       }
     }
   ],

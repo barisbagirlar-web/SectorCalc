@@ -10,11 +10,15 @@
       "businessContext": "User's weight in kilograms.",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's weight in kilograms.",
+        "tr": "Kullanıcının kilogram cinsinden ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "User's height in centimeters (optional for BMR).",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "User's height in centimeters (optional for BMR).",
+        "tr": "Kullanıcının santimetre cinsinden boyu (BMR için isteğe bağlı)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "User's age in years.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "User's age in years.",
+        "tr": "Kullanıcının yıl cinsinden yaşı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 for female, 1 for male.",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for female, 1 for male.",
+        "tr": "0 kadın, 1 erkek."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Metabolic Equivalent of Task for the activity.",
       "label_i18n": {
         "en": "MET Value",
-        "tr": "MET Value",
+        "tr": "MET Değeri",
         "de": "MET Value",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
+      },
+      "businessContext_i18n": {
+        "en": "Metabolic Equivalent of Task for the activity.",
+        "tr": "Aktivite için metabolik eşdeğer."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Duration of the activity in minutes.",
       "label_i18n": {
         "en": "Duration",
-        "tr": "Duration",
+        "tr": "Süre",
         "de": "Duration",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the activity in minutes.",
+        "tr": "Aktivitenin dakika cinsinden süresi."
       }
     }
   ],

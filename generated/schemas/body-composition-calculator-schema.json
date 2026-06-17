@@ -10,11 +10,15 @@
       "businessContext": "Body weight in kilograms (e.g., from scale measurement).",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms (e.g., from scale measurement).",
+        "tr": "Vücut ağırlığı, kilogram (örneğin tartıdan)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Body height in centimeters.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Body height in centimeters.",
+        "tr": "Vücut boyu, santimetre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age in years (for reference only; Navy formula does not use age).",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age in years (for reference only; Navy formula does not use age).",
+        "tr": "Yaş (sadece referans amaçlı; Navy formülü yaşı kullanmaz)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 for female, 1 for male (required for U.S. Navy body fat formula).",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for female, 1 for male (required for U.S. Navy body fat formula).",
+        "tr": "0 kadın, 1 erkek (ABD Navy vücut yağ formülü için gereklidir)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Waist circumference measured at the navel level (required for Navy formula).",
       "label_i18n": {
         "en": "Waist Circumference",
-        "tr": "Waist Circumference",
+        "tr": "Bel Çevresi",
         "de": "Waist Circumference",
         "fr": "Waist Circumference",
         "es": "Waist Circumference",
         "ar": "Waist Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Waist circumference measured at the navel level (required for Navy formula).",
+        "tr": "Göbek hizasında bel çevresi (Navy formülü için gereklidir)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Hip circumference at the widest point (required for female Navy formula).",
       "label_i18n": {
         "en": "Hip Circumference",
-        "tr": "Hip Circumference",
+        "tr": "Kalça Çevresi",
         "de": "Hip Circumference",
         "fr": "Hip Circumference",
         "es": "Hip Circumference",
         "ar": "Hip Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Hip circumference at the widest point (required for female Navy formula).",
+        "tr": "En geniş noktada kalça çevresi (kadın Navy formülü için gereklidir)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Neck circumference measured just below the larynx (required for Navy formula).",
       "label_i18n": {
         "en": "Neck Circumference",
-        "tr": "Neck Circumference",
+        "tr": "Boyun Çevresi",
         "de": "Neck Circumference",
         "fr": "Neck Circumference",
         "es": "Neck Circumference",
         "ar": "Neck Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Neck circumference measured just below the larynx (required for Navy formula).",
+        "tr": "Gırtlağın hemen altında boyun çevresi (Navy formülü için gereklidir)."
       }
     }
   ],

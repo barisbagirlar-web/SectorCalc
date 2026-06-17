@@ -10,11 +10,15 @@
       "businessContext": "Mass of a single unit in metric tons",
       "label_i18n": {
         "en": "Metric Tons per Unit",
-        "tr": "Metric Tons per Unit",
+        "tr": "Birim başına metrik ton",
         "de": "Metric Tons per Unit",
         "fr": "Metric Tons per Unit",
         "es": "Metric Tons per Unit",
         "ar": "Metric Tons per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of a single unit in metric tons",
+        "tr": "Tek bir birimin metrik ton cinsinden kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of items, containers, or batches",
       "label_i18n": {
         "en": "Number of Units",
-        "tr": "Number of Units",
+        "tr": "Birim Sayısı",
         "de": "Number of Units",
         "fr": "Number of Units",
         "es": "Number of Units",
         "ar": "Number of Units"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of items, containers, or batches",
+        "tr": "Toplam öğe, konteyner veya parti sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional percentage for waste, safety, or overage",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage for waste, safety, or overage",
+        "tr": "Atık, güvenlik veya fazlalık için ek yüzde"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Pounds per metric ton (fixed standard)",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Pounds per metric ton (fixed standard)",
+        "tr": "Metrik ton başına pound (sabit standart)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places to round the primary output",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the primary output",
+        "tr": "Ana çıktının yuvarlanacağı ondalık basamak sayısı"
       }
     }
   ],

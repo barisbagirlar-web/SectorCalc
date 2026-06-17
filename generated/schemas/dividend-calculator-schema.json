@@ -10,11 +10,15 @@
       "businessContext": "Market price per share at current time.",
       "label_i18n": {
         "en": "Current Share Price",
-        "tr": "Current Share Price",
+        "tr": "Güncel Hisse Fiyatı",
         "de": "Current Share Price",
         "fr": "Current Share Price",
         "es": "Current Share Price",
         "ar": "Current Share Price"
+      },
+      "businessContext_i18n": {
+        "en": "Market price per share at current time.",
+        "tr": "Hisse başına cari piyasa fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The average price paid per share (cost basis).",
       "label_i18n": {
         "en": "Average Purchase Price per Share",
-        "tr": "Average Purchase Price per Share",
+        "tr": "Hisse Başına Ortalama Alış Fiyatı",
         "de": "Average Purchase Price per Share",
         "fr": "Average Purchase Price per Share",
         "es": "Average Purchase Price per Share",
         "ar": "Average Purchase Price per Share"
+      },
+      "businessContext_i18n": {
+        "en": "The average price paid per share (cost basis).",
+        "tr": "Hisse başına ödenen ortalama fiyat (maliyet bazı)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total dividends paid per share over the last fiscal year.",
       "label_i18n": {
         "en": "Annual Dividend per Share",
-        "tr": "Annual Dividend per Share",
+        "tr": "Hisse Başına Yıllık Temettü",
         "de": "Annual Dividend per Share",
         "fr": "Annual Dividend per Share",
         "es": "Annual Dividend per Share",
         "ar": "Annual Dividend per Share"
+      },
+      "businessContext_i18n": {
+        "en": "Total dividends paid per share over the last fiscal year.",
+        "tr": "Son mali yılda hisse başına ödenen toplam temettü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of shares held in the portfolio.",
       "label_i18n": {
         "en": "Number of Shares Owned",
-        "tr": "Number of Shares Owned",
+        "tr": "Sahip Olunan Hisse Sayısı",
         "de": "Number of Shares Owned",
         "fr": "Number of Shares Owned",
         "es": "Number of Shares Owned",
         "ar": "Number of Shares Owned"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of shares held in the portfolio.",
+        "tr": "Portföyde tutulan toplam hisse sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Annual projected growth rate of dividends, as a percentage.",
       "label_i18n": {
         "en": "Expected Dividend Growth Rate",
-        "tr": "Expected Dividend Growth Rate",
+        "tr": "Beklenen Temettü Büyüme Oranı",
         "de": "Expected Dividend Growth Rate",
         "fr": "Expected Dividend Growth Rate",
         "es": "Expected Dividend Growth Rate",
         "ar": "Expected Dividend Growth Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual projected growth rate of dividends, as a percentage.",
+        "tr": "Temettülerin yıllık tahmini büyüme oranı, yüzde olarak."
       }
     }
   ],

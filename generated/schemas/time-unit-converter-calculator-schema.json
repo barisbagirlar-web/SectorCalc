@@ -10,11 +10,15 @@
       "businessContext": "Number of days to convert",
       "label_i18n": {
         "en": "Days",
-        "tr": "Days",
+        "tr": "Gün",
         "de": "Days",
         "fr": "Days",
         "es": "Days",
         "ar": "Days"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days to convert",
+        "tr": "Dönüştürülecek gün sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of hours to convert",
       "label_i18n": {
         "en": "Hours",
-        "tr": "Hours",
+        "tr": "Saat",
         "de": "Hours",
         "fr": "Hours",
         "es": "Hours",
         "ar": "Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Number of hours to convert",
+        "tr": "Dönüştürülecek saat sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of minutes to convert",
       "label_i18n": {
         "en": "Minutes",
-        "tr": "Minutes",
+        "tr": "Dakika",
         "de": "Minutes",
         "fr": "Minutes",
         "es": "Minutes",
         "ar": "Minutes"
+      },
+      "businessContext_i18n": {
+        "en": "Number of minutes to convert",
+        "tr": "Dönüştürülecek dakika sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of seconds to convert",
       "label_i18n": {
         "en": "Seconds",
-        "tr": "Seconds",
+        "tr": "Saniye",
         "de": "Seconds",
         "fr": "Seconds",
         "es": "Seconds",
         "ar": "Seconds"
+      },
+      "businessContext_i18n": {
+        "en": "Number of seconds to convert",
+        "tr": "Dönüştürülecek saniye sayısı"
       }
     }
   ],

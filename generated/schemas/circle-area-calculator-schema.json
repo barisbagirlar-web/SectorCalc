@@ -10,11 +10,15 @@
       "businessContext": "The radius of the circle in meters. If you provide diameter, leave 0.",
       "label_i18n": {
         "en": "Radius",
-        "tr": "Radius",
+        "tr": "Yarıçap",
         "de": "Radius",
         "fr": "Radius",
         "es": "Radius",
         "ar": "Radius"
+      },
+      "businessContext_i18n": {
+        "en": "The radius of the circle in meters. If you provide diameter, leave 0.",
+        "tr": "Dairenin metre cinsinden yarıçapı. Çap veriyorsanız 0 bırakın."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The diameter of the circle in meters. If you provide radius, leave 0.",
       "label_i18n": {
         "en": "Diameter",
-        "tr": "Diameter",
+        "tr": "Çap",
         "de": "Diameter",
         "fr": "Diameter",
         "es": "Diameter",
         "ar": "Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "The diameter of the circle in meters. If you provide radius, leave 0.",
+        "tr": "Dairenin metre cinsinden çapı. Yarıçap veriyorsanız 0 bırakın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal digits for the output area.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal digits for the output area.",
+        "tr": "Çıktı alanı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for the area, useful for unit conversions or scaling.",
       "label_i18n": {
         "en": "Scale Factor",
-        "tr": "Scale Factor",
+        "tr": "Ölçek Faktörü",
         "de": "Scale Factor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for the area, useful for unit conversions or scaling.",
+        "tr": "Alan çarpanı, birim dönüşümleri veya ölçekleme için kullanışlıdır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "If cost is needed, enter the price per square meter.",
       "label_i18n": {
         "en": "Price per Unit Area",
-        "tr": "Price per Unit Area",
+        "tr": "Birim Alan Fiyatı",
         "de": "Price per Unit Area",
         "fr": "Price per Unit Area",
         "es": "Price per Unit Area",
         "ar": "Price per Unit Area"
+      },
+      "businessContext_i18n": {
+        "en": "If cost is needed, enter the price per square meter.",
+        "tr": "Maliyet gerekiyorsa metrekare başına fiyatı girin."
       }
     }
   ],

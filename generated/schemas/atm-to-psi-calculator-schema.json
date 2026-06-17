@@ -10,11 +10,15 @@
       "businessContext": "Input pressure value in standard atmospheres",
       "label_i18n": {
         "en": "Pressure (atm)",
-        "tr": "Pressure (atm)",
+        "tr": "Basınç (atm)",
         "de": "Pressure (atm)",
         "fr": "Pressure (atm)",
         "es": "Pressure (atm)",
         "ar": "Pressure (atm)"
+      },
+      "businessContext_i18n": {
+        "en": "Input pressure value in standard atmospheres",
+        "tr": "Standart atmosfer cinsinden giriş basınç değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor from atm to psi (industry standard 14.6959)",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from atm to psi (industry standard 14.6959)",
+        "tr": "Atm'den psi'ye dönüşüm faktörü (endüstri standardı 14.6959)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the result",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the result",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional additive offset in psi for calibration or correction",
       "label_i18n": {
         "en": "Offset (psi)",
-        "tr": "Offset (psi)",
+        "tr": "Ofset (psi)",
         "de": "Offset (psi)",
         "fr": "Offset (psi)",
         "es": "Offset (psi)",
         "ar": "Offset (psi)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional additive offset in psi for calibration or correction",
+        "tr": "Kalibrasyon veya düzeltme için psi cinsinden isteğe bağlı ek ofset"
       }
     }
   ],

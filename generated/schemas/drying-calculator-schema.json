@@ -10,11 +10,15 @@
       "businessContext": "Moisture percentage of material before drying",
       "label_i18n": {
         "en": "Initial Moisture Content (%)",
-        "tr": "Initial Moisture Content (%)",
+        "tr": "Başlangıç Nem İçeriği (%)",
         "de": "Initial Moisture Content (%)",
         "fr": "Initial Moisture Content (%)",
         "es": "Initial Moisture Content (%)",
         "ar": "Initial Moisture Content (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Moisture percentage of material before drying",
+        "tr": "Kurutma öncesi malzemenin nem yüzdesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target moisture percentage after drying",
       "label_i18n": {
         "en": "Final Moisture Content (%)",
-        "tr": "Final Moisture Content (%)",
+        "tr": "Son Nem İçeriği (%)",
         "de": "Final Moisture Content (%)",
         "fr": "Final Moisture Content (%)",
         "es": "Final Moisture Content (%)",
         "ar": "Final Moisture Content (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Target moisture percentage after drying",
+        "tr": "Kurutma sonrası hedef nem yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total mass of wet material to be dried",
       "label_i18n": {
         "en": "Material Mass (kg)",
-        "tr": "Material Mass (kg)",
+        "tr": "Malzeme Kütlesi (kg)",
         "de": "Material Mass (kg)",
         "fr": "Material Mass (kg)",
         "es": "Material Mass (kg)",
         "ar": "Material Mass (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of wet material to be dried",
+        "tr": "Kurutulacak ıslak malzemenin toplam kütlesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total time available for drying process",
       "label_i18n": {
         "en": "Drying Time (hours)",
-        "tr": "Drying Time (hours)",
+        "tr": "Kurutma Süresi (saat)",
         "de": "Drying Time (hours)",
         "fr": "Drying Time (hours)",
         "es": "Drying Time (hours)",
         "ar": "Drying Time (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Total time available for drying process",
+        "tr": "Kurutma işlemi için mevcut toplam süre"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Energy required to remove 1 kg of water",
       "label_i18n": {
         "en": "Energy Consumption (kWh/kg water)",
-        "tr": "Energy Consumption (kWh/kg water)",
+        "tr": "Enerji Tüketimi (kWh/kg su)",
         "de": "Energy Consumption (kWh/kg water)",
         "fr": "Energy Consumption (kWh/kg water)",
         "es": "Energy Consumption (kWh/kg water)",
         "ar": "Energy Consumption (kWh/kg water)"
+      },
+      "businessContext_i18n": {
+        "en": "Energy required to remove 1 kg of water",
+        "tr": "1 kg suyu uzaklaştırmak için gereken enerji"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost per unit of energy",
       "label_i18n": {
         "en": "Energy Cost ($/kWh)",
-        "tr": "Energy Cost ($/kWh)",
+        "tr": "Enerji Maliyeti ($/kWh)",
         "de": "Energy Cost ($/kWh)",
         "fr": "Energy Cost ($/kWh)",
         "es": "Energy Cost ($/kWh)",
         "ar": "Energy Cost ($/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per unit of energy",
+        "tr": "Birim enerji başına maliyet"
       }
     }
   ],

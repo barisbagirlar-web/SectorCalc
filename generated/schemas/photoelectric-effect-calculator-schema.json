@@ -10,11 +10,15 @@
       "businessContext": "Wavelength of the incident photon in nanometers.",
       "label_i18n": {
         "en": "Incident light wavelength",
-        "tr": "Incident light wavelength",
+        "tr": "Gelen ışığın dalga boyu",
         "de": "Incident light wavelength",
         "fr": "Incident light wavelength",
         "es": "Incident light wavelength",
         "ar": "Incident light wavelength"
+      },
+      "businessContext_i18n": {
+        "en": "Wavelength of the incident photon in nanometers.",
+        "tr": "Gelen fotonun nanometre cinsinden dalga boyu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Minimum energy required to eject an electron from the material.",
       "label_i18n": {
         "en": "Work function of material",
-        "tr": "Work function of material",
+        "tr": "Malzemenin iş fonksiyonu",
         "de": "Work function of material",
         "fr": "Work function of material",
         "es": "Work function of material",
         "ar": "Work function of material"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum energy required to eject an electron from the material.",
+        "tr": "Malzemeden bir elektron sökmek için gereken minimum enerji."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Planck constant in electronvolt-seconds. Override for custom units.",
       "label_i18n": {
         "en": "Planck constant",
-        "tr": "Planck constant",
+        "tr": "Planck sabiti",
         "de": "Planck constant",
         "fr": "Planck constant",
         "es": "Planck constant",
         "ar": "Planck constant"
+      },
+      "businessContext_i18n": {
+        "en": "Planck constant in electronvolt-seconds. Override for custom units.",
+        "tr": "Planck sabiti elektronvolt-saniye cinsinden. Özel birimler için geçersiz kılın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Speed of light in vacuum, meters per second.",
       "label_i18n": {
         "en": "Speed of light",
-        "tr": "Speed of light",
+        "tr": "Işık hızı",
         "de": "Speed of light",
         "fr": "Speed of light",
         "es": "Speed of light",
         "ar": "Speed of light"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of light in vacuum, meters per second.",
+        "tr": "Işığın boşluktaki hızı, metre/saniye cinsinden."
       }
     }
   ],

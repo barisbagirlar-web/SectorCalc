@@ -10,11 +10,15 @@
       "businessContext": "The day of the year (1-365) when the last menstrual period started.",
       "label_i18n": {
         "en": "Last Menstrual Period Day of Year",
-        "tr": "Last Menstrual Period Day of Year",
+        "tr": "Son Adet Tarihinin Yılın Günü",
         "de": "Last Menstrual Period Day of Year",
         "fr": "Last Menstrual Period Day of Year",
         "es": "Last Menstrual Period Day of Year",
         "ar": "Last Menstrual Period Day of Year"
+      },
+      "businessContext_i18n": {
+        "en": "The day of the year (1-365) when the last menstrual period started.",
+        "tr": "Son adet döneminin başladığı yılın günü (1-365)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The current day of the year (1-365) for calculating pregnancy week.",
       "label_i18n": {
         "en": "Current Day of Year",
-        "tr": "Current Day of Year",
+        "tr": "Geçerli Yılın Günü",
         "de": "Current Day of Year",
         "fr": "Current Day of Year",
         "es": "Current Day of Year",
         "ar": "Current Day of Year"
+      },
+      "businessContext_i18n": {
+        "en": "The current day of the year (1-365) for calculating pregnancy week.",
+        "tr": "Gebelik haftasını hesaplamak için yılın geçerli günü (1-365)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The average length of the menstrual cycle in days, used to adjust due date.",
       "label_i18n": {
         "en": "Average Cycle Length",
-        "tr": "Average Cycle Length",
+        "tr": "Ortalama Döngü Uzunluğu",
         "de": "Average Cycle Length",
         "fr": "Average Cycle Length",
         "es": "Average Cycle Length",
         "ar": "Average Cycle Length"
+      },
+      "businessContext_i18n": {
+        "en": "The average length of the menstrual cycle in days, used to adjust due date.",
+        "tr": "Ortalama adet döngüsü uzunluğu (gün cinsinden), doğum tarihini ayarlamak için kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Override for the standard 280-day gestation period, if your healthcare provider advises a different duration.",
       "label_i18n": {
         "en": "Gestation Length Override",
-        "tr": "Gestation Length Override",
+        "tr": "Gebelik Süresi Geçersiz Kılma",
         "de": "Gestation Length Override",
         "fr": "Gestation Length Override",
         "es": "Gestation Length Override",
         "ar": "Gestation Length Override"
+      },
+      "businessContext_i18n": {
+        "en": "Override for the standard 280-day gestation period, if your healthcare provider advises a different duration.",
+        "tr": "Sağlık uzmanınız farklı bir süre önerdiyse, standart 280 günlük gebelik süresini geçersiz kılmak için kullanılır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "User's body weight in pounds",
       "label_i18n": {
         "en": "Weight (lbs)",
-        "tr": "Weight (lbs)",
+        "tr": "Ağırlık (lbs)",
         "de": "Weight (lbs)",
         "fr": "Weight (lbs)",
         "es": "Weight (lbs)",
         "ar": "Weight (lbs)"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight in pounds",
+        "tr": "Kullanıcının pound cinsinden vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated body fat percentage",
       "label_i18n": {
         "en": "Body Fat (%)",
-        "tr": "Body Fat (%)",
+        "tr": "Vücut Yağ Oranı (%)",
         "de": "Body Fat (%)",
         "fr": "Body Fat (%)",
         "es": "Body Fat (%)",
         "ar": "Body Fat (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated body fat percentage",
+        "tr": "Tahmini vücut yağ yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Zone Diet activity factor (0.5-1.0)",
       "label_i18n": {
         "en": "Activity Factor",
-        "tr": "Activity Factor",
+        "tr": "Aktivite Faktörü",
         "de": "Activity Factor",
         "fr": "Activity Factor",
         "es": "Activity Factor",
         "ar": "Activity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Zone Diet activity factor (0.5-1.0)",
+        "tr": "Zone Diyeti aktivite faktörü (0.5-1.0)"
       }
     }
   ],

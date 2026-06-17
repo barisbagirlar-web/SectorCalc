@@ -10,11 +10,15 @@
       "businessContext": "Shoe size according to the European standard (Paris points).",
       "label_i18n": {
         "en": "EU Shoe Size",
-        "tr": "EU Shoe Size",
+        "tr": "AB Ayakkabı Numarası",
         "de": "EU Shoe Size",
         "fr": "EU Shoe Size",
         "es": "EU Shoe Size",
         "ar": "EU Shoe Size"
+      },
+      "businessContext_i18n": {
+        "en": "Shoe size according to the European standard (Paris points).",
+        "tr": "Avrupa standardına (Paris puanı) göre ayakkabı numarası."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Select the target gender/age group for US size conversion: 1 for men, 2 for women, 3 for children.",
       "label_i18n": {
         "en": "Conversion Type (1: Men, 2: Women, 3: Kids)",
-        "tr": "Conversion Type (1: Men, 2: Women, 3: Kids)",
+        "tr": "Dönüşüm Türü (1: Erkek, 2: Kadın, 3: Çocuk)",
         "de": "Conversion Type (1: Men, 2: Women, 3: Kids)",
         "fr": "Conversion Type (1: Men, 2: Women, 3: Kids)",
         "es": "Conversion Type (1: Men, 2: Women, 3: Kids)",
         "ar": "Conversion Type (1: Men, 2: Women, 3: Kids)"
+      },
+      "businessContext_i18n": {
+        "en": "Select the target gender/age group for US size conversion: 1 for men, 2 for women, 3 for children.",
+        "tr": "ABD numarası dönüşümü için hedef cinsiyet/yaş grubunu seçin: 1 erkek, 2 kadın, 3 çocuk."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Offset to account for brand-specific sizing variations (e.g., +0.5 if the brand runs small).",
       "label_i18n": {
         "en": "Brand Adjustment",
-        "tr": "Brand Adjustment",
+        "tr": "Marka Ayarı",
         "de": "Brand Adjustment",
         "fr": "Brand Adjustment",
         "es": "Brand Adjustment",
         "ar": "Brand Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "Offset to account for brand-specific sizing variations (e.g., +0.5 if the brand runs small).",
+        "tr": "Markaya özgü numaralandırma farklılıklarını dengelemek için ofset (örneğin, marka küçük kalıyorsa +0.5)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "User-defined calibration offset for personal fit preferences.",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "User-defined calibration offset for personal fit preferences.",
+        "tr": "Kişisel uyum tercihleri için kullanıcı tanımlı kalibrasyon ofseti."
       }
     }
   ],

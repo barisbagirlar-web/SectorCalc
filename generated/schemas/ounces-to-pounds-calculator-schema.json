@@ -10,11 +10,15 @@
       "businessContext": "The weight of a single item in ounces.",
       "label_i18n": {
         "en": "Ounces per Unit",
-        "tr": "Ounces per Unit",
+        "tr": "Birim Başına Ons",
         "de": "Ounces per Unit",
         "fr": "Ounces per Unit",
         "es": "Ounces per Unit",
         "ar": "Ounces per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The weight of a single item in ounces.",
+        "tr": "Tek bir öğenin ons cinsinden ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of identical items.",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical items.",
+        "tr": "Özdeş öğe sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional packaging weight in ounces.",
       "label_i18n": {
         "en": "Packaging Weight",
-        "tr": "Packaging Weight",
+        "tr": "Ambalaj Ağırlığı",
         "de": "Packaging Weight",
         "fr": "Packaging Weight",
         "es": "Packaging Weight",
         "ar": "Packaging Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Additional packaging weight in ounces.",
+        "tr": "Ons cinsinden ek paketleme ağırlığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ounces per pound. Standard is 16. Override only if using a different standard.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Ounces per pound. Standard is 16. Override only if using a different standard.",
+        "tr": "Pound başına ons. Standart 16'dır. Yalnızca farklı bir standart kullanıyorsanız geçersiz kılın."
       }
     }
   ],

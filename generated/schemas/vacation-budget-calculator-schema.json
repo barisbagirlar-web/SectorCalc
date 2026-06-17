@@ -10,11 +10,15 @@
       "businessContext": "Number of people traveling; multiplies per-person costs.",
       "label_i18n": {
         "en": "Number of Travelers",
-        "tr": "Number of Travelers",
+        "tr": "Yolcu Sayısı",
         "de": "Number of Travelers",
         "fr": "Number of Travelers",
         "es": "Number of Travelers",
         "ar": "Number of Travelers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of people traveling; multiplies per-person costs.",
+        "tr": "Seyahat eden kişi sayısı; kişi başı maliyetleri çarpar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of stay in nights; used for hotel and daily expenses.",
       "label_i18n": {
         "en": "Number of Nights",
-        "tr": "Number of Nights",
+        "tr": "Gece Sayısı",
         "de": "Number of Nights",
         "fr": "Number of Nights",
         "es": "Number of Nights",
         "ar": "Number of Nights"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of stay in nights; used for hotel and daily expenses.",
+        "tr": "Gece cinsinden konaklama süresi; otel ve günlük harcamalar için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Round-trip flight cost per traveler.",
       "label_i18n": {
         "en": "Flight Cost per Person",
-        "tr": "Flight Cost per Person",
+        "tr": "Kişi Başı Uçuş Maliyeti",
         "de": "Flight Cost per Person",
         "fr": "Flight Cost per Person",
         "es": "Flight Cost per Person",
         "ar": "Flight Cost per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Round-trip flight cost per traveler.",
+        "tr": "Her yolcu için gidiş-dönüş uçak bileti maliyeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total accommodation cost per night for the group.",
       "label_i18n": {
         "en": "Hotel Cost per Night (Total)",
-        "tr": "Hotel Cost per Night (Total)",
+        "tr": "Gece Başına Otel Maliyeti (Toplam)",
         "de": "Hotel Cost per Night (Total)",
         "fr": "Hotel Cost per Night (Total)",
         "es": "Hotel Cost per Night (Total)",
         "ar": "Hotel Cost per Night (Total)"
+      },
+      "businessContext_i18n": {
+        "en": "Total accommodation cost per night for the group.",
+        "tr": "Grup için gece başına toplam konaklama maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Estimated daily meal and drink cost per person.",
       "label_i18n": {
         "en": "Daily Food Cost per Person",
-        "tr": "Daily Food Cost per Person",
+        "tr": "Kişi Başı Günlük Yemek Maliyeti",
         "de": "Daily Food Cost per Person",
         "fr": "Daily Food Cost per Person",
         "es": "Daily Food Cost per Person",
         "ar": "Daily Food Cost per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated daily meal and drink cost per person.",
+        "tr": "Kişi başı tahmini günlük yemek ve içecek maliyeti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total cost of excursions and activities per person.",
       "label_i18n": {
         "en": "Activities Cost per Person",
-        "tr": "Activities Cost per Person",
+        "tr": "Kişi Başı Aktivite Maliyeti",
         "de": "Activities Cost per Person",
         "fr": "Activities Cost per Person",
         "es": "Activities Cost per Person",
         "ar": "Activities Cost per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of excursions and activities per person.",
+        "tr": "Kişi başı gezi ve aktivitelerin toplam maliyeti."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Extra expenses such as souvenirs, tips, and transport.",
       "label_i18n": {
         "en": "Miscellaneous Cost",
-        "tr": "Miscellaneous Cost",
+        "tr": "Çeşitli Maliyetler",
         "de": "Miscellaneous Cost",
         "fr": "Miscellaneous Cost",
         "es": "Miscellaneous Cost",
         "ar": "Miscellaneous Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Extra expenses such as souvenirs, tips, and transport.",
+        "tr": "Hatıra eşyası, bahşiş ve ulaşım gibi ekstra harcamalar."
       }
     }
   ],

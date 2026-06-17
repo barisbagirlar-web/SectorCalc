@@ -10,11 +10,15 @@
       "businessContext": "The typical market price for a common, good-condition record of similar genre.",
       "label_i18n": {
         "en": "Base Price (€)",
-        "tr": "Base Price (€)",
+        "tr": "Taban Fiyat (€)",
         "de": "Base Price (€)",
         "fr": "Base Price (€)",
         "es": "Base Price (€)",
         "ar": "Base Price (€)"
+      },
+      "businessContext_i18n": {
+        "en": "The typical market price for a common, good-condition record of similar genre.",
+        "tr": "Benzer türdeki yaygın, iyi durumdaki bir plak için tipik piyasa fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Goldmine grading: 1=Poor, 10=Mint/Sealed",
       "label_i18n": {
         "en": "Condition (1-10)",
-        "tr": "Condition (1-10)",
+        "tr": "Durum (1-10)",
         "de": "Condition (1-10)",
         "fr": "Condition (1-10)",
         "es": "Condition (1-10)",
         "ar": "Condition (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Goldmine grading: 1=Poor, 10=Mint/Sealed",
+        "tr": "Goldmine derecelendirmesi: 1=Kötü, 10=Mint/Mühürlü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Scarcity rating: 1=Mass-produced, 10=Only a handful known",
       "label_i18n": {
         "en": "Rarity (1-10)",
-        "tr": "Rarity (1-10)",
+        "tr": "Nadirlik (1-10)",
         "de": "Rarity (1-10)",
         "fr": "Rarity (1-10)",
         "es": "Rarity (1-10)",
         "ar": "Rarity (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Scarcity rating: 1=Mass-produced, 10=Only a handful known",
+        "tr": "Kıtlık derecesi: 1=Seri üretim, 10=Sadece birkaç tane biliniyor"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current market demand for the artist: 1=No interest, 10=Cult following",
       "label_i18n": {
         "en": "Artist Popularity (1-10)",
-        "tr": "Artist Popularity (1-10)",
+        "tr": "Sanatçı Popülerliği (1-10)",
         "de": "Artist Popularity (1-10)",
         "fr": "Artist Popularity (1-10)",
         "es": "Artist Popularity (1-10)",
         "ar": "Artist Popularity (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Current market demand for the artist: 1=No interest, 10=Cult following",
+        "tr": "Sanatçıya yönelik mevcut piyasa talebi: 1=İlgi yok, 10=Kült takipçi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Years since the record's first pressing",
       "label_i18n": {
         "en": "Record Age (years)",
-        "tr": "Record Age (years)",
+        "tr": "Plak Yaşı (yıl)",
         "de": "Record Age (years)",
         "fr": "Record Age (years)",
         "es": "Record Age (years)",
         "ar": "Record Age (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Years since the record's first pressing",
+        "tr": "Plak ilk baskısından bu yana geçen yıl sayısı"
       }
     }
   ],

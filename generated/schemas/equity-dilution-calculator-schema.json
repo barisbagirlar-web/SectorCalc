@@ -10,11 +10,15 @@
       "businessContext": "Current total number of shares issued and outstanding before the new issuance.",
       "label_i18n": {
         "en": "Total Outstanding Shares",
-        "tr": "Total Outstanding Shares",
+        "tr": "Toplam Tedavüldeki Hisse Sayısı",
         "de": "Total Outstanding Shares",
         "fr": "Total Outstanding Shares",
         "es": "Total Outstanding Shares",
         "ar": "Total Outstanding Shares"
+      },
+      "businessContext_i18n": {
+        "en": "Current total number of shares issued and outstanding before the new issuance.",
+        "tr": "Yeni ihraç öncesi mevcut toplam tedavüldeki hisse sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of new shares to be created and issued in the funding round.",
       "label_i18n": {
         "en": "New Shares Issued",
-        "tr": "New Shares Issued",
+        "tr": "Yeni İhraç Edilen Hisse Sayısı",
         "de": "New Shares Issued",
         "fr": "New Shares Issued",
         "es": "New Shares Issued",
         "ar": "New Shares Issued"
+      },
+      "businessContext_i18n": {
+        "en": "Number of new shares to be created and issued in the funding round.",
+        "tr": "Fonlama turunda oluşturulacak ve ihraç edilecek yeni hisse sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of shares currently owned by the investor before the round.",
       "label_i18n": {
         "en": "Investor's Current Shares",
-        "tr": "Investor's Current Shares",
+        "tr": "Yatırımcının Mevcut Hisse Sayısı",
         "de": "Investor's Current Shares",
         "fr": "Investor's Current Shares",
         "es": "Investor's Current Shares",
         "ar": "Investor's Current Shares"
+      },
+      "businessContext_i18n": {
+        "en": "Number of shares currently owned by the investor before the round.",
+        "tr": "Yatırımcının tur öncesinde sahip olduğu hisse sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of new shares the investor purchases in this round (0 if not participating).",
       "label_i18n": {
         "en": "Investor's New Shares Purchased",
-        "tr": "Investor's New Shares Purchased",
+        "tr": "Yatırımcının Satın Aldığı Yeni Hisse Sayısı",
         "de": "Investor's New Shares Purchased",
         "fr": "Investor's New Shares Purchased",
         "es": "Investor's New Shares Purchased",
         "ar": "Investor's New Shares Purchased"
+      },
+      "businessContext_i18n": {
+        "en": "Number of new shares the investor purchases in this round (0 if not participating).",
+        "tr": "Yatırımcının bu turda satın aldığı yeni hisse sayısı (katılmıyorsa 0)."
       }
     }
   ],

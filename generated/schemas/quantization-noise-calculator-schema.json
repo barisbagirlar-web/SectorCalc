@@ -10,11 +10,15 @@
       "businessContext": "The total span of the ADC input voltage (max - min). For unipolar 0-5V, enter 5; for bipolar ±2.5V, enter 5.",
       "label_i18n": {
         "en": "Full-Scale Voltage Range (V)",
-        "tr": "Full-Scale Voltage Range (V)",
+        "tr": "Tam Ölçekli Gerilim Aralığı (V)",
         "de": "Full-Scale Voltage Range (V)",
         "fr": "Full-Scale Voltage Range (V)",
         "es": "Full-Scale Voltage Range (V)",
         "ar": "Full-Scale Voltage Range (V)"
+      },
+      "businessContext_i18n": {
+        "en": "The total span of the ADC input voltage (max - min). For unipolar 0-5V, enter 5; for bipolar ±2.5V, enter 5.",
+        "tr": "ADC giriş geriliminin toplam aralığı (maks - min). Tek kutuplu 0-5V için 5 girin; çift kutuplu ±2.5V için 5 girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Resolution of the ADC.",
       "label_i18n": {
         "en": "Number of Bits",
-        "tr": "Number of Bits",
+        "tr": "Bit Sayısı",
         "de": "Number of Bits",
         "fr": "Number of Bits",
         "es": "Number of Bits",
         "ar": "Number of Bits"
+      },
+      "businessContext_i18n": {
+        "en": "Resolution of the ADC.",
+        "tr": "ADC'nin çözünürlüğü."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Peak amplitude of the input sine wave. Typically ≤ voltageRange/2 for full-scale.",
       "label_i18n": {
         "en": "Signal Peak Amplitude (V)",
-        "tr": "Signal Peak Amplitude (V)",
+        "tr": "Sinyal Tepe Genliği (V)",
         "de": "Signal Peak Amplitude (V)",
         "fr": "Signal Peak Amplitude (V)",
         "es": "Signal Peak Amplitude (V)",
         "ar": "Signal Peak Amplitude (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Peak amplitude of the input sine wave. Typically ≤ voltageRange/2 for full-scale.",
+        "tr": "Giriş sinüs dalgasının tepe genliği. Genellikle tam ölçek için voltageRange/2 değerine eşit veya küçüktür."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Reference resistance for power calculations. Use 1 if only voltage quantities are needed.",
       "label_i18n": {
         "en": "Load Resistance (Ω)",
-        "tr": "Load Resistance (Ω)",
+        "tr": "Yük Direnci (Ω)",
         "de": "Load Resistance (Ω)",
         "fr": "Load Resistance (Ω)",
         "es": "Load Resistance (Ω)",
         "ar": "Load Resistance (Ω)"
+      },
+      "businessContext_i18n": {
+        "en": "Reference resistance for power calculations. Use 1 if only voltage quantities are needed.",
+        "tr": "Güç hesaplamaları için referans direnç. Yalnızca gerilim büyüklükleri gerekiyorsa 1 kullanın."
       }
     }
   ],

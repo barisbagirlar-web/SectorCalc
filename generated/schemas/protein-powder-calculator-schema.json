@@ -10,11 +10,15 @@
       "businessContext": "Standard serving size in grams as indicated on the product label.",
       "label_i18n": {
         "en": "Serving Size",
-        "tr": "Serving Size",
+        "tr": "Porsiyon Boyutu",
         "de": "Serving Size",
         "fr": "Serving Size",
         "es": "Serving Size",
         "ar": "Serving Size"
+      },
+      "businessContext_i18n": {
+        "en": "Standard serving size in grams as indicated on the product label.",
+        "tr": "Ürün etiketinde belirtilen standart porsiyon boyutu (gram cinsinden)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount of protein in grams per serving according to nutrition facts.",
       "label_i18n": {
         "en": "Protein per Serving",
-        "tr": "Protein per Serving",
+        "tr": "Porsiyon Başına Protein",
         "de": "Protein per Serving",
         "fr": "Protein per Serving",
         "es": "Protein per Serving",
         "ar": "Protein per Serving"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of protein in grams per serving according to nutrition facts.",
+        "tr": "Besin değerlerine göre porsiyon başına protein miktarı (gram cinsinden)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of scoops typically consumed per serving.",
       "label_i18n": {
         "en": "Scoops Used",
-        "tr": "Scoops Used",
+        "tr": "Kullanılan Kepçe Sayısı",
         "de": "Scoops Used",
         "fr": "Scoops Used",
         "es": "Scoops Used",
         "ar": "Scoops Used"
+      },
+      "businessContext_i18n": {
+        "en": "Number of scoops typically consumed per serving.",
+        "tr": "Porsiyon başına tipik olarak tüketilen kepçe sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Net weight of protein powder in the container.",
       "label_i18n": {
         "en": "Container Size",
-        "tr": "Container Size",
+        "tr": "Konteyner Boyutu",
         "de": "Container Size",
         "fr": "Container Size",
         "es": "Container Size",
         "ar": "Container Size"
+      },
+      "businessContext_i18n": {
+        "en": "Net weight of protein powder in the container.",
+        "tr": "Kaptaki protein tozunun net ağırlığı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total price paid for the container.",
       "label_i18n": {
         "en": "Container Price",
-        "tr": "Container Price",
+        "tr": "Kap Fiyatı",
         "de": "Container Price",
         "fr": "Container Price",
         "es": "Container Price",
         "ar": "Container Price"
+      },
+      "businessContext_i18n": {
+        "en": "Total price paid for the container.",
+        "tr": "Kap için ödenen toplam fiyat."
       }
     }
   ],

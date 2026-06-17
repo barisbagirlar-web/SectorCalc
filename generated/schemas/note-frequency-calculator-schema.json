@@ -10,11 +10,15 @@
       "businessContext": "Standard tuning frequency for A4 note.",
       "label_i18n": {
         "en": "Reference Frequency (A4)",
-        "tr": "Reference Frequency (A4)",
+        "tr": "Referans Frekans (A4)",
         "de": "Reference Frequency (A4)",
         "fr": "Reference Frequency (A4)",
         "es": "Reference Frequency (A4)",
         "ar": "Reference Frequency (A4)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard tuning frequency for A4 note.",
+        "tr": "A4 notası için standart akort frekansı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "MIDI note number for the reference pitch; A4=69.",
       "label_i18n": {
         "en": "Reference MIDI Note",
-        "tr": "Reference MIDI Note",
+        "tr": "Referans MIDI Notası",
         "de": "Reference MIDI Note",
         "fr": "Reference MIDI Note",
         "es": "Reference MIDI Note",
         "ar": "Reference MIDI Note"
+      },
+      "businessContext_i18n": {
+        "en": "MIDI note number for the reference pitch; A4=69.",
+        "tr": "Referans perde için MIDI nota numarası; A4=69."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "MIDI note number for which to calculate frequency.",
       "label_i18n": {
         "en": "Target MIDI Note",
-        "tr": "Target MIDI Note",
+        "tr": "Hedef MIDI Notası",
         "de": "Target MIDI Note",
         "fr": "Target MIDI Note",
         "es": "Target MIDI Note",
         "ar": "Target MIDI Note"
+      },
+      "businessContext_i18n": {
+        "en": "MIDI note number for which to calculate frequency.",
+        "tr": "Frekansı hesaplanacak MIDI nota numarası."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fine-tuning adjustment in cents (100 cents = 1 semitone).",
       "label_i18n": {
         "en": "Cents Adjustment",
-        "tr": "Cents Adjustment",
+        "tr": "Cent Ayarı",
         "de": "Cents Adjustment",
         "fr": "Cents Adjustment",
         "es": "Cents Adjustment",
         "ar": "Cents Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "Fine-tuning adjustment in cents (100 cents = 1 semitone).",
+        "tr": "Cent cinsinden ince ayar (100 cent = 1 yarım ses)."
       }
     }
   ],

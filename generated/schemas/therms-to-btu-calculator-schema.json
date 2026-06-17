@@ -10,11 +10,15 @@
       "businessContext": "Amount of energy in therms to be converted to BTU.",
       "label_i18n": {
         "en": "Quantity (therms)",
-        "tr": "Quantity (therms)",
+        "tr": "Miktar (therm)",
         "de": "Quantity (therms)",
         "fr": "Quantity (therms)",
         "es": "Quantity (therms)",
         "ar": "Quantity (therms)"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of energy in therms to be converted to BTU.",
+        "tr": "BTU'ya dönüştürülecek enerji miktarı (therm cinsinden)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from therms to BTU (1 therm = 100,000 BTU).",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from therms to BTU (1 therm = 100,000 BTU).",
+        "tr": "Therm'den BTU'ya standart dönüşüm faktörü (1 therm = 100.000 BTU)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Adjustment to the conversion factor for fuel-specific energy content variations, if any.",
       "label_i18n": {
         "en": "Energy Content Adjustment",
-        "tr": "Energy Content Adjustment",
+        "tr": "Enerji İçeriği Ayarı",
         "de": "Energy Content Adjustment",
         "fr": "Energy Content Adjustment",
         "es": "Energy Content Adjustment",
         "ar": "Energy Content Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "Adjustment to the conversion factor for fuel-specific energy content variations, if any.",
+        "tr": "Yakıta özgü enerji içeriği farklılıkları için dönüşüm faktörüne yapılan ayar (varsa)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places to round the output.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the output.",
+        "tr": "Çıktının yuvarlanacağı ondalık basamak sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Factor to convert BTU to desired output unit (e.g., 1 for BTU, 1e-6 for MMBTU).",
       "label_i18n": {
         "en": "Output Unit Scale Factor",
-        "tr": "Output Unit Scale Factor",
+        "tr": "Çıktı Birim Ölçek Faktörü",
         "de": "Output Unit Scale Factor",
         "fr": "Output Unit Scale Factor",
         "es": "Output Unit Scale Factor",
         "ar": "Output Unit Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to convert BTU to desired output unit (e.g., 1 for BTU, 1e-6 for MMBTU).",
+        "tr": "BTU'yu istenen çıktı birimine dönüştüren faktör (ör. BTU için 1, MMBTU için 1e-6)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Used to calculate base hydration need based on body mass.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Used to calculate base hydration need based on body mass.",
+        "tr": "Vücut kütlesine göre baz hidrasyon ihtiyacını hesaplamak için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Moderate physical activity like walking or light work increases water loss.",
       "label_i18n": {
         "en": "Moderate Activity (hours/day)",
-        "tr": "Moderate Activity (hours/day)",
+        "tr": "Orta Düzey Aktivite (saat/gün)",
         "de": "Moderate Activity (hours/day)",
         "fr": "Moderate Activity (hours/day)",
         "es": "Moderate Activity (hours/day)",
         "ar": "Moderate Activity (hours/day)"
+      },
+      "businessContext_i18n": {
+        "en": "Moderate physical activity like walking or light work increases water loss.",
+        "tr": "Yürüyüş veya hafif iş gibi orta düzey fiziksel aktivite su kaybını artırır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Intense physical labor or exercise significantly raises hydration requirements.",
       "label_i18n": {
         "en": "Heavy Activity (hours/day)",
-        "tr": "Heavy Activity (hours/day)",
+        "tr": "Ağır Aktivite (saat/gün)",
         "de": "Heavy Activity (hours/day)",
         "fr": "Heavy Activity (hours/day)",
         "es": "Heavy Activity (hours/day)",
         "ar": "Heavy Activity (hours/day)"
+      },
+      "businessContext_i18n": {
+        "en": "Intense physical labor or exercise significantly raises hydration requirements.",
+        "tr": "Yoğun fiziksel iş veya egzersiz hidrasyon gereksinimlerini önemli ölçüde artırır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "High temperatures increase sweating and water needs, adjustment applied above 30°C.",
       "label_i18n": {
         "en": "Average Ambient Temperature",
-        "tr": "Average Ambient Temperature",
+        "tr": "Ortalama Ortam Sıcaklığı",
         "de": "Average Ambient Temperature",
         "fr": "Average Ambient Temperature",
         "es": "Average Ambient Temperature",
         "ar": "Average Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "High temperatures increase sweating and water needs, adjustment applied above 30°C.",
+        "tr": "Yüksek sıcaklıklar terlemeyi ve su ihtiyacını artırır, 30°C üzerinde ayarlama uygulanır."
       }
     }
   ],

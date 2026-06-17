@@ -34,10 +34,12 @@
       "max": 50,
       "businessContext": "Maximum allowable working pressure per ASME UG-21",
       "label_i18n": {
-        "en": "Design Pressure (P)"
+        "en": "Design Pressure (P)",
+        "tr": "Tasarım Basıncı (P)"
       },
       "businessContext_i18n": {
-        "en": "Maximum allowable working pressure per ASME UG-21"
+        "en": "Maximum allowable working pressure per ASME UG-21",
+        "tr": "ASME UG-21'e göre izin verilen maksimum çalışma basıncı"
       }
     },
     {
@@ -50,10 +52,12 @@
       "max": 10000,
       "businessContext": "Inside diameter of cylindrical shell",
       "label_i18n": {
-        "en": "Vessel Inner Diameter (D)"
+        "en": "Vessel Inner Diameter (D)",
+        "tr": "Kazan İç Çapı (D)"
       },
       "businessContext_i18n": {
-        "en": "Inside diameter of cylindrical shell"
+        "en": "Inside diameter of cylindrical shell",
+        "tr": "Silindirik kabuğun iç çapı"
       }
     },
     {
@@ -66,10 +70,12 @@
       "max": 500,
       "businessContext": "Material allowable stress at design temperature per ASME II Part D",
       "label_i18n": {
-        "en": "Allowable Stress (S)"
+        "en": "Allowable Stress (S)",
+        "tr": "İzin Verilen Gerilme (S)"
       },
       "businessContext_i18n": {
-        "en": "Material allowable stress at design temperature per ASME II Part D"
+        "en": "Material allowable stress at design temperature per ASME II Part D",
+        "tr": "Tasarım sıcaklığında malzemenin izin verilen gerilmesi, ASME II Kısım D'ye göre"
       }
     },
     {
@@ -84,10 +90,12 @@
       "default": 1,
       "businessContext": "Welded joint efficiency factor per ASME UW-12",
       "label_i18n": {
-        "en": "Joint Efficiency (E)"
+        "en": "Joint Efficiency (E)",
+        "tr": "Bağlantı Verimliliği (E)"
       },
       "businessContext_i18n": {
-        "en": "Welded joint efficiency factor per ASME UW-12"
+        "en": "Welded joint efficiency factor per ASME UW-12",
+        "tr": "Kaynaklı bağlantı verimlilik faktörü, ASME UW-12'ye göre"
       },
       "unit": "unit"
     },
@@ -101,10 +109,12 @@
       "max": 25,
       "businessContext": "Additional thickness for corrosion/erosion per UG-25",
       "label_i18n": {
-        "en": "Corrosion Allowance (CA)"
+        "en": "Corrosion Allowance (CA)",
+        "tr": "Korozyon Payı (CA)"
       },
       "businessContext_i18n": {
-        "en": "Additional thickness for corrosion/erosion per UG-25"
+        "en": "Additional thickness for corrosion/erosion per UG-25",
+        "tr": "UG-25'e göre korozyon/erozyon için ek kalınlık"
       }
     },
     {
@@ -117,10 +127,12 @@
       "max": 100,
       "businessContext": "Lean manufacturing metric for material waste reduction",
       "label_i18n": {
-        "en": "Material Utilization Factor"
+        "en": "Material Utilization Factor",
+        "tr": "Malzeme Kullanım Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Lean manufacturing metric for material waste reduction"
+        "en": "Lean manufacturing metric for material waste reduction",
+        "tr": "Malzeme israfını azaltmak için yalın üretim metriği"
       }
     },
     {
@@ -130,10 +142,12 @@
       "default": false,
       "businessContext": "Enable to use custom safety factor instead of ASME default 3.5",
       "label_i18n": {
-        "en": "Override Safety Factor"
+        "en": "Override Safety Factor",
+        "tr": "Güvenlik Faktörünü Geçersiz Kıl"
       },
       "businessContext_i18n": {
-        "en": "Enable to use custom safety factor instead of ASME default 3.5"
+        "en": "Enable to use custom safety factor instead of ASME default 3.5",
+        "tr": "ASME varsayılan 3.5 yerine özel güvenlik faktörü kullanmak için etkinleştirin"
       },
       "unit": "unit"
     },
@@ -147,10 +161,12 @@
       "max": 6,
       "businessContext": "Only used if override is enabled; typical range per ISO 16528",
       "label_i18n": {
-        "en": "Custom Safety Factor"
+        "en": "Custom Safety Factor",
+        "tr": "Özel Güvenlik Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Only used if override is enabled; typical range per ISO 16528"
+        "en": "Only used if override is enabled; typical range per ISO 16528",
+        "tr": "Yalnızca geçersiz kılma etkinse kullanılır; ISO 16528'e göre tipik aralık"
       }
     }
   ],

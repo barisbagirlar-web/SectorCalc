@@ -10,11 +10,15 @@
       "businessContext": "Raw numerical data points for constructing the stem-and-leaf plot.",
       "label_i18n": {
         "en": "Data Values (comma-separated)",
-        "tr": "Data Values (comma-separated)",
+        "tr": "Veri Değerleri (virgülle ayrılmış)",
         "de": "Data Values (comma-separated)",
         "fr": "Data Values (comma-separated)",
         "es": "Data Values (comma-separated)",
         "ar": "Data Values (comma-separated)"
+      },
+      "businessContext_i18n": {
+        "en": "Raw numerical data points for constructing the stem-and-leaf plot.",
+        "tr": "Gövde-yaprak grafiği oluşturmak için ham sayısal veri noktaları."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The unit of the leaf digit (e.g., 1 for ones, 0.1 for tenths).",
       "label_i18n": {
         "en": "Leaf Unit",
-        "tr": "Leaf Unit",
+        "tr": "Yaprak Birimi",
         "de": "Leaf Unit",
         "fr": "Leaf Unit",
         "es": "Leaf Unit",
         "ar": "Leaf Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The unit of the leaf digit (e.g., 1 for ones, 0.1 for tenths).",
+        "tr": "Yaprak basamağının birimi (örneğin, 1 birler için, 0.1 onda birler için)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The unit of the stem (e.g., 10 for tens, 100 for hundreds).",
       "label_i18n": {
         "en": "Stem Unit",
-        "tr": "Stem Unit",
+        "tr": "Gövde Birimi",
         "de": "Stem Unit",
         "fr": "Stem Unit",
         "es": "Stem Unit",
         "ar": "Stem Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The unit of the stem (e.g., 10 for tens, 100 for hundreds).",
+        "tr": "Gövdenin birimi (örneğin, 10 onlar için, 100 yüzler için)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Order to sort the leaves within each stem.",
       "label_i18n": {
         "en": "Sort Order (1=ascending, -1=descending)",
-        "tr": "Sort Order (1=ascending, -1=descending)",
+        "tr": "Sıralama Düzeni (1=artan, -1=azalan)",
         "de": "Sort Order (1=ascending, -1=descending)",
         "fr": "Sort Order (1=ascending, -1=descending)",
         "es": "Sort Order (1=ascending, -1=descending)",
         "ar": "Sort Order (1=ascending, -1=descending)"
+      },
+      "businessContext_i18n": {
+        "en": "Order to sort the leaves within each stem.",
+        "tr": "Her gövde içindeki yaprakların sıralanma düzeni."
       }
     }
   ],

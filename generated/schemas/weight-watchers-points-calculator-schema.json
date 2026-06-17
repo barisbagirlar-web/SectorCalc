@@ -10,11 +10,15 @@
       "businessContext": "Total energy content per serving.",
       "label_i18n": {
         "en": "Calories",
-        "tr": "Calories",
+        "tr": "Kalori",
         "de": "Calories",
         "fr": "Calories",
         "es": "Calories",
         "ar": "Calories"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy content per serving.",
+        "tr": "Porsiyon başına toplam enerji içeriği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Grams of saturated fat per serving.",
       "label_i18n": {
         "en": "Saturated Fat",
-        "tr": "Saturated Fat",
+        "tr": "Doymuş Yağ",
         "de": "Saturated Fat",
         "fr": "Saturated Fat",
         "es": "Saturated Fat",
         "ar": "Saturated Fat"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of saturated fat per serving.",
+        "tr": "Porsiyon başına gram cinsinden doymuş yağ."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Grams of sugar per serving.",
       "label_i18n": {
         "en": "Sugar",
-        "tr": "Sugar",
+        "tr": "Şeker",
         "de": "Sugar",
         "fr": "Sugar",
         "es": "Sugar",
         "ar": "Sugar"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of sugar per serving.",
+        "tr": "Porsiyon başına gram cinsinden şeker."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Protein",
         "es": "Protein",
         "ar": "Protein"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of protein per serving.",
+        "tr": "Porsiyon başına gram cinsinden protein."
       }
     }
   ],

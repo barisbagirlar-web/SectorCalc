@@ -10,11 +10,15 @@
       "businessContext": "Number of protons in the nucleus of the atom.",
       "label_i18n": {
         "en": "Atomic Number (Z)",
-        "tr": "Atomic Number (Z)",
+        "tr": "Atom Numarası (Z)",
         "de": "Atomic Number (Z)",
         "fr": "Atomic Number (Z)",
         "es": "Atomic Number (Z)",
         "ar": "Atomic Number (Z)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of protons in the nucleus of the atom.",
+        "tr": "Atom çekirdeğindeki proton sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Screening constant due to inner electrons reducing the effective nuclear charge.",
       "label_i18n": {
         "en": "Shielding Constant (S)",
-        "tr": "Shielding Constant (S)",
+        "tr": "Ekranlama Sabiti (S)",
         "de": "Shielding Constant (S)",
         "fr": "Shielding Constant (S)",
         "es": "Shielding Constant (S)",
         "ar": "Shielding Constant (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Screening constant due to inner electrons reducing the effective nuclear charge.",
+        "tr": "İç elektronların etkin çekirdek yükünü azaltması nedeniyle oluşan perdeleme sabiti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Principal quantum number of the outermost electron shell.",
       "label_i18n": {
         "en": "Principal Quantum Number (n)",
-        "tr": "Principal Quantum Number (n)",
+        "tr": "Baş Kuantum Sayısı (n)",
         "de": "Principal Quantum Number (n)",
         "fr": "Principal Quantum Number (n)",
         "es": "Principal Quantum Number (n)",
         "ar": "Principal Quantum Number (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Principal quantum number of the outermost electron shell.",
+        "tr": "En dıştaki elektron kabuğunun baş kuantum sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Empirical adjustment factor to match experimental ionic radii.",
       "label_i18n": {
         "en": "Scaling Factor",
-        "tr": "Scaling Factor",
+        "tr": "Ölçekleme Faktörü",
         "de": "Scaling Factor",
         "fr": "Scaling Factor",
         "es": "Scaling Factor",
         "ar": "Scaling Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical adjustment factor to match experimental ionic radii.",
+        "tr": "Deneysel iyon yarıçaplarına uyacak şekilde ampirik ayarlama faktörü."
       }
     }
   ],

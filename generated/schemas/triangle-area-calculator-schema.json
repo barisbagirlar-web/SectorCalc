@@ -10,11 +10,15 @@
       "businessContext": "For Heron's formula or SAS (with side2 and angle)",
       "label_i18n": {
         "en": "Side 1 (a)",
-        "tr": "Side 1 (a)",
+        "tr": "Kenar 1 (a)",
         "de": "Side 1 (a)",
         "fr": "Side 1 (a)",
         "es": "Side 1 (a)",
         "ar": "Side 1 (a)"
+      },
+      "businessContext_i18n": {
+        "en": "For Heron's formula or SAS (with side2 and angle)",
+        "tr": "Heron formülü veya KAK (kenar2 ve açı ile) için"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "For Heron's formula or SAS (with side1 and angle)",
       "label_i18n": {
         "en": "Side 2 (b)",
-        "tr": "Side 2 (b)",
+        "tr": "Kenar 2 (b)",
         "de": "Side 2 (b)",
         "fr": "Side 2 (b)",
         "es": "Side 2 (b)",
         "ar": "Side 2 (b)"
+      },
+      "businessContext_i18n": {
+        "en": "For Heron's formula or SAS (with side1 and angle)",
+        "tr": "Heron formülü veya KAK (kenar1 ve açı ile) için"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "For Heron's formula (all three sides)",
       "label_i18n": {
         "en": "Side 3 (c)",
-        "tr": "Side 3 (c)",
+        "tr": "Kenar 3 (c)",
         "de": "Side 3 (c)",
         "fr": "Side 3 (c)",
         "es": "Side 3 (c)",
         "ar": "Side 3 (c)"
+      },
+      "businessContext_i18n": {
+        "en": "For Heron's formula (all three sides)",
+        "tr": "Heron formülü (üç kenar da) için"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "For base-height method",
       "label_i18n": {
         "en": "Base",
-        "tr": "Base",
+        "tr": "Taban",
         "de": "Base",
         "fr": "Base",
         "es": "Base",
         "ar": "Base"
+      },
+      "businessContext_i18n": {
+        "en": "For base-height method",
+        "tr": "Taban-yükseklik yöntemi için"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "For base-height method",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "For base-height method",
+        "tr": "Taban-yükseklik yöntemi için"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Angle between side1 and side2, in degrees, for SAS method",
       "label_i18n": {
         "en": "Included Angle",
-        "tr": "Included Angle",
+        "tr": "Dahil Açı",
         "de": "Included Angle",
         "fr": "Included Angle",
         "es": "Included Angle",
         "ar": "Included Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between side1 and side2, in degrees, for SAS method",
+        "tr": "Kenar1 ve kenar2 arasındaki açı, derece cinsinden, KAK yöntemi için"
       }
     }
   ],

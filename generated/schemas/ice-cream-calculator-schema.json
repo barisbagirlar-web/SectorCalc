@@ -10,11 +10,15 @@
       "businessContext": "Volume of liquid ice cream mix before freezing/aeration",
       "label_i18n": {
         "en": "Batch Mix Volume",
-        "tr": "Batch Mix Volume",
+        "tr": "Parti Karışım Hacmi",
         "de": "Batch Mix Volume",
         "fr": "Batch Mix Volume",
         "es": "Batch Mix Volume",
         "ar": "Batch Mix Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of liquid ice cream mix before freezing/aeration",
+        "tr": "Dondurma/şişirme öncesi sıvı dondurma karışımının hacmi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage increase in volume due to air incorporation during freezing",
       "label_i18n": {
         "en": "Overrun",
-        "tr": "Overrun",
+        "tr": "Şişirme Oranı",
         "de": "Overrun",
         "fr": "Overrun",
         "es": "Overrun",
         "ar": "Overrun"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage increase in volume due to air incorporation during freezing",
+        "tr": "Dondurma sırasında hava katılımı nedeniyle hacim artış yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of ingredients for one liter of liquid mix",
       "label_i18n": {
         "en": "Mix Cost per Liter",
-        "tr": "Mix Cost per Liter",
+        "tr": "Litre Başına Karışım Maliyeti",
         "de": "Mix Cost per Liter",
         "fr": "Mix Cost per Liter",
         "es": "Mix Cost per Liter",
         "ar": "Mix Cost per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of ingredients for one liter of liquid mix",
+        "tr": "Bir litre sıvı karışım için malzeme maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of packaging materials per liter of final ice cream",
       "label_i18n": {
         "en": "Packaging Cost per Liter",
-        "tr": "Packaging Cost per Liter",
+        "tr": "Litre Başına Ambalaj Maliyeti",
         "de": "Packaging Cost per Liter",
         "fr": "Packaging Cost per Liter",
         "es": "Packaging Cost per Liter",
         "ar": "Packaging Cost per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of packaging materials per liter of final ice cream",
+        "tr": "Bir litre nihai dondurma için ambalaj malzemesi maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fixed costs per batch (labor, energy, etc.)",
       "label_i18n": {
         "en": "Other Costs per Batch",
-        "tr": "Other Costs per Batch",
+        "tr": "Parti Başına Diğer Maliyetler",
         "de": "Other Costs per Batch",
         "fr": "Other Costs per Batch",
         "es": "Other Costs per Batch",
         "ar": "Other Costs per Batch"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed costs per batch (labor, energy, etc.)",
+        "tr": "Parti başına sabit maliyetler (işçilik, enerji vb.)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Target profit margin as a percentage of selling price",
       "label_i18n": {
         "en": "Desired Profit Margin",
-        "tr": "Desired Profit Margin",
+        "tr": "Hedef Kar Marjı",
         "de": "Desired Profit Margin",
         "fr": "Desired Profit Margin",
         "es": "Desired Profit Margin",
         "ar": "Desired Profit Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Target profit margin as a percentage of selling price",
+        "tr": "Satış fiyatının yüzdesi olarak hedef kar marjı"
       }
     }
   ],

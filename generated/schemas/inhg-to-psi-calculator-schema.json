@@ -10,11 +10,15 @@
       "businessContext": "The measured pressure in inches of mercury.",
       "label_i18n": {
         "en": "Pressure (inHg)",
-        "tr": "Pressure (inHg)",
+        "tr": "Basınç (inHg)",
         "de": "Pressure (inHg)",
         "fr": "Pressure (inHg)",
         "es": "Pressure (inHg)",
         "ar": "Pressure (inHg)"
+      },
+      "businessContext_i18n": {
+        "en": "The measured pressure in inches of mercury.",
+        "tr": "Inç cıva cinsinden ölçülen basınç."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from inHg to psi (1 inHg = 0.491154 psi).",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from inHg to psi (1 inHg = 0.491154 psi).",
+        "tr": "inHg'den psi'ye standart dönüşüm faktörü (1 inHg = 0,491154 psi)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the result.",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Altitude above sea level, provided for informational context (not used in conversion).",
       "label_i18n": {
         "en": "Altitude (feet)",
-        "tr": "Altitude (feet)",
+        "tr": "Rakım (feet)",
         "de": "Altitude (feet)",
         "fr": "Altitude (feet)",
         "es": "Altitude (feet)",
         "ar": "Altitude (feet)"
+      },
+      "businessContext_i18n": {
+        "en": "Altitude above sea level, provided for informational context (not used in conversion).",
+        "tr": "Deniz seviyesinden yükseklik, bilgilendirme amaçlı verilmiştir (dönüşümde kullanılmaz)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Temperature of the mercury column, provided for informational context (not used in standard conversion).",
       "label_i18n": {
         "en": "Temperature (°F)",
-        "tr": "Temperature (°F)",
+        "tr": "Sıcaklık (°F)",
         "de": "Temperature (°F)",
         "fr": "Temperature (°F)",
         "es": "Temperature (°F)",
         "ar": "Temperature (°F)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the mercury column, provided for informational context (not used in standard conversion).",
+        "tr": "Cıva sütununun sıcaklığı, bilgilendirme amaçlı verilmiştir (standart dönüşümde kullanılmaz)."
       }
     }
   ],

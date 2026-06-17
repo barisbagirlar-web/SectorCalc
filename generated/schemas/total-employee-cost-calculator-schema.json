@@ -23,10 +23,12 @@
       "max": 10000000,
       "businessContext": "Annual gross salary before any deductions or benefits.",
       "label_i18n": {
-        "en": "Base Annual Salary"
+        "en": "Base Annual Salary",
+        "tr": "Yıllık Brüt Maaş"
       },
       "businessContext_i18n": {
-        "en": "Annual gross salary before any deductions or benefits."
+        "en": "Annual gross salary before any deductions or benefits.",
+        "tr": "Herhangi bir kesinti veya yan hak öncesi yıllık brüt maaş."
       }
     },
     {
@@ -39,10 +41,12 @@
       "max": 100,
       "businessContext": "Typical annual bonus as a percentage of base salary.",
       "label_i18n": {
-        "en": "Target Bonus (% of base salary)"
+        "en": "Target Bonus (% of base salary)",
+        "tr": "Hedef Bonus (Maaşın Yüzdesi)"
       },
       "businessContext_i18n": {
-        "en": "Typical annual bonus as a percentage of base salary."
+        "en": "Typical annual bonus as a percentage of base salary.",
+        "tr": "Tipik yıllık bonus, maaşın yüzdesi olarak."
       }
     },
     {
@@ -55,10 +59,12 @@
       "max": 100,
       "businessContext": "Includes health insurance, retirement contributions, paid leave, etc. Typical range 25-40%.",
       "label_i18n": {
-        "en": "Benefits Cost (% of base salary)"
+        "en": "Benefits Cost (% of base salary)",
+        "tr": "Yan Hak Maliyeti (Maaşın Yüzdesi)"
       },
       "businessContext_i18n": {
-        "en": "Includes health insurance, retirement contributions, paid leave, etc. Typical range 25-40%."
+        "en": "Includes health insurance, retirement contributions, paid leave, etc. Typical range 25-40%.",
+        "tr": "Sağlık sigortası, emeklilik katkıları, ücretli izin vb. içerir. Tipik aralık %25-40."
       }
     },
     {
@@ -71,10 +77,12 @@
       "max": 20,
       "businessContext": "Employer portion of Social Security and Medicare (FICA) in the US.",
       "label_i18n": {
-        "en": "Payroll Tax (% of base salary)"
+        "en": "Payroll Tax (% of base salary)",
+        "tr": "Bordro Vergisi (Maaşın Yüzdesi)"
       },
       "businessContext_i18n": {
-        "en": "Employer portion of Social Security and Medicare (FICA) in the US."
+        "en": "Employer portion of Social Security and Medicare (FICA) in the US.",
+        "tr": "ABD'de Sosyal Güvenlik ve Medicare (FICA) işveren payı."
       }
     },
     {
@@ -87,10 +95,12 @@
       "max": 100,
       "businessContext": "Facilities, equipment, IT, admin support allocated per employee.",
       "label_i18n": {
-        "en": "Overhead Allocation (% of direct cost)"
+        "en": "Overhead Allocation (% of direct cost)",
+        "tr": "Genel Gider Dağıtımı (Doğrudan Maliyetin Yüzdesi)"
       },
       "businessContext_i18n": {
-        "en": "Facilities, equipment, IT, admin support allocated per employee."
+        "en": "Facilities, equipment, IT, admin support allocated per employee.",
+        "tr": "Çalışan başına dağıtılan tesis, ekipman, BT, idari destek."
       }
     },
     {
@@ -103,10 +113,12 @@
       "max": 100000,
       "businessContext": "Direct cost of training programs, certifications, and development.",
       "label_i18n": {
-        "en": "Annual Training Cost per Employee"
+        "en": "Annual Training Cost per Employee",
+        "tr": "Çalışan Başına Yıllık Eğitim Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct cost of training programs, certifications, and development."
+        "en": "Direct cost of training programs, certifications, and development.",
+        "tr": "Eğitim programları, sertifikalar ve gelişimin doğrudan maliyeti."
       }
     },
     {
@@ -119,10 +131,12 @@
       "max": 1,
       "businessContext": "Lean metric: actual productive time vs. available time. 1 = full productivity.",
       "label_i18n": {
-        "en": "Productivity Factor (0-1)"
+        "en": "Productivity Factor (0-1)",
+        "tr": "Verimlilik Faktörü (0-1)"
       },
       "businessContext_i18n": {
-        "en": "Lean metric: actual productive time vs. available time. 1 = full productivity."
+        "en": "Lean metric: actual productive time vs. available time. 1 = full productivity.",
+        "tr": "Yalın metrik: fiili üretken zamanın mevcut zamana oranı. 1 = tam üretkenlik."
       }
     },
     {
@@ -135,10 +149,12 @@
       "max": 100,
       "businessContext": "Percentage of employees leaving per year. Drives replacement and ramp-up costs.",
       "label_i18n": {
-        "en": "Annual Turnover Rate (%)"
+        "en": "Annual Turnover Rate (%)",
+        "tr": "Yıllık İş Gücü Devir Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of employees leaving per year. Drives replacement and ramp-up costs."
+        "en": "Percentage of employees leaving per year. Drives replacement and ramp-up costs.",
+        "tr": "Yılda ayrılan çalışan yüzdesi. Değiştirme ve alıştırma maliyetlerini doğurur."
       }
     }
   ],

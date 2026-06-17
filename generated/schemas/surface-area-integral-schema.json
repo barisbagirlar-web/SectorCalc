@@ -10,11 +10,15 @@
       "businessContext": "Radius of the sphere or cylinder",
       "label_i18n": {
         "en": "Radius (r)",
-        "tr": "Radius (r)",
+        "tr": "Yarıçap (r)",
         "de": "Radius (r)",
         "fr": "Radius (r)",
         "es": "Radius (r)",
         "ar": "Radius (r)"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of the sphere or cylinder",
+        "tr": "Küre veya silindirin yarıçapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height for cylindrical surface area",
       "label_i18n": {
         "en": "Height (h)",
-        "tr": "Height (h)",
+        "tr": "Yükseklik (h)",
         "de": "Height (h)",
         "fr": "Height (h)",
         "es": "Height (h)",
         "ar": "Height (h)"
+      },
+      "businessContext_i18n": {
+        "en": "Height for cylindrical surface area",
+        "tr": "Silindirik yüzey alanı için yükseklik"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0 for sphere, 1 for cylinder (lateral surface)",
       "label_i18n": {
         "en": "Shape (0=sphere, 1=cylinder)",
-        "tr": "Shape (0=sphere, 1=cylinder)",
+        "tr": "Şekil (0=küre, 1=silindir)",
         "de": "Shape (0=sphere, 1=cylinder)",
         "fr": "Shape (0=sphere, 1=cylinder)",
         "es": "Shape (0=sphere, 1=cylinder)",
         "ar": "Shape (0=sphere, 1=cylinder)"
+      },
+      "businessContext_i18n": {
+        "en": "0 for sphere, 1 for cylinder (lateral surface)",
+        "tr": "0 küre, 1 silindir (yan yüzey) için"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Lower bound of polar angle for sphere",
       "label_i18n": {
         "en": "Theta min (θ_min)",
-        "tr": "Theta min (θ_min)",
+        "tr": "Teta min (θ_min)",
         "de": "Theta min (θ_min)",
         "fr": "Theta min (θ_min)",
         "es": "Theta min (θ_min)",
         "ar": "Theta min (θ_min)"
+      },
+      "businessContext_i18n": {
+        "en": "Lower bound of polar angle for sphere",
+        "tr": "Küre için kutup açısının alt sınırı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Upper bound of polar angle for sphere (π)",
       "label_i18n": {
         "en": "Theta max (θ_max)",
-        "tr": "Theta max (θ_max)",
+        "tr": "Teta max (θ_max)",
         "de": "Theta max (θ_max)",
         "fr": "Theta max (θ_max)",
         "es": "Theta max (θ_max)",
         "ar": "Theta max (θ_max)"
+      },
+      "businessContext_i18n": {
+        "en": "Upper bound of polar angle for sphere (π)",
+        "tr": "Küre için kutup açısının üst sınırı (π)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Lower bound of azimuthal angle",
       "label_i18n": {
         "en": "Phi min (φ_min)",
-        "tr": "Phi min (φ_min)",
+        "tr": "Fi min (φ_min)",
         "de": "Phi min (φ_min)",
         "fr": "Phi min (φ_min)",
         "es": "Phi min (φ_min)",
         "ar": "Phi min (φ_min)"
+      },
+      "businessContext_i18n": {
+        "en": "Lower bound of azimuthal angle",
+        "tr": "Azimut açısının alt sınırı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Upper bound of azimuthal angle (2π)",
       "label_i18n": {
         "en": "Phi max (φ_max)",
-        "tr": "Phi max (φ_max)",
+        "tr": "Fi max (φ_max)",
         "de": "Phi max (φ_max)",
         "fr": "Phi max (φ_max)",
         "es": "Phi max (φ_max)",
         "ar": "Phi max (φ_max)"
+      },
+      "businessContext_i18n": {
+        "en": "Upper bound of azimuthal angle (2π)",
+        "tr": "Azimut açısının üst sınırı (2π)"
       }
     }
   ],

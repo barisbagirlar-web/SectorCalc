@@ -10,11 +10,15 @@
       "businessContext": "Mass of the central body (e.g., Earth: 5.972×10^24 kg)",
       "label_i18n": {
         "en": "Central Body Mass",
-        "tr": "Central Body Mass",
+        "tr": "Merkezi Cisim Kütlesi",
         "de": "Central Body Mass",
         "fr": "Central Body Mass",
         "es": "Central Body Mass",
         "ar": "Central Body Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the central body (e.g., Earth: 5.972×10^24 kg)",
+        "tr": "Merkezi cismin kütlesi (ör. Dünya: 5.972×10^24 kg)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Radius of the central body (e.g., Earth: 6,371,000 m)",
       "label_i18n": {
         "en": "Central Body Radius",
-        "tr": "Central Body Radius",
+        "tr": "Merkezi Cisim Yarıçapı",
         "de": "Central Body Radius",
         "fr": "Central Body Radius",
         "es": "Central Body Radius",
         "ar": "Central Body Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of the central body (e.g., Earth: 6,371,000 m)",
+        "tr": "Merkezi cismin yarıçapı (ör. Dünya: 6.371.000 m)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Altitude of the satellite above the central body's surface",
       "label_i18n": {
         "en": "Orbit Altitude",
-        "tr": "Orbit Altitude",
+        "tr": "Yörünge Yüksekliği",
         "de": "Orbit Altitude",
         "fr": "Orbit Altitude",
         "es": "Orbit Altitude",
         "ar": "Orbit Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Altitude of the satellite above the central body's surface",
+        "tr": "Uydunun merkezi cismin yüzeyinden yüksekliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Universal gravitational constant (G = 6.67430×10^-11 m^3/(kg·s^2))",
       "label_i18n": {
         "en": "Gravitational Constant",
-        "tr": "Gravitational Constant",
+        "tr": "Yerçekimi Sabiti",
         "de": "Gravitational Constant",
         "fr": "Gravitational Constant",
         "es": "Gravitational Constant",
         "ar": "Gravitational Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Universal gravitational constant (G = 6.67430×10^-11 m^3/(kg·s^2))",
+        "tr": "Evrensel çekim sabiti (G = 6.67430×10^-11 m^3/(kg·s^2))"
       }
     }
   ],

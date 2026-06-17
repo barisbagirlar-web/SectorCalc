@@ -10,11 +10,15 @@
       "businessContext": "The current market price of the card in mint condition.",
       "label_i18n": {
         "en": "Current Market Price",
-        "tr": "Current Market Price",
+        "tr": "Güncel Piyasa Fiyatı",
         "de": "Current Market Price",
         "fr": "Current Market Price",
         "es": "Current Market Price",
         "ar": "Current Market Price"
+      },
+      "businessContext_i18n": {
+        "en": "The current market price of the card in mint condition.",
+        "tr": "Kartın mükemmel durumdaki güncel piyasa fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Factor based on card condition (1.0 = Mint, 0.5 = Good, 0.1 = Poor).",
       "label_i18n": {
         "en": "Condition Factor",
-        "tr": "Condition Factor",
+        "tr": "Durum Faktörü",
         "de": "Condition Factor",
         "fr": "Condition Factor",
         "es": "Condition Factor",
         "ar": "Condition Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor based on card condition (1.0 = Mint, 0.5 = Good, 0.1 = Poor).",
+        "tr": "Kartın durumuna bağlı faktör (1.0 = Mükemmel, 0.5 = İyi, 0.1 = Kötü)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiplier for rare or first edition cards (e.g., 2.0 for double value).",
       "label_i18n": {
         "en": "Rarity Multiplier",
-        "tr": "Rarity Multiplier",
+        "tr": "Nadirlik Çarpanı",
         "de": "Rarity Multiplier",
         "fr": "Rarity Multiplier",
         "es": "Rarity Multiplier",
         "ar": "Rarity Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for rare or first edition cards (e.g., 2.0 for double value).",
+        "tr": "Nadir veya ilk baskı kartlar için çarpan (örneğin, çift değer için 2.0)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost to get the card professionally graded.",
       "label_i18n": {
         "en": "Grading Cost",
-        "tr": "Grading Cost",
+        "tr": "Derecelendirme Maliyeti",
         "de": "Grading Cost",
         "fr": "Grading Cost",
         "es": "Grading Cost",
         "ar": "Grading Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to get the card professionally graded.",
+        "tr": "Kartın profesyonel olarak derecelendirilme maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Platform or marketplace selling fee as a percentage of selling price.",
       "label_i18n": {
         "en": "Selling Fee (%)",
-        "tr": "Selling Fee (%)",
+        "tr": "Satış Ücreti (%)",
         "de": "Selling Fee (%)",
         "fr": "Selling Fee (%)",
         "es": "Selling Fee (%)",
         "ar": "Selling Fee (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Platform or marketplace selling fee as a percentage of selling price.",
+        "tr": "Platform veya pazar yeri satış ücreti, satış fiyatının yüzdesi olarak."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Shipping cost to safely deliver the card to buyer.",
       "label_i18n": {
         "en": "Shipping Cost",
-        "tr": "Shipping Cost",
+        "tr": "Kargo Ücreti",
         "de": "Shipping Cost",
         "fr": "Shipping Cost",
         "es": "Shipping Cost",
         "ar": "Shipping Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Shipping cost to safely deliver the card to buyer.",
+        "tr": "Kartı alıcıya güvenli bir şekilde teslim etme maliyeti."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Original cost to acquire the card (purchase price, trade value).",
       "label_i18n": {
         "en": "Acquisition Cost",
-        "tr": "Acquisition Cost",
+        "tr": "Edinme Maliyeti",
         "de": "Acquisition Cost",
         "fr": "Acquisition Cost",
         "es": "Acquisition Cost",
         "ar": "Acquisition Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Original cost to acquire the card (purchase price, trade value).",
+        "tr": "Kartı edinme orijinal maliyeti (satın alma fiyatı, takas değeri)."
       }
     }
   ],

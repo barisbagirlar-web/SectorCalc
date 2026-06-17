@@ -10,11 +10,15 @@
       "businessContext": "The total weight of the vehicle including cargo.",
       "label_i18n": {
         "en": "Total Weight",
-        "tr": "Total Weight",
+        "tr": "Toplam Ağırlık",
         "de": "Total Weight",
         "fr": "Total Weight",
         "es": "Total Weight",
         "ar": "Total Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The total weight of the vehicle including cargo.",
+        "tr": "Araç dahil toplam ağırlık."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance between the front and rear axles.",
       "label_i18n": {
         "en": "Wheelbase",
-        "tr": "Wheelbase",
+        "tr": "Dingil Mesafesi",
         "de": "Wheelbase",
         "fr": "Wheelbase",
         "es": "Wheelbase",
         "ar": "Wheelbase"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between the front and rear axles.",
+        "tr": "Ön ve arka akslar arasındaki mesafe."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Horizontal distance from the front axle to the center of gravity.",
       "label_i18n": {
         "en": "CG Distance from Front Axle",
-        "tr": "CG Distance from Front Axle",
+        "tr": "CG Ön Aks Mesafesi",
         "de": "CG Distance from Front Axle",
         "fr": "CG Distance from Front Axle",
         "es": "CG Distance from Front Axle",
         "ar": "CG Distance from Front Axle"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal distance from the front axle to the center of gravity.",
+        "tr": "Ön aks ile ağırlık merkezi arasındaki yatay mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to account for dynamic forces during motion (e.g., braking, acceleration). Typical range 1.0 - 2.0.",
       "label_i18n": {
         "en": "Dynamic Load Factor",
-        "tr": "Dynamic Load Factor",
+        "tr": "Dinamik Yük Faktörü",
         "de": "Dynamic Load Factor",
         "fr": "Dynamic Load Factor",
         "es": "Dynamic Load Factor",
         "ar": "Dynamic Load Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to account for dynamic forces during motion (e.g., braking, acceleration). Typical range 1.0 - 2.0.",
+        "tr": "Hareket sırasındaki (frenleme, hızlanma gibi) dinamik kuvvetleri hesaba katmak için çarpan. Tipik aralık 1.0 - 2.0."
       }
     }
   ],

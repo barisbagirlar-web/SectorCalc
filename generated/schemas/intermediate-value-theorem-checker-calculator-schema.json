@@ -10,11 +10,15 @@
       "businessContext": "Left endpoint of the interval",
       "label_i18n": {
         "en": "Lower bound a",
-        "tr": "Lower bound a",
+        "tr": "Alt sınır a",
         "de": "Lower bound a",
         "fr": "Lower bound a",
         "es": "Lower bound a",
         "ar": "Lower bound a"
+      },
+      "businessContext_i18n": {
+        "en": "Left endpoint of the interval",
+        "tr": "Aralığın sol uç noktası"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Right endpoint of the interval, must be greater than a",
       "label_i18n": {
         "en": "Upper bound b",
-        "tr": "Upper bound b",
+        "tr": "Üst sınır b",
         "de": "Upper bound b",
         "fr": "Upper bound b",
         "es": "Upper bound b",
         "ar": "Upper bound b"
+      },
+      "businessContext_i18n": {
+        "en": "Right endpoint of the interval, must be greater than a",
+        "tr": "Aralığın sağ uç noktası, a'dan büyük olmalıdır"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "f(a)",
         "es": "f(a)",
         "ar": "f(a)"
+      },
+      "businessContext_i18n": {
+        "en": "Function value at the lower bound",
+        "tr": "Alt sınırdaki fonksiyon değeri"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "f(b)",
         "es": "f(b)",
         "ar": "f(b)"
+      },
+      "businessContext_i18n": {
+        "en": "Function value at the upper bound",
+        "tr": "Üst sınırdaki fonksiyon değeri"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Value to find between f(a) and f(b)",
       "label_i18n": {
         "en": "Target value k",
-        "tr": "Target value k",
+        "tr": "Hedef değer k",
         "de": "Target value k",
         "fr": "Target value k",
         "es": "Target value k",
         "ar": "Target value k"
+      },
+      "businessContext_i18n": {
+        "en": "Value to find between f(a) and f(b)",
+        "tr": "f(a) ile f(b) arasında bulunacak değer"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total fixed costs (rent, salaries, insurance, etc.)",
       "label_i18n": {
         "en": "Fixed Costs (TL)",
-        "tr": "Fixed Costs (TL)",
+        "tr": "Sabit Maliyetler (TL)",
         "de": "Fixed Costs (TL)",
         "fr": "Fixed Costs (TL)",
         "es": "Fixed Costs (TL)",
         "ar": "Fixed Costs (TL)"
+      },
+      "businessContext_i18n": {
+        "en": "Total fixed costs (rent, salaries, insurance, etc.)",
+        "tr": "Toplam sabit maliyetler (kira, maaşlar, sigorta vb.)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost per unit that varies with production volume",
       "label_i18n": {
         "en": "Variable Cost per Unit (TL)",
-        "tr": "Variable Cost per Unit (TL)",
+        "tr": "Birim Başına Değişken Maliyet (TL)",
         "de": "Variable Cost per Unit (TL)",
         "fr": "Variable Cost per Unit (TL)",
         "es": "Variable Cost per Unit (TL)",
         "ar": "Variable Cost per Unit (TL)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per unit that varies with production volume",
+        "tr": "Üretim hacmine göre değişen birim maliyet"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Price at which each unit is sold",
       "label_i18n": {
         "en": "Selling Price per Unit (TL)",
-        "tr": "Selling Price per Unit (TL)",
+        "tr": "Birim Satış Fiyatı (TL)",
         "de": "Selling Price per Unit (TL)",
         "fr": "Selling Price per Unit (TL)",
         "es": "Selling Price per Unit (TL)",
         "ar": "Selling Price per Unit (TL)"
+      },
+      "businessContext_i18n": {
+        "en": "Price at which each unit is sold",
+        "tr": "Her birimin satıldığı fiyat"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Projected number of units to be sold",
       "label_i18n": {
         "en": "Expected Sales Volume (units)",
-        "tr": "Expected Sales Volume (units)",
+        "tr": "Beklenen Satış Hacmi (adet)",
         "de": "Expected Sales Volume (units)",
         "fr": "Expected Sales Volume (units)",
         "es": "Expected Sales Volume (units)",
         "ar": "Expected Sales Volume (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Projected number of units to be sold",
+        "tr": "Satılması öngörülen birim sayısı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total floor area of the building",
       "label_i18n": {
         "en": "Building Area",
-        "tr": "Building Area",
+        "tr": "Bina Alanı",
         "de": "Building Area",
         "fr": "Building Area",
         "es": "Building Area",
         "ar": "Building Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total floor area of the building",
+        "tr": "Binanın toplam taban alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Difference between outdoor and desired indoor temperature",
       "label_i18n": {
         "en": "Temperature Difference",
-        "tr": "Temperature Difference",
+        "tr": "Sıcaklık Farkı",
         "de": "Temperature Difference",
         "fr": "Temperature Difference",
         "es": "Temperature Difference",
         "ar": "Temperature Difference"
+      },
+      "businessContext_i18n": {
+        "en": "Difference between outdoor and desired indoor temperature",
+        "tr": "Dış ortam ile istenen iç ortam sıcaklığı arasındaki fark"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Overall heat transfer coefficient of building envelope",
       "label_i18n": {
         "en": "Heat Loss Coefficient",
-        "tr": "Heat Loss Coefficient",
+        "tr": "Isı Kaybı Katsayısı",
         "de": "Heat Loss Coefficient",
         "fr": "Heat Loss Coefficient",
         "es": "Heat Loss Coefficient",
         "ar": "Heat Loss Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Overall heat transfer coefficient of building envelope",
+        "tr": "Bina kabuğunun toplam ısı transfer katsayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Efficiency of air conditioning unit (higher is better)",
       "label_i18n": {
         "en": "AC Coefficient of Performance",
-        "tr": "AC Coefficient of Performance",
+        "tr": "AC Performans Katsayısı",
         "de": "AC Coefficient of Performance",
         "fr": "AC Coefficient of Performance",
         "es": "AC Coefficient of Performance",
         "ar": "AC Coefficient of Performance"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of air conditioning unit (higher is better)",
+        "tr": "Klima ünitesinin verimliliği (yüksek daha iyidir)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average hours the HVAC system runs each day",
       "label_i18n": {
         "en": "Operating Hours per Day",
-        "tr": "Operating Hours per Day",
+        "tr": "Günlük Çalışma Saati",
         "de": "Operating Hours per Day",
         "fr": "Operating Hours per Day",
         "es": "Operating Hours per Day",
         "ar": "Operating Hours per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Average hours the HVAC system runs each day",
+        "tr": "HVAC sisteminin her gün çalıştığı ortalama saat"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost of electricity per kilowatt-hour",
       "label_i18n": {
         "en": "Electricity Rate",
-        "tr": "Electricity Rate",
+        "tr": "Elektrik Tarifesi",
         "de": "Electricity Rate",
         "fr": "Electricity Rate",
         "es": "Electricity Rate",
         "ar": "Electricity Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kilowatt-hour",
+        "tr": "Kilovatsaat başına elektrik maliyeti"
       }
     }
   ],

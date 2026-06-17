@@ -10,11 +10,15 @@
       "businessContext": "Total acquisition cost of the property including land and improvements.",
       "label_i18n": {
         "en": "Total Property Cost",
-        "tr": "Total Property Cost",
+        "tr": "Toplam Mülk Maliyeti",
         "de": "Total Property Cost",
         "fr": "Total Property Cost",
         "es": "Total Property Cost",
         "ar": "Total Property Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total acquisition cost of the property including land and improvements.",
+        "tr": "Arazi ve iyileştirmeler dahil mülkün toplam edinim maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of total cost allocated to land (non-depreciable).",
       "label_i18n": {
         "en": "Land Value Percentage",
-        "tr": "Land Value Percentage",
+        "tr": "Arazi Değer Yüzdesi",
         "de": "Land Value Percentage",
         "fr": "Land Value Percentage",
         "es": "Land Value Percentage",
         "ar": "Land Value Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of total cost allocated to land (non-depreciable).",
+        "tr": "Toplam maliyetin araziye ayrılan yüzdesi (amortismana tabi değildir)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage allocated to building structure (depreciable over 39 years typically).",
       "label_i18n": {
         "en": "Building Percentage",
-        "tr": "Building Percentage",
+        "tr": "Bina Yüzdesi",
         "de": "Building Percentage",
         "fr": "Building Percentage",
         "es": "Building Percentage",
         "ar": "Building Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage allocated to building structure (depreciable over 39 years typically).",
+        "tr": "Bina yapısına ayrılan yüzde (genellikle 39 yılda amortismana tabidir)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage allocated to 5- or 7-year property like equipment, furniture.",
       "label_i18n": {
         "en": "Personal Property Percentage",
-        "tr": "Personal Property Percentage",
+        "tr": "Kişisel Mülk Yüzdesi",
         "de": "Personal Property Percentage",
         "fr": "Personal Property Percentage",
         "es": "Personal Property Percentage",
         "ar": "Personal Property Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage allocated to 5- or 7-year property like equipment, furniture.",
+        "tr": "Ekipman, mobilya gibi 5 veya 7 yıllık mülke ayrılan yüzde."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage allocated to land improvements (depreciable over 15 years).",
       "label_i18n": {
         "en": "Land Improvements Percentage",
-        "tr": "Land Improvements Percentage",
+        "tr": "Arazi İyileştirmeleri Yüzdesi",
         "de": "Land Improvements Percentage",
         "fr": "Land Improvements Percentage",
         "es": "Land Improvements Percentage",
         "ar": "Land Improvements Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage allocated to land improvements (depreciable over 15 years).",
+        "tr": "Arazi iyileştirmelerine ayrılan yüzde (15 yılda amortismana tabidir)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "IRS recovery period for non-residential real property (39 years).",
       "label_i18n": {
         "en": "Building Depreciation Life",
-        "tr": "Building Depreciation Life",
+        "tr": "Bina Amortisman Süresi",
         "de": "Building Depreciation Life",
         "fr": "Building Depreciation Life",
         "es": "Building Depreciation Life",
         "ar": "Building Depreciation Life"
+      },
+      "businessContext_i18n": {
+        "en": "IRS recovery period for non-residential real property (39 years).",
+        "tr": "Konut dışı gayrimenkul için IRS geri kazanım süresi (39 yıl)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Recovery period for personal property (5 or 7 years).",
       "label_i18n": {
         "en": "Personal Property Life",
-        "tr": "Personal Property Life",
+        "tr": "Kişisel Mülk Süresi",
         "de": "Personal Property Life",
         "fr": "Personal Property Life",
         "es": "Personal Property Life",
         "ar": "Personal Property Life"
+      },
+      "businessContext_i18n": {
+        "en": "Recovery period for personal property (5 or 7 years).",
+        "tr": "Kişisel mülk için geri kazanım süresi (5 veya 7 yıl)."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Recovery period for land improvements (15 years).",
       "label_i18n": {
         "en": "Land Improvements Life",
-        "tr": "Land Improvements Life",
+        "tr": "Arazi İyileştirmeleri Süresi",
         "de": "Land Improvements Life",
         "fr": "Land Improvements Life",
         "es": "Land Improvements Life",
         "ar": "Land Improvements Life"
+      },
+      "businessContext_i18n": {
+        "en": "Recovery period for land improvements (15 years).",
+        "tr": "Arazi iyileştirmeleri için geri kazanım süresi (15 yıl)."
       }
     }
   ],

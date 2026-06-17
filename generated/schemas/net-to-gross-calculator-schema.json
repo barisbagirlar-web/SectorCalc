@@ -10,11 +10,15 @@
       "businessContext": "The net amount after deductions",
       "label_i18n": {
         "en": "Net Amount",
-        "tr": "Net Amount",
+        "tr": "Net Tutar",
         "de": "Net Amount",
         "fr": "Net Amount",
         "es": "Net Amount",
         "ar": "Net Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The net amount after deductions",
+        "tr": "Kesintiler sonrası net tutar"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Tax rate applied to gross amount",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate applied to gross amount",
+        "tr": "Brüt tutara uygulanan vergi oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Social insurance contribution rate on gross",
       "label_i18n": {
         "en": "Social Insurance Rate",
-        "tr": "Social Insurance Rate",
+        "tr": "Sosyal Sigorta Oranı",
         "de": "Social Insurance Rate",
         "fr": "Social Insurance Rate",
         "es": "Social Insurance Rate",
         "ar": "Social Insurance Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Social insurance contribution rate on gross",
+        "tr": "Brüt üzerinden sosyal sigorta katkı oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Other deduction rate (e.g., union fees) from gross",
       "label_i18n": {
         "en": "Additional Deduction Rate",
-        "tr": "Additional Deduction Rate",
+        "tr": "Ek Kesinti Oranı",
         "de": "Additional Deduction Rate",
         "fr": "Additional Deduction Rate",
         "es": "Additional Deduction Rate",
         "ar": "Additional Deduction Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Other deduction rate (e.g., union fees) from gross",
+        "tr": "Brütten diğer kesinti oranı (örn. sendika aidatı)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fixed amount deductions before rate deduction",
       "label_i18n": {
         "en": "Other Fixed Deductions",
-        "tr": "Other Fixed Deductions",
+        "tr": "Diğer Sabit Kesintiler",
         "de": "Other Fixed Deductions",
         "fr": "Other Fixed Deductions",
         "es": "Other Fixed Deductions",
         "ar": "Other Fixed Deductions"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed amount deductions before rate deduction",
+        "tr": "Oran kesintisinden önceki sabit tutar kesintileri"
       }
     }
   ],

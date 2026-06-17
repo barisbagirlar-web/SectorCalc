@@ -10,11 +10,15 @@
       "businessContext": "Age in years for BMR calculation",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age in years for BMR calculation",
+        "tr": "BMR hesaplaması için yaş (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0 for female, 1 for male",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for female, 1 for male",
+        "tr": "0 kadın, 1 erkek"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height in centimeters",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height in centimeters",
+        "tr": "Santimetre cinsinden boy"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Weight in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight in kilograms",
+        "tr": "Ağırlık (kg)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1=Sedentary,2=Light,3=Moderate,4=Active,5=Very Active",
       "label_i18n": {
         "en": "Activity Level",
-        "tr": "Activity Level",
+        "tr": "Aktivite Seviyesi",
         "de": "Activity Level",
         "fr": "Activity Level",
         "es": "Activity Level",
         "ar": "Activity Level"
+      },
+      "businessContext_i18n": {
+        "en": "1=Sedentary,2=Light,3=Moderate,4=Active,5=Very Active",
+        "tr": "1=Hareketsiz, 2=Hafif, 3=Orta, 4=Aktif, 5=Çok Aktif"
       }
     }
   ],

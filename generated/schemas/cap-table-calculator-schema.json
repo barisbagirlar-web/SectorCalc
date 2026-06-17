@@ -10,11 +10,15 @@
       "businessContext": "The maximum number of shares the company is authorized to issue.",
       "label_i18n": {
         "en": "Total Authorized Shares",
-        "tr": "Total Authorized Shares",
+        "tr": "Toplam İzin Verilen Hisse Sayısı",
         "de": "Total Authorized Shares",
         "fr": "Total Authorized Shares",
         "es": "Total Authorized Shares",
         "ar": "Total Authorized Shares"
+      },
+      "businessContext_i18n": {
+        "en": "The maximum number of shares the company is authorized to issue.",
+        "tr": "Şirketin ihraç etmesine izin verilen maksimum hisse sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current number of shares held by all shareholders before new investment.",
       "label_i18n": {
         "en": "Shares Outstanding",
-        "tr": "Shares Outstanding",
+        "tr": "Tedavüldeki Hisse Sayısı",
         "de": "Shares Outstanding",
         "fr": "Shares Outstanding",
         "es": "Shares Outstanding",
         "ar": "Shares Outstanding"
+      },
+      "businessContext_i18n": {
+        "en": "Current number of shares held by all shareholders before new investment.",
+        "tr": "Yeni yatırımdan önce tüm hissedarların elinde bulunan mevcut hisse sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of shares reserved for employee stock options.",
       "label_i18n": {
         "en": "Option Pool Size",
-        "tr": "Option Pool Size",
+        "tr": "Opsiyon Havuzu Büyüklüğü",
         "de": "Option Pool Size",
         "fr": "Option Pool Size",
         "es": "Option Pool Size",
         "ar": "Option Pool Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of shares reserved for employee stock options.",
+        "tr": "Çalışan hisse senedi opsiyonları için ayrılan hisse sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Amount of money being invested in the company.",
       "label_i18n": {
         "en": "New Investment Amount",
-        "tr": "New Investment Amount",
+        "tr": "Yeni Yatırım Tutarı",
         "de": "New Investment Amount",
         "fr": "New Investment Amount",
         "es": "New Investment Amount",
         "ar": "New Investment Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of money being invested in the company.",
+        "tr": "Şirkete yatırılan para miktarı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Valuation of the company prior to the new investment.",
       "label_i18n": {
         "en": "Pre-Money Valuation",
-        "tr": "Pre-Money Valuation",
+        "tr": "Yatırım Öncesi Değerleme",
         "de": "Pre-Money Valuation",
         "fr": "Pre-Money Valuation",
         "es": "Pre-Money Valuation",
         "ar": "Pre-Money Valuation"
+      },
+      "businessContext_i18n": {
+        "en": "Valuation of the company prior to the new investment.",
+        "tr": "Yeni yatırımdan önce şirketin değerlemesi."
       }
     }
   ],

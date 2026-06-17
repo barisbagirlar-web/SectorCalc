@@ -10,11 +10,15 @@
       "businessContext": "The amount of money already invested or saved at the beginning.",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of money already invested or saved at the beginning.",
+        "tr": "Başlangıçta yatırılan veya biriktirilen para miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The amount of money added to the investment each year.",
       "label_i18n": {
         "en": "Annual Contribution",
-        "tr": "Annual Contribution",
+        "tr": "Yıllık Katkı",
         "de": "Annual Contribution",
         "fr": "Annual Contribution",
         "es": "Annual Contribution",
         "ar": "Annual Contribution"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of money added to the investment each year.",
+        "tr": "Her yıl yatırıma eklenen para miktarı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The total time the money is invested for.",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Number of Years",
+        "tr": "Yıl Sayısı",
         "de": "Number of Years",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
+      },
+      "businessContext_i18n": {
+        "en": "The total time the money is invested for.",
+        "tr": "Paranın yatırıldığı toplam süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The expected annual rate of return on the investment.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The expected annual rate of return on the investment.",
+        "tr": "Yatırımdan beklenen yıllık getiri oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of times the interest is compounded per year (e.g., 12 for monthly).",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı",
         "de": "Compounding Frequency",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times the interest is compounded per year (e.g., 12 for monthly).",
+        "tr": "Yıllık bileşik faiz dönemi sayısı (örneğin aylık için 12)."
       }
     }
   ],

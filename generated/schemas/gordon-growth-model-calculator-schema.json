@@ -10,11 +10,15 @@
       "businessContext": "The most recent annual dividend paid per share.",
       "label_i18n": {
         "en": "Current Annual Dividend Per Share ($)",
-        "tr": "Current Annual Dividend Per Share ($)",
+        "tr": "Mevcut Yıllık Hisse Başına Temettü ($)",
         "de": "Current Annual Dividend Per Share ($)",
         "fr": "Current Annual Dividend Per Share ($)",
         "es": "Current Annual Dividend Per Share ($)",
         "ar": "Current Annual Dividend Per Share ($)"
+      },
+      "businessContext_i18n": {
+        "en": "The most recent annual dividend paid per share.",
+        "tr": "Hisse başına ödenen en son yıllık temettü."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The expected constant annual growth rate of the dividend.",
       "label_i18n": {
         "en": "Dividend Growth Rate (%)",
-        "tr": "Dividend Growth Rate (%)",
+        "tr": "Temettü Büyüme Oranı (%)",
         "de": "Dividend Growth Rate (%)",
         "fr": "Dividend Growth Rate (%)",
         "es": "Dividend Growth Rate (%)",
         "ar": "Dividend Growth Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The expected constant annual growth rate of the dividend.",
+        "tr": "Temettünün beklenen sabit yıllık büyüme oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The minimum annual return required by an investor to invest in the stock.",
       "label_i18n": {
         "en": "Required Rate of Return (%)",
-        "tr": "Required Rate of Return (%)",
+        "tr": "Gerekli Getiri Oranı (%)",
         "de": "Required Rate of Return (%)",
         "fr": "Required Rate of Return (%)",
         "es": "Required Rate of Return (%)",
         "ar": "Required Rate of Return (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The minimum annual return required by an investor to invest in the stock.",
+        "tr": "Bir yatırımcının hisse senedine yatırım yapmak için ihtiyaç duyduğu minimum yıllık getiri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The current trading price of the stock for margin of safety calculation.",
       "label_i18n": {
         "en": "Current Market Price ($)",
-        "tr": "Current Market Price ($)",
+        "tr": "Mevcut Piyasa Fiyatı ($)",
         "de": "Current Market Price ($)",
         "fr": "Current Market Price ($)",
         "es": "Current Market Price ($)",
         "ar": "Current Market Price ($)"
+      },
+      "businessContext_i18n": {
+        "en": "The current trading price of the stock for margin of safety calculation.",
+        "tr": "Güvenlik marjı hesaplaması için hisse senedinin mevcut işlem fiyatı."
       }
     }
   ],

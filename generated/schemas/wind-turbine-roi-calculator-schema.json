@@ -19,10 +19,12 @@
       "max": 15,
       "businessContext": "Nameplate capacity of the wind turbine model under evaluation.",
       "label_i18n": {
-        "en": "Turbine Rated Capacity (MW)"
+        "en": "Turbine Rated Capacity (MW)",
+        "tr": "Türbin Nominal Kapasitesi (MW)"
       },
       "businessContext_i18n": {
-        "en": "Nameplate capacity of the wind turbine model under evaluation."
+        "en": "Nameplate capacity of the wind turbine model under evaluation.",
+        "tr": "Değerlendirilen rüzgar türbini modelinin etiket kapasitesi."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 60,
       "businessContext": "Expected annual capacity factor based on site wind resource assessment (IEC 61400-1).",
       "label_i18n": {
-        "en": "Capacity Factor (%)"
+        "en": "Capacity Factor (%)",
+        "tr": "Kapasite Faktörü (%)"
       },
       "businessContext_i18n": {
-        "en": "Expected annual capacity factor based on site wind resource assessment (IEC 61400-1)."
+        "en": "Expected annual capacity factor based on site wind resource assessment (IEC 61400-1).",
+        "tr": "Saha rüzgar kaynağı değerlendirmesine (IEC 61400-1) dayalı beklenen yıllık kapasite faktörü."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 2500000,
       "businessContext": "Total installed cost per MW, including turbine, foundation, grid connection, and logistics.",
       "label_i18n": {
-        "en": "Capital Cost per MW (USD)"
+        "en": "Capital Cost per MW (USD)",
+        "tr": "MW başına Sermaye Maliyeti (USD)"
       },
       "businessContext_i18n": {
-        "en": "Total installed cost per MW, including turbine, foundation, grid connection, and logistics."
+        "en": "Total installed cost per MW, including turbine, foundation, grid connection, and logistics.",
+        "tr": "Türbin, temel, şebeke bağlantısı ve lojistik dahil MW başına toplam kurulum maliyeti."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 30,
       "businessContext": "Annual operations and maintenance cost per MWh generated (includes scheduled and unscheduled maintenance).",
       "label_i18n": {
-        "en": "Operating Expenditure (USD/MWh)"
+        "en": "Operating Expenditure (USD/MWh)",
+        "tr": "İşletme Gideri (USD/MWh)"
       },
       "businessContext_i18n": {
-        "en": "Annual operations and maintenance cost per MWh generated (includes scheduled and unscheduled maintenance)."
+        "en": "Annual operations and maintenance cost per MWh generated (includes scheduled and unscheduled maintenance).",
+        "tr": "Üretilen MWh başına yıllık işletme ve bakım maliyeti (planlı ve plansız bakım dahil)."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 150,
       "businessContext": "Power purchase agreement price or wholesale market price per MWh.",
       "label_i18n": {
-        "en": "Electricity Selling Price (USD/MWh)"
+        "en": "Electricity Selling Price (USD/MWh)",
+        "tr": "Elektrik Satış Fiyatı (USD/MWh)"
       },
       "businessContext_i18n": {
-        "en": "Power purchase agreement price or wholesale market price per MWh."
+        "en": "Power purchase agreement price or wholesale market price per MWh.",
+        "tr": "MWh başına güç satın alma anlaşması fiyatı veya toptan satış piyasa fiyatı."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": 20,
       "businessContext": "Weighted average cost of capital (WACC) used for net present value calculation.",
       "label_i18n": {
-        "en": "Discount Rate (%)"
+        "en": "Discount Rate (%)",
+        "tr": "İskonto Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Weighted average cost of capital (WACC) used for net present value calculation."
+        "en": "Weighted average cost of capital (WACC) used for net present value calculation.",
+        "tr": "Net bugünkü değer hesaplaması için kullanılan ağırlıklı ortalama sermaye maliyeti (WACC)."
       }
     },
     {
@@ -115,10 +127,12 @@
       "max": 30,
       "businessContext": "Expected operational life of the wind farm (typically 20-25 years).",
       "label_i18n": {
-        "en": "Project Lifetime (years)"
+        "en": "Project Lifetime (years)",
+        "tr": "Proje Ömrü (yıl)"
       },
       "businessContext_i18n": {
-        "en": "Expected operational life of the wind farm (typically 20-25 years)."
+        "en": "Expected operational life of the wind farm (typically 20-25 years).",
+        "tr": "Rüzgar çiftliğinin beklenen işletme ömrü (tipik olarak 20-25 yıl)."
       }
     },
     {
@@ -131,10 +145,12 @@
       "max": 2,
       "businessContext": "Expected annual reduction in energy production due to blade wear, gearbox aging, and other factors.",
       "label_i18n": {
-        "en": "Annual Degradation Rate (%)"
+        "en": "Annual Degradation Rate (%)",
+        "tr": "Yıllık Bozulma Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Expected annual reduction in energy production due to blade wear, gearbox aging, and other factors."
+        "en": "Expected annual reduction in energy production due to blade wear, gearbox aging, and other factors.",
+        "tr": "Kanat aşınması, dişli kutusu yaşlanması ve diğer faktörler nedeniyle enerji üretiminde beklenen yıllık azalma."
       }
     }
   ],

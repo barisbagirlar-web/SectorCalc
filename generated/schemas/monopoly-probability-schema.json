@@ -10,11 +10,15 @@
       "businessContext": "Total players in the game",
       "label_i18n": {
         "en": "Number of Players",
-        "tr": "Number of Players",
+        "tr": "Oyuncu Sayısı",
         "de": "Number of Players",
         "fr": "Number of Players",
         "es": "Number of Players",
         "ar": "Number of Players"
+      },
+      "businessContext_i18n": {
+        "en": "Total players in the game",
+        "tr": "Oyundaki toplam oyuncu sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of sides on each die",
       "label_i18n": {
         "en": "Dice Sides",
-        "tr": "Dice Sides",
+        "tr": "Zar Yüzleri",
         "de": "Dice Sides",
         "fr": "Dice Sides",
         "es": "Dice Sides",
         "ar": "Dice Sides"
+      },
+      "businessContext_i18n": {
+        "en": "Number of sides on each die",
+        "tr": "Her zardaki yüz sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of dice rolled per turn",
       "label_i18n": {
         "en": "Number of Dice",
-        "tr": "Number of Dice",
+        "tr": "Zar Sayısı",
         "de": "Number of Dice",
         "fr": "Number of Dice",
         "es": "Number of Dice",
         "ar": "Number of Dice"
+      },
+      "businessContext_i18n": {
+        "en": "Number of dice rolled per turn",
+        "tr": "Her turda atılan zar sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total spaces on the Monopoly board",
       "label_i18n": {
         "en": "Board Spaces",
-        "tr": "Board Spaces",
+        "tr": "Tahta Kareleri",
         "de": "Board Spaces",
         "fr": "Board Spaces",
         "es": "Board Spaces",
         "ar": "Board Spaces"
+      },
+      "businessContext_i18n": {
+        "en": "Total spaces on the Monopoly board",
+        "tr": "Monopoly tahtasındaki toplam kare sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Space number to land on (0-based from GO)",
       "label_i18n": {
         "en": "Target Space",
-        "tr": "Target Space",
+        "tr": "Hedef Kare",
         "de": "Target Space",
         "fr": "Target Space",
         "es": "Target Space",
         "ar": "Target Space"
+      },
+      "businessContext_i18n": {
+        "en": "Space number to land on (0-based from GO)",
+        "tr": "İniş yapılacak kare numarası (GO'dan itibaren 0 tabanlı)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of turns to simulate",
       "label_i18n": {
         "en": "Number of Turns",
-        "tr": "Number of Turns",
+        "tr": "Sarım Sayısı",
         "de": "Number of Turns",
         "fr": "Number of Turns",
         "es": "Number of Turns",
         "ar": "Number of Turns"
+      },
+      "businessContext_i18n": {
+        "en": "Number of turns to simulate",
+        "tr": "Simüle edilecek tur sayısı"
       }
     }
   ],

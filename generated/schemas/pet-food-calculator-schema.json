@@ -10,11 +10,15 @@
       "businessContext": "The weight of the pet in kilograms.",
       "label_i18n": {
         "en": "Pet Weight",
-        "tr": "Pet Weight",
+        "tr": "Evcil Hayvan Ağırlığı",
         "de": "Pet Weight",
         "fr": "Pet Weight",
         "es": "Pet Weight",
         "ar": "Pet Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The weight of the pet in kilograms.",
+        "tr": "Evcil hayvanın kilogram cinsinden ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Multiplier for activity level (e.g., 1.2 for sedentary, 1.5 moderate, 1.8 active).",
       "label_i18n": {
         "en": "Activity Factor",
-        "tr": "Activity Factor",
+        "tr": "Aktivite Faktörü",
         "de": "Activity Factor",
         "fr": "Activity Factor",
         "es": "Activity Factor",
         "ar": "Activity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for activity level (e.g., 1.2 for sedentary, 1.5 moderate, 1.8 active).",
+        "tr": "Aktivite seviyesi çarpanı (örn. hareketsiz için 1.2, orta için 1.5, aktif için 1.8)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Energy density of the food in kilocalories per kilogram (common for dry food: 3000-4000 kcal/kg).",
       "label_i18n": {
         "en": "Caloric Density",
-        "tr": "Caloric Density",
+        "tr": "Kalori Yoğunluğu",
         "de": "Caloric Density",
         "fr": "Caloric Density",
         "es": "Caloric Density",
         "ar": "Caloric Density"
+      },
+      "businessContext_i18n": {
+        "en": "Energy density of the food in kilocalories per kilogram (common for dry food: 3000-4000 kcal/kg).",
+        "tr": "Mamanın kilogram başına kilokalori cinsinden enerji yoğunluğu (kuru mama için yaygın: 3000-4000 kcal/kg)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of meals the pet eats daily.",
       "label_i18n": {
         "en": "Meals Per Day",
-        "tr": "Meals Per Day",
+        "tr": "Günlük Öğün Sayısı",
         "de": "Meals Per Day",
         "fr": "Meals Per Day",
         "es": "Meals Per Day",
         "ar": "Meals Per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of meals the pet eats daily.",
+        "tr": "Evcil hayvanın günlük yediği öğün sayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Number of items in first category",
       "label_i18n": {
         "en": "Count of Type A",
-        "tr": "Count of Type A",
+        "tr": "Tip A Sayısı",
         "de": "Count of Type A",
         "fr": "Count of Type A",
         "es": "Count of Type A",
         "ar": "Count of Type A"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items in first category",
+        "tr": "Birinci kategorideki öğe sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of items in second category",
       "label_i18n": {
         "en": "Count of Type B",
-        "tr": "Count of Type B",
+        "tr": "Tip B Sayısı",
         "de": "Count of Type B",
         "fr": "Count of Type B",
         "es": "Count of Type B",
         "ar": "Count of Type B"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items in second category",
+        "tr": "İkinci kategorideki öğe sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of runs in the sequence",
       "label_i18n": {
         "en": "Observed Number of Runs",
-        "tr": "Observed Number of Runs",
+        "tr": "Gözlenen Dizi Sayısı",
         "de": "Observed Number of Runs",
         "fr": "Observed Number of Runs",
         "es": "Observed Number of Runs",
         "ar": "Observed Number of Runs"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of runs in the sequence",
+        "tr": "Dizideki toplam dizi sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Type I error threshold for hypothesis test conclusion",
       "label_i18n": {
         "en": "Significance Level (α)",
-        "tr": "Significance Level (α)",
+        "tr": "Anlamlılık Düzeyi (α)",
         "de": "Significance Level (α)",
         "fr": "Significance Level (α)",
         "es": "Significance Level (α)",
         "ar": "Significance Level (α)"
+      },
+      "businessContext_i18n": {
+        "en": "Type I error threshold for hypothesis test conclusion",
+        "tr": "Hipotez testi sonucu için Tip I hata eşiği"
       }
     }
   ],

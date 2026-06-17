@@ -10,11 +10,15 @@
       "businessContext": "Latitude of the location in decimal degrees (north positive).",
       "label_i18n": {
         "en": "Latitude",
-        "tr": "Latitude",
+        "tr": "Enlem",
         "de": "Latitude",
         "fr": "Latitude",
         "es": "Latitude",
         "ar": "Latitude"
+      },
+      "businessContext_i18n": {
+        "en": "Latitude of the location in decimal degrees (north positive).",
+        "tr": "Konumun ondalık derece cinsinden enlemi (kuzey pozitif)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Longitude of the location in decimal degrees (east positive).",
       "label_i18n": {
         "en": "Longitude",
-        "tr": "Longitude",
+        "tr": "Boylam",
         "de": "Longitude",
         "fr": "Longitude",
         "es": "Longitude",
         "ar": "Longitude"
+      },
+      "businessContext_i18n": {
+        "en": "Longitude of the location in decimal degrees (east positive).",
+        "tr": "Konumun ondalık derece cinsinden boylamı (doğu pozitif)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Day number of the year (1-365 or 1-366 for leap year).",
       "label_i18n": {
         "en": "Day of Year",
-        "tr": "Day of Year",
+        "tr": "Yılın Günü",
         "de": "Day of Year",
         "fr": "Day of Year",
         "es": "Day of Year",
         "ar": "Day of Year"
+      },
+      "businessContext_i18n": {
+        "en": "Day number of the year (1-365 or 1-366 for leap year).",
+        "tr": "Yılın gün numarası (1-365 veya artık yılda 1-366)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Offset from UTC in hours (e.g., -4 for EDT).",
       "label_i18n": {
         "en": "Timezone Offset",
-        "tr": "Timezone Offset",
+        "tr": "Saat Dilimi Farkı",
         "de": "Timezone Offset",
         "fr": "Timezone Offset",
         "es": "Timezone Offset",
         "ar": "Timezone Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Offset from UTC in hours (e.g., -4 for EDT).",
+        "tr": "UTC'den saat cinsinden fark (örneğin, EDT için -4)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Age of the mother at delivery",
       "label_i18n": {
         "en": "Maternal Age",
-        "tr": "Maternal Age",
+        "tr": "Anne Yaşı",
         "de": "Maternal Age",
         "fr": "Maternal Age",
         "es": "Maternal Age",
         "ar": "Maternal Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the mother at delivery",
+        "tr": "Doğum anında annenin yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Weeks of gestation at delivery",
       "label_i18n": {
         "en": "Gestational Age",
-        "tr": "Gestational Age",
+        "tr": "Gebelik Haftası",
         "de": "Gestational Age",
         "fr": "Gestational Age",
         "es": "Gestational Age",
         "ar": "Gestational Age"
+      },
+      "businessContext_i18n": {
+        "en": "Weeks of gestation at delivery",
+        "tr": "Doğumdaki gebelik haftası"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body mass index before pregnancy",
       "label_i18n": {
         "en": "Pre-pregnancy BMI",
-        "tr": "Pre-pregnancy BMI",
+        "tr": "Gebelik Öncesi VKİ",
         "de": "Pre-pregnancy BMI",
         "fr": "Pre-pregnancy BMI",
         "es": "Pre-pregnancy BMI",
         "ar": "Pre-pregnancy BMI"
+      },
+      "businessContext_i18n": {
+        "en": "Body mass index before pregnancy",
+        "tr": "Gebelik öncesi vücut kitle indeksi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average number of cigarettes smoked per day during pregnancy",
       "label_i18n": {
         "en": "Cigarettes per Day",
-        "tr": "Cigarettes per Day",
+        "tr": "Günlük Sigara Sayısı",
         "de": "Cigarettes per Day",
         "fr": "Cigarettes per Day",
         "es": "Cigarettes per Day",
         "ar": "Cigarettes per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of cigarettes smoked per day during pregnancy",
+        "tr": "Gebelikte günlük ortalama içilen sigara sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "History of previous low birth weight delivery (1 if yes, 0 if no)",
       "label_i18n": {
         "en": "Previous Low Birth Weight",
-        "tr": "Previous Low Birth Weight",
+        "tr": "Önceki Düşük Doğum Ağırlığı",
         "de": "Previous Low Birth Weight",
         "fr": "Previous Low Birth Weight",
         "es": "Previous Low Birth Weight",
         "ar": "Previous Low Birth Weight"
+      },
+      "businessContext_i18n": {
+        "en": "History of previous low birth weight delivery (1 if yes, 0 if no)",
+        "tr": "Önceki düşük doğum ağırlıklı doğum öyküsü (evet ise 1, hayır ise 0)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of previous live births",
       "label_i18n": {
         "en": "Parity",
-        "tr": "Parity",
+        "tr": "Parite",
         "de": "Parity",
         "fr": "Parity",
         "es": "Parity",
         "ar": "Parity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of previous live births",
+        "tr": "Önceki canlı doğum sayısı"
       }
     }
   ],

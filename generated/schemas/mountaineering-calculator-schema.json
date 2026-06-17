@@ -10,11 +10,15 @@
       "businessContext": "Horizontal distance of the climbing route",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal distance of the climbing route",
+        "tr": "Tırmanma rotasının yatay mesafesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total vertical ascent of the route",
       "label_i18n": {
         "en": "Elevation Gain",
-        "tr": "Elevation Gain",
+        "tr": "Yükseklik Kazancı",
         "de": "Elevation Gain",
         "fr": "Elevation Gain",
         "es": "Elevation Gain",
         "ar": "Elevation Gain"
+      },
+      "businessContext_i18n": {
+        "en": "Total vertical ascent of the route",
+        "tr": "Rotanın toplam dikey çıkışı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average horizontal speed on flat terrain",
       "label_i18n": {
         "en": "Flat Walking Speed",
-        "tr": "Flat Walking Speed",
+        "tr": "Düz Yürüme Hızı",
         "de": "Flat Walking Speed",
         "fr": "Flat Walking Speed",
         "es": "Flat Walking Speed",
         "ar": "Flat Walking Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Average horizontal speed on flat terrain",
+        "tr": "Düz arazide ortalama yatay hız"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Vertical ascent speed in meters per hour",
       "label_i18n": {
         "en": "Ascent Pace",
-        "tr": "Ascent Pace",
+        "tr": "Çıkış Hızı",
         "de": "Ascent Pace",
         "fr": "Ascent Pace",
         "es": "Ascent Pace",
         "ar": "Ascent Pace"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical ascent speed in meters per hour",
+        "tr": "Saatte metre cinsinden dikey çıkış hızı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Terrain difficulty factor (e.g. 1.0 for easy, 1.5 for rough)",
       "label_i18n": {
         "en": "Difficulty Multiplier",
-        "tr": "Difficulty Multiplier",
+        "tr": "Zorluk Çarpanı",
         "de": "Difficulty Multiplier",
         "fr": "Difficulty Multiplier",
         "es": "Difficulty Multiplier",
         "ar": "Difficulty Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Terrain difficulty factor (e.g. 1.0 for easy, 1.5 for rough)",
+        "tr": "Arazi zorluk faktörü (örn. 1.0 kolay, 1.5 zorlu)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional time percentage for rests and contingencies",
       "label_i18n": {
         "en": "Safety Margin",
-        "tr": "Safety Margin",
+        "tr": "Güvenlik Marjı",
         "de": "Safety Margin",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Additional time percentage for rests and contingencies",
+        "tr": "Molalar ve beklenmedik durumlar için ek süre yüzdesi"
       }
     }
   ],

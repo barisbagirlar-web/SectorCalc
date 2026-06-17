@@ -10,11 +10,15 @@
       "businessContext": "The weight of the baby in kilograms, used to estimate daily milk intake requirement.",
       "label_i18n": {
         "en": "Baby Weight",
-        "tr": "Baby Weight",
+        "tr": "Bebek Ağırlığı",
         "de": "Baby Weight",
         "fr": "Baby Weight",
         "es": "Baby Weight",
         "ar": "Baby Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The weight of the baby in kilograms, used to estimate daily milk intake requirement.",
+        "tr": "Bebeğin kilogram cinsinden ağırlığı, günlük süt ihtiyacını tahmin etmek için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of times the baby feeds per day, used to divide total daily volume.",
       "label_i18n": {
         "en": "Feeds per Day",
-        "tr": "Feeds per Day",
+        "tr": "Günlük besleme sayısı",
         "de": "Feeds per Day",
         "fr": "Feeds per Day",
         "es": "Feeds per Day",
         "ar": "Feeds per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times the baby feeds per day, used to divide total daily volume.",
+        "tr": "Bebeğin günlük beslenme sayısı, toplam günlük hacmi bölmek için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of breast milk, typically 1.03 g/mL, for mass conversion.",
       "label_i18n": {
         "en": "Milk Density",
-        "tr": "Milk Density",
+        "tr": "Süt yoğunluğu",
         "de": "Milk Density",
         "fr": "Milk Density",
         "es": "Milk Density",
         "ar": "Milk Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of breast milk, typically 1.03 g/mL, for mass conversion.",
+        "tr": "Anne sütünün yoğunluğu, tipik olarak 1.03 g/mL, kütle dönüşümü için."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated percentage of milk lost due to spillage or storage inefficiencies.",
       "label_i18n": {
         "en": "Wastage Factor",
-        "tr": "Wastage Factor",
+        "tr": "İsraf faktörü",
         "de": "Wastage Factor",
         "fr": "Wastage Factor",
         "es": "Wastage Factor",
         "ar": "Wastage Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of milk lost due to spillage or storage inefficiencies.",
+        "tr": "Dökülme veya depolama verimsizlikleri nedeniyle kaybedilen sütün tahmini yüzdesi."
       }
     }
   ],

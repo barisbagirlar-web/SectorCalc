@@ -21,10 +21,12 @@
       "max": 1000000000,
       "businessContext": "Total value of the supplier contract denominated in the base currency (e.g., USD).",
       "label_i18n": {
-        "en": "Contract Value (in base currency)"
+        "en": "Contract Value (in base currency)",
+        "tr": "Sözleşme Değeri (temel para birimi cinsinden)"
       },
       "businessContext_i18n": {
-        "en": "Total value of the supplier contract denominated in the base currency (e.g., USD)."
+        "en": "Total value of the supplier contract denominated in the base currency (e.g., USD).",
+        "tr": "Tedarikçi sözleşmesinin temel para birimi (ör. USD) cinsinden toplam değeri."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100,
       "businessContext": "Percentage of contract value exposed to foreign currency fluctuations.",
       "label_i18n": {
-        "en": "Foreign Currency Exposure (%)"
+        "en": "Foreign Currency Exposure (%)",
+        "tr": "Yabancı Para Maruziyeti (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of contract value exposed to foreign currency fluctuations."
+        "en": "Percentage of contract value exposed to foreign currency fluctuations.",
+        "tr": "Sözleşme değerinin döviz kuru dalgalanmalarına maruz kalan yüzdesi."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 50,
       "businessContext": "Expected annualized standard deviation of the foreign exchange rate, based on historical data or market consensus.",
       "label_i18n": {
-        "en": "Annual FX Volatility"
+        "en": "Annual FX Volatility",
+        "tr": "Yıllık Döviz Oynaklığı"
       },
       "businessContext_i18n": {
-        "en": "Expected annualized standard deviation of the foreign exchange rate, based on historical data or market consensus."
+        "en": "Expected annualized standard deviation of the foreign exchange rate, based on historical data or market consensus.",
+        "tr": "Tarihsel verilere veya piyasa konsensüsüne dayalı olarak döviz kurunun beklenen yıllık standart sapması."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Percentage of the foreign exposure that is hedged via forward contracts, options, or other instruments.",
       "label_i18n": {
-        "en": "Hedge Ratio (%)"
+        "en": "Hedge Ratio (%)",
+        "tr": "Korunma Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of the foreign exposure that is hedged via forward contracts, options, or other instruments."
+        "en": "Percentage of the foreign exposure that is hedged via forward contracts, options, or other instruments.",
+        "tr": "Vadeli işlemler, opsiyonlar veya diğer araçlarla korunan yabancı maruziyetin yüzdesi."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 60,
       "businessContext": "Duration over which the currency risk is assessed, typically matching the contract payment schedule.",
       "label_i18n": {
-        "en": "Time Horizon (months)"
+        "en": "Time Horizon (months)",
+        "tr": "Zaman Ufku (ay)"
       },
       "businessContext_i18n": {
-        "en": "Duration over which the currency risk is assessed, typically matching the contract payment schedule."
+        "en": "Duration over which the currency risk is assessed, typically matching the contract payment schedule.",
+        "tr": "Kur riskinin değerlendirildiği süre, genellikle sözleşme ödeme planına uygun."
       }
     },
     {
@@ -106,10 +116,12 @@
       ],
       "businessContext": "Statistical confidence level for Value-at-Risk (VaR) calculation. Higher levels indicate more conservative risk estimates.",
       "label_i18n": {
-        "en": "Confidence Level"
+        "en": "Confidence Level",
+        "tr": "Güven Düzeyi"
       },
       "businessContext_i18n": {
-        "en": "Statistical confidence level for Value-at-Risk (VaR) calculation. Higher levels indicate more conservative risk estimates."
+        "en": "Statistical confidence level for Value-at-Risk (VaR) calculation. Higher levels indicate more conservative risk estimates.",
+        "tr": "Riske Maruz Değer (VaR) hesaplaması için istatistiksel güven düzeyi. Daha yüksek seviyeler daha muhafazakar risk tahminlerini gösterir."
       }
     },
     {
@@ -131,10 +143,12 @@
       ],
       "businessContext": "Credit rating of the supplier, used to adjust default probability and overall risk premium.",
       "label_i18n": {
-        "en": "Supplier Credit Rating (S&P equivalent)"
+        "en": "Supplier Credit Rating (S&P equivalent)",
+        "tr": "Tedarikçi Kredi Notu (S&P eşdeğeri)"
       },
       "businessContext_i18n": {
-        "en": "Credit rating of the supplier, used to adjust default probability and overall risk premium."
+        "en": "Credit rating of the supplier, used to adjust default probability and overall risk premium.",
+        "tr": "Tedarikçinin kredi notu, temerrüt olasılığını ve genel risk primini ayarlamak için kullanılır."
       }
     },
     {
@@ -147,10 +161,12 @@
       "max": null,
       "businessContext": "If enabled, the calculation incorporates ISO 31000 principles for risk identification, analysis, and evaluation.",
       "label_i18n": {
-        "en": "Apply ISO 31000 Risk Management Framework"
+        "en": "Apply ISO 31000 Risk Management Framework",
+        "tr": "ISO 31000 Risk Yönetimi Çerçevesini Uygula"
       },
       "businessContext_i18n": {
-        "en": "If enabled, the calculation incorporates ISO 31000 principles for risk identification, analysis, and evaluation."
+        "en": "If enabled, the calculation incorporates ISO 31000 principles for risk identification, analysis, and evaluation.",
+        "tr": "Etkinleştirilirse, hesaplama risk tanımlama, analiz ve değerlendirme için ISO 31000 ilkelerini içerir."
       }
     }
   ],

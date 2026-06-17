@@ -10,11 +10,15 @@
       "businessContext": "User body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User body weight in kilograms",
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of boxing activity in minutes",
       "label_i18n": {
         "en": "Duration",
-        "tr": "Duration",
+        "tr": "Süre",
         "de": "Duration",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of boxing activity in minutes",
+        "tr": "Boks aktivitesinin dakika cinsinden süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Metabolic Equivalent of Task for boxing (e.g., sparring=7.8, bag work=5.5)",
       "label_i18n": {
         "en": "Activity MET Value",
-        "tr": "Activity MET Value",
+        "tr": "Aktivite MET Değeri",
         "de": "Activity MET Value",
         "fr": "Activity MET Value",
         "es": "Activity MET Value",
         "ar": "Activity MET Value"
+      },
+      "businessContext_i18n": {
+        "en": "Metabolic Equivalent of Task for boxing (e.g., sparring=7.8, bag work=5.5)",
+        "tr": "Boks için metabolik eşdeğer (örneğin, sparring=7.8, kum torbası=5.5)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Intensity adjustment percentage (100% = standard effort)",
       "label_i18n": {
         "en": "Intensity",
-        "tr": "Intensity",
+        "tr": "Yoğunluk",
         "de": "Intensity",
         "fr": "Intensity",
         "es": "Intensity",
         "ar": "Intensity"
+      },
+      "businessContext_i18n": {
+        "en": "Intensity adjustment percentage (100% = standard effort)",
+        "tr": "Yoğunluk ayarlama yüzdesi (%100 = standart efor)"
       }
     }
   ],

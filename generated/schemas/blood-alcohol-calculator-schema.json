@@ -10,11 +10,15 @@
       "businessContext": "Number of standard alcoholic beverages consumed",
       "label_i18n": {
         "en": "Number of Drinks",
-        "tr": "Number of Drinks",
+        "tr": "İçecek Sayısı",
         "de": "Number of Drinks",
         "fr": "Number of Drinks",
         "es": "Number of Drinks",
         "ar": "Number of Drinks"
+      },
+      "businessContext_i18n": {
+        "en": "Number of standard alcoholic beverages consumed",
+        "tr": "Tüketilen standart alkollü içecek sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Volume of a single drink in milliliters",
       "label_i18n": {
         "en": "Volume per Drink",
-        "tr": "Volume per Drink",
+        "tr": "İçki Başına Hacim",
         "de": "Volume per Drink",
         "fr": "Volume per Drink",
         "es": "Volume per Drink",
         "ar": "Volume per Drink"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of a single drink in milliliters",
+        "tr": "Tek bir içeceğin mililitre cinsinden hacmi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of alcohol in the beverage",
       "label_i18n": {
         "en": "Alcohol by Volume",
-        "tr": "Alcohol by Volume",
+        "tr": "Hacimsel alkol oranı",
         "de": "Alcohol by Volume",
         "fr": "Alcohol by Volume",
         "es": "Alcohol by Volume",
         "ar": "Alcohol by Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of alcohol in the beverage",
+        "tr": "İçecekteki alkol yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Body weight of the person in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight of the person in kilograms",
+        "tr": "Kişinin kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Biological sex: 1 for male, 0 for female",
       "label_i18n": {
         "en": "Gender (1=Male, 0=Female)",
-        "tr": "Gender (1=Male, 0=Female)",
+        "tr": "Cinsiyet (1=Erkek, 0=Kadın)",
         "de": "Gender (1=Male, 0=Female)",
         "fr": "Gender (1=Male, 0=Female)",
         "es": "Gender (1=Male, 0=Female)",
         "ar": "Gender (1=Male, 0=Female)"
+      },
+      "businessContext_i18n": {
+        "en": "Biological sex: 1 for male, 0 for female",
+        "tr": "Biyolojik cinsiyet: 1 erkek, 0 kadın"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Time elapsed since the first drink was consumed",
       "label_i18n": {
         "en": "Time Since First Drink",
-        "tr": "Time Since First Drink",
+        "tr": "İlk İçkiden Bu Yana Geçen Süre",
         "de": "Time Since First Drink",
         "fr": "Time Since First Drink",
         "es": "Time Since First Drink",
         "ar": "Time Since First Drink"
+      },
+      "businessContext_i18n": {
+        "en": "Time elapsed since the first drink was consumed",
+        "tr": "İlk içkinin tüketilmesinden bu yana geçen süre"
       }
     }
   ],

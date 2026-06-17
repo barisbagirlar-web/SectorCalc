@@ -10,11 +10,15 @@
       "businessContext": "Gregorian calendar year to convert",
       "label_i18n": {
         "en": "Gregorian Year",
-        "tr": "Gregorian Year",
+        "tr": "Miladi Yıl",
         "de": "Gregorian Year",
         "fr": "Gregorian Year",
         "es": "Gregorian Year",
         "ar": "Gregorian Year"
+      },
+      "businessContext_i18n": {
+        "en": "Gregorian calendar year to convert",
+        "tr": "Dönüştürülecek miladi takvim yılı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Gregorian calendar month (1-12)",
       "label_i18n": {
         "en": "Gregorian Month",
-        "tr": "Gregorian Month",
+        "tr": "Miladi Ay",
         "de": "Gregorian Month",
         "fr": "Gregorian Month",
         "es": "Gregorian Month",
         "ar": "Gregorian Month"
+      },
+      "businessContext_i18n": {
+        "en": "Gregorian calendar month (1-12)",
+        "tr": "Miladi takvim ayı (1-12)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Gregorian calendar day (1-31)",
       "label_i18n": {
         "en": "Gregorian Day",
-        "tr": "Gregorian Day",
+        "tr": "Miladi Gün",
         "de": "Gregorian Day",
         "fr": "Gregorian Day",
         "es": "Gregorian Day",
         "ar": "Gregorian Day"
+      },
+      "businessContext_i18n": {
+        "en": "Gregorian calendar day (1-31)",
+        "tr": "Miladi takvim günü (1-31)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 for Julian, 1 for Islamic, 2 for Hebrew",
       "label_i18n": {
         "en": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
-        "tr": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
+        "tr": "Hedef Takvim (0=Jülyen, 1=İslami, 2=İbrani)",
         "de": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
         "fr": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
         "es": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
         "ar": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)"
+      },
+      "businessContext_i18n": {
+        "en": "0 for Julian, 1 for Islamic, 2 for Hebrew",
+        "tr": "0 Jülyen, 1 İslami, 2 İbrani"
       }
     }
   ],

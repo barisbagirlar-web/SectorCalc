@@ -10,11 +10,15 @@
       "businessContext": "Distance from nut to bridge saddle, typically 628-660 mm for electric guitars.",
       "label_i18n": {
         "en": "Scale Length",
-        "tr": "Scale Length",
+        "tr": "Skala Uzunluğu",
         "de": "Scale Length",
         "fr": "Scale Length",
         "es": "Scale Length",
         "ar": "Scale Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from nut to bridge saddle, typically 628-660 mm for electric guitars.",
+        "tr": "Somundan köprü eyerine mesafe, elektro gitarlar için tipik olarak 628-660 mm."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target pitch frequency, e.g., E2=82.41 Hz, A2=110 Hz.",
       "label_i18n": {
         "en": "Frequency",
-        "tr": "Frequency",
+        "tr": "Frekans",
         "de": "Frequency",
         "fr": "Frequency",
         "es": "Frequency",
         "ar": "Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Target pitch frequency, e.g., E2=82.41 Hz, A2=110 Hz.",
+        "tr": "Hedef perde frekansı, örn. E2=82.41 Hz, A2=110 Hz."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "String diameter, e.g., 0.046 inch ≈ 1.17 mm.",
       "label_i18n": {
         "en": "String Diameter (Gauge)",
-        "tr": "String Diameter (Gauge)",
+        "tr": "Tel Çapı (Kalınlık)",
         "de": "String Diameter (Gauge)",
         "fr": "String Diameter (Gauge)",
         "es": "String Diameter (Gauge)",
         "ar": "String Diameter (Gauge)"
+      },
+      "businessContext_i18n": {
+        "en": "String diameter, e.g., 0.046 inch ≈ 1.17 mm.",
+        "tr": "Tel çapı, örn. 0.046 inç ≈ 1.17 mm."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Volumetric mass density, steel ≈ 7850 kg/m³.",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric mass density, steel ≈ 7850 kg/m³.",
+        "tr": "Hacimsel kütle yoğunluğu, çelik ≈ 7850 kg/m³."
       }
     }
   ],

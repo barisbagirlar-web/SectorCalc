@@ -10,11 +10,15 @@
       "businessContext": "Asset cost (purchase price)",
       "label_i18n": {
         "en": "Asset Cost",
-        "tr": "Asset Cost",
+        "tr": "Varlık Maliyeti",
         "de": "Asset Cost",
         "fr": "Asset Cost",
         "es": "Asset Cost",
         "ar": "Asset Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Asset cost (purchase price)",
+        "tr": "Varlık maliyeti (satın alma fiyatı)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated salvage value at end of useful life",
       "label_i18n": {
         "en": "Salvage Value",
-        "tr": "Salvage Value",
+        "tr": "Hurda Değeri",
         "de": "Salvage Value",
         "fr": "Salvage Value",
         "es": "Salvage Value",
         "ar": "Salvage Value"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated salvage value at end of useful life",
+        "tr": "Faydalı ömür sonunda tahmini hurda değeri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Useful life of the asset in years",
       "label_i18n": {
         "en": "Useful Life (years)",
-        "tr": "Useful Life (years)",
+        "tr": "Faydalı Ömür (yıl)",
         "de": "Useful Life (years)",
         "fr": "Useful Life (years)",
         "es": "Useful Life (years)",
         "ar": "Useful Life (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Useful life of the asset in years",
+        "tr": "Varlığın faydalı ömrü yıl olarak"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Year for which to calculate depreciation (1-based)",
       "label_i18n": {
         "en": "Year Number",
-        "tr": "Year Number",
+        "tr": "Yıl Numarası",
         "de": "Year Number",
         "fr": "Year Number",
         "es": "Year Number",
         "ar": "Year Number"
+      },
+      "businessContext_i18n": {
+        "en": "Year for which to calculate depreciation (1-based)",
+        "tr": "Amortismanın hesaplanacağı yıl (1 tabanlı)"
       }
     }
   ],

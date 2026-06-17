@@ -10,11 +10,15 @@
       "businessContext": "The load lifted during training, representing the external force applied.",
       "label_i18n": {
         "en": "Weight Lifted",
-        "tr": "Weight Lifted",
+        "tr": "Kaldırılan Ağırlık",
         "de": "Weight Lifted",
         "fr": "Weight Lifted",
         "es": "Weight Lifted",
         "ar": "Weight Lifted"
+      },
+      "businessContext_i18n": {
+        "en": "The load lifted during training, representing the external force applied.",
+        "tr": "Antrenman sırasında kaldırılan yük, uygulanan dış kuvveti temsil eder."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of consecutive repetitions performed with the given weight, indicating muscular endurance.",
       "label_i18n": {
         "en": "Repetitions",
-        "tr": "Repetitions",
+        "tr": "Tekrar Sayısı",
         "de": "Repetitions",
         "fr": "Repetitions",
         "es": "Repetitions",
         "ar": "Repetitions"
+      },
+      "businessContext_i18n": {
+        "en": "Number of consecutive repetitions performed with the given weight, indicating muscular endurance.",
+        "tr": "Verilen ağırlıkla art arda yapılan tekrar sayısı, kas dayanıklılığını gösterir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Lifter's body weight for relative strength calculations.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Lifter's body weight for relative strength calculations.",
+        "tr": "Göreceli kuvvet hesaplamaları için sporcunun vücut ağırlığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of sets performed, influencing total training volume.",
       "label_i18n": {
         "en": "Sets",
-        "tr": "Sets",
+        "tr": "Setler",
         "de": "Sets",
         "fr": "Sets",
         "es": "Sets",
         "ar": "Sets"
+      },
+      "businessContext_i18n": {
+        "en": "Number of sets performed, influencing total training volume.",
+        "tr": "Gerçekleştirilen set sayısı, toplam antrenman hacmini etkiler."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Rest interval between sets, affecting recovery and subsequent performance.",
       "label_i18n": {
         "en": "Rest Period",
-        "tr": "Rest Period",
+        "tr": "Dinlenme Süresi",
         "de": "Rest Period",
         "fr": "Rest Period",
         "es": "Rest Period",
         "ar": "Rest Period"
+      },
+      "businessContext_i18n": {
+        "en": "Rest interval between sets, affecting recovery and subsequent performance.",
+        "tr": "Setler arası dinlenme aralığı, toparlanmayı ve sonraki performansı etkiler."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Estimated fatigue accumulation per set, affecting effective load capacity.",
       "label_i18n": {
         "en": "Fatigue Factor",
-        "tr": "Fatigue Factor",
+        "tr": "Yorgunluk Faktörü",
         "de": "Fatigue Factor",
         "fr": "Fatigue Factor",
         "es": "Fatigue Factor",
         "ar": "Fatigue Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated fatigue accumulation per set, affecting effective load capacity.",
+        "tr": "Set başına tahmini yorgunluk birikimi, etkili yük kapasitesini etkiler."
       }
     }
   ],

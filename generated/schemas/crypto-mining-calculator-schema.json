@@ -10,11 +10,15 @@
       "businessContext": "The total hash rate of the mining hardware.",
       "label_i18n": {
         "en": "Hash Rate",
-        "tr": "Hash Rate",
+        "tr": "Hash Oranı",
         "de": "Hash Rate",
         "fr": "Hash Rate",
         "es": "Hash Rate",
         "ar": "Hash Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The total hash rate of the mining hardware.",
+        "tr": "Madencilik donanımının toplam hash oranı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total power consumption of the mining rig.",
       "label_i18n": {
         "en": "Power Consumption",
-        "tr": "Power Consumption",
+        "tr": "Güç Tüketimi",
         "de": "Power Consumption",
         "fr": "Power Consumption",
         "es": "Power Consumption",
         "ar": "Power Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Total power consumption of the mining rig.",
+        "tr": "Madencilik teçhizatının toplam güç tüketimi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of electricity per kilowatt-hour.",
       "label_i18n": {
         "en": "Electricity Cost",
-        "tr": "Electricity Cost",
+        "tr": "Elektrik Maliyeti",
         "de": "Electricity Cost",
         "fr": "Electricity Cost",
         "es": "Electricity Cost",
         "ar": "Electricity Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kilowatt-hour.",
+        "tr": "Kilovatsaat başına elektrik maliyeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fee percentage charged by the mining pool.",
       "label_i18n": {
         "en": "Pool Fee",
-        "tr": "Pool Fee",
+        "tr": "Havuz Ücreti",
         "de": "Pool Fee",
         "fr": "Pool Fee",
         "es": "Pool Fee",
         "ar": "Pool Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fee percentage charged by the mining pool.",
+        "tr": "Madencilik havuzu tarafından alınan ücret yüzdesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Estimated daily revenue in USD per TH/s of hash rate, based on current network conditions.",
       "label_i18n": {
         "en": "Daily Revenue per TH/s",
-        "tr": "Daily Revenue per TH/s",
+        "tr": "TH/s başına günlük gelir",
         "de": "Daily Revenue per TH/s",
         "fr": "Daily Revenue per TH/s",
         "es": "Daily Revenue per TH/s",
         "ar": "Daily Revenue per TH/s"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated daily revenue in USD per TH/s of hash rate, based on current network conditions.",
+        "tr": "Mevcut ağ koşullarına göre TH/s hash oranı başına USD cinsinden tahmini günlük gelir."
       }
     }
   ],

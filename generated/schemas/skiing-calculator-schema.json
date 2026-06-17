@@ -10,11 +10,15 @@
       "businessContext": "Height difference between start and end of ski slope in meters",
       "label_i18n": {
         "en": "Vertical Drop",
-        "tr": "Vertical Drop",
+        "tr": "Dikey Düşüş",
         "de": "Vertical Drop",
         "fr": "Vertical Drop",
         "es": "Vertical Drop",
         "ar": "Vertical Drop"
+      },
+      "businessContext_i18n": {
+        "en": "Height difference between start and end of ski slope in meters",
+        "tr": "Kayak pistinin başlangıcı ve bitişi arasındaki metre cinsinden yükseklik farkı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Horizontal length of the ski slope in meters",
       "label_i18n": {
         "en": "Horizontal Distance",
-        "tr": "Horizontal Distance",
+        "tr": "Yatay Mesafe",
         "de": "Horizontal Distance",
         "fr": "Horizontal Distance",
         "es": "Horizontal Distance",
         "ar": "Horizontal Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal length of the ski slope in meters",
+        "tr": "Kayak pistinin yatay uzunluğu (metre)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Snow friction coefficient (0.02-0.1), depending on snow conditions",
       "label_i18n": {
         "en": "Friction Coefficient",
-        "tr": "Friction Coefficient",
+        "tr": "Sürtünme Katsayısı",
         "de": "Friction Coefficient",
         "fr": "Friction Coefficient",
         "es": "Friction Coefficient",
         "ar": "Friction Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Snow friction coefficient (0.02-0.1), depending on snow conditions",
+        "tr": "Kar sürtünme katsayısı (0.02-0.1), kar koşullarına bağlıdır"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Initial speed at start of slope in meters per second",
       "label_i18n": {
         "en": "Initial Speed",
-        "tr": "Initial Speed",
+        "tr": "Başlangıç Hızı",
         "de": "Initial Speed",
         "fr": "Initial Speed",
         "es": "Initial Speed",
         "ar": "Initial Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Initial speed at start of slope in meters per second",
+        "tr": "Pist başlangıcındaki ilk hız (metre/saniye)"
       }
     }
   ],

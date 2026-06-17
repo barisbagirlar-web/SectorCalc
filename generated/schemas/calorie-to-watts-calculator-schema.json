@@ -10,11 +10,15 @@
       "businessContext": "Amount of energy in calories.",
       "label_i18n": {
         "en": "Energy (calories)",
-        "tr": "Energy (calories)",
+        "tr": "Enerji (kalori)",
         "de": "Energy (calories)",
         "fr": "Energy (calories)",
         "es": "Energy (calories)",
         "ar": "Energy (calories)"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of energy in calories.",
+        "tr": "Kalori cinsinden enerji miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time in hours (0-23).",
       "label_i18n": {
         "en": "Time (hours)",
-        "tr": "Time (hours)",
+        "tr": "Süre (saat)",
         "de": "Time (hours)",
         "fr": "Time (hours)",
         "es": "Time (hours)",
         "ar": "Time (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Time in hours (0-23).",
+        "tr": "Saat cinsinden süre (0-23)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time in minutes (0-59).",
       "label_i18n": {
         "en": "Time (minutes)",
-        "tr": "Time (minutes)",
+        "tr": "Süre (dakika)",
         "de": "Time (minutes)",
         "fr": "Time (minutes)",
         "es": "Time (minutes)",
         "ar": "Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Time in minutes (0-59).",
+        "tr": "Dakika cinsinden süre (0-59)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time in seconds (0-59).",
       "label_i18n": {
         "en": "Time (seconds)",
-        "tr": "Time (seconds)",
+        "tr": "Süre (saniye)",
         "de": "Time (seconds)",
         "fr": "Time (seconds)",
         "es": "Time (seconds)",
         "ar": "Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Time in seconds (0-59).",
+        "tr": "Saniye cinsinden süre (0-59)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Conversion factor from calories to joules. Standard value is 4.184 J/cal.",
       "label_i18n": {
         "en": "Joules per Calorie",
-        "tr": "Joules per Calorie",
+        "tr": "Kalori Başına Joule",
         "de": "Joules per Calorie",
         "fr": "Joules per Calorie",
         "es": "Joules per Calorie",
         "ar": "Joules per Calorie"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from calories to joules. Standard value is 4.184 J/cal.",
+        "tr": "Kaloriden joule dönüşüm faktörü. Standart değer 4.184 J/cal."
       }
     }
   ],

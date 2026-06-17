@@ -10,11 +10,15 @@
       "businessContext": "Diameter of the spring wire",
       "label_i18n": {
         "en": "Wire Diameter",
-        "tr": "Wire Diameter",
+        "tr": "Tel Çapı",
         "de": "Wire Diameter",
         "fr": "Wire Diameter",
         "es": "Wire Diameter",
         "ar": "Wire Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the spring wire",
+        "tr": "Yay telinin çapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average diameter of the coil",
       "label_i18n": {
         "en": "Mean Coil Diameter",
-        "tr": "Mean Coil Diameter",
+        "tr": "Ortalama bobin çapı",
         "de": "Mean Coil Diameter",
         "fr": "Mean Coil Diameter",
         "es": "Mean Coil Diameter",
         "ar": "Mean Coil Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Average diameter of the coil",
+        "tr": "Bobinin ortalama çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of coils contributing to spring deflection",
       "label_i18n": {
         "en": "Number of Active Coils",
-        "tr": "Number of Active Coils",
+        "tr": "Aktif bobin sayısı",
         "de": "Number of Active Coils",
         "fr": "Number of Active Coils",
         "es": "Number of Active Coils",
         "ar": "Number of Active Coils"
+      },
+      "businessContext_i18n": {
+        "en": "Number of coils contributing to spring deflection",
+        "tr": "Yay deformasyonuna katkıda bulunan bobin sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Material shear modulus (e.g., steel ~80000 N/mm²)",
       "label_i18n": {
         "en": "Shear Modulus",
-        "tr": "Shear Modulus",
+        "tr": "Kayma modülü",
         "de": "Shear Modulus",
         "fr": "Shear Modulus",
         "es": "Shear Modulus",
         "ar": "Shear Modulus"
+      },
+      "businessContext_i18n": {
+        "en": "Material shear modulus (e.g., steel ~80000 N/mm²)",
+        "tr": "Malzeme kayma modülü (örneğin çelik ~80000 N/mm²)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum working force applied to the spring",
       "label_i18n": {
         "en": "Applied Load",
-        "tr": "Applied Load",
+        "tr": "Uygulanan Yük",
         "de": "Applied Load",
         "fr": "Applied Load",
         "es": "Applied Load",
         "ar": "Applied Load"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum working force applied to the spring",
+        "tr": "Yaya uygulanan maksimum çalışma kuvveti"
       }
     }
   ],

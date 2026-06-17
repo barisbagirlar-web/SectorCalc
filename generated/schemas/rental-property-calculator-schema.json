@@ -10,11 +10,15 @@
       "businessContext": "Total purchase price of the property",
       "label_i18n": {
         "en": "Purchase Price",
-        "tr": "Purchase Price",
+        "tr": "Satın Alma Fiyatı",
         "de": "Purchase Price",
         "fr": "Purchase Price",
         "es": "Purchase Price",
         "ar": "Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "Total purchase price of the property",
+        "tr": "Mülkün toplam satın alma fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of purchase price paid upfront",
       "label_i18n": {
         "en": "Down Payment (%)",
-        "tr": "Down Payment (%)",
+        "tr": "Peşinat (%)",
         "de": "Down Payment (%)",
         "fr": "Down Payment (%)",
         "es": "Down Payment (%)",
         "ar": "Down Payment (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of purchase price paid upfront",
+        "tr": "Peşin ödenen satın alma fiyatı yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Annual nominal interest rate for mortgage loan",
       "label_i18n": {
         "en": "Interest Rate",
-        "tr": "Interest Rate",
+        "tr": "Faiz Oranı",
         "de": "Interest Rate",
         "fr": "Interest Rate",
         "es": "Interest Rate",
         "ar": "Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate for mortgage loan",
+        "tr": "Mortgage kredisi için yıllık nominal faiz oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration of mortgage loan in years",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of mortgage loan in years",
+        "tr": "Mortgage kredisinin yıl cinsinden süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected gross monthly rental income",
       "label_i18n": {
         "en": "Monthly Rent",
-        "tr": "Monthly Rent",
+        "tr": "Aylık Kira",
         "de": "Monthly Rent",
         "fr": "Monthly Rent",
         "es": "Monthly Rent",
         "ar": "Monthly Rent"
+      },
+      "businessContext_i18n": {
+        "en": "Expected gross monthly rental income",
+        "tr": "Beklenen brüt aylık kira geliri"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual operating expenses as percentage of annual gross rent, including maintenance, insurance, taxes",
       "label_i18n": {
         "en": "Annual Operating Expenses (% of Rent)",
-        "tr": "Annual Operating Expenses (% of Rent)",
+        "tr": "Yıllık İşletme Giderleri (Kiranın %'si)",
         "de": "Annual Operating Expenses (% of Rent)",
         "fr": "Annual Operating Expenses (% of Rent)",
         "es": "Annual Operating Expenses (% of Rent)",
         "ar": "Annual Operating Expenses (% of Rent)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual operating expenses as percentage of annual gross rent, including maintenance, insurance, taxes",
+        "tr": "Bakım, sigorta, vergiler dahil yıllık brüt kiranın yüzdesi olarak yıllık işletme giderleri"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Estimated percentage of time the property is vacant, reducing rental income",
       "label_i18n": {
         "en": "Vacancy Rate (%)",
-        "tr": "Vacancy Rate (%)",
+        "tr": "Boşluk Oranı (%)",
         "de": "Vacancy Rate (%)",
         "fr": "Vacancy Rate (%)",
         "es": "Vacancy Rate (%)",
         "ar": "Vacancy Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of time the property is vacant, reducing rental income",
+        "tr": "Mülkün boş olduğu tahmini süre yüzdesi, kira gelirini azaltır"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Your Acute Training Load from yesterday",
       "label_i18n": {
         "en": "Previous ATL",
-        "tr": "Previous ATL",
+        "tr": "Önceki ATL",
         "de": "Previous ATL",
         "fr": "Previous ATL",
         "es": "Previous ATL",
         "ar": "Previous ATL"
+      },
+      "businessContext_i18n": {
+        "en": "Your Acute Training Load from yesterday",
+        "tr": "Dünden kalan Akut Antrenman Yükünüz"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Training Stress Score for today's ride",
       "label_i18n": {
         "en": "Today's TSS",
-        "tr": "Today's TSS",
+        "tr": "Bugünün TSS'si",
         "de": "Today's TSS",
         "fr": "Today's TSS",
         "es": "Today's TSS",
         "ar": "Today's TSS"
+      },
+      "businessContext_i18n": {
+        "en": "Training Stress Score for today's ride",
+        "tr": "Bugünkü sürüş için Antrenman Stres Skoru"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of days for ATL weighting (commonly 7)",
       "label_i18n": {
         "en": "Time Constant",
-        "tr": "Time Constant",
+        "tr": "Zaman Sabiti",
         "de": "Time Constant",
         "fr": "Time Constant",
         "es": "Time Constant",
         "ar": "Time Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days for ATL weighting (commonly 7)",
+        "tr": "ATL ağırlıklandırması için gün sayısı (genellikle 7)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounded output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounded output",
+        "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Amount of liquid in fluid ounces (US).",
       "label_i18n": {
         "en": "Fluid Ounces",
-        "tr": "Fluid Ounces",
+        "tr": "Sıvı Ons",
         "de": "Fluid Ounces",
         "fr": "Fluid Ounces",
         "es": "Fluid Ounces",
         "ar": "Fluid Ounces"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of liquid in fluid ounces (US).",
+        "tr": "Sıvı ons (ABD) cinsinden sıvı miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard US conversion factor. Adjust for imperial or other standards.",
       "label_i18n": {
         "en": "Tablespoons per Fluid Ounce",
-        "tr": "Tablespoons per Fluid Ounce",
+        "tr": "Sıvı Ons Başına Yemek Kaşığı",
         "de": "Tablespoons per Fluid Ounce",
         "fr": "Tablespoons per Fluid Ounce",
         "es": "Tablespoons per Fluid Ounce",
         "ar": "Tablespoons per Fluid Ounce"
+      },
+      "businessContext_i18n": {
+        "en": "Standard US conversion factor. Adjust for imperial or other standards.",
+        "tr": "Standart ABD dönüşüm faktörü. İmparatorluk veya diğer standartlar için ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places to round the result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the result.",
+        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional percentage to add for safety margin (e.g., 5 for 5%).",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage to add for safety margin (e.g., 5 for 5%).",
+        "tr": "Güvenlik marjı için eklenecek ek yüzde (örneğin, %5 için 5)."
       }
     }
   ],

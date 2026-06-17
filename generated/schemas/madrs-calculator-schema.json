@@ -10,11 +10,15 @@
       "businessContext": "The diameter of the machine axle under analysis.",
       "label_i18n": {
         "en": "Axle Diameter",
-        "tr": "Axle Diameter",
+        "tr": "Aks Çapı",
         "de": "Axle Diameter",
         "fr": "Axle Diameter",
         "es": "Axle Diameter",
         "ar": "Axle Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "The diameter of the machine axle under analysis.",
+        "tr": "Analiz edilen makine aksının çapı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The unsupported length of the axle between bearings.",
       "label_i18n": {
         "en": "Axle Length",
-        "tr": "Axle Length",
+        "tr": "Aks Uzunluğu",
         "de": "Axle Length",
         "fr": "Axle Length",
         "es": "Axle Length",
         "ar": "Axle Length"
+      },
+      "businessContext_i18n": {
+        "en": "The unsupported length of the axle between bearings.",
+        "tr": "Rulmanlar arasındaki desteklenmeyen aks uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Central point load acting on the axle.",
       "label_i18n": {
         "en": "Applied Load",
-        "tr": "Applied Load",
+        "tr": "Uygulanan Yük",
         "de": "Applied Load",
         "fr": "Applied Load",
         "es": "Applied Load",
         "ar": "Applied Load"
+      },
+      "businessContext_i18n": {
+        "en": "Central point load acting on the axle.",
+        "tr": "Aksa etki eden merkezi nokta yükü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Material's modulus of elasticity (e.g., steel ≈ 210 GPa).",
       "label_i18n": {
         "en": "Elastic Modulus",
-        "tr": "Elastic Modulus",
+        "tr": "Elastisite Modülü",
         "de": "Elastic Modulus",
         "fr": "Elastic Modulus",
         "es": "Elastic Modulus",
         "ar": "Elastic Modulus"
+      },
+      "businessContext_i18n": {
+        "en": "Material's modulus of elasticity (e.g., steel ≈ 210 GPa).",
+        "tr": "Malzemenin elastisite modülü (örneğin çelik ≈ 210 GPa)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Design safety factor for allowable stress comparison.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor for allowable stress comparison.",
+        "tr": "İzin verilen gerilme karşılaştırması için tasarım güvenlik faktörü."
       }
     }
   ],

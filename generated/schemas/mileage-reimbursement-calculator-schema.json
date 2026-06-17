@@ -10,11 +10,15 @@
       "businessContext": "Total distance traveled for business purposes",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Distance (km)",
+        "tr": "Mesafe (km)",
         "de": "Distance (km)",
         "fr": "Distance (km)",
         "es": "Distance (km)",
         "ar": "Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance traveled for business purposes",
+        "tr": "İş amaçlı kat edilen toplam mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Rate per kilometer as per company policy or tax authority",
       "label_i18n": {
         "en": "Reimbursement Rate (€/km)",
-        "tr": "Reimbursement Rate (€/km)",
+        "tr": "Geri Ödeme Oranı (€/km)",
         "de": "Reimbursement Rate (€/km)",
         "fr": "Reimbursement Rate (€/km)",
         "es": "Reimbursement Rate (€/km)",
         "ar": "Reimbursement Rate (€/km)"
+      },
+      "businessContext_i18n": {
+        "en": "Rate per kilometer as per company policy or tax authority",
+        "tr": "Şirket politikası veya vergi dairesine göre kilometre başına oran"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total toll fees paid during the trip",
       "label_i18n": {
         "en": "Tolls (€)",
-        "tr": "Tolls (€)",
+        "tr": "Köprü ve Otoyol Ücretleri (€)",
         "de": "Tolls (€)",
         "fr": "Tolls (€)",
         "es": "Tolls (€)",
         "ar": "Tolls (€)"
+      },
+      "businessContext_i18n": {
+        "en": "Total toll fees paid during the trip",
+        "tr": "Seyahat sırasında ödenen toplam köprü ve otoyol ücretleri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total parking fees incurred",
       "label_i18n": {
         "en": "Parking Fees (€)",
-        "tr": "Parking Fees (€)",
+        "tr": "Park Ücretleri (€)",
         "de": "Parking Fees (€)",
         "fr": "Parking Fees (€)",
         "es": "Parking Fees (€)",
         "ar": "Parking Fees (€)"
+      },
+      "businessContext_i18n": {
+        "en": "Total parking fees incurred",
+        "tr": "Oluşan toplam park ücretleri"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Any fixed allowance for the trip (e.g., meal per diem included in mileage claim)",
       "label_i18n": {
         "en": "Flat Allowance (€)",
-        "tr": "Flat Allowance (€)",
+        "tr": "Sabit Ödenek (€)",
         "de": "Flat Allowance (€)",
         "fr": "Flat Allowance (€)",
         "es": "Flat Allowance (€)",
         "ar": "Flat Allowance (€)"
+      },
+      "businessContext_i18n": {
+        "en": "Any fixed allowance for the trip (e.g., meal per diem included in mileage claim)",
+        "tr": "Seyahat için herhangi bir sabit ödenek (örneğin, kilometre talebine dahil edilen günlük yemek ücreti)"
       }
     }
   ],

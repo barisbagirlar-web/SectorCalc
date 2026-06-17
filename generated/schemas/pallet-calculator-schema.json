@@ -10,11 +10,15 @@
       "businessContext": "Total quantity of items to be palletized.",
       "label_i18n": {
         "en": "Total Items",
-        "tr": "Total Items",
+        "tr": "Toplam Öğe Sayısı",
         "de": "Total Items",
         "fr": "Total Items",
         "es": "Total Items",
         "ar": "Total Items"
+      },
+      "businessContext_i18n": {
+        "en": "Total quantity of items to be palletized.",
+        "tr": "Paletlenecek toplam ürün miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of items that fit in one layer on the pallet.",
       "label_i18n": {
         "en": "Items per Layer",
-        "tr": "Items per Layer",
+        "tr": "Kat Başına Ürün",
         "de": "Items per Layer",
         "fr": "Items per Layer",
         "es": "Items per Layer",
         "ar": "Items per Layer"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items that fit in one layer on the pallet.",
+        "tr": "Bir palet katına sığan ürün sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum number of layers stackable per pallet.",
       "label_i18n": {
         "en": "Layers per Pallet",
-        "tr": "Layers per Pallet",
+        "tr": "Palet Başına Kat",
         "de": "Layers per Pallet",
         "fr": "Layers per Pallet",
         "es": "Layers per Pallet",
         "ar": "Layers per Pallet"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum number of layers stackable per pallet.",
+        "tr": "Palet başına istiflenebilecek maksimum kat sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Weight of a single item.",
       "label_i18n": {
         "en": "Item Weight",
-        "tr": "Item Weight",
+        "tr": "Ürün Ağırlığı",
         "de": "Item Weight",
         "fr": "Item Weight",
         "es": "Item Weight",
         "ar": "Item Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of a single item.",
+        "tr": "Tek bir ürünün ağırlığı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum load capacity of one pallet.",
       "label_i18n": {
         "en": "Max Pallet Weight",
-        "tr": "Max Pallet Weight",
+        "tr": "Maksimum Palet Ağırlığı",
         "de": "Max Pallet Weight",
         "fr": "Max Pallet Weight",
         "es": "Max Pallet Weight",
         "ar": "Max Pallet Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum load capacity of one pallet.",
+        "tr": "Bir paletin maksimum yük kapasitesi."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total running or walking time in minutes.",
       "label_i18n": {
         "en": "Total Time (minutes)",
-        "tr": "Total Time (minutes)",
+        "tr": "Toplam Süre (dakika)",
         "de": "Total Time (minutes)",
         "fr": "Total Time (minutes)",
         "es": "Total Time (minutes)",
         "ar": "Total Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total running or walking time in minutes.",
+        "tr": "Toplam koşma veya yürüme süresi (dakika cinsinden)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional seconds beyond total minutes.",
       "label_i18n": {
         "en": "Total Time (seconds)",
-        "tr": "Total Time (seconds)",
+        "tr": "Toplam Süre (saniye)",
         "de": "Total Time (seconds)",
         "fr": "Total Time (seconds)",
         "es": "Total Time (seconds)",
         "ar": "Total Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional seconds beyond total minutes.",
+        "tr": "Toplam dakikaların ötesindeki ek saniyeler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total distance covered in kilometers.",
       "label_i18n": {
         "en": "Distance (kilometers)",
-        "tr": "Distance (kilometers)",
+        "tr": "Mesafe (kilometre)",
         "de": "Distance (kilometers)",
         "fr": "Distance (kilometers)",
         "es": "Distance (kilometers)",
         "ar": "Distance (kilometers)"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance covered in kilometers.",
+        "tr": "Kilometre cinsinden kat edilen toplam mesafe."
       }
     }
   ],

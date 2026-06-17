@@ -10,11 +10,15 @@
       "businessContext": "Enter the velocity of the moving object in kilometers per second.",
       "label_i18n": {
         "en": "Velocity (km/s)",
-        "tr": "Velocity (km/s)",
+        "tr": "Hız (km/s)",
         "de": "Velocity (km/s)",
         "fr": "Velocity (km/s)",
         "es": "Velocity (km/s)",
         "ar": "Velocity (km/s)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the velocity of the moving object in kilometers per second.",
+        "tr": "Hareket eden nesnenin saniyede kilometre cinsinden hızını girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Enter the proper time interval in seconds, i.e., the time experienced by the moving observer.",
       "label_i18n": {
         "en": "Proper Time (s)",
-        "tr": "Proper Time (s)",
+        "tr": "Öz Zaman (s)",
         "de": "Proper Time (s)",
         "fr": "Proper Time (s)",
         "es": "Proper Time (s)",
         "ar": "Proper Time (s)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the proper time interval in seconds, i.e., the time experienced by the moving observer.",
+        "tr": "Hareket eden gözlemci tarafından deneyimlenen saniye cinsinden öz zaman aralığını girin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Enter the speed of light in meters per second (default is vacuum speed).",
       "label_i18n": {
         "en": "Speed of Light (m/s)",
-        "tr": "Speed of Light (m/s)",
+        "tr": "Işık Hızı (m/s)",
         "de": "Speed of Light (m/s)",
         "fr": "Speed of Light (m/s)",
         "es": "Speed of Light (m/s)",
         "ar": "Speed of Light (m/s)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the speed of light in meters per second (default is vacuum speed).",
+        "tr": "Işık hızını saniyede metre cinsinden girin (varsayılan vakum hızıdır)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Enter the conversion factor to convert the dilated time from seconds to desired unit (e.g., 1 for seconds, 1/60 for minutes, 1/3600 for hours).",
       "label_i18n": {
         "en": "Output Time Unit Factor",
-        "tr": "Output Time Unit Factor",
+        "tr": "Çıktı Zaman Birimi Faktörü",
         "de": "Output Time Unit Factor",
         "fr": "Output Time Unit Factor",
         "es": "Output Time Unit Factor",
         "ar": "Output Time Unit Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the conversion factor to convert the dilated time from seconds to desired unit (e.g., 1 for seconds, 1/60 for minutes, 1/3600 for hours).",
+        "tr": "Genişlemiş zamanı saniyeden istenen birime dönüştürmek için dönüşüm faktörünü girin (örneğin, saniye için 1, dakika için 1/60, saat için 1/3600)."
       }
     }
   ],

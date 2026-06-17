@@ -10,11 +10,15 @@
       "businessContext": "Number of customers at the beginning of the measurement period.",
       "label_i18n": {
         "en": "Starting Customers",
-        "tr": "Starting Customers",
+        "tr": "Başlangıç Müşteri Sayısı",
         "de": "Starting Customers",
         "fr": "Starting Customers",
         "es": "Starting Customers",
         "ar": "Starting Customers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of customers at the beginning of the measurement period.",
+        "tr": "Ölçüm dönemi başlangıcındaki müşteri sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of customers at the end of the measurement period.",
       "label_i18n": {
         "en": "Ending Customers",
-        "tr": "Ending Customers",
+        "tr": "Bitiş Müşteri Sayısı",
         "de": "Ending Customers",
         "fr": "Ending Customers",
         "es": "Ending Customers",
         "ar": "Ending Customers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of customers at the end of the measurement period.",
+        "tr": "Ölçüm dönemi sonundaki müşteri sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of new customers acquired during the measurement period.",
       "label_i18n": {
         "en": "New Customers",
-        "tr": "New Customers",
+        "tr": "Yeni Müşteri Sayısı",
         "de": "New Customers",
         "fr": "New Customers",
         "es": "New Customers",
         "ar": "New Customers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of new customers acquired during the measurement period.",
+        "tr": "Ölçüm dönemi boyunca kazanılan yeni müşteri sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Length of the measurement period in days (optional, can be used for annualization).",
       "label_i18n": {
         "en": "Period Length",
-        "tr": "Period Length",
+        "tr": "Dönem Uzunluğu",
         "de": "Period Length",
         "fr": "Period Length",
         "es": "Period Length",
         "ar": "Period Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the measurement period in days (optional, can be used for annualization).",
+        "tr": "Ölçüm döneminin gün cinsinden uzunluğu (isteğe bağlı, yıllıklandırma için kullanılabilir)."
       }
     }
   ],

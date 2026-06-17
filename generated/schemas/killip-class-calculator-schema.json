@@ -10,11 +10,15 @@
       "businessContext": "Percentage of lung fields with crackles/rales on auscultation.",
       "label_i18n": {
         "en": "Rales Coverage (% of lung fields)",
-        "tr": "Rales Coverage (% of lung fields)",
+        "tr": "Rallerin Akciğer Alanlarını Kaplama Yüzdesi",
         "de": "Rales Coverage (% of lung fields)",
         "fr": "Rales Coverage (% of lung fields)",
         "es": "Rales Coverage (% of lung fields)",
         "ar": "Rales Coverage (% of lung fields)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of lung fields with crackles/rales on auscultation.",
+        "tr": "Oskültasyonda ral/krepitasyon duyulan akciğer alanlarının yüzdesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Presence of an S3 gallop (0 = No, 1 = Yes).",
       "label_i18n": {
         "en": "S3 Gallop Present",
-        "tr": "S3 Gallop Present",
+        "tr": "S3 Gallop Mevcut",
         "de": "S3 Gallop Present",
         "fr": "S3 Gallop Present",
         "es": "S3 Gallop Present",
         "ar": "S3 Gallop Present"
+      },
+      "businessContext_i18n": {
+        "en": "Presence of an S3 gallop (0 = No, 1 = Yes).",
+        "tr": "S3 galop varlığı (0 = Hayır, 1 = Evet)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Systolic blood pressure measurement.",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Systolic blood pressure measurement.",
+        "tr": "Sistolik kan basıncı ölçümü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Clinical signs of peripheral hypoperfusion (0 = No, 1 = Yes).",
       "label_i18n": {
         "en": "Signs of Hypoperfusion",
-        "tr": "Signs of Hypoperfusion",
+        "tr": "Hipoperfüzyon Belirtileri",
         "de": "Signs of Hypoperfusion",
         "fr": "Signs of Hypoperfusion",
         "es": "Signs of Hypoperfusion",
         "ar": "Signs of Hypoperfusion"
+      },
+      "businessContext_i18n": {
+        "en": "Clinical signs of peripheral hypoperfusion (0 = No, 1 = Yes).",
+        "tr": "Periferik hipoperfüzyonun klinik belirtileri (0 = Hayır, 1 = Evet)."
       }
     }
   ],

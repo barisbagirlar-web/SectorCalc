@@ -10,11 +10,15 @@
       "businessContext": "Total operating hours for a single unit during the observation period",
       "label_i18n": {
         "en": "Operating Hours per Unit",
-        "tr": "Operating Hours per Unit",
+        "tr": "Birim Başına Çalışma Saati",
         "de": "Operating Hours per Unit",
         "fr": "Operating Hours per Unit",
         "es": "Operating Hours per Unit",
         "ar": "Operating Hours per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Total operating hours for a single unit during the observation period",
+        "tr": "Gözlem süresi boyunca tek bir birimin toplam çalışma saati"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of identical units under observation",
       "label_i18n": {
         "en": "Number of Units",
-        "tr": "Number of Units",
+        "tr": "Birim Sayısı",
         "de": "Number of Units",
         "fr": "Number of Units",
         "es": "Number of Units",
         "ar": "Number of Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical units under observation",
+        "tr": "Gözlem altındaki özdeş birim sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of failures observed across all units",
       "label_i18n": {
         "en": "Number of Failures",
-        "tr": "Number of Failures",
+        "tr": "Arıza Sayısı",
         "de": "Number of Failures",
         "fr": "Number of Failures",
         "es": "Number of Failures",
         "ar": "Number of Failures"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of failures observed across all units",
+        "tr": "Tüm birimlerde gözlemlenen toplam arıza sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total time spent on repairs for all failures",
       "label_i18n": {
         "en": "Total Repair Hours",
-        "tr": "Total Repair Hours",
+        "tr": "Toplam Onarım Saati",
         "de": "Total Repair Hours",
         "fr": "Total Repair Hours",
         "es": "Total Repair Hours",
         "ar": "Total Repair Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total time spent on repairs for all failures",
+        "tr": "Tüm arızalar için onarımlara harcanan toplam süre"
       }
     }
   ],

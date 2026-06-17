@@ -10,11 +10,15 @@
       "businessContext": "Amount of fluid ounces to convert to milliliters",
       "label_i18n": {
         "en": "Fluid Ounces",
-        "tr": "Fluid Ounces",
+        "tr": "Sıvı Ons",
         "de": "Fluid Ounces",
         "fr": "Fluid Ounces",
         "es": "Fluid Ounces",
         "ar": "Fluid Ounces"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of fluid ounces to convert to milliliters",
+        "tr": "Mililitreye dönüştürülecek sıvı ons miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Select the fluid ounce standard: 0 for US customary (29.5735 ml), 1 for Imperial (28.4131 ml)",
       "label_i18n": {
         "en": "Ounce Standard (0=US, 1=UK)",
-        "tr": "Ounce Standard (0=US, 1=UK)",
+        "tr": "Ons Standardı (0=ABD, 1=İngiltere)",
         "de": "Ounce Standard (0=US, 1=UK)",
         "fr": "Ounce Standard (0=US, 1=UK)",
         "es": "Ounce Standard (0=US, 1=UK)",
         "ar": "Ounce Standard (0=US, 1=UK)"
+      },
+      "businessContext_i18n": {
+        "en": "Select the fluid ounce standard: 0 for US customary (29.5735 ml), 1 for Imperial (28.4131 ml)",
+        "tr": "Sıvı ons standardını seçin: 0 ABD geleneksel (29.5735 ml), 1 İmparatorluk (28.4131 ml)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Round the output to this many decimal places",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Round the output to this many decimal places",
+        "tr": "Çıktıyı bu ondalık basamağa yuvarla"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical volumes to convert (for total mL)",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical volumes to convert (for total mL)",
+        "tr": "Dönüştürülecek özdeş hacim sayısı (toplam mL için)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Number of complete rotations of the input shaft.",
       "label_i18n": {
         "en": "Revolutions",
-        "tr": "Revolutions",
+        "tr": "Devir",
         "de": "Revolutions",
         "fr": "Revolutions",
         "es": "Revolutions",
         "ar": "Revolutions"
+      },
+      "businessContext_i18n": {
+        "en": "Number of complete rotations of the input shaft.",
+        "tr": "Giriş milinin tam dönüş sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Gear ratio multiplier applied to input revolutions.",
       "label_i18n": {
         "en": "Gear Ratio",
-        "tr": "Gear Ratio",
+        "tr": "Dişli Oranı",
         "de": "Gear Ratio",
         "fr": "Gear Ratio",
         "es": "Gear Ratio",
         "ar": "Gear Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Gear ratio multiplier applied to input revolutions.",
+        "tr": "Giriş devirlerine uygulanan dişli oranı çarpanı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Initial phase offset in revolutions.",
       "label_i18n": {
         "en": "Phase Offset (Rev)",
-        "tr": "Phase Offset (Rev)",
+        "tr": "Faz Ofseti (Devir)",
         "de": "Phase Offset (Rev)",
         "fr": "Phase Offset (Rev)",
         "es": "Phase Offset (Rev)",
         "ar": "Phase Offset (Rev)"
+      },
+      "businessContext_i18n": {
+        "en": "Initial phase offset in revolutions.",
+        "tr": "Devir cinsinden başlangıç faz ofseti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Conversion constant (default 2π).",
       "label_i18n": {
         "en": "Radians per Revolution",
-        "tr": "Radians per Revolution",
+        "tr": "Devir Başına Radyan",
         "de": "Radians per Revolution",
         "fr": "Radians per Revolution",
         "es": "Radians per Revolution",
         "ar": "Radians per Revolution"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion constant (default 2π).",
+        "tr": "Dönüşüm sabiti (varsayılan 2π)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for output precision.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output precision.",
+        "tr": "Çıktı hassasiyeti için ondalık basamak sayısı."
       }
     }
   ],

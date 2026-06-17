@@ -10,11 +10,15 @@
       "businessContext": "Number of bits used to represent each sample. Determines dynamic range and number of possible values.",
       "label_i18n": {
         "en": "Bit Depth",
-        "tr": "Bit Depth",
+        "tr": "Bit Derinliği",
         "de": "Bit Depth",
         "fr": "Bit Depth",
         "es": "Bit Depth",
         "ar": "Bit Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Number of bits used to represent each sample. Determines dynamic range and number of possible values.",
+        "tr": "Her örneği temsil etmek için kullanılan bit sayısı. Dinamik aralığı ve olası değer sayısını belirler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Samples per second. Common values: 44.1 kHz for CD, 48 kHz for video, 96 kHz for high‑res.",
       "label_i18n": {
         "en": "Sample Rate",
-        "tr": "Sample Rate",
+        "tr": "Örnekleme Hızı",
         "de": "Sample Rate",
         "fr": "Sample Rate",
         "es": "Sample Rate",
         "ar": "Sample Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Samples per second. Common values: 44.1 kHz for CD, 48 kHz for video, 96 kHz for high‑res.",
+        "tr": "Saniyedeki örnek sayısı. Yaygın değerler: CD için 44,1 kHz, video için 48 kHz, yüksek çözünürlük için 96 kHz."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 for mono, 2 for stereo, 5.1 for surround, etc.",
       "label_i18n": {
         "en": "Number of Channels",
-        "tr": "Number of Channels",
+        "tr": "Kanal Sayısı",
         "de": "Number of Channels",
         "fr": "Number of Channels",
         "es": "Number of Channels",
         "ar": "Number of Channels"
+      },
+      "businessContext_i18n": {
+        "en": "1 for mono, 2 for stereo, 5.1 for surround, etc.",
+        "tr": "1 mono, 2 stereo, 5.1 surround vb. için."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration of the audio stream in seconds.",
       "label_i18n": {
         "en": "Duration",
-        "tr": "Duration",
+        "tr": "Süre",
         "de": "Duration",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the audio stream in seconds.",
+        "tr": "Ses akışının saniye cinsinden süresi."
       }
     }
   ],

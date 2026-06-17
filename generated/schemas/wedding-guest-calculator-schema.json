@@ -10,11 +10,15 @@
       "businessContext": "Total number of invited guests",
       "label_i18n": {
         "en": "Guest Count",
-        "tr": "Guest Count",
+        "tr": "Misafir Sayısı",
         "de": "Guest Count",
         "fr": "Guest Count",
         "es": "Guest Count",
         "ar": "Guest Count"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of invited guests",
+        "tr": "Davet edilen toplam misafir sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average cost of food and drinks per guest",
       "label_i18n": {
         "en": "Cost per Plate",
-        "tr": "Cost per Plate",
+        "tr": "Tabak Başına Maliyet",
         "de": "Cost per Plate",
         "fr": "Cost per Plate",
         "es": "Cost per Plate",
         "ar": "Cost per Plate"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost of food and drinks per guest",
+        "tr": "Misafir başına ortalama yiyecek ve içecek maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fixed cost for venue rental",
       "label_i18n": {
         "en": "Venue Rental Cost",
-        "tr": "Venue Rental Cost",
+        "tr": "Mekan Kiralama Maliyeti",
         "de": "Venue Rental Cost",
         "fr": "Venue Rental Cost",
         "es": "Venue Rental Cost",
         "ar": "Venue Rental Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed cost for venue rental",
+        "tr": "Mekan kiralama için sabit maliyet"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total expense for flowers and decor",
       "label_i18n": {
         "en": "Decoration Cost",
-        "tr": "Decoration Cost",
+        "tr": "Dekorasyon Maliyeti",
         "de": "Decoration Cost",
         "fr": "Decoration Cost",
         "es": "Decoration Cost",
         "ar": "Decoration Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total expense for flowers and decor",
+        "tr": "Çiçek ve dekorasyon için toplam harcama"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost for music, photography, etc.",
       "label_i18n": {
         "en": "Entertainment Cost",
-        "tr": "Entertainment Cost",
+        "tr": "Eğlence Maliyeti",
         "de": "Entertainment Cost",
         "fr": "Entertainment Cost",
         "es": "Entertainment Cost",
         "ar": "Entertainment Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost for music, photography, etc.",
+        "tr": "Müzik, fotoğrafçılık vb. için maliyet"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage of base cost reserved for unexpected expenses",
       "label_i18n": {
         "en": "Miscellaneous (%)",
-        "tr": "Miscellaneous (%)",
+        "tr": "Çeşitli (%)",
         "de": "Miscellaneous (%)",
         "fr": "Miscellaneous (%)",
         "es": "Miscellaneous (%)",
         "ar": "Miscellaneous (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of base cost reserved for unexpected expenses",
+        "tr": "Beklenmeyen giderler için ayrılan temel maliyet yüzdesi"
       }
     }
   ],

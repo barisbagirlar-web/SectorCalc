@@ -10,11 +10,15 @@
       "businessContext": "Total number of units produced in the period.",
       "label_i18n": {
         "en": "Total Production",
-        "tr": "Total Production",
+        "tr": "Toplam Üretim",
         "de": "Total Production",
         "fr": "Total Production",
         "es": "Total Production",
         "ar": "Total Production"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced in the period.",
+        "tr": "Dönemde üretilen toplam birim sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of defective or non-conforming units.",
       "label_i18n": {
         "en": "Defective Units",
-        "tr": "Defective Units",
+        "tr": "Hatalı Birimler",
         "de": "Defective Units",
         "fr": "Defective Units",
         "es": "Defective Units",
         "ar": "Defective Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of defective or non-conforming units.",
+        "tr": "Hatalı veya uygun olmayan birim sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total raw material consumed.",
       "label_i18n": {
         "en": "Material Input",
-        "tr": "Material Input",
+        "tr": "Malzeme Girdisi",
         "de": "Material Input",
         "fr": "Material Input",
         "es": "Material Input",
         "ar": "Material Input"
+      },
+      "businessContext_i18n": {
+        "en": "Total raw material consumed.",
+        "tr": "Tüketilen toplam hammadde."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Material wasted as scrap, trimmings, rejects.",
       "label_i18n": {
         "en": "Waste Material",
-        "tr": "Waste Material",
+        "tr": "Atık Malzeme",
         "de": "Waste Material",
         "fr": "Waste Material",
         "es": "Waste Material",
         "ar": "Waste Material"
+      },
+      "businessContext_i18n": {
+        "en": "Material wasted as scrap, trimmings, rejects.",
+        "tr": "Fire, kırpıntı, reddedilenler olarak israf edilen malzeme."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Unit cost of raw material.",
       "label_i18n": {
         "en": "Material Cost per kg",
-        "tr": "Material Cost per kg",
+        "tr": "Malzeme Maliyeti (kg başına)",
         "de": "Material Cost per kg",
         "fr": "Material Cost per kg",
         "es": "Material Cost per kg",
         "ar": "Material Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Unit cost of raw material.",
+        "tr": "Hammadde birim maliyeti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Target percentage reduction in defect units (e.g., 20% means reduce defective units by one fifth).",
       "label_i18n": {
         "en": "Defect Reduction Target",
-        "tr": "Defect Reduction Target",
+        "tr": "Hata Azaltma Hedefi",
         "de": "Defect Reduction Target",
         "fr": "Defect Reduction Target",
         "es": "Defect Reduction Target",
         "ar": "Defect Reduction Target"
+      },
+      "businessContext_i18n": {
+        "en": "Target percentage reduction in defect units (e.g., 20% means reduce defective units by one fifth).",
+        "tr": "Hatalı birimlerde hedeflenen yüzde azalma (örneğin, %20, hatalı birimleri beşte bir oranında azaltmak anlamına gelir)."
       }
     }
   ],

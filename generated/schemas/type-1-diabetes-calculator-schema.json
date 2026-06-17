@@ -10,11 +10,15 @@
       "businessContext": "Measured blood glucose level prior to meal",
       "label_i18n": {
         "en": "Current Blood Glucose",
-        "tr": "Current Blood Glucose",
+        "tr": "Mevcut Kan Şekeri",
         "de": "Current Blood Glucose",
         "fr": "Current Blood Glucose",
         "es": "Current Blood Glucose",
         "ar": "Current Blood Glucose"
+      },
+      "businessContext_i18n": {
+        "en": "Measured blood glucose level prior to meal",
+        "tr": "Yemek öncesi ölçülen kan şekeri seviyesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired blood glucose level after insulin",
       "label_i18n": {
         "en": "Target Blood Glucose",
-        "tr": "Target Blood Glucose",
+        "tr": "Hedef Kan Şekeri",
         "de": "Target Blood Glucose",
         "fr": "Target Blood Glucose",
         "es": "Target Blood Glucose",
         "ar": "Target Blood Glucose"
+      },
+      "businessContext_i18n": {
+        "en": "Desired blood glucose level after insulin",
+        "tr": "İnsülin sonrası hedeflenen kan şekeri seviyesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Drop in blood glucose per unit of rapid-acting insulin",
       "label_i18n": {
         "en": "Insulin Sensitivity Factor",
-        "tr": "Insulin Sensitivity Factor",
+        "tr": "İnsülin Duyarlılık Faktörü",
         "de": "Insulin Sensitivity Factor",
         "fr": "Insulin Sensitivity Factor",
         "es": "Insulin Sensitivity Factor",
         "ar": "Insulin Sensitivity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Drop in blood glucose per unit of rapid-acting insulin",
+        "tr": "Birim hızlı etkili insülin başına kan şekerindeki düşüş"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Grams of carbohydrates planned to be consumed",
       "label_i18n": {
         "en": "Carbohydrate Intake",
-        "tr": "Carbohydrate Intake",
+        "tr": "Karbonhidrat Alımı",
         "de": "Carbohydrate Intake",
         "fr": "Carbohydrate Intake",
         "es": "Carbohydrate Intake",
         "ar": "Carbohydrate Intake"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of carbohydrates planned to be consumed",
+        "tr": "Tüketilmesi planlanan karbonhidrat gramı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Grams of carbohydrates covered by 1 unit of insulin",
       "label_i18n": {
         "en": "Insulin-to-Carb Ratio",
-        "tr": "Insulin-to-Carb Ratio",
+        "tr": "İnsülin/Karbonhidrat Oranı",
         "de": "Insulin-to-Carb Ratio",
         "fr": "Insulin-to-Carb Ratio",
         "es": "Insulin-to-Carb Ratio",
         "ar": "Insulin-to-Carb Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of carbohydrates covered by 1 unit of insulin",
+        "tr": "1 ünite insülinin karşıladığı karbonhidrat gramı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Units of insulin still active from previous boluses",
       "label_i18n": {
         "en": "Active Insulin On Board",
-        "tr": "Active Insulin On Board",
+        "tr": "Aktif Kalan İnsülin",
         "de": "Active Insulin On Board",
         "fr": "Active Insulin On Board",
         "es": "Active Insulin On Board",
         "ar": "Active Insulin On Board"
+      },
+      "businessContext_i18n": {
+        "en": "Units of insulin still active from previous boluses",
+        "tr": "Önceki boluslardan hala aktif olan insülin ünitesi"
       }
     }
   ],

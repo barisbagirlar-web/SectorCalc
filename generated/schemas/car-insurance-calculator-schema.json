@@ -10,11 +10,15 @@
       "businessContext": "The current market value of the insured vehicle.",
       "label_i18n": {
         "en": "Car Value",
-        "tr": "Car Value",
+        "tr": "Araba Değeri",
         "de": "Car Value",
         "fr": "Car Value",
         "es": "Car Value",
         "ar": "Car Value"
+      },
+      "businessContext_i18n": {
+        "en": "The current market value of the insured vehicle.",
+        "tr": "Sigortalı aracın güncel piyasa değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age of the primary driver; younger drivers often have higher risk.",
       "label_i18n": {
         "en": "Driver Age",
-        "tr": "Driver Age",
+        "tr": "Sürücü Yaşı",
         "de": "Driver Age",
         "fr": "Driver Age",
         "es": "Driver Age",
         "ar": "Driver Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the primary driver; younger drivers often have higher risk.",
+        "tr": "Ana sürücünün yaşı; genç sürücüler genellikle daha yüksek riske sahiptir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of years the driver has held a valid driving license.",
       "label_i18n": {
         "en": "Driving Experience",
-        "tr": "Driving Experience",
+        "tr": "Sürüş Deneyimi",
         "de": "Driving Experience",
         "fr": "Driving Experience",
         "es": "Driving Experience",
         "ar": "Driving Experience"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the driver has held a valid driving license.",
+        "tr": "Sürücünün geçerli bir sürücü belgesine sahip olduğu yıl sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Consecutive claim-free years; affects no-claims discount.",
       "label_i18n": {
         "en": "No-Claims Years",
-        "tr": "No-Claims Years",
+        "tr": "Hasar Görmemiş Yıllar",
         "de": "No-Claims Years",
         "fr": "No-Claims Years",
         "es": "No-Claims Years",
         "ar": "No-Claims Years"
+      },
+      "businessContext_i18n": {
+        "en": "Consecutive claim-free years; affects no-claims discount.",
+        "tr": "Ardışık hasarsız yıllar; hasarsızlık indirimini etkiler."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Estimated annual distance driven; higher mileage increases risk.",
       "label_i18n": {
         "en": "Annual Mileage",
-        "tr": "Annual Mileage",
+        "tr": "Yıllık Kilometre",
         "de": "Annual Mileage",
         "fr": "Annual Mileage",
         "es": "Annual Mileage",
         "ar": "Annual Mileage"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated annual distance driven; higher mileage increases risk.",
+        "tr": "Tahmini yıllık sürüş mesafesi; yüksek kilometre riski artırır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Coverage type: 1=Third party, 2=Third party fire & theft, 3=Comprehensive.",
       "label_i18n": {
         "en": "Coverage Level",
-        "tr": "Coverage Level",
+        "tr": "Teminat Seviyesi",
         "de": "Coverage Level",
         "fr": "Coverage Level",
         "es": "Coverage Level",
         "ar": "Coverage Level"
+      },
+      "businessContext_i18n": {
+        "en": "Coverage type: 1=Third party, 2=Third party fire & theft, 3=Comprehensive.",
+        "tr": "Teminat türü: 1=Üçüncü şahıs, 2=Üçüncü şahıs yangın ve hırsızlık, 3=Kapsamlı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Regional risk factor based on crime and accident statistics (1=lowest, 10=highest).",
       "label_i18n": {
         "en": "Region Risk Factor",
-        "tr": "Region Risk Factor",
+        "tr": "Bölge Risk Faktörü",
         "de": "Region Risk Factor",
         "fr": "Region Risk Factor",
         "es": "Region Risk Factor",
         "ar": "Region Risk Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Regional risk factor based on crime and accident statistics (1=lowest, 10=highest).",
+        "tr": "Suç ve kaza istatistiklerine dayalı bölgesel risk faktörü (1=en düşük, 10=en yüksek)."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Age of the vehicle; older cars may have different risk profiles.",
       "label_i18n": {
         "en": "Vehicle Age",
-        "tr": "Vehicle Age",
+        "tr": "Araç Yaşı",
         "de": "Vehicle Age",
         "fr": "Vehicle Age",
         "es": "Vehicle Age",
         "ar": "Vehicle Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the vehicle; older cars may have different risk profiles.",
+        "tr": "Aracın yaşı; eski arabalar farklı risk profillerine sahip olabilir."
       }
     }
   ],

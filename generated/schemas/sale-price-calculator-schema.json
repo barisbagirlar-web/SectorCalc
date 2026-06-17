@@ -10,11 +10,15 @@
       "businessContext": "The base cost of the product.",
       "label_i18n": {
         "en": "Cost Price",
-        "tr": "Cost Price",
+        "tr": "Maliyet Fiyatı",
         "de": "Cost Price",
         "fr": "Cost Price",
         "es": "Cost Price",
         "ar": "Cost Price"
+      },
+      "businessContext_i18n": {
+        "en": "The base cost of the product.",
+        "tr": "Ürünün taban maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage added to cost to determine initial selling price before discount and tax.",
       "label_i18n": {
         "en": "Markup Percentage",
-        "tr": "Markup Percentage",
+        "tr": "Kar Marjı Yüzdesi",
         "de": "Markup Percentage",
         "fr": "Markup Percentage",
         "es": "Markup Percentage",
         "ar": "Markup Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage added to cost to determine initial selling price before discount and tax.",
+        "tr": "Maliyete eklenen ve indirim ile vergi öncesi başlangıç satış fiyatını belirleyen yüzde."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage discount applied to the initial selling price before tax.",
       "label_i18n": {
         "en": "Discount",
-        "tr": "Discount",
+        "tr": "İndirim",
         "de": "Discount",
         "fr": "Discount",
         "es": "Discount",
         "ar": "Discount"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage discount applied to the initial selling price before tax.",
+        "tr": "Vergi öncesi başlangıç satış fiyatına uygulanan yüzde indirim."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sales tax rate applied to the discounted selling price.",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Sales tax rate applied to the discounted selling price.",
+        "tr": "İndirimli satış fiyatına uygulanan satış vergisi oranı."
       }
     }
   ],

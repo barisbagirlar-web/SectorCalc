@@ -10,11 +10,15 @@
       "businessContext": "Current age of the individual.",
       "label_i18n": {
         "en": "Current Age",
-        "tr": "Current Age",
+        "tr": "Mevcut Yaş",
         "de": "Current Age",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "Current age of the individual.",
+        "tr": "Bireyin mevcut yaşı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Gender: 0 for male, 1 for female. Used to apply life expectancy adjustment.",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Gender: 0 for male, 1 for female. Used to apply life expectancy adjustment.",
+        "tr": "Cinsiyet: 0 erkek, 1 kadın. Yaşam beklentisi düzeltmesi için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average life expectancy at birth for the country (e.g., from WHO data).",
       "label_i18n": {
         "en": "Country Life Expectancy at Birth",
-        "tr": "Country Life Expectancy at Birth",
+        "tr": "Ülke Doğumda Yaşam Beklentisi",
         "de": "Country Life Expectancy at Birth",
         "fr": "Country Life Expectancy at Birth",
         "es": "Country Life Expectancy at Birth",
         "ar": "Country Life Expectancy at Birth"
+      },
+      "businessContext_i18n": {
+        "en": "Average life expectancy at birth for the country (e.g., from WHO data).",
+        "tr": "Ülke için doğumda ortalama yaşam beklentisi (örneğin, WHO verilerinden)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for individual health relative to average (1.0 = average, <1 worse, >1 better).",
       "label_i18n": {
         "en": "Health Factor",
-        "tr": "Health Factor",
+        "tr": "Sağlık Faktörü",
         "de": "Health Factor",
         "fr": "Health Factor",
         "es": "Health Factor",
         "ar": "Health Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for individual health relative to average (1.0 = average, <1 worse, >1 better).",
+        "tr": "Bireysel sağlığın ortalamaya göre çarpanı (1.0 = ortalama, <1 kötü, >1 iyi)."
       }
     }
   ],

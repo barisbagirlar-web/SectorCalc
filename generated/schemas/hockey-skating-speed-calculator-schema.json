@@ -10,11 +10,15 @@
       "businessContext": "Distance covered during skating drill or game shift, in meters",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance covered during skating drill or game shift, in meters",
+        "tr": "Paten veya maç vardiyası sırasında kat edilen mesafe (metre)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time taken to cover the distance, in seconds",
       "label_i18n": {
         "en": "Time",
-        "tr": "Time",
+        "tr": "Zaman",
         "de": "Time",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time taken to cover the distance, in seconds",
+        "tr": "Mesafeyi kat etmek için geçen süre (saniye)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average length of one full skating stride, in meters",
       "label_i18n": {
         "en": "Stride Length",
-        "tr": "Stride Length",
+        "tr": "Adım Uzunluğu",
         "de": "Stride Length",
         "fr": "Stride Length",
         "es": "Stride Length",
         "ar": "Stride Length"
+      },
+      "businessContext_i18n": {
+        "en": "Average length of one full skating stride, in meters",
+        "tr": "Tam bir kayma adımının ortalama uzunluğu, metre cinsinden"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of strides per second (stride rate)",
       "label_i18n": {
         "en": "Stride Frequency",
-        "tr": "Stride Frequency",
+        "tr": "Adım Frekansı",
         "de": "Stride Frequency",
         "fr": "Stride Frequency",
         "es": "Stride Frequency",
         "ar": "Stride Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of strides per second (stride rate)",
+        "tr": "Saniyedeki adım sayısı (adım hızı)"
       }
     }
   ],

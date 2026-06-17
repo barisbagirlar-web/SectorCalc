@@ -10,11 +10,15 @@
       "businessContext": "The actual power consumed by the load, measured in kilowatts.",
       "label_i18n": {
         "en": "Real Power",
-        "tr": "Real Power",
+        "tr": "Aktif Güç",
         "de": "Real Power",
         "fr": "Real Power",
         "es": "Real Power",
         "ar": "Real Power"
+      },
+      "businessContext_i18n": {
+        "en": "The actual power consumed by the load, measured in kilowatts.",
+        "tr": "Yük tarafından tüketilen gerçek güç, kilovat cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The total power supplied to the load (vector sum of real and reactive power), measured in kilovolt-amperes.",
       "label_i18n": {
         "en": "Apparent Power",
-        "tr": "Apparent Power",
+        "tr": "Görünür Güç",
         "de": "Apparent Power",
         "fr": "Apparent Power",
         "es": "Apparent Power",
         "ar": "Apparent Power"
+      },
+      "businessContext_i18n": {
+        "en": "The total power supplied to the load (vector sum of real and reactive power), measured in kilovolt-amperes.",
+        "tr": "Yüke sağlanan toplam güç (aktif ve reaktif gücün vektörel toplamı), kilovolt-amper cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Supply voltage in volts (optional, used for VI-based apparent power calculation).",
       "label_i18n": {
         "en": "Voltage",
-        "tr": "Voltage",
+        "tr": "Voltaj",
         "de": "Voltage",
         "fr": "Voltage",
         "es": "Voltage",
         "ar": "Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Supply voltage in volts (optional, used for VI-based apparent power calculation).",
+        "tr": "Besleme gerilimi (volt, isteğe bağlı, VI tabanlı görünür güç hesaplaması için kullanılır)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Supply current in amperes (optional, used for VI-based apparent power calculation).",
       "label_i18n": {
         "en": "Current",
-        "tr": "Current",
+        "tr": "Akım",
         "de": "Current",
         "fr": "Current",
         "es": "Current",
         "ar": "Current"
+      },
+      "businessContext_i18n": {
+        "en": "Supply current in amperes (optional, used for VI-based apparent power calculation).",
+        "tr": "Besleme akımı (amper, isteğe bağlı, VI tabanlı görünür güç hesaplaması için kullanılır)."
       }
     }
   ],

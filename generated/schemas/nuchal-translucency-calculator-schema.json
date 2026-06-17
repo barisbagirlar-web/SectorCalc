@@ -10,11 +10,15 @@
       "businessContext": "Age of the mother in years",
       "label_i18n": {
         "en": "Maternal Age",
-        "tr": "Maternal Age",
+        "tr": "Anne Yaşı",
         "de": "Maternal Age",
         "fr": "Maternal Age",
         "es": "Maternal Age",
         "ar": "Maternal Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the mother in years",
+        "tr": "Annenin yaşı (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nuchal translucency thickness in millimeters",
       "label_i18n": {
         "en": "NT Measurement",
-        "tr": "NT Measurement",
+        "tr": "NT Ölçümü",
         "de": "NT Measurement",
         "fr": "NT Measurement",
         "es": "NT Measurement",
         "ar": "NT Measurement"
+      },
+      "businessContext_i18n": {
+        "en": "Nuchal translucency thickness in millimeters",
+        "tr": "Ense kalınlığı (milimetre)"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "CRL",
         "es": "CRL",
         "ar": "CRL"
+      },
+      "businessContext_i18n": {
+        "en": "Crown-rump length in millimeters for gestational age",
+        "tr": "Baş-popo uzunluğu (gebelik yaşı için milimetre)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Baseline risk from maternal age (e.g., 0.004 for 1 in 250)",
       "label_i18n": {
         "en": "Prior Risk",
-        "tr": "Prior Risk",
+        "tr": "Önceki Risk",
         "de": "Prior Risk",
         "fr": "Prior Risk",
         "es": "Prior Risk",
         "ar": "Prior Risk"
+      },
+      "businessContext_i18n": {
+        "en": "Baseline risk from maternal age (e.g., 0.004 for 1 in 250)",
+        "tr": "Anne yaşına bağlı temel risk (örneğin 1/250 için 0.004)"
       }
     }
   ],

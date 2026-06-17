@@ -10,11 +10,15 @@
       "businessContext": "The nominal value of the bond, paid at maturity.",
       "label_i18n": {
         "en": "Face Value",
-        "tr": "Face Value",
+        "tr": "Nominal Değer",
         "de": "Face Value",
         "fr": "Face Value",
         "es": "Face Value",
         "ar": "Face Value"
+      },
+      "businessContext_i18n": {
+        "en": "The nominal value of the bond, paid at maturity.",
+        "tr": "Tahvilin nominal değeri, vadesinde ödenir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual coupon rate as percentage of face value.",
       "label_i18n": {
         "en": "Coupon Rate",
-        "tr": "Coupon Rate",
+        "tr": "Kupon Oranı",
         "de": "Coupon Rate",
         "fr": "Coupon Rate",
         "es": "Coupon Rate",
         "ar": "Coupon Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual coupon rate as percentage of face value.",
+        "tr": "Nominal değerin yüzdesi olarak yıllık kupon oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of years until the bond matures.",
       "label_i18n": {
         "en": "Years to Maturity",
-        "tr": "Years to Maturity",
+        "tr": "Vadeye Kalan Yıl",
         "de": "Years to Maturity",
         "fr": "Years to Maturity",
         "es": "Years to Maturity",
         "ar": "Years to Maturity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years until the bond matures.",
+        "tr": "Tahvilin vadesine kalan yıl sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual discount rate (market interest rate) for the bond.",
       "label_i18n": {
         "en": "Yield to Maturity",
-        "tr": "Yield to Maturity",
+        "tr": "Vadeye Kadar Getiri",
         "de": "Yield to Maturity",
         "fr": "Yield to Maturity",
         "es": "Yield to Maturity",
         "ar": "Yield to Maturity"
+      },
+      "businessContext_i18n": {
+        "en": "Annual discount rate (market interest rate) for the bond.",
+        "tr": "Tahvil için yıllık iskonto oranı (piyasa faiz oranı)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of coupon payments per year (e.g., 2 for semiannual).",
       "label_i18n": {
         "en": "Coupon Frequency",
-        "tr": "Coupon Frequency",
+        "tr": "Kupon Sıklığı",
         "de": "Coupon Frequency",
         "fr": "Coupon Frequency",
         "es": "Coupon Frequency",
         "ar": "Coupon Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of coupon payments per year (e.g., 2 for semiannual).",
+        "tr": "Yıllık kupon ödemesi sayısı (örneğin altı aylık için 2)."
       }
     }
   ],

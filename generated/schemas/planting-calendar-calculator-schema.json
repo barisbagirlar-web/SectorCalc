@@ -10,11 +10,15 @@
       "businessContext": "Historical average last spring frost date (day of year, 1-365)",
       "label_i18n": {
         "en": "Last Spring Frost Day",
-        "tr": "Last Spring Frost Day",
+        "tr": "Son İlkbahar Don Günü",
         "de": "Last Spring Frost Day",
         "fr": "Last Spring Frost Day",
         "es": "Last Spring Frost Day",
         "ar": "Last Spring Frost Day"
+      },
+      "businessContext_i18n": {
+        "en": "Historical average last spring frost date (day of year, 1-365)",
+        "tr": "Tarihsel ortalama son ilkbahar don tarihi (yılın günü, 1-365)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Recommended safe days after last frost for soil warming",
       "label_i18n": {
         "en": "Planting Delay after Frost",
-        "tr": "Planting Delay after Frost",
+        "tr": "Dondan Sonra Dikim Gecikmesi",
         "de": "Planting Delay after Frost",
         "fr": "Planting Delay after Frost",
         "es": "Planting Delay after Frost",
         "ar": "Planting Delay after Frost"
+      },
+      "businessContext_i18n": {
+        "en": "Recommended safe days after last frost for soil warming",
+        "tr": "Toprak ısınması için dondan sonra önerilen güvenli gün sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minimum temperature for crop growth (growing degree day base)",
       "label_i18n": {
         "en": "Crop Base Temperature",
-        "tr": "Crop Base Temperature",
+        "tr": "Mahsul Taban Sıcaklığı",
         "de": "Crop Base Temperature",
         "fr": "Crop Base Temperature",
         "es": "Crop Base Temperature",
         "ar": "Crop Base Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum temperature for crop growth (growing degree day base)",
+        "tr": "Mahsul büyümesi için minimum sıcaklık (büyüme derece günü tabanı)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total growing degree days required from planting to harvest",
       "label_i18n": {
         "en": "Target GDD to Maturity",
-        "tr": "Target GDD to Maturity",
+        "tr": "Olgunlaşma için Hedef GDD",
         "de": "Target GDD to Maturity",
         "fr": "Target GDD to Maturity",
         "es": "Target GDD to Maturity",
         "ar": "Target GDD to Maturity"
+      },
+      "businessContext_i18n": {
+        "en": "Total growing degree days required from planting to harvest",
+        "tr": "Dikimden hasada kadar gereken toplam büyüme derece günü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Forecast average daily air temperature during growing season",
       "label_i18n": {
         "en": "Expected Daily Average Temp",
-        "tr": "Expected Daily Average Temp",
+        "tr": "Beklenen Günlük Ortalama Sıcaklık",
         "de": "Expected Daily Average Temp",
         "fr": "Expected Daily Average Temp",
         "es": "Expected Daily Average Temp",
         "ar": "Expected Daily Average Temp"
+      },
+      "businessContext_i18n": {
+        "en": "Forecast average daily air temperature during growing season",
+        "tr": "Büyüme mevsimi boyunca tahmini ortalama günlük hava sıcaklığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Measured soil temperature at seeding depth",
       "label_i18n": {
         "en": "Current Soil Temperature",
-        "tr": "Current Soil Temperature",
+        "tr": "Mevcut Toprak Sıcaklığı",
         "de": "Current Soil Temperature",
         "fr": "Current Soil Temperature",
         "es": "Current Soil Temperature",
         "ar": "Current Soil Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Measured soil temperature at seeding depth",
+        "tr": "Ekim derinliğinde ölçülen toprak sıcaklığı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Crop-specific minimum soil temperature for safe germination",
       "label_i18n": {
         "en": "Minimum Soil Temperature",
-        "tr": "Minimum Soil Temperature",
+        "tr": "Minimum Toprak Sıcaklığı",
         "de": "Minimum Soil Temperature",
         "fr": "Minimum Soil Temperature",
         "es": "Minimum Soil Temperature",
         "ar": "Minimum Soil Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Crop-specific minimum soil temperature for safe germination",
+        "tr": "Ürüne özel minimum toprak sıcaklığı (güvenli çimlenme için)"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Additional days to ensure full maturity and weather variability buffer",
       "label_i18n": {
         "en": "Harvest Safety Margin",
-        "tr": "Harvest Safety Margin",
+        "tr": "Hasat Güvenlik Marjı",
         "de": "Harvest Safety Margin",
         "fr": "Harvest Safety Margin",
         "es": "Harvest Safety Margin",
         "ar": "Harvest Safety Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Additional days to ensure full maturity and weather variability buffer",
+        "tr": "Tam olgunlaşma ve hava değişkenliği tamponu için ek günler"
       }
     }
   ],

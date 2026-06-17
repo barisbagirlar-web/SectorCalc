@@ -10,11 +10,15 @@
       "businessContext": "Total horizontal length of the fence line (meters).",
       "label_i18n": {
         "en": "Fence Length",
-        "tr": "Fence Length",
+        "tr": "Çit Uzunluğu",
         "de": "Fence Length",
         "fr": "Fence Length",
         "es": "Fence Length",
         "ar": "Fence Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total horizontal length of the fence line (meters).",
+        "tr": "Çit hattının toplam yatay uzunluğu (metre)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the fence from ground to top (meters).",
       "label_i18n": {
         "en": "Fence Height",
-        "tr": "Fence Height",
+        "tr": "Çit Yüksekliği",
         "de": "Fence Height",
         "fr": "Fence Height",
         "es": "Fence Height",
         "ar": "Fence Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the fence from ground to top (meters).",
+        "tr": "Çitin yerden tepeye kadar olan yüksekliği (metre)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of each individual fence board or picket (meters).",
       "label_i18n": {
         "en": "Picket Width",
-        "tr": "Picket Width",
+        "tr": "Çıta Genişliği",
         "de": "Picket Width",
         "fr": "Picket Width",
         "es": "Picket Width",
         "ar": "Picket Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of each individual fence board or picket (meters).",
+        "tr": "Her bir çit tahtasının veya çıtanın genişliği (metre)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Gap between adjacent pickets (meters). Use 0 for solid fence.",
       "label_i18n": {
         "en": "Picket Spacing",
-        "tr": "Picket Spacing",
+        "tr": "Çıta Aralığı",
         "de": "Picket Spacing",
         "fr": "Picket Spacing",
         "es": "Picket Spacing",
         "ar": "Picket Spacing"
+      },
+      "businessContext_i18n": {
+        "en": "Gap between adjacent pickets (meters). Use 0 for solid fence.",
+        "tr": "Bitişik çıtalar arasındaki boşluk (metre). Dolu çit için 0 kullanın."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Stain coverage area per liter as per manufacturer data (m² per L).",
       "label_i18n": {
         "en": "Coverage per Liter",
-        "tr": "Coverage per Liter",
+        "tr": "Litre Başına Kaplama",
         "de": "Coverage per Liter",
         "fr": "Coverage per Liter",
         "es": "Coverage per Liter",
         "ar": "Coverage per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Stain coverage area per liter as per manufacturer data (m² per L).",
+        "tr": "Üretici verilerine göre litre başına vernik kaplama alanı (m²/L)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of stain coats to apply (typ. 2 for durability).",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Number of Coats",
+        "tr": "Kat Sayısı",
         "de": "Number of Coats",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
+      },
+      "businessContext_i18n": {
+        "en": "Number of stain coats to apply (typ. 2 for durability).",
+        "tr": "Uygulanacak vernik kat sayısı (dayanıklılık için tipik olarak 2)."
       }
     }
   ],

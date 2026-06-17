@@ -10,11 +10,15 @@
       "businessContext": "Total monthly household income after taxes",
       "label_i18n": {
         "en": "Monthly Income",
-        "tr": "Monthly Income",
+        "tr": "Aylık Gelir",
         "de": "Monthly Income",
         "fr": "Monthly Income",
         "es": "Monthly Income",
         "ar": "Monthly Income"
+      },
+      "businessContext_i18n": {
+        "en": "Total monthly household income after taxes",
+        "tr": "Vergi sonrası toplam aylık hane geliri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Recommended percentage of income allocated to groceries",
       "label_i18n": {
         "en": "Grocery Budget Percentage",
-        "tr": "Grocery Budget Percentage",
+        "tr": "Market Bütçesi Yüzdesi",
         "de": "Grocery Budget Percentage",
         "fr": "Grocery Budget Percentage",
         "es": "Grocery Budget Percentage",
         "ar": "Grocery Budget Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Recommended percentage of income allocated to groceries",
+        "tr": "Gelirin market alışverişine ayrılması önerilen yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of individuals consuming groceries",
       "label_i18n": {
         "en": "Number of Household Members",
-        "tr": "Number of Household Members",
+        "tr": "Hane Halkı Sayısı",
         "de": "Number of Household Members",
         "fr": "Number of Household Members",
         "es": "Number of Household Members",
         "ar": "Number of Household Members"
+      },
+      "businessContext_i18n": {
+        "en": "Number of individuals consuming groceries",
+        "tr": "Market alışverişi yapan birey sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Extra fixed grocery spending (e.g., eating out, special diets)",
       "label_i18n": {
         "en": "Additional Grocery Expenses",
-        "tr": "Additional Grocery Expenses",
+        "tr": "Ek Market Giderleri",
         "de": "Additional Grocery Expenses",
         "fr": "Additional Grocery Expenses",
         "es": "Additional Grocery Expenses",
         "ar": "Additional Grocery Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Extra fixed grocery spending (e.g., eating out, special diets)",
+        "tr": "Sabit ek market harcamaları (örn. dışarıda yemek, özel diyetler)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total length of the joint to be caulked, in meters.",
       "label_i18n": {
         "en": "Joint Length",
-        "tr": "Joint Length",
+        "tr": "Derz Uzunluğu",
         "de": "Joint Length",
         "fr": "Joint Length",
         "es": "Joint Length",
         "ar": "Joint Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the joint to be caulked, in meters.",
+        "tr": "Derzlenen derzin toplam uzunluğu, metre cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the joint in millimeters.",
       "label_i18n": {
         "en": "Joint Width",
-        "tr": "Joint Width",
+        "tr": "Derz Genişliği",
         "de": "Joint Width",
         "fr": "Joint Width",
         "es": "Joint Width",
         "ar": "Joint Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the joint in millimeters.",
+        "tr": "Derz genişliği, milimetre cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Depth of the joint in millimeters. Typically, depth should be about half the width for proper adhesion.",
       "label_i18n": {
         "en": "Joint Depth",
-        "tr": "Joint Depth",
+        "tr": "Derz Derinliği",
         "de": "Joint Depth",
         "fr": "Joint Depth",
         "es": "Joint Depth",
         "ar": "Joint Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Depth of the joint in millimeters. Typically, depth should be about half the width for proper adhesion.",
+        "tr": "Derz derinliği, milimetre cinsinden. Tipik olarak, uygun yapışma için derinlik genişliğin yaklaşık yarısı kadar olmalıdır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Extra material added to account for waste, overfilling, and tooling. Typical range: 5-15%.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Extra material added to account for waste, overfilling, and tooling. Typical range: 5-15%.",
+        "tr": "Atık, aşırı doldurma ve şekillendirme için eklenen fazla malzeme. Tipik aralık: %5-15."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Volume of a single caulk tube in milliliters. Standard tubes are 310 mL.",
       "label_i18n": {
         "en": "Tube Volume",
-        "tr": "Tube Volume",
+        "tr": "Tüp Hacmi",
         "de": "Tube Volume",
         "fr": "Tube Volume",
         "es": "Tube Volume",
         "ar": "Tube Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of a single caulk tube in milliliters. Standard tubes are 310 mL.",
+        "tr": "Tek bir mastik tüpünün mililitre cinsinden hacmi. Standart tüpler 310 mL'dir."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of joints of identical dimensions to caulk.",
       "label_i18n": {
         "en": "Number of Joints",
-        "tr": "Number of Joints",
+        "tr": "Derz Sayısı",
         "de": "Number of Joints",
         "fr": "Number of Joints",
         "es": "Number of Joints",
         "ar": "Number of Joints"
+      },
+      "businessContext_i18n": {
+        "en": "Number of joints of identical dimensions to caulk.",
+        "tr": "Aynı boyutlarda derzlenecek derz sayısı."
       }
     }
   ],

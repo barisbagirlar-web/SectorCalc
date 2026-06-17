@@ -21,10 +21,12 @@
       "max": null,
       "businessContext": "Raw sample measurements from the process. At least 2 values required for calculation.",
       "label_i18n": {
-        "en": "Data Points (comma-separated)"
+        "en": "Data Points (comma-separated)",
+        "tr": "Veri Noktaları (virgülle ayrılmış)"
       },
       "businessContext_i18n": {
-        "en": "Raw sample measurements from the process. At least 2 values required for calculation."
+        "en": "Raw sample measurements from the process. At least 2 values required for calculation.",
+        "tr": "Prosesten alınan ham numune ölçümleri. Hesaplama için en az 2 değer gereklidir."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": null,
       "businessContext": "Target or historical mean of the process. If unknown, leave blank to use sample mean.",
       "label_i18n": {
-        "en": "Population Mean (μ)"
+        "en": "Population Mean (μ)",
+        "tr": "Popülasyon Ortalaması (μ)"
       },
       "businessContext_i18n": {
-        "en": "Target or historical mean of the process. If unknown, leave blank to use sample mean."
+        "en": "Target or historical mean of the process. If unknown, leave blank to use sample mean.",
+        "tr": "Prosesin hedef veya geçmiş ortalaması. Bilinmiyorsa, örneklem ortalamasını kullanmak için boş bırakın."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": null,
       "businessContext": "Known process standard deviation. If unknown, leave blank to use sample standard deviation.",
       "label_i18n": {
-        "en": "Population Standard Deviation (σ)"
+        "en": "Population Standard Deviation (σ)",
+        "tr": "Popülasyon Standart Sapması (σ)"
       },
       "businessContext_i18n": {
-        "en": "Known process standard deviation. If unknown, leave blank to use sample standard deviation."
+        "en": "Known process standard deviation. If unknown, leave blank to use sample standard deviation.",
+        "tr": "Bilinen proses standart sapması. Bilinmiyorsa, örneklem standart sapmasını kullanmak için boş bırakın."
       }
     },
     {
@@ -74,10 +80,12 @@
         "99"
       ],
       "label_i18n": {
-        "en": "Confidence Level"
+        "en": "Confidence Level",
+        "tr": "Güven Düzeyi"
       },
       "businessContext_i18n": {
-        "en": "Desired confidence level for interval estimation. Common values: 90%, 95%, 99%."
+        "en": "Desired confidence level for interval estimation. Common values: 90%, 95%, 99%.",
+        "tr": "Aralık tahmini için istenen güven düzeyi. Yaygın değerler: %90, %95, %99."
       }
     },
     {
@@ -95,10 +103,12 @@
         "one-tailed-lower"
       ],
       "label_i18n": {
-        "en": "Tail Type"
+        "en": "Tail Type",
+        "tr": "Kuyruk Türü"
       },
       "businessContext_i18n": {
-        "en": "Specifies whether the test is one-tailed (upper/lower) or two-tailed."
+        "en": "Specifies whether the test is one-tailed (upper/lower) or two-tailed.",
+        "tr": "Testin tek kuyruklu (üst/alt) veya çift kuyruklu olduğunu belirtir."
       }
     },
     {
@@ -111,10 +121,12 @@
       "max": null,
       "businessContext": "When true, the calculator will estimate σ from the sample data using Bessel's correction.",
       "label_i18n": {
-        "en": "Use Sample Standard Deviation (if σ unknown)"
+        "en": "Use Sample Standard Deviation (if σ unknown)",
+        "tr": "Örneklem Standart Sapmasını Kullan (σ bilinmiyorsa)"
       },
       "businessContext_i18n": {
-        "en": "When true, the calculator will estimate σ from the sample data using Bessel's correction."
+        "en": "When true, the calculator will estimate σ from the sample data using Bessel's correction.",
+        "tr": "Doğru olduğunda, hesaplama aracı σ'yı Bessel düzeltmesi kullanarak örneklem verisinden tahmin eder."
       }
     }
   ],

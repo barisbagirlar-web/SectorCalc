@@ -10,11 +10,15 @@
       "businessContext": "Safety stock calculation",
       "label_i18n": {
         "en": "Service Level Z-score",
-        "tr": "Service Level Z-score",
+        "tr": "Hizmet Seviyesi Z-puanı",
         "de": "Service Level Z-score",
         "fr": "Service Level Z-score",
         "es": "Service Level Z-score",
         "ar": "Service Level Z-score"
+      },
+      "businessContext_i18n": {
+        "en": "Safety stock calculation",
+        "tr": "Emniyet stoğu hesaplama"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Demand per time period",
       "label_i18n": {
         "en": "Average Demand",
-        "tr": "Average Demand",
+        "tr": "Ortalama Talep",
         "de": "Average Demand",
         "fr": "Average Demand",
         "es": "Average Demand",
         "ar": "Average Demand"
+      },
+      "businessContext_i18n": {
+        "en": "Demand per time period",
+        "tr": "Zaman periyodu başına talep"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Demand variability",
       "label_i18n": {
         "en": "Demand Standard Deviation",
-        "tr": "Demand Standard Deviation",
+        "tr": "Talep Standart Sapması",
         "de": "Demand Standard Deviation",
         "fr": "Demand Standard Deviation",
         "es": "Demand Standard Deviation",
         "ar": "Demand Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Demand variability",
+        "tr": "Talep değişkenliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Replenishment lead time",
       "label_i18n": {
         "en": "Average Lead Time",
-        "tr": "Average Lead Time",
+        "tr": "Ortalama Tedarik Süresi",
         "de": "Average Lead Time",
         "fr": "Average Lead Time",
         "es": "Average Lead Time",
         "ar": "Average Lead Time"
+      },
+      "businessContext_i18n": {
+        "en": "Replenishment lead time",
+        "tr": "Tedarik süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Lead time variability",
       "label_i18n": {
         "en": "Lead Time Standard Deviation",
-        "tr": "Lead Time Standard Deviation",
+        "tr": "Tedarik Süresi Standart Sapması",
         "de": "Lead Time Standard Deviation",
         "fr": "Lead Time Standard Deviation",
         "es": "Lead Time Standard Deviation",
         "ar": "Lead Time Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Lead time variability",
+        "tr": "Tedarik süresi değişkenliği"
       }
     }
   ],

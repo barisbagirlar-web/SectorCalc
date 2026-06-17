@@ -10,11 +10,15 @@
       "businessContext": "Volumetric flow rate of fluid through the pipe",
       "label_i18n": {
         "en": "Flow Rate (Q)",
-        "tr": "Flow Rate (Q)",
+        "tr": "Debi (Q)",
         "de": "Flow Rate (Q)",
         "fr": "Flow Rate (Q)",
         "es": "Flow Rate (Q)",
         "ar": "Flow Rate (Q)"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of fluid through the pipe",
+        "tr": "Borudan geçen akışkanın hacimsel debisi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Pressure difference along the pipe length",
       "label_i18n": {
         "en": "Pressure Drop (ΔP)",
-        "tr": "Pressure Drop (ΔP)",
+        "tr": "Basınç Düşüşü (ΔP)",
         "de": "Pressure Drop (ΔP)",
         "fr": "Pressure Drop (ΔP)",
         "es": "Pressure Drop (ΔP)",
         "ar": "Pressure Drop (ΔP)"
+      },
+      "businessContext_i18n": {
+        "en": "Pressure difference along the pipe length",
+        "tr": "Boru boyunca basınç farkı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Internal diameter of the pipe",
       "label_i18n": {
         "en": "Pipe Diameter (D)",
-        "tr": "Pipe Diameter (D)",
+        "tr": "Boru Çapı (D)",
         "de": "Pipe Diameter (D)",
         "fr": "Pipe Diameter (D)",
         "es": "Pipe Diameter (D)",
         "ar": "Pipe Diameter (D)"
+      },
+      "businessContext_i18n": {
+        "en": "Internal diameter of the pipe",
+        "tr": "Boru iç çapı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Length of the pipe section over which pressure drop is measured",
       "label_i18n": {
         "en": "Pipe Length (L)",
-        "tr": "Pipe Length (L)",
+        "tr": "Boru Uzunluğu (L)",
         "de": "Pipe Length (L)",
         "fr": "Pipe Length (L)",
         "es": "Pipe Length (L)",
         "ar": "Pipe Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the pipe section over which pressure drop is measured",
+        "tr": "Basınç düşüşünün ölçüldüğü boru bölümünün uzunluğu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Density of the fluid",
       "label_i18n": {
         "en": "Fluid Density (ρ)",
-        "tr": "Fluid Density (ρ)",
+        "tr": "Akışkan Yoğunluğu (ρ)",
         "de": "Fluid Density (ρ)",
         "fr": "Fluid Density (ρ)",
         "es": "Fluid Density (ρ)",
         "ar": "Fluid Density (ρ)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluid",
+        "tr": "Akışkan yoğunluğu"
       }
     }
   ],

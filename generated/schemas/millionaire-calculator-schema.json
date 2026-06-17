@@ -10,11 +10,15 @@
       "businessContext": "Lump sum amount already invested",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Lump sum amount already invested",
+        "tr": "Halihazırda yatırılmış toplu miktar"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount contributed each month to the investment",
       "label_i18n": {
         "en": "Monthly Contribution",
-        "tr": "Monthly Contribution",
+        "tr": "Aylık Katkı",
         "de": "Monthly Contribution",
         "fr": "Monthly Contribution",
         "es": "Monthly Contribution",
         "ar": "Monthly Contribution"
+      },
+      "businessContext_i18n": {
+        "en": "Amount contributed each month to the investment",
+        "tr": "Yatırıma her ay eklenen miktar"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected annual rate of return on investment (e.g., 7 for 7%)",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual rate of return on investment (e.g., 7 for 7%)",
+        "tr": "Yatırımdan beklenen yıllık getiri oranı (örneğin %7 için 7)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of years the money will be invested",
       "label_i18n": {
         "en": "Investment Horizon",
-        "tr": "Investment Horizon",
+        "tr": "Yatırım Süresi",
         "de": "Investment Horizon",
         "fr": "Investment Horizon",
         "es": "Investment Horizon",
         "ar": "Investment Horizon"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the money will be invested",
+        "tr": "Paranın yatırılacağı yıl sayısı"
       }
     }
   ],

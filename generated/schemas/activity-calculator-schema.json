@@ -10,11 +10,15 @@
       "businessContext": "The actual number of units produced.",
       "label_i18n": {
         "en": "Actual Output",
-        "tr": "Actual Output",
+        "tr": "Gerçek Çıktı",
         "de": "Actual Output",
         "fr": "Actual Output",
         "es": "Actual Output",
         "ar": "Actual Output"
+      },
+      "businessContext_i18n": {
+        "en": "The actual number of units produced.",
+        "tr": "Üretilen gerçek birim sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The target number of units to be produced.",
       "label_i18n": {
         "en": "Planned Output",
-        "tr": "Planned Output",
+        "tr": "Planlanan Çıktı",
         "de": "Planned Output",
         "fr": "Planned Output",
         "es": "Planned Output",
         "ar": "Planned Output"
+      },
+      "businessContext_i18n": {
+        "en": "The target number of units to be produced.",
+        "tr": "Üretilmesi hedeflenen birim sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total time available for production.",
       "label_i18n": {
         "en": "Available Time",
-        "tr": "Available Time",
+        "tr": "Kullanılabilir Süre",
         "de": "Available Time",
         "fr": "Available Time",
         "es": "Available Time",
         "ar": "Available Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total time available for production.",
+        "tr": "Üretim için toplam kullanılabilir süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Unplanned stoppages or idle time.",
       "label_i18n": {
         "en": "Downtime",
-        "tr": "Downtime",
+        "tr": "Durma Süresi",
         "de": "Downtime",
         "fr": "Downtime",
         "es": "Downtime",
         "ar": "Downtime"
+      },
+      "businessContext_i18n": {
+        "en": "Unplanned stoppages or idle time.",
+        "tr": "Plansız duruşlar veya boşta geçen süre."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Time required to produce one unit.",
       "label_i18n": {
         "en": "Cycle Time per Unit",
-        "tr": "Cycle Time per Unit",
+        "tr": "Birim Başına Çevrim Süresi",
         "de": "Cycle Time per Unit",
         "fr": "Cycle Time per Unit",
         "es": "Cycle Time per Unit",
         "ar": "Cycle Time per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to produce one unit.",
+        "tr": "Bir birimi üretmek için gereken süre."
       }
     }
   ],

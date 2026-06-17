@@ -10,11 +10,15 @@
       "businessContext": "Total number of words in the text to analyze.",
       "label_i18n": {
         "en": "Total Words",
-        "tr": "Total Words",
+        "tr": "Toplam Kelime",
         "de": "Total Words",
         "fr": "Total Words",
         "es": "Total Words",
         "ar": "Total Words"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of words in the text to analyze.",
+        "tr": "Analiz edilecek metindeki toplam kelime sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of sentences in the text.",
       "label_i18n": {
         "en": "Total Sentences",
-        "tr": "Total Sentences",
+        "tr": "Toplam Cümle",
         "de": "Total Sentences",
         "fr": "Total Sentences",
         "es": "Total Sentences",
         "ar": "Total Sentences"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of sentences in the text.",
+        "tr": "Metindeki toplam cümle sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of syllables across all words.",
       "label_i18n": {
         "en": "Total Syllables",
-        "tr": "Total Syllables",
+        "tr": "Toplam Hece",
         "de": "Total Syllables",
         "fr": "Total Syllables",
         "es": "Total Syllables",
         "ar": "Total Syllables"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of syllables across all words.",
+        "tr": "Tüm kelimelerdeki toplam hece sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total character count including spaces; used to compute average characters per word.",
       "label_i18n": {
         "en": "Total Characters (with spaces)",
-        "tr": "Total Characters (with spaces)",
+        "tr": "Toplam Karakter (boşluklu)",
         "de": "Total Characters (with spaces)",
         "fr": "Total Characters (with spaces)",
         "es": "Total Characters (with spaces)",
         "ar": "Total Characters (with spaces)"
+      },
+      "businessContext_i18n": {
+        "en": "Total character count including spaces; used to compute average characters per word.",
+        "tr": "Boşluklar dahil toplam karakter sayısı; kelime başına ortalama karakter hesaplamak için kullanılır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total number of users or licenses under subscription",
       "label_i18n": {
         "en": "Number of Users",
-        "tr": "Number of Users",
+        "tr": "Kullanıcı Sayısı",
         "de": "Number of Users",
         "fr": "Number of Users",
         "es": "Number of Users",
         "ar": "Number of Users"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of users or licenses under subscription",
+        "tr": "Abonelik altındaki toplam kullanıcı veya lisans sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Monthly subscription cost per user",
       "label_i18n": {
         "en": "Price per User (Monthly)",
-        "tr": "Price per User (Monthly)",
+        "tr": "Kullanıcı Başına Fiyat (Aylık)",
         "de": "Price per User (Monthly)",
         "fr": "Price per User (Monthly)",
         "es": "Price per User (Monthly)",
         "ar": "Price per User (Monthly)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly subscription cost per user",
+        "tr": "Kullanıcı başına aylık abonelik maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of months for the subscription period",
       "label_i18n": {
         "en": "Subscription Duration (Months)",
-        "tr": "Subscription Duration (Months)",
+        "tr": "Abonelik Süresi (Ay)",
         "de": "Subscription Duration (Months)",
         "fr": "Subscription Duration (Months)",
         "es": "Subscription Duration (Months)",
         "ar": "Subscription Duration (Months)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months for the subscription period",
+        "tr": "Abonelik dönemi için ay sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Overall discount percentage applied to subtotal",
       "label_i18n": {
         "en": "Discount Percentage",
-        "tr": "Discount Percentage",
+        "tr": "İndirim Yüzdesi",
         "de": "Discount Percentage",
         "fr": "Discount Percentage",
         "es": "Discount Percentage",
         "ar": "Discount Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Overall discount percentage applied to subtotal",
+        "tr": "Ara toplama uygulanan genel indirim yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Tax rate (e.g., VAT) applied after discount",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate (e.g., VAT) applied after discount",
+        "tr": "İndirimden sonra uygulanan vergi oranı (örn. KDV)"
       }
     }
   ],

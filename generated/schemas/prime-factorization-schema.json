@@ -10,11 +10,15 @@
       "businessContext": "The integer to be decomposed into prime factors.",
       "label_i18n": {
         "en": "Number to Factorize",
-        "tr": "Number to Factorize",
+        "tr": "Çarpanlara Ayrılacak Sayı",
         "de": "Number to Factorize",
         "fr": "Number to Factorize",
         "es": "Number to Factorize",
         "ar": "Number to Factorize"
+      },
+      "businessContext_i18n": {
+        "en": "The integer to be decomposed into prime factors.",
+        "tr": "Asal çarpanlarına ayrılacak tam sayı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Safety limit to prevent infinite loops for large numbers.",
       "label_i18n": {
         "en": "Max Iterations",
-        "tr": "Max Iterations",
+        "tr": "Maksimum İterasyon",
         "de": "Max Iterations",
         "fr": "Max Iterations",
         "es": "Max Iterations",
         "ar": "Max Iterations"
+      },
+      "businessContext_i18n": {
+        "en": "Safety limit to prevent infinite loops for large numbers.",
+        "tr": "Büyük sayılar için sonsuz döngüyü önleyen güvenlik sınırı."
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

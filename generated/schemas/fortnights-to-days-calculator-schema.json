@@ -15,6 +15,10 @@
         "fr": "Fortnights",
         "es": "Fortnights",
         "ar": "Fortnights"
+      },
+      "businessContext_i18n": {
+        "en": "Number of fortnights to convert",
+        "tr": "Dönüştürülecek fortnights sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor, standard 14 days per fortnight",
       "label_i18n": {
         "en": "Days per Fortnight",
-        "tr": "Days per Fortnight",
+        "tr": "Fortnight başına gün",
         "de": "Days per Fortnight",
         "fr": "Days per Fortnight",
         "es": "Days per Fortnight",
         "ar": "Days per Fortnight"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor, standard 14 days per fortnight",
+        "tr": "Dönüşüm faktörü, standart 14 gün/fortnight"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounded output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounded output",
+        "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for bulk conversions (e.g., number of projects)",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for bulk conversions (e.g., number of projects)",
+        "tr": "Toplu dönüşümler için çarpan (örneğin, proje sayısı)"
       }
     }
   ],

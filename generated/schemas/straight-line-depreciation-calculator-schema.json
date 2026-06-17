@@ -10,11 +10,15 @@
       "businessContext": "Initial cost of the asset, including purchase price, installation, and delivery.",
       "label_i18n": {
         "en": "Asset Cost",
-        "tr": "Asset Cost",
+        "tr": "Varlık Maliyeti",
         "de": "Asset Cost",
         "fr": "Asset Cost",
         "es": "Asset Cost",
         "ar": "Asset Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Initial cost of the asset, including purchase price, installation, and delivery.",
+        "tr": "Varlığın satın alma fiyatı, kurulum ve nakliye dahil ilk maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated residual value of the asset at the end of its useful life.",
       "label_i18n": {
         "en": "Salvage Value",
-        "tr": "Salvage Value",
+        "tr": "Hurda Değeri",
         "de": "Salvage Value",
         "fr": "Salvage Value",
         "es": "Salvage Value",
         "ar": "Salvage Value"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated residual value of the asset at the end of its useful life.",
+        "tr": "Varlığın faydalı ömrü sonunda tahmini kalıntı değeri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected duration the asset will be productive, in years.",
       "label_i18n": {
         "en": "Useful Life",
-        "tr": "Useful Life",
+        "tr": "Faydalı Ömür",
         "de": "Useful Life",
         "fr": "Useful Life",
         "es": "Useful Life",
         "ar": "Useful Life"
+      },
+      "businessContext_i18n": {
+        "en": "Expected duration the asset will be productive, in years.",
+        "tr": "Varlığın üretken olması beklenen süre, yıl cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of years the asset has been in use, used to compute accumulated depreciation and book value.",
       "label_i18n": {
         "en": "Years Elapsed",
-        "tr": "Years Elapsed",
+        "tr": "Geçen Yıllar",
         "de": "Years Elapsed",
         "fr": "Years Elapsed",
         "es": "Years Elapsed",
         "ar": "Years Elapsed"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the asset has been in use, used to compute accumulated depreciation and book value.",
+        "tr": "Varlığın kullanımda olduğu yıl sayısı, birikmiş amortisman ve defter değerini hesaplamak için kullanılır."
       }
     }
   ],

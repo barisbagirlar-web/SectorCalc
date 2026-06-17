@@ -10,11 +10,15 @@
       "businessContext": "Mass of the substance undergoing entropy change",
       "label_i18n": {
         "en": "Mass (m)",
-        "tr": "Mass (m)",
+        "tr": "Kütle (m)",
         "de": "Mass (m)",
         "fr": "Mass (m)",
         "es": "Mass (m)",
         "ar": "Mass (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the substance undergoing entropy change",
+        "tr": "Entropi değişimine uğrayan maddenin kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Specific heat capacity at constant pressure",
       "label_i18n": {
         "en": "Specific Heat Capacity (Cp)",
-        "tr": "Specific Heat Capacity (Cp)",
+        "tr": "Özgül Isı Kapasitesi (Cp)",
         "de": "Specific Heat Capacity (Cp)",
         "fr": "Specific Heat Capacity (Cp)",
         "es": "Specific Heat Capacity (Cp)",
         "ar": "Specific Heat Capacity (Cp)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific heat capacity at constant pressure",
+        "tr": "Sabit basınçta özgül ısı kapasitesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Initial absolute temperature",
       "label_i18n": {
         "en": "Initial Temperature",
-        "tr": "Initial Temperature",
+        "tr": "Başlangıç Sıcaklığı",
         "de": "Initial Temperature",
         "fr": "Initial Temperature",
         "es": "Initial Temperature",
         "ar": "Initial Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Initial absolute temperature",
+        "tr": "Başlangıç mutlak sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Final absolute temperature",
       "label_i18n": {
         "en": "Final Temperature",
-        "tr": "Final Temperature",
+        "tr": "Son Sıcaklık",
         "de": "Final Temperature",
         "fr": "Final Temperature",
         "es": "Final Temperature",
         "ar": "Final Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Final absolute temperature",
+        "tr": "Son mutlak sıcaklığı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Patient age in years. Used in Hofstetter's formulas for accommodative amplitude.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age in years. Used in Hofstetter's formulas for accommodative amplitude.",
+        "tr": "Hastanın yaşı (yıl cinsinden). Hofstetter formüllerinde akomodasyon genliği için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Refractive error in diopters (D). Negative for myopia, positive for hyperopia. Typically the distance prescription.",
       "label_i18n": {
         "en": "Refractive Error",
-        "tr": "Refractive Error",
+        "tr": "Kırma Kusuru",
         "de": "Refractive Error",
         "fr": "Refractive Error",
         "es": "Refractive Error",
         "ar": "Refractive Error"
+      },
+      "businessContext_i18n": {
+        "en": "Refractive error in diopters (D). Negative for myopia, positive for hyperopia. Typically the distance prescription.",
+        "tr": "Diyoptri (D) cinsinden kırma kusuru. Miyopi için negatif, hipermetropi için pozitif. Genellikle uzak gözlük reçetesidir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Select method for calculating accommodative amplitude. 1: Hofstetter minimum (15 - 0.25*age), 2: Hofstetter average (18.5 - 0.30*age), 3: Hofstetter maximum (25 - 0.40*age), 0: Direct input using 'directAmplitude'.",
       "label_i18n": {
         "en": "Amplitude Method",
-        "tr": "Amplitude Method",
+        "tr": "Genlik Yöntemi",
         "de": "Amplitude Method",
         "fr": "Amplitude Method",
         "es": "Amplitude Method",
         "ar": "Amplitude Method"
+      },
+      "businessContext_i18n": {
+        "en": "Select method for calculating accommodative amplitude. 1: Hofstetter minimum (15 - 0.25*age), 2: Hofstetter average (18.5 - 0.30*age), 3: Hofstetter maximum (25 - 0.40*age), 0: Direct input using 'directAmplitude'.",
+        "tr": "Akomodatif genlik hesaplama yöntemini seçin. 1: Hofstetter minimum (15 - 0.25*yaş), 2: Hofstetter ortalama (18.5 - 0.30*yaş), 3: Hofstetter maksimum (25 - 0.40*yaş), 0: 'directAmplitude' kullanarak doğrudan giriş."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Direct accommodative amplitude in diopters (D). Used only when Amplitude Method is 0.",
       "label_i18n": {
         "en": "Direct Amplitude",
-        "tr": "Direct Amplitude",
+        "tr": "Doğrudan Genlik",
         "de": "Direct Amplitude",
         "fr": "Direct Amplitude",
         "es": "Direct Amplitude",
         "ar": "Direct Amplitude"
+      },
+      "businessContext_i18n": {
+        "en": "Direct accommodative amplitude in diopters (D). Used only when Amplitude Method is 0.",
+        "tr": "Diyoptri (D) cinsinden doğrudan akomodatif genlik. Yalnızca Genlik Yöntemi 0 olduğunda kullanılır."
       }
     }
   ],

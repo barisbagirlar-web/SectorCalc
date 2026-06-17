@@ -10,11 +10,15 @@
       "businessContext": "Rated power consumption of the refrigerator compressor when active",
       "label_i18n": {
         "en": "Compressor Power",
-        "tr": "Compressor Power",
+        "tr": "Kompresör Gücü",
         "de": "Compressor Power",
         "fr": "Compressor Power",
         "es": "Compressor Power",
         "ar": "Compressor Power"
+      },
+      "businessContext_i18n": {
+        "en": "Rated power consumption of the refrigerator compressor when active",
+        "tr": "Soğutucu kompresörün aktifken anma güç tüketimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of time the compressor runs",
       "label_i18n": {
         "en": "Duty Cycle",
-        "tr": "Duty Cycle",
+        "tr": "Görev Çevrimi",
         "de": "Duty Cycle",
         "fr": "Duty Cycle",
         "es": "Duty Cycle",
         "ar": "Duty Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of time the compressor runs",
+        "tr": "Kompresörün çalışma süresi yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of days the refrigerator is in operation annually",
       "label_i18n": {
         "en": "Operating Days per Year",
-        "tr": "Operating Days per Year",
+        "tr": "Yıllık Çalışma Günü Sayısı",
         "de": "Operating Days per Year",
         "fr": "Operating Days per Year",
         "es": "Operating Days per Year",
         "ar": "Operating Days per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days the refrigerator is in operation annually",
+        "tr": "Soğutucunun yıllık çalışma günü sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of electricity per kilowatt-hour",
       "label_i18n": {
         "en": "Electricity Cost",
-        "tr": "Electricity Cost",
+        "tr": "Elektrik Maliyeti",
         "de": "Electricity Cost",
         "fr": "Electricity Cost",
         "es": "Electricity Cost",
         "ar": "Electricity Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kilowatt-hour",
+        "tr": "Kilovatsaat başına elektrik maliyeti"
       }
     }
   ],

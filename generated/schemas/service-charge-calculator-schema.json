@@ -10,11 +10,15 @@
       "businessContext": "The total bill amount before service charge and taxes.",
       "label_i18n": {
         "en": "Bill Subtotal",
-        "tr": "Bill Subtotal",
+        "tr": "Fatura Ara Toplamı",
         "de": "Bill Subtotal",
         "fr": "Bill Subtotal",
         "es": "Bill Subtotal",
         "ar": "Bill Subtotal"
+      },
+      "businessContext_i18n": {
+        "en": "The total bill amount before service charge and taxes.",
+        "tr": "Hizmet bedeli ve vergilerden önceki toplam fatura tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Common service charge rate, e.g., 18% for large parties.",
       "label_i18n": {
         "en": "Service Charge Rate",
-        "tr": "Service Charge Rate",
+        "tr": "Hizmet Bedeli Oranı",
         "de": "Service Charge Rate",
         "fr": "Service Charge Rate",
         "es": "Service Charge Rate",
         "ar": "Service Charge Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Common service charge rate, e.g., 18% for large parties.",
+        "tr": "Yaygın hizmet bedeli oranı, örn. büyük gruplar için %18."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "A minimum service charge to be applied regardless of percentage.",
       "label_i18n": {
         "en": "Minimum Service Charge",
-        "tr": "Minimum Service Charge",
+        "tr": "Minimum Hizmet Bedeli",
         "de": "Minimum Service Charge",
         "fr": "Minimum Service Charge",
         "es": "Minimum Service Charge",
         "ar": "Minimum Service Charge"
+      },
+      "businessContext_i18n": {
+        "en": "A minimum service charge to be applied regardless of percentage.",
+        "tr": "Yüzdeye bakılmaksızın uygulanacak minimum hizmet bedeli."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of people in the party; some restaurants apply service charge only for parties above a threshold.",
       "label_i18n": {
         "en": "Party Size",
-        "tr": "Party Size",
+        "tr": "Grup Büyüklüğü",
         "de": "Party Size",
         "fr": "Party Size",
         "es": "Party Size",
         "ar": "Party Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of people in the party; some restaurants apply service charge only for parties above a threshold.",
+        "tr": "Gruptaki kişi sayısı; bazı restoranlar hizmet bedelini yalnızca belirli bir eşiğin üzerindeki gruplara uygular."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "If party size is above this threshold, service charge is mandatory.",
       "label_i18n": {
         "en": "Service Charge Threshold",
-        "tr": "Service Charge Threshold",
+        "tr": "Hizmet Bedeli Eşiği",
         "de": "Service Charge Threshold",
         "fr": "Service Charge Threshold",
         "es": "Service Charge Threshold",
         "ar": "Service Charge Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "If party size is above this threshold, service charge is mandatory.",
+        "tr": "Grup büyüklüğü bu eşiğin üzerindeyse hizmet bedeli zorunludur."
       }
     }
   ],

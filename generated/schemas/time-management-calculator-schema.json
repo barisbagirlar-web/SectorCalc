@@ -10,11 +10,15 @@
       "businessContext": "Total number of tasks to complete",
       "label_i18n": {
         "en": "Total number of tasks",
-        "tr": "Total number of tasks",
+        "tr": "Toplam görev sayısı",
         "de": "Total number of tasks",
         "fr": "Total number of tasks",
         "es": "Total number of tasks",
         "ar": "Total number of tasks"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of tasks to complete",
+        "tr": "Tamamlanacak toplam görev sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average time to complete one task (minutes)",
       "label_i18n": {
         "en": "Time per task",
-        "tr": "Time per task",
+        "tr": "Görev başına süre",
         "de": "Time per task",
         "fr": "Time per task",
         "es": "Time per task",
         "ar": "Time per task"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to complete one task (minutes)",
+        "tr": "Bir görevi tamamlamak için ortalama süre (dakika)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of workers available",
       "label_i18n": {
         "en": "Number of workers",
-        "tr": "Number of workers",
+        "tr": "İşçi sayısı",
         "de": "Number of workers",
         "fr": "Number of workers",
         "es": "Number of workers",
         "ar": "Number of workers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of workers available",
+        "tr": "Mevcut işçi sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Worker efficiency as a percentage (100% = full efficiency)",
       "label_i18n": {
         "en": "Efficiency",
-        "tr": "Efficiency",
+        "tr": "Verim",
         "de": "Efficiency",
         "fr": "Efficiency",
         "es": "Efficiency",
         "ar": "Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Worker efficiency as a percentage (100% = full efficiency)",
+        "tr": "İşçi verimliliği yüzde olarak (%100 = tam verim)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total break time per worker per day (minutes)",
       "label_i18n": {
         "en": "Break time per day",
-        "tr": "Break time per day",
+        "tr": "Günlük mola süresi",
         "de": "Break time per day",
         "fr": "Break time per day",
         "es": "Break time per day",
         "ar": "Break time per day"
+      },
+      "businessContext_i18n": {
+        "en": "Total break time per worker per day (minutes)",
+        "tr": "İşçi başına günlük toplam mola süresi (dakika)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Standard working hours per day",
       "label_i18n": {
         "en": "Working hours per day",
-        "tr": "Working hours per day",
+        "tr": "Günlük çalışma saati",
         "de": "Working hours per day",
         "fr": "Working hours per day",
         "es": "Working hours per day",
         "ar": "Working hours per day"
+      },
+      "businessContext_i18n": {
+        "en": "Standard working hours per day",
+        "tr": "Standart günlük çalışma saati"
       }
     }
   ],

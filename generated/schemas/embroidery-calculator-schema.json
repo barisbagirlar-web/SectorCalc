@@ -10,11 +10,15 @@
       "businessContext": "Width of the embroidery design in centimeters.",
       "label_i18n": {
         "en": "Design Width",
-        "tr": "Design Width",
+        "tr": "Tasarım Genişliği",
         "de": "Design Width",
         "fr": "Design Width",
         "es": "Design Width",
         "ar": "Design Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the embroidery design in centimeters.",
+        "tr": "Nakış tasarımının santimetre cinsinden genişliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the embroidery design in centimeters.",
       "label_i18n": {
         "en": "Design Height",
-        "tr": "Design Height",
+        "tr": "Tasarım Yüksekliği",
         "de": "Design Height",
         "fr": "Design Height",
         "es": "Design Height",
         "ar": "Design Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the embroidery design in centimeters.",
+        "tr": "Nakış tasarımının santimetre cinsinden yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average number of stitches per square centimeter for the design.",
       "label_i18n": {
         "en": "Stitch Density",
-        "tr": "Stitch Density",
+        "tr": "Dikiş Yoğunluğu",
         "de": "Stitch Density",
         "fr": "Stitch Density",
         "es": "Stitch Density",
         "ar": "Stitch Density"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of stitches per square centimeter for the design.",
+        "tr": "Tasarım için santimetrekare başına ortalama dikiş sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Meters of thread consumed per 1000 stitches, based on stitch type and thread weight.",
       "label_i18n": {
         "en": "Thread Consumption Factor",
-        "tr": "Thread Consumption Factor",
+        "tr": "İplik Tüketim Faktörü",
         "de": "Thread Consumption Factor",
         "fr": "Thread Consumption Factor",
         "es": "Thread Consumption Factor",
         "ar": "Thread Consumption Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Meters of thread consumed per 1000 stitches, based on stitch type and thread weight.",
+        "tr": "Dikiş tipi ve iplik ağırlığına bağlı olarak 1000 dikiş başına tüketilen metre cinsinden iplik."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of thread per meter in your local currency.",
       "label_i18n": {
         "en": "Thread Cost per Meter",
-        "tr": "Thread Cost per Meter",
+        "tr": "İplik Metre Başına Maliyet",
         "de": "Thread Cost per Meter",
         "fr": "Thread Cost per Meter",
         "es": "Thread Cost per Meter",
         "ar": "Thread Cost per Meter"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of thread per meter in your local currency.",
+        "tr": "Yerel para biriminizde metre başına iplik maliyeti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average machine speed in stitches per minute, including downtime.",
       "label_i18n": {
         "en": "Machine Efficiency",
-        "tr": "Machine Efficiency",
+        "tr": "Makine Verimliliği",
         "de": "Machine Efficiency",
         "fr": "Machine Efficiency",
         "es": "Machine Efficiency",
         "ar": "Machine Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Average machine speed in stitches per minute, including downtime.",
+        "tr": "Duruşlar dahil makinenin dakikadaki ortalama dikiş hızı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Hourly labor cost for the machine operator.",
       "label_i18n": {
         "en": "Labor Hourly Rate",
-        "tr": "Labor Hourly Rate",
+        "tr": "İşçilik Saatlik Ücreti",
         "de": "Labor Hourly Rate",
         "fr": "Labor Hourly Rate",
         "es": "Labor Hourly Rate",
         "ar": "Labor Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly labor cost for the machine operator.",
+        "tr": "Makine operatörü için saatlik işçilik maliyeti."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total loan amount requested from SBA 7(a) program",
       "label_i18n": {
         "en": "Loan Amount ($)",
-        "tr": "Loan Amount ($)",
+        "tr": "Kredi Tutarı ($)",
         "de": "Loan Amount ($)",
         "fr": "Loan Amount ($)",
         "es": "Loan Amount ($)",
         "ar": "Loan Amount ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Total loan amount requested from SBA 7(a) program",
+        "tr": "SBA 7(a) programından talep edilen toplam kredi tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual interest rate on the loan",
       "label_i18n": {
         "en": "Annual Interest Rate (%)",
-        "tr": "Annual Interest Rate (%)",
+        "tr": "Yıllık Faiz Oranı (%)",
         "de": "Annual Interest Rate (%)",
         "fr": "Annual Interest Rate (%)",
         "es": "Annual Interest Rate (%)",
         "ar": "Annual Interest Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate on the loan",
+        "tr": "Kredinin yıllık faiz oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Repayment period in months",
       "label_i18n": {
         "en": "Loan Term (months)",
-        "tr": "Loan Term (months)",
+        "tr": "Kredi Vadesi (ay)",
         "de": "Loan Term (months)",
         "fr": "Loan Term (months)",
         "es": "Loan Term (months)",
         "ar": "Loan Term (months)"
+      },
+      "businessContext_i18n": {
+        "en": "Repayment period in months",
+        "tr": "Ay cinsinden geri ödeme süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "One-time guarantee fee charged by SBA, typically 2-3.5%",
       "label_i18n": {
         "en": "SBA Guarantee Fee Rate (%)",
-        "tr": "SBA Guarantee Fee Rate (%)",
+        "tr": "SGA Garanti Ücreti Oranı (%)",
         "de": "SBA Guarantee Fee Rate (%)",
         "fr": "SBA Guarantee Fee Rate (%)",
         "es": "SBA Guarantee Fee Rate (%)",
         "ar": "SBA Guarantee Fee Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "One-time guarantee fee charged by SBA, typically 2-3.5%",
+        "tr": "SBA tarafından tahsil edilen tek seferlik garanti ücreti, tipik olarak %2-3,5"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Lender origination fee as percentage of loan amount",
       "label_i18n": {
         "en": "Origination Fee Rate (%)",
-        "tr": "Origination Fee Rate (%)",
+        "tr": "Başlangıç Ücreti Oranı (%)",
         "de": "Origination Fee Rate (%)",
         "fr": "Origination Fee Rate (%)",
         "es": "Origination Fee Rate (%)",
         "ar": "Origination Fee Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Lender origination fee as percentage of loan amount",
+        "tr": "Kredi tutarının yüzdesi olarak borç veren başlangıç ücreti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Gross annual revenue of the business",
       "label_i18n": {
         "en": "Annual Business Revenue ($)",
-        "tr": "Annual Business Revenue ($)",
+        "tr": "Yıllık İşletme Geliri ($)",
         "de": "Annual Business Revenue ($)",
         "fr": "Annual Business Revenue ($)",
         "es": "Annual Business Revenue ($)",
         "ar": "Annual Business Revenue ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Gross annual revenue of the business",
+        "tr": "İşletmenin brüt yıllık geliri"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "User's body weight in kilograms.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight in kilograms.",
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "User's height in centimeters.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "User's height in centimeters.",
+        "tr": "Kullanıcının santimetre cinsinden boyu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "User's age in years.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "User's age in years.",
+        "tr": "Kullanıcının yıl cinsinden yaşı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Biological gender (0 for female, 1 for male).",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Biological gender (0 for female, 1 for male).",
+        "tr": "Biyolojik cinsiyet (0 kadın, 1 erkek)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Physical activity multiplier. Sedentary=1.2, Light=1.375, Moderate=1.55, Active=1.725, Very Active=1.9.",
       "label_i18n": {
         "en": "Activity Level",
-        "tr": "Activity Level",
+        "tr": "Aktivite Seviyesi",
         "de": "Activity Level",
         "fr": "Activity Level",
         "es": "Activity Level",
         "ar": "Activity Level"
+      },
+      "businessContext_i18n": {
+        "en": "Physical activity multiplier. Sedentary=1.2, Light=1.375, Moderate=1.55, Active=1.725, Very Active=1.9.",
+        "tr": "Fiziksel aktivite çarpanı. Hareketsiz=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9."
       }
     }
   ],

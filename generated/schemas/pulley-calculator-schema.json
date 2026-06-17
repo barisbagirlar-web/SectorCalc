@@ -10,11 +10,15 @@
       "businessContext": "Diameter of the driving pulley, typically between 50 and 500 mm. Influences belt speed and tension.",
       "label_i18n": {
         "en": "Driver Pulley Diameter",
-        "tr": "Driver Pulley Diameter",
+        "tr": "Tahrik Kasnağı Çapı",
         "de": "Driver Pulley Diameter",
         "fr": "Driver Pulley Diameter",
         "es": "Driver Pulley Diameter",
         "ar": "Driver Pulley Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the driving pulley, typically between 50 and 500 mm. Influences belt speed and tension.",
+        "tr": "Tahrik kasnağının çapı, genellikle 50 ile 500 mm arasındadır. Kayış hızını ve gerginliğini etkiler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Diameter of the driven pulley, which determines the speed reduction or increase ratio relative to the driver.",
       "label_i18n": {
         "en": "Driven Pulley Diameter",
-        "tr": "Driven Pulley Diameter",
+        "tr": "Tahrik Edilen Kasnak Çapı",
         "de": "Driven Pulley Diameter",
         "fr": "Driven Pulley Diameter",
         "es": "Driven Pulley Diameter",
         "ar": "Driven Pulley Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the driven pulley, which determines the speed reduction or increase ratio relative to the driver.",
+        "tr": "Tahrik edilen kasnağın çapı, sürücüye göre hız düşürme veya artırma oranını belirler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance between the centers of the two pulleys. Affects belt length and wrap angle.",
       "label_i18n": {
         "en": "Center Distance",
-        "tr": "Center Distance",
+        "tr": "Merkez Mesafesi",
         "de": "Center Distance",
         "fr": "Center Distance",
         "es": "Center Distance",
         "ar": "Center Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between the centers of the two pulleys. Affects belt length and wrap angle.",
+        "tr": "İki kasnak merkezi arasındaki mesafe. Kayış uzunluğunu ve sarım açısını etkiler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rotational speed of the driving pulley in revolutions per minute. Standard motor speeds are 1500 or 1800 RPM.",
       "label_i18n": {
         "en": "Driver RPM",
-        "tr": "Driver RPM",
+        "tr": "Tahrik Devri (RPM)",
         "de": "Driver RPM",
         "fr": "Driver RPM",
         "es": "Driver RPM",
         "ar": "Driver RPM"
+      },
+      "businessContext_i18n": {
+        "en": "Rotational speed of the driving pulley in revolutions per minute. Standard motor speeds are 1500 or 1800 RPM.",
+        "tr": "Tahrik kasnağının dakikadaki devir sayısı. Standart motor hızları 1500 veya 1800 RPM'dir."
       }
     }
   ],

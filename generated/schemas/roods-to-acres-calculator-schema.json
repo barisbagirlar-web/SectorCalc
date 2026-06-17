@@ -10,11 +10,15 @@
       "businessContext": "The whole roods value",
       "label_i18n": {
         "en": "Roods",
-        "tr": "Roods",
+        "tr": "Rood",
         "de": "Roods",
         "fr": "Roods",
         "es": "Roods",
         "ar": "Roods"
+      },
+      "businessContext_i18n": {
+        "en": "The whole roods value",
+        "tr": "Tam rood değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional perches (1 rood = 40 perches)",
       "label_i18n": {
         "en": "Perches",
-        "tr": "Perches",
+        "tr": "Perch",
         "de": "Perches",
         "fr": "Perches",
         "es": "Perches",
         "ar": "Perches"
+      },
+      "businessContext_i18n": {
+        "en": "Additional perches (1 rood = 40 perches)",
+        "tr": "Ek perches (1 rood = 40 perches)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for output display (0–10)",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output display (0–10)",
+        "tr": "Çıktı görüntüleme için ondalık basamak sayısı (0–10)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = nearest, 1 = up (ceiling), 2 = down (floor), 3 = truncate",
       "label_i18n": {
         "en": "Rounding Mode",
-        "tr": "Rounding Mode",
+        "tr": "Yuvarlama Modu",
         "de": "Rounding Mode",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
+      },
+      "businessContext_i18n": {
+        "en": "0 = nearest, 1 = up (ceiling), 2 = down (floor), 3 = truncate",
+        "tr": "0 = en yakın, 1 = yukarı (tavan), 2 = aşağı (taban), 3 = kes"
       }
     }
   ],

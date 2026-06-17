@@ -10,11 +10,15 @@
       "businessContext": "Quantity of soda consumed",
       "label_i18n": {
         "en": "Number of Cans/Bottles",
-        "tr": "Number of Cans/Bottles",
+        "tr": "Kutu/Şişe Sayısı",
         "de": "Number of Cans/Bottles",
         "fr": "Number of Cans/Bottles",
         "es": "Number of Cans/Bottles",
         "ar": "Number of Cans/Bottles"
+      },
+      "businessContext_i18n": {
+        "en": "Quantity of soda consumed",
+        "tr": "Tüketilen soda miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Caffeine content per serving (typical 12oz cola is 34mg)",
       "label_i18n": {
         "en": "Caffeine per Serving",
-        "tr": "Caffeine per Serving",
+        "tr": "Porsiyon Başına Kafein",
         "de": "Caffeine per Serving",
         "fr": "Caffeine per Serving",
         "es": "Caffeine per Serving",
         "ar": "Caffeine per Serving"
+      },
+      "businessContext_i18n": {
+        "en": "Caffeine content per serving (typical 12oz cola is 34mg)",
+        "tr": "Porsiyon başına kafein içeriği (tipik 12oz kola 34mg'dir)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Volume per serving",
       "label_i18n": {
         "en": "Serving Size",
-        "tr": "Serving Size",
+        "tr": "Porsiyon Boyutu",
         "de": "Serving Size",
         "fr": "Serving Size",
         "es": "Serving Size",
         "ar": "Serving Size"
+      },
+      "businessContext_i18n": {
+        "en": "Volume per serving",
+        "tr": "Porsiyon Başına Hacim"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "User's weight for safe limit calculation",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's weight for safe limit calculation",
+        "tr": "Güvenli limit hesaplaması için kullanıcının ağırlığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Recommended safe daily caffeine intake per kg body weight (commonly 2.5mg/kg)",
       "label_i18n": {
         "en": "Safe Limit per kg",
-        "tr": "Safe Limit per kg",
+        "tr": "kg Başına Güvenli Limit",
         "de": "Safe Limit per kg",
         "fr": "Safe Limit per kg",
         "es": "Safe Limit per kg",
         "ar": "Safe Limit per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Recommended safe daily caffeine intake per kg body weight (commonly 2.5mg/kg)",
+        "tr": "Vücut ağırlığı kg başına önerilen günlük güvenli kafein alımı (genellikle 2.5 mg/kg)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average caffeine in an 8oz cup of coffee for equivalence",
       "label_i18n": {
         "en": "Coffee Caffeine per Cup",
-        "tr": "Coffee Caffeine per Cup",
+        "tr": "Kahve Başına Kafein",
         "de": "Coffee Caffeine per Cup",
         "fr": "Coffee Caffeine per Cup",
         "es": "Coffee Caffeine per Cup",
         "ar": "Coffee Caffeine per Cup"
+      },
+      "businessContext_i18n": {
+        "en": "Average caffeine in an 8oz cup of coffee for equivalence",
+        "tr": "Eşdeğerlik için 8 oz fincan kahvedeki ortalama kafein"
       }
     }
   ],

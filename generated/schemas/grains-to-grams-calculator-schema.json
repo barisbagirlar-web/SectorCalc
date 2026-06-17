@@ -15,6 +15,10 @@
         "fr": "Grains",
         "es": "Grains",
         "ar": "Grains"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the mass in grains to be converted to grams.",
+        "tr": "Gram'a dönüştürülecek kütleyi grain cinsinden girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from grains to grams. Change for custom conversions.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from grains to grams. Change for custom conversions.",
+        "tr": "Grain'den gram'a standart dönüşüm faktörü. Özel dönüşümler için değiştirin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output; ensures adherence to quality tolerances.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output; ensures adherence to quality tolerances.",
+        "tr": "Çıktıdaki ondalık basamak sayısı; kalite toleranslarına uygunluğu sağlar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "If converting for multiple batches, enter the batch quantity for total mass.",
       "label_i18n": {
         "en": "Number of Batches",
-        "tr": "Number of Batches",
+        "tr": "Parti Sayısı",
         "de": "Number of Batches",
         "fr": "Number of Batches",
         "es": "Number of Batches",
         "ar": "Number of Batches"
+      },
+      "businessContext_i18n": {
+        "en": "If converting for multiple batches, enter the batch quantity for total mass.",
+        "tr": "Birden fazla parti için dönüşüm yapılıyorsa, toplam kütle için parti miktarını girin."
       }
     }
   ],

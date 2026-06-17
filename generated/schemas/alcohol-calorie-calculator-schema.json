@@ -10,11 +10,15 @@
       "businessContext": "The volume of the alcoholic beverage consumed in milliliters.",
       "label_i18n": {
         "en": "Volume (ml)",
-        "tr": "Volume (ml)",
+        "tr": "Hacim (ml)",
         "de": "Volume (ml)",
         "fr": "Volume (ml)",
         "es": "Volume (ml)",
         "ar": "Volume (ml)"
+      },
+      "businessContext_i18n": {
+        "en": "The volume of the alcoholic beverage consumed in milliliters.",
+        "tr": "Mililitre cinsinden tüketilen alkollü içeceğin hacmi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The alcohol by volume percentage of the beverage.",
       "label_i18n": {
         "en": "Alcohol by Volume (ABV %)",
-        "tr": "Alcohol by Volume (ABV %)",
+        "tr": "Hacimce Alkol Oranı (ABV %)",
         "de": "Alcohol by Volume (ABV %)",
         "fr": "Alcohol by Volume (ABV %)",
         "es": "Alcohol by Volume (ABV %)",
         "ar": "Alcohol by Volume (ABV %)"
+      },
+      "businessContext_i18n": {
+        "en": "The alcohol by volume percentage of the beverage.",
+        "tr": "İçeceğin hacimce alkol yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Grams of carbohydrates in the consumed beverage.",
       "label_i18n": {
         "en": "Carbohydrates (g)",
-        "tr": "Carbohydrates (g)",
+        "tr": "Karbonhidratlar (g)",
         "de": "Carbohydrates (g)",
         "fr": "Carbohydrates (g)",
         "es": "Carbohydrates (g)",
         "ar": "Carbohydrates (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of carbohydrates in the consumed beverage.",
+        "tr": "Tüketilen içecekteki karbonhidrat miktarı (gram)."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Protein (g)",
         "es": "Protein (g)",
         "ar": "Protein (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of protein in the consumed beverage.",
+        "tr": "Tüketilen içecekteki protein miktarı (gram)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Grams of fat in the consumed beverage.",
       "label_i18n": {
         "en": "Fat (g)",
-        "tr": "Fat (g)",
+        "tr": "Yağ (g)",
         "de": "Fat (g)",
         "fr": "Fat (g)",
         "es": "Fat (g)",
         "ar": "Fat (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of fat in the consumed beverage.",
+        "tr": "Tüketilen içecekteki yağ miktarı (gram)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "The number of drinks consumed.",
       "label_i18n": {
         "en": "Number of Drinks",
-        "tr": "Number of Drinks",
+        "tr": "İçecek Sayısı",
         "de": "Number of Drinks",
         "fr": "Number of Drinks",
         "es": "Number of Drinks",
         "ar": "Number of Drinks"
+      },
+      "businessContext_i18n": {
+        "en": "The number of drinks consumed.",
+        "tr": "Tüketilen içecek sayısı."
       }
     }
   ],

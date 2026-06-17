@@ -10,11 +10,15 @@
       "businessContext": "Standard enthalpy of formation of the ionic compound from its elements.",
       "label_i18n": {
         "en": "Formation Enthalpy (ΔH_f)",
-        "tr": "Formation Enthalpy (ΔH_f)",
+        "tr": "Oluşum Entalpisi (ΔH_f)",
         "de": "Formation Enthalpy (ΔH_f)",
         "fr": "Formation Enthalpy (ΔH_f)",
         "es": "Formation Enthalpy (ΔH_f)",
         "ar": "Formation Enthalpy (ΔH_f)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard enthalpy of formation of the ionic compound from its elements.",
+        "tr": "İyonik bileşiğin elementlerinden standart oluşum entalpisi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Energy required to vaporize one mole of the metal (cation precursor).",
       "label_i18n": {
         "en": "Sublimation Energy (S)",
-        "tr": "Sublimation Energy (S)",
+        "tr": "Süblimleşme Enerjisi (S)",
         "de": "Sublimation Energy (S)",
         "fr": "Sublimation Energy (S)",
         "es": "Sublimation Energy (S)",
         "ar": "Sublimation Energy (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Energy required to vaporize one mole of the metal (cation precursor).",
+        "tr": "Bir mol metalin (katyon öncüsü) buharlaştırılması için gereken enerji."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Energy required to form one mole of isolated gaseous X atoms from the standard state of element X (e.g., ½ bond dissociation energy for diatomic X₂).",
       "label_i18n": {
         "en": "Atomization Enthalpy per X atom",
-        "tr": "Atomization Enthalpy per X atom",
+        "tr": "X atomu başına atomizasyon entalpisi",
         "de": "Atomization Enthalpy per X atom",
         "fr": "Atomization Enthalpy per X atom",
         "es": "Atomization Enthalpy per X atom",
         "ar": "Atomization Enthalpy per X atom"
+      },
+      "businessContext_i18n": {
+        "en": "Energy required to form one mole of isolated gaseous X atoms from the standard state of element X (e.g., ½ bond dissociation energy for diatomic X₂).",
+        "tr": "Element X'in standart halinden bir mol izole gaz halindeki X atomu oluşturmak için gereken enerji (ör. diatomik X₂ için bağ ayrışma enerjisinin yarısı)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Energy required to remove the most loosely held electron from one mole of gaseous metal atoms to form cations.",
       "label_i18n": {
         "en": "Ionization Energy (IP)",
-        "tr": "Ionization Energy (IP)",
+        "tr": "İyonlaşma Enerjisi (IP)",
         "de": "Ionization Energy (IP)",
         "fr": "Ionization Energy (IP)",
         "es": "Ionization Energy (IP)",
         "ar": "Ionization Energy (IP)"
+      },
+      "businessContext_i18n": {
+        "en": "Energy required to remove the most loosely held electron from one mole of gaseous metal atoms to form cations.",
+        "tr": "Bir mol gaz halindeki metal atomundan en gevşek bağlı elektronu uzaklaştırmak için gereken enerji."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Energy released when gaseous ions combine to form one mole of the ionic solid (exothermic, input as positive magnitude).",
       "label_i18n": {
         "en": "Lattice Energy (U)",
-        "tr": "Lattice Energy (U)",
+        "tr": "Örgü Enerjisi (U)",
         "de": "Lattice Energy (U)",
         "fr": "Lattice Energy (U)",
         "es": "Lattice Energy (U)",
         "ar": "Lattice Energy (U)"
+      },
+      "businessContext_i18n": {
+        "en": "Energy released when gaseous ions combine to form one mole of the ionic solid (exothermic, input as positive magnitude).",
+        "tr": "Gaz halindeki iyonların bir mol iyonik katı oluşturmak üzere birleşmesiyle açığa çıkan enerji (ekzotermik, pozitif büyüklük olarak girin)."
       }
     }
   ],

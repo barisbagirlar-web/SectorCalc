@@ -10,11 +10,15 @@
       "businessContext": "Total energy consumption in kilowatt-hours for the billing period",
       "label_i18n": {
         "en": "Consumption",
-        "tr": "Consumption",
+        "tr": "Tüketim",
         "de": "Consumption",
         "fr": "Consumption",
         "es": "Consumption",
         "ar": "Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy consumption in kilowatt-hours for the billing period",
+        "tr": "Fatura dönemi için toplam enerji tüketimi (kilowatt-saat cinsinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Price per kilowatt-hour during peak usage hours",
       "label_i18n": {
         "en": "Peak Rate",
-        "tr": "Peak Rate",
+        "tr": "Düşük Saatler",
         "de": "Peak Rate",
         "fr": "Peak Rate",
         "es": "Peak Rate",
         "ar": "Peak Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Price per kilowatt-hour during peak usage hours",
+        "tr": "Yoğun kullanım saatlerinde kilowatt-saat başına fiyat"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Price per kilowatt-hour during off-peak usage hours",
       "label_i18n": {
         "en": "Off-Peak Rate",
-        "tr": "Off-Peak Rate",
+        "tr": "En Yüksek Tarife",
         "de": "Off-Peak Rate",
         "fr": "Off-Peak Rate",
         "es": "Off-Peak Rate",
         "ar": "Off-Peak Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Price per kilowatt-hour during off-peak usage hours",
+        "tr": "Yoğun olmayan kullanım saatlerinde kilowatt-saat başına fiyat"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated percentage of total consumption that occurs during peak hours (0-100)",
       "label_i18n": {
         "en": "Peak Usage Fraction",
-        "tr": "Peak Usage Fraction",
+        "tr": "Yoğun Kullanım Oranı",
         "de": "Peak Usage Fraction",
         "fr": "Peak Usage Fraction",
         "es": "Peak Usage Fraction",
         "ar": "Peak Usage Fraction"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of total consumption that occurs during peak hours (0-100)",
+        "tr": "Toplam tüketimin yoğun saatlerde gerçekleşen tahmini yüzdesi (0-100)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fixed daily charge applied by the energy supplier regardless of consumption",
       "label_i18n": {
         "en": "Standing Charge",
-        "tr": "Standing Charge",
+        "tr": "Sabit Ücret",
         "de": "Standing Charge",
         "fr": "Standing Charge",
         "es": "Standing Charge",
         "ar": "Standing Charge"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed daily charge applied by the energy supplier regardless of consumption",
+        "tr": "Tüketimden bağımsız olarak enerji tedarikçisi tarafından uygulanan sabit günlük ücret"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of days in the billing period",
       "label_i18n": {
         "en": "Billing Days",
-        "tr": "Billing Days",
+        "tr": "Fatura Gün Sayısı",
         "de": "Billing Days",
         "fr": "Billing Days",
         "es": "Billing Days",
         "ar": "Billing Days"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days in the billing period",
+        "tr": "Fatura dönemindeki gün sayısı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Value-added tax (VAT) or similar tax percentage applied to the subtotal",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Value-added tax (VAT) or similar tax percentage applied to the subtotal",
+        "tr": "Ara toplama uygulanan katma değer vergisi (KDV) veya benzeri vergi yüzdesi"
       }
     }
   ],

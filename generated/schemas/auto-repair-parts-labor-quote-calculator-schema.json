@@ -22,10 +22,12 @@
       "max": 100000,
       "businessContext": "Total cost of replacement parts from supplier invoice.",
       "label_i18n": {
-        "en": "Parts Cost (USD)"
+        "en": "Parts Cost (USD)",
+        "tr": "Parça Maliyeti (USD)"
       },
       "businessContext_i18n": {
-        "en": "Total cost of replacement parts from supplier invoice."
+        "en": "Total cost of replacement parts from supplier invoice.",
+        "tr": "Tedarikçi faturasından alınan yedek parçaların toplam maliyeti."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 100,
       "businessContext": "Estimated technician hours based on standard repair times (e.g., Mitchell, ALLDATA).",
       "label_i18n": {
-        "en": "Labor Hours"
+        "en": "Labor Hours",
+        "tr": "İşçilik Saati"
       },
       "businessContext_i18n": {
-        "en": "Estimated technician hours based on standard repair times (e.g., Mitchell, ALLDATA)."
+        "en": "Estimated technician hours based on standard repair times (e.g., Mitchell, ALLDATA).",
+        "tr": "Standart onarım sürelerine (ör. Mitchell, ALLDATA) dayalı tahmini teknisyen saati."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 300,
       "businessContext": "Shop's hourly labor charge, typically includes overhead and profit.",
       "label_i18n": {
-        "en": "Labor Rate (USD/hour)"
+        "en": "Labor Rate (USD/hour)",
+        "tr": "İşçilik Ücreti (USD/saat)"
       },
       "businessContext_i18n": {
-        "en": "Shop's hourly labor charge, typically includes overhead and profit."
+        "en": "Shop's hourly labor charge, typically includes overhead and profit.",
+        "tr": "Atölyenin saatlik işçilik ücreti, genellikle genel gider ve karı içerir."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 100,
       "businessContext": "Percentage of direct costs allocated to shop overhead (rent, utilities, admin).",
       "label_i18n": {
-        "en": "Overhead Percentage (%)"
+        "en": "Overhead Percentage (%)",
+        "tr": "Genel Gider Yüzdesi (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of direct costs allocated to shop overhead (rent, utilities, admin)."
+        "en": "Percentage of direct costs allocated to shop overhead (rent, utilities, admin).",
+        "tr": "Doğrudan maliyetlere tahsis edilen genel gider yüzdesi (kira, elektrik, idari)."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 100,
       "businessContext": "Desired profit margin on total job cost.",
       "label_i18n": {
-        "en": "Target Profit Margin (%)"
+        "en": "Target Profit Margin (%)",
+        "tr": "Hedef Kar Marjı (%)"
       },
       "businessContext_i18n": {
-        "en": "Desired profit margin on total job cost."
+        "en": "Desired profit margin on total job cost.",
+        "tr": "Toplam iş maliyeti üzerinde istenen kar marjı."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 20,
       "businessContext": "Applicable sales tax percentage for the region.",
       "label_i18n": {
-        "en": "Sales Tax Rate (%)"
+        "en": "Sales Tax Rate (%)",
+        "tr": "Satış Vergisi Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Applicable sales tax percentage for the region."
+        "en": "Applicable sales tax percentage for the region.",
+        "tr": "Bölge için geçerli satış vergisi yüzdesi."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 100,
       "businessContext": "Optional discount offered to customer (e.g., loyalty, promotion).",
       "label_i18n": {
-        "en": "Customer Discount (%)"
+        "en": "Customer Discount (%)",
+        "tr": "Müşteri İndirimi (%)"
       },
       "businessContext_i18n": {
-        "en": "Optional discount offered to customer (e.g., loyalty, promotion)."
+        "en": "Optional discount offered to customer (e.g., loyalty, promotion).",
+        "tr": "Müşteriye sunulan isteğe bağlı indirim (ör. sadakat, promosyon)."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 200,
       "businessContext": "Markup applied to parts cost to cover handling and profit.",
       "label_i18n": {
-        "en": "Parts Markup (%)"
+        "en": "Parts Markup (%)",
+        "tr": "Parça Kâr Marjı (%)"
       },
       "businessContext_i18n": {
-        "en": "Markup applied to parts cost to cover handling and profit."
+        "en": "Markup applied to parts cost to cover handling and profit.",
+        "tr": "Parça maliyetine, taşıma ve karı karşılamak için uygulanan kâr marjı."
       }
     }
   ],

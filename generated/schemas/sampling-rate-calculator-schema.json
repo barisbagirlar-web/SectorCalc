@@ -10,11 +10,15 @@
       "businessContext": "The highest frequency component in the signal",
       "label_i18n": {
         "en": "Bandwidth",
-        "tr": "Bandwidth",
+        "tr": "Bant Genişliği",
         "de": "Bandwidth",
         "fr": "Bandwidth",
         "es": "Bandwidth",
         "ar": "Bandwidth"
+      },
+      "businessContext_i18n": {
+        "en": "The highest frequency component in the signal",
+        "tr": "Sinyaldeki en yüksek frekans bileşeni"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Oversampling factor relative to bandwidth (minimum 2 for Nyquist)",
       "label_i18n": {
         "en": "Sampling Factor",
-        "tr": "Sampling Factor",
+        "tr": "Örnekleme Faktörü",
         "de": "Sampling Factor",
         "fr": "Sampling Factor",
         "es": "Sampling Factor",
         "ar": "Sampling Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Oversampling factor relative to bandwidth (minimum 2 for Nyquist)",
+        "tr": "Bant genişliğine göre aşırı örnekleme faktörü (Nyquist için minimum 2)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of bits per sample for quantization",
       "label_i18n": {
         "en": "Bit Depth",
-        "tr": "Bit Depth",
+        "tr": "Bit Derinliği",
         "de": "Bit Depth",
         "fr": "Bit Depth",
         "es": "Bit Depth",
         "ar": "Bit Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Number of bits per sample for quantization",
+        "tr": "Niceleme için örnek başına bit sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of independent signal channels",
       "label_i18n": {
         "en": "Number of Channels",
-        "tr": "Number of Channels",
+        "tr": "Kanal Sayısı",
         "de": "Number of Channels",
         "fr": "Number of Channels",
         "es": "Number of Channels",
         "ar": "Number of Channels"
+      },
+      "businessContext_i18n": {
+        "en": "Number of independent signal channels",
+        "tr": "Bağımsız sinyal kanalı sayısı"
       }
     }
   ],

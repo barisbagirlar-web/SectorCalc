@@ -10,11 +10,15 @@
       "businessContext": "The rate at which mass is expelled from the propulsion system.",
       "label_i18n": {
         "en": "Mass Flow Rate",
-        "tr": "Mass Flow Rate",
+        "tr": "Kütlesel Debi",
         "de": "Mass Flow Rate",
         "fr": "Mass Flow Rate",
         "es": "Mass Flow Rate",
         "ar": "Mass Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The rate at which mass is expelled from the propulsion system.",
+        "tr": "Tahrik sisteminden atılan kütle akış hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The velocity of the exhaust gases relative to the engine.",
       "label_i18n": {
         "en": "Exhaust Velocity",
-        "tr": "Exhaust Velocity",
+        "tr": "Egzoz Hızı",
         "de": "Exhaust Velocity",
         "fr": "Exhaust Velocity",
         "es": "Exhaust Velocity",
         "ar": "Exhaust Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "The velocity of the exhaust gases relative to the engine.",
+        "tr": "Egzoz gazlarının motora göre hızı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The static pressure at the nozzle exit plane.",
       "label_i18n": {
         "en": "Exit Pressure",
-        "tr": "Exit Pressure",
+        "tr": "Çıkış Basıncı",
         "de": "Exit Pressure",
         "fr": "Exit Pressure",
         "es": "Exit Pressure",
         "ar": "Exit Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "The static pressure at the nozzle exit plane.",
+        "tr": "Nozul çıkış düzlemindeki statik basınç."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The pressure of the surrounding environment.",
       "label_i18n": {
         "en": "Ambient Pressure",
-        "tr": "Ambient Pressure",
+        "tr": "Ortam basıncı",
         "de": "Ambient Pressure",
         "fr": "Ambient Pressure",
         "es": "Ambient Pressure",
         "ar": "Ambient Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "The pressure of the surrounding environment.",
+        "tr": "Çevre ortamının basıncı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The cross-sectional area of the nozzle exit.",
       "label_i18n": {
         "en": "Exit Area",
-        "tr": "Exit Area",
+        "tr": "Çıkış Alanı",
         "de": "Exit Area",
         "fr": "Exit Area",
         "es": "Exit Area",
         "ar": "Exit Area"
+      },
+      "businessContext_i18n": {
+        "en": "The cross-sectional area of the nozzle exit.",
+        "tr": "Nozul çıkışının kesit alanı."
       }
     }
   ],

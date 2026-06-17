@@ -10,11 +10,15 @@
       "businessContext": "Duration of a single work shift in hours.",
       "label_i18n": {
         "en": "Shift Length",
-        "tr": "Shift Length",
+        "tr": "Vardiya Süresi",
         "de": "Shift Length",
         "fr": "Shift Length",
         "es": "Shift Length",
         "ar": "Shift Length"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of a single work shift in hours.",
+        "tr": "Tek bir iş vardiyasının saat cinsinden süresi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of consecutive work days without a day off.",
       "label_i18n": {
         "en": "Consecutive Shifts",
-        "tr": "Consecutive Shifts",
+        "tr": "Ardışık Vardiyalar",
         "de": "Consecutive Shifts",
         "fr": "Consecutive Shifts",
         "es": "Consecutive Shifts",
         "ar": "Consecutive Shifts"
+      },
+      "businessContext_i18n": {
+        "en": "Number of consecutive work days without a day off.",
+        "tr": "Bir gün izinsiz ardışık çalışma günü sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average rest time between end of one shift and start of next.",
       "label_i18n": {
         "en": "Rest Between Shifts",
-        "tr": "Rest Between Shifts",
+        "tr": "Vardiyalar Arası Dinlenme",
         "de": "Rest Between Shifts",
         "fr": "Rest Between Shifts",
         "es": "Rest Between Shifts",
         "ar": "Rest Between Shifts"
+      },
+      "businessContext_i18n": {
+        "en": "Average rest time between end of one shift and start of next.",
+        "tr": "Bir vardiyanın bitişi ile diğerinin başlangıcı arasındaki ortalama dinlenme süresi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average workplace noise exposure in decibels.",
       "label_i18n": {
         "en": "Noise Level",
-        "tr": "Noise Level",
+        "tr": "Gürültü Seviyesi",
         "de": "Noise Level",
         "fr": "Noise Level",
         "es": "Noise Level",
         "ar": "Noise Level"
+      },
+      "businessContext_i18n": {
+        "en": "Average workplace noise exposure in decibels.",
+        "tr": "Desibel cinsinden ortalama iş yeri gürültü maruziyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Workplace temperature in Celsius.",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı",
         "de": "Ambient Temperature",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Workplace temperature in Celsius.",
+        "tr": "Santigrat cinsinden iş yeri sıcaklığı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Physical and mental workload intensity factor (1.0 = normal, >1.0 = high).",
       "label_i18n": {
         "en": "Workload Factor",
-        "tr": "Workload Factor",
+        "tr": "İş Yükü Faktörü",
         "de": "Workload Factor",
         "fr": "Workload Factor",
         "es": "Workload Factor",
         "ar": "Workload Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Physical and mental workload intensity factor (1.0 = normal, >1.0 = high).",
+        "tr": "Fiziksel ve zihinsel iş yükü yoğunluk faktörü (1.0 = normal, >1.0 = yüksek)."
       }
     }
   ],

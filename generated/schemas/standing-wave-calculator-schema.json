@@ -10,11 +10,15 @@
       "businessContext": "Length of the vibrating string",
       "label_i18n": {
         "en": "Length (L)",
-        "tr": "Length (L)",
+        "tr": "Uzunluk (L)",
         "de": "Length (L)",
         "fr": "Length (L)",
         "es": "Length (L)",
         "ar": "Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the vibrating string",
+        "tr": "Titreşen telin uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Tension applied to the string",
       "label_i18n": {
         "en": "Tension (T)",
-        "tr": "Tension (T)",
+        "tr": "Gerilim (T)",
         "de": "Tension (T)",
         "fr": "Tension (T)",
         "es": "Tension (T)",
         "ar": "Tension (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Tension applied to the string",
+        "tr": "Telin üzerine uygulanan gerilim"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass per unit length of the string",
       "label_i18n": {
         "en": "Linear Density (μ)",
-        "tr": "Linear Density (μ)",
+        "tr": "Doğrusal Yoğunluk (μ)",
         "de": "Linear Density (μ)",
         "fr": "Linear Density (μ)",
         "es": "Linear Density (μ)",
         "ar": "Linear Density (μ)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass per unit length of the string",
+        "tr": "Tel birim uzunluk kütlesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Harmonic mode: 1=fundamental, 2=2nd harmonic, etc.",
       "label_i18n": {
         "en": "Harmonic Number (n)",
-        "tr": "Harmonic Number (n)",
+        "tr": "Harmonik Sayısı (n)",
         "de": "Harmonic Number (n)",
         "fr": "Harmonic Number (n)",
         "es": "Harmonic Number (n)",
         "ar": "Harmonic Number (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Harmonic mode: 1=fundamental, 2=2nd harmonic, etc.",
+        "tr": "Harmonik mod: 1=temel, 2=2. harmonik, vb."
       }
     }
   ],

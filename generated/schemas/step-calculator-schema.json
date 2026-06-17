@@ -10,11 +10,15 @@
       "businessContext": "Floor-to-floor vertical distance in centimeters",
       "label_i18n": {
         "en": "Total Height (floor-to-floor)",
-        "tr": "Total Height (floor-to-floor)",
+        "tr": "Toplam Yükseklik (döşemeden döşemeye)",
         "de": "Total Height (floor-to-floor)",
         "fr": "Total Height (floor-to-floor)",
         "es": "Total Height (floor-to-floor)",
         "ar": "Total Height (floor-to-floor)"
+      },
+      "businessContext_i18n": {
+        "en": "Floor-to-floor vertical distance in centimeters",
+        "tr": "Döşemeden döşemeye dikey mesafe (santimetre cinsinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Preferred riser height, typically 15-20 cm",
       "label_i18n": {
         "en": "Desired Step Height (Riser)",
-        "tr": "Desired Step Height (Riser)",
+        "tr": "İstenen Basamak Yüksekliği (Rıht)",
         "de": "Desired Step Height (Riser)",
         "fr": "Desired Step Height (Riser)",
         "es": "Desired Step Height (Riser)",
         "ar": "Desired Step Height (Riser)"
+      },
+      "businessContext_i18n": {
+        "en": "Preferred riser height, typically 15-20 cm",
+        "tr": "Tercih edilen rıht yüksekliği, genellikle 15-20 cm"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Horizontal depth of each step, typically 25-30 cm",
       "label_i18n": {
         "en": "Step Depth (Tread)",
-        "tr": "Step Depth (Tread)",
+        "tr": "Basamak Derinliği (Lastik)",
         "de": "Step Depth (Tread)",
         "fr": "Step Depth (Tread)",
         "es": "Step Depth (Tread)",
         "ar": "Step Depth (Tread)"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal depth of each step, typically 25-30 cm",
+        "tr": "Her basamağın yatay derinliği, genellikle 25-30 cm"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of any intermediate landing, or 0 if none",
       "label_i18n": {
         "en": "Landing Width",
-        "tr": "Landing Width",
+        "tr": "Sahanlık Genişliği",
         "de": "Landing Width",
         "fr": "Landing Width",
         "es": "Landing Width",
         "ar": "Landing Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of any intermediate landing, or 0 if none",
+        "tr": "Varsa ara sahanlığın genişliği, yoksa 0"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Vertical clearance above stairs for safety compliance",
       "label_i18n": {
         "en": "Headroom Height",
-        "tr": "Headroom Height",
+        "tr": "Baş Yüksekliği",
         "de": "Headroom Height",
         "fr": "Headroom Height",
         "es": "Headroom Height",
         "ar": "Headroom Height"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical clearance above stairs for safety compliance",
+        "tr": "Güvenlik yönetmeliklerine uygunluk için merdiven üzerindeki dikey boşluk"
       }
     }
   ],

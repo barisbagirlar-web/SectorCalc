@@ -10,11 +10,15 @@
       "businessContext": "Total mass of substance undergoing phase change",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of substance undergoing phase change",
+        "tr": "Faz değişimine uğrayan maddenin toplam kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Specific heat capacity of the substance (e.g., water: 4180 J/(kg·K))",
       "label_i18n": {
         "en": "Specific Heat Capacity",
-        "tr": "Specific Heat Capacity",
+        "tr": "Özgül Isı Kapasitesi",
         "de": "Specific Heat Capacity",
         "fr": "Specific Heat Capacity",
         "es": "Specific Heat Capacity",
         "ar": "Specific Heat Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Specific heat capacity of the substance (e.g., water: 4180 J/(kg·K))",
+        "tr": "Maddenin özgül ısı kapasitesi (örneğin su: 4180 J/(kg·K))"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Starting temperature of the substance, must be ≤ melting point",
       "label_i18n": {
         "en": "Initial Temperature",
-        "tr": "Initial Temperature",
+        "tr": "Başlangıç Sıcaklığı",
         "de": "Initial Temperature",
         "fr": "Initial Temperature",
         "es": "Initial Temperature",
         "ar": "Initial Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Starting temperature of the substance, must be ≤ melting point",
+        "tr": "Maddenin başlangıç sıcaklığı, erime noktasından ≤ olmalıdır"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Melting point of the substance (e.g., ice: 0°C)",
       "label_i18n": {
         "en": "Melting Temperature",
-        "tr": "Melting Temperature",
+        "tr": "Erime Sıcaklığı",
         "de": "Melting Temperature",
         "fr": "Melting Temperature",
         "es": "Melting Temperature",
         "ar": "Melting Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Melting point of the substance (e.g., ice: 0°C)",
+        "tr": "Maddenin erime noktası (örneğin buz: 0°C)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Energy per unit mass to change phase from solid to liquid (e.g., water: 334 kJ/kg)",
       "label_i18n": {
         "en": "Latent Heat of Fusion",
-        "tr": "Latent Heat of Fusion",
+        "tr": "Erime Gizli Isısı",
         "de": "Latent Heat of Fusion",
         "fr": "Latent Heat of Fusion",
         "es": "Latent Heat of Fusion",
         "ar": "Latent Heat of Fusion"
+      },
+      "businessContext_i18n": {
+        "en": "Energy per unit mass to change phase from solid to liquid (e.g., water: 334 kJ/kg)",
+        "tr": "Katıdan sıvıya faz değişimi için birim kütle başına enerji (örneğin su: 334 kJ/kg)"
       }
     }
   ],

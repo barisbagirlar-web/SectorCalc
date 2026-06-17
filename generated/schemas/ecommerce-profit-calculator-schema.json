@@ -10,11 +10,15 @@
       "businessContext": "The price at which each unit is sold to customers.",
       "label_i18n": {
         "en": "Selling Price per Unit",
-        "tr": "Selling Price per Unit",
+        "tr": "Birim Satış Fiyatı",
         "de": "Selling Price per Unit",
         "fr": "Selling Price per Unit",
         "es": "Selling Price per Unit",
         "ar": "Selling Price per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The price at which each unit is sold to customers.",
+        "tr": "Her birimin müşterilere satıldığı fiyat."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The cost to produce or purchase each unit.",
       "label_i18n": {
         "en": "Cost Price per Unit",
-        "tr": "Cost Price per Unit",
+        "tr": "Birim Başına Maliyet Fiyatı",
         "de": "Cost Price per Unit",
         "fr": "Cost Price per Unit",
         "es": "Cost Price per Unit",
         "ar": "Cost Price per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The cost to produce or purchase each unit.",
+        "tr": "Her birimi üretme veya satın alma maliyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of units sold.",
       "label_i18n": {
         "en": "Quantity Sold",
-        "tr": "Quantity Sold",
+        "tr": "Satılan Miktar",
         "de": "Quantity Sold",
         "fr": "Quantity Sold",
         "es": "Quantity Sold",
         "ar": "Quantity Sold"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units sold.",
+        "tr": "Satılan toplam birim sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average shipping cost per unit.",
       "label_i18n": {
         "en": "Shipping Cost per Unit",
-        "tr": "Shipping Cost per Unit",
+        "tr": "Birim Başına Nakliye Maliyeti",
         "de": "Shipping Cost per Unit",
         "fr": "Shipping Cost per Unit",
         "es": "Shipping Cost per Unit",
         "ar": "Shipping Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Average shipping cost per unit.",
+        "tr": "Birim başına ortalama nakliye maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total amount spent on marketing campaigns.",
       "label_i18n": {
         "en": "Marketing Spend",
-        "tr": "Marketing Spend",
+        "tr": "Pazarlama Harcaması",
         "de": "Marketing Spend",
         "fr": "Marketing Spend",
         "es": "Marketing Spend",
         "ar": "Marketing Spend"
+      },
+      "businessContext_i18n": {
+        "en": "Total amount spent on marketing campaigns.",
+        "tr": "Pazarlama kampanyalarına harcanan toplam tutar."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Tax rate applied to gross profit after expenses.",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate applied to gross profit after expenses.",
+        "tr": "Brüt kârdan sonraki giderlere uygulanan vergi oranı."
       }
     }
   ],

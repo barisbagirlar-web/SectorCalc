@@ -22,10 +22,12 @@
       "max": 100000,
       "businessContext": "Negotiated unit price from supplier contract.",
       "label_i18n": {
-        "en": "Purchase Price per Unit"
+        "en": "Purchase Price per Unit",
+        "tr": "Birim Başına Satın Alma Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Negotiated unit price from supplier contract."
+        "en": "Negotiated unit price from supplier contract.",
+        "tr": "Tedarikçi sözleşmesinden müzakere edilen birim fiyat."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 10000000,
       "businessContext": "Total units purchased per year.",
       "label_i18n": {
-        "en": "Annual Order Quantity"
+        "en": "Annual Order Quantity",
+        "tr": "Yıllık Sipariş Miktarı"
       },
       "businessContext_i18n": {
-        "en": "Total units purchased per year."
+        "en": "Total units purchased per year.",
+        "tr": "Yılda satın alınan toplam birim."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 100000,
       "businessContext": "Parts per million defective, Six Sigma metric.",
       "label_i18n": {
-        "en": "Defect Rate (ppm)"
+        "en": "Defect Rate (ppm)",
+        "tr": "Hata Oranı (ppm)"
       },
       "businessContext_i18n": {
-        "en": "Parts per million defective, Six Sigma metric."
+        "en": "Parts per million defective, Six Sigma metric.",
+        "tr": "Milyonda hatalı parça sayısı, Altı Sigma metriği."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 100,
       "businessContext": "Cost of incoming quality inspection per unit.",
       "label_i18n": {
-        "en": "Inspection Cost per Unit"
+        "en": "Inspection Cost per Unit",
+        "tr": "Birim Muayene Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost of incoming quality inspection per unit."
+        "en": "Cost of incoming quality inspection per unit.",
+        "tr": "Birim başına gelen kalite muayene maliyeti."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 500,
       "businessContext": "Average shipping cost per unit from supplier.",
       "label_i18n": {
-        "en": "Freight Cost per Unit"
+        "en": "Freight Cost per Unit",
+        "tr": "Birim Başına Navlun Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Average shipping cost per unit from supplier."
+        "en": "Average shipping cost per unit from supplier.",
+        "tr": "Tedarikçiden birim başına ortalama nakliye maliyeti."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 365,
       "businessContext": "Supplier lead time from order to delivery.",
       "label_i18n": {
-        "en": "Lead Time (days)"
+        "en": "Lead Time (days)",
+        "tr": "Teslim Süresi (gün)"
       },
       "businessContext_i18n": {
-        "en": "Supplier lead time from order to delivery."
+        "en": "Supplier lead time from order to delivery.",
+        "tr": "Tedarikçinin siparişten teslimata kadar geçen süresi."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 100,
       "businessContext": "Annual inventory holding cost as percentage of unit cost (Lean metric).",
       "label_i18n": {
-        "en": "Inventory Carrying Cost Rate"
+        "en": "Inventory Carrying Cost Rate",
+        "tr": "Stok Taşıma Maliyeti Oranı"
       },
       "businessContext_i18n": {
-        "en": "Annual inventory holding cost as percentage of unit cost (Lean metric)."
+        "en": "Annual inventory holding cost as percentage of unit cost (Lean metric).",
+        "tr": "Birim maliyetin yüzdesi olarak yıllık stok bulundurma maliyeti (Yalın metrik)."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 100,
       "businessContext": "Percentage of units that result in warranty claims.",
       "label_i18n": {
-        "en": "Warranty Claim Rate"
+        "en": "Warranty Claim Rate",
+        "tr": "Garanti Talep Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of units that result in warranty claims."
+        "en": "Percentage of units that result in warranty claims.",
+        "tr": "Garanti talebiyle sonuçlanan birimlerin yüzdesi."
       }
     }
   ],

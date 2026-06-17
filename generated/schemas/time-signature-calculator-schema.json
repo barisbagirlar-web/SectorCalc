@@ -10,11 +10,15 @@
       "businessContext": "Top number of time signature (number of beats per measure)",
       "label_i18n": {
         "en": "Beats per Measure",
-        "tr": "Beats per Measure",
+        "tr": "Ölçü Başına Vuruş",
         "de": "Beats per Measure",
         "fr": "Beats per Measure",
         "es": "Beats per Measure",
         "ar": "Beats per Measure"
+      },
+      "businessContext_i18n": {
+        "en": "Top number of time signature (number of beats per measure)",
+        "tr": "Zaman işaretinin üst sayısı (ölçü başına vuruş sayısı)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Bottom number of time signature (which note value gets one beat, e.g., 4=quarter, 8=eighth)",
       "label_i18n": {
         "en": "Note Value",
-        "tr": "Note Value",
+        "tr": "Nota Değeri",
         "de": "Note Value",
         "fr": "Note Value",
         "es": "Note Value",
         "ar": "Note Value"
+      },
+      "businessContext_i18n": {
+        "en": "Bottom number of time signature (which note value gets one beat, e.g., 4=quarter, 8=eighth)",
+        "tr": "Zaman işaretinin alt sayısı (hangi nota değerinin bir vuruş aldığı, örn. 4=dörtlük, 8=sekizlik)"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Tempo",
         "es": "Tempo",
         "ar": "Tempo"
+      },
+      "businessContext_i18n": {
+        "en": "Beats per minute (typically the beat unit equals the denominator note value)",
+        "tr": "Dakikadaki vuruş sayısı (genellikle vuruş birimi payda nota değerine eşittir)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of measures to calculate total duration",
       "label_i18n": {
         "en": "Number of Measures",
-        "tr": "Number of Measures",
+        "tr": "Ölçü Sayısı",
         "de": "Number of Measures",
         "fr": "Number of Measures",
         "es": "Number of Measures",
         "ar": "Number of Measures"
+      },
+      "businessContext_i18n": {
+        "en": "Number of measures to calculate total duration",
+        "tr": "Toplam süreyi hesaplamak için ölçü sayısı"
       }
     }
   ],

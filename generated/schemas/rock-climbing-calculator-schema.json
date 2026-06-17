@@ -10,11 +10,15 @@
       "businessContext": "Mass of the climber including all gear carried.",
       "label_i18n": {
         "en": "Climber Mass",
-        "tr": "Climber Mass",
+        "tr": "Tırmanıcı Kütlesi",
         "de": "Climber Mass",
         "fr": "Climber Mass",
         "es": "Climber Mass",
         "ar": "Climber Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the climber including all gear carried.",
+        "tr": "Tırmanıcının taşıdığı tüm ekipman dahil kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total length of rope paid out from belay device to climber.",
       "label_i18n": {
         "en": "Rope Length Out",
-        "tr": "Rope Length Out",
+        "tr": "Halat Uzunluğu Dışarı",
         "de": "Rope Length Out",
         "fr": "Rope Length Out",
         "es": "Rope Length Out",
         "ar": "Rope Length Out"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of rope paid out from belay device to climber.",
+        "tr": "Emniyet cihazından tırmanıcıya verilen toplam halat uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Vertical distance the climber falls before rope begins to catch.",
       "label_i18n": {
         "en": "Length of Fall",
-        "tr": "Length of Fall",
+        "tr": "Düşüş Uzunluğu",
         "de": "Length of Fall",
         "fr": "Length of Fall",
         "es": "Length of Fall",
         "ar": "Length of Fall"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical distance the climber falls before rope begins to catch.",
+        "tr": "Halatın tutmaya başlamadan önce tırmanıcının düştüğü dikey mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum impact force measured for a standard UIAA fall (80 kg, fall factor 1.77) as specified by the rope manufacturer.",
       "label_i18n": {
         "en": "Rope Impact Force Rating",
-        "tr": "Rope Impact Force Rating",
+        "tr": "Halat Darbe Kuvveti Değeri",
         "de": "Rope Impact Force Rating",
         "fr": "Rope Impact Force Rating",
         "es": "Rope Impact Force Rating",
         "ar": "Rope Impact Force Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum impact force measured for a standard UIAA fall (80 kg, fall factor 1.77) as specified by the rope manufacturer.",
+        "tr": "Üretici tarafından belirtilen standart UIAA düşüşü (80 kg, düşüş faktörü 1.77) için ölçülen maksimum darbe kuvveti."
       }
     }
   ],

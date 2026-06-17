@@ -30,10 +30,12 @@
       "max": 10000000,
       "businessContext": "Total principal borrowed, typically 80% of property value.",
       "label_i18n": {
-        "en": "Loan Amount"
+        "en": "Loan Amount",
+        "tr": "Kredi Tutarı"
       },
       "businessContext_i18n": {
-        "en": "Total principal borrowed, typically 80% of property value."
+        "en": "Total principal borrowed, typically 80% of property value.",
+        "tr": "Genellikle mülk değerinin %80'i olan ödünç alınan toplam anapara."
       }
     },
     {
@@ -46,10 +48,12 @@
       "max": 100,
       "businessContext": "Percentage of property price paid upfront. Affects PMI and LTV ratio.",
       "label_i18n": {
-        "en": "Down Payment Percentage"
+        "en": "Down Payment Percentage",
+        "tr": "Peşinat Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Percentage of property price paid upfront. Affects PMI and LTV ratio."
+        "en": "Percentage of property price paid upfront. Affects PMI and LTV ratio.",
+        "tr": "Emlak fiyatının peşin ödenen yüzdesi. PMI ve LTV oranını etkiler."
       }
     },
     {
@@ -62,10 +66,12 @@
       "max": 30,
       "businessContext": "Nominal annual rate, fixed or variable. Used for monthly compounding.",
       "label_i18n": {
-        "en": "Annual Interest Rate"
+        "en": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı"
       },
       "businessContext_i18n": {
-        "en": "Nominal annual rate, fixed or variable. Used for monthly compounding."
+        "en": "Nominal annual rate, fixed or variable. Used for monthly compounding.",
+        "tr": "Nominal yıllık faiz oranı, sabit veya değişken. Aylık bileşik faiz için kullanılır."
       }
     },
     {
@@ -78,10 +84,12 @@
       "max": 40,
       "businessContext": "Duration of the mortgage in years. Standard terms: 15, 20, 30.",
       "label_i18n": {
-        "en": "Loan Term (Years)"
+        "en": "Loan Term (Years)",
+        "tr": "Kredi Vadesi (Yıl)"
       },
       "businessContext_i18n": {
-        "en": "Duration of the mortgage in years. Standard terms: 15, 20, 30."
+        "en": "Duration of the mortgage in years. Standard terms: 15, 20, 30.",
+        "tr": "Mortgage süresi (yıl olarak). Standart vadeler: 15, 20, 30."
       }
     },
     {
@@ -94,10 +102,12 @@
       "max": 5,
       "businessContext": "Annual property tax as percentage of property value. Varies by jurisdiction.",
       "label_i18n": {
-        "en": "Property Tax Rate"
+        "en": "Property Tax Rate",
+        "tr": "Emlak Vergisi Oranı"
       },
       "businessContext_i18n": {
-        "en": "Annual property tax as percentage of property value. Varies by jurisdiction."
+        "en": "Annual property tax as percentage of property value. Varies by jurisdiction.",
+        "tr": "Emlak değerinin yüzdesi olarak yıllık emlak vergisi. Yargı yetkisine göre değişir."
       }
     },
     {
@@ -110,10 +120,12 @@
       "max": 3,
       "businessContext": "Annual homeowner's insurance as percentage of property value.",
       "label_i18n": {
-        "en": "Home Insurance Rate"
+        "en": "Home Insurance Rate",
+        "tr": "Ev Sigortası Oranı"
       },
       "businessContext_i18n": {
-        "en": "Annual homeowner's insurance as percentage of property value."
+        "en": "Annual homeowner's insurance as percentage of property value.",
+        "tr": "Emlak değerinin yüzdesi olarak yıllık ev sahibi sigortası."
       }
     },
     {
@@ -126,10 +138,12 @@
       "max": 5000,
       "businessContext": "Monthly homeowners association fees, if applicable.",
       "label_i18n": {
-        "en": "Monthly HOA Fee"
+        "en": "Monthly HOA Fee",
+        "tr": "Aylık Site Aidatı"
       },
       "businessContext_i18n": {
-        "en": "Monthly homeowners association fees, if applicable."
+        "en": "Monthly homeowners association fees, if applicable.",
+        "tr": "Varsa aylık ev sahipleri derneği ücretleri."
       }
     },
     {
@@ -142,10 +156,12 @@
       "max": 10000000,
       "businessContext": "Total annual household income before taxes. Used for DTI calculation.",
       "label_i18n": {
-        "en": "Annual Gross Income"
+        "en": "Annual Gross Income",
+        "tr": "Yıllık Brüt Gelir"
       },
       "businessContext_i18n": {
-        "en": "Total annual household income before taxes. Used for DTI calculation."
+        "en": "Total annual household income before taxes. Used for DTI calculation.",
+        "tr": "Vergi öncesi toplam yıllık hane geliri. DTI hesaplaması için kullanılır."
       }
     }
   ],

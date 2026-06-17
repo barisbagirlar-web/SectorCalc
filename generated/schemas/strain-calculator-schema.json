@@ -10,11 +10,15 @@
       "businessContext": "Original length before deformation",
       "label_i18n": {
         "en": "Initial Length",
-        "tr": "Initial Length",
+        "tr": "İlk Uzunluk",
         "de": "Initial Length",
         "fr": "Initial Length",
         "es": "Initial Length",
         "ar": "Initial Length"
+      },
+      "businessContext_i18n": {
+        "en": "Original length before deformation",
+        "tr": "Deformasyondan önceki orijinal uzunluk"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length after deformation (e.g., under load or temperature)",
       "label_i18n": {
         "en": "Final Length",
-        "tr": "Final Length",
+        "tr": "Son Uzunluk",
         "de": "Final Length",
         "fr": "Final Length",
         "es": "Final Length",
         "ar": "Final Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length after deformation (e.g., under load or temperature)",
+        "tr": "Deformasyon sonrası uzunluk (örneğin yük veya sıcaklık altında)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Change in temperature for thermal expansion calculation",
       "label_i18n": {
         "en": "Temperature Change",
-        "tr": "Temperature Change",
+        "tr": "Sıcaklık Değişimi",
         "de": "Temperature Change",
         "fr": "Temperature Change",
         "es": "Temperature Change",
         "ar": "Temperature Change"
+      },
+      "businessContext_i18n": {
+        "en": "Change in temperature for thermal expansion calculation",
+        "tr": "Termal genleşme hesaplaması için sıcaklık değişimi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Material's linear thermal expansion coefficient (e.g., steel 12e-6)",
       "label_i18n": {
         "en": "Coefficient of Thermal Expansion",
-        "tr": "Coefficient of Thermal Expansion",
+        "tr": "Termal Genleşme Katsayısı",
         "de": "Coefficient of Thermal Expansion",
         "fr": "Coefficient of Thermal Expansion",
         "es": "Coefficient of Thermal Expansion",
         "ar": "Coefficient of Thermal Expansion"
+      },
+      "businessContext_i18n": {
+        "en": "Material's linear thermal expansion coefficient (e.g., steel 12e-6)",
+        "tr": "Malzemenin doğrusal termal genleşme katsayısı (örneğin çelik 12e-6)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Material's modulus of elasticity. Set to 0 to ignore stress",
       "label_i18n": {
         "en": "Young's Modulus",
-        "tr": "Young's Modulus",
+        "tr": "Elastisite Modülü",
         "de": "Young's Modulus",
         "fr": "Young's Modulus",
         "es": "Young's Modulus",
         "ar": "Young's Modulus"
+      },
+      "businessContext_i18n": {
+        "en": "Material's modulus of elasticity. Set to 0 to ignore stress",
+        "tr": "Malzemenin elastisite modülü. Gerilmeyi yok saymak için 0 olarak ayarlayın"
       }
     }
   ],

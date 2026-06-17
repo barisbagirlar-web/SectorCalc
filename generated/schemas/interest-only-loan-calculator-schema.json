@@ -10,11 +10,15 @@
       "businessContext": "The amount borrowed.",
       "label_i18n": {
         "en": "Loan Amount (Principal)",
-        "tr": "Loan Amount (Principal)",
+        "tr": "Kredi Tutarı (Anapara)",
         "de": "Loan Amount (Principal)",
         "fr": "Loan Amount (Principal)",
         "es": "Loan Amount (Principal)",
         "ar": "Loan Amount (Principal)"
+      },
+      "businessContext_i18n": {
+        "en": "The amount borrowed.",
+        "tr": "Borç alınan miktar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual nominal interest rate on loan.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate on loan.",
+        "tr": "Kredi üzerindeki yıllık nominal faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total duration of the loan in years.",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration of the loan in years.",
+        "tr": "Kredinin toplam vadesi (yıl cinsinden)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of interest payments made per year (e.g., 12 for monthly).",
       "label_i18n": {
         "en": "Payments Per Year",
-        "tr": "Payments Per Year",
+        "tr": "Yıllık Ödeme Sayısı",
         "de": "Payments Per Year",
         "fr": "Payments Per Year",
         "es": "Payments Per Year",
         "ar": "Payments Per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of interest payments made per year (e.g., 12 for monthly).",
+        "tr": "Yıllık faiz ödeme sayısı (örneğin, aylık için 12)."
       }
     }
   ],

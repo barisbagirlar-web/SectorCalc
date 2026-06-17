@@ -10,11 +10,15 @@
       "businessContext": "Cost of raw materials per unit of production input.",
       "label_i18n": {
         "en": "Raw Material Cost per Unit",
-        "tr": "Raw Material Cost per Unit",
+        "tr": "Birim Başına Hammadde Maliyeti",
         "de": "Raw Material Cost per Unit",
         "fr": "Raw Material Cost per Unit",
         "es": "Raw Material Cost per Unit",
         "ar": "Raw Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw materials per unit of production input.",
+        "tr": "Üretim girdisi birimi başına hammadde maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of good units out of total input.",
       "label_i18n": {
         "en": "Yield Percentage",
-        "tr": "Yield Percentage",
+        "tr": "Verim Yüzdesi",
         "de": "Yield Percentage",
         "fr": "Yield Percentage",
         "es": "Yield Percentage",
         "ar": "Yield Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of good units out of total input.",
+        "tr": "Toplam girdi içindeki iyi birimlerin yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Energy cost per unit produced.",
       "label_i18n": {
         "en": "Energy Cost per Unit",
-        "tr": "Energy Cost per Unit",
+        "tr": "Birim Başına Enerji Maliyeti",
         "de": "Energy Cost per Unit",
         "fr": "Energy Cost per Unit",
         "es": "Energy Cost per Unit",
         "ar": "Energy Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Energy cost per unit produced.",
+        "tr": "Üretilen birim başına enerji maliyeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Direct labor cost per unit produced.",
       "label_i18n": {
         "en": "Labor Cost per Unit",
-        "tr": "Labor Cost per Unit",
+        "tr": "Birim başına işçilik maliyeti",
         "de": "Labor Cost per Unit",
         "fr": "Labor Cost per Unit",
         "es": "Labor Cost per Unit",
         "ar": "Labor Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor cost per unit produced.",
+        "tr": "Üretilen birim başına direkt işçilik maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Allocated overhead cost per unit produced.",
       "label_i18n": {
         "en": "Overhead Cost per Unit",
-        "tr": "Overhead Cost per Unit",
+        "tr": "Birim Başına Genel Gider Maliyeti",
         "de": "Overhead Cost per Unit",
         "fr": "Overhead Cost per Unit",
         "es": "Overhead Cost per Unit",
         "ar": "Overhead Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Allocated overhead cost per unit produced.",
+        "tr": "Üretilen birim başına dağıtılan genel gider maliyeti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total number of units produced (good + defective).",
       "label_i18n": {
         "en": "Production Volume",
-        "tr": "Production Volume",
+        "tr": "Üretim Hacmi",
         "de": "Production Volume",
         "fr": "Production Volume",
         "es": "Production Volume",
         "ar": "Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced (good + defective).",
+        "tr": "Üretilen toplam birim sayısı (iyi + kusurlu)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Percentage of defective units from total production.",
       "label_i18n": {
         "en": "Defect Rate",
-        "tr": "Defect Rate",
+        "tr": "Fire Oranı",
         "de": "Defect Rate",
         "fr": "Defect Rate",
         "es": "Defect Rate",
         "ar": "Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of defective units from total production.",
+        "tr": "Toplam üretimden kusurlu birimlerin yüzdesi."
       }
     }
   ],

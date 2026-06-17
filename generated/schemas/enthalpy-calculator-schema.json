@@ -10,11 +10,15 @@
       "businessContext": "Mass of the substance undergoing temperature change in kilograms",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the substance undergoing temperature change in kilograms",
+        "tr": "Sıcaklık değişimine uğrayan maddenin kütlesi (kg)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Specific heat capacity at constant pressure for the substance in kilojoules per kilogram per Kelvin",
       "label_i18n": {
         "en": "Specific Heat Capacity",
-        "tr": "Specific Heat Capacity",
+        "tr": "Özgül Isı Kapasitesi",
         "de": "Specific Heat Capacity",
         "fr": "Specific Heat Capacity",
         "es": "Specific Heat Capacity",
         "ar": "Specific Heat Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Specific heat capacity at constant pressure for the substance in kilojoules per kilogram per Kelvin",
+        "tr": "Maddenin sabit basınçtaki özgül ısı kapasitesi (kJ/(kg·K))"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Starting temperature of the substance in degrees Celsius",
       "label_i18n": {
         "en": "Initial Temperature",
-        "tr": "Initial Temperature",
+        "tr": "Başlangıç Sıcaklığı",
         "de": "Initial Temperature",
         "fr": "Initial Temperature",
         "es": "Initial Temperature",
         "ar": "Initial Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Starting temperature of the substance in degrees Celsius",
+        "tr": "Maddenin başlangıç sıcaklığı (°C)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ending temperature of the substance in degrees Celsius",
       "label_i18n": {
         "en": "Final Temperature",
-        "tr": "Final Temperature",
+        "tr": "Son Sıcaklık",
         "de": "Final Temperature",
         "fr": "Final Temperature",
         "es": "Final Temperature",
         "ar": "Final Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Ending temperature of the substance in degrees Celsius",
+        "tr": "Maddenin santigrat derece cinsinden bitiş sıcaklığı"
       }
     }
   ],

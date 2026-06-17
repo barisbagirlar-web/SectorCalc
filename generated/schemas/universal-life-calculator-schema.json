@@ -10,11 +10,15 @@
       "businessContext": "Age of the insured at policy inception",
       "label_i18n": {
         "en": "Current Age",
-        "tr": "Current Age",
+        "tr": "Mevcut Yaş",
         "de": "Current Age",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the insured at policy inception",
+        "tr": "Poliçe başlangıcında sigortalının yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual premium paid by the policyholder",
       "label_i18n": {
         "en": "Annual Premium",
-        "tr": "Annual Premium",
+        "tr": "Yıllık Prim",
         "de": "Annual Premium",
         "fr": "Annual Premium",
         "es": "Annual Premium",
         "ar": "Annual Premium"
+      },
+      "businessContext_i18n": {
+        "en": "Annual premium paid by the policyholder",
+        "tr": "Poliçe sahibi tarafından ödenen yıllık prim"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Initial death benefit guaranteed under the policy",
       "label_i18n": {
         "en": "Face Amount",
-        "tr": "Face Amount",
+        "tr": "Nominal Tutar",
         "de": "Face Amount",
         "fr": "Face Amount",
         "es": "Face Amount",
         "ar": "Face Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Initial death benefit guaranteed under the policy",
+        "tr": "Poliçe kapsamında garanti edilen başlangıç ölüm yardımı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual credited interest rate on cash value",
       "label_i18n": {
         "en": "Interest Rate",
-        "tr": "Interest Rate",
+        "tr": "Faiz Oranı",
         "de": "Interest Rate",
         "fr": "Interest Rate",
         "es": "Interest Rate",
         "ar": "Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual credited interest rate on cash value",
+        "tr": "Nakit değere uygulanan yıllık faiz oranı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of years premiums are paid and interest accumulates",
       "label_i18n": {
         "en": "Policy Duration",
-        "tr": "Policy Duration",
+        "tr": "Poliçe Süresi",
         "de": "Policy Duration",
         "fr": "Policy Duration",
         "es": "Policy Duration",
         "ar": "Policy Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years premiums are paid and interest accumulates",
+        "tr": "Primlerin ödendiği ve faizin biriktiği yıl sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual percentage charge for mortality and expenses deducted from cash value accumulation",
       "label_i18n": {
         "en": "Expense Charge",
-        "tr": "Expense Charge",
+        "tr": "Masraf Ücreti",
         "de": "Expense Charge",
         "fr": "Expense Charge",
         "es": "Expense Charge",
         "ar": "Expense Charge"
+      },
+      "businessContext_i18n": {
+        "en": "Annual percentage charge for mortality and expenses deducted from cash value accumulation",
+        "tr": "Nakit değer birikiminden kesilen mortalite ve giderler için yıllık yüzde ücreti"
       }
     }
   ],

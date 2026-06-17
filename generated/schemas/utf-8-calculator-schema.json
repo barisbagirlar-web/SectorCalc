@@ -10,11 +10,15 @@
       "businessContext": "Total number of bytes to be encoded",
       "label_i18n": {
         "en": "Byte Count",
-        "tr": "Byte Count",
+        "tr": "Bayt Sayısı",
         "de": "Byte Count",
         "fr": "Byte Count",
         "es": "Byte Count",
         "ar": "Byte Count"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of bytes to be encoded",
+        "tr": "Kodlanacak toplam bayt sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of characters that are ASCII (1 byte each)",
       "label_i18n": {
         "en": "ASCII Character Ratio",
-        "tr": "ASCII Character Ratio",
+        "tr": "ASCII Karakter Oranı",
         "de": "ASCII Character Ratio",
         "fr": "ASCII Character Ratio",
         "es": "ASCII Character Ratio",
         "ar": "ASCII Character Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of characters that are ASCII (1 byte each)",
+        "tr": "ASCII olan karakterlerin yüzdesi (her biri 1 bayt)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of characters that require 2 bytes (e.g., Latin extended)",
       "label_i18n": {
         "en": "2-Byte Character Ratio",
-        "tr": "2-Byte Character Ratio",
+        "tr": "2 Baytlı Karakter Oranı",
         "de": "2-Byte Character Ratio",
         "fr": "2-Byte Character Ratio",
         "es": "2-Byte Character Ratio",
         "ar": "2-Byte Character Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of characters that require 2 bytes (e.g., Latin extended)",
+        "tr": "2 bayt gerektiren karakterlerin yüzdesi (örn. genişletilmiş Latin)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of characters that require 3 bytes (e.g., CJK)",
       "label_i18n": {
         "en": "3-Byte Character Ratio",
-        "tr": "3-Byte Character Ratio",
+        "tr": "3 Baytlı Karakter Oranı",
         "de": "3-Byte Character Ratio",
         "fr": "3-Byte Character Ratio",
         "es": "3-Byte Character Ratio",
         "ar": "3-Byte Character Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of characters that require 3 bytes (e.g., CJK)",
+        "tr": "3 bayt gerektiren karakterlerin yüzdesi (örn. CJK)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of characters that require 4 bytes (e.g., emoji)",
       "label_i18n": {
         "en": "4-Byte Character Ratio",
-        "tr": "4-Byte Character Ratio",
+        "tr": "4 Baytlı Karakter Oranı",
         "de": "4-Byte Character Ratio",
         "fr": "4-Byte Character Ratio",
         "es": "4-Byte Character Ratio",
         "ar": "4-Byte Character Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of characters that require 4 bytes (e.g., emoji)",
+        "tr": "4 bayt gerektiren karakterlerin yüzdesi (örn. emoji)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional overhead for BOM or metadata",
       "label_i18n": {
         "en": "Overhead Percentage",
-        "tr": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi",
         "de": "Overhead Percentage",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Additional overhead for BOM or metadata",
+        "tr": "BOM veya meta veri için ek yük"
       }
     }
   ],

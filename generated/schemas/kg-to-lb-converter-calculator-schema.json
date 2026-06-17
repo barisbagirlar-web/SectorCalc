@@ -19,10 +19,12 @@
       "max": 1000000,
       "businessContext": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade.",
       "label_i18n": {
-        "en": "Mass in Kilograms"
+        "en": "Mass in Kilograms",
+        "tr": "Kütle (kg)"
       },
       "businessContext_i18n": {
-        "en": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade."
+        "en": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade.",
+        "tr": "Pound'a dönüştürmek için kilogram cinsinden kütle değeri girin. Lojistik, imalat ve ticarette kullanılır."
       }
     },
     {
@@ -44,10 +46,12 @@
       ],
       "businessContext": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules.",
       "label_i18n": {
-        "en": "Precision Level"
+        "en": "Precision Level",
+        "tr": "Hassasiyet Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules."
+        "en": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules.",
+        "tr": "ISO 80000-1 yuvarlama kurallarına göre çıktı yuvarlaması için ondalık basamak sayısını seçin."
       }
     },
     {
@@ -60,10 +64,12 @@
       "max": null,
       "businessContext": "Apply WERC standard rounding (0.5 up) for trade compliance.",
       "label_i18n": {
-        "en": "Use Industry Rounding (WERC)"
+        "en": "Use Industry Rounding (WERC)",
+        "tr": "Endüstri Yuvarlaması Kullan (WERC)"
       },
       "businessContext_i18n": {
-        "en": "Apply WERC standard rounding (0.5 up) for trade compliance."
+        "en": "Apply WERC standard rounding (0.5 up) for trade compliance.",
+        "tr": "Ticaret uyumu için WERC standart yuvarlamasını (%0,5 yukarı) uygulayın."
       }
     },
     {
@@ -76,10 +82,12 @@
       "max": 10,
       "businessContext": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3).",
       "label_i18n": {
-        "en": "Measurement Uncertainty (%)"
+        "en": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)"
       },
       "businessContext_i18n": {
-        "en": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3)."
+        "en": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3).",
+        "tr": "Giriş ölçümündeki tahmini belirsizlik, güven ayarı için kullanılır (ISO/IEC Kılavuzu 98-3)."
       }
     }
   ],

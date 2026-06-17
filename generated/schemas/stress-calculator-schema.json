@@ -10,11 +10,15 @@
       "businessContext": "Tensile or compressive load",
       "label_i18n": {
         "en": "Applied Force",
-        "tr": "Applied Force",
+        "tr": "Uygulanan Kuvvet",
         "de": "Applied Force",
         "fr": "Applied Force",
         "es": "Applied Force",
         "ar": "Applied Force"
+      },
+      "businessContext_i18n": {
+        "en": "Tensile or compressive load",
+        "tr": "Çekme veya basma yükü"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal cross-sectional area",
       "label_i18n": {
         "en": "Cross-sectional Area",
-        "tr": "Cross-sectional Area",
+        "tr": "Kesit Alanı",
         "de": "Cross-sectional Area",
         "fr": "Cross-sectional Area",
         "es": "Cross-sectional Area",
         "ar": "Cross-sectional Area"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal cross-sectional area",
+        "tr": "Nominal kesit alanı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Design safety factor (≥1)",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor (≥1)",
+        "tr": "Tasarım emniyet katsayısı (≥1)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Material yield stress",
       "label_i18n": {
         "en": "Yield Strength",
-        "tr": "Yield Strength",
+        "tr": "Akma Dayanımı",
         "de": "Yield Strength",
         "fr": "Yield Strength",
         "es": "Yield Strength",
         "ar": "Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Material yield stress",
+        "tr": "Malzeme akma gerilmesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Geometric stress concentration factor",
       "label_i18n": {
         "en": "Stress Concentration Kt",
-        "tr": "Stress Concentration Kt",
+        "tr": "Gerilme Yığılması Kt",
         "de": "Stress Concentration Kt",
         "fr": "Stress Concentration Kt",
         "es": "Stress Concentration Kt",
         "ar": "Stress Concentration Kt"
+      },
+      "businessContext_i18n": {
+        "en": "Geometric stress concentration factor",
+        "tr": "Geometrik gerilme yığılma faktörü"
       }
     }
   ],

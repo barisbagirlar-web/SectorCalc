@@ -10,11 +10,15 @@
       "businessContext": "Initial acquisition cost of the asset",
       "label_i18n": {
         "en": "Purchase Price",
-        "tr": "Purchase Price",
+        "tr": "Satın Alma Fiyatı",
         "de": "Purchase Price",
         "fr": "Purchase Price",
         "es": "Purchase Price",
         "ar": "Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "Initial acquisition cost of the asset",
+        "tr": "Varlığın ilk edinim maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Yearly maintenance expense",
       "label_i18n": {
         "en": "Annual Maintenance Cost",
-        "tr": "Annual Maintenance Cost",
+        "tr": "Yıllık Bakım Maliyeti",
         "de": "Annual Maintenance Cost",
         "fr": "Annual Maintenance Cost",
         "es": "Annual Maintenance Cost",
         "ar": "Annual Maintenance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Yearly maintenance expense",
+        "tr": "Yıllık bakım gideri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Yearly energy or fuel cost",
       "label_i18n": {
         "en": "Annual Energy Cost",
-        "tr": "Annual Energy Cost",
+        "tr": "Yıllık Enerji Maliyeti",
         "de": "Annual Energy Cost",
         "fr": "Annual Energy Cost",
         "es": "Annual Energy Cost",
         "ar": "Annual Energy Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Yearly energy or fuel cost",
+        "tr": "Yıllık enerji veya yakıt maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected resale or salvage value at end of ownership period",
       "label_i18n": {
         "en": "Resale Value",
-        "tr": "Resale Value",
+        "tr": "Hurda Değeri",
         "de": "Resale Value",
         "fr": "Resale Value",
         "es": "Resale Value",
         "ar": "Resale Value"
+      },
+      "businessContext_i18n": {
+        "en": "Expected resale or salvage value at end of ownership period",
+        "tr": "Sahiplik süresi sonunda beklenen hurda veya kalıntı değer"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Duration of ownership in years",
       "label_i18n": {
         "en": "Ownership Period",
-        "tr": "Ownership Period",
+        "tr": "Sahiplik Süresi",
         "de": "Ownership Period",
         "fr": "Ownership Period",
         "es": "Ownership Period",
         "ar": "Ownership Period"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of ownership in years",
+        "tr": "Sahiplik süresi (yıl olarak)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Discount rate reflecting time value of money",
       "label_i18n": {
         "en": "Annual Discount Rate",
-        "tr": "Annual Discount Rate",
+        "tr": "Yıllık İskonto Oranı",
         "de": "Annual Discount Rate",
         "fr": "Annual Discount Rate",
         "es": "Annual Discount Rate",
         "ar": "Annual Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Discount rate reflecting time value of money",
+        "tr": "Paranın zaman değerini yansıtan iskonto oranı"
       }
     }
   ],

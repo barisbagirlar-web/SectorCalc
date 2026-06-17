@@ -10,11 +10,15 @@
       "businessContext": "The easting coordinate of the known reference point.",
       "label_i18n": {
         "en": "Reference X (Easting)",
-        "tr": "Reference X (Easting)",
+        "tr": "Referans X (Doğu)",
         "de": "Reference X (Easting)",
         "fr": "Reference X (Easting)",
         "es": "Reference X (Easting)",
         "ar": "Reference X (Easting)"
+      },
+      "businessContext_i18n": {
+        "en": "The easting coordinate of the known reference point.",
+        "tr": "Bilinen referans noktasının doğu koordinatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The northing coordinate of the known reference point.",
       "label_i18n": {
         "en": "Reference Y (Northing)",
-        "tr": "Reference Y (Northing)",
+        "tr": "Referans Y (Kuzey)",
         "de": "Reference Y (Northing)",
         "fr": "Reference Y (Northing)",
         "es": "Reference Y (Northing)",
         "ar": "Reference Y (Northing)"
+      },
+      "businessContext_i18n": {
+        "en": "The northing coordinate of the known reference point.",
+        "tr": "Bilinen referans noktasının kuzey koordinatı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Horizontal distance from reference to target point.",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal distance from reference to target point.",
+        "tr": "Referanstan hedef noktaya yatay mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Clockwise angle from north direction to the target direction.",
       "label_i18n": {
         "en": "Azimuth Angle",
-        "tr": "Azimuth Angle",
+        "tr": "Azimut Açısı",
         "de": "Azimuth Angle",
         "fr": "Azimuth Angle",
         "es": "Azimuth Angle",
         "ar": "Azimuth Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Clockwise angle from north direction to the target direction.",
+        "tr": "Kuzey yönünden hedef yönüne saat yönünde açı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Absolute temperature of the black body in Kelvin.",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute temperature of the black body in Kelvin.",
+        "tr": "Siyah cismin Kelvin cinsinden mutlak sıcaklığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Emissivity coefficient (0 to 1) of the surface.",
       "label_i18n": {
         "en": "Emissivity",
-        "tr": "Emissivity",
+        "tr": "Yayma Katsayısı",
         "de": "Emissivity",
         "fr": "Emissivity",
         "es": "Emissivity",
         "ar": "Emissivity"
+      },
+      "businessContext_i18n": {
+        "en": "Emissivity coefficient (0 to 1) of the surface.",
+        "tr": "Yüzeyin yayma katsayısı (0 ile 1 arası)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Surface area of the radiating body in square meters.",
       "label_i18n": {
         "en": "Surface Area",
-        "tr": "Surface Area",
+        "tr": "Yüzey Alanı",
         "de": "Surface Area",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Surface area of the radiating body in square meters.",
+        "tr": "Işınım yapan cismin metrekare cinsinden yüzey alanı."
       }
     }
   ],

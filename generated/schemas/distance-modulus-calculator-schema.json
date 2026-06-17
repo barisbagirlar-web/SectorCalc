@@ -10,11 +10,15 @@
       "businessContext": "The observed brightness of the celestial object",
       "label_i18n": {
         "en": "Apparent Magnitude (m)",
-        "tr": "Apparent Magnitude (m)",
+        "tr": "Görünür Parlaklık (m)",
         "de": "Apparent Magnitude (m)",
         "fr": "Apparent Magnitude (m)",
         "es": "Apparent Magnitude (m)",
         "ar": "Apparent Magnitude (m)"
+      },
+      "businessContext_i18n": {
+        "en": "The observed brightness of the celestial object",
+        "tr": "Gök cisminin gözlemlenen parlaklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1-sigma uncertainty in m",
       "label_i18n": {
         "en": "Apparent Magnitude Error",
-        "tr": "Apparent Magnitude Error",
+        "tr": "Görünür Parlaklık Hatası",
         "de": "Apparent Magnitude Error",
         "fr": "Apparent Magnitude Error",
         "es": "Apparent Magnitude Error",
         "ar": "Apparent Magnitude Error"
+      },
+      "businessContext_i18n": {
+        "en": "1-sigma uncertainty in m",
+        "tr": "m'de 1-sigma belirsizlik"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The intrinsic brightness of the object",
       "label_i18n": {
         "en": "Absolute Magnitude (M)",
-        "tr": "Absolute Magnitude (M)",
+        "tr": "Mutlak Parlaklık (M)",
         "de": "Absolute Magnitude (M)",
         "fr": "Absolute Magnitude (M)",
         "es": "Absolute Magnitude (M)",
         "ar": "Absolute Magnitude (M)"
+      },
+      "businessContext_i18n": {
+        "en": "The intrinsic brightness of the object",
+        "tr": "Cismin içsel parlaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1-sigma uncertainty in M",
       "label_i18n": {
         "en": "Absolute Magnitude Error",
-        "tr": "Absolute Magnitude Error",
+        "tr": "Mutlak Parlaklık Hatası",
         "de": "Absolute Magnitude Error",
         "fr": "Absolute Magnitude Error",
         "es": "Absolute Magnitude Error",
         "ar": "Absolute Magnitude Error"
+      },
+      "businessContext_i18n": {
+        "en": "1-sigma uncertainty in M",
+        "tr": "M'de 1-sigma belirsizlik"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Interstellar extinction in the observed band",
       "label_i18n": {
         "en": "Extinction (A)",
-        "tr": "Extinction (A)",
+        "tr": "Sönümleme (A)",
         "de": "Extinction (A)",
         "fr": "Extinction (A)",
         "es": "Extinction (A)",
         "ar": "Extinction (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Interstellar extinction in the observed band",
+        "tr": "Gözlenen bantta yıldızlararası sönümleme"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1-sigma uncertainty in A",
       "label_i18n": {
         "en": "Extinction Error",
-        "tr": "Extinction Error",
+        "tr": "Sönümleme Hatası",
         "de": "Extinction Error",
         "fr": "Extinction Error",
         "es": "Extinction Error",
         "ar": "Extinction Error"
+      },
+      "businessContext_i18n": {
+        "en": "1-sigma uncertainty in A",
+        "tr": "A'da 1-sigma belirsizlik"
       }
     }
   ],

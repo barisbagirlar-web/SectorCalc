@@ -10,11 +10,15 @@
       "businessContext": "Total weight of the entire batch or recipe in grams.",
       "label_i18n": {
         "en": "Total Batch Weight",
-        "tr": "Total Batch Weight",
+        "tr": "Toplam Parti Ağırlığı",
         "de": "Total Batch Weight",
         "fr": "Total Batch Weight",
         "es": "Total Batch Weight",
         "ar": "Total Batch Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of the entire batch or recipe in grams.",
+        "tr": "Tüm parti veya tarifin gram cinsinden toplam ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of servings the batch yields.",
       "label_i18n": {
         "en": "Number of Servings",
-        "tr": "Number of Servings",
+        "tr": "Porsiyon Sayısı",
         "de": "Number of Servings",
         "fr": "Number of Servings",
         "es": "Number of Servings",
         "ar": "Number of Servings"
+      },
+      "businessContext_i18n": {
+        "en": "Number of servings the batch yields.",
+        "tr": "Partinin verdiği porsiyon sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Target number of servings for scaling.",
       "label_i18n": {
         "en": "Desired Servings",
-        "tr": "Desired Servings",
+        "tr": "İstenen Porsiyon",
         "de": "Desired Servings",
         "fr": "Desired Servings",
         "es": "Desired Servings",
         "ar": "Desired Servings"
+      },
+      "businessContext_i18n": {
+        "en": "Target number of servings for scaling.",
+        "tr": "Ölçeklendirme için hedef porsiyon sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total cost of ingredients for the batch.",
       "label_i18n": {
         "en": "Total Batch Cost",
-        "tr": "Total Batch Cost",
+        "tr": "Toplam Parti Maliyeti",
         "de": "Total Batch Cost",
         "fr": "Total Batch Cost",
         "es": "Total Batch Cost",
         "ar": "Total Batch Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of ingredients for the batch.",
+        "tr": "Parti için malzemelerin toplam maliyeti."
       }
     }
   ],

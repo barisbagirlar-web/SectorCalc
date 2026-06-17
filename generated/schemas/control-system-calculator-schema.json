@@ -10,11 +10,15 @@
       "businessContext": "Desired process value",
       "label_i18n": {
         "en": "Setpoint (SP)",
-        "tr": "Setpoint (SP)",
+        "tr": "Set Noktası (SP)",
         "de": "Setpoint (SP)",
         "fr": "Setpoint (SP)",
         "es": "Setpoint (SP)",
         "ar": "Setpoint (SP)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired process value",
+        "tr": "İstenen proses değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured process value",
       "label_i18n": {
         "en": "Process Variable (PV)",
-        "tr": "Process Variable (PV)",
+        "tr": "Proses Değişkeni (PV)",
         "de": "Process Variable (PV)",
         "fr": "Process Variable (PV)",
         "es": "Process Variable (PV)",
         "ar": "Process Variable (PV)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured process value",
+        "tr": "Ölçülen proses değeri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Proportional controller gain",
       "label_i18n": {
         "en": "Proportional Gain (Kp)",
-        "tr": "Proportional Gain (Kp)",
+        "tr": "Oransal Kazanç (Kp)",
         "de": "Proportional Gain (Kp)",
         "fr": "Proportional Gain (Kp)",
         "es": "Proportional Gain (Kp)",
         "ar": "Proportional Gain (Kp)"
+      },
+      "businessContext_i18n": {
+        "en": "Proportional controller gain",
+        "tr": "Oransal kontrolör kazancı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Integral time constant",
       "label_i18n": {
         "en": "Integral Time (Ti)",
-        "tr": "Integral Time (Ti)",
+        "tr": "İntegral Süresi (Ti)",
         "de": "Integral Time (Ti)",
         "fr": "Integral Time (Ti)",
         "es": "Integral Time (Ti)",
         "ar": "Integral Time (Ti)"
+      },
+      "businessContext_i18n": {
+        "en": "Integral time constant",
+        "tr": "İntegral zaman sabiti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Derivative time constant",
       "label_i18n": {
         "en": "Derivative Time (Td)",
-        "tr": "Derivative Time (Td)",
+        "tr": "Türev Süresi (Td)",
         "de": "Derivative Time (Td)",
         "fr": "Derivative Time (Td)",
         "es": "Derivative Time (Td)",
         "ar": "Derivative Time (Td)"
+      },
+      "businessContext_i18n": {
+        "en": "Derivative time constant",
+        "tr": "Türev zaman sabiti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Controller sample interval",
       "label_i18n": {
         "en": "Sample Time (Ts)",
-        "tr": "Sample Time (Ts)",
+        "tr": "Örnekleme Süresi (Ts)",
         "de": "Sample Time (Ts)",
         "fr": "Sample Time (Ts)",
         "es": "Sample Time (Ts)",
         "ar": "Sample Time (Ts)"
+      },
+      "businessContext_i18n": {
+        "en": "Controller sample interval",
+        "tr": "Kontrolör örnekleme aralığı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Error from previous sample",
       "label_i18n": {
         "en": "Previous Error (e_prev)",
-        "tr": "Previous Error (e_prev)",
+        "tr": "Önceki Hata (e_prev)",
         "de": "Previous Error (e_prev)",
         "fr": "Previous Error (e_prev)",
         "es": "Previous Error (e_prev)",
         "ar": "Previous Error (e_prev)"
+      },
+      "businessContext_i18n": {
+        "en": "Error from previous sample",
+        "tr": "Bir önceki örnekten hata"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Accumulated integral error",
       "label_i18n": {
         "en": "Integral Sum (sum_e)",
-        "tr": "Integral Sum (sum_e)",
+        "tr": "İntegral Toplamı (sum_e)",
         "de": "Integral Sum (sum_e)",
         "fr": "Integral Sum (sum_e)",
         "es": "Integral Sum (sum_e)",
         "ar": "Integral Sum (sum_e)"
+      },
+      "businessContext_i18n": {
+        "en": "Accumulated integral error",
+        "tr": "Birikmiş integral hatası"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Thickness of first insulation layer in meters",
       "label_i18n": {
         "en": "Layer 1 Thickness",
-        "tr": "Layer 1 Thickness",
+        "tr": "Katman 1 Kalınlığı",
         "de": "Layer 1 Thickness",
         "fr": "Layer 1 Thickness",
         "es": "Layer 1 Thickness",
         "ar": "Layer 1 Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of first insulation layer in meters",
+        "tr": "Birinci yalıtım katmanının metre cinsinden kalınlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Thermal conductivity of first layer",
       "label_i18n": {
         "en": "Layer 1 Thermal Conductivity",
-        "tr": "Layer 1 Thermal Conductivity",
+        "tr": "Katman 1 Isıl İletkenlik",
         "de": "Layer 1 Thermal Conductivity",
         "fr": "Layer 1 Thermal Conductivity",
         "es": "Layer 1 Thermal Conductivity",
         "ar": "Layer 1 Thermal Conductivity"
+      },
+      "businessContext_i18n": {
+        "en": "Thermal conductivity of first layer",
+        "tr": "Birinci katmanın ısıl iletkenliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Optional second layer thickness",
       "label_i18n": {
         "en": "Layer 2 Thickness",
-        "tr": "Layer 2 Thickness",
+        "tr": "Katman 2 Kalınlığı",
         "de": "Layer 2 Thickness",
         "fr": "Layer 2 Thickness",
         "es": "Layer 2 Thickness",
         "ar": "Layer 2 Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Optional second layer thickness",
+        "tr": "İsteğe bağlı ikinci katman kalınlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional second layer thermal conductivity",
       "label_i18n": {
         "en": "Layer 2 Thermal Conductivity",
-        "tr": "Layer 2 Thermal Conductivity",
+        "tr": "Katman 2 Isıl İletkenlik",
         "de": "Layer 2 Thermal Conductivity",
         "fr": "Layer 2 Thermal Conductivity",
         "es": "Layer 2 Thermal Conductivity",
         "ar": "Layer 2 Thermal Conductivity"
+      },
+      "businessContext_i18n": {
+        "en": "Optional second layer thermal conductivity",
+        "tr": "İsteğe bağlı ikinci katman ısıl iletkenliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional third layer thickness",
       "label_i18n": {
         "en": "Layer 3 Thickness",
-        "tr": "Layer 3 Thickness",
+        "tr": "Katman 3 Kalınlığı",
         "de": "Layer 3 Thickness",
         "fr": "Layer 3 Thickness",
         "es": "Layer 3 Thickness",
         "ar": "Layer 3 Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Optional third layer thickness",
+        "tr": "İsteğe bağlı üçüncü katman kalınlığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Optional third layer thermal conductivity",
       "label_i18n": {
         "en": "Layer 3 Thermal Conductivity",
-        "tr": "Layer 3 Thermal Conductivity",
+        "tr": "Katman 3 Isıl İletkenlik",
         "de": "Layer 3 Thermal Conductivity",
         "fr": "Layer 3 Thermal Conductivity",
         "es": "Layer 3 Thermal Conductivity",
         "ar": "Layer 3 Thermal Conductivity"
+      },
+      "businessContext_i18n": {
+        "en": "Optional third layer thermal conductivity",
+        "tr": "İsteğe bağlı üçüncü katman ısıl iletkenliği"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Surface area for heat loss calculation",
       "label_i18n": {
         "en": "Area",
-        "tr": "Area",
+        "tr": "Alan",
         "de": "Area",
         "fr": "Area",
         "es": "Area",
         "ar": "Area"
+      },
+      "businessContext_i18n": {
+        "en": "Surface area for heat loss calculation",
+        "tr": "Isı kaybı hesaplaması için yüzey alanı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Temperature difference across insulation",
       "label_i18n": {
         "en": "Temperature Difference",
-        "tr": "Temperature Difference",
+        "tr": "Sıcaklık Farkı",
         "de": "Temperature Difference",
         "fr": "Temperature Difference",
         "es": "Temperature Difference",
         "ar": "Temperature Difference"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature difference across insulation",
+        "tr": "Yalıtım boyunca sıcaklık farkı"
       }
     }
   ],

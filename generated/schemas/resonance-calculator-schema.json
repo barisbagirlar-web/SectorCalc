@@ -10,11 +10,15 @@
       "businessContext": "The mass of the oscillating body in kilograms.",
       "label_i18n": {
         "en": "Mass (kg)",
-        "tr": "Mass (kg)",
+        "tr": "Kütle (kg)",
         "de": "Mass (kg)",
         "fr": "Mass (kg)",
         "es": "Mass (kg)",
         "ar": "Mass (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "The mass of the oscillating body in kilograms.",
+        "tr": "Salınım yapan cismin kilogram cinsinden kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The stiffness of the spring or structural element in Newtons per meter.",
       "label_i18n": {
         "en": "Spring Stiffness (N/m)",
-        "tr": "Spring Stiffness (N/m)",
+        "tr": "Yay Sertliği (N/m)",
         "de": "Spring Stiffness (N/m)",
         "fr": "Spring Stiffness (N/m)",
         "es": "Spring Stiffness (N/m)",
         "ar": "Spring Stiffness (N/m)"
+      },
+      "businessContext_i18n": {
+        "en": "The stiffness of the spring or structural element in Newtons per meter.",
+        "tr": "Yayın veya yapısal elemanın metre başına Newton cinsinden sertliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The damping ratio ζ = c/(2√(mk)), typically between 0 and 1.",
       "label_i18n": {
         "en": "Damping Ratio (ζ)",
-        "tr": "Damping Ratio (ζ)",
+        "tr": "Sönüm Oranı (ζ)",
         "de": "Damping Ratio (ζ)",
         "fr": "Damping Ratio (ζ)",
         "es": "Damping Ratio (ζ)",
         "ar": "Damping Ratio (ζ)"
+      },
+      "businessContext_i18n": {
+        "en": "The damping ratio ζ = c/(2√(mk)), typically between 0 and 1.",
+        "tr": "Sönüm oranı ζ = c/(2√(mk)), tipik olarak 0 ile 1 arasında."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The frequency of the applied oscillating force or base motion.",
       "label_i18n": {
         "en": "Excitation Frequency (Hz)",
-        "tr": "Excitation Frequency (Hz)",
+        "tr": "Uyarım Frekansı (Hz)",
         "de": "Excitation Frequency (Hz)",
         "fr": "Excitation Frequency (Hz)",
         "es": "Excitation Frequency (Hz)",
         "ar": "Excitation Frequency (Hz)"
+      },
+      "businessContext_i18n": {
+        "en": "The frequency of the applied oscillating force or base motion.",
+        "tr": "Uygulanan salınımlı kuvvetin veya taban hareketinin frekansı."
       }
     }
   ],

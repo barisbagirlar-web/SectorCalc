@@ -10,11 +10,15 @@
       "businessContext": "Measured from nut to bridge saddle.",
       "label_i18n": {
         "en": "Scale Length",
-        "tr": "Scale Length",
+        "tr": "Skala Uzunluğu",
         "de": "Scale Length",
         "fr": "Scale Length",
         "es": "Scale Length",
         "ar": "Scale Length"
+      },
+      "businessContext_i18n": {
+        "en": "Measured from nut to bridge saddle.",
+        "tr": "Somundan köprü eyerine kadar ölçülür."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass per unit length of the string; obtain from manufacturer data or calculate from gauge and material.",
       "label_i18n": {
         "en": "Linear Density",
-        "tr": "Linear Density",
+        "tr": "Doğrusal Yoğunluk",
         "de": "Linear Density",
         "fr": "Linear Density",
         "es": "Linear Density",
         "ar": "Linear Density"
+      },
+      "businessContext_i18n": {
+        "en": "Mass per unit length of the string; obtain from manufacturer data or calculate from gauge and material.",
+        "tr": "Telin birim uzunluk başına kütlesi; üretici verilerinden alın veya çap ve malzemeden hesaplayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fundamental pitch of the open string note (e.g., E1 = 41.2 Hz).",
       "label_i18n": {
         "en": "Frequency",
-        "tr": "Frequency",
+        "tr": "Frekans",
         "de": "Frequency",
         "fr": "Frequency",
         "es": "Frequency",
         "ar": "Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Fundamental pitch of the open string note (e.g., E1 = 41.2 Hz).",
+        "tr": "Açık tel notasının temel perdesi (örneğin, E1 = 41,2 Hz)."
       }
     }
   ],

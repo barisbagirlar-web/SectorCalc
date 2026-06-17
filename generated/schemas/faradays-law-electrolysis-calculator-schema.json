@@ -10,11 +10,15 @@
       "businessContext": "Elektrik akımı (amper)",
       "label_i18n": {
         "en": "Current (I)",
-        "tr": "Current (I)",
+        "tr": "Akım (I)",
         "de": "Current (I)",
         "fr": "Current (I)",
         "es": "Current (I)",
         "ar": "Current (I)"
+      },
+      "businessContext_i18n": {
+        "en": "Elektrik akımı (amper)",
+        "tr": "Elektrik akımı (amper)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Elektroliz süresi (saniye)",
       "label_i18n": {
         "en": "Time (t)",
-        "tr": "Time (t)",
+        "tr": "Zaman (t)",
         "de": "Time (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Elektroliz süresi (saniye)",
+        "tr": "Elektroliz süresi (saniye)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maddenin molar kütlesi (ör: Cu: 63.5 g/mol)",
       "label_i18n": {
         "en": "Molar Mass (M)",
-        "tr": "Molar Mass (M)",
+        "tr": "Molar Kütle (M)",
         "de": "Molar Mass (M)",
         "fr": "Molar Mass (M)",
         "es": "Molar Mass (M)",
         "ar": "Molar Mass (M)"
+      },
+      "businessContext_i18n": {
+        "en": "Maddenin molar kütlesi (ör: Cu: 63.5 g/mol)",
+        "tr": "Maddenin molar kütlesi (ör: Cu: 63,5 g/mol)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Reaksiyonda aktarılan elektron sayısı",
       "label_i18n": {
         "en": "Electrons Transferred (z)",
-        "tr": "Electrons Transferred (z)",
+        "tr": "Aktarılan Elektron Sayısı (z)",
         "de": "Electrons Transferred (z)",
         "fr": "Electrons Transferred (z)",
         "es": "Electrons Transferred (z)",
         "ar": "Electrons Transferred (z)"
+      },
+      "businessContext_i18n": {
+        "en": "Reaksiyonda aktarılan elektron sayısı",
+        "tr": "Reaksiyonda aktarılan elektron sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Akım verimi (Faradayik verim, % olarak)",
       "label_i18n": {
         "en": "Current Efficiency",
-        "tr": "Current Efficiency",
+        "tr": "Akım Verimi",
         "de": "Current Efficiency",
         "fr": "Current Efficiency",
         "es": "Current Efficiency",
         "ar": "Current Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Akım verimi (Faradayik verim, % olarak)",
+        "tr": "Akım verimi (Faradayik verim, % olarak)"
       }
     }
   ],

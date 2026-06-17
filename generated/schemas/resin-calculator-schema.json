@@ -10,11 +10,15 @@
       "businessContext": "The surface area to be coated",
       "label_i18n": {
         "en": "Area",
-        "tr": "Area",
+        "tr": "Alan",
         "de": "Area",
         "fr": "Area",
         "es": "Area",
         "ar": "Area"
+      },
+      "businessContext_i18n": {
+        "en": "The surface area to be coated",
+        "tr": "Kaplanacak yüzey alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired coating thickness",
       "label_i18n": {
         "en": "Thickness",
-        "tr": "Thickness",
+        "tr": "Kalınlık",
         "de": "Thickness",
         "fr": "Thickness",
         "es": "Thickness",
         "ar": "Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Desired coating thickness",
+        "tr": "İstenen kaplama kalınlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Parts of resin in the mix by weight",
       "label_i18n": {
         "en": "Resin Ratio",
-        "tr": "Resin Ratio",
+        "tr": "Reçine Oranı",
         "de": "Resin Ratio",
         "fr": "Resin Ratio",
         "es": "Resin Ratio",
         "ar": "Resin Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Parts of resin in the mix by weight",
+        "tr": "Karışımdaki reçine kısımları (ağırlıkça)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Parts of hardener in the mix by weight",
       "label_i18n": {
         "en": "Hardener Ratio",
-        "tr": "Hardener Ratio",
+        "tr": "Sertleştirici Oranı",
         "de": "Hardener Ratio",
         "fr": "Hardener Ratio",
         "es": "Hardener Ratio",
         "ar": "Hardener Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Parts of hardener in the mix by weight",
+        "tr": "Karışımdaki sertleştirici kısımları (ağırlıkça)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Density of resin",
       "label_i18n": {
         "en": "Resin Density",
-        "tr": "Resin Density",
+        "tr": "Reçine Yoğunluğu",
         "de": "Resin Density",
         "fr": "Resin Density",
         "es": "Resin Density",
         "ar": "Resin Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of resin",
+        "tr": "Reçinenin yoğunluğu"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Density of hardener",
       "label_i18n": {
         "en": "Hardener Density",
-        "tr": "Hardener Density",
+        "tr": "Sertleştirici Yoğunluğu",
         "de": "Hardener Density",
         "fr": "Hardener Density",
         "es": "Hardener Density",
         "ar": "Hardener Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of hardener",
+        "tr": "Sertleştiricinin yoğunluğu"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Extra material percentage for waste and spillage",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Extra material percentage for waste and spillage",
+        "tr": "Atık ve dökülme için ekstra malzeme yüzdesi"
       }
     }
   ],

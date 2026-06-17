@@ -10,11 +10,15 @@
       "businessContext": "Your actual age in years.",
       "label_i18n": {
         "en": "Chronological Age",
-        "tr": "Chronological Age",
+        "tr": "Kronolojik Yaş",
         "de": "Chronological Age",
         "fr": "Chronological Age",
         "es": "Chronological Age",
         "ar": "Chronological Age"
+      },
+      "businessContext_i18n": {
+        "en": "Your actual age in years.",
+        "tr": "Yıl cinsinden gerçek yaşınız."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Biological gender for BMR calculation.",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Biological gender for BMR calculation.",
+        "tr": "Bazal metabolizma hızı hesaplaması için biyolojik cinsiyet."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body weight in kilograms.",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms.",
+        "tr": "Vücut ağırlığı (kg)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Body height in centimeters.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Body height in centimeters.",
+        "tr": "Vücut boyu, santimetre."
       }
     }
   ],

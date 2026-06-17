@@ -10,11 +10,15 @@
       "businessContext": "Amount of substance in micrograms per unit.",
       "label_i18n": {
         "en": "Micrograms (µg)",
-        "tr": "Micrograms (µg)",
+        "tr": "Mikrogram (µg)",
         "de": "Micrograms (µg)",
         "fr": "Micrograms (µg)",
         "es": "Micrograms (µg)",
         "ar": "Micrograms (µg)"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of substance in micrograms per unit.",
+        "tr": "Birim başına mikrogram cinsinden madde miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of units (e.g., tablets, capsules) in the batch.",
       "label_i18n": {
         "en": "Number of Units",
-        "tr": "Number of Units",
+        "tr": "Birim Sayısı",
         "de": "Number of Units",
         "fr": "Number of Units",
         "es": "Number of Units",
         "ar": "Number of Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units (e.g., tablets, capsules) in the batch.",
+        "tr": "Partideki birim sayısı (ör. tablet, kapsül)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Purity or assay percentage of the active ingredient.",
       "label_i18n": {
         "en": "Purity (%)",
-        "tr": "Purity (%)",
+        "tr": "Saflık (%)",
         "de": "Purity (%)",
         "fr": "Purity (%)",
         "es": "Purity (%)",
         "ar": "Purity (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Purity or assay percentage of the active ingredient.",
+        "tr": "Aktif bileşenin saflık veya tahlil yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Safety or overage factor to adjust total amount.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Safety or overage factor to adjust total amount.",
+        "tr": "Toplam miktarı ayarlamak için güvenlik veya fazlalık faktörü"
       }
     }
   ],

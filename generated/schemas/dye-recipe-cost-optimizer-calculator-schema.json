@@ -21,10 +21,12 @@
       "max": 100000,
       "businessContext": "Total volume of dye liquor in the batch.",
       "label_i18n": {
-        "en": "Dye bath volume (liters)"
+        "en": "Dye bath volume (liters)",
+        "tr": "Boya banyo hacmi (litre)"
       },
       "businessContext_i18n": {
-        "en": "Total volume of dye liquor in the batch."
+        "en": "Total volume of dye liquor in the batch.",
+        "tr": "Partideki toplam boya likörü hacmi."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100,
       "businessContext": "Grams of dye powder per liter of bath.",
       "label_i18n": {
-        "en": "Dye concentration (g/L)"
+        "en": "Dye concentration (g/L)",
+        "tr": "Boya konsantrasyonu (g/L)"
       },
       "businessContext_i18n": {
-        "en": "Grams of dye powder per liter of bath."
+        "en": "Grams of dye powder per liter of bath.",
+        "tr": "Litre banyo başına gram boya tozu."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 500,
       "businessContext": "Purchase price of dye powder.",
       "label_i18n": {
-        "en": "Dye price (USD/kg)"
+        "en": "Dye price (USD/kg)",
+        "tr": "Boya fiyatı (USD/kg)"
       },
       "businessContext_i18n": {
-        "en": "Purchase price of dye powder."
+        "en": "Purchase price of dye powder.",
+        "tr": "Boya tozunun satın alma fiyatı."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 10,
       "businessContext": "Cost of salts, acids, bases, etc., per liter of bath.",
       "label_i18n": {
-        "en": "Auxiliary chemicals cost (USD/L)"
+        "en": "Auxiliary chemicals cost (USD/L)",
+        "tr": "Yardımcı kimyasal maliyeti (USD/L)"
       },
       "businessContext_i18n": {
-        "en": "Cost of salts, acids, bases, etc., per liter of bath."
+        "en": "Cost of salts, acids, bases, etc., per liter of bath.",
+        "tr": "Litre banyo başına tuz, asit, baz vb. maliyeti."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 10000,
       "businessContext": "Electricity, steam, or gas cost for heating and running the dyeing machine.",
       "label_i18n": {
-        "en": "Energy cost per batch (USD)"
+        "en": "Energy cost per batch (USD)",
+        "tr": "Parti başına enerji maliyeti (USD)"
       },
       "businessContext_i18n": {
-        "en": "Electricity, steam, or gas cost for heating and running the dyeing machine."
+        "en": "Electricity, steam, or gas cost for heating and running the dyeing machine.",
+        "tr": "Boya makinesini ısıtmak ve çalıştırmak için elektrik, buhar veya gaz maliyeti."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 200,
       "businessContext": "Hourly wage including overhead.",
       "label_i18n": {
-        "en": "Labor cost (USD/hour)"
+        "en": "Labor cost (USD/hour)",
+        "tr": "İşçilik maliyeti (USD/saat)"
       },
       "businessContext_i18n": {
-        "en": "Hourly wage including overhead."
+        "en": "Hourly wage including overhead.",
+        "tr": "Genel giderler dahil saatlik ücret."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 48,
       "businessContext": "Total time from loading to unloading.",
       "label_i18n": {
-        "en": "Batch cycle time (hours)"
+        "en": "Batch cycle time (hours)",
+        "tr": "Parti çevrim süresi (saat)"
       },
       "businessContext_i18n": {
-        "en": "Total time from loading to unloading."
+        "en": "Total time from loading to unloading.",
+        "tr": "Yüklemeden boşaltmaya kadar geçen toplam süre."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 50,
       "businessContext": "Percentage of batches that require re-dyeing or are scrapped.",
       "label_i18n": {
-        "en": "Waste / rework rate (%)"
+        "en": "Waste / rework rate (%)",
+        "tr": "Atık / yeniden işleme oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of batches that require re-dyeing or are scrapped."
+        "en": "Percentage of batches that require re-dyeing or are scrapped.",
+        "tr": "Yeniden boyama veya hurdaya ayrılması gereken parti yüzdesi."
       }
     }
   ],

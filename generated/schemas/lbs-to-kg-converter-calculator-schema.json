@@ -19,10 +19,12 @@
       "max": 1000000,
       "businessContext": "Input mass value in pounds for conversion to kilograms. Used in logistics, manufacturing, and material handling.",
       "label_i18n": {
-        "en": "Mass in Pounds (lb)"
+        "en": "Mass in Pounds (lb)",
+        "tr": "Pound (lb) Cinsinden Kütle"
       },
       "businessContext_i18n": {
-        "en": "Input mass value in pounds for conversion to kilograms. Used in logistics, manufacturing, and material handling."
+        "en": "Input mass value in pounds for conversion to kilograms. Used in logistics, manufacturing, and material handling.",
+        "tr": "Kilograma dönüştürmek için pound cinsinden kütle değeri girin. Lojistik, imalat ve malzeme taşıma işlemlerinde kullanılır."
       }
     },
     {
@@ -44,10 +46,12 @@
       ],
       "businessContext": "Select the number of decimal places for the output. Higher precision for laboratory or quality control (ISO 17025).",
       "label_i18n": {
-        "en": "Precision Level (Decimal Places)"
+        "en": "Precision Level (Decimal Places)",
+        "tr": "Hassasiyet Seviyesi (Ondalık Basamak)"
       },
       "businessContext_i18n": {
-        "en": "Select the number of decimal places for the output. Higher precision for laboratory or quality control (ISO 17025)."
+        "en": "Select the number of decimal places for the output. Higher precision for laboratory or quality control (ISO 17025).",
+        "tr": "Çıktı için ondalık basamak sayısını seçin. Laboratuvar veya kalite kontrol (ISO 17025) için daha yüksek hassasiyet."
       }
     },
     {
@@ -64,10 +68,12 @@
       ],
       "businessContext": "Rounding method per ASTM E29 or ISO 80000-1. Standard rounding (half up) is default for most industrial applications.",
       "label_i18n": {
-        "en": "Rounding Method"
+        "en": "Rounding Method",
+        "tr": "Yuvarlama yöntemi"
       },
       "businessContext_i18n": {
-        "en": "Rounding method per ASTM E29 or ISO 80000-1. Standard rounding (half up) is default for most industrial applications."
+        "en": "Rounding method per ASTM E29 or ISO 80000-1. Standard rounding (half up) is default for most industrial applications.",
+        "tr": "ASTM E29 veya ISO 80000-1'e göre yuvarlama yöntemi. Standart yuvarlama (yarıdan yukarı) çoğu endüstriyel uygulama için varsayılandır."
       }
     },
     {
@@ -78,10 +84,12 @@
       "default": false,
       "businessContext": "Enable to calculate potential mass loss due to moisture, measurement error, or material handling (Lean Six Sigma waste analysis).",
       "label_i18n": {
-        "en": "Include Hidden Loss Analysis"
+        "en": "Include Hidden Loss Analysis",
+        "tr": "Görünmeyen Kayıp Analizini Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "Enable to calculate potential mass loss due to moisture, measurement error, or material handling (Lean Six Sigma waste analysis)."
+        "en": "Enable to calculate potential mass loss due to moisture, measurement error, or material handling (Lean Six Sigma waste analysis).",
+        "tr": "Nem, ölçüm hatası veya malzeme taşıma nedeniyle oluşan potansiyel kütle kaybını hesaplamak için etkinleştirin (Yalın Altı Sigma israf analizi)."
       }
     },
     {
@@ -94,10 +102,12 @@
       "max": 10,
       "businessContext": "Estimated measurement uncertainty as a percentage of the mass value. Based on calibration data (ISO 17025, GUM).",
       "label_i18n": {
-        "en": "Measurement Uncertainty (%)"
+        "en": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)"
       },
       "businessContext_i18n": {
-        "en": "Estimated measurement uncertainty as a percentage of the mass value. Based on calibration data (ISO 17025, GUM)."
+        "en": "Estimated measurement uncertainty as a percentage of the mass value. Based on calibration data (ISO 17025, GUM).",
+        "tr": "Kütle değerinin yüzdesi olarak tahmini ölçüm belirsizliği. Kalibrasyon verilerine dayanır (ISO 17025, GUM)."
       }
     },
     {
@@ -115,10 +125,12 @@
       ],
       "businessContext": "Material type influences hidden loss factors (e.g., moisture absorption for hygroscopic materials, spillage for powders).",
       "label_i18n": {
-        "en": "Material Type (for loss factor)"
+        "en": "Material Type (for loss factor)",
+        "tr": "Malzeme Türü (kayıp faktörü için)"
       },
       "businessContext_i18n": {
-        "en": "Material type influences hidden loss factors (e.g., moisture absorption for hygroscopic materials, spillage for powders)."
+        "en": "Material type influences hidden loss factors (e.g., moisture absorption for hygroscopic materials, spillage for powders).",
+        "tr": "Malzeme türü, görünmeyen kayıp faktörlerini etkiler (örneğin, higroskopik malzemeler için nem emilimi, tozlar için dökülme)."
       }
     }
   ],

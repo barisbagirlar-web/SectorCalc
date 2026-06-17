@@ -10,11 +10,15 @@
       "businessContext": "Basic size of the feature per drawing",
       "label_i18n": {
         "en": "Nominal Size (mm)",
-        "tr": "Nominal Size (mm)",
+        "tr": "Nominal Boyut (mm)",
         "de": "Nominal Size (mm)",
         "fr": "Nominal Size (mm)",
         "es": "Nominal Size (mm)",
         "ar": "Nominal Size (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Basic size of the feature per drawing",
+        "tr": "Çizime göre özelliğin temel boyutu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Specified tolerance from GD&T callout",
       "label_i18n": {
         "en": "Tolerance Value (mm)",
-        "tr": "Tolerance Value (mm)",
+        "tr": "Tolerans Değeri (mm)",
         "de": "Tolerance Value (mm)",
         "fr": "Tolerance Value (mm)",
         "es": "Tolerance Value (mm)",
         "ar": "Tolerance Value (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Specified tolerance from GD&T callout",
+        "tr": "GD&T çağrısından belirtilen tolerans"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Tolerance for the feature of size",
       "label_i18n": {
         "en": "Feature Tolerance (mm)",
-        "tr": "Feature Tolerance (mm)",
+        "tr": "Özellik Toleransı (mm)",
         "de": "Feature Tolerance (mm)",
         "fr": "Feature Tolerance (mm)",
         "es": "Feature Tolerance (mm)",
         "ar": "Feature Tolerance (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Tolerance for the feature of size",
+        "tr": "Boyut özelliği için tolerans"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Shift allowed due to datum feature size",
       "label_i18n": {
         "en": "Datum Shift (mm)",
-        "tr": "Datum Shift (mm)",
+        "tr": "Datum Kayması (mm)",
         "de": "Datum Shift (mm)",
         "fr": "Datum Shift (mm)",
         "es": "Datum Shift (mm)",
         "ar": "Datum Shift (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Shift allowed due to datum feature size",
+        "tr": "Datum özellik boyutundan kaynaklanan izin verilen kayma"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional tolerance from MMC/LMC",
       "label_i18n": {
         "en": "Bonus Tolerance (mm)",
-        "tr": "Bonus Tolerance (mm)",
+        "tr": "Bonus Tolerans (mm)",
         "de": "Bonus Tolerance (mm)",
         "fr": "Bonus Tolerance (mm)",
         "es": "Bonus Tolerance (mm)",
         "ar": "Bonus Tolerance (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional tolerance from MMC/LMC",
+        "tr": "MMC/LMC'den ek tolerans"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Angle for angularity or orientation",
       "label_i18n": {
         "en": "Angle (degrees)",
-        "tr": "Angle (degrees)",
+        "tr": "Açı (derece)",
         "de": "Angle (degrees)",
         "fr": "Angle (degrees)",
         "es": "Angle (degrees)",
         "ar": "Angle (degrees)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle for angularity or orientation",
+        "tr": "Açısal veya yön için açı"
       }
     }
   ],

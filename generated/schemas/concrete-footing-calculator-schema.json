@@ -10,11 +10,15 @@
       "businessContext": "The length of a single footing in meters.",
       "label_i18n": {
         "en": "Footing Length",
-        "tr": "Footing Length",
+        "tr": "Temel Uzunluğu",
         "de": "Footing Length",
         "fr": "Footing Length",
         "es": "Footing Length",
         "ar": "Footing Length"
+      },
+      "businessContext_i18n": {
+        "en": "The length of a single footing in meters.",
+        "tr": "Tek bir temelin metre cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The width of a single footing in meters.",
       "label_i18n": {
         "en": "Footing Width",
-        "tr": "Footing Width",
+        "tr": "Temel Genişliği",
         "de": "Footing Width",
         "fr": "Footing Width",
         "es": "Footing Width",
         "ar": "Footing Width"
+      },
+      "businessContext_i18n": {
+        "en": "The width of a single footing in meters.",
+        "tr": "Tek bir temelin metre cinsinden genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The depth or thickness of the footing in meters.",
       "label_i18n": {
         "en": "Footing Depth",
-        "tr": "Footing Depth",
+        "tr": "Temel Derinliği",
         "de": "Footing Depth",
         "fr": "Footing Depth",
         "es": "Footing Depth",
         "ar": "Footing Depth"
+      },
+      "businessContext_i18n": {
+        "en": "The depth or thickness of the footing in meters.",
+        "tr": "Temel derinliği veya kalınlığı metre cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of identical footings to be poured.",
       "label_i18n": {
         "en": "Number of Footings",
-        "tr": "Number of Footings",
+        "tr": "Temel Sayısı",
         "de": "Number of Footings",
         "fr": "Number of Footings",
         "es": "Number of Footings",
         "ar": "Number of Footings"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of identical footings to be poured.",
+        "tr": "Dökülecek aynı temellerin toplam sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of extra concrete added to account for spillage, over‑excavation, and formwork irregularities.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra concrete added to account for spillage, over‑excavation, and formwork irregularities.",
+        "tr": "Dökülme, aşırı kazı ve kalıp düzensizliklerini karşılamak için eklenen ekstra beton yüzdesi."
       }
     }
   ],

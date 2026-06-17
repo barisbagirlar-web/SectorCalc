@@ -10,11 +10,15 @@
       "businessContext": "Mother's age at estimated date of delivery",
       "label_i18n": {
         "en": "Maternal Age",
-        "tr": "Maternal Age",
+        "tr": "Anne Yaşı",
         "de": "Maternal Age",
         "fr": "Maternal Age",
         "es": "Maternal Age",
         "ar": "Maternal Age"
+      },
+      "businessContext_i18n": {
+        "en": "Mother's age at estimated date of delivery",
+        "tr": "Tahmini doğum tarihinde annenin yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Fetal nuchal translucency measurement from ultrasound",
       "label_i18n": {
         "en": "Nuchal Translucency",
-        "tr": "Nuchal Translucency",
+        "tr": "Ense Kalınlığı",
         "de": "Nuchal Translucency",
         "fr": "Nuchal Translucency",
         "es": "Nuchal Translucency",
         "ar": "Nuchal Translucency"
+      },
+      "businessContext_i18n": {
+        "en": "Fetal nuchal translucency measurement from ultrasound",
+        "tr": "Ultrason ile ölçülen fetal ense kalınlığı"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "PAPP-A MoM",
         "es": "PAPP-A MoM",
         "ar": "PAPP-A MoM"
+      },
+      "businessContext_i18n": {
+        "en": "Pregnancy-associated plasma protein A multiple of median",
+        "tr": "Gebelikle ilişkili plazma proteini A medyan katı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Free beta human chorionic gonadotropin multiple of median",
       "label_i18n": {
         "en": "Free β-hCG MoM",
-        "tr": "Free β-hCG MoM",
+        "tr": "Serbest β-hCG MoM",
         "de": "Free β-hCG MoM",
         "fr": "Free β-hCG MoM",
         "es": "Free β-hCG MoM",
         "ar": "Free β-hCG MoM"
+      },
+      "businessContext_i18n": {
+        "en": "Free beta human chorionic gonadotropin multiple of median",
+        "tr": "Serbest beta insan koryonik gonadotropin medyan katı"
       }
     }
   ],

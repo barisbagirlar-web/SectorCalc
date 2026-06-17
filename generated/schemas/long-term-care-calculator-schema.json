@@ -10,11 +10,15 @@
       "businessContext": "User's current age in years",
       "label_i18n": {
         "en": "Current Age",
-        "tr": "Current Age",
+        "tr": "Mevcut Yaş",
         "de": "Current Age",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "User's current age in years",
+        "tr": "Kullanıcının yıl cinsinden mevcut yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected retirement age",
       "label_i18n": {
         "en": "Retirement Age",
-        "tr": "Retirement Age",
+        "tr": "Emeklilik Yaşı",
         "de": "Retirement Age",
         "fr": "Retirement Age",
         "es": "Retirement Age",
         "ar": "Retirement Age"
+      },
+      "businessContext_i18n": {
+        "en": "Expected retirement age",
+        "tr": "Beklenen emeklilik yaşı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected number of years requiring long-term care",
       "label_i18n": {
         "en": "Expected Care Duration",
-        "tr": "Expected Care Duration",
+        "tr": "Beklenen Bakım Süresi",
         "de": "Expected Care Duration",
         "fr": "Expected Care Duration",
         "es": "Expected Care Duration",
         "ar": "Expected Care Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Expected number of years requiring long-term care",
+        "tr": "Uzun süreli bakım gerektiren beklenen yıl sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current daily cost of long-term care in local currency",
       "label_i18n": {
         "en": "Daily Care Cost Today",
-        "tr": "Daily Care Cost Today",
+        "tr": "Bugünkü Günlük Bakım Maliyeti",
         "de": "Daily Care Cost Today",
         "fr": "Daily Care Cost Today",
         "es": "Daily Care Cost Today",
         "ar": "Daily Care Cost Today"
+      },
+      "businessContext_i18n": {
+        "en": "Current daily cost of long-term care in local currency",
+        "tr": "Yerel para biriminde uzun süreli bakımın güncel günlük maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected average annual inflation rate for healthcare costs",
       "label_i18n": {
         "en": "Annual Inflation Rate",
-        "tr": "Annual Inflation Rate",
+        "tr": "Yıllık Enflasyon Oranı",
         "de": "Annual Inflation Rate",
         "fr": "Annual Inflation Rate",
         "es": "Annual Inflation Rate",
         "ar": "Annual Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected average annual inflation rate for healthcare costs",
+        "tr": "Sağlık hizmetleri maliyetleri için beklenen ortalama yıllık enflasyon oranı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Amount already saved to cover future care",
       "label_i18n": {
         "en": "Existing Savings Allocated",
-        "tr": "Existing Savings Allocated",
+        "tr": "Ayrılan Mevcut Birikimler",
         "de": "Existing Savings Allocated",
         "fr": "Existing Savings Allocated",
         "es": "Existing Savings Allocated",
         "ar": "Existing Savings Allocated"
+      },
+      "businessContext_i18n": {
+        "en": "Amount already saved to cover future care",
+        "tr": "Gelecekteki bakımı karşılamak için halihazırda biriktirilen miktar"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Expected additional income during care period (e.g., pension, rental)",
       "label_i18n": {
         "en": "Other Retirement Income",
-        "tr": "Other Retirement Income",
+        "tr": "Diğer Emeklilik Geliri",
         "de": "Other Retirement Income",
         "fr": "Other Retirement Income",
         "es": "Other Retirement Income",
         "ar": "Other Retirement Income"
+      },
+      "businessContext_i18n": {
+        "en": "Expected additional income during care period (e.g., pension, rental)",
+        "tr": "Bakım döneminde beklenen ek gelir (örneğin, emekli maaşı, kira geliri)"
       }
     }
   ],

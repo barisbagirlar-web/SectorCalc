@@ -10,11 +10,15 @@
       "businessContext": "The ultraviolet index value from weather report (0-11+)",
       "label_i18n": {
         "en": "UV Index",
-        "tr": "UV Index",
+        "tr": "UV İndeksi",
         "de": "UV Index",
         "fr": "UV Index",
         "es": "UV Index",
         "ar": "UV Index"
+      },
+      "businessContext_i18n": {
+        "en": "The ultraviolet index value from weather report (0-11+)",
+        "tr": "Hava durumu raporundan alınan ultraviyole indeks değeri (0-11+)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Fitzpatrick skin phototype: 1=very fair, 6=deeply pigmented",
       "label_i18n": {
         "en": "Skin Type",
-        "tr": "Skin Type",
+        "tr": "Cilt Tipi",
         "de": "Skin Type",
         "fr": "Skin Type",
         "es": "Skin Type",
         "ar": "Skin Type"
+      },
+      "businessContext_i18n": {
+        "en": "Fitzpatrick skin phototype: 1=very fair, 6=deeply pigmented",
+        "tr": "Fitzpatrick cilt fototipi: 1=çok açık, 6=koyu pigmentli"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sun Protection Factor of applied sunscreen",
       "label_i18n": {
         "en": "Sunscreen SPF",
-        "tr": "Sunscreen SPF",
+        "tr": "Güneş Koruma Faktörü (SPF)",
         "de": "Sunscreen SPF",
         "fr": "Sunscreen SPF",
         "es": "Sunscreen SPF",
         "ar": "Sunscreen SPF"
+      },
+      "businessContext_i18n": {
+        "en": "Sun Protection Factor of applied sunscreen",
+        "tr": "Uygulanan güneş kreminin güneş koruma faktörü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of sky covered by clouds reducing UV",
       "label_i18n": {
         "en": "Cloud Cover",
-        "tr": "Cloud Cover",
+        "tr": "Bulut Örtüsü",
         "de": "Cloud Cover",
         "fr": "Cloud Cover",
         "es": "Cloud Cover",
         "ar": "Cloud Cover"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of sky covered by clouds reducing UV",
+        "tr": "UV'yi azaltan gökyüzünün bulutlarla kaplı yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Elevation above sea level; UV increases ~5% per 1000m",
       "label_i18n": {
         "en": "Altitude",
-        "tr": "Altitude",
+        "tr": "Rakım",
         "de": "Altitude",
         "fr": "Altitude",
         "es": "Altitude",
         "ar": "Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Elevation above sea level; UV increases ~5% per 1000m",
+        "tr": "Deniz seviyesinden yükseklik; UV her 1000m'de ~%5 artar"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The shoe size measured in the UK system.",
       "label_i18n": {
         "en": "UK Shoe Size",
-        "tr": "UK Shoe Size",
+        "tr": "Birleşik Krallık Ayakkabı Numarası",
         "de": "UK Shoe Size",
         "fr": "UK Shoe Size",
         "es": "UK Shoe Size",
         "ar": "UK Shoe Size"
+      },
+      "businessContext_i18n": {
+        "en": "The shoe size measured in the UK system.",
+        "tr": "Birleşik Krallık sisteminde ölçülen ayakkabı numarası."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Select 0 for men's sizing or 1 for women's sizing.",
       "label_i18n": {
         "en": "Gender (0=Men, 1=Women)",
-        "tr": "Gender (0=Men, 1=Women)",
+        "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
         "de": "Gender (0=Men, 1=Women)",
         "fr": "Gender (0=Men, 1=Women)",
         "es": "Gender (0=Men, 1=Women)",
         "ar": "Gender (0=Men, 1=Women)"
+      },
+      "businessContext_i18n": {
+        "en": "Select 0 for men's sizing or 1 for women's sizing.",
+        "tr": "Erkek bedenleri için 0'ı, kadın bedenleri için 1'i seçin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fine-tuning offset for brand-specific variations.",
       "label_i18n": {
         "en": "Adjustment Factor",
-        "tr": "Adjustment Factor",
+        "tr": "Düzeltme Faktörü",
         "de": "Adjustment Factor",
         "fr": "Adjustment Factor",
         "es": "Adjustment Factor",
         "ar": "Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Fine-tuning offset for brand-specific variations.",
+        "tr": "Markaya özel varyasyonlar için ince ayar ofseti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Choose rounding style: floor, nearest integer, or ceiling.",
       "label_i18n": {
         "en": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
-        "tr": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
+        "tr": "Yuvarlama Yöntemi (0=Taban, 1=Normal, 2=Tavan)",
         "de": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
         "fr": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
         "es": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
         "ar": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)"
+      },
+      "businessContext_i18n": {
+        "en": "Choose rounding style: floor, nearest integer, or ceiling.",
+        "tr": "Yuvarlama stili seçin: taban, en yakın tam sayı veya tavan."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Volume of one can or bottle in milliliters",
       "label_i18n": {
         "en": "Can Volume",
-        "tr": "Can Volume",
+        "tr": "Kutu Hacmi",
         "de": "Can Volume",
         "fr": "Can Volume",
         "es": "Can Volume",
         "ar": "Can Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of one can or bottle in milliliters",
+        "tr": "Bir kutu veya şişenin mililitre cinsinden hacmi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Caffeine content per 100 ml, typically found on nutrition label",
       "label_i18n": {
         "en": "Caffeine per 100ml",
-        "tr": "Caffeine per 100ml",
+        "tr": "100ml'de Kafein",
         "de": "Caffeine per 100ml",
         "fr": "Caffeine per 100ml",
         "es": "Caffeine per 100ml",
         "ar": "Caffeine per 100ml"
+      },
+      "businessContext_i18n": {
+        "en": "Caffeine content per 100 ml, typically found on nutrition label",
+        "tr": "100 ml başına kafein içeriği, genellikle besin etiketinde bulunur"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sugar content per 100 ml, as listed on the product",
       "label_i18n": {
         "en": "Sugar per 100ml",
-        "tr": "Sugar per 100ml",
+        "tr": "100ml başına şeker",
         "de": "Sugar per 100ml",
         "fr": "Sugar per 100ml",
         "es": "Sugar per 100ml",
         "ar": "Sugar per 100ml"
+      },
+      "businessContext_i18n": {
+        "en": "Sugar content per 100 ml, as listed on the product",
+        "tr": "100 ml başına şeker içeriği, ürün üzerinde belirtildiği gibi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Energy content in kilocalories per 100 ml",
       "label_i18n": {
         "en": "Calories per 100ml",
-        "tr": "Calories per 100ml",
+        "tr": "100ml başına kalori",
         "de": "Calories per 100ml",
         "fr": "Calories per 100ml",
         "es": "Calories per 100ml",
         "ar": "Calories per 100ml"
+      },
+      "businessContext_i18n": {
+        "en": "Energy content in kilocalories per 100 ml",
+        "tr": "100 ml başına kilokalori cinsinden enerji içeriği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of cans or bottles in a multipack",
       "label_i18n": {
         "en": "Cans per Pack",
-        "tr": "Cans per Pack",
+        "tr": "Paket Başına Kutu Sayısı",
         "de": "Cans per Pack",
         "fr": "Cans per Pack",
         "es": "Cans per Pack",
         "ar": "Cans per Pack"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cans or bottles in a multipack",
+        "tr": "Bir çoklu paketteki kutu veya şişe sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Retail price for the entire pack in euros",
       "label_i18n": {
         "en": "Price per Pack",
-        "tr": "Price per Pack",
+        "tr": "Paket Başına Fiyat",
         "de": "Price per Pack",
         "fr": "Price per Pack",
         "es": "Price per Pack",
         "ar": "Price per Pack"
+      },
+      "businessContext_i18n": {
+        "en": "Retail price for the entire pack in euros",
+        "tr": "Tüm paket için euro cinsinden perakende fiyatı"
       }
     }
   ],

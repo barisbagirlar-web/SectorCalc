@@ -10,11 +10,15 @@
       "businessContext": "Absolute temperature of the black-body radiator in Kelvin. Typical values: 300 K (room temperature), 5778 K (Sun's photosphere).",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute temperature of the black-body radiator in Kelvin. Typical values: 300 K (room temperature), 5778 K (Sun's photosphere).",
+        "tr": "Kara cisim ışıyıcısının Kelvin cinsinden mutlak sıcaklığı. Tipik değerler: 300 K (oda sıcaklığı), 5778 K (Güneş'in fotosferi)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Wien's displacement constant for wavelength. The product of peak wavelength and temperature equals this constant. Standard value: 2.897771955E-3 m·K.",
       "label_i18n": {
         "en": "Wien's Displacement Constant (λmax)",
-        "tr": "Wien's Displacement Constant (λmax)",
+        "tr": "Wien Yer Değiştirme Sabiti (λmax)",
         "de": "Wien's Displacement Constant (λmax)",
         "fr": "Wien's Displacement Constant (λmax)",
         "es": "Wien's Displacement Constant (λmax)",
         "ar": "Wien's Displacement Constant (λmax)"
+      },
+      "businessContext_i18n": {
+        "en": "Wien's displacement constant for wavelength. The product of peak wavelength and temperature equals this constant. Standard value: 2.897771955E-3 m·K.",
+        "tr": "Dalga boyu için Wien yer değiştirme sabiti. Tepe dalga boyu ile sıcaklığın çarpımı bu sabite eşittir. Standart değer: 2,897771955E-3 m·K."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Wien's displacement constant for frequency. The ratio of peak frequency to temperature is approximately 5.879E10 Hz/K.",
       "label_i18n": {
         "en": "Wien's Frequency Constant",
-        "tr": "Wien's Frequency Constant",
+        "tr": "Wien Frekans Sabiti",
         "de": "Wien's Frequency Constant",
         "fr": "Wien's Frequency Constant",
         "es": "Wien's Frequency Constant",
         "ar": "Wien's Frequency Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Wien's displacement constant for frequency. The ratio of peak frequency to temperature is approximately 5.879E10 Hz/K.",
+        "tr": "Frekans için Wien yer değiştirme sabiti. Tepe frekansının sıcaklığa oranı yaklaşık 5,879E10 Hz/K'dir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Scaling factor to convert wavelength from meters to desired output unit. For nanometers, set to 1E9; for micrometers, set to 1E6; for meters, set to 1.",
       "label_i18n": {
         "en": "Wavelength Scale Factor",
-        "tr": "Wavelength Scale Factor",
+        "tr": "Dalga Boyu Ölçek Faktörü",
         "de": "Wavelength Scale Factor",
         "fr": "Wavelength Scale Factor",
         "es": "Wavelength Scale Factor",
         "ar": "Wavelength Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Scaling factor to convert wavelength from meters to desired output unit. For nanometers, set to 1E9; for micrometers, set to 1E6; for meters, set to 1.",
+        "tr": "Dalga boyunu metreden istenen çıktı birimine dönüştürmek için ölçekleme faktörü. Nanometre için 1E9, mikrometre için 1E6, metre için 1 olarak ayarlayın."
       }
     }
   ],

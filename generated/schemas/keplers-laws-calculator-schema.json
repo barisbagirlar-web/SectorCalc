@@ -10,11 +10,15 @@
       "businessContext": "Average distance from the Sun in astronomical units.",
       "label_i18n": {
         "en": "Semi-Major Axis (a)",
-        "tr": "Semi-Major Axis (a)",
+        "tr": "Yarı-Büyük Eksen (a)",
         "de": "Semi-Major Axis (a)",
         "fr": "Semi-Major Axis (a)",
         "es": "Semi-Major Axis (a)",
         "ar": "Semi-Major Axis (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Average distance from the Sun in astronomical units.",
+        "tr": "Güneş'e astronomik birim cinsinden ortalama uzaklık."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time to complete one orbit in Earth years.",
       "label_i18n": {
         "en": "Orbital Period (T)",
-        "tr": "Orbital Period (T)",
+        "tr": "Yörünge Periyodu (T)",
         "de": "Orbital Period (T)",
         "fr": "Orbital Period (T)",
         "es": "Orbital Period (T)",
         "ar": "Orbital Period (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Time to complete one orbit in Earth years.",
+        "tr": "Bir yörüngeyi tamamlama süresi (Dünya yılı cinsinden)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Orbital shape parameter (0=circle, <1=ellipse).",
       "label_i18n": {
         "en": "Eccentricity (e)",
-        "tr": "Eccentricity (e)",
+        "tr": "Dışmerkezlik (e)",
         "de": "Eccentricity (e)",
         "fr": "Eccentricity (e)",
         "es": "Eccentricity (e)",
         "ar": "Eccentricity (e)"
+      },
+      "businessContext_i18n": {
+        "en": "Orbital shape parameter (0=circle, <1=ellipse).",
+        "tr": "Yörünge şekil parametresi (0=daire, <1=elips)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Mass of the central object in solar masses.",
       "label_i18n": {
         "en": "Mass of Central Body (M)",
-        "tr": "Mass of Central Body (M)",
+        "tr": "Merkezi Cismin Kütlesi (M)",
         "de": "Mass of Central Body (M)",
         "fr": "Mass of Central Body (M)",
         "es": "Mass of Central Body (M)",
         "ar": "Mass of Central Body (M)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the central object in solar masses.",
+        "tr": "Merkezi cismin güneş kütlesi cinsinden kütlesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Closest approach distance to the Sun.",
       "label_i18n": {
         "en": "Distance at Perihelion (r_p)",
-        "tr": "Distance at Perihelion (r_p)",
+        "tr": "Günberi Uzaklığı (r_p)",
         "de": "Distance at Perihelion (r_p)",
         "fr": "Distance at Perihelion (r_p)",
         "es": "Distance at Perihelion (r_p)",
         "ar": "Distance at Perihelion (r_p)"
+      },
+      "businessContext_i18n": {
+        "en": "Closest approach distance to the Sun.",
+        "tr": "Güneş'e en yakın yaklaşma mesafesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Farthest distance from the Sun.",
       "label_i18n": {
         "en": "Distance at Aphelion (r_a)",
-        "tr": "Distance at Aphelion (r_a)",
+        "tr": "Günöte Uzaklığı (r_a)",
         "de": "Distance at Aphelion (r_a)",
         "fr": "Distance at Aphelion (r_a)",
         "es": "Distance at Aphelion (r_a)",
         "ar": "Distance at Aphelion (r_a)"
+      },
+      "businessContext_i18n": {
+        "en": "Farthest distance from the Sun.",
+        "tr": "Güneş'e en uzak mesafe."
       }
     }
   ],

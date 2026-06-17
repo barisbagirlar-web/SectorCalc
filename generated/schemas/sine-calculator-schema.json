@@ -10,11 +10,15 @@
       "businessContext": "The magnitude of the angle to compute the sine of.",
       "label_i18n": {
         "en": "Angle Value",
-        "tr": "Angle Value",
+        "tr": "Açı Değeri",
         "de": "Angle Value",
         "fr": "Angle Value",
         "es": "Angle Value",
         "ar": "Angle Value"
+      },
+      "businessContext_i18n": {
+        "en": "The magnitude of the angle to compute the sine of.",
+        "tr": "Sinüsü hesaplanacak açının büyüklüğü."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Select 0 if the angle is in degrees, 1 if in radians.",
       "label_i18n": {
         "en": "Angle Unit (0=Degrees, 1=Radians)",
-        "tr": "Angle Unit (0=Degrees, 1=Radians)",
+        "tr": "Açı Birimi (0=Derece, 1=Radyan)",
         "de": "Angle Unit (0=Degrees, 1=Radians)",
         "fr": "Angle Unit (0=Degrees, 1=Radians)",
         "es": "Angle Unit (0=Degrees, 1=Radians)",
         "ar": "Angle Unit (0=Degrees, 1=Radians)"
+      },
+      "businessContext_i18n": {
+        "en": "Select 0 if the angle is in degrees, 1 if in radians.",
+        "tr": "Açı derece ise 0, radyan ise 1 seçin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the sine output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the sine output.",
+        "tr": "Sinüs çıktısı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional amplitude multiplication factor (for a*sin(x)).",
       "label_i18n": {
         "en": "Amplitude Scaling",
-        "tr": "Amplitude Scaling",
+        "tr": "Genlik Ölçekleme",
         "de": "Amplitude Scaling",
         "fr": "Amplitude Scaling",
         "es": "Amplitude Scaling",
         "ar": "Amplitude Scaling"
+      },
+      "businessContext_i18n": {
+        "en": "Optional amplitude multiplication factor (for a*sin(x)).",
+        "tr": "İsteğe bağlı genlik çarpma faktörü (a*sin(x) için)."
       }
     }
   ],

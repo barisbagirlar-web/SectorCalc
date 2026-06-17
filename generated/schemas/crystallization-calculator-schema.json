@@ -10,11 +10,15 @@
       "businessContext": "Mass of solvent in the solution",
       "label_i18n": {
         "en": "Mass of Solvent",
-        "tr": "Mass of Solvent",
+        "tr": "Çözücü kütlesi",
         "de": "Mass of Solvent",
         "fr": "Mass of Solvent",
         "es": "Mass of Solvent",
         "ar": "Mass of Solvent"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of solvent in the solution",
+        "tr": "Çözeltideki çözücü kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Solubility at initial temperature (g solute per 100g solvent)",
       "label_i18n": {
         "en": "Initial Solubility",
-        "tr": "Initial Solubility",
+        "tr": "Başlangıç çözünürlüğü",
         "de": "Initial Solubility",
         "fr": "Initial Solubility",
         "es": "Initial Solubility",
         "ar": "Initial Solubility"
+      },
+      "businessContext_i18n": {
+        "en": "Solubility at initial temperature (g solute per 100g solvent)",
+        "tr": "Başlangıç sıcaklığındaki çözünürlük (100g çözücü başına g çözünen)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Solubility at final temperature (g solute per 100g solvent)",
       "label_i18n": {
         "en": "Final Solubility",
-        "tr": "Final Solubility",
+        "tr": "Son çözünürlük",
         "de": "Final Solubility",
         "fr": "Final Solubility",
         "es": "Final Solubility",
         "ar": "Final Solubility"
+      },
+      "businessContext_i18n": {
+        "en": "Solubility at final temperature (g solute per 100g solvent)",
+        "tr": "Son sıcaklıktaki çözünürlük (100g çözücü başına g çözünen)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Starting temperature of the solution, for reference",
       "label_i18n": {
         "en": "Initial Temperature",
-        "tr": "Initial Temperature",
+        "tr": "Başlangıç Sıcaklığı",
         "de": "Initial Temperature",
         "fr": "Initial Temperature",
         "es": "Initial Temperature",
         "ar": "Initial Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Starting temperature of the solution, for reference",
+        "tr": "Referans için çözeltinin başlangıç sıcaklığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Final temperature after cooling, for reference",
       "label_i18n": {
         "en": "Final Temperature",
-        "tr": "Final Temperature",
+        "tr": "Son Sıcaklık",
         "de": "Final Temperature",
         "fr": "Final Temperature",
         "es": "Final Temperature",
         "ar": "Final Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Final temperature after cooling, for reference",
+        "tr": "Soğutma sonrası nihai sıcaklık, referans için"
       }
     }
   ],

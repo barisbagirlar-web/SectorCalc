@@ -22,10 +22,12 @@
       "max": 200000,
       "businessContext": "Desired final stand count per hectare based on agronomic recommendations and yield goals.",
       "label_i18n": {
-        "en": "Target Plant Population (plants/ha)"
+        "en": "Target Plant Population (plants/ha)",
+        "tr": "Hedef Bitki Popülasyonu (bitki/ha)"
       },
       "businessContext_i18n": {
-        "en": "Desired final stand count per hectare based on agronomic recommendations and yield goals."
+        "en": "Desired final stand count per hectare based on agronomic recommendations and yield goals.",
+        "tr": "Agronomik önerilere ve verim hedeflerine dayalı olarak hektar başına istenen nihai bitki sayısı."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 100,
       "businessContext": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis.",
       "label_i18n": {
-        "en": "Germination Rate (%)"
+        "en": "Germination Rate (%)",
+        "tr": "Çimlenme Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis."
+        "en": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis.",
+        "tr": "Optimal koşullar altında çimlenmesi beklenen tohum yüzdesi, tipik olarak tohum partisi analizinden."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 100,
       "businessContext": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather.",
       "label_i18n": {
-        "en": "Field Emergence Factor (%)"
+        "en": "Field Emergence Factor (%)",
+        "tr": "Tarla Çıkış Faktörü (%)"
       },
       "businessContext_i18n": {
-        "en": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather."
+        "en": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather.",
+        "tr": "Çimlenen tohumların sağlıklı fide olarak çıkması beklenen yüzde, toprak koşulları, zararlılar ve hava durumu dikkate alınarak."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 600,
       "businessContext": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass.",
       "label_i18n": {
-        "en": "Seed Weight (g per 1000 seeds)"
+        "en": "Seed Weight (g per 1000 seeds)",
+        "tr": "Tohum Ağırlığı (g/1000 tohum)"
       },
       "businessContext_i18n": {
-        "en": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass."
+        "en": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass.",
+        "tr": "Tohum tedarikçisinden veya laboratuvar testinden bin tane ağırlığı (BTA), tohum sayısını kütleye dönüştürmek için kullanılır."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 100,
       "businessContext": "Distance between planting rows, typically set by planter configuration and crop type.",
       "label_i18n": {
-        "en": "Row Spacing (cm)"
+        "en": "Row Spacing (cm)",
+        "tr": "Sıra Aralığı (cm)"
       },
       "businessContext_i18n": {
-        "en": "Distance between planting rows, typically set by planter configuration and crop type."
+        "en": "Distance between planting rows, typically set by planter configuration and crop type.",
+        "tr": "Ekim sıraları arasındaki mesafe, tipik olarak ekim makinesi konfigürasyonu ve ürün tipine göre belirlenir."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 100,
       "businessContext": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric).",
       "label_i18n": {
-        "en": "Planter Efficiency (%)"
+        "en": "Planter Efficiency (%)",
+        "tr": "Ekim Makinesi Verimliliği (%)"
       },
       "businessContext_i18n": {
-        "en": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric)."
+        "en": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric).",
+        "tr": "Ekim makinesinin atlama, çift ekim ve mekanik kayıpları hesaba katan operasyonel verimliliği (Yalın OEE metriği)."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 50,
       "businessContext": "Purchase price of seed per kilogram, used for economic analysis.",
       "label_i18n": {
-        "en": "Seed Cost per Unit ($/kg)"
+        "en": "Seed Cost per Unit ($/kg)",
+        "tr": "Tohum Birim Maliyeti ($/kg)"
       },
       "businessContext_i18n": {
-        "en": "Purchase price of seed per kilogram, used for economic analysis."
+        "en": "Purchase price of seed per kilogram, used for economic analysis.",
+        "tr": "Tohumun kilogram başına satın alma fiyatı, ekonomik analiz için kullanılır."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 1000,
       "businessContext": "Market price per tonne of harvested crop, used for ROI calculations.",
       "label_i18n": {
-        "en": "Expected Yield Value ($/tonne)"
+        "en": "Expected Yield Value ($/tonne)",
+        "tr": "Beklenen Verim Değeri ($/ton)"
       },
       "businessContext_i18n": {
-        "en": "Market price per tonne of harvested crop, used for ROI calculations."
+        "en": "Market price per tonne of harvested crop, used for ROI calculations.",
+        "tr": "Hasat edilen ürünün ton başına piyasa fiyatı, yatırım getirisi hesaplamaları için kullanılır."
       }
     }
   ],

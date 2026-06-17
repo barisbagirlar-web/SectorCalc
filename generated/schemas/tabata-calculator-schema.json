@@ -10,11 +10,15 @@
       "businessContext": "Duration of high-intensity work interval",
       "label_i18n": {
         "en": "Work Interval (s)",
-        "tr": "Work Interval (s)",
+        "tr": "Çalışma Aralığı (s)",
         "de": "Work Interval (s)",
         "fr": "Work Interval (s)",
         "es": "Work Interval (s)",
         "ar": "Work Interval (s)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of high-intensity work interval",
+        "tr": "Yüksek yoğunluklu çalışma aralığının süresi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of rest interval between work intervals",
       "label_i18n": {
         "en": "Rest Interval (s)",
-        "tr": "Rest Interval (s)",
+        "tr": "Dinlenme Aralığı (s)",
         "de": "Rest Interval (s)",
         "fr": "Rest Interval (s)",
         "es": "Rest Interval (s)",
         "ar": "Rest Interval (s)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of rest interval between work intervals",
+        "tr": "Çalışma aralıkları arasındaki dinlenme süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of work-rest cycles",
       "label_i18n": {
         "en": "Number of Rounds",
-        "tr": "Number of Rounds",
+        "tr": "Tur Sayısı",
         "de": "Number of Rounds",
         "fr": "Number of Rounds",
         "es": "Number of Rounds",
         "ar": "Number of Rounds"
+      },
+      "businessContext_i18n": {
+        "en": "Number of work-rest cycles",
+        "tr": "Çalışma-dinlenme döngü sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time allocated before the first work interval",
       "label_i18n": {
         "en": "Preparation Time (s)",
-        "tr": "Preparation Time (s)",
+        "tr": "Hazırlık Süresi (s)",
         "de": "Preparation Time (s)",
         "fr": "Preparation Time (s)",
         "es": "Preparation Time (s)",
         "ar": "Preparation Time (s)"
+      },
+      "businessContext_i18n": {
+        "en": "Time allocated before the first work interval",
+        "tr": "İlk çalışma aralığından önce ayrılan süre"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Time allocated after the last rest interval",
       "label_i18n": {
         "en": "Cool Down Time (s)",
-        "tr": "Cool Down Time (s)",
+        "tr": "Soğuma Süresi (s)",
         "de": "Cool Down Time (s)",
         "fr": "Cool Down Time (s)",
         "es": "Cool Down Time (s)",
         "ar": "Cool Down Time (s)"
+      },
+      "businessContext_i18n": {
+        "en": "Time allocated after the last rest interval",
+        "tr": "Son dinlenme aralığından sonra ayrılan süre"
       }
     }
   ],

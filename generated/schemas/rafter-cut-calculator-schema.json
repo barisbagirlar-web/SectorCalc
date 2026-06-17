@@ -10,11 +10,15 @@
       "businessContext": "Angle of the roof slope measured from horizontal.",
       "label_i18n": {
         "en": "Roof Pitch",
-        "tr": "Roof Pitch",
+        "tr": "Çatı Eğimi",
         "de": "Roof Pitch",
         "fr": "Roof Pitch",
         "es": "Roof Pitch",
         "ar": "Roof Pitch"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of the roof slope measured from horizontal.",
+        "tr": "Çatı eğiminin yatayla yaptığı açı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total external width of the building (span).",
       "label_i18n": {
         "en": "Building Width",
-        "tr": "Building Width",
+        "tr": "Bina Genişliği",
         "de": "Building Width",
         "fr": "Building Width",
         "es": "Building Width",
         "ar": "Building Width"
+      },
+      "businessContext_i18n": {
+        "en": "Total external width of the building (span).",
+        "tr": "Binanın toplam dış genişliği (açıklık)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Horizontal projection of the rafter beyond the wall plate.",
       "label_i18n": {
         "en": "Overhang",
-        "tr": "Overhang",
+        "tr": "Saçak çıkıntısı",
         "de": "Overhang",
         "fr": "Overhang",
         "es": "Overhang",
         "ar": "Overhang"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal projection of the rafter beyond the wall plate.",
+        "tr": "Mertek duvar levhası dışındaki yatay izdüşümü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Vertical depth of the rafter board (for birdsmouth calculations).",
       "label_i18n": {
         "en": "Rafter Depth",
-        "tr": "Rafter Depth",
+        "tr": "Mertek Derinliği",
         "de": "Rafter Depth",
         "fr": "Rafter Depth",
         "es": "Rafter Depth",
         "ar": "Rafter Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical depth of the rafter board (for birdsmouth calculations).",
+        "tr": "Mertek levhasının düşey derinliği (kuş gagası hesaplamaları için)."
       }
     }
   ],

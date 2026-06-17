@@ -10,11 +10,15 @@
       "businessContext": "Starting index for the summation in the harmonic series.",
       "label_i18n": {
         "en": "Start Index",
-        "tr": "Start Index",
+        "tr": "Başlangıç İndeksi",
         "de": "Start Index",
         "fr": "Start Index",
         "es": "Start Index",
         "ar": "Start Index"
+      },
+      "businessContext_i18n": {
+        "en": "Starting index for the summation in the harmonic series.",
+        "tr": "Harmonik seride toplamanın başlangıç indeksi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ending index for the summation.",
       "label_i18n": {
         "en": "End Index",
-        "tr": "End Index",
+        "tr": "Bitiş İndeksi",
         "de": "End Index",
         "fr": "End Index",
         "es": "End Index",
         "ar": "End Index"
+      },
+      "businessContext_i18n": {
+        "en": "Ending index for the summation.",
+        "tr": "Toplamanın bitiş indeksi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Exponent for the denominator term; use 1 for the standard harmonic series (1/k^p).",
       "label_i18n": {
         "en": "Exponent (p)",
-        "tr": "Exponent (p)",
+        "tr": "Üs (p)",
         "de": "Exponent (p)",
         "fr": "Exponent (p)",
         "es": "Exponent (p)",
         "ar": "Exponent (p)"
+      },
+      "businessContext_i18n": {
+        "en": "Exponent for the denominator term; use 1 for the standard harmonic series (1/k^p).",
+        "tr": "Payda terimi için üs; standart harmonik seri (1/k^p) için 1 kullanın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Step size between successive indices in the summation.",
       "label_i18n": {
         "en": "Increment",
-        "tr": "Increment",
+        "tr": "Artış Miktarı",
         "de": "Increment",
         "fr": "Increment",
         "es": "Increment",
         "ar": "Increment"
+      },
+      "businessContext_i18n": {
+        "en": "Step size between successive indices in the summation.",
+        "tr": "Toplamada ardışık indeksler arasındaki adım boyutu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Constant added to the index inside the denominator before exponentiation.",
       "label_i18n": {
         "en": "Shift",
-        "tr": "Shift",
+        "tr": "Kaydırma",
         "de": "Shift",
         "fr": "Shift",
         "es": "Shift",
         "ar": "Shift"
+      },
+      "businessContext_i18n": {
+        "en": "Constant added to the index inside the denominator before exponentiation.",
+        "tr": "Üs alma öncesinde payda içindeki indekse eklenen sabit."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Scaling factor applied to each term of the series.",
       "label_i18n": {
         "en": "Multiplier",
-        "tr": "Multiplier",
+        "tr": "Çarpan",
         "de": "Multiplier",
         "fr": "Multiplier",
         "es": "Multiplier",
         "ar": "Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Scaling factor applied to each term of the series.",
+        "tr": "Serinin her terimine uygulanan ölçekleme faktörü."
       }
     }
   ],

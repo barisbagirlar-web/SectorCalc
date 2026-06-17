@@ -10,11 +10,15 @@
       "businessContext": "Cost of raw materials",
       "label_i18n": {
         "en": "Material Cost",
-        "tr": "Material Cost",
+        "tr": "Malzeme Maliyeti",
         "de": "Material Cost",
         "fr": "Material Cost",
         "es": "Material Cost",
         "ar": "Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw materials",
+        "tr": "Hammadde maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total labor hours required",
       "label_i18n": {
         "en": "Labor Hours",
-        "tr": "Labor Hours",
+        "tr": "İşçilik Saati",
         "de": "Labor Hours",
         "fr": "Labor Hours",
         "es": "Labor Hours",
         "ar": "Labor Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total labor hours required",
+        "tr": "Toplam işçilik saati gerekli"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Labor cost per hour",
       "label_i18n": {
         "en": "Hourly Rate",
-        "tr": "Hourly Rate",
+        "tr": "Saatlik Ücret",
         "de": "Hourly Rate",
         "fr": "Hourly Rate",
         "es": "Hourly Rate",
         "ar": "Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Labor cost per hour",
+        "tr": "Saat başına işçilik maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Overhead cost as percentage of direct costs",
       "label_i18n": {
         "en": "Overhead %",
-        "tr": "Overhead %",
+        "tr": "Genel Gider %",
         "de": "Overhead %",
         "fr": "Overhead %",
         "es": "Overhead %",
         "ar": "Overhead %"
+      },
+      "businessContext_i18n": {
+        "en": "Overhead cost as percentage of direct costs",
+        "tr": "Doğrudan maliyetlerin yüzdesi olarak genel gider maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Desired profit margin percentage",
       "label_i18n": {
         "en": "Profit Margin %",
-        "tr": "Profit Margin %",
+        "tr": "Kâr Marjı %",
         "de": "Profit Margin %",
         "fr": "Profit Margin %",
         "es": "Profit Margin %",
         "ar": "Profit Margin %"
+      },
+      "businessContext_i18n": {
+        "en": "Desired profit margin percentage",
+        "tr": "İstenen kâr marjı yüzdesi"
       }
     }
   ],

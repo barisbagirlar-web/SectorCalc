@@ -21,10 +21,12 @@
       "max": 150,
       "businessContext": "Average hourly wage including burden for direct labor operators.",
       "label_i18n": {
-        "en": "Labor Rate (per hour)"
+        "en": "Labor Rate (per hour)",
+        "tr": "İşçilik Ücreti (saat başına)"
       },
       "businessContext_i18n": {
-        "en": "Average hourly wage including burden for direct labor operators."
+        "en": "Average hourly wage including burden for direct labor operators.",
+        "tr": "Direkt işçilik operatörleri için yan haklar dahil ortalama saatlik ücret."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 8,
       "businessContext": "Standard time per production cycle (e.g., per unit or batch).",
       "label_i18n": {
-        "en": "Labor Hours per Cycle"
+        "en": "Labor Hours per Cycle",
+        "tr": "Çevrim Başına İşçilik Saati"
       },
       "businessContext_i18n": {
-        "en": "Standard time per production cycle (e.g., per unit or batch)."
+        "en": "Standard time per production cycle (e.g., per unit or batch).",
+        "tr": "Üretim çevrimi başına standart süre (örneğin birim veya parti başına)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10000,
       "businessContext": "Direct material cost per unit of output.",
       "label_i18n": {
-        "en": "Material Cost per Unit"
+        "en": "Material Cost per Unit",
+        "tr": "Birim Başına Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct material cost per unit of output."
+        "en": "Direct material cost per unit of output.",
+        "tr": "Çıktı birimi başına direkt malzeme maliyeti."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 500,
       "businessContext": "Electricity, gas, or other energy costs per production cycle.",
       "label_i18n": {
-        "en": "Energy Cost per Cycle"
+        "en": "Energy Cost per Cycle",
+        "tr": "Çevrim Başına Enerji Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Electricity, gas, or other energy costs per production cycle."
+        "en": "Electricity, gas, or other energy costs per production cycle.",
+        "tr": "Üretim çevrimi başına elektrik, gaz veya diğer enerji maliyetleri."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 200,
       "businessContext": "Average preventive and corrective maintenance cost allocated per cycle.",
       "label_i18n": {
-        "en": "Maintenance Cost per Cycle"
+        "en": "Maintenance Cost per Cycle",
+        "tr": "Çevrim Başına Bakım Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Average preventive and corrective maintenance cost allocated per cycle."
+        "en": "Average preventive and corrective maintenance cost allocated per cycle.",
+        "tr": "Çevrim başına tahsis edilen ortalama önleyici ve düzeltici bakım maliyeti."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Percentage applied to direct costs to cover indirect expenses (ISO 14051).",
       "label_i18n": {
-        "en": "Overhead Rate (%)"
+        "en": "Overhead Rate (%)",
+        "tr": "Genel Gider Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage applied to direct costs to cover indirect expenses (ISO 14051)."
+        "en": "Percentage applied to direct costs to cover indirect expenses (ISO 14051).",
+        "tr": "Dolaylı giderleri karşılamak için direkt maliyetlere uygulanan yüzde (ISO 14051)."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 480,
       "businessContext": "Actual cycle time per unit; used for throughput and efficiency calculations.",
       "label_i18n": {
-        "en": "Cycle Time (minutes)"
+        "en": "Cycle Time (minutes)",
+        "tr": "Çevrim Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Actual cycle time per unit; used for throughput and efficiency calculations."
+        "en": "Actual cycle time per unit; used for throughput and efficiency calculations.",
+        "tr": "Birim başına gerçek çevrim süresi; verim ve üretkenlik hesaplamalarında kullanılır."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 100,
       "businessContext": "Percentage of units that fail quality inspection (Six Sigma metric).",
       "label_i18n": {
-        "en": "Defect Rate (%)"
+        "en": "Defect Rate (%)",
+        "tr": "Hata Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of units that fail quality inspection (Six Sigma metric)."
+        "en": "Percentage of units that fail quality inspection (Six Sigma metric).",
+        "tr": "Kalite denetiminde başarısız olan birimlerin yüzdesi (Altı Sigma metriği)."
       }
     }
   ],

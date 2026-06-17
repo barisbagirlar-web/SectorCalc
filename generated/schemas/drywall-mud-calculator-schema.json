@@ -10,11 +10,15 @@
       "businessContext": "Total square footage of drywall to be finished",
       "label_i18n": {
         "en": "Drywall Area",
-        "tr": "Drywall Area",
+        "tr": "Alçıpan Alanı",
         "de": "Drywall Area",
         "fr": "Drywall Area",
         "es": "Drywall Area",
         "ar": "Drywall Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total square footage of drywall to be finished",
+        "tr": "İşlenecek toplam alçıpan metrekare"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of coats of joint compound applied (e.g., tape, fill, finish)",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Number of Coats",
+        "tr": "Kat Sayısı",
         "de": "Number of Coats",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
+      },
+      "businessContext_i18n": {
+        "en": "Number of coats of joint compound applied (e.g., tape, fill, finish)",
+        "tr": "Uygulanan derz dolgu kat sayısı (örn. bant, dolgu, son kat)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Estimated coverage per gallon of ready-mix joint compound",
       "label_i18n": {
         "en": "Coverage Rate",
-        "tr": "Coverage Rate",
+        "tr": "Kaplama Oranı",
         "de": "Coverage Rate",
         "fr": "Coverage Rate",
         "es": "Coverage Rate",
         "ar": "Coverage Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated coverage per gallon of ready-mix joint compound",
+        "tr": "Hazır derz dolgu galonu başına tahmini kaplama alanı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional percentage to account for spillage, over-application, and joint waste",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage to account for spillage, over-application, and joint waste",
+        "tr": "Dökülme, aşırı uygulama ve derz atığı için eklenecek ek yüzde"
       }
     }
   ],

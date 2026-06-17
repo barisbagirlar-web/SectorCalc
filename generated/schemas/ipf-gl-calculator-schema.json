@@ -10,11 +10,15 @@
       "businessContext": "Material's thermal conductivity",
       "label_i18n": {
         "en": "Thermal Conductivity (k)",
-        "tr": "Thermal Conductivity (k)",
+        "tr": "Isıl İletkenlik (k)",
         "de": "Thermal Conductivity (k)",
         "fr": "Thermal Conductivity (k)",
         "es": "Thermal Conductivity (k)",
         "ar": "Thermal Conductivity (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Material's thermal conductivity",
+        "tr": "Malzemenin ısıl iletkenliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Thickness of insulation layer",
       "label_i18n": {
         "en": "Insulation Thickness",
-        "tr": "Insulation Thickness",
+        "tr": "Yalıtım Kalınlığı",
         "de": "Insulation Thickness",
         "fr": "Insulation Thickness",
         "es": "Insulation Thickness",
         "ar": "Insulation Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of insulation layer",
+        "tr": "Yalıtım tabakasının kalınlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Area of insulated surface",
       "label_i18n": {
         "en": "Surface Area",
-        "tr": "Surface Area",
+        "tr": "Yüzey Alanı",
         "de": "Surface Area",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Area of insulated surface",
+        "tr": "Yalıtımlı yüzey alanı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature on the hot side",
       "label_i18n": {
         "en": "Hot Side Temperature",
-        "tr": "Hot Side Temperature",
+        "tr": "Sıcak Taraf Sıcaklığı",
         "de": "Hot Side Temperature",
         "fr": "Hot Side Temperature",
         "es": "Hot Side Temperature",
         "ar": "Hot Side Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature on the hot side",
+        "tr": "Sıcak taraftaki sıcaklık"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Temperature on the cold side",
       "label_i18n": {
         "en": "Cold Side Temperature",
-        "tr": "Cold Side Temperature",
+        "tr": "Soğuk Taraf Sıcaklığı",
         "de": "Cold Side Temperature",
         "fr": "Cold Side Temperature",
         "es": "Cold Side Temperature",
         "ar": "Cold Side Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature on the cold side",
+        "tr": "Soğuk taraftaki sıcaklık"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Required maximum U-value per GL guidelines",
       "label_i18n": {
         "en": "Target U-value",
-        "tr": "Target U-value",
+        "tr": "Hedef U-değeri",
         "de": "Target U-value",
         "fr": "Target U-value",
         "es": "Target U-value",
         "ar": "Target U-value"
+      },
+      "businessContext_i18n": {
+        "en": "Required maximum U-value per GL guidelines",
+        "tr": "GL yönergelerine göre gerekli maksimum U-değeri"
       }
     }
   ],

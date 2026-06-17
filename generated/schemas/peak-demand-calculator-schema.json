@@ -15,6 +15,10 @@
         "fr": "Toplam Bağlı Yük",
         "es": "Toplam Bağlı Yük",
         "ar": "Toplam Bağlı Yük"
+      },
+      "businessContext_i18n": {
+        "en": "Tesisteki tüm ekipmanların anma güçlerinin toplamı (kW cinsinden)",
+        "tr": "Tesisteki tüm ekipmanların anma güçlerinin toplamı (kW cinsinden)"
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Talep Faktörü",
         "es": "Talep Faktörü",
         "ar": "Talep Faktörü"
+      },
+      "businessContext_i18n": {
+        "en": "Maksimum talebin toplam bağlı yüke oranı, tipik olarak 0-1 arasındadır",
+        "tr": "Maksimum talebin toplam bağlı yüke oranı, tipik olarak 0-1 arasındadır"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Güç Faktörü",
         "es": "Güç Faktörü",
         "ar": "Güç Faktörü"
+      },
+      "businessContext_i18n": {
+        "en": "Aktif gücün görünür güce oranı, tipik olarak 0-1 arasındadır",
+        "tr": "Güç Faktörü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Gelecekteki büyüme veya belirsizlik için eklenen yüzde marj",
       "label_i18n": {
         "en": "Yedek Kapasite Marjı",
-        "tr": "Yedek Kapasite Marjı",
+        "tr": "Aktif gücün görünür güce oranı, tipik olarak 0-1 arasındadır",
         "de": "Yedek Kapasite Marjı",
         "fr": "Yedek Kapasite Marjı",
         "es": "Yedek Kapasite Marjı",
         "ar": "Yedek Kapasite Marjı"
+      },
+      "businessContext_i18n": {
+        "en": "Gelecekteki büyüme veya belirsizlik için eklenen yüzde marj",
+        "tr": "Yedek Kapasite Marjı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Length of first leg of a right triangle (adjacent to the right angle).",
       "label_i18n": {
         "en": "Leg A Length",
-        "tr": "Leg A Length",
+        "tr": "A Kenar Uzunluğu",
         "de": "Leg A Length",
         "fr": "Leg A Length",
         "es": "Leg A Length",
         "ar": "Leg A Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of first leg of a right triangle (adjacent to the right angle).",
+        "tr": "Dik üçgenin birinci kenarının uzunluğu (dik açıya bitişik)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of second leg of a right triangle (adjacent to the right angle).",
       "label_i18n": {
         "en": "Leg B Length",
-        "tr": "Leg B Length",
+        "tr": "B Kenar Uzunluğu",
         "de": "Leg B Length",
         "fr": "Leg B Length",
         "es": "Leg B Length",
         "ar": "Leg B Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of second leg of a right triangle (adjacent to the right angle).",
+        "tr": "Dik üçgenin ikinci kenarının uzunluğu (dik açıya bitişik)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the computed hypotenuse.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the computed hypotenuse.",
+        "tr": "Hesaplanan hipotenüsün yuvarlanması için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Acceptable tolerance for verifying right triangle when checking existing measurements.",
       "label_i18n": {
         "en": "Tolerance (±)",
-        "tr": "Tolerance (±)",
+        "tr": "Tolerans (±)",
         "de": "Tolerance (±)",
         "fr": "Tolerance (±)",
         "es": "Tolerance (±)",
         "ar": "Tolerance (±)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceptable tolerance for verifying right triangle when checking existing measurements.",
+        "tr": "Mevcut ölçümler kontrol edilirken dik üçgeni doğrulamak için kabul edilebilir tolerans."
       }
     }
   ],

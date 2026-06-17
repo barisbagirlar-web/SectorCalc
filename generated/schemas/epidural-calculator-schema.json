@@ -10,11 +10,15 @@
       "businessContext": "Weight of the patient in kilograms",
       "label_i18n": {
         "en": "Patient Weight",
-        "tr": "Patient Weight",
+        "tr": "Hasta Ağırlığı",
         "de": "Patient Weight",
         "fr": "Patient Weight",
         "es": "Patient Weight",
         "ar": "Patient Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the patient in kilograms",
+        "tr": "Hastanın kilogram cinsinden ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Concentration of anesthetic agent in percentage (g/100mL)",
       "label_i18n": {
         "en": "Drug Concentration",
-        "tr": "Drug Concentration",
+        "tr": "İlaç Konsantrasyonu",
         "de": "Drug Concentration",
         "fr": "Drug Concentration",
         "es": "Drug Concentration",
         "ar": "Drug Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Concentration of anesthetic agent in percentage (g/100mL)",
+        "tr": "Anestezik maddenin yüzde olarak konsantrasyonu (g/100mL)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired dose of anesthetic per kilogram of body weight",
       "label_i18n": {
         "en": "Desired Dose Rate",
-        "tr": "Desired Dose Rate",
+        "tr": "İstenen Doz Hızı",
         "de": "Desired Dose Rate",
         "fr": "Desired Dose Rate",
         "es": "Desired Dose Rate",
         "ar": "Desired Dose Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Desired dose of anesthetic per kilogram of body weight",
+        "tr": "Vücut ağırlığının kilogramı başına istenen anestezik dozu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum safe dose of the anesthetic without epinephrine (e.g., 4 mg/kg for lidocaine)",
       "label_i18n": {
         "en": "Max Safe Dose Limit",
-        "tr": "Max Safe Dose Limit",
+        "tr": "Maksimum Güvenli Doz Limiti",
         "de": "Max Safe Dose Limit",
         "fr": "Max Safe Dose Limit",
         "es": "Max Safe Dose Limit",
         "ar": "Max Safe Dose Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum safe dose of the anesthetic without epinephrine (e.g., 4 mg/kg for lidocaine)",
+        "tr": "Epinefrinsiz anesteziğin maksimum güvenli dozu (örn. lidokain için 4 mg/kg)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Indicates whether epinephrine is added (1) or not (0). Increases max safe dose by 75%.",
       "label_i18n": {
         "en": "Epinephrine Added",
-        "tr": "Epinephrine Added",
+        "tr": "Epinefrin Eklendi",
         "de": "Epinephrine Added",
         "fr": "Epinephrine Added",
         "es": "Epinephrine Added",
         "ar": "Epinephrine Added"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether epinephrine is added (1) or not (0). Increases max safe dose by 75%.",
+        "tr": "Epinefrin eklenip eklenmediğini belirtir (1 evet, 0 hayır). Maksimum güvenli dozu %75 artırır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total volume of anesthetic solution available in the vial",
       "label_i18n": {
         "en": "Volume On Hand",
-        "tr": "Volume On Hand",
+        "tr": "Mevcut Hacim",
         "de": "Volume On Hand",
         "fr": "Volume On Hand",
         "es": "Volume On Hand",
         "ar": "Volume On Hand"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of anesthetic solution available in the vial",
+        "tr": "Flakonda bulunan toplam anestezik solüsyon hacmi"
       }
     }
   ],

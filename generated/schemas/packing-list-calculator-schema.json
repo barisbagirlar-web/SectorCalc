@@ -10,11 +10,15 @@
       "businessContext": "Total number of items ordered by customer",
       "label_i18n": {
         "en": "Order Quantity",
-        "tr": "Order Quantity",
+        "tr": "Sipariş Miktarı",
         "de": "Order Quantity",
         "fr": "Order Quantity",
         "es": "Order Quantity",
         "ar": "Order Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of items ordered by customer",
+        "tr": "Müşteri tarafından sipariş edilen toplam ürün sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "How many items fit into one standard carton",
       "label_i18n": {
         "en": "Units per Carton",
-        "tr": "Units per Carton",
+        "tr": "Koli Başına Birim",
         "de": "Units per Carton",
         "fr": "Units per Carton",
         "es": "Units per Carton",
         "ar": "Units per Carton"
+      },
+      "businessContext_i18n": {
+        "en": "How many items fit into one standard carton",
+        "tr": "Bir standart koliye kaç ürün sığar"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length dimension of a carton",
       "label_i18n": {
         "en": "Carton Length",
-        "tr": "Carton Length",
+        "tr": "Koli Uzunluğu",
         "de": "Carton Length",
         "fr": "Carton Length",
         "es": "Carton Length",
         "ar": "Carton Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length dimension of a carton",
+        "tr": "Bir kolinin uzunluk boyutu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width dimension of a carton",
       "label_i18n": {
         "en": "Carton Width",
-        "tr": "Carton Width",
+        "tr": "Koli Genişliği",
         "de": "Carton Width",
         "fr": "Carton Width",
         "es": "Carton Width",
         "ar": "Carton Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width dimension of a carton",
+        "tr": "Bir kolinin genişlik boyutu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Height dimension of a carton",
       "label_i18n": {
         "en": "Carton Height",
-        "tr": "Carton Height",
+        "tr": "Koli Yüksekliği",
         "de": "Carton Height",
         "fr": "Carton Height",
         "es": "Carton Height",
         "ar": "Carton Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height dimension of a carton",
+        "tr": "Bir kolinin yükseklik boyutu"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Weight of one full carton including items and packaging",
       "label_i18n": {
         "en": "Carton Weight (full)",
-        "tr": "Carton Weight (full)",
+        "tr": "Karton Ağırlığı (dolu)",
         "de": "Carton Weight (full)",
         "fr": "Carton Weight (full)",
         "es": "Carton Weight (full)",
         "ar": "Carton Weight (full)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of one full carton including items and packaging",
+        "tr": "Ürünler ve ambalaj dahil bir dolu kartonun ağırlığı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Maximum number of cartons that can be stacked on a pallet (based on dimensions)",
       "label_i18n": {
         "en": "Max Cartons per Pallet",
-        "tr": "Max Cartons per Pallet",
+        "tr": "Palet Başına Maksimum Karton",
         "de": "Max Cartons per Pallet",
         "fr": "Max Cartons per Pallet",
         "es": "Max Cartons per Pallet",
         "ar": "Max Cartons per Pallet"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum number of cartons that can be stacked on a pallet (based on dimensions)",
+        "tr": "Bir palete (boyutlara göre) istiflenebilecek maksimum karton sayısı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Maximum weight a pallet can safely carry",
       "label_i18n": {
         "en": "Max Weight per Pallet",
-        "tr": "Max Weight per Pallet",
+        "tr": "Palet Başına Maksimum Ağırlık",
         "de": "Max Weight per Pallet",
         "fr": "Max Weight per Pallet",
         "es": "Max Weight per Pallet",
         "ar": "Max Weight per Pallet"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum weight a pallet can safely carry",
+        "tr": "Bir paletin güvenle taşıyabileceği maksimum ağırlık"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Current market price of the underlying asset per unit.",
       "label_i18n": {
         "en": "Spot Price",
-        "tr": "Spot Price",
+        "tr": "Spot Fiyat",
         "de": "Spot Price",
         "fr": "Spot Price",
         "es": "Spot Price",
         "ar": "Spot Price"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price of the underlying asset per unit.",
+        "tr": "Dayanak varlığın birim başına güncel piyasa fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Futures contract price for delivery at a future date.",
       "label_i18n": {
         "en": "Futures Price",
-        "tr": "Futures Price",
+        "tr": "Vadeli İşlem Fiyatı",
         "de": "Futures Price",
         "fr": "Futures Price",
         "es": "Futures Price",
         "ar": "Futures Price"
+      },
+      "businessContext_i18n": {
+        "en": "Futures contract price for delivery at a future date.",
+        "tr": "Gelecekteki bir teslimat için vadeli işlem sözleşme fiyatı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Annualized standard deviation of spot price returns.",
       "label_i18n": {
         "en": "Spot Volatility (σ)",
-        "tr": "Spot Volatility (σ)",
+        "tr": "Spot Volatilite (σ)",
         "de": "Spot Volatility (σ)",
         "fr": "Spot Volatility (σ)",
         "es": "Spot Volatility (σ)",
         "ar": "Spot Volatility (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "Annualized standard deviation of spot price returns.",
+        "tr": "Spot fiyat getirilerinin yıllıklandırılmış standart sapması."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annualized standard deviation of futures price returns.",
       "label_i18n": {
         "en": "Futures Volatility (σ)",
-        "tr": "Futures Volatility (σ)",
+        "tr": "Vadeli İşlem Volatilitesi (σ)",
         "de": "Futures Volatility (σ)",
         "fr": "Futures Volatility (σ)",
         "es": "Futures Volatility (σ)",
         "ar": "Futures Volatility (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "Annualized standard deviation of futures price returns.",
+        "tr": "Vadeli işlem fiyat getirilerinin yıllıklandırılmış standart sapması."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Correlation coefficient between spot and futures returns.",
       "label_i18n": {
         "en": "Correlation",
-        "tr": "Correlation",
+        "tr": "Korelasyon",
         "de": "Correlation",
         "fr": "Correlation",
         "es": "Correlation",
         "ar": "Correlation"
+      },
+      "businessContext_i18n": {
+        "en": "Correlation coefficient between spot and futures returns.",
+        "tr": "Spot ve vadeli işlem getirileri arasındaki korelasyon katsayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total quantity of the asset to hedge (e.g., bushels, barrels).",
       "label_i18n": {
         "en": "Exposure (Units)",
-        "tr": "Exposure (Units)",
+        "tr": "Maruziyet (Birim)",
         "de": "Exposure (Units)",
         "fr": "Exposure (Units)",
         "es": "Exposure (Units)",
         "ar": "Exposure (Units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total quantity of the asset to hedge (e.g., bushels, barrels).",
+        "tr": "Korunacak varlığın toplam miktarı (ör. kile, varil)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of units of the underlying asset per futures contract.",
       "label_i18n": {
         "en": "Contract Size",
-        "tr": "Contract Size",
+        "tr": "Sözleşme Büyüklüğü",
         "de": "Contract Size",
         "fr": "Contract Size",
         "es": "Contract Size",
         "ar": "Contract Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units of the underlying asset per futures contract.",
+        "tr": "Vadeli işlem sözleşmesi başına dayanak varlığın birim sayısı."
       }
     }
   ],

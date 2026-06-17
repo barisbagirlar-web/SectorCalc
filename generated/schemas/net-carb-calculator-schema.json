@@ -10,11 +10,15 @@
       "businessContext": "Total carbohydrates per serving as shown on nutrition facts label.",
       "label_i18n": {
         "en": "Total Carbohydrates",
-        "tr": "Total Carbohydrates",
+        "tr": "Toplam Karbonhidrat",
         "de": "Total Carbohydrates",
         "fr": "Total Carbohydrates",
         "es": "Total Carbohydrates",
         "ar": "Total Carbohydrates"
+      },
+      "businessContext_i18n": {
+        "en": "Total carbohydrates per serving as shown on nutrition facts label.",
+        "tr": "Besin değerleri etiketinde belirtilen porsiyon başına toplam karbonhidrat."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Dietary fiber per serving in grams. Fiber is subtracted because it is not digested.",
       "label_i18n": {
         "en": "Dietary Fiber",
-        "tr": "Dietary Fiber",
+        "tr": "Diyet Lifi",
         "de": "Dietary Fiber",
         "fr": "Dietary Fiber",
         "es": "Dietary Fiber",
         "ar": "Dietary Fiber"
+      },
+      "businessContext_i18n": {
+        "en": "Dietary fiber per serving in grams. Fiber is subtracted because it is not digested.",
+        "tr": "Gram cinsinden porsiyon başına diyet lifi. Lif sindirilmediği için çıkarılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sugar alcohols per serving (e.g., maltitol, sorbitol). Fully subtracted as they have minimal impact on blood sugar.",
       "label_i18n": {
         "en": "Sugar Alcohols",
-        "tr": "Sugar Alcohols",
+        "tr": "Şeker Alkolleri",
         "de": "Sugar Alcohols",
         "fr": "Sugar Alcohols",
         "es": "Sugar Alcohols",
         "ar": "Sugar Alcohols"
+      },
+      "businessContext_i18n": {
+        "en": "Sugar alcohols per serving (e.g., maltitol, sorbitol). Fully subtracted as they have minimal impact on blood sugar.",
+        "tr": "Porsiyon başına şeker alkolleri (örn. maltitol, sorbitol). Kan şekeri üzerinde minimal etkileri olduğu için tamamen çıkarılır."
       }
     }
   ],

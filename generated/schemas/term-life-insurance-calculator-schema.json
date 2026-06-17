@@ -10,11 +10,15 @@
       "businessContext": "Age of the insured person",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the insured person",
+        "tr": "Sigortalının yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Indicates if the insured is a smoker",
       "label_i18n": {
         "en": "Smoker",
-        "tr": "Smoker",
+        "tr": "Sigara içen",
         "de": "Smoker",
         "fr": "Smoker",
         "es": "Smoker",
         "ar": "Smoker"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if the insured is a smoker",
+        "tr": "Sigortalının sigara içip içmediğini belirtir"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Death benefit amount",
       "label_i18n": {
         "en": "Coverage Amount",
-        "tr": "Coverage Amount",
+        "tr": "Teminat Tutarı",
         "de": "Coverage Amount",
         "fr": "Coverage Amount",
         "es": "Coverage Amount",
         "ar": "Coverage Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Death benefit amount",
+        "tr": "Ölüm yardımı tutarı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Policy term length",
       "label_i18n": {
         "en": "Term (Years)",
-        "tr": "Term (Years)",
+        "tr": "Vade (Yıl)",
         "de": "Term (Years)",
         "fr": "Term (Years)",
         "es": "Term (Years)",
         "ar": "Term (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Policy term length",
+        "tr": "Poliçe vadesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Annual discount rate for present value calculation",
       "label_i18n": {
         "en": "Interest Rate",
-        "tr": "Interest Rate",
+        "tr": "Faiz Oranı",
         "de": "Interest Rate",
         "fr": "Interest Rate",
         "es": "Interest Rate",
         "ar": "Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual discount rate for present value calculation",
+        "tr": "Bugünkü değer hesaplaması için yıllık iskonto oranı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Fuel efficiency in miles per gallon (US).",
       "label_i18n": {
         "en": "Miles per Gallon (MPG)",
-        "tr": "Miles per Gallon (MPG)",
+        "tr": "Mil/Galon (MPG)",
         "de": "Miles per Gallon (MPG)",
         "fr": "Miles per Gallon (MPG)",
         "es": "Miles per Gallon (MPG)",
         "ar": "Miles per Gallon (MPG)"
+      },
+      "businessContext_i18n": {
+        "en": "Fuel efficiency in miles per gallon (US).",
+        "tr": "Yakıt verimliliği (mil/galon, ABD)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor for fuel type (1 for gasoline, 0.85 for diesel).",
       "label_i18n": {
         "en": "Fuel Type",
-        "tr": "Fuel Type",
+        "tr": "Yakıt Türü",
         "de": "Fuel Type",
         "fr": "Fuel Type",
         "es": "Fuel Type",
         "ar": "Fuel Type"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor for fuel type (1 for gasoline, 0.85 for diesel).",
+        "tr": "Yakıt türü için dönüşüm faktörü (benzin için 1, dizel için 0,85)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Correction for temperature effects on fuel density (0.95-1.05).",
       "label_i18n": {
         "en": "Temperature Correction Factor",
-        "tr": "Temperature Correction Factor",
+        "tr": "Sıcaklık Düzeltme Faktörü",
         "de": "Temperature Correction Factor",
         "fr": "Temperature Correction Factor",
         "es": "Temperature Correction Factor",
         "ar": "Temperature Correction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Correction for temperature effects on fuel density (0.95-1.05).",
+        "tr": "Yakıt yoğunluğu üzerindeki sıcaklık etkileri için düzeltme (0,95-1,05)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Correction for altitude effects on engine efficiency (0.9-1.0).",
       "label_i18n": {
         "en": "Altitude Correction Factor",
-        "tr": "Altitude Correction Factor",
+        "tr": "Rakım Düzeltme Faktörü",
         "de": "Altitude Correction Factor",
         "fr": "Altitude Correction Factor",
         "es": "Altitude Correction Factor",
         "ar": "Altitude Correction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Correction for altitude effects on engine efficiency (0.9-1.0).",
+        "tr": "Motor verimliliği üzerindeki rakım etkileri için düzeltme (0,9-1,0)."
       }
     }
   ],

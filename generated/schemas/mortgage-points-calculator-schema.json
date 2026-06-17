@@ -10,11 +10,15 @@
       "businessContext": "Total principal of the mortgage",
       "label_i18n": {
         "en": "Loan Amount",
-        "tr": "Loan Amount",
+        "tr": "Kredi Tutarı",
         "de": "Loan Amount",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total principal of the mortgage",
+        "tr": "Mortgage anaparası"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual interest rate without points",
       "label_i18n": {
         "en": "Base Interest Rate",
-        "tr": "Base Interest Rate",
+        "tr": "Temel Faiz Oranı",
         "de": "Base Interest Rate",
         "fr": "Base Interest Rate",
         "es": "Base Interest Rate",
         "ar": "Base Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate without points",
+        "tr": "Puantajsız yıllık faiz oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of discount points (each point costs 1% of loan amount)",
       "label_i18n": {
         "en": "Points Purchased",
-        "tr": "Points Purchased",
+        "tr": "Satın Alınan Puanlar",
         "de": "Points Purchased",
         "fr": "Points Purchased",
         "es": "Points Purchased",
         "ar": "Points Purchased"
+      },
+      "businessContext_i18n": {
+        "en": "Number of discount points (each point costs 1% of loan amount)",
+        "tr": "İndirim puanı sayısı (her puan kredi tutarının %1'i kadardır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Reduction in interest rate per point",
       "label_i18n": {
         "en": "Rate Reduction per Point",
-        "tr": "Rate Reduction per Point",
+        "tr": "Puan Başına Oran Düşüşü",
         "de": "Rate Reduction per Point",
         "fr": "Rate Reduction per Point",
         "es": "Rate Reduction per Point",
         "ar": "Rate Reduction per Point"
+      },
+      "businessContext_i18n": {
+        "en": "Reduction in interest rate per point",
+        "tr": "Puan başına faiz oranındaki düşüş"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Duration of the mortgage in years",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the mortgage in years",
+        "tr": "Mortgage süresi (yıl olarak)"
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 1000000000,
       "businessContext": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory).",
       "label_i18n": {
-        "en": "Average Inventory Value (USD)"
+        "en": "Average Inventory Value (USD)",
+        "tr": "Ortalama Stok Değeri (USD)"
       },
       "businessContext_i18n": {
-        "en": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory)."
+        "en": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory).",
+        "tr": "Dönem boyunca envanterin toplam ortalama değeri (örneğin, SMM bazlı envanterin aylık ortalaması)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000000000,
       "businessContext": "Total cost of goods sold over the last 12 months.",
       "label_i18n": {
-        "en": "Annual Cost of Goods Sold (USD)"
+        "en": "Annual Cost of Goods Sold (USD)",
+        "tr": "Yıllık Satılan Malın Maliyeti (USD)"
       },
       "businessContext_i18n": {
-        "en": "Total cost of goods sold over the last 12 months."
+        "en": "Total cost of goods sold over the last 12 months.",
+        "tr": "Son 12 aydaki satılan malın toplam maliyeti."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 2,
       "businessContext": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability.",
       "label_i18n": {
-        "en": "Demand Variability Coefficient (CV)"
+        "en": "Demand Variability Coefficient (CV)",
+        "tr": "Talep Değişkenlik Katsayısı (CV)"
       },
       "businessContext_i18n": {
-        "en": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability."
+        "en": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability.",
+        "tr": "Aylık talebin varyasyon katsayısı (standart sapma / ortalama). Daha yüksek değerler daha fazla öngörülemezliği gösterir."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Annual percentage of inventory value that becomes obsolete or expired.",
       "label_i18n": {
-        "en": "Obsolescence Rate (% per year)"
+        "en": "Obsolescence Rate (% per year)",
+        "tr": "Eskime Oranı (%/yıl)"
       },
       "businessContext_i18n": {
-        "en": "Annual percentage of inventory value that becomes obsolete or expired."
+        "en": "Annual percentage of inventory value that becomes obsolete or expired.",
+        "tr": "Eskiyen veya son kullanma tarihi geçen envanter değerinin yıllık yüzdesi."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 100,
       "businessContext": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value.",
       "label_i18n": {
-        "en": "Inventory Carrying Cost Rate (% per year)"
+        "en": "Inventory Carrying Cost Rate (% per year)",
+        "tr": "Envanter Taşıma Maliyeti Oranı (%/yıl)"
       },
       "businessContext_i18n": {
-        "en": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value."
+        "en": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value.",
+        "tr": "Envanteri elde tutmanın yıllık maliyeti (depolama, sigorta, sermaye vb.) envanter değerinin yüzdesi olarak."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 365,
       "businessContext": "Average replenishment lead time from order placement to receipt.",
       "label_i18n": {
-        "en": "Average Lead Time (Days)"
+        "en": "Average Lead Time (Days)",
+        "tr": "Ortalama Tedarik Süresi (Gün)"
       },
       "businessContext_i18n": {
-        "en": "Average replenishment lead time from order placement to receipt."
+        "en": "Average replenishment lead time from order placement to receipt.",
+        "tr": "Sipariş vermeden teslim almaya kadar geçen ortalama tedarik süresi."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 99.99,
       "businessContext": "Target fill rate or cycle service level (e.g., 95% = 0.95).",
       "label_i18n": {
-        "en": "Service Level Target (%)"
+        "en": "Service Level Target (%)",
+        "tr": "Hizmet Seviyesi Hedefi (%)"
       },
       "businessContext_i18n": {
-        "en": "Target fill rate or cycle service level (e.g., 95% = 0.95)."
+        "en": "Target fill rate or cycle service level (e.g., 95% = 0.95).",
+        "tr": "Hedef doluluk oranı veya çevrim hizmet seviyesi (örneğin, %95 = 0,95)."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 100,
       "businessContext": "Percentage of inventory records matching physical counts (cycle count accuracy).",
       "label_i18n": {
-        "en": "Inventory Record Accuracy (%)"
+        "en": "Inventory Record Accuracy (%)",
+        "tr": "Envanter Kayıt Doğruluğu (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of inventory records matching physical counts (cycle count accuracy)."
+        "en": "Percentage of inventory records matching physical counts (cycle count accuracy).",
+        "tr": "Fiziksel sayımlarla eşleşen envanter kayıtlarının yüzdesi (döngü sayım doğruluğu)."
       }
     }
   ],

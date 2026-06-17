@@ -10,11 +10,15 @@
       "businessContext": "Nominal side length of the square in base units (typically meters).",
       "label_i18n": {
         "en": "Side Length",
-        "tr": "Side Length",
+        "tr": "Kenar Uzunluğu",
         "de": "Side Length",
         "fr": "Side Length",
         "es": "Side Length",
         "ar": "Side Length"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal side length of the square in base units (typically meters).",
+        "tr": "Kare şeklinin temel birimlerde (genellikle metre) nominal kenar uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Positive tolerance on side length (added to nominal).",
       "label_i18n": {
         "en": "Tolerance (+)",
-        "tr": "Tolerance (+)",
+        "tr": "Tolerans (+)",
         "de": "Tolerance (+)",
         "fr": "Tolerance (+)",
         "es": "Tolerance (+)",
         "ar": "Tolerance (+)"
+      },
+      "businessContext_i18n": {
+        "en": "Positive tolerance on side length (added to nominal).",
+        "tr": "Kenar uzunluğuna eklenen pozitif tolerans (nominal değere eklenir)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Negative tolerance on side length (subtracted from nominal, entered as positive number).",
       "label_i18n": {
         "en": "Tolerance (-)",
-        "tr": "Tolerance (-)",
+        "tr": "Tolerans (-)",
         "de": "Tolerance (-)",
         "fr": "Tolerance (-)",
         "es": "Tolerance (-)",
         "ar": "Tolerance (-)"
+      },
+      "businessContext_i18n": {
+        "en": "Negative tolerance on side length (subtracted from nominal, entered as positive number).",
+        "tr": "Kenar uzunluğundan çıkarılan negatif tolerans (pozitif sayı olarak girilir)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to convert square base units to desired output unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²).",
       "label_i18n": {
         "en": "Output Unit Multiplier",
-        "tr": "Output Unit Multiplier",
+        "tr": "Çıktı Birim Çarpanı",
         "de": "Output Unit Multiplier",
         "fr": "Output Unit Multiplier",
         "es": "Output Unit Multiplier",
         "ar": "Output Unit Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to convert square base units to desired output unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²).",
+        "tr": "Kare taban birimlerini istenen çıktı birimine dönüştürmek için çarpan (örneğin, m² için 1, cm² için 10000, ft² için 10.7639)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for rounding results.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding results.",
+        "tr": "Sonuçların yuvarlanması için ondalık basamak sayısı."
       }
     }
   ],

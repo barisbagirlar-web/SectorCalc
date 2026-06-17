@@ -10,11 +10,15 @@
       "businessContext": "The average value of the sample data collected from the process.",
       "label_i18n": {
         "en": "Sample Mean",
-        "tr": "Sample Mean",
+        "tr": "Örneklem ortalaması",
         "de": "Sample Mean",
         "fr": "Sample Mean",
         "es": "Sample Mean",
         "ar": "Sample Mean"
+      },
+      "businessContext_i18n": {
+        "en": "The average value of the sample data collected from the process.",
+        "tr": "Süreçten toplanan örneklem verisinin ortalama değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The value of the population mean under the null hypothesis.",
       "label_i18n": {
         "en": "Hypothesized Mean",
-        "tr": "Hypothesized Mean",
+        "tr": "Hipotez Edilen Ortalama",
         "de": "Hypothesized Mean",
         "fr": "Hypothesized Mean",
         "es": "Hypothesized Mean",
         "ar": "Hypothesized Mean"
+      },
+      "businessContext_i18n": {
+        "en": "The value of the population mean under the null hypothesis.",
+        "tr": "Sıfır hipotezi altındaki popülasyon ortalamasının değeri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The standard deviation of the sample data, measuring variability.",
       "label_i18n": {
         "en": "Sample Standard Deviation",
-        "tr": "Sample Standard Deviation",
+        "tr": "Örneklem standart sapması",
         "de": "Sample Standard Deviation",
         "fr": "Sample Standard Deviation",
         "es": "Sample Standard Deviation",
         "ar": "Sample Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "The standard deviation of the sample data, measuring variability.",
+        "tr": "Örneklem verisinin standart sapması, değişkenliği ölçer."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The number of observations in the sample (must be >1).",
       "label_i18n": {
         "en": "Sample Size",
-        "tr": "Sample Size",
+        "tr": "Örneklem büyüklüğü",
         "de": "Sample Size",
         "fr": "Sample Size",
         "es": "Sample Size",
         "ar": "Sample Size"
+      },
+      "businessContext_i18n": {
+        "en": "The number of observations in the sample (must be >1).",
+        "tr": "Örneklemdeki gözlem sayısı (>1 olmalıdır)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Cumulative probability from a normal distribution (0–100).",
       "label_i18n": {
         "en": "Percentile",
-        "tr": "Percentile",
+        "tr": "Yüzdelik",
         "de": "Percentile",
         "fr": "Percentile",
         "es": "Percentile",
         "ar": "Percentile"
+      },
+      "businessContext_i18n": {
+        "en": "Cumulative probability from a normal distribution (0–100).",
+        "tr": "Normal dağılımdan kümülatif olasılık (0–100)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mean of the underlying distribution (0 for standard Z).",
       "label_i18n": {
         "en": "Mean",
-        "tr": "Mean",
+        "tr": "Ortalama",
         "de": "Mean",
         "fr": "Mean",
         "es": "Mean",
         "ar": "Mean"
+      },
+      "businessContext_i18n": {
+        "en": "Mean of the underlying distribution (0 for standard Z).",
+        "tr": "Temel dağılımın ortalaması (standart Z için 0)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard deviation of the underlying distribution (1 for standard Z).",
       "label_i18n": {
         "en": "Standard Deviation",
-        "tr": "Standard Deviation",
+        "tr": "Standart Sapma",
         "de": "Standard Deviation",
         "fr": "Standard Deviation",
         "es": "Standard Deviation",
         "ar": "Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of the underlying distribution (1 for standard Z).",
+        "tr": "Temel dağılımın standart sapması (standart Z için 1)."
       }
     }
   ],

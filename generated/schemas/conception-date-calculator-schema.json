@@ -10,11 +10,15 @@
       "businessContext": "The deadline or target completion date expressed as number of days from a reference date (e.g., 2024-01-01).",
       "label_i18n": {
         "en": "Target Date (days from epoch)",
-        "tr": "Target Date (days from epoch)",
+        "tr": "Hedef Tarih (referans günden itibaren gün sayısı)",
         "de": "Target Date (days from epoch)",
         "fr": "Target Date (days from epoch)",
         "es": "Target Date (days from epoch)",
         "ar": "Target Date (days from epoch)"
+      },
+      "businessContext_i18n": {
+        "en": "The deadline or target completion date expressed as number of days from a reference date (e.g., 2024-01-01).",
+        "tr": "Bir referans tarihten (ör. 2024-01-01) itibaren gün olarak ifade edilen son tarih veya hedef tamamlanma tarihi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The estimated total work duration in calendar days.",
       "label_i18n": {
         "en": "Planned Duration",
-        "tr": "Planned Duration",
+        "tr": "Planlanan Süre",
         "de": "Planned Duration",
         "fr": "Planned Duration",
         "es": "Planned Duration",
         "ar": "Planned Duration"
+      },
+      "businessContext_i18n": {
+        "en": "The estimated total work duration in calendar days.",
+        "tr": "Takvim günü cinsinden tahmini toplam iş süresi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional safety margin in days.",
       "label_i18n": {
         "en": "Buffer Days",
-        "tr": "Buffer Days",
+        "tr": "Tampon Günler",
         "de": "Buffer Days",
         "fr": "Buffer Days",
         "es": "Buffer Days",
         "ar": "Buffer Days"
+      },
+      "businessContext_i18n": {
+        "en": "Additional safety margin in days.",
+        "tr": "Gün cinsinden ek güvenlik marjı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Productivity factor; 1 = 100% efficiency. A value less than 1 increases effective duration.",
       "label_i18n": {
         "en": "Efficiency Factor",
-        "tr": "Efficiency Factor",
+        "tr": "Verimlilik Faktörü",
         "de": "Efficiency Factor",
         "fr": "Efficiency Factor",
         "es": "Efficiency Factor",
         "ar": "Efficiency Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Productivity factor; 1 = 100% efficiency. A value less than 1 increases effective duration.",
+        "tr": "Verimlilik faktörü; 1 = %100 verim. 1'den küçük bir değer etkin süreyi artırır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Standard slump cone height (300 mm per ASTM C143)",
       "label_i18n": {
         "en": "Mold Height",
-        "tr": "Mold Height",
+        "tr": "Kalıp Yüksekliği",
         "de": "Mold Height",
         "fr": "Mold Height",
         "es": "Mold Height",
         "ar": "Mold Height"
+      },
+      "businessContext_i18n": {
+        "en": "Standard slump cone height (300 mm per ASTM C143)",
+        "tr": "Standart slump konisi yüksekliği (ASTM C143'e göre 300 mm)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Top diameter of slump cone (100 mm)",
       "label_i18n": {
         "en": "Top Diameter",
-        "tr": "Top Diameter",
+        "tr": "Üst Çap",
         "de": "Top Diameter",
         "fr": "Top Diameter",
         "es": "Top Diameter",
         "ar": "Top Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Top diameter of slump cone (100 mm)",
+        "tr": "Slump konisinin üst çapı (100 mm)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Bottom diameter of slump cone (200 mm)",
       "label_i18n": {
         "en": "Bottom Diameter",
-        "tr": "Bottom Diameter",
+        "tr": "Alt Çap",
         "de": "Bottom Diameter",
         "fr": "Bottom Diameter",
         "es": "Bottom Diameter",
         "ar": "Bottom Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Bottom diameter of slump cone (200 mm)",
+        "tr": "Huni taban çapı (200 mm)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of the slumped concrete after cone removal (average if asymmetrical)",
       "label_i18n": {
         "en": "Measured Slump Height",
-        "tr": "Measured Slump Height",
+        "tr": "Ölçülen Çökme Yüksekliği",
         "de": "Measured Slump Height",
         "fr": "Measured Slump Height",
         "es": "Measured Slump Height",
         "ar": "Measured Slump Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the slumped concrete after cone removal (average if asymmetrical)",
+        "tr": "Huni çıkarıldıktan sonra çöken betonun yüksekliği (asimetrik ise ortalama)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Minimum allowable slump per project specification",
       "label_i18n": {
         "en": "Specified Minimum Slump",
-        "tr": "Specified Minimum Slump",
+        "tr": "Belirtilen Minimum Çökme",
         "de": "Specified Minimum Slump",
         "fr": "Specified Minimum Slump",
         "es": "Specified Minimum Slump",
         "ar": "Specified Minimum Slump"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum allowable slump per project specification",
+        "tr": "Proje şartnamesine göre izin verilen minimum çökme"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Maximum allowable slump per project specification",
       "label_i18n": {
         "en": "Specified Maximum Slump",
-        "tr": "Specified Maximum Slump",
+        "tr": "Belirtilen Maksimum Çökme",
         "de": "Specified Maximum Slump",
         "fr": "Specified Maximum Slump",
         "es": "Specified Maximum Slump",
         "ar": "Specified Maximum Slump"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable slump per project specification",
+        "tr": "Proje şartnamesine göre izin verilen maksimum çökme"
       }
     }
   ],

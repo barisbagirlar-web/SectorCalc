@@ -10,11 +10,15 @@
       "businessContext": "Integration lower bound",
       "label_i18n": {
         "en": "Lower limit (a)",
-        "tr": "Lower limit (a)",
+        "tr": "Alt sınır (a)",
         "de": "Lower limit (a)",
         "fr": "Lower limit (a)",
         "es": "Lower limit (a)",
         "ar": "Lower limit (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Integration lower bound",
+        "tr": "İntegral alt sınırı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Integration upper bound",
       "label_i18n": {
         "en": "Upper limit (b)",
-        "tr": "Upper limit (b)",
+        "tr": "Üst sınır (b)",
         "de": "Upper limit (b)",
         "fr": "Upper limit (b)",
         "es": "Upper limit (b)",
         "ar": "Upper limit (b)"
+      },
+      "businessContext_i18n": {
+        "en": "Integration upper bound",
+        "tr": "İntegral üst sınırı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Must be even for Simpson's rule",
       "label_i18n": {
         "en": "Number of subintervals (n)",
-        "tr": "Number of subintervals (n)",
+        "tr": "Alt aralık sayısı (n)",
         "de": "Number of subintervals (n)",
         "fr": "Number of subintervals (n)",
         "es": "Number of subintervals (n)",
         "ar": "Number of subintervals (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Must be even for Simpson's rule",
+        "tr": "Simpson kuralı için çift olmalıdır"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
       "label_i18n": {
         "en": "Function type",
-        "tr": "Function type",
+        "tr": "Fonksiyon türü",
         "de": "Function type",
         "fr": "Function type",
         "es": "Function type",
         "ar": "Function type"
+      },
+      "businessContext_i18n": {
+        "en": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
+        "tr": "1: sin(x), 2: cos(x), 3: x², 4: √x, 5: eˣ, 6: log(x)"
       }
     }
   ],

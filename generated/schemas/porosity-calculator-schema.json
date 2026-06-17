@@ -10,11 +10,15 @@
       "businessContext": "Density of the material including void spaces (mass/total volume).",
       "label_i18n": {
         "en": "Bulk Density",
-        "tr": "Bulk Density",
+        "tr": "Yığın yoğunluğu",
         "de": "Bulk Density",
         "fr": "Bulk Density",
         "es": "Bulk Density",
         "ar": "Bulk Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the material including void spaces (mass/total volume).",
+        "tr": "Boşluklar dahil malzemenin yoğunluğu (kütle/toplam hacim)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Density of the solid particles only, excluding voids.",
       "label_i18n": {
         "en": "Particle Density",
-        "tr": "Particle Density",
+        "tr": "Partikül yoğunluğu",
         "de": "Particle Density",
         "fr": "Particle Density",
         "es": "Particle Density",
         "ar": "Particle Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the solid particles only, excluding voids.",
+        "tr": "Sadece katı partiküllerin yoğunluğu, boşluklar hariç."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total volume of the sample, including pore spaces.",
       "label_i18n": {
         "en": "Total Volume",
-        "tr": "Total Volume",
+        "tr": "Toplam hacim",
         "de": "Total Volume",
         "fr": "Total Volume",
         "es": "Total Volume",
         "ar": "Total Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of the sample, including pore spaces.",
+        "tr": "Numunenin gözenek boşlukları dahil toplam hacmi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Volume of void spaces within the sample.",
       "label_i18n": {
         "en": "Pore Volume",
-        "tr": "Pore Volume",
+        "tr": "Gözenek hacmi",
         "de": "Pore Volume",
         "fr": "Pore Volume",
         "es": "Pore Volume",
         "ar": "Pore Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of void spaces within the sample.",
+        "tr": "Numune içindeki boşluk hacmi."
       }
     }
   ],

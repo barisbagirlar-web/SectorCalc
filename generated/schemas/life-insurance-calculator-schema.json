@@ -10,11 +10,15 @@
       "businessContext": "Age of the insured person in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the insured person in years",
+        "tr": "Sigortalının yaşı (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total coverage amount (death benefit) in USD",
       "label_i18n": {
         "en": "Coverage Amount",
-        "tr": "Coverage Amount",
+        "tr": "Teminat Tutarı",
         "de": "Coverage Amount",
         "fr": "Coverage Amount",
         "es": "Coverage Amount",
         "ar": "Coverage Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total coverage amount (death benefit) in USD",
+        "tr": "Toplam teminat tutarı (ölüm yardımı) USD"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of the policy term in years",
       "label_i18n": {
         "en": "Term Length",
-        "tr": "Term Length",
+        "tr": "Vade Süresi",
         "de": "Term Length",
         "fr": "Term Length",
         "es": "Term Length",
         "ar": "Term Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the policy term in years",
+        "tr": "Poliçe süresi (yıl)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 for non-smoker, 1 for smoker",
       "label_i18n": {
         "en": "Smoking Status",
-        "tr": "Smoking Status",
+        "tr": "Sigara İçme Durumu",
         "de": "Smoking Status",
         "fr": "Smoking Status",
         "es": "Smoking Status",
         "ar": "Smoking Status"
+      },
+      "businessContext_i18n": {
+        "en": "0 for non-smoker, 1 for smoker",
+        "tr": "0 içmiyor, 1 içiyor"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "0 for male, 1 for female (used for risk adjustment)",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for male, 1 for female (used for risk adjustment)",
+        "tr": "0 erkek, 1 kadın (risk ayarlaması için kullanılır)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Health score from 0-100, higher is better",
       "label_i18n": {
         "en": "Health Score",
-        "tr": "Health Score",
+        "tr": "Sağlık Puanı",
         "de": "Health Score",
         "fr": "Health Score",
         "es": "Health Score",
         "ar": "Health Score"
+      },
+      "businessContext_i18n": {
+        "en": "Health score from 0-100, higher is better",
+        "tr": "0-100 arası sağlık puanı, yüksek daha iyi"
       }
     }
   ],

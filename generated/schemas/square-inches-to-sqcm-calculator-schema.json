@@ -10,11 +10,15 @@
       "businessContext": "The area in square inches to convert.",
       "label_i18n": {
         "en": "Square Inches",
-        "tr": "Square Inches",
+        "tr": "İnç Kare",
         "de": "Square Inches",
         "fr": "Square Inches",
         "es": "Square Inches",
         "ar": "Square Inches"
+      },
+      "businessContext_i18n": {
+        "en": "The area in square inches to convert.",
+        "tr": "Dönüştürülecek inç kare cinsinden alan."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The conversion factor. Default 6.4516 (ISO standard). Change for custom conversions.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The conversion factor. Default 6.4516 (ISO standard). Change for custom conversions.",
+        "tr": "Dönüşüm faktörü. Varsayılan 6.4516 (ISO standardı). Özel dönüşümler için değiştirin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the output.",
+        "tr": "Çıktının yuvarlanması için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Set to 1 to round the output, 0 to display raw result.",
       "label_i18n": {
         "en": "Apply Rounding",
-        "tr": "Apply Rounding",
+        "tr": "Yuvarlamayı Uygula",
         "de": "Apply Rounding",
         "fr": "Apply Rounding",
         "es": "Apply Rounding",
         "ar": "Apply Rounding"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to round the output, 0 to display raw result.",
+        "tr": "Çıktıyı yuvarlamak için 1, ham sonucu görüntülemek için 0 olarak ayarlayın."
       }
     }
   ],

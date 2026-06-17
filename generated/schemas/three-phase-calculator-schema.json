@@ -10,11 +10,15 @@
       "businessContext": "Enter the phase-to-phase voltage if Voltage Type is 1, or phase-to-neutral if 0.",
       "label_i18n": {
         "en": "Voltage (V)",
-        "tr": "Voltage (V)",
+        "tr": "Gerilim (V)",
         "de": "Voltage (V)",
         "fr": "Voltage (V)",
         "es": "Voltage (V)",
         "ar": "Voltage (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the phase-to-phase voltage if Voltage Type is 1, or phase-to-neutral if 0.",
+        "tr": "Gerilim Türü 1 ise fazlar arası gerilimi, 0 ise faz-nötr gerilimini girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Line current in amperes.",
       "label_i18n": {
         "en": "Current (A)",
-        "tr": "Current (A)",
+        "tr": "Akım (A)",
         "de": "Current (A)",
         "fr": "Current (A)",
         "es": "Current (A)",
         "ar": "Current (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Line current in amperes.",
+        "tr": "Amper cinsinden hat akımı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Power factor (0 to 1).",
       "label_i18n": {
         "en": "Power Factor",
-        "tr": "Power Factor",
+        "tr": "Güç Faktörü",
         "de": "Power Factor",
         "fr": "Power Factor",
         "es": "Power Factor",
         "ar": "Power Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Power factor (0 to 1).",
+        "tr": "Güç faktörü (0 ile 1 arası)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 for line-to-line, 0 for line-to-neutral.",
       "label_i18n": {
         "en": "Voltage Type",
-        "tr": "Voltage Type",
+        "tr": "Gerilim Türü",
         "de": "Voltage Type",
         "fr": "Voltage Type",
         "es": "Voltage Type",
         "ar": "Voltage Type"
+      },
+      "businessContext_i18n": {
+        "en": "1 for line-to-line, 0 for line-to-neutral.",
+        "tr": "1 hat-hat için, 0 hat-nötr için."
       }
     }
   ],

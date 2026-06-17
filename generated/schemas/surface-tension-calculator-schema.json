@@ -10,11 +10,15 @@
       "businessContext": "Density of the liquid at measurement temperature",
       "label_i18n": {
         "en": "Liquid Density",
-        "tr": "Liquid Density",
+        "tr": "Sıvı Yoğunluğu",
         "de": "Liquid Density",
         "fr": "Liquid Density",
         "es": "Liquid Density",
         "ar": "Liquid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the liquid at measurement temperature",
+        "tr": "Ölçüm sıcaklığında sıvının yoğunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard gravity or local gravity value",
       "label_i18n": {
         "en": "Acceleration due to Gravity",
-        "tr": "Acceleration due to Gravity",
+        "tr": "Yerçekimi İvmesi",
         "de": "Acceleration due to Gravity",
         "fr": "Acceleration due to Gravity",
         "es": "Acceleration due to Gravity",
         "ar": "Acceleration due to Gravity"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravity or local gravity value",
+        "tr": "Standart yerçekimi veya yerel yerçekimi değeri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Measured height difference between liquid in capillary and free surface",
       "label_i18n": {
         "en": "Capillary Rise Height",
-        "tr": "Capillary Rise Height",
+        "tr": "Kılcal yükselme yüksekliği",
         "de": "Capillary Rise Height",
         "fr": "Capillary Rise Height",
         "es": "Capillary Rise Height",
         "ar": "Capillary Rise Height"
+      },
+      "businessContext_i18n": {
+        "en": "Measured height difference between liquid in capillary and free surface",
+        "tr": "Kılcal borudaki sıvı ile serbest yüzey arasındaki ölçülen yükseklik farkı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Inner radius of the capillary tube",
       "label_i18n": {
         "en": "Capillary Radius",
-        "tr": "Capillary Radius",
+        "tr": "Kılcal yarıçap",
         "de": "Capillary Radius",
         "fr": "Capillary Radius",
         "es": "Capillary Radius",
         "ar": "Capillary Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Inner radius of the capillary tube",
+        "tr": "Kılcal borunun iç yarıçapı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Contact angle between liquid and capillary wall, 0° for completely wetting liquids",
       "label_i18n": {
         "en": "Contact Angle",
-        "tr": "Contact Angle",
+        "tr": "Temas Açısı",
         "de": "Contact Angle",
         "fr": "Contact Angle",
         "es": "Contact Angle",
         "ar": "Contact Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Contact angle between liquid and capillary wall, 0° for completely wetting liquids",
+        "tr": "Sıvı ile kılcal duvar arasındaki temas açısı, tamamen ıslatan sıvılar için 0°"
       }
     }
   ],

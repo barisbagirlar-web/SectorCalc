@@ -10,11 +10,15 @@
       "businessContext": "Current Elo rating of player A.",
       "label_i18n": {
         "en": "Player A Rating",
-        "tr": "Player A Rating",
+        "tr": "Oyuncu A Derecesi",
         "de": "Player A Rating",
         "fr": "Player A Rating",
         "es": "Player A Rating",
         "ar": "Player A Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Current Elo rating of player A.",
+        "tr": "Oyuncu A'nın mevcut Elo derecesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current Elo rating of player B.",
       "label_i18n": {
         "en": "Player B Rating",
-        "tr": "Player B Rating",
+        "tr": "Oyuncu B Derecesi",
         "de": "Player B Rating",
         "fr": "Player B Rating",
         "es": "Player B Rating",
         "ar": "Player B Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Current Elo rating of player B.",
+        "tr": "Oyuncu B'nin mevcut Elo derecesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Match score for player A: 1 = win, 0.5 = draw, 0 = loss.",
       "label_i18n": {
         "en": "Score for Player A",
-        "tr": "Score for Player A",
+        "tr": "Oyuncu A Skoru",
         "de": "Score for Player A",
         "fr": "Score for Player A",
         "es": "Score for Player A",
         "ar": "Score for Player A"
+      },
+      "businessContext_i18n": {
+        "en": "Match score for player A: 1 = win, 0.5 = draw, 0 = loss.",
+        "tr": "Oyuncu A için maç skoru: 1 = galibiyet, 0.5 = beraberlik, 0 = mağlubiyet."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Development coefficient (e.g., 32 for amateurs, 16 for professionals).",
       "label_i18n": {
         "en": "K-factor",
-        "tr": "K-factor",
+        "tr": "K-faktörü",
         "de": "K-factor",
         "fr": "K-factor",
         "es": "K-factor",
         "ar": "K-factor"
+      },
+      "businessContext_i18n": {
+        "en": "Development coefficient (e.g., 32 for amateurs, 16 for professionals).",
+        "tr": "Gelişim katsayısı (örn. amatörler için 32, profesyoneller için 16)."
       }
     }
   ],

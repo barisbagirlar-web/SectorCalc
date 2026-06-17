@@ -10,11 +10,15 @@
       "businessContext": "The initial amount of cryptocurrency staked.",
       "label_i18n": {
         "en": "Staked Amount",
-        "tr": "Staked Amount",
+        "tr": "Stake edilen miktar",
         "de": "Staked Amount",
         "fr": "Staked Amount",
         "es": "Staked Amount",
         "ar": "Staked Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The initial amount of cryptocurrency staked.",
+        "tr": "Stake edilen kripto paranın başlangıç miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The annual yield offered by the staking protocol, expressed as a percentage.",
       "label_i18n": {
         "en": "Annual Percentage Yield (APY)",
-        "tr": "Annual Percentage Yield (APY)",
+        "tr": "Yıllık Yüzde Getiri (APY)",
         "de": "Annual Percentage Yield (APY)",
         "fr": "Annual Percentage Yield (APY)",
         "es": "Annual Percentage Yield (APY)",
         "ar": "Annual Percentage Yield (APY)"
+      },
+      "businessContext_i18n": {
+        "en": "The annual yield offered by the staking protocol, expressed as a percentage.",
+        "tr": "Staking protokolü tarafından sunulan yıllık getiri, yüzde olarak ifade edilir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The period over which the tokens are staked, in days.",
       "label_i18n": {
         "en": "Staking Duration",
-        "tr": "Staking Duration",
+        "tr": "Stake süresi",
         "de": "Staking Duration",
         "fr": "Staking Duration",
         "es": "Staking Duration",
         "ar": "Staking Duration"
+      },
+      "businessContext_i18n": {
+        "en": "The period over which the tokens are staked, in days.",
+        "tr": "Token'ların stake edildiği süre, gün cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The number of times interest is compounded annually (e.g., 365 for daily, 12 for monthly, 1 for yearly).",
       "label_i18n": {
         "en": "Compounds per Year",
-        "tr": "Compounds per Year",
+        "tr": "Yıllık bileşik sayısı",
         "de": "Compounds per Year",
         "fr": "Compounds per Year",
         "es": "Compounds per Year",
         "ar": "Compounds per Year"
+      },
+      "businessContext_i18n": {
+        "en": "The number of times interest is compounded annually (e.g., 365 for daily, 12 for monthly, 1 for yearly).",
+        "tr": "Faizin yılda kaç kez bileşik olarak hesaplandığı (örneğin, günlük için 365, aylık için 12, yıllık için 1)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The total sale price of the property",
       "label_i18n": {
         "en": "Property Sale Price",
-        "tr": "Property Sale Price",
+        "tr": "Mülk Satış Fiyatı",
         "de": "Property Sale Price",
         "fr": "Property Sale Price",
         "es": "Property Sale Price",
         "ar": "Property Sale Price"
+      },
+      "businessContext_i18n": {
+        "en": "The total sale price of the property",
+        "tr": "Mülkün toplam satış fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The percentage commission charged by the realtor(s)",
       "label_i18n": {
         "en": "Commission Rate",
-        "tr": "Commission Rate",
+        "tr": "Komisyon Oranı",
         "de": "Commission Rate",
         "fr": "Commission Rate",
         "es": "Commission Rate",
         "ar": "Commission Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage commission charged by the realtor(s)",
+        "tr": "Emlakçı(lar) tarafından alınan yüzde komisyon"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Any extra fixed costs (e.g., marketing, administration) added to the total fee",
       "label_i18n": {
         "en": "Additional Fixed Fee",
-        "tr": "Additional Fixed Fee",
+        "tr": "Ek Sabit Ücret",
         "de": "Additional Fixed Fee",
         "fr": "Additional Fixed Fee",
         "es": "Additional Fixed Fee",
         "ar": "Additional Fixed Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Any extra fixed costs (e.g., marketing, administration) added to the total fee",
+        "tr": "Toplam ücrete eklenen herhangi bir ekstra sabit maliyet (ör. pazarlama, idari)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Proportion of total fee going to Agent 1; (1-ratio) goes to Agent 2. Use 1 for a single agent.",
       "label_i18n": {
         "en": "Agent Split Ratio",
-        "tr": "Agent Split Ratio",
+        "tr": "Temsilci Pay Oranı",
         "de": "Agent Split Ratio",
         "fr": "Agent Split Ratio",
         "es": "Agent Split Ratio",
         "ar": "Agent Split Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Proportion of total fee going to Agent 1; (1-ratio) goes to Agent 2. Use 1 for a single agent.",
+        "tr": "Toplam ücretin Temsilci 1'e giden oranı; (1-oran) Temsilci 2'ye gider. Tek temsilci için 1 kullanın."
       }
     }
   ],

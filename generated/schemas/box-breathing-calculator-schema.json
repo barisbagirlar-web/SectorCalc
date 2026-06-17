@@ -10,11 +10,15 @@
       "businessContext": "Duration of inhale phase per cycle.",
       "label_i18n": {
         "en": "Inhale Duration",
-        "tr": "Inhale Duration",
+        "tr": "Nefes Alma Süresi",
         "de": "Inhale Duration",
         "fr": "Inhale Duration",
         "es": "Inhale Duration",
         "ar": "Inhale Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of inhale phase per cycle.",
+        "tr": "Nefes alma süresi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of holding breath after inhale.",
       "label_i18n": {
         "en": "Hold After Inhale",
-        "tr": "Hold After Inhale",
+        "tr": "Nefes Aldıktan Sonra Bekleme",
         "de": "Hold After Inhale",
         "fr": "Hold After Inhale",
         "es": "Hold After Inhale",
         "ar": "Hold After Inhale"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of holding breath after inhale.",
+        "tr": "Nefes aldıktan sonra nefes tutma süresi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of exhale phase per cycle.",
       "label_i18n": {
         "en": "Exhale Duration",
-        "tr": "Exhale Duration",
+        "tr": "Nefes Verme Süresi",
         "de": "Exhale Duration",
         "fr": "Exhale Duration",
         "es": "Exhale Duration",
         "ar": "Exhale Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of exhale phase per cycle.",
+        "tr": "Nefes verme süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration of holding breath after exhale.",
       "label_i18n": {
         "en": "Hold After Exhale",
-        "tr": "Hold After Exhale",
+        "tr": "Nefes Verdikten Sonra Bekleme",
         "de": "Hold After Exhale",
         "fr": "Hold After Exhale",
         "es": "Hold After Exhale",
         "ar": "Hold After Exhale"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of holding breath after exhale.",
+        "tr": "Nefes verdikten sonra nefes tutma süresi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of complete box breathing cycles to perform.",
       "label_i18n": {
         "en": "Number of Cycles",
-        "tr": "Number of Cycles",
+        "tr": "Döngü Sayısı",
         "de": "Number of Cycles",
         "fr": "Number of Cycles",
         "es": "Number of Cycles",
         "ar": "Number of Cycles"
+      },
+      "businessContext_i18n": {
+        "en": "Number of complete box breathing cycles to perform.",
+        "tr": "Gerçekleştirilecek tam kare nefes döngüsü sayısı."
       }
     }
   ],

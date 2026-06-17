@@ -10,11 +10,15 @@
       "businessContext": "Size of the file to download, in gigabytes (GB).",
       "label_i18n": {
         "en": "File Size",
-        "tr": "File Size",
+        "tr": "Dosya Boyutu",
         "de": "File Size",
         "fr": "File Size",
         "es": "File Size",
         "ar": "File Size"
+      },
+      "businessContext_i18n": {
+        "en": "Size of the file to download, in gigabytes (GB).",
+        "tr": "İndirilecek dosyanın gigabayt (GB) cinsinden boyutu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal download speed of the internet connection, in megabits per second (Mbps).",
       "label_i18n": {
         "en": "Download Speed",
-        "tr": "Download Speed",
+        "tr": "İndirme Hızı",
         "de": "Download Speed",
         "fr": "Download Speed",
         "es": "Download Speed",
         "ar": "Download Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal download speed of the internet connection, in megabits per second (Mbps).",
+        "tr": "İnternet bağlantısının megabit/saniye (Mbps) cinsinden nominal indirme hızı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of bandwidth lost due to network protocol overhead (e.g., TCP/IP).",
       "label_i18n": {
         "en": "Protocol Overhead",
-        "tr": "Protocol Overhead",
+        "tr": "Protokol Ek Yükü",
         "de": "Protocol Overhead",
         "fr": "Protocol Overhead",
         "es": "Protocol Overhead",
         "ar": "Protocol Overhead"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of bandwidth lost due to network protocol overhead (e.g., TCP/IP).",
+        "tr": "Ağ protokolü yükü (örn. TCP/IP) nedeniyle kaybedilen bant genişliği yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of simultaneous download connections (assumes linear speed scaling).",
       "label_i18n": {
         "en": "Parallel Connections",
-        "tr": "Parallel Connections",
+        "tr": "Paralel Bağlantılar",
         "de": "Parallel Connections",
         "fr": "Parallel Connections",
         "es": "Parallel Connections",
         "ar": "Parallel Connections"
+      },
+      "businessContext_i18n": {
+        "en": "Number of simultaneous download connections (assumes linear speed scaling).",
+        "tr": "Eşzamanlı indirme bağlantılarının sayısı (doğrusal hız ölçeklemesi varsayar)."
       }
     }
   ],

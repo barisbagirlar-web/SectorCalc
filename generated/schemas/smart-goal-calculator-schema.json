@@ -10,11 +10,15 @@
       "businessContext": "The current value of the metric to be improved.",
       "label_i18n": {
         "en": "Current Value",
-        "tr": "Current Value",
+        "tr": "Mevcut Değer",
         "de": "Current Value",
         "fr": "Current Value",
         "es": "Current Value",
         "ar": "Current Value"
+      },
+      "businessContext_i18n": {
+        "en": "The current value of the metric to be improved.",
+        "tr": "İyileştirilecek metriğin mevcut değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The desired target value for the metric.",
       "label_i18n": {
         "en": "Target Value",
-        "tr": "Target Value",
+        "tr": "Hedef Değer",
         "de": "Target Value",
         "fr": "Target Value",
         "es": "Target Value",
         "ar": "Target Value"
+      },
+      "businessContext_i18n": {
+        "en": "The desired target value for the metric.",
+        "tr": "Metrik için istenen hedef değer."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Timeframe to achieve the goal in months.",
       "label_i18n": {
         "en": "Timeframe",
-        "tr": "Timeframe",
+        "tr": "Zaman Çerçevesi",
         "de": "Timeframe",
         "fr": "Timeframe",
         "es": "Timeframe",
         "ar": "Timeframe"
+      },
+      "businessContext_i18n": {
+        "en": "Timeframe to achieve the goal in months.",
+        "tr": "Hedefe ulaşmak için ay cinsinden süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Weekly resource hours allocated to the goal.",
       "label_i18n": {
         "en": "Weekly Resource Hours",
-        "tr": "Weekly Resource Hours",
+        "tr": "Haftalık Kaynak Saati",
         "de": "Weekly Resource Hours",
         "fr": "Weekly Resource Hours",
         "es": "Weekly Resource Hours",
         "ar": "Weekly Resource Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Weekly resource hours allocated to the goal.",
+        "tr": "Hedefe ayrılan haftalık kaynak saati."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost per resource hour.",
       "label_i18n": {
         "en": "Cost per Hour",
-        "tr": "Cost per Hour",
+        "tr": "Saatlik Maliyet",
         "de": "Cost per Hour",
         "fr": "Cost per Hour",
         "es": "Cost per Hour",
         "ar": "Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per resource hour.",
+        "tr": "Kaynak saati başına maliyet."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Initial investment required for the goal.",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Initial investment required for the goal.",
+        "tr": "Hedef için gereken başlangıç yatırımı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Expected improvement rate per month (%).",
       "label_i18n": {
         "en": "Expected Improvement Rate",
-        "tr": "Expected Improvement Rate",
+        "tr": "Beklenen İyileşme Oranı",
         "de": "Expected Improvement Rate",
         "fr": "Expected Improvement Rate",
         "es": "Expected Improvement Rate",
         "ar": "Expected Improvement Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected improvement rate per month (%).",
+        "tr": "Aylık beklenen iyileşme oranı (%)."
       }
     }
   ],

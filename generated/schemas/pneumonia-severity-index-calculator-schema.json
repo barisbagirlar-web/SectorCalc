@@ -10,11 +10,15 @@
       "businessContext": "Patient age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age in years",
+        "tr": "Hasta yaşı (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Patient respiratory rate in breaths per minute",
       "label_i18n": {
         "en": "Respiratory Rate",
-        "tr": "Respiratory Rate",
+        "tr": "Solunum Hızı",
         "de": "Respiratory Rate",
         "fr": "Respiratory Rate",
         "es": "Respiratory Rate",
         "ar": "Respiratory Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Patient respiratory rate in breaths per minute",
+        "tr": "Hastanın dakikadaki solunum sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Patient systolic blood pressure in mmHg",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Patient systolic blood pressure in mmHg",
+        "tr": "Hastanın sistolik kan basıncı (mmHg)"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "BUN",
         "es": "BUN",
         "ar": "BUN"
+      },
+      "businessContext_i18n": {
+        "en": "Blood urea nitrogen level in mg/dL",
+        "tr": "Kan üre azotu seviyesi (mg/dL)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Serum sodium level in mmol/L",
       "label_i18n": {
         "en": "Sodium",
-        "tr": "Sodium",
+        "tr": "Sodyum",
         "de": "Sodium",
         "fr": "Sodium",
         "es": "Sodium",
         "ar": "Sodium"
+      },
+      "businessContext_i18n": {
+        "en": "Serum sodium level in mmol/L",
+        "tr": "Serum sodyum seviyesi (mmol/L)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Blood glucose level in mg/dL",
       "label_i18n": {
         "en": "Glucose",
-        "tr": "Glucose",
+        "tr": "Glukoz",
         "de": "Glucose",
         "fr": "Glucose",
         "es": "Glucose",
         "ar": "Glucose"
+      },
+      "businessContext_i18n": {
+        "en": "Blood glucose level in mg/dL",
+        "tr": "Kan glukoz seviyesi (mg/dL)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Hematocrit percentage",
       "label_i18n": {
         "en": "Hematocrit",
-        "tr": "Hematocrit",
+        "tr": "Hematokrit",
         "de": "Hematocrit",
         "fr": "Hematocrit",
         "es": "Hematocrit",
         "ar": "Hematocrit"
+      },
+      "businessContext_i18n": {
+        "en": "Hematocrit percentage",
+        "tr": "Hematokrit yüzdesi"
       }
     },
     {
@@ -127,6 +155,10 @@
         "fr": "PaO₂",
         "es": "PaO₂",
         "ar": "PaO₂"
+      },
+      "businessContext_i18n": {
+        "en": "Arterial partial pressure of oxygen in mmHg",
+        "tr": "Arteriyel kısmi oksijen basıncı (mmHg)"
       }
     }
   ],

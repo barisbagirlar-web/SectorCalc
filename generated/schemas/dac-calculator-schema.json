@@ -10,11 +10,15 @@
       "businessContext": "The volumetric flow rate of air processed by the DAC system per hour.",
       "label_i18n": {
         "en": "Air Flow Rate",
-        "tr": "Air Flow Rate",
+        "tr": "Hava Akış Hızı",
         "de": "Air Flow Rate",
         "fr": "Air Flow Rate",
         "es": "Air Flow Rate",
         "ar": "Air Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The volumetric flow rate of air processed by the DAC system per hour.",
+        "tr": "DAC sistemi tarafından saatte işlenen havanın hacimsel debisi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The atmospheric CO₂ concentration at the intake, typically around 415 ppm.",
       "label_i18n": {
         "en": "CO₂ Concentration",
-        "tr": "CO₂ Concentration",
+        "tr": "CO₂ Konsantrasyonu",
         "de": "CO₂ Concentration",
         "fr": "CO₂ Concentration",
         "es": "CO₂ Concentration",
         "ar": "CO₂ Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "The atmospheric CO₂ concentration at the intake, typically around 415 ppm.",
+        "tr": "Girişteki atmosferik CO₂ konsantrasyonu, tipik olarak 415 ppm civarında"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The percentage of CO₂ removed from the processed air stream.",
       "label_i18n": {
         "en": "Capture Efficiency",
-        "tr": "Capture Efficiency",
+        "tr": "Yakalama Verimliliği",
         "de": "Capture Efficiency",
         "fr": "Capture Efficiency",
         "es": "Capture Efficiency",
         "ar": "Capture Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage of CO₂ removed from the processed air stream.",
+        "tr": "İşlenen hava akımından uzaklaştırılan CO₂ yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The total number of hours the DAC plant operates annually.",
       "label_i18n": {
         "en": "Operating Hours per Year",
-        "tr": "Operating Hours per Year",
+        "tr": "Yıllık Çalışma Saati",
         "de": "Operating Hours per Year",
         "fr": "Operating Hours per Year",
         "es": "Operating Hours per Year",
         "ar": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of hours the DAC plant operates annually.",
+        "tr": "DAC tesisinin yıllık toplam çalışma saati"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The electrical energy required to capture one metric ton of CO₂.",
       "label_i18n": {
         "en": "Energy Consumption per Ton CO₂",
-        "tr": "Energy Consumption per Ton CO₂",
+        "tr": "Ton CO₂ Başına Enerji Tüketimi",
         "de": "Energy Consumption per Ton CO₂",
         "fr": "Energy Consumption per Ton CO₂",
         "es": "Energy Consumption per Ton CO₂",
         "ar": "Energy Consumption per Ton CO₂"
+      },
+      "businessContext_i18n": {
+        "en": "The electrical energy required to capture one metric ton of CO₂.",
+        "tr": "Bir metrik ton CO₂ yakalamak için gereken elektrik enerjisi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "The cost of electricity per kilowatt-hour.",
       "label_i18n": {
         "en": "Electricity Price",
-        "tr": "Electricity Price",
+        "tr": "Elektrik Fiyatı",
         "de": "Electricity Price",
         "fr": "Electricity Price",
         "es": "Electricity Price",
         "ar": "Electricity Price"
+      },
+      "businessContext_i18n": {
+        "en": "The cost of electricity per kilowatt-hour.",
+        "tr": "Kilovatsaat başına elektrik maliyeti"
       }
     }
   ],

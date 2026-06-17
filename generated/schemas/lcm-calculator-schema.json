@@ -20,10 +20,12 @@
       "max": 10000000,
       "businessContext": "Total initial cost of acquiring the asset (purchase, installation, commissioning).",
       "label_i18n": {
-        "en": "Acquisition Cost"
+        "en": "Acquisition Cost",
+        "tr": "Edinme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total initial cost of acquiring the asset (purchase, installation, commissioning)."
+        "en": "Total initial cost of acquiring the asset (purchase, installation, commissioning).",
+        "tr": "Varlığın edinilmesi için toplam başlangıç maliyeti (satın alma, kurulum, devreye alma)."
       }
     },
     {
@@ -36,10 +38,12 @@
       "max": 50,
       "businessContext": "Planned useful life of the asset per ISO 15686.",
       "label_i18n": {
-        "en": "Expected Life (Years)"
+        "en": "Expected Life (Years)",
+        "tr": "Beklenen Ömür (Yıl)"
       },
       "businessContext_i18n": {
-        "en": "Planned useful life of the asset per ISO 15686."
+        "en": "Planned useful life of the asset per ISO 15686.",
+        "tr": "ISO 15686'ya göre varlığın planlanan faydalı ömrü."
       }
     },
     {
@@ -52,10 +56,12 @@
       "max": 8760,
       "businessContext": "Expected annual usage hours.",
       "label_i18n": {
-        "en": "Annual Operating Hours"
+        "en": "Annual Operating Hours",
+        "tr": "Yıllık Çalışma Saati"
       },
       "businessContext_i18n": {
-        "en": "Expected annual usage hours."
+        "en": "Expected annual usage hours.",
+        "tr": "Yıllık beklenen kullanım saati."
       }
     },
     {
@@ -73,10 +79,12 @@
         "reactive"
       ],
       "label_i18n": {
-        "en": "Maintenance Strategy"
+        "en": "Maintenance Strategy",
+        "tr": "Bakım Stratejisi"
       },
       "businessContext_i18n": {
-        "en": "Type of maintenance approach (preventive, predictive, reactive)."
+        "en": "Type of maintenance approach (preventive, predictive, reactive).",
+        "tr": "Bakım yaklaşımı türü (önleyici, kestirimci, reaktif)."
       }
     },
     {
@@ -89,10 +97,12 @@
       "max": 500,
       "businessContext": "Average hourly cost of maintenance labor.",
       "label_i18n": {
-        "en": "Labor Rate"
+        "en": "Labor Rate",
+        "tr": "İşçilik ücreti"
       },
       "businessContext_i18n": {
-        "en": "Average hourly cost of maintenance labor."
+        "en": "Average hourly cost of maintenance labor.",
+        "tr": "Bakım işçiliğinin ortalama saatlik maliyeti."
       }
     },
     {
@@ -105,10 +115,12 @@
       "max": 100000,
       "businessContext": "Average cost of spare parts per maintenance event.",
       "label_i18n": {
-        "en": "Parts Cost per Incident"
+        "en": "Parts Cost per Incident",
+        "tr": "Olay Başına Parça Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Average cost of spare parts per maintenance event."
+        "en": "Average cost of spare parts per maintenance event.",
+        "tr": "Bakım olayı başına ortalama yedek parça maliyeti."
       }
     },
     {
@@ -121,10 +133,12 @@
       "max": 100000,
       "businessContext": "Lost revenue or cost per hour of unplanned downtime.",
       "label_i18n": {
-        "en": "Downtime Cost per Hour"
+        "en": "Downtime Cost per Hour",
+        "tr": "Saat Başına Arıza Süresi Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Lost revenue or cost per hour of unplanned downtime."
+        "en": "Lost revenue or cost per hour of unplanned downtime.",
+        "tr": "Plansız duruş saati başına kaybedilen gelir veya maliyet."
       }
     },
     {
@@ -137,10 +151,12 @@
       "max": 1,
       "businessContext": "Cost of electricity per kilowatt-hour.",
       "label_i18n": {
-        "en": "Energy Cost per kWh"
+        "en": "Energy Cost per kWh",
+        "tr": "kWh başına Enerji Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost of electricity per kilowatt-hour."
+        "en": "Cost of electricity per kilowatt-hour.",
+        "tr": "Kilovatsaat başına elektrik maliyeti."
       }
     }
   ],

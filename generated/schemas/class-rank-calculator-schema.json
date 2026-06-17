@@ -10,11 +10,15 @@
       "businessContext": "The raw score of the student (e.g., GPA, exam mark).",
       "label_i18n": {
         "en": "Student Score",
-        "tr": "Student Score",
+        "tr": "Öğrenci Puanı",
         "de": "Student Score",
         "fr": "Student Score",
         "es": "Student Score",
         "ar": "Student Score"
+      },
+      "businessContext_i18n": {
+        "en": "The raw score of the student (e.g., GPA, exam mark).",
+        "tr": "Öğrencinin ham puanı (ör. GPA, sınav notu)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of students in the comparison group.",
       "label_i18n": {
         "en": "Total Students",
-        "tr": "Total Students",
+        "tr": "Toplam Öğrenci Sayısı",
         "de": "Total Students",
         "fr": "Total Students",
         "es": "Total Students",
         "ar": "Total Students"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of students in the comparison group.",
+        "tr": "Karşılaştırma grubundaki toplam öğrenci sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Count of students who scored below the student.",
       "label_i18n": {
         "en": "Number of Students with Lower Scores",
-        "tr": "Number of Students with Lower Scores",
+        "tr": "Daha Düşük Puanlı Öğrenci Sayısı",
         "de": "Number of Students with Lower Scores",
         "fr": "Number of Students with Lower Scores",
         "es": "Number of Students with Lower Scores",
         "ar": "Number of Students with Lower Scores"
+      },
+      "businessContext_i18n": {
+        "en": "Count of students who scored below the student.",
+        "tr": "Öğrenciden daha düşük puan alan öğrenci sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Count of students who scored exactly the same as the student.",
       "label_i18n": {
         "en": "Number of Students with Same Score",
-        "tr": "Number of Students with Same Score",
+        "tr": "Aynı Puana Sahip Öğrenci Sayısı",
         "de": "Number of Students with Same Score",
         "fr": "Number of Students with Same Score",
         "es": "Number of Students with Same Score",
         "ar": "Number of Students with Same Score"
+      },
+      "businessContext_i18n": {
+        "en": "Count of students who scored exactly the same as the student.",
+        "tr": "Öğrenciyle tam olarak aynı puanı alan öğrenci sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The lowest possible score in the scale (e.g., 0).",
       "label_i18n": {
         "en": "Minimum Possible Score",
-        "tr": "Minimum Possible Score",
+        "tr": "Minimum Olası Puan",
         "de": "Minimum Possible Score",
         "fr": "Minimum Possible Score",
         "es": "Minimum Possible Score",
         "ar": "Minimum Possible Score"
+      },
+      "businessContext_i18n": {
+        "en": "The lowest possible score in the scale (e.g., 0).",
+        "tr": "Ölçekteki en düşük olası puan (ör. 0)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "The highest possible score in the scale (e.g., 100).",
       "label_i18n": {
         "en": "Maximum Possible Score",
-        "tr": "Maximum Possible Score",
+        "tr": "Maksimum Olası Puan",
         "de": "Maximum Possible Score",
         "fr": "Maximum Possible Score",
         "es": "Maximum Possible Score",
         "ar": "Maximum Possible Score"
+      },
+      "businessContext_i18n": {
+        "en": "The highest possible score in the scale (e.g., 100).",
+        "tr": "Ölçekteki en yüksek olası puan (ör. 100)."
       }
     }
   ],

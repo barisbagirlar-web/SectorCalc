@@ -15,6 +15,10 @@
         "fr": "Motor Gücü",
         "es": "Motor Gücü",
         "ar": "Motor Gücü"
+      },
+      "businessContext_i18n": {
+        "en": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre.",
+        "tr": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre."
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Sürtünme Katsayısı (Cd)",
         "es": "Sürtünme Katsayısı (Cd)",
         "ar": "Sürtünme Katsayısı (Cd)"
+      },
+      "businessContext_i18n": {
+        "en": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır.",
+        "tr": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Ön Kesit Alanı",
         "es": "Ön Kesit Alanı",
         "ar": "Ön Kesit Alanı"
+      },
+      "businessContext_i18n": {
+        "en": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir.",
+        "tr": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Araç Kütlesi",
         "es": "Araç Kütlesi",
         "ar": "Araç Kütlesi"
+      },
+      "businessContext_i18n": {
+        "en": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır.",
+        "tr": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır."
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "Yuvarlanma Direnci Katsayısı",
         "es": "Yuvarlanma Direnci Katsayısı",
         "ar": "Yuvarlanma Direnci Katsayısı"
+      },
+      "businessContext_i18n": {
+        "en": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
+        "tr": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir."
       }
     },
     {
@@ -95,6 +115,10 @@
         "fr": "Hava Yoğunluğu",
         "es": "Hava Yoğunluğu",
         "ar": "Hava Yoğunluğu"
+      },
+      "businessContext_i18n": {
+        "en": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
+        "tr": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir."
       }
     },
     {
@@ -111,6 +135,10 @@
         "fr": "Aktarma Organı Verimi",
         "es": "Aktarma Organı Verimi",
         "ar": "Aktarma Organı Verimi"
+      },
+      "businessContext_i18n": {
+        "en": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
+        "tr": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır."
       }
     }
   ],

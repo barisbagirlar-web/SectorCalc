@@ -21,10 +21,12 @@
       "max": 100000,
       "businessContext": "The current selling price of the product in USD.",
       "label_i18n": {
-        "en": "Current Price per Unit"
+        "en": "Current Price per Unit",
+        "tr": "Mevcut Birim Fiyat"
       },
       "businessContext_i18n": {
-        "en": "The current selling price of the product in USD."
+        "en": "The current selling price of the product in USD.",
+        "tr": "Ürünün USD cinsinden mevcut satış fiyatı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100000000,
       "businessContext": "Monthly sales volume at current price.",
       "label_i18n": {
-        "en": "Current Quantity Sold (units/month)"
+        "en": "Current Quantity Sold (units/month)",
+        "tr": "Mevcut Satılan Miktar (adet/ay)"
       },
       "businessContext_i18n": {
-        "en": "Monthly sales volume at current price."
+        "en": "Monthly sales volume at current price.",
+        "tr": "Mevcut fiyattaki aylık satış hacmi."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1000,
       "businessContext": "Percentage change in price (negative for decrease, positive for increase).",
       "label_i18n": {
-        "en": "Proposed Price Change (%)"
+        "en": "Proposed Price Change (%)",
+        "tr": "Önerilen Fiyat Değişimi (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage change in price (negative for decrease, positive for increase)."
+        "en": "Percentage change in price (negative for decrease, positive for increase).",
+        "tr": "Fiyattaki yüzde değişim (düşüş için negatif, artış için pozitif)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 0,
       "businessContext": "Estimated elasticity coefficient (typically negative). Absolute value >1 indicates elastic demand.",
       "label_i18n": {
-        "en": "Price Elasticity of Demand (PED)"
+        "en": "Price Elasticity of Demand (PED)",
+        "tr": "Fiyat Esnekliği (PED)"
       },
       "businessContext_i18n": {
-        "en": "Estimated elasticity coefficient (typically negative). Absolute value >1 indicates elastic demand."
+        "en": "Estimated elasticity coefficient (typically negative). Absolute value >1 indicates elastic demand.",
+        "tr": "Tahmini esneklik katsayısı (genellikle negatif). Mutlak değer >1 ise esnek talep."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 100000,
       "businessContext": "Direct variable cost per unit (materials, labor, etc.).",
       "label_i18n": {
-        "en": "Variable Cost per Unit"
+        "en": "Variable Cost per Unit",
+        "tr": "Birim Başına Değişken Maliyet"
       },
       "businessContext_i18n": {
-        "en": "Direct variable cost per unit (materials, labor, etc.)."
+        "en": "Direct variable cost per unit (materials, labor, etc.).",
+        "tr": "Birim başına doğrudan değişken maliyet (malzeme, işçilik vb.)."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 10000000,
       "businessContext": "Total fixed costs allocated per month.",
       "label_i18n": {
-        "en": "Fixed Cost per Month"
+        "en": "Fixed Cost per Month",
+        "tr": "Aylık Sabit Maliyet"
       },
       "businessContext_i18n": {
-        "en": "Total fixed costs allocated per month."
+        "en": "Total fixed costs allocated per month.",
+        "tr": "Aylık tahsis edilen toplam sabit maliyetler."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 10,
       "businessContext": "Multiplier to adjust baseline demand (e.g., 1.2 for 20% market growth).",
       "label_i18n": {
-        "en": "Demand Shift Factor (seasonality/market)"
+        "en": "Demand Shift Factor (seasonality/market)",
+        "tr": "Talep Kaydırma Faktörü (mevsimsellik/piyasa)"
       },
       "businessContext_i18n": {
-        "en": "Multiplier to adjust baseline demand (e.g., 1.2 for 20% market growth)."
+        "en": "Multiplier to adjust baseline demand (e.g., 1.2 for 20% market growth).",
+        "tr": "Temel talebi ayarlamak için çarpan (ör. %20 pazar büyümesi için 1.2)."
       }
     },
     {
@@ -136,10 +150,12 @@
       ],
       "businessContext": "Quality of input data: low = ±20% error, medium = ±10%, high = ±5%.",
       "label_i18n": {
-        "en": "Data Confidence Level"
+        "en": "Data Confidence Level",
+        "tr": "Veri Güven Düzeyi"
       },
       "businessContext_i18n": {
-        "en": "Quality of input data: low = ±20% error, medium = ±10%, high = ±5%."
+        "en": "Quality of input data: low = ±20% error, medium = ±10%, high = ±5%.",
+        "tr": "Girdi verisinin kalitesi: düşük = ±%20 hata, orta = ±%10, yüksek = ±%5."
       }
     }
   ],

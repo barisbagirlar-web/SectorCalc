@@ -10,11 +10,15 @@
       "businessContext": "The amount of energy in ergs to be converted to joules.",
       "label_i18n": {
         "en": "Energy in Ergs",
-        "tr": "Energy in Ergs",
+        "tr": "Erg cinsinden enerji",
         "de": "Energy in Ergs",
         "fr": "Energy in Ergs",
         "es": "Energy in Ergs",
         "ar": "Energy in Ergs"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of energy in ergs to be converted to joules.",
+        "tr": "Joule'a dönüştürülecek erg cinsinden enerji miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Fixed conversion factor: 1 erg = 1e-7 joules. Adjustable for system calibration.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed conversion factor: 1 erg = 1e-7 joules. Adjustable for system calibration.",
+        "tr": "Sabit dönüşüm faktörü: 1 erg = 1e-7 joule. Sistem kalibrasyonu için ayarlanabilir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output value.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output value.",
+        "tr": "Çıktı değeri için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated measurement uncertainty percentage to calculate tolerance range.",
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
-        "tr": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)",
         "de": "Measurement Uncertainty (%)",
         "fr": "Measurement Uncertainty (%)",
         "es": "Measurement Uncertainty (%)",
         "ar": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated measurement uncertainty percentage to calculate tolerance range.",
+        "tr": "Tolerans aralığını hesaplamak için tahmini ölçüm belirsizliği yüzdesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Production batch identifier for traceability.",
       "label_i18n": {
         "en": "Batch Number",
-        "tr": "Batch Number",
+        "tr": "Parti Numarası",
         "de": "Batch Number",
         "fr": "Batch Number",
         "es": "Batch Number",
         "ar": "Batch Number"
+      },
+      "businessContext_i18n": {
+        "en": "Production batch identifier for traceability.",
+        "tr": "İzlenebilirlik için üretim parti tanımlayıcısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Identifier of the operator performing the calculation.",
       "label_i18n": {
         "en": "Operator ID",
-        "tr": "Operator ID",
+        "tr": "Operatör Kimliği",
         "de": "Operator ID",
         "fr": "Operator ID",
         "es": "Operator ID",
         "ar": "Operator ID"
+      },
+      "businessContext_i18n": {
+        "en": "Identifier of the operator performing the calculation.",
+        "tr": "Hesaplamayı yapan operatörün tanımlayıcısı."
       }
     }
   ],

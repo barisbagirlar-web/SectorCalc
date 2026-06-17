@@ -15,6 +15,10 @@
         "fr": "Feet",
         "es": "Feet",
         "ar": "Feet"
+      },
+      "businessContext_i18n": {
+        "en": "Distance in feet to convert to miles.",
+        "tr": "Mil'e dönüştürülecek fit cinsinden mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor: 1 mile = 5280 feet (international foot).",
       "label_i18n": {
         "en": "Feet per Mile",
-        "tr": "Feet per Mile",
+        "tr": "Mil Başına Fit",
         "de": "Feet per Mile",
         "fr": "Feet per Mile",
         "es": "Feet per Mile",
         "ar": "Feet per Mile"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor: 1 mile = 5280 feet (international foot).",
+        "tr": "Dönüşüm faktörü: 1 mil = 5280 fit (uluslararası fit)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the output miles.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the output miles.",
+        "tr": "Çıktı millerini yuvarlamak için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional miles value for reverse conversion to feet. If non-zero, the reverse feet will be displayed in breakdown.",
       "label_i18n": {
         "en": "Miles (Reverse)",
-        "tr": "Miles (Reverse)",
+        "tr": "Mil (Ters)",
         "de": "Miles (Reverse)",
         "fr": "Miles (Reverse)",
         "es": "Miles (Reverse)",
         "ar": "Miles (Reverse)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional miles value for reverse conversion to feet. If non-zero, the reverse feet will be displayed in breakdown.",
+        "tr": "Ters dönüşüm için isteğe bağlı mil değeri. Sıfırdan farklıysa, ters fit dökümde görüntülenir."
       }
     }
   ],

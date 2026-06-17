@@ -10,11 +10,15 @@
       "businessContext": "Central point load applied at midspan",
       "label_i18n": {
         "en": "Applied Load",
-        "tr": "Applied Load",
+        "tr": "Uygulanan Yük",
         "de": "Applied Load",
         "fr": "Applied Load",
         "es": "Applied Load",
         "ar": "Applied Load"
+      },
+      "businessContext_i18n": {
+        "en": "Central point load applied at midspan",
+        "tr": "Açıklık ortasına uygulanan noktasal yük"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of the simply supported beam",
       "label_i18n": {
         "en": "Beam Span",
-        "tr": "Beam Span",
+        "tr": "Kiriş Açıklığı",
         "de": "Beam Span",
         "fr": "Beam Span",
         "es": "Beam Span",
         "ar": "Beam Span"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the simply supported beam",
+        "tr": "Basit mesnetli kirişin uzunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Young's modulus of the beam material",
       "label_i18n": {
         "en": "Elastic Modulus",
-        "tr": "Elastic Modulus",
+        "tr": "Elastisite Modülü",
         "de": "Elastic Modulus",
         "fr": "Elastic Modulus",
         "es": "Elastic Modulus",
         "ar": "Elastic Modulus"
+      },
+      "businessContext_i18n": {
+        "en": "Young's modulus of the beam material",
+        "tr": "Kiriş malzemesinin Young modülü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Second moment of area of the beam cross-section",
       "label_i18n": {
         "en": "Moment of Inertia",
-        "tr": "Moment of Inertia",
+        "tr": "Eylemsizlik Momenti",
         "de": "Moment of Inertia",
         "fr": "Moment of Inertia",
         "es": "Moment of Inertia",
         "ar": "Moment of Inertia"
+      },
+      "businessContext_i18n": {
+        "en": "Second moment of area of the beam cross-section",
+        "tr": "Kiriş kesitinin atalet momenti"
       }
     }
   ],

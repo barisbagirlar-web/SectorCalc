@@ -10,11 +10,15 @@
       "businessContext": "Trade size in standard lots (1 lot = 100,000 units typically)",
       "label_i18n": {
         "en": "Trade Size (Lots)",
-        "tr": "Trade Size (Lots)",
+        "tr": "İşlem Büyüklüğü (Lot)",
         "de": "Trade Size (Lots)",
         "fr": "Trade Size (Lots)",
         "es": "Trade Size (Lots)",
         "ar": "Trade Size (Lots)"
+      },
+      "businessContext_i18n": {
+        "en": "Trade size in standard lots (1 lot = 100,000 units typically)",
+        "tr": "Standart lot cinsinden işlem büyüklüğü (1 lot = genellikle 100.000 birim)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of base currency units per standard lot",
       "label_i18n": {
         "en": "Contract Size (Units per Lot)",
-        "tr": "Contract Size (Units per Lot)",
+        "tr": "Sözleşme Büyüklüğü (Lot Başına Birim)",
         "de": "Contract Size (Units per Lot)",
         "fr": "Contract Size (Units per Lot)",
         "es": "Contract Size (Units per Lot)",
         "ar": "Contract Size (Units per Lot)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of base currency units per standard lot",
+        "tr": "Standart lot başına baz para birimi sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Pip definition in quote currency (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)",
       "label_i18n": {
         "en": "Pip Size (Quote Currency)",
-        "tr": "Pip Size (Quote Currency)",
+        "tr": "Pip Boyutu (Karşıt Para Birimi)",
         "de": "Pip Size (Quote Currency)",
         "fr": "Pip Size (Quote Currency)",
         "es": "Pip Size (Quote Currency)",
         "ar": "Pip Size (Quote Currency)"
+      },
+      "businessContext_i18n": {
+        "en": "Pip definition in quote currency (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)",
+        "tr": "Karşıt para biriminde pip tanımı (ör. çoğu parite için 0.0001, JPY pariteleri için 0.01)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Exchange rate from quote currency to account currency (amount of account currency per 1 unit of quote currency)",
       "label_i18n": {
         "en": "Quote to Account Currency Rate",
-        "tr": "Quote to Account Currency Rate",
+        "tr": "Karşıt Para Biriminden Hesap Para Birimine Kur",
         "de": "Quote to Account Currency Rate",
         "fr": "Quote to Account Currency Rate",
         "es": "Quote to Account Currency Rate",
         "ar": "Quote to Account Currency Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Exchange rate from quote currency to account currency (amount of account currency per 1 unit of quote currency)",
+        "tr": "Karşıt para biriminden hesap para birimine döviz kuru (1 birim karşıt para birimi başına hesap para birimi miktarı)"
       }
     }
   ],

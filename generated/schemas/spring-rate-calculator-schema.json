@@ -10,11 +10,15 @@
       "businessContext": "Çelik tel çapı",
       "label_i18n": {
         "en": "Wire Diameter",
-        "tr": "Wire Diameter",
+        "tr": "Tel Çapı",
         "de": "Wire Diameter",
         "fr": "Wire Diameter",
         "es": "Wire Diameter",
         "ar": "Wire Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Çelik tel çapı",
+        "tr": "Saniyede metre cinsinden başlangıç hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ortalama bobin çapı",
       "label_i18n": {
         "en": "Mean Coil Diameter",
-        "tr": "Mean Coil Diameter",
+        "tr": "Ortalama bobin çapı",
         "de": "Mean Coil Diameter",
         "fr": "Mean Coil Diameter",
         "es": "Mean Coil Diameter",
         "ar": "Mean Coil Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Ortalama bobin çapı",
+        "tr": "Çelik tel çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Aktif sarım sayısı",
       "label_i18n": {
         "en": "Number of Active Coils",
-        "tr": "Number of Active Coils",
+        "tr": "Aktif bobin sayısı",
         "de": "Number of Active Coils",
         "fr": "Number of Active Coils",
         "es": "Number of Active Coils",
         "ar": "Number of Active Coils"
+      },
+      "businessContext_i18n": {
+        "en": "Aktif sarım sayısı",
+        "tr": "Ortalama bobin çapı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Kayma modülü (çelik için tipik)",
       "label_i18n": {
         "en": "Shear Modulus (G)",
-        "tr": "Shear Modulus (G)",
+        "tr": "Kayma Modülü (G)",
         "de": "Shear Modulus (G)",
         "fr": "Shear Modulus (G)",
         "es": "Shear Modulus (G)",
         "ar": "Shear Modulus (G)"
+      },
+      "businessContext_i18n": {
+        "en": "Kayma modülü (çelik için tipik)",
+        "tr": "Aktif sarım sayısı"
       }
     }
   ],

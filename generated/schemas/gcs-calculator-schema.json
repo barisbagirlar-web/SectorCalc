@@ -10,11 +10,15 @@
       "businessContext": "Direct material cost per unit",
       "label_i18n": {
         "en": "Material Cost",
-        "tr": "Material Cost",
+        "tr": "Malzeme Maliyeti",
         "de": "Material Cost",
         "fr": "Material Cost",
         "es": "Material Cost",
         "ar": "Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material cost per unit",
+        "tr": "Birim başına direkt malzeme maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Direct labor cost per unit",
       "label_i18n": {
         "en": "Labor Cost",
-        "tr": "Labor Cost",
+        "tr": "İşçilik Maliyeti",
         "de": "Labor Cost",
         "fr": "Labor Cost",
         "es": "Labor Cost",
         "ar": "Labor Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor cost per unit",
+        "tr": "Birim başına direkt işçilik maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Manufacturing overhead as percentage of direct cost",
       "label_i18n": {
         "en": "Overhead Rate",
-        "tr": "Overhead Rate",
+        "tr": "Genel gider oranı",
         "de": "Overhead Rate",
         "fr": "Overhead Rate",
         "es": "Overhead Rate",
         "ar": "Overhead Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturing overhead as percentage of direct cost",
+        "tr": "Direkt maliyetin yüzdesi olarak üretim genel gideri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired profit margin on total cost",
       "label_i18n": {
         "en": "Margin Rate",
-        "tr": "Margin Rate",
+        "tr": "Marj oranı",
         "de": "Margin Rate",
         "fr": "Margin Rate",
         "es": "Margin Rate",
         "ar": "Margin Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Desired profit margin on total cost",
+        "tr": "Toplam maliyet üzerinden istenen kar marjı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of units produced",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced",
+        "tr": "Üretilen birim sayısı"
       }
     }
   ],

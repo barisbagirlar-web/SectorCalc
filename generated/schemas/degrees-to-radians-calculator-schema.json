@@ -10,11 +10,15 @@
       "businessContext": "Whole degrees component of the angle in DMS format.",
       "label_i18n": {
         "en": "Degrees",
-        "tr": "Degrees",
+        "tr": "Derece",
         "de": "Degrees",
         "fr": "Degrees",
         "es": "Degrees",
         "ar": "Degrees"
+      },
+      "businessContext_i18n": {
+        "en": "Whole degrees component of the angle in DMS format.",
+        "tr": "DMS formatında açının tam derece bileşeni."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Minutes component (0-59).",
       "label_i18n": {
         "en": "Minutes",
-        "tr": "Minutes",
+        "tr": "Dakika",
         "de": "Minutes",
         "fr": "Minutes",
         "es": "Minutes",
         "ar": "Minutes"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes component (0-59).",
+        "tr": "Dakika bileşeni (0-59)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Seconds component (0-59.999...).",
       "label_i18n": {
         "en": "Seconds",
-        "tr": "Seconds",
+        "tr": "Saniye",
         "de": "Seconds",
         "fr": "Seconds",
         "es": "Seconds",
         "ar": "Seconds"
+      },
+      "businessContext_i18n": {
+        "en": "Seconds component (0-59.999...).",
+        "tr": "Saniye bileşeni (0-59.999...)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places to round the output radian value for precision control.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the output radian value for precision control.",
+        "tr": "Hassasiyet kontrolü için çıktı radyan değerinin yuvarlanacağı ondalık basamak sayısı."
       }
     }
   ],

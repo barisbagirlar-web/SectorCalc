@@ -10,11 +10,15 @@
       "businessContext": "The value to compute the inverse trigonometric function. For arcsin and arccos, must be between -1 and 1; for arctan, any real number.",
       "label_i18n": {
         "en": "Value (x)",
-        "tr": "Value (x)",
+        "tr": "Değer (x)",
         "de": "Value (x)",
         "fr": "Value (x)",
         "es": "Value (x)",
         "ar": "Value (x)"
+      },
+      "businessContext_i18n": {
+        "en": "The value to compute the inverse trigonometric function. For arcsin and arccos, must be between -1 and 1; for arctan, any real number.",
+        "tr": "Ters trigonometrik fonksiyonun hesaplanacağı değer. Arksinüs ve arkkosinüs için -1 ile 1 arasında olmalıdır; arktanjant için herhangi bir reel sayı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1 = arcsin (sin⁻¹), 2 = arccos (cos⁻¹), 3 = arctan (tan⁻¹).",
       "label_i18n": {
         "en": "Function",
-        "tr": "Function",
+        "tr": "Fonksiyon",
         "de": "Function",
         "fr": "Function",
         "es": "Function",
         "ar": "Function"
+      },
+      "businessContext_i18n": {
+        "en": "1 = arcsin (sin⁻¹), 2 = arccos (cos⁻¹), 3 = arctan (tan⁻¹).",
+        "tr": "1 = arksinüs (sin⁻¹), 2 = arkkosinüs (cos⁻¹), 3 = arktanjant (tan⁻¹)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0 = radians, 1 = degrees.",
       "label_i18n": {
         "en": "Output Unit",
-        "tr": "Output Unit",
+        "tr": "Çıktı Birimi",
         "de": "Output Unit",
         "fr": "Output Unit",
         "es": "Output Unit",
         "ar": "Output Unit"
+      },
+      "businessContext_i18n": {
+        "en": "0 = radians, 1 = degrees.",
+        "tr": "0 = radyan, 1 = derece."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounding the result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the result.",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı."
       }
     }
   ],

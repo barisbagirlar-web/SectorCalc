@@ -10,11 +10,15 @@
       "businessContext": "Mole fraction of the first component in the binary mixture (dimensionless).",
       "label_i18n": {
         "en": "Mole fraction component 1",
-        "tr": "Mole fraction component 1",
+        "tr": "Bileşen 1'in mol kesri",
         "de": "Mole fraction component 1",
         "fr": "Mole fraction component 1",
         "es": "Mole fraction component 1",
         "ar": "Mole fraction component 1"
+      },
+      "businessContext_i18n": {
+        "en": "Mole fraction of the first component in the binary mixture (dimensionless).",
+        "tr": "İkili karışımdaki birinci bileşenin mol kesri (boyutsuz)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "System temperature in Kelvin.",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "System temperature in Kelvin.",
+        "tr": "Sistem sıcaklığı Kelvin cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Reference temperature at which the Margules parameter is defined.",
       "label_i18n": {
         "en": "Reference temperature",
-        "tr": "Reference temperature",
+        "tr": "Referans sıcaklık",
         "de": "Reference temperature",
         "fr": "Reference temperature",
         "es": "Reference temperature",
         "ar": "Reference temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Reference temperature at which the Margules parameter is defined.",
+        "tr": "Margules parametresinin tanımlandığı referans sıcaklık."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Two-suffix Margules interaction parameter (dimensionless).",
       "label_i18n": {
         "en": "Margules parameter A",
-        "tr": "Margules parameter A",
+        "tr": "Margules parametresi A",
         "de": "Margules parameter A",
         "fr": "Margules parameter A",
         "es": "Margules parameter A",
         "ar": "Margules parameter A"
+      },
+      "businessContext_i18n": {
+        "en": "Two-suffix Margules interaction parameter (dimensionless).",
+        "tr": "İki indisli Margules etkileşim parametresi (boyutsuz)."
       }
     }
   ],

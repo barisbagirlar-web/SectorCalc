@@ -10,11 +10,15 @@
       "businessContext": "The surface area of the catchment contributing to runoff.",
       "label_i18n": {
         "en": "Catchment Area",
-        "tr": "Catchment Area",
+        "tr": "Toplama Alanı",
         "de": "Catchment Area",
         "fr": "Catchment Area",
         "es": "Catchment Area",
         "ar": "Catchment Area"
+      },
+      "businessContext_i18n": {
+        "en": "The surface area of the catchment contributing to runoff.",
+        "tr": "Akışa katkıda bulunan toplama alanının yüzey alanı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Dimensionless coefficient representing the fraction of rainfall that becomes runoff, depending on surface type and slope.",
       "label_i18n": {
         "en": "Runoff Coefficient (C)",
-        "tr": "Runoff Coefficient (C)",
+        "tr": "Akış Katsayısı (C)",
         "de": "Runoff Coefficient (C)",
         "fr": "Runoff Coefficient (C)",
         "es": "Runoff Coefficient (C)",
         "ar": "Runoff Coefficient (C)"
+      },
+      "businessContext_i18n": {
+        "en": "Dimensionless coefficient representing the fraction of rainfall that becomes runoff, depending on surface type and slope.",
+        "tr": "Yüzey tipine ve eğime bağlı olarak yağışın akışa dönüşen kısmını temsil eden boyutsuz katsayı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Design rainfall intensity in millimeters per hour, typically derived from IDF curves for the specified duration and return period.",
       "label_i18n": {
         "en": "Rainfall Intensity (I)",
-        "tr": "Rainfall Intensity (I)",
+        "tr": "Yağış Şiddeti (I)",
         "de": "Rainfall Intensity (I)",
         "fr": "Rainfall Intensity (I)",
         "es": "Rainfall Intensity (I)",
         "ar": "Rainfall Intensity (I)"
+      },
+      "businessContext_i18n": {
+        "en": "Design rainfall intensity in millimeters per hour, typically derived from IDF curves for the specified duration and return period.",
+        "tr": "Belirtilen süre ve dönüş periyodu için genellikle IDF eğrilerinden türetilen, milimetre/saat cinsinden tasarım yağış şiddeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier applied to the calculated runoff to account for uncertainties and future changes in catchment conditions.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier applied to the calculated runoff to account for uncertainties and future changes in catchment conditions.",
+        "tr": "Belirsizlikleri ve toplama alanı koşullarındaki gelecekteki değişiklikleri hesaba katmak için hesaplanan akışa uygulanan çarpan."
       }
     }
   ],

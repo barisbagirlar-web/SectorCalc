@@ -10,11 +10,15 @@
       "businessContext": "Initial lump sum investment or loan amount",
       "label_i18n": {
         "en": "Principal Amount",
-        "tr": "Principal Amount",
+        "tr": "Anapara Tutarı",
         "de": "Principal Amount",
         "fr": "Principal Amount",
         "es": "Principal Amount",
         "ar": "Principal Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Initial lump sum investment or loan amount",
+        "tr": "Başlangıçtaki toplu yatırım veya kredi tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal annual interest rate (percentage)",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal annual interest rate (percentage)",
+        "tr": "Nominal yıllık faiz oranı (yüzde)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total duration in years",
       "label_i18n": {
         "en": "Term",
-        "tr": "Term",
+        "tr": "Vade",
         "de": "Term",
         "fr": "Term",
         "es": "Term",
         "ar": "Term"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration in years",
+        "tr": "Toplam süre (yıl)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional fixed amount added each month (0 if none)",
       "label_i18n": {
         "en": "Monthly Contribution",
-        "tr": "Monthly Contribution",
+        "tr": "Aylık Katkı",
         "de": "Monthly Contribution",
         "fr": "Monthly Contribution",
         "es": "Monthly Contribution",
         "ar": "Monthly Contribution"
+      },
+      "businessContext_i18n": {
+        "en": "Additional fixed amount added each month (0 if none)",
+        "tr": "Her ay eklenen sabit ek miktar (yoksa 0)"
       }
     }
   ],

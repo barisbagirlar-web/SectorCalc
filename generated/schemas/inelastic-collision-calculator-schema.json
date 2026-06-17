@@ -10,11 +10,15 @@
       "businessContext": "Mass of the first object in the collision.",
       "label_i18n": {
         "en": "Mass of Object 1",
-        "tr": "Mass of Object 1",
+        "tr": "Nesne 1'in Kütlesi",
         "de": "Mass of Object 1",
         "fr": "Mass of Object 1",
         "es": "Mass of Object 1",
         "ar": "Mass of Object 1"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the first object in the collision.",
+        "tr": "Çarpışmadaki ilk nesnenin kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Initial velocity of object 1 before collision, positive direction.",
       "label_i18n": {
         "en": "Initial Velocity of Object 1",
-        "tr": "Initial Velocity of Object 1",
+        "tr": "Nesne 1'in Başlangıç Hızı",
         "de": "Initial Velocity of Object 1",
         "fr": "Initial Velocity of Object 1",
         "es": "Initial Velocity of Object 1",
         "ar": "Initial Velocity of Object 1"
+      },
+      "businessContext_i18n": {
+        "en": "Initial velocity of object 1 before collision, positive direction.",
+        "tr": "Nesne 1'in çarpışmadan önceki başlangıç hızı, pozitif yön."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of the second object in the collision.",
       "label_i18n": {
         "en": "Mass of Object 2",
-        "tr": "Mass of Object 2",
+        "tr": "Nesne 2'nin Kütlesi",
         "de": "Mass of Object 2",
         "fr": "Mass of Object 2",
         "es": "Mass of Object 2",
         "ar": "Mass of Object 2"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the second object in the collision.",
+        "tr": "Çarpışmadaki ikinci nesnenin kütlesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Initial velocity of object 2 before collision, negative if opposite direction.",
       "label_i18n": {
         "en": "Initial Velocity of Object 2",
-        "tr": "Initial Velocity of Object 2",
+        "tr": "Nesne 2'nin Başlangıç Hızı",
         "de": "Initial Velocity of Object 2",
         "fr": "Initial Velocity of Object 2",
         "es": "Initial Velocity of Object 2",
         "ar": "Initial Velocity of Object 2"
+      },
+      "businessContext_i18n": {
+        "en": "Initial velocity of object 2 before collision, negative if opposite direction.",
+        "tr": "Nesne 2'nin çarpışmadan önceki başlangıç hızı, ters yönde ise negatif."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Ratio of relative speed after collision to before collision. Range 0 to 1.",
       "label_i18n": {
         "en": "Coefficient of Restitution",
-        "tr": "Coefficient of Restitution",
+        "tr": "Restitüsyon Katsayısı",
         "de": "Coefficient of Restitution",
         "fr": "Coefficient of Restitution",
         "es": "Coefficient of Restitution",
         "ar": "Coefficient of Restitution"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of relative speed after collision to before collision. Range 0 to 1.",
+        "tr": "Çarpışma sonrası bağıl hızın çarpışma öncesine oranı. 0 ile 1 arasında."
       }
     }
   ],

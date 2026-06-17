@@ -10,11 +10,15 @@
       "businessContext": "Light wavelength in vacuum",
       "label_i18n": {
         "en": "Wavelength (λ)",
-        "tr": "Wavelength (λ)",
+        "tr": "Dalga Boyu (λ)",
         "de": "Wavelength (λ)",
         "fr": "Wavelength (λ)",
         "es": "Wavelength (λ)",
         "ar": "Wavelength (λ)"
+      },
+      "businessContext_i18n": {
+        "en": "Light wavelength in vacuum",
+        "tr": "Işığın vakumdaki dalga boyu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance between the two slits",
       "label_i18n": {
         "en": "Slit Separation (d)",
-        "tr": "Slit Separation (d)",
+        "tr": "Yarık Ayrımı (d)",
         "de": "Slit Separation (d)",
         "fr": "Slit Separation (d)",
         "es": "Slit Separation (d)",
         "ar": "Slit Separation (d)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between the two slits",
+        "tr": "İki yarık arasındaki mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance from slits to observation screen",
       "label_i18n": {
         "en": "Screen Distance (L)",
-        "tr": "Screen Distance (L)",
+        "tr": "Ekran Mesafesi (L)",
         "de": "Screen Distance (L)",
         "fr": "Screen Distance (L)",
         "es": "Screen Distance (L)",
         "ar": "Screen Distance (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from slits to observation screen",
+        "tr": "Yarıklardan gözlem ekranına olan mesafe"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Order number of the bright fringe (0 for central)",
       "label_i18n": {
         "en": "Fringe Order (m)",
-        "tr": "Fringe Order (m)",
+        "tr": "Saçak Sırası (m)",
         "de": "Fringe Order (m)",
         "fr": "Fringe Order (m)",
         "es": "Fringe Order (m)",
         "ar": "Fringe Order (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Order number of the bright fringe (0 for central)",
+        "tr": "Parlak saçağın sıra numarası (merkez için 0)"
       }
     }
   ],

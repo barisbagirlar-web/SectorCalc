@@ -21,10 +21,12 @@
       "max": 250,
       "businessContext": "Standard hourly labor charge from the repair shop.",
       "label_i18n": {
-        "en": "Labor Rate per Hour"
+        "en": "Labor Rate per Hour",
+        "tr": "Saatlik İşçilik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Standard hourly labor charge from the repair shop."
+        "en": "Standard hourly labor charge from the repair shop.",
+        "tr": "Atölyeden standart saatlik işçilik ücreti."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 40,
       "businessContext": "Total labor hours quoted for the repair job.",
       "label_i18n": {
-        "en": "Estimated Labor Hours"
+        "en": "Estimated Labor Hours",
+        "tr": "Tahmini İşçilik Saati"
       },
       "businessContext_i18n": {
-        "en": "Total labor hours quoted for the repair job."
+        "en": "Total labor hours quoted for the repair job.",
+        "tr": "Onarım işi için teklif edilen toplam işçilik saati."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10000,
       "businessContext": "Total cost of replacement parts as quoted.",
       "label_i18n": {
-        "en": "Parts Cost"
+        "en": "Parts Cost",
+        "tr": "Parça Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total cost of replacement parts as quoted."
+        "en": "Total cost of replacement parts as quoted.",
+        "tr": "Teklif edilen yedek parçaların toplam maliyeti."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 500,
       "businessContext": "Miscellaneous supplies charge (e.g., fluids, rags).",
       "label_i18n": {
-        "en": "Shop Supplies Fee"
+        "en": "Shop Supplies Fee",
+        "tr": "Atölye Sarf Malzemesi Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Miscellaneous supplies charge (e.g., fluids, rags)."
+        "en": "Miscellaneous supplies charge (e.g., fluids, rags).",
+        "tr": "Sarf malzemeleri (ör. sıvılar, bezler) için ücret."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 15,
       "businessContext": "Applicable sales tax percentage on parts and supplies.",
       "label_i18n": {
-        "en": "Sales Tax Rate"
+        "en": "Sales Tax Rate",
+        "tr": "Satış Vergisi Oranı"
       },
       "businessContext_i18n": {
-        "en": "Applicable sales tax percentage on parts and supplies."
+        "en": "Applicable sales tax percentage on parts and supplies.",
+        "tr": "Parça ve sarf malzemelerinde geçerli satış vergisi yüzdesi."
       }
     },
     {
@@ -106,10 +116,12 @@
       ],
       "businessContext": "Type of repair shop influences benchmark labor rates.",
       "label_i18n": {
-        "en": "Shop Type"
+        "en": "Shop Type",
+        "tr": "Atölye Türü"
       },
       "businessContext_i18n": {
-        "en": "Type of repair shop influences benchmark labor rates."
+        "en": "Type of repair shop influences benchmark labor rates.",
+        "tr": "Tamir atölyesi türü, referans işçilik ücretlerini etkiler."
       }
     },
     {
@@ -128,10 +140,12 @@
       ],
       "businessContext": "Category of repair affects typical labor hours and parts markup.",
       "label_i18n": {
-        "en": "Repair Category"
+        "en": "Repair Category",
+        "tr": "Tamir Kategorisi"
       },
       "businessContext_i18n": {
-        "en": "Category of repair affects typical labor hours and parts markup."
+        "en": "Category of repair affects typical labor hours and parts markup.",
+        "tr": "Tamir kategorisi, tipik işçilik saatlerini ve parça kâr marjını etkiler."
       }
     },
     {
@@ -144,10 +158,12 @@
       "max": null,
       "businessContext": "OEM parts are typically more expensive than aftermarket.",
       "label_i18n": {
-        "en": "Use Original Equipment Manufacturer (OEM) Parts"
+        "en": "Use Original Equipment Manufacturer (OEM) Parts",
+        "tr": "Orijinal Ekipman Üreticisi (OEM) Parçaları Kullan"
       },
       "businessContext_i18n": {
-        "en": "OEM parts are typically more expensive than aftermarket."
+        "en": "OEM parts are typically more expensive than aftermarket.",
+        "tr": "OEM parçaları genellikle yedek parçalardan daha pahalıdır."
       }
     }
   ],

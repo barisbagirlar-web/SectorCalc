@@ -10,11 +10,15 @@
       "businessContext": "The temperature in Kelvin to be converted to Fahrenheit.",
       "label_i18n": {
         "en": "Kelvin Temperature",
-        "tr": "Kelvin Temperature",
+        "tr": "Kelvin Sıcaklığı",
         "de": "Kelvin Temperature",
         "fr": "Kelvin Temperature",
         "es": "Kelvin Temperature",
         "ar": "Kelvin Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "The temperature in Kelvin to be converted to Fahrenheit.",
+        "tr": "Fahrenheit'a dönüştürülecek Kelvin cinsinden sıcaklık."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for the output Fahrenheit value.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output Fahrenheit value.",
+        "tr": "Çıktı Fahrenheit değeri için ondalık basamak sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "An optional offset to apply to the Kelvin value for calibration purposes.",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "An optional offset to apply to the Kelvin value for calibration purposes.",
+        "tr": "Kalibrasyon amacıyla Kelvin değerine uygulanacak isteğe bağlı bir ofset."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "A known Fahrenheit value for cross-checking the conversion (not used in calculation).",
       "label_i18n": {
         "en": "Expected Fahrenheit (Verification)",
-        "tr": "Expected Fahrenheit (Verification)",
+        "tr": "Beklenen Fahrenheit (Doğrulama)",
         "de": "Expected Fahrenheit (Verification)",
         "fr": "Expected Fahrenheit (Verification)",
         "es": "Expected Fahrenheit (Verification)",
         "ar": "Expected Fahrenheit (Verification)"
+      },
+      "businessContext_i18n": {
+        "en": "A known Fahrenheit value for cross-checking the conversion (not used in calculation).",
+        "tr": "Dönüşümü çapraz kontrol için bilinen bir Fahrenheit değeri (hesaplamada kullanılmaz)."
       }
     }
   ],

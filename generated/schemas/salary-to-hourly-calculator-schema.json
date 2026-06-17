@@ -19,10 +19,12 @@
       "max": 10000000,
       "businessContext": "Total gross annual compensation before taxes and deductions.",
       "label_i18n": {
-        "en": "Annual Salary (USD)"
+        "en": "Annual Salary (USD)",
+        "tr": "Annual Salary (USD)"
       },
       "businessContext_i18n": {
-        "en": "Total gross annual compensation before taxes and deductions."
+        "en": "Total gross annual compensation before taxes and deductions.",
+        "tr": "Vergi ve kesintiler öncesi toplam brüt yıllık ücret."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 168,
       "businessContext": "Standard contractual weekly working hours, excluding unpaid breaks.",
       "label_i18n": {
-        "en": "Work Hours per Week"
+        "en": "Work Hours per Week",
+        "tr": "Haftalık Çalışma Saati"
       },
       "businessContext_i18n": {
-        "en": "Standard contractual weekly working hours, excluding unpaid breaks."
+        "en": "Standard contractual weekly working hours, excluding unpaid breaks.",
+        "tr": "Ücretsiz molalar hariç standart sözleşmeli haftalık çalışma saatleri."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 52,
       "businessContext": "Total weeks compensated including vacation, sick leave, and holidays.",
       "label_i18n": {
-        "en": "Paid Weeks per Year"
+        "en": "Paid Weeks per Year",
+        "tr": "Yıllık Ücretli Hafta"
       },
       "businessContext_i18n": {
-        "en": "Total weeks compensated including vacation, sick leave, and holidays."
+        "en": "Total weeks compensated including vacation, sick leave, and holidays.",
+        "tr": "Tatil, hastalık izni ve resmi tatiller dahil toplam ücretli hafta sayısı."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 3,
       "businessContext": "Standard overtime pay factor per FLSA or local labor law (e.g., 1.5x for >40 hrs/week).",
       "label_i18n": {
-        "en": "Overtime Multiplier"
+        "en": "Overtime Multiplier",
+        "tr": "Fazla Mesai Çarpanı"
       },
       "businessContext_i18n": {
-        "en": "Standard overtime pay factor per FLSA or local labor law (e.g., 1.5x for >40 hrs/week)."
+        "en": "Standard overtime pay factor per FLSA or local labor law (e.g., 1.5x for >40 hrs/week).",
+        "tr": "FLSA veya yerel iş kanununa göre standart fazla mesai ücret faktörü (örn. haftada >40 saat için 1,5x)."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 100,
       "businessContext": "Percentage of salary allocated to benefits (health, retirement, payroll taxes, training).",
       "label_i18n": {
-        "en": "Benefits & Overhead (% of Salary)"
+        "en": "Benefits & Overhead (% of Salary)",
+        "tr": "Yan Haklar & Genel Giderler (Maaşın %'si)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of salary allocated to benefits (health, retirement, payroll taxes, training)."
+        "en": "Percentage of salary allocated to benefits (health, retirement, payroll taxes, training).",
+        "tr": "Yan haklara (sağlık, emeklilik, bordro vergileri, eğitim) ayrılan maaş yüzdesi."
       }
     },
     {
@@ -102,10 +112,12 @@
       ],
       "businessContext": "Shift differentials affect effective hourly cost; night/rotating shifts may require premium pay.",
       "label_i18n": {
-        "en": "Shift Type"
+        "en": "Shift Type",
+        "tr": "Vardiya Türü"
       },
       "businessContext_i18n": {
-        "en": "Shift differentials affect effective hourly cost; night/rotating shifts may require premium pay."
+        "en": "Shift differentials affect effective hourly cost; night/rotating shifts may require premium pay.",
+        "tr": "Vardiya farkları efektif saatlik maliyeti etkiler; gece/dönüşümlü vardiyalar prim gerektirebilir."
       }
     },
     {
@@ -116,10 +128,12 @@
       "default": true,
       "businessContext": "If true, applies a productivity loss factor (e.g., 85%) based on typical industrial engineering allowances.",
       "label_i18n": {
-        "en": "Include Productivity Factor (Lean)"
+        "en": "Include Productivity Factor (Lean)",
+        "tr": "Verimlilik Faktörünü Dahil Et (Yalın)"
       },
       "businessContext_i18n": {
-        "en": "If true, applies a productivity loss factor (e.g., 85%) based on typical industrial engineering allowances."
+        "en": "If true, applies a productivity loss factor (e.g., 85%) based on typical industrial engineering allowances.",
+        "tr": "Doğruysa, tipik endüstri mühendisliği paylarına dayalı bir verimlilik kaybı faktörü (örn. %85) uygular."
       }
     }
   ],

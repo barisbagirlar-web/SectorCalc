@@ -10,11 +10,15 @@
       "businessContext": "Total length of the wall in meters",
       "label_i18n": {
         "en": "Wall Length",
-        "tr": "Wall Length",
+        "tr": "Duvar Uzunluğu (m)",
         "de": "Wall Length",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the wall in meters",
+        "tr": "Duvarın toplam uzunluğu (metre)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total height of the wall in meters",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Total height of the wall in meters",
+        "tr": "Duvarın toplam yüksekliği (metre)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of a single brick (excluding mortar)",
       "label_i18n": {
         "en": "Brick Length",
-        "tr": "Brick Length",
+        "tr": "Tuğla uzunluğu",
         "de": "Brick Length",
         "fr": "Brick Length",
         "es": "Brick Length",
         "ar": "Brick Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single brick (excluding mortar)",
+        "tr": "Tek bir tuğlanın uzunluğu (harç hariç)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of a single brick (excluding mortar)",
       "label_i18n": {
         "en": "Brick Height",
-        "tr": "Brick Height",
+        "tr": "Tuğla yüksekliği",
         "de": "Brick Height",
         "fr": "Brick Height",
         "es": "Brick Height",
         "ar": "Brick Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of a single brick (excluding mortar)",
+        "tr": "Tek bir tuğlanın yüksekliği (harç hariç)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Thickness of mortar between bricks",
       "label_i18n": {
         "en": "Mortar Joint Thickness",
-        "tr": "Mortar Joint Thickness",
+        "tr": "Harç Derz Kalınlığı",
         "de": "Mortar Joint Thickness",
         "fr": "Mortar Joint Thickness",
         "es": "Mortar Joint Thickness",
         "ar": "Mortar Joint Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of mortar between bricks",
+        "tr": "Tuğlalar arasındaki harç kalınlığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total area of doors, windows, etc. to subtract",
       "label_i18n": {
         "en": "Total Openings Area",
-        "tr": "Total Openings Area",
+        "tr": "Toplam açıklık alanı",
         "de": "Total Openings Area",
         "fr": "Total Openings Area",
         "es": "Total Openings Area",
         "ar": "Total Openings Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total area of doors, windows, etc. to subtract",
+        "tr": "Çıkarılacak kapı, pencere vb. toplam alanı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Extra bricks for breakage and cuts",
       "label_i18n": {
         "en": "Wastage Percentage",
-        "tr": "Wastage Percentage",
+        "tr": "Fire yüzdesi",
         "de": "Wastage Percentage",
         "fr": "Wastage Percentage",
         "es": "Wastage Percentage",
         "ar": "Wastage Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Extra bricks for breakage and cuts",
+        "tr": "Kırık ve kesimler için ek tuğlalar"
       }
     }
   ],

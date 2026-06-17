@@ -10,11 +10,15 @@
       "businessContext": "Volume in US liquid gallons to be converted.",
       "label_i18n": {
         "en": "US Gallons",
-        "tr": "US Gallons",
+        "tr": "ABD Galonu",
         "de": "US Gallons",
         "fr": "US Gallons",
         "es": "US Gallons",
         "ar": "US Gallons"
+      },
+      "businessContext_i18n": {
+        "en": "Volume in US liquid gallons to be converted.",
+        "tr": "Dönüştürülecek ABD sıvı galonu cinsinden hacim."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor: 1 US gallon = 0.832674 Imperial gallons. Editable for custom calibration.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor: 1 US gallon = 0.832674 Imperial gallons. Editable for custom calibration.",
+        "tr": "Standart dönüşüm faktörü: 1 ABD galonu = 0,832674 İngiliz galonu. Özel kalibrasyon için düzenlenebilir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output Imperial gallons. Must be integer.",
       "label_i18n": {
         "en": "Rounding Precision",
-        "tr": "Rounding Precision",
+        "tr": "Yuvarlama Hassasiyeti",
         "de": "Rounding Precision",
         "fr": "Rounding Precision",
         "es": "Rounding Precision",
         "ar": "Rounding Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output Imperial gallons. Must be integer.",
+        "tr": "Çıktı İngiliz galonu için ondalık basamak sayısı. Tam sayı olmalıdır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical volume units to calculate total Imperial gallons.",
       "label_i18n": {
         "en": "Batch Quantity",
-        "tr": "Batch Quantity",
+        "tr": "Parti Miktarı",
         "de": "Batch Quantity",
         "fr": "Batch Quantity",
         "es": "Batch Quantity",
         "ar": "Batch Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical volume units to calculate total Imperial gallons.",
+        "tr": "Toplam İngiliz galonunu hesaplamak için özdeş hacim birimlerinin sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Temperature for volume correction. Standard reference temperature is 20°C. Currently not used in calculation but reserved for future thermal expansion compensation.",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature for volume correction. Standard reference temperature is 20°C. Currently not used in calculation but reserved for future thermal expansion compensation.",
+        "tr": "Hacim düzeltmesi için sıcaklık. Standart referans sıcaklığı 20°C'dir. Şu anda hesaplamada kullanılmamaktadır ancak gelecekteki termal genleşme telafisi için ayrılmıştır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Expanded uncertainty (k=2) for the US gallon volume measurement. For documentation and traceability.",
       "label_i18n": {
         "en": "Measurement Uncertainty",
-        "tr": "Measurement Uncertainty",
+        "tr": "Ölçüm Belirsizliği",
         "de": "Measurement Uncertainty",
         "fr": "Measurement Uncertainty",
         "es": "Measurement Uncertainty",
         "ar": "Measurement Uncertainty"
+      },
+      "businessContext_i18n": {
+        "en": "Expanded uncertainty (k=2) for the US gallon volume measurement. For documentation and traceability.",
+        "tr": "ABD galonu hacim ölçümü için genişletilmiş belirsizlik (k=2). Dokümantasyon ve izlenebilirlik içindir."
       }
     }
   ],

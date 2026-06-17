@@ -10,11 +10,15 @@
       "businessContext": "Total number of observations or respondents in the sample.",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)",
         "de": "Sample Size (n)",
         "fr": "Sample Size (n)",
         "es": "Sample Size (n)",
         "ar": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of observations or respondents in the sample.",
+        "tr": "Örneklemdeki toplam gözlem veya yanıt sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired confidence level as a percentage (e.g., 95, 99). Note: The corresponding Z-score must be entered manually.",
       "label_i18n": {
         "en": "Confidence Level (%)",
-        "tr": "Confidence Level (%)",
+        "tr": "Güven Düzeyi (%)",
         "de": "Confidence Level (%)",
         "fr": "Confidence Level (%)",
         "es": "Confidence Level (%)",
         "ar": "Confidence Level (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired confidence level as a percentage (e.g., 95, 99). Note: The corresponding Z-score must be entered manually.",
+        "tr": "Yüzde olarak istenen güven düzeyi (ör. 95, 99). Not: Karşılık gelen Z-skoru manuel olarak girilmelidir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Critical value from the standard normal distribution corresponding to the confidence level (e.g., 1.96 for 95%, 2.576 for 99%).",
       "label_i18n": {
         "en": "Z-Score",
-        "tr": "Z-Score",
+        "tr": "Z-Skoru",
         "de": "Z-Score",
         "fr": "Z-Score",
         "es": "Z-Score",
         "ar": "Z-Score"
+      },
+      "businessContext_i18n": {
+        "en": "Critical value from the standard normal distribution corresponding to the confidence level (e.g., 1.96 for 95%, 2.576 for 99%).",
+        "tr": "Güven düzeyine karşılık gelen standart normal dağılımdan kritik değer (ör. %95 için 1,96, %99 için 2,576)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Proportion of the sample with the characteristic of interest; use 0.5 for maximum margin of error.",
       "label_i18n": {
         "en": "Sample Proportion (p)",
-        "tr": "Sample Proportion (p)",
+        "tr": "Örneklem Oranı (p)",
         "de": "Sample Proportion (p)",
         "fr": "Sample Proportion (p)",
         "es": "Sample Proportion (p)",
         "ar": "Sample Proportion (p)"
+      },
+      "businessContext_i18n": {
+        "en": "Proportion of the sample with the characteristic of interest; use 0.5 for maximum margin of error.",
+        "tr": "İlgilenilen özelliğe sahip örneklem oranı; maksimum hata payı için 0,5 kullanın."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total balance in the retirement account as of December 31 of the previous year.",
       "label_i18n": {
         "en": "Account Balance (IRA Balance)",
-        "tr": "Account Balance (IRA Balance)",
+        "tr": "Hesap Bakiyesi (IRA Bakiyesi)",
         "de": "Account Balance (IRA Balance)",
         "fr": "Account Balance (IRA Balance)",
         "es": "Account Balance (IRA Balance)",
         "ar": "Account Balance (IRA Balance)"
+      },
+      "businessContext_i18n": {
+        "en": "Total balance in the retirement account as of December 31 of the previous year.",
+        "tr": "Önceki yılın 31 Aralık tarihi itibarıyla emeklilik hesabındaki toplam bakiye."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age of the account owner as of the current year. Used to determine the life expectancy factor.",
       "label_i18n": {
         "en": "Age (Current Year Age)",
-        "tr": "Age (Current Year Age)",
+        "tr": "Yaş (Cari Yıl Yaşı)",
         "de": "Age (Current Year Age)",
         "fr": "Age (Current Year Age)",
         "es": "Age (Current Year Age)",
         "ar": "Age (Current Year Age)"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the account owner as of the current year. Used to determine the life expectancy factor.",
+        "tr": "Hesap sahibinin cari yıldaki yaşı. Yaşam beklentisi faktörünü belirlemek için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age of spouse if the account owner is married and spouse is the sole beneficiary. Used for joint life expectancy factor.",
       "label_i18n": {
         "en": "Spouse Age (if applicable)",
-        "tr": "Spouse Age (if applicable)",
+        "tr": "Eş Yaşı (varsa)",
         "de": "Spouse Age (if applicable)",
         "fr": "Spouse Age (if applicable)",
         "es": "Spouse Age (if applicable)",
         "ar": "Spouse Age (if applicable)"
+      },
+      "businessContext_i18n": {
+        "en": "Age of spouse if the account owner is married and spouse is the sole beneficiary. Used for joint life expectancy factor.",
+        "tr": "Hesap sahibi evliyse ve eşi tek varis ise eşin yaşı. Ortak yaşam beklentisi faktörü için kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 = Spouse sole beneficiary, 2 = Non-spouse beneficiary, 3 = No designated beneficiary. Determines which life expectancy table to use.",
       "label_i18n": {
         "en": "Beneficiary Type",
-        "tr": "Beneficiary Type",
+        "tr": "Varis Türü",
         "de": "Beneficiary Type",
         "fr": "Beneficiary Type",
         "es": "Beneficiary Type",
         "ar": "Beneficiary Type"
+      },
+      "businessContext_i18n": {
+        "en": "1 = Spouse sole beneficiary, 2 = Non-spouse beneficiary, 3 = No designated beneficiary. Determines which life expectancy table to use.",
+        "tr": "1 = Eş tek varis, 2 = Eş olmayan varis, 3 = Belirlenmiş varis yok. Hangi yaşam beklentisi tablosunun kullanılacağını belirler."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional override for the life expectancy factor. If 0, the factor is calculated based on age and beneficiary type using IRS tables.",
       "label_i18n": {
         "en": "Life Expectancy Factor (Override)",
-        "tr": "Life Expectancy Factor (Override)",
+        "tr": "Yaşam Beklentisi Faktörü (Geçersiz Kılma)",
         "de": "Life Expectancy Factor (Override)",
         "fr": "Life Expectancy Factor (Override)",
         "es": "Life Expectancy Factor (Override)",
         "ar": "Life Expectancy Factor (Override)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional override for the life expectancy factor. If 0, the factor is calculated based on age and beneficiary type using IRS tables.",
+        "tr": "Yaşam beklentisi faktörü için isteğe bağlı geçersiz kılma. 0 ise, faktör yaş ve varis türüne göre IRS tabloları kullanılarak hesaplanır."
       }
     }
   ],

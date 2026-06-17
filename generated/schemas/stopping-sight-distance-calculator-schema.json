@@ -10,11 +10,15 @@
       "businessContext": "Vehicle design speed in kilometers per hour",
       "label_i18n": {
         "en": "Speed (V)",
-        "tr": "Speed (V)",
+        "tr": "Hız (V)",
         "de": "Speed (V)",
         "fr": "Speed (V)",
         "es": "Speed (V)",
         "ar": "Speed (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Vehicle design speed in kilometers per hour",
+        "tr": "Araç tasarım hızı (km/saat cinsinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Driver perception-reaction time in seconds",
       "label_i18n": {
         "en": "Reaction Time (t)",
-        "tr": "Reaction Time (t)",
+        "tr": "Tepki Süresi (t)",
         "de": "Reaction Time (t)",
         "fr": "Reaction Time (t)",
         "es": "Reaction Time (t)",
         "ar": "Reaction Time (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Driver perception-reaction time in seconds",
+        "tr": "Sürücü algılama-tepki süresi (saniye)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Tire-road friction coefficient (typical range 0.3-0.8)",
       "label_i18n": {
         "en": "Friction Coefficient (f)",
-        "tr": "Friction Coefficient (f)",
+        "tr": "Sürtünme Katsayısı (f)",
         "de": "Friction Coefficient (f)",
         "fr": "Friction Coefficient (f)",
         "es": "Friction Coefficient (f)",
         "ar": "Friction Coefficient (f)"
+      },
+      "businessContext_i18n": {
+        "en": "Tire-road friction coefficient (typical range 0.3-0.8)",
+        "tr": "Lastik-yol sürtünme katsayısı (tipik aralık 0.3-0.8)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Road grade in percent, positive for uphill, negative for downhill",
       "label_i18n": {
         "en": "Grade (G)",
-        "tr": "Grade (G)",
+        "tr": "Eğim (G)",
         "de": "Grade (G)",
         "fr": "Grade (G)",
         "es": "Grade (G)",
         "ar": "Grade (G)"
+      },
+      "businessContext_i18n": {
+        "en": "Road grade in percent, positive for uphill, negative for downhill",
+        "tr": "Yol eğimi yüzde olarak, pozitif yokuş yukarı, negatif yokuş aşağı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total number of nights stayed",
       "label_i18n": {
         "en": "Number of Nights",
-        "tr": "Number of Nights",
+        "tr": "Gece Sayısı",
         "de": "Number of Nights",
         "fr": "Number of Nights",
         "es": "Number of Nights",
         "ar": "Number of Nights"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of nights stayed",
+        "tr": "Toplam gece sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost per night for the room",
       "label_i18n": {
         "en": "Room Rate per Night",
-        "tr": "Room Rate per Night",
+        "tr": "Oda Ücreti (Gece Başına)",
         "de": "Room Rate per Night",
         "fr": "Room Rate per Night",
         "es": "Room Rate per Night",
         "ar": "Room Rate per Night"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per night for the room",
+        "tr": "Oda başına gece başına maliyet"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of people staying",
       "label_i18n": {
         "en": "Number of Guests",
-        "tr": "Number of Guests",
+        "tr": "Misafir Sayısı",
         "de": "Number of Guests",
         "fr": "Number of Guests",
         "es": "Number of Guests",
         "ar": "Number of Guests"
+      },
+      "businessContext_i18n": {
+        "en": "Number of people staying",
+        "tr": "Kalan kişi sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average number of meals per person per day",
       "label_i18n": {
         "en": "Meals per Day",
-        "tr": "Meals per Day",
+        "tr": "Günde Öğün Sayısı",
         "de": "Meals per Day",
         "fr": "Meals per Day",
         "es": "Meals per Day",
         "ar": "Meals per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of meals per person per day",
+        "tr": "Kişi başına günlük ortalama öğün sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average cost per meal per person",
       "label_i18n": {
         "en": "Average Meal Cost",
-        "tr": "Average Meal Cost",
+        "tr": "Ortalama Öğün Maliyeti",
         "de": "Average Meal Cost",
         "fr": "Average Meal Cost",
         "es": "Average Meal Cost",
         "ar": "Average Meal Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost per meal per person",
+        "tr": "Kişi başına öğün başına ortalama maliyet"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total transportation expenses",
       "label_i18n": {
         "en": "Total Transport Cost",
-        "tr": "Total Transport Cost",
+        "tr": "Toplam Ulaşım Maliyeti",
         "de": "Total Transport Cost",
         "fr": "Total Transport Cost",
         "es": "Total Transport Cost",
         "ar": "Total Transport Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total transportation expenses",
+        "tr": "Toplam ulaşım giderleri"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Any additional costs",
       "label_i18n": {
         "en": "Other Expenses",
-        "tr": "Other Expenses",
+        "tr": "Diğer Giderler",
         "de": "Other Expenses",
         "fr": "Other Expenses",
         "es": "Other Expenses",
         "ar": "Other Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Any additional costs",
+        "tr": "Ek maliyetler"
       }
     }
   ],

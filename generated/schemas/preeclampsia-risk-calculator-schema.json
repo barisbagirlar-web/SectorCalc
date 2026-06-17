@@ -10,11 +10,15 @@
       "businessContext": "Age of the pregnant woman at expected date of delivery.",
       "label_i18n": {
         "en": "Maternal Age",
-        "tr": "Maternal Age",
+        "tr": "Anne Yaşı",
         "de": "Maternal Age",
         "fr": "Maternal Age",
         "es": "Maternal Age",
         "ar": "Maternal Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the pregnant woman at expected date of delivery.",
+        "tr": "Tahmini doğum tarihinde hamile kadının yaşı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Body Mass Index before pregnancy.",
       "label_i18n": {
         "en": "Pre-pregnancy BMI",
-        "tr": "Pre-pregnancy BMI",
+        "tr": "Gebelik Öncesi VKİ",
         "de": "Pre-pregnancy BMI",
         "fr": "Pre-pregnancy BMI",
         "es": "Pre-pregnancy BMI",
         "ar": "Pre-pregnancy BMI"
+      },
+      "businessContext_i18n": {
+        "en": "Body Mass Index before pregnancy.",
+        "tr": "Hamilelik öncesi Vücut Kitle İndeksi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Systolic blood pressure reading in early pregnancy.",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Systolic blood pressure reading in early pregnancy.",
+        "tr": "Erken gebelikte sistolik kan basıncı değeri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Diastolic blood pressure reading in early pregnancy.",
       "label_i18n": {
         "en": "Diastolic Blood Pressure",
-        "tr": "Diastolic Blood Pressure",
+        "tr": "Diyastolik Kan Basıncı",
         "de": "Diastolic Blood Pressure",
         "fr": "Diastolic Blood Pressure",
         "es": "Diastolic Blood Pressure",
         "ar": "Diastolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Diastolic blood pressure reading in early pregnancy.",
+        "tr": "Erken gebelikte diyastolik kan basıncı değeri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "History of preeclampsia in a previous pregnancy (0 = No, 1 = Yes).",
       "label_i18n": {
         "en": "Previous Preeclampsia",
-        "tr": "Previous Preeclampsia",
+        "tr": "Önceki Preeklampsi",
         "de": "Previous Preeclampsia",
         "fr": "Previous Preeclampsia",
         "es": "Previous Preeclampsia",
         "ar": "Previous Preeclampsia"
+      },
+      "businessContext_i18n": {
+        "en": "History of preeclampsia in a previous pregnancy (0 = No, 1 = Yes).",
+        "tr": "Önceki gebelikte preeklampsi öyküsü (0 = Hayır, 1 = Evet)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Mother or sister had preeclampsia (0 = No, 1 = Yes).",
       "label_i18n": {
         "en": "Family History of Preeclampsia",
-        "tr": "Family History of Preeclampsia",
+        "tr": "Ailede Preeklampsi Öyküsü",
         "de": "Family History of Preeclampsia",
         "fr": "Family History of Preeclampsia",
         "es": "Family History of Preeclampsia",
         "ar": "Family History of Preeclampsia"
+      },
+      "businessContext_i18n": {
+        "en": "Mother or sister had preeclampsia (0 = No, 1 = Yes).",
+        "tr": "Anne veya kız kardeşte preeklampsi (0 = Hayır, 1 = Evet)."
       }
     }
   ],

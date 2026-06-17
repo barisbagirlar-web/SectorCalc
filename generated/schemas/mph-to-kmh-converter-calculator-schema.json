@@ -10,11 +10,15 @@
       "businessContext": "The speed in miles per hour to be converted.",
       "label_i18n": {
         "en": "Speed (mph)",
-        "tr": "Speed (mph)",
+        "tr": "Hız (mph)",
         "de": "Speed (mph)",
         "fr": "Speed (mph)",
         "es": "Speed (mph)",
         "ar": "Speed (mph)"
+      },
+      "businessContext_i18n": {
+        "en": "The speed in miles per hour to be converted.",
+        "tr": "Dönüştürülecek mil/saat cinsinden hız."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for the result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the result.",
+        "tr": "Sonuç için ondalık basamak sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0: km/h, 1: m/s, 2: knots",
       "label_i18n": {
         "en": "Target Unit",
-        "tr": "Target Unit",
+        "tr": "Hedef Birim",
         "de": "Target Unit",
         "fr": "Target Unit",
         "es": "Target Unit",
         "ar": "Target Unit"
+      },
+      "businessContext_i18n": {
+        "en": "0: km/h, 1: m/s, 2: knots",
+        "tr": "0: km/s, 1: m/s, 2: knot"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0: standard rounding, 1: floor, 2: ceil",
       "label_i18n": {
         "en": "Rounding Mode",
-        "tr": "Rounding Mode",
+        "tr": "Yuvarlama Modu",
         "de": "Rounding Mode",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
+      },
+      "businessContext_i18n": {
+        "en": "0: standard rounding, 1: floor, 2: ceil",
+        "tr": "0: standart yuvarlama, 1: taban, 2: tavan"
       }
     }
   ],

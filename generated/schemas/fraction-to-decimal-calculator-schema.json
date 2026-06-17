@@ -21,10 +21,12 @@
       "max": 999999,
       "businessContext": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only.",
       "label_i18n": {
-        "en": "Numerator"
+        "en": "Numerator",
+        "tr": "Pay"
       },
       "businessContext_i18n": {
-        "en": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only."
+        "en": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only.",
+        "tr": "Kesrin üst kısmı (bölünen). Tam sayılı kesirlerde yalnızca kesirli kısmı kullanın."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 999999,
       "businessContext": "The bottom part of the fraction (divisor). Must be non-zero.",
       "label_i18n": {
-        "en": "Denominator"
+        "en": "Denominator",
+        "tr": "Payda"
       },
       "businessContext_i18n": {
-        "en": "The bottom part of the fraction (divisor). Must be non-zero."
+        "en": "The bottom part of the fraction (divisor). Must be non-zero.",
+        "tr": "Kesrin alt kısmı (bölen). Sıfırdan farklı olmalıdır."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 999999,
       "businessContext": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions.",
       "label_i18n": {
-        "en": "Whole Number (for mixed fractions)"
+        "en": "Whole Number (for mixed fractions)",
+        "tr": "Tam Sayı (tam sayılı kesirler için)"
       },
       "businessContext_i18n": {
-        "en": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions."
+        "en": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions.",
+        "tr": "Tam sayı kısmı (ör. 3 1/4'te 3). Basit kesirler için 0 girin."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 15,
       "businessContext": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules.",
       "label_i18n": {
-        "en": "Decimal Places (precision)"
+        "en": "Decimal Places (precision)",
+        "tr": "Ondalık basamak sayısı (hassasiyet)"
       },
       "businessContext_i18n": {
-        "en": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules."
+        "en": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules.",
+        "tr": "Sonuç için ondalık basamak sayısı. ISO 80000-1 yuvarlama kurallarına uyar."
       }
     },
     {
@@ -91,10 +99,12 @@
       ],
       "businessContext": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work).",
       "label_i18n": {
-        "en": "Rounding Method"
+        "en": "Rounding Method",
+        "tr": "Yuvarlama yöntemi"
       },
       "businessContext_i18n": {
-        "en": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work)."
+        "en": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work).",
+        "tr": "ISO 80000-1'e göre yuvarlama kuralı (istatistiksel çalışmalar için half_even önerilir)."
       }
     },
     {
@@ -107,10 +117,12 @@
       "max": 999999,
       "businessContext": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation.",
       "label_i18n": {
-        "en": "Measurement Uncertainty (±)"
+        "en": "Measurement Uncertainty (±)",
+        "tr": "Ölçüm belirsizliği (±)"
       },
       "businessContext_i18n": {
-        "en": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation."
+        "en": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation.",
+        "tr": "Paydaki mutlak belirsizlik (ör. ölçüm toleransından). Altı Sigma belirsizlik yayılımı için kullanılır."
       }
     }
   ],

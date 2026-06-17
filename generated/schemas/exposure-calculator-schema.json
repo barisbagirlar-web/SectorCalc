@@ -10,11 +10,15 @@
       "businessContext": "Duration over which the noise level was measured",
       "label_i18n": {
         "en": "Measurement Duration",
-        "tr": "Measurement Duration",
+        "tr": "Ölçüm Süresi",
         "de": "Measurement Duration",
         "fr": "Measurement Duration",
         "es": "Measurement Duration",
         "ar": "Measurement Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration over which the noise level was measured",
+        "tr": "Gürültü seviyesinin ölçüldüğü süre."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured average A-weighted noise level during the measurement period",
       "label_i18n": {
         "en": "Sound Pressure Level",
-        "tr": "Sound Pressure Level",
+        "tr": "Ses Basınç Seviyesi",
         "de": "Sound Pressure Level",
         "fr": "Sound Pressure Level",
         "es": "Sound Pressure Level",
         "ar": "Sound Pressure Level"
+      },
+      "businessContext_i18n": {
+        "en": "Measured average A-weighted noise level during the measurement period",
+        "tr": "Ölçüm periyodu sırasında ölçülen ortalama A-ağırlıklı gürültü seviyesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time-intensity doubling rate (3 dB for ISO, 5 dB for OSHA)",
       "label_i18n": {
         "en": "Exchange Rate",
-        "tr": "Exchange Rate",
+        "tr": "Döviz Kuru",
         "de": "Exchange Rate",
         "fr": "Exchange Rate",
         "es": "Exchange Rate",
         "ar": "Exchange Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Time-intensity doubling rate (3 dB for ISO, 5 dB for OSHA)",
+        "tr": "Zaman-şiddet ikiye katlama oranı (ISO için 3 dB, OSHA için 5 dB)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Allowable noise level for an 8-hour exposure",
       "label_i18n": {
         "en": "Criterion Level",
-        "tr": "Criterion Level",
+        "tr": "Kriter Seviyesi",
         "de": "Criterion Level",
         "fr": "Criterion Level",
         "es": "Criterion Level",
         "ar": "Criterion Level"
+      },
+      "businessContext_i18n": {
+        "en": "Allowable noise level for an 8-hour exposure",
+        "tr": "8 saatlik maruziyet için izin verilen gürültü seviyesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Reference duration for the criterion level (typically 8 hours)",
       "label_i18n": {
         "en": "Criterion Time",
-        "tr": "Criterion Time",
+        "tr": "Kriter Süresi",
         "de": "Criterion Time",
         "fr": "Criterion Time",
         "es": "Criterion Time",
         "ar": "Criterion Time"
+      },
+      "businessContext_i18n": {
+        "en": "Reference duration for the criterion level (typically 8 hours)",
+        "tr": "Kriter seviyesi için referans süre (genellikle 8 saat)"
       }
     }
   ],

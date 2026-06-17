@@ -10,11 +10,15 @@
       "businessContext": "Number of accepted/quality parts produced.",
       "label_i18n": {
         "en": "Accepted Parts",
-        "tr": "Accepted Parts",
+        "tr": "Kabul Edilen Parçalar",
         "de": "Accepted Parts",
         "fr": "Accepted Parts",
         "es": "Accepted Parts",
         "ar": "Accepted Parts"
+      },
+      "businessContext_i18n": {
+        "en": "Number of accepted/quality parts produced.",
+        "tr": "Üretilen kabul edilen/kaliteli parça sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of defective parts identified.",
       "label_i18n": {
         "en": "Defective Parts",
-        "tr": "Defective Parts",
+        "tr": "Hatalı Parçalar",
         "de": "Defective Parts",
         "fr": "Defective Parts",
         "es": "Defective Parts",
         "ar": "Defective Parts"
+      },
+      "businessContext_i18n": {
+        "en": "Number of defective parts identified.",
+        "tr": "Tespit edilen hatalı parça sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of parts that required rework.",
       "label_i18n": {
         "en": "Reworked Parts",
-        "tr": "Reworked Parts",
+        "tr": "Yeniden İşlenen Parçalar",
         "de": "Reworked Parts",
         "fr": "Reworked Parts",
         "es": "Reworked Parts",
         "ar": "Reworked Parts"
+      },
+      "businessContext_i18n": {
+        "en": "Number of parts that required rework.",
+        "tr": "Yeniden işlem gerektiren parça sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of parts inspected.",
       "label_i18n": {
         "en": "Total Inspected",
-        "tr": "Total Inspected",
+        "tr": "Toplam Denetlenen",
         "de": "Total Inspected",
         "fr": "Total Inspected",
         "es": "Total Inspected",
         "ar": "Total Inspected"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of parts inspected.",
+        "tr": "Denetlenen toplam parça sayısı."
       }
     }
   ],

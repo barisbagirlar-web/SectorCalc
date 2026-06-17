@@ -10,11 +10,15 @@
       "businessContext": "Total number of words in the document",
       "label_i18n": {
         "en": "Word Count",
-        "tr": "Word Count",
+        "tr": "Kelime Sayısı",
         "de": "Word Count",
         "fr": "Word Count",
         "es": "Word Count",
         "ar": "Word Count"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of words in the document",
+        "tr": "Belgedeki toplam kelime sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average reading speed in words per minute",
       "label_i18n": {
         "en": "Reading Speed",
-        "tr": "Reading Speed",
+        "tr": "Okuma Hızı",
         "de": "Reading Speed",
         "fr": "Reading Speed",
         "es": "Reading Speed",
         "ar": "Reading Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Average reading speed in words per minute",
+        "tr": "Dakikadaki ortalama okuma hızı (kelime)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiplier for text complexity (e.g., 1.2 for technical)",
       "label_i18n": {
         "en": "Complexity Factor",
-        "tr": "Complexity Factor",
+        "tr": "Karmaşıklık Faktörü",
         "de": "Complexity Factor",
         "fr": "Complexity Factor",
         "es": "Complexity Factor",
         "ar": "Complexity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for text complexity (e.g., 1.2 for technical)",
+        "tr": "Metin karmaşıklığı çarpanı (ör. teknik için 1,2)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of pages in the document (for per-page pauses)",
       "label_i18n": {
         "en": "Page Count",
-        "tr": "Page Count",
+        "tr": "Sayfa Sayısı",
         "de": "Page Count",
         "fr": "Page Count",
         "es": "Page Count",
         "ar": "Page Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of pages in the document (for per-page pauses)",
+        "tr": "Belgedeki sayfa sayısı (sayfa başı duraklamalar için)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional pause time per page for comprehension or notes",
       "label_i18n": {
         "en": "Pause Per Page",
-        "tr": "Pause Per Page",
+        "tr": "Sayfa Başı Duraklama",
         "de": "Pause Per Page",
         "fr": "Pause Per Page",
         "es": "Pause Per Page",
         "ar": "Pause Per Page"
+      },
+      "businessContext_i18n": {
+        "en": "Additional pause time per page for comprehension or notes",
+        "tr": "Anlama veya notlar için sayfa başına ek duraklama süresi"
       }
     }
   ],

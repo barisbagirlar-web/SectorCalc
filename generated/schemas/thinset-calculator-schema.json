@@ -10,11 +10,15 @@
       "businessContext": "Total surface area to be tiled, in square meters.",
       "label_i18n": {
         "en": "Area to Tile",
-        "tr": "Area to Tile",
+        "tr": "Fayans Döşenecek Alan",
         "de": "Area to Tile",
         "fr": "Area to Tile",
         "es": "Area to Tile",
         "ar": "Area to Tile"
+      },
+      "businessContext_i18n": {
+        "en": "Total surface area to be tiled, in square meters.",
+        "tr": "Fayans döşenecek toplam yüzey alanı, metrekare cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Size of the square-notched trowel used, determines adhesive coverage rate.",
       "label_i18n": {
         "en": "Trowel Notch Size",
-        "tr": "Trowel Notch Size",
+        "tr": "Mala Çentik Boyutu",
         "de": "Trowel Notch Size",
         "fr": "Trowel Notch Size",
         "es": "Trowel Notch Size",
         "ar": "Trowel Notch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Size of the square-notched trowel used, determines adhesive coverage rate.",
+        "tr": "Kullanılan kare çentikli malanın boyutu, yapıştırıcı kaplama oranını belirler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional percentage for waste, cuts, and spillage.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage for waste, cuts, and spillage.",
+        "tr": "Atık, kesim ve dökülme için ek yüzde."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Net weight of a single thinset mortar bag.",
       "label_i18n": {
         "en": "Bag Weight",
-        "tr": "Bag Weight",
+        "tr": "Çanta Ağırlığı",
         "de": "Bag Weight",
         "fr": "Bag Weight",
         "es": "Bag Weight",
         "ar": "Bag Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Net weight of a single thinset mortar bag.",
+        "tr": "Tek bir thinset harç torbasının net ağırlığı."
       }
     }
   ],

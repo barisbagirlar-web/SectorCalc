@@ -10,11 +10,15 @@
       "businessContext": "Initial investment or loan amount.",
       "label_i18n": {
         "en": "Principal Amount",
-        "tr": "Principal Amount",
+        "tr": "Anapara Tutarı",
         "de": "Principal Amount",
         "fr": "Principal Amount",
         "es": "Principal Amount",
         "ar": "Principal Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Initial investment or loan amount.",
+        "tr": "İlk yatırım veya kredi tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal annual interest rate.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal annual interest rate.",
+        "tr": "Nominal yıllık faiz oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of days the money is invested or borrowed for.",
       "label_i18n": {
         "en": "Time Period",
-        "tr": "Time Period",
+        "tr": "Zaman Periyodu",
         "de": "Time Period",
         "fr": "Time Period",
         "es": "Time Period",
         "ar": "Time Period"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of days the money is invested or borrowed for.",
+        "tr": "Paranın yatırıldığı veya ödünç alındığı toplam gün sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Day count convention: 365 for standard, 360 for some financial markets.",
       "label_i18n": {
         "en": "Days in Year",
-        "tr": "Days in Year",
+        "tr": "Yıldaki Gün Sayısı",
         "de": "Days in Year",
         "fr": "Days in Year",
         "es": "Days in Year",
         "ar": "Days in Year"
+      },
+      "businessContext_i18n": {
+        "en": "Day count convention: 365 for standard, 360 for some financial markets.",
+        "tr": "Gün sayım kuralı: standart için 365, bazı finans piyasaları için 360"
       }
     }
   ],

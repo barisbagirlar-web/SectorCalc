@@ -10,11 +10,15 @@
       "businessContext": "Percentage of reference strength needed before loading",
       "label_i18n": {
         "en": "Required Strength",
-        "tr": "Required Strength",
+        "tr": "Gerekli Dayanım",
         "de": "Required Strength",
         "fr": "Required Strength",
         "es": "Required Strength",
         "ar": "Required Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of reference strength needed before loading",
+        "tr": "Yükleme öncesinde referans dayanımın yüzde olarak gereken oranı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Concrete strength at 28 days under standard conditions",
       "label_i18n": {
         "en": "Reference 28-Day Strength",
-        "tr": "Reference 28-Day Strength",
+        "tr": "Referans 28 Günlük Dayanım",
         "de": "Reference 28-Day Strength",
         "fr": "Reference 28-Day Strength",
         "es": "Reference 28-Day Strength",
         "ar": "Reference 28-Day Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Concrete strength at 28 days under standard conditions",
+        "tr": "Standart koşullar altında 28 günde beton dayanımı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Adjustment for ambient temperature (1.0 at 20°C, increase for colder)",
       "label_i18n": {
         "en": "Temperature Factor",
-        "tr": "Temperature Factor",
+        "tr": "Sıcaklık Faktörü",
         "de": "Temperature Factor",
         "fr": "Temperature Factor",
         "es": "Temperature Factor",
         "ar": "Temperature Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjustment for ambient temperature (1.0 at 20°C, increase for colder)",
+        "tr": "Ortam sıcaklığı için düzeltme (20°C'de 1.0, soğukta artar)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Adjustment for relative humidity (1.0 at 60% RH)",
       "label_i18n": {
         "en": "Humidity Factor",
-        "tr": "Humidity Factor",
+        "tr": "Nem Faktörü",
         "de": "Humidity Factor",
         "fr": "Humidity Factor",
         "es": "Humidity Factor",
         "ar": "Humidity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjustment for relative humidity (1.0 at 60% RH)",
+        "tr": "Bağıl nem için düzeltme (%60 RH'de 1.0)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier to ensure conservative estimate",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to ensure conservative estimate",
+        "tr": "Muhafazakar tahmin sağlamak için çarpan"
       }
     }
   ],

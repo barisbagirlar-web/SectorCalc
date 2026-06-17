@@ -10,11 +10,15 @@
       "businessContext": "The vibrating length of the string from nut to bridge, typically 0.33 m for a full-size violin.",
       "label_i18n": {
         "en": "Scale Length",
-        "tr": "Scale Length",
+        "tr": "Skala Uzunluğu",
         "de": "Scale Length",
         "fr": "Scale Length",
         "es": "Scale Length",
         "ar": "Scale Length"
+      },
+      "businessContext_i18n": {
+        "en": "The vibrating length of the string from nut to bridge, typically 0.33 m for a full-size violin.",
+        "tr": "Titreşen tel uzunluğu (somundan köprüye), tipik olarak tam boy bir keman için 0,33 m."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Frequency of the desired pitch, e.g., A4 = 440 Hz.",
       "label_i18n": {
         "en": "Desired Pitch Frequency",
-        "tr": "Desired Pitch Frequency",
+        "tr": "İstenen Perde Frekansı",
         "de": "Desired Pitch Frequency",
         "fr": "Desired Pitch Frequency",
         "es": "Desired Pitch Frequency",
         "ar": "Desired Pitch Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency of the desired pitch, e.g., A4 = 440 Hz.",
+        "tr": "İstenen perdenin frekansı, örn. A4 = 440 Hz."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Diameter of the string, e.g., 0.5 mm = 0.0005 m.",
       "label_i18n": {
         "en": "String Diameter",
-        "tr": "String Diameter",
+        "tr": "Tel Çapı",
         "de": "String Diameter",
         "fr": "String Diameter",
         "es": "String Diameter",
         "ar": "String Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the string, e.g., 0.5 mm = 0.0005 m.",
+        "tr": "Tel çapı, örn. 0,5 mm = 0,0005 m."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Density of the string material, e.g., gut ~1000 kg/m³, steel ~7800 kg/m³.",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the string material, e.g., gut ~1000 kg/m³, steel ~7800 kg/m³.",
+        "tr": "Tel malzemesinin yoğunluğu, örn. bağırsak ~1000 kg/m³, çelik ~7800 kg/m³."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The volume of the gas in liters.",
       "label_i18n": {
         "en": "Volume (V)",
-        "tr": "Volume (V)",
+        "tr": "Hacim (V)",
         "de": "Volume (V)",
         "fr": "Volume (V)",
         "es": "Volume (V)",
         "ar": "Volume (V)"
+      },
+      "businessContext_i18n": {
+        "en": "The volume of the gas in liters.",
+        "tr": "Gazın litre cinsinden hacmi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount of substance in moles.",
       "label_i18n": {
         "en": "Moles (n)",
-        "tr": "Moles (n)",
+        "tr": "Mol (n)",
         "de": "Moles (n)",
         "fr": "Moles (n)",
         "es": "Moles (n)",
         "ar": "Moles (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of substance in moles.",
+        "tr": "Mol cinsinden madde miktarı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Absolute temperature in Kelvin.",
       "label_i18n": {
         "en": "Temperature (T)",
-        "tr": "Temperature (T)",
+        "tr": "Sıcaklık (T)",
         "de": "Temperature (T)",
         "fr": "Temperature (T)",
         "es": "Temperature (T)",
         "ar": "Temperature (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute temperature in Kelvin.",
+        "tr": "Kelvin cinsinden mutlak sıcaklık."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ideal gas constant. Adjust based on pressure/volume units.",
       "label_i18n": {
         "en": "Gas Constant (R)",
-        "tr": "Gas Constant (R)",
+        "tr": "Gaz Sabiti (R)",
         "de": "Gas Constant (R)",
         "fr": "Gas Constant (R)",
         "es": "Gas Constant (R)",
         "ar": "Gas Constant (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Ideal gas constant. Adjust based on pressure/volume units.",
+        "tr": "İdeal gaz sabiti. Basınç/hacim birimlerine göre ayarlayın."
       }
     }
   ],

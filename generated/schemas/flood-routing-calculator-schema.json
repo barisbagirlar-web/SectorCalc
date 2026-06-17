@@ -10,11 +10,15 @@
       "businessContext": "Muskingum routing - upstream inflow at previous time step",
       "label_i18n": {
         "en": "Previous Inflow",
-        "tr": "Previous Inflow",
+        "tr": "Önceki Giriş",
         "de": "Previous Inflow",
         "fr": "Previous Inflow",
         "es": "Previous Inflow",
         "ar": "Previous Inflow"
+      },
+      "businessContext_i18n": {
+        "en": "Muskingum routing - upstream inflow at previous time step",
+        "tr": "Muskingum yönlendirmesi - önceki zaman adımında yukarı akış girişi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Muskingum routing - upstream inflow at current time step",
       "label_i18n": {
         "en": "Current Inflow",
-        "tr": "Current Inflow",
+        "tr": "Mevcut Giriş",
         "de": "Current Inflow",
         "fr": "Current Inflow",
         "es": "Current Inflow",
         "ar": "Current Inflow"
+      },
+      "businessContext_i18n": {
+        "en": "Muskingum routing - upstream inflow at current time step",
+        "tr": "Muskingum yönlendirmesi - mevcut zaman adımında yukarı akış girişi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Muskingum routing - downstream outflow at previous time step",
       "label_i18n": {
         "en": "Previous Outflow",
-        "tr": "Previous Outflow",
+        "tr": "Önceki Çıkış",
         "de": "Previous Outflow",
         "fr": "Previous Outflow",
         "es": "Previous Outflow",
         "ar": "Previous Outflow"
+      },
+      "businessContext_i18n": {
+        "en": "Muskingum routing - downstream outflow at previous time step",
+        "tr": "Muskingum yönlendirmesi - önceki zaman adımında aşağı akış çıkışı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Routing time step Δt, must be less than K",
       "label_i18n": {
         "en": "Time Step",
-        "tr": "Time Step",
+        "tr": "Zaman Adımı",
         "de": "Time Step",
         "fr": "Time Step",
         "es": "Time Step",
         "ar": "Time Step"
+      },
+      "businessContext_i18n": {
+        "en": "Routing time step Δt, must be less than K",
+        "tr": "Yönlendirme zaman adımı Δt, K'dan küçük olmalıdır"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Muskingum parameter K, travel time of flood wave through reach",
       "label_i18n": {
         "en": "Storage Constant K",
-        "tr": "Storage Constant K",
+        "tr": "Depolama Sabiti K",
         "de": "Storage Constant K",
         "fr": "Storage Constant K",
         "es": "Storage Constant K",
         "ar": "Storage Constant K"
+      },
+      "businessContext_i18n": {
+        "en": "Muskingum parameter K, travel time of flood wave through reach",
+        "tr": "Muskingum parametresi K, taşkın dalgasının kol boyunca seyahat süresi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Muskingum parameter x, 0 ≤ x ≤ 0.5, typical 0.1-0.3 for natural streams",
       "label_i18n": {
         "en": "Weighting Factor x",
-        "tr": "Weighting Factor x",
+        "tr": "Ağırlık Faktörü x",
         "de": "Weighting Factor x",
         "fr": "Weighting Factor x",
         "es": "Weighting Factor x",
         "ar": "Weighting Factor x"
+      },
+      "businessContext_i18n": {
+        "en": "Muskingum parameter x, 0 ≤ x ≤ 0.5, typical 0.1-0.3 for natural streams",
+        "tr": "Muskingum parametresi x, 0 ≤ x ≤ 0.5, doğal akarsular için tipik 0.1-0.3"
       }
     }
   ],

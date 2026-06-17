@@ -10,11 +10,15 @@
       "businessContext": "Steady-state gain of the system.",
       "label_i18n": {
         "en": "Gain (K)",
-        "tr": "Gain (K)",
+        "tr": "Kazanç (K)",
         "de": "Gain (K)",
         "fr": "Gain (K)",
         "es": "Gain (K)",
         "ar": "Gain (K)"
+      },
+      "businessContext_i18n": {
+        "en": "Steady-state gain of the system.",
+        "tr": "Sistemin kararlı durum kazancı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Damping ratio of the second-order system. Must be >0. For underdamped, 0<ζ<1.",
       "label_i18n": {
         "en": "Damping Ratio (ζ)",
-        "tr": "Damping Ratio (ζ)",
+        "tr": "Sönüm Oranı (ζ)",
         "de": "Damping Ratio (ζ)",
         "fr": "Damping Ratio (ζ)",
         "es": "Damping Ratio (ζ)",
         "ar": "Damping Ratio (ζ)"
+      },
+      "businessContext_i18n": {
+        "en": "Damping ratio of the second-order system. Must be >0. For underdamped, 0<ζ<1.",
+        "tr": "İkinci derece sistemin sönüm oranı. >0 olmalıdır. Az sönümlü için 0<ζ<1."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Natural frequency in radians per second.",
       "label_i18n": {
         "en": "Natural Frequency (ω_n)",
-        "tr": "Natural Frequency (ω_n)",
+        "tr": "Doğal Frekans (ω_n)",
         "de": "Natural Frequency (ω_n)",
         "fr": "Natural Frequency (ω_n)",
         "es": "Natural Frequency (ω_n)",
         "ar": "Natural Frequency (ω_n)"
+      },
+      "businessContext_i18n": {
+        "en": "Natural frequency in radians per second.",
+        "tr": "Doğal frekans (rad/saniye cinsinden)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Magnitude of the step input signal applied.",
       "label_i18n": {
         "en": "Step Input Amplitude",
-        "tr": "Step Input Amplitude",
+        "tr": "Adım Giriş Genliği",
         "de": "Step Input Amplitude",
         "fr": "Step Input Amplitude",
         "es": "Step Input Amplitude",
         "ar": "Step Input Amplitude"
+      },
+      "businessContext_i18n": {
+        "en": "Magnitude of the step input signal applied.",
+        "tr": "Uygulanan adım giriş sinyalinin büyüklüğü."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Transport delay or dead time in seconds.",
       "label_i18n": {
         "en": "Time Delay (τ)",
-        "tr": "Time Delay (τ)",
+        "tr": "Zaman Gecikmesi (τ)",
         "de": "Time Delay (τ)",
         "fr": "Time Delay (τ)",
         "es": "Time Delay (τ)",
         "ar": "Time Delay (τ)"
+      },
+      "businessContext_i18n": {
+        "en": "Transport delay or dead time in seconds.",
+        "tr": "Taşıma gecikmesi veya ölü zaman (saniye cinsinden)."
       }
     }
   ],

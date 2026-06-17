@@ -10,11 +10,15 @@
       "businessContext": "Density of the material in kilograms per cubic meter. Common steel density is 7850 kg/m³.",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the material in kilograms per cubic meter. Common steel density is 7850 kg/m³.",
+        "tr": "Malzemenin metreküp başına kilogram cinsinden yoğunluğu. Yaygın çelik yoğunluğu 7850 kg/m³'tür."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total length of the sheet or bar before cutting in meters.",
       "label_i18n": {
         "en": "Initial Length",
-        "tr": "Initial Length",
+        "tr": "İlk Uzunluk",
         "de": "Initial Length",
         "fr": "Initial Length",
         "es": "Initial Length",
         "ar": "Initial Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the sheet or bar before cutting in meters.",
+        "tr": "Kesimden önce levha veya çubuğun metre cinsinden toplam uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of the material in meters.",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the material in meters.",
+        "tr": "Malzemenin metre cinsinden genişliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Thickness of the material in meters.",
       "label_i18n": {
         "en": "Thickness",
-        "tr": "Thickness",
+        "tr": "Kalınlık",
         "de": "Thickness",
         "fr": "Thickness",
         "es": "Thickness",
         "ar": "Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the material in meters.",
+        "tr": "Malzemenin metre cinsinden kalınlığı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Target weight after cutting in kilograms.",
       "label_i18n": {
         "en": "Desired Weight",
-        "tr": "Desired Weight",
+        "tr": "İstenen Ağırlık",
         "de": "Desired Weight",
         "fr": "Desired Weight",
         "es": "Desired Weight",
         "ar": "Desired Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Target weight after cutting in kilograms.",
+        "tr": "Kesimden sonra kilogram cinsinden hedef ağırlık."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Age of the machine in years",
       "label_i18n": {
         "en": "Machine Age",
-        "tr": "Machine Age",
+        "tr": "Makine Yaşı",
         "de": "Machine Age",
         "fr": "Machine Age",
         "es": "Machine Age",
         "ar": "Machine Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the machine in years",
+        "tr": "Makinenin yıl cinsinden yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of maintenance visits per year",
       "label_i18n": {
         "en": "Maintenance Frequency",
-        "tr": "Maintenance Frequency",
+        "tr": "Bakım Sıklığı",
         "de": "Maintenance Frequency",
         "fr": "Maintenance Frequency",
         "es": "Maintenance Frequency",
         "ar": "Maintenance Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of maintenance visits per year",
+        "tr": "Yıllık bakım ziyareti sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total shelf life of the product in days",
       "label_i18n": {
         "en": "Product Shelf Life",
-        "tr": "Product Shelf Life",
+        "tr": "Ürün Raf Ömrü",
         "de": "Product Shelf Life",
         "fr": "Product Shelf Life",
         "es": "Product Shelf Life",
         "ar": "Product Shelf Life"
+      },
+      "businessContext_i18n": {
+        "en": "Total shelf life of the product in days",
+        "tr": "Ürünün gün cinsinden toplam raf ömrü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current age of the product since production",
       "label_i18n": {
         "en": "Product Current Age",
-        "tr": "Product Current Age",
+        "tr": "Ürün Mevcut Yaşı",
         "de": "Product Current Age",
         "fr": "Product Current Age",
         "es": "Product Current Age",
         "ar": "Product Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "Current age of the product since production",
+        "tr": "Ürünün üretimden bu yana geçen gün cinsinden yaşı"
       }
     }
   ],

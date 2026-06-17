@@ -10,11 +10,15 @@
       "businessContext": "The consumption or efficiency value to convert.",
       "label_i18n": {
         "en": "Fuel Economy Value",
-        "tr": "Fuel Economy Value",
+        "tr": "Yakıt Ekonomisi Değeri",
         "de": "Fuel Economy Value",
         "fr": "Fuel Economy Value",
         "es": "Fuel Economy Value",
         "ar": "Fuel Economy Value"
+      },
+      "businessContext_i18n": {
+        "en": "The consumption or efficiency value to convert.",
+        "tr": "Dönüştürülecek tüketim veya verimlilik değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Specify 0 if input is in km/L, 1 if in mpg.",
       "label_i18n": {
         "en": "Source Unit",
-        "tr": "Source Unit",
+        "tr": "Kaynak Birim",
         "de": "Source Unit",
         "fr": "Source Unit",
         "es": "Source Unit",
         "ar": "Source Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Specify 0 if input is in km/L, 1 if in mpg.",
+        "tr": "Giriş km/L ise 0, mpg ise 1 belirtin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Select gallon type: 0 for US gallon (3.785 L), 1 for Imperial gallon (4.546 L).",
       "label_i18n": {
         "en": "Gallon Type",
-        "tr": "Gallon Type",
+        "tr": "Galon Türü",
         "de": "Gallon Type",
         "fr": "Gallon Type",
         "es": "Gallon Type",
         "ar": "Gallon Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select gallon type: 0 for US gallon (3.785 L), 1 for Imperial gallon (4.546 L).",
+        "tr": "Galon türünü seçin: 0 ABD galonu (3,785 L), 1 İmparatorluk galonu (4,546 L)."
       }
     }
   ],

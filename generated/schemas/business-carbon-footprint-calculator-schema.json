@@ -10,11 +10,15 @@
       "businessContext": "Annual electricity consumption from the grid",
       "label_i18n": {
         "en": "Electricity Usage",
-        "tr": "Electricity Usage",
+        "tr": "Elektrik Kullanımı",
         "de": "Electricity Usage",
         "fr": "Electricity Usage",
         "es": "Electricity Usage",
         "ar": "Electricity Usage"
+      },
+      "businessContext_i18n": {
+        "en": "Annual electricity consumption from the grid",
+        "tr": "Şebekeden yıllık elektrik tüketimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual natural gas consumption for heating/processes",
       "label_i18n": {
         "en": "Natural Gas Usage",
-        "tr": "Natural Gas Usage",
+        "tr": "Doğal Gaz Kullanımı",
         "de": "Natural Gas Usage",
         "fr": "Natural Gas Usage",
         "es": "Natural Gas Usage",
         "ar": "Natural Gas Usage"
+      },
+      "businessContext_i18n": {
+        "en": "Annual natural gas consumption for heating/processes",
+        "tr": "Isıtma/süreçler için yıllık doğal gaz tüketimi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Annual fuel consumption by company-owned vehicles (petrol/diesel)",
       "label_i18n": {
         "en": "Vehicle Fuel Usage",
-        "tr": "Vehicle Fuel Usage",
+        "tr": "Araç Yakıt Kullanımı",
         "de": "Vehicle Fuel Usage",
         "fr": "Vehicle Fuel Usage",
         "es": "Vehicle Fuel Usage",
         "ar": "Vehicle Fuel Usage"
+      },
+      "businessContext_i18n": {
+        "en": "Annual fuel consumption by company-owned vehicles (petrol/diesel)",
+        "tr": "Şirkete ait araçların yıllık yakıt tüketimi (benzin/dizel)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total distance travelled by air for business purposes",
       "label_i18n": {
         "en": "Business Air Travel",
-        "tr": "Business Air Travel",
+        "tr": "İş Amaçlı Hava Seyahati",
         "de": "Business Air Travel",
         "fr": "Business Air Travel",
         "es": "Business Air Travel",
         "ar": "Business Air Travel"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance travelled by air for business purposes",
+        "tr": "İş amaçlı havayoluyla kat edilen toplam mesafe"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total waste sent to landfill annually",
       "label_i18n": {
         "en": "Waste Generated",
-        "tr": "Waste Generated",
+        "tr": "Oluşan Atık",
         "de": "Waste Generated",
         "fr": "Waste Generated",
         "es": "Waste Generated",
         "ar": "Waste Generated"
+      },
+      "businessContext_i18n": {
+        "en": "Total waste sent to landfill annually",
+        "tr": "Yıllık olarak depolama sahasına gönderilen toplam atık"
       }
     }
   ],

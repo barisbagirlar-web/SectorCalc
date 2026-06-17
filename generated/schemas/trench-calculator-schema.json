@@ -10,11 +10,15 @@
       "businessContext": "Total length of the trench to be excavated",
       "label_i18n": {
         "en": "Trench Length",
-        "tr": "Trench Length",
+        "tr": "Hendek Uzunluğu",
         "de": "Trench Length",
         "fr": "Trench Length",
         "es": "Trench Length",
         "ar": "Trench Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the trench to be excavated",
+        "tr": "Kazılacak hendeğin toplam uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the trench at the bottom",
       "label_i18n": {
         "en": "Base Width",
-        "tr": "Base Width",
+        "tr": "Taban genişliği",
         "de": "Base Width",
         "fr": "Base Width",
         "es": "Base Width",
         "ar": "Base Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the trench at the bottom",
+        "tr": "Hendek Taban Genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Vertical depth of excavation",
       "label_i18n": {
         "en": "Depth",
-        "tr": "Depth",
+        "tr": "Derinlik",
         "de": "Depth",
         "fr": "Depth",
         "es": "Depth",
         "ar": "Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical depth of excavation",
+        "tr": "Kazı derinliği (dikey)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Horizontal distance per unit vertical (0 for vertical walls)",
       "label_i18n": {
         "en": "Side Slope (H:V)",
-        "tr": "Side Slope (H:V)",
+        "tr": "Şev Eğimi (Y:D)",
         "de": "Side Slope (H:V)",
         "fr": "Side Slope (H:V)",
         "es": "Side Slope (H:V)",
         "ar": "Side Slope (H:V)"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal distance per unit vertical (0 for vertical walls)",
+        "tr": "Dikey birim başına yatay mesafe (dikey duvarlar için 0)."
       }
     }
   ],

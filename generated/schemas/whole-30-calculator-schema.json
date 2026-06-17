@@ -10,11 +10,15 @@
       "businessContext": "The amount of raw material required per day in kilograms.",
       "label_i18n": {
         "en": "Daily Material Demand",
-        "tr": "Daily Material Demand",
+        "tr": "Günlük Malzeme Talebi",
         "de": "Daily Material Demand",
         "fr": "Daily Material Demand",
         "es": "Daily Material Demand",
         "ar": "Daily Material Demand"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of raw material required per day in kilograms.",
+        "tr": "Günlük kilogram cinsinden gerekli hammadde miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Unit cost of the material in EUR per kg.",
       "label_i18n": {
         "en": "Cost per kg",
-        "tr": "Cost per kg",
+        "tr": "Kg başına maliyet",
         "de": "Cost per kg",
         "fr": "Cost per kg",
         "es": "Cost per kg",
         "ar": "Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Unit cost of the material in EUR per kg.",
+        "tr": "Malzemenin kg başına EUR cinsinden birim maliyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected percentage of material wasted during processing.",
       "label_i18n": {
         "en": "Waste Rate",
-        "tr": "Waste Rate",
+        "tr": "Fire Oranı",
         "de": "Waste Rate",
         "fr": "Waste Rate",
         "es": "Waste Rate",
         "ar": "Waste Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage of material wasted during processing.",
+        "tr": "İşleme sırasında israf edilmesi beklenen malzeme yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Production period in days (default 30 for Whole 30).",
       "label_i18n": {
         "en": "Number of Days",
-        "tr": "Number of Days",
+        "tr": "Gün Sayısı",
         "de": "Number of Days",
         "fr": "Number of Days",
         "es": "Number of Days",
         "ar": "Number of Days"
+      },
+      "businessContext_i18n": {
+        "en": "Production period in days (default 30 for Whole 30).",
+        "tr": "Gün cinsinden üretim dönemi (varsayılan 30, Whole 30 için)."
       }
     }
   ],

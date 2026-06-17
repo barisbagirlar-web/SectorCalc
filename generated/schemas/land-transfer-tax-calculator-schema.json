@@ -10,11 +10,15 @@
       "businessContext": "The total purchase price or assessed value of the property.",
       "label_i18n": {
         "en": "Property Value",
-        "tr": "Property Value",
+        "tr": "Mülk Değeri",
         "de": "Property Value",
         "fr": "Property Value",
         "es": "Property Value",
         "ar": "Property Value"
+      },
+      "businessContext_i18n": {
+        "en": "The total purchase price or assessed value of the property.",
+        "tr": "Mülkün toplam satın alma fiyatı veya değerleme tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The applicable land transfer tax rate as a percentage (e.g., 2.5 for 2.5%).",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The applicable land transfer tax rate as a percentage (e.g., 2.5 for 2.5%).",
+        "tr": "Geçerli emlak vergisi oranı yüzde olarak (örneğin, %2.5 için 2.5)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum exemption amount available for first-time home buyers. Set to 0 if not applicable.",
       "label_i18n": {
         "en": "First-Time Buyer Exemption",
-        "tr": "First-Time Buyer Exemption",
+        "tr": "İlk Kez Ev Sahibi Muafiyeti",
         "de": "First-Time Buyer Exemption",
         "fr": "First-Time Buyer Exemption",
         "es": "First-Time Buyer Exemption",
         "ar": "First-Time Buyer Exemption"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum exemption amount available for first-time home buyers. Set to 0 if not applicable.",
+        "tr": "İlk kez ev sahibi olanlar için mevcut maksimum muafiyet tutarı. Geçerli değilse 0 girin."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 if buyer qualifies as a first-time buyer, else 0.",
       "label_i18n": {
         "en": "First-Time Buyer?",
-        "tr": "First-Time Buyer?",
+        "tr": "İlk Kez Ev Sahibi mi?",
         "de": "First-Time Buyer?",
         "fr": "First-Time Buyer?",
         "es": "First-Time Buyer?",
         "ar": "First-Time Buyer?"
+      },
+      "businessContext_i18n": {
+        "en": "1 if buyer qualifies as a first-time buyer, else 0.",
+        "tr": "Alıcının ilk kez ev sahibi olma durumu: 1 ise uygun, 0 değil."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Government administrative or registration fee, if any.",
       "label_i18n": {
         "en": "Administrative Fee",
-        "tr": "Administrative Fee",
+        "tr": "İdari Ücret",
         "de": "Administrative Fee",
         "fr": "Administrative Fee",
         "es": "Administrative Fee",
         "ar": "Administrative Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Government administrative or registration fee, if any.",
+        "tr": "Varsa devlet idari veya kayıt ücreti."
       }
     }
   ],

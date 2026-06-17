@@ -10,11 +10,15 @@
       "businessContext": "Area in square rods to be converted to square meters",
       "label_i18n": {
         "en": "Square Rods",
-        "tr": "Square Rods",
+        "tr": "Kare Rod",
         "de": "Square Rods",
         "fr": "Square Rods",
         "es": "Square Rods",
         "ar": "Square Rods"
+      },
+      "businessContext_i18n": {
+        "en": "Area in square rods to be converted to square meters",
+        "tr": "Metrekareye dönüştürülecek kare rod cinsinden alan"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from square rods to square meters",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from square rods to square meters",
+        "tr": "Kare roddan metrekareye standart dönüşüm faktörü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places to round the final output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the final output",
+        "tr": "Nihai çıktının yuvarlanacağı ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional area adjustment percentage (e.g., for cut/fill factor)",
       "label_i18n": {
         "en": "Area Adjustment",
-        "tr": "Area Adjustment",
+        "tr": "Alan Ayarı",
         "de": "Area Adjustment",
         "fr": "Area Adjustment",
         "es": "Area Adjustment",
         "ar": "Area Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "Optional area adjustment percentage (e.g., for cut/fill factor)",
+        "tr": "İsteğe bağlı alan ayarlama yüzdesi (örneğin, kazı/dolgu faktörü için)"
       }
     }
   ],

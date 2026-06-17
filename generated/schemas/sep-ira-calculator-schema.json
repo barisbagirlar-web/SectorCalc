@@ -10,11 +10,15 @@
       "businessContext": "Total compensation from employment or net earnings from self-employment (before any contribution).",
       "label_i18n": {
         "en": "Annual Compensation",
-        "tr": "Annual Compensation",
+        "tr": "Yıllık Tazminat",
         "de": "Annual Compensation",
         "fr": "Annual Compensation",
         "es": "Annual Compensation",
         "ar": "Annual Compensation"
+      },
+      "businessContext_i18n": {
+        "en": "Total compensation from employment or net earnings from self-employment (before any contribution).",
+        "tr": "İstihdamdan elde edilen toplam tazminat veya serbest meslekten elde edilen net kazanç (herhangi bir katkıdan önce)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The percentage of compensation you contribute to the SEP IRA, up to 25% for employees and effectively lower for self-employed.",
       "label_i18n": {
         "en": "Contribution Rate (%)",
-        "tr": "Contribution Rate (%)",
+        "tr": "Katkı Oranı (%)",
         "de": "Contribution Rate (%)",
         "fr": "Contribution Rate (%)",
         "es": "Contribution Rate (%)",
         "ar": "Contribution Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage of compensation you contribute to the SEP IRA, up to 25% for employees and effectively lower for self-employed.",
+        "tr": "SEP IRA'ya katkıda bulunduğunuz tazminat yüzdesi; çalışanlar için %25'e kadar, serbest meslek sahipleri için etkin olarak daha düşük."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Enter 1 if you are self-employed (the calculation adjusts for self-employment), otherwise 0 for employee.",
       "label_i18n": {
         "en": "Self-Employed (0/1)",
-        "tr": "Self-Employed (0/1)",
+        "tr": "Serbest Meslek (0/1)",
         "de": "Self-Employed (0/1)",
         "fr": "Self-Employed (0/1)",
         "es": "Self-Employed (0/1)",
         "ar": "Self-Employed (0/1)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter 1 if you are self-employed (the calculation adjusts for self-employment), otherwise 0 for employee.",
+        "tr": "Serbest meslek sahibiyseniz 1 girin (hesaplama serbest mesleğe göre ayarlanır), aksi halde çalışan için 0 girin."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The maximum annual contribution limit set by the IRS (e.g., $66,000 for 2023).",
       "label_i18n": {
         "en": "IRS Contribution Limit",
-        "tr": "IRS Contribution Limit",
+        "tr": "IRS Katkı Limiti",
         "de": "IRS Contribution Limit",
         "fr": "IRS Contribution Limit",
         "es": "IRS Contribution Limit",
         "ar": "IRS Contribution Limit"
+      },
+      "businessContext_i18n": {
+        "en": "The maximum annual contribution limit set by the IRS (e.g., $66,000 for 2023).",
+        "tr": "IRS tarafından belirlenen maksimum yıllık katkı limiti (örneğin, 2023 için 66.000 $)."
       }
     }
   ],

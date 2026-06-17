@@ -10,11 +10,15 @@
       "businessContext": "Resistance value of the resistor",
       "label_i18n": {
         "en": "Nominal Resistance",
-        "tr": "Nominal Resistance",
+        "tr": "Nominal Direnç",
         "de": "Nominal Resistance",
         "fr": "Nominal Resistance",
         "es": "Nominal Resistance",
         "ar": "Nominal Resistance"
+      },
+      "businessContext_i18n": {
+        "en": "Resistance value of the resistor",
+        "tr": "Direncin direnç değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Tolerance of the resistor in percent",
       "label_i18n": {
         "en": "Resistance Tolerance",
-        "tr": "Resistance Tolerance",
+        "tr": "Direnç Toleransı",
         "de": "Resistance Tolerance",
         "fr": "Resistance Tolerance",
         "es": "Resistance Tolerance",
         "ar": "Resistance Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Tolerance of the resistor in percent",
+        "tr": "Direncin yüzde toleransı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Inductance value of the inductor",
       "label_i18n": {
         "en": "Nominal Inductance",
-        "tr": "Nominal Inductance",
+        "tr": "Nominal Endüktans",
         "de": "Nominal Inductance",
         "fr": "Nominal Inductance",
         "es": "Nominal Inductance",
         "ar": "Nominal Inductance"
+      },
+      "businessContext_i18n": {
+        "en": "Inductance value of the inductor",
+        "tr": "Bobinin endüktans değeri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Tolerance of the inductor in percent",
       "label_i18n": {
         "en": "Inductance Tolerance",
-        "tr": "Inductance Tolerance",
+        "tr": "Endüktans Toleransı",
         "de": "Inductance Tolerance",
         "fr": "Inductance Tolerance",
         "es": "Inductance Tolerance",
         "ar": "Inductance Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Tolerance of the inductor in percent",
+        "tr": "Bobinin yüzde toleransı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Fish oil amount per capsule in milligrams",
       "label_i18n": {
         "en": "Capsule Size (mg)",
-        "tr": "Capsule Size (mg)",
+        "tr": "Kapsül Boyutu (mg)",
         "de": "Capsule Size (mg)",
         "fr": "Capsule Size (mg)",
         "es": "Capsule Size (mg)",
         "ar": "Capsule Size (mg)"
+      },
+      "businessContext_i18n": {
+        "en": "Fish oil amount per capsule in milligrams",
+        "tr": "Kapsül başına balık yağı miktarı (miligram)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of capsules consumed daily",
       "label_i18n": {
         "en": "Capsules per Day",
-        "tr": "Capsules per Day",
+        "tr": "Günlük Kapsül Sayısı",
         "de": "Capsules per Day",
         "fr": "Capsules per Day",
         "es": "Capsules per Day",
         "ar": "Capsules per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of capsules consumed daily",
+        "tr": "Günlük tüketilen kapsül sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of EPA in the fish oil",
       "label_i18n": {
         "en": "EPA Concentration (%)",
-        "tr": "EPA Concentration (%)",
+        "tr": "EPA Konsantrasyonu (%)",
         "de": "EPA Concentration (%)",
         "fr": "EPA Concentration (%)",
         "es": "EPA Concentration (%)",
         "ar": "EPA Concentration (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of EPA in the fish oil",
+        "tr": "Balık yağındaki EPA yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of DHA in the fish oil",
       "label_i18n": {
         "en": "DHA Concentration (%)",
-        "tr": "DHA Concentration (%)",
+        "tr": "DHA Konsantrasyonu (%)",
         "de": "DHA Concentration (%)",
         "fr": "DHA Concentration (%)",
         "es": "DHA Concentration (%)",
         "ar": "DHA Concentration (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of DHA in the fish oil",
+        "tr": "Balık yağındaki DHA yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Body weight for per-kilogram dosage calculation",
       "label_i18n": {
         "en": "Body Weight (kg)",
-        "tr": "Body Weight (kg)",
+        "tr": "Vücut Ağırlığı (kg)",
         "de": "Body Weight (kg)",
         "fr": "Body Weight (kg)",
         "es": "Body Weight (kg)",
         "ar": "Body Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight for per-kilogram dosage calculation",
+        "tr": "Kilogram başına dozaj hesaplaması için vücut ağırlığı"
       }
     }
   ],

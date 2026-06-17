@@ -10,11 +10,15 @@
       "businessContext": "The hour of day when the worker typically wakes up (24-hour format)",
       "label_i18n": {
         "en": "Wake Time",
-        "tr": "Wake Time",
+        "tr": "Uyanma Saati",
         "de": "Wake Time",
         "fr": "Wake Time",
         "es": "Wake Time",
         "ar": "Wake Time"
+      },
+      "businessContext_i18n": {
+        "en": "The hour of day when the worker typically wakes up (24-hour format)",
+        "tr": "İşçinin tipik olarak uyandığı günün saati (24 saat formatı)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The hour of day for which alertness is to be predicted",
       "label_i18n": {
         "en": "Current Time",
-        "tr": "Current Time",
+        "tr": "Şu Anki Saat",
         "de": "Current Time",
         "fr": "Current Time",
         "es": "Current Time",
         "ar": "Current Time"
+      },
+      "businessContext_i18n": {
+        "en": "The hour of day for which alertness is to be predicted",
+        "tr": "Uyanıklığın tahmin edileceği günün saati"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of prior sleep, affecting baseline alertness (optional use)",
       "label_i18n": {
         "en": "Sleep Duration",
-        "tr": "Sleep Duration",
+        "tr": "Uyku Süresi",
         "de": "Sleep Duration",
         "fr": "Sleep Duration",
         "es": "Sleep Duration",
         "ar": "Sleep Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of prior sleep, affecting baseline alertness (optional use)",
+        "tr": "Önceki uykunun süresi, temel uyanıklığı etkiler (isteğe bağlı kullanım)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Typical amplitude of circadian alertness fluctuation (deviation from baseline)",
       "label_i18n": {
         "en": "Circadian Amplitude",
-        "tr": "Circadian Amplitude",
+        "tr": "Sirkadiyen Genlik",
         "de": "Circadian Amplitude",
         "fr": "Circadian Amplitude",
         "es": "Circadian Amplitude",
         "ar": "Circadian Amplitude"
+      },
+      "businessContext_i18n": {
+        "en": "Typical amplitude of circadian alertness fluctuation (deviation from baseline)",
+        "tr": "Sirkadiyen uyanıklık dalgalanmasının tipik genliği (temel değerden sapma)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Baseline alertness level after adequate sleep, typically 70 (scale 0-100)",
       "label_i18n": {
         "en": "Baseline Alertness",
-        "tr": "Baseline Alertness",
+        "tr": "Temel Uyanıklık",
         "de": "Baseline Alertness",
         "fr": "Baseline Alertness",
         "es": "Baseline Alertness",
         "ar": "Baseline Alertness"
+      },
+      "businessContext_i18n": {
+        "en": "Baseline alertness level after adequate sleep, typically 70 (scale 0-100)",
+        "tr": "Yeterli uykudan sonra temel uyanıklık seviyesi, tipik olarak 70 (0-100 ölçeği)"
       }
     }
   ],

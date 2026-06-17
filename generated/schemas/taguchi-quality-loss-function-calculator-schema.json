@@ -21,10 +21,12 @@
       "max": 1000,
       "businessContext": "The ideal nominal specification for the product characteristic (e.g., length, weight, voltage).",
       "label_i18n": {
-        "en": "Target Value (T)"
+        "en": "Target Value (T)",
+        "tr": "Hedef Değer (T)"
       },
       "businessContext_i18n": {
-        "en": "The ideal nominal specification for the product characteristic (e.g., length, weight, voltage)."
+        "en": "The ideal nominal specification for the product characteristic (e.g., length, weight, voltage).",
+        "tr": "Ürün karakteristiği için ideal nominal spesifikasyon (örn. uzunluk, ağırlık, voltaj)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 1000,
       "businessContext": "Minimum acceptable value per engineering or customer requirement.",
       "label_i18n": {
-        "en": "Lower Specification Limit (LSL)"
+        "en": "Lower Specification Limit (LSL)",
+        "tr": "Alt Spesifikasyon Limiti (LSL)"
       },
       "businessContext_i18n": {
-        "en": "Minimum acceptable value per engineering or customer requirement."
+        "en": "Minimum acceptable value per engineering or customer requirement.",
+        "tr": "Mühendislik veya müşteri gereksinimine göre kabul edilebilir minimum değer."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1000,
       "businessContext": "Maximum acceptable value per engineering or customer requirement.",
       "label_i18n": {
-        "en": "Upper Specification Limit (USL)"
+        "en": "Upper Specification Limit (USL)",
+        "tr": "Üst Spesifikasyon Limiti (USL)"
       },
       "businessContext_i18n": {
-        "en": "Maximum acceptable value per engineering or customer requirement."
+        "en": "Maximum acceptable value per engineering or customer requirement.",
+        "tr": "Mühendislik veya müşteri gereksinimine göre kabul edilebilir maksimum değer."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 1000,
       "businessContext": "Current average of the process output.",
       "label_i18n": {
-        "en": "Process Mean (μ)"
+        "en": "Process Mean (μ)",
+        "tr": "Proses Ortalaması (μ)"
       },
       "businessContext_i18n": {
-        "en": "Current average of the process output."
+        "en": "Current average of the process output.",
+        "tr": "Proses çıktısının mevcut ortalaması."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 100,
       "businessContext": "Measure of process variation.",
       "label_i18n": {
-        "en": "Process Standard Deviation (σ)"
+        "en": "Process Standard Deviation (σ)",
+        "tr": "Proses Standart Sapması (σ)"
       },
       "businessContext_i18n": {
-        "en": "Measure of process variation."
+        "en": "Measure of process variation.",
+        "tr": "Proses değişkenliğinin ölçüsü."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100000,
       "businessContext": "Estimated financial loss (rework, scrap, warranty) when a unit is exactly at the specification limit.",
       "label_i18n": {
-        "en": "Cost at Specification Limit (A₀)"
+        "en": "Cost at Specification Limit (A₀)",
+        "tr": "Spesifikasyon Sınırında Maliyet (A₀)"
       },
       "businessContext_i18n": {
-        "en": "Estimated financial loss (rework, scrap, warranty) when a unit is exactly at the specification limit."
+        "en": "Estimated financial loss (rework, scrap, warranty) when a unit is exactly at the specification limit.",
+        "tr": "Bir birim tam spesifikasyon sınırında olduğunda tahmini finansal kayıp (yeniden işleme, fire, garanti)."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100,
       "businessContext": "Distance from target to the nearest specification limit (Δ = min(T-LSL, USL-T)).",
       "label_i18n": {
-        "en": "Deviation at Limit (Δ)"
+        "en": "Deviation at Limit (Δ)",
+        "tr": "Sınırdaki Sapma (Δ)"
       },
       "businessContext_i18n": {
-        "en": "Distance from target to the nearest specification limit (Δ = min(T-LSL, USL-T))."
+        "en": "Distance from target to the nearest specification limit (Δ = min(T-LSL, USL-T)).",
+        "tr": "Hedeften en yakın spesifikasyon sınırına olan mesafe (Δ = min(T-ASL, ÜSL-T))."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 100000000,
       "businessContext": "Total number of units produced in the period.",
       "label_i18n": {
-        "en": "Production Volume (N)"
+        "en": "Production Volume (N)",
+        "tr": "Üretim Hacmi (N)"
       },
       "businessContext_i18n": {
-        "en": "Total number of units produced in the period."
+        "en": "Total number of units produced in the period.",
+        "tr": "Dönemde üretilen toplam birim sayısı."
       }
     }
   ],

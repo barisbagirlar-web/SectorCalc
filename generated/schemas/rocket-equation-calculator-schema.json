@@ -10,11 +10,15 @@
       "businessContext": "Total mass of the rocket at launch, including propellant (wet mass).",
       "label_i18n": {
         "en": "Initial Mass",
-        "tr": "Initial Mass",
+        "tr": "Başlangıç Kütlesi",
         "de": "Initial Mass",
         "fr": "Initial Mass",
         "es": "Initial Mass",
         "ar": "Initial Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of the rocket at launch, including propellant (wet mass).",
+        "tr": "Fırlatma anında roketin toplam kütlesi (yakıt dahil, ıslak kütle)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass of the rocket after propellant is expended (dry mass).",
       "label_i18n": {
         "en": "Final Mass",
-        "tr": "Final Mass",
+        "tr": "Son Kütle",
         "de": "Final Mass",
         "fr": "Final Mass",
         "es": "Final Mass",
         "ar": "Final Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the rocket after propellant is expended (dry mass).",
+        "tr": "Yakıt tükendikten sonra roketin kütlesi (kuru kütle)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Engine efficiency: thrust per weight flow rate of propellant at Earth's surface.",
       "label_i18n": {
         "en": "Specific Impulse",
-        "tr": "Specific Impulse",
+        "tr": "Özgül İtki",
         "de": "Specific Impulse",
         "fr": "Specific Impulse",
         "es": "Specific Impulse",
         "ar": "Specific Impulse"
+      },
+      "businessContext_i18n": {
+        "en": "Engine efficiency: thrust per weight flow rate of propellant at Earth's surface.",
+        "tr": "Motor verimliliği: Dünya yüzeyinde itme kuvvetinin yakıt ağırlık debisine oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Acceleration due to gravity, used to convert specific impulse to exhaust velocity.",
       "label_i18n": {
         "en": "Standard Gravity",
-        "tr": "Standard Gravity",
+        "tr": "Standart Yerçekimi",
         "de": "Standard Gravity",
         "fr": "Standard Gravity",
         "es": "Standard Gravity",
         "ar": "Standard Gravity"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity, used to convert specific impulse to exhaust velocity.",
+        "tr": "Yerçekimi ivmesi, özgül itkiyi egzoz hızına dönüştürmek için kullanılır."
       }
     }
   ],

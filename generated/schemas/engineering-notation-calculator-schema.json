@@ -10,11 +10,15 @@
       "businessContext": "The numeric value to be converted to engineering notation.",
       "label_i18n": {
         "en": "Value",
-        "tr": "Value",
+        "tr": "Değer",
         "de": "Value",
         "fr": "Value",
         "es": "Value",
         "ar": "Value"
+      },
+      "businessContext_i18n": {
+        "en": "The numeric value to be converted to engineering notation.",
+        "tr": "Mühendislik gösterimine dönüştürülecek sayısal değer"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The exponent of 10 for the value (e.g., 3 for thousands).",
       "label_i18n": {
         "en": "Exponent",
-        "tr": "Exponent",
+        "tr": "Üs",
         "de": "Exponent",
         "fr": "Exponent",
         "es": "Exponent",
         "ar": "Exponent"
+      },
+      "businessContext_i18n": {
+        "en": "The exponent of 10 for the value (e.g., 3 for thousands).",
+        "tr": "Değerin 10 tabanındaki üssü (örn. 3: binler)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places in the mantissa.",
       "label_i18n": {
         "en": "Precision",
-        "tr": "Precision",
+        "tr": "Hassasiyet",
         "de": "Precision",
         "fr": "Precision",
         "es": "Precision",
         "ar": "Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places in the mantissa.",
+        "tr": "Mantisteki ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Minimum exponent for engineering notation (multiples of 3).",
       "label_i18n": {
         "en": "Min Exponent",
-        "tr": "Min Exponent",
+        "tr": "Min. üs",
         "de": "Min Exponent",
         "fr": "Min Exponent",
         "es": "Min Exponent",
         "ar": "Min Exponent"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum exponent for engineering notation (multiples of 3).",
+        "tr": "Mühendislik gösterimi için minimum üs (3'ün katları)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum exponent for engineering notation (multiples of 3).",
       "label_i18n": {
         "en": "Max Exponent",
-        "tr": "Max Exponent",
+        "tr": "Maks. üs",
         "de": "Max Exponent",
         "fr": "Max Exponent",
         "es": "Max Exponent",
         "ar": "Max Exponent"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum exponent for engineering notation (multiples of 3).",
+        "tr": "Mühendislik gösterimi için maksimum üs (3'ün katları)"
       }
     }
   ],

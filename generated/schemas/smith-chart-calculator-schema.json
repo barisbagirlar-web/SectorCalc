@@ -10,11 +10,15 @@
       "businessContext": "Resistance of the load impedance.",
       "label_i18n": {
         "en": "Load Resistance (R_L)",
-        "tr": "Load Resistance (R_L)",
+        "tr": "Yük Direnci (R_L)",
         "de": "Load Resistance (R_L)",
         "fr": "Load Resistance (R_L)",
         "es": "Load Resistance (R_L)",
         "ar": "Load Resistance (R_L)"
+      },
+      "businessContext_i18n": {
+        "en": "Resistance of the load impedance.",
+        "tr": "Yük empedansının direnci."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Reactance of the load impedance (positive inductive, negative capacitive).",
       "label_i18n": {
         "en": "Load Reactance (X_L)",
-        "tr": "Load Reactance (X_L)",
+        "tr": "Yük Reaktansı (X_L)",
         "de": "Load Reactance (X_L)",
         "fr": "Load Reactance (X_L)",
         "es": "Load Reactance (X_L)",
         "ar": "Load Reactance (X_L)"
+      },
+      "businessContext_i18n": {
+        "en": "Reactance of the load impedance (positive inductive, negative capacitive).",
+        "tr": "Yük empedansının reaktansı (pozitif endüktif, negatif kapasitif)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Characteristic impedance of the transmission line.",
       "label_i18n": {
         "en": "Characteristic Impedance (Z₀)",
-        "tr": "Characteristic Impedance (Z₀)",
+        "tr": "Karakteristik Empedans (Z₀)",
         "de": "Characteristic Impedance (Z₀)",
         "fr": "Characteristic Impedance (Z₀)",
         "es": "Characteristic Impedance (Z₀)",
         "ar": "Characteristic Impedance (Z₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Characteristic impedance of the transmission line.",
+        "tr": "İletim hattının karakteristik empedansı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance from load in wavelengths (0 to 0.5).",
       "label_i18n": {
         "en": "Electrical Distance (d)",
-        "tr": "Electrical Distance (d)",
+        "tr": "Elektriksel Mesafe (d)",
         "de": "Electrical Distance (d)",
         "fr": "Electrical Distance (d)",
         "es": "Electrical Distance (d)",
         "ar": "Electrical Distance (d)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from load in wavelengths (0 to 0.5).",
+        "tr": "Yükten dalga boyu cinsinden mesafe (0 ila 0.5)."
       }
     }
   ],

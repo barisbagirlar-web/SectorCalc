@@ -10,11 +10,15 @@
       "businessContext": "Total cannabinoid content before extraction, measured in milligrams.",
       "label_i18n": {
         "en": "Initial Cannabinoid",
-        "tr": "Initial Cannabinoid",
+        "tr": "Başlangıç Kannabinoid",
         "de": "Initial Cannabinoid",
         "fr": "Initial Cannabinoid",
         "es": "Initial Cannabinoid",
         "ar": "Initial Cannabinoid"
+      },
+      "businessContext_i18n": {
+        "en": "Total cannabinoid content before extraction, measured in milligrams.",
+        "tr": "Ekstraksiyondan önce toplam kannabinoid içeriği, miligram cinsinden ölçülür."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Volume of solvent used in extraction, in milliliters.",
       "label_i18n": {
         "en": "Solvent Volume",
-        "tr": "Solvent Volume",
+        "tr": "Çözücü Hacmi",
         "de": "Solvent Volume",
         "fr": "Solvent Volume",
         "es": "Solvent Volume",
         "ar": "Solvent Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of solvent used in extraction, in milliliters.",
+        "tr": "Ekstraksiyonda kullanılan çözücü hacmi, mililitre cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of extraction process in minutes.",
       "label_i18n": {
         "en": "Extraction Time",
-        "tr": "Extraction Time",
+        "tr": "Ekstraksiyon Süresi",
         "de": "Extraction Time",
         "fr": "Extraction Time",
         "es": "Extraction Time",
         "ar": "Extraction Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of extraction process in minutes.",
+        "tr": "Ekstraksiyon işleminin dakika cinsinden süresi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Operating temperature in degrees Celsius, affects rate constant via Arrhenius equation.",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Operating temperature in degrees Celsius, affects rate constant via Arrhenius equation.",
+        "tr": "Santigrat derece cinsinden işletme sıcaklığı, Arrhenius denklemi yoluyla hız sabitini etkiler."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Frequency factor in the Arrhenius rate equation, represents maximum possible rate.",
       "label_i18n": {
         "en": "Pre-exponential Factor",
-        "tr": "Pre-exponential Factor",
+        "tr": "Ön-Üstel Faktör",
         "de": "Pre-exponential Factor",
         "fr": "Pre-exponential Factor",
         "es": "Pre-exponential Factor",
         "ar": "Pre-exponential Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency factor in the Arrhenius rate equation, represents maximum possible rate.",
+        "tr": "Arrhenius hız denklemindeki frekans faktörü, mümkün olan maksimum hızı temsil eder."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Energy barrier for extraction, in joules per mole.",
       "label_i18n": {
         "en": "Activation Energy",
-        "tr": "Activation Energy",
+        "tr": "Aktivasyon Enerjisi",
         "de": "Activation Energy",
         "fr": "Activation Energy",
         "es": "Activation Energy",
         "ar": "Activation Energy"
+      },
+      "businessContext_i18n": {
+        "en": "Energy barrier for extraction, in joules per mole.",
+        "tr": "Ekstraksiyon için enerji bariyeri, mol başına joule cinsinden."
       }
     }
   ],

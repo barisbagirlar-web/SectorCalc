@@ -22,10 +22,12 @@
       "max": 480,
       "businessContext": "Average time to switch from one product to another within the same production line. Based on SMED (Single-Minute Exchange of Die) standards.",
       "label_i18n": {
-        "en": "Changeover Time Matrix (minutes)"
+        "en": "Changeover Time Matrix (minutes)",
+        "tr": "Değişim Süresi Matrisi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Average time to switch from one product to another within the same production line. Based on SMED (Single-Minute Exchange of Die) standards."
+        "en": "Average time to switch from one product to another within the same production line. Based on SMED (Single-Minute Exchange of Die) standards.",
+        "tr": "Aynı üretim hattında bir üründen diğerine geçiş için ortalama süre. SMED (Tek Dakikada Kalıp Değişimi) standartlarına dayanır."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 1000,
       "businessContext": "Total changeovers performed monthly across all shifts. Used to calculate total changeover downtime.",
       "label_i18n": {
-        "en": "Number of Changeovers per Month"
+        "en": "Number of Changeovers per Month",
+        "tr": "Aylık Değişim Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total changeovers performed monthly across all shifts. Used to calculate total changeover downtime."
+        "en": "Total changeovers performed monthly across all shifts. Used to calculate total changeover downtime.",
+        "tr": "Tüm vardiyalarda aylık olarak gerçekleştirilen toplam değişim sayısı. Toplam değişim duruş süresini hesaplamak için kullanılır."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 240,
       "businessContext": "Setup activities that can be performed while the machine is running (e.g., tool preparation). Target for SMED optimization.",
       "label_i18n": {
-        "en": "External Setup Time per Changeover (minutes)"
+        "en": "External Setup Time per Changeover (minutes)",
+        "tr": "Değişim Başına Harici Kurulum Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Setup activities that can be performed while the machine is running (e.g., tool preparation). Target for SMED optimization."
+        "en": "Setup activities that can be performed while the machine is running (e.g., tool preparation). Target for SMED optimization.",
+        "tr": "Makine çalışırken gerçekleştirilebilen kurulum faaliyetleri (örneğin, takım hazırlığı). SMED optimizasyonu için hedef."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 480,
       "businessContext": "Setup activities that require the machine to be stopped. Primary target for reduction via SMED.",
       "label_i18n": {
-        "en": "Internal Setup Time per Changeover (minutes)"
+        "en": "Internal Setup Time per Changeover (minutes)",
+        "tr": "Değişim Başına Dahili Kurulum Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Setup activities that require the machine to be stopped. Primary target for reduction via SMED."
+        "en": "Setup activities that require the machine to be stopped. Primary target for reduction via SMED.",
+        "tr": "Makinenin durdurulmasını gerektiren kurulum faaliyetleri. SMED ile azaltma için birincil hedef."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 50,
       "businessContext": "Distinct product groups processed on the line. Higher counts increase changeover complexity.",
       "label_i18n": {
-        "en": "Number of Product Families"
+        "en": "Number of Product Families",
+        "tr": "Ürün Ailesi Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Distinct product groups processed on the line. Higher counts increase changeover complexity."
+        "en": "Distinct product groups processed on the line. Higher counts increase changeover complexity.",
+        "tr": "Hatta işlenen farklı ürün grupları. Yüksek sayılar değişim karmaşıklığını artırır."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 120,
       "businessContext": "Measure of variability in changeover times. Used for Six Sigma process capability analysis.",
       "label_i18n": {
-        "en": "Standard Deviation of Changeover Time (minutes)"
+        "en": "Standard Deviation of Changeover Time (minutes)",
+        "tr": "Değişim Süresinin Standart Sapması (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Measure of variability in changeover times. Used for Six Sigma process capability analysis."
+        "en": "Measure of variability in changeover times. Used for Six Sigma process capability analysis.",
+        "tr": "Değişim sürelerindeki değişkenlik ölçüsü. Altı Sigma proses yetenek analizi için kullanılır."
       }
     },
     {
@@ -122,10 +134,12 @@
       ],
       "businessContext": "Operating schedule affecting available production time and changeover frequency.",
       "label_i18n": {
-        "en": "Shift Pattern"
+        "en": "Shift Pattern",
+        "tr": "Vardiya Düzeni"
       },
       "businessContext_i18n": {
-        "en": "Operating schedule affecting available production time and changeover frequency."
+        "en": "Operating schedule affecting available production time and changeover frequency.",
+        "tr": "Kullanılabilir üretim süresini ve değişim sıklığını etkileyen çalışma takvimi."
       }
     },
     {
@@ -136,10 +150,12 @@
       "default": false,
       "businessContext": "Indicates whether Single-Minute Exchange of Die principles have been formally applied.",
       "label_i18n": {
-        "en": "SMED Implementation Status"
+        "en": "SMED Implementation Status",
+        "tr": "SMED Uygulama Durumu"
       },
       "businessContext_i18n": {
-        "en": "Indicates whether Single-Minute Exchange of Die principles have been formally applied."
+        "en": "Indicates whether Single-Minute Exchange of Die principles have been formally applied.",
+        "tr": "Tek Dakikada Kalıp Değiştirme prensiplerinin resmi olarak uygulanıp uygulanmadığını belirtir."
       }
     }
   ],

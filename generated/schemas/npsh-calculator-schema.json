@@ -10,11 +10,15 @@
       "businessContext": "Standard atmospheric pressure at sea level.",
       "label_i18n": {
         "en": "Atmospheric Pressure",
-        "tr": "Atmospheric Pressure",
+        "tr": "Atmosfer Basıncı",
         "de": "Atmospheric Pressure",
         "fr": "Atmospheric Pressure",
         "es": "Atmospheric Pressure",
         "ar": "Atmospheric Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Standard atmospheric pressure at sea level.",
+        "tr": "Deniz seviyesinde standart atmosfer basıncı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vapor pressure of the fluid at pumping temperature.",
       "label_i18n": {
         "en": "Vapor Pressure",
-        "tr": "Vapor Pressure",
+        "tr": "Buhar Basıncı",
         "de": "Vapor Pressure",
         "fr": "Vapor Pressure",
         "es": "Vapor Pressure",
         "ar": "Vapor Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Vapor pressure of the fluid at pumping temperature.",
+        "tr": "Pompalama sıcaklığında akışkanın buhar basıncı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of the fluid being pumped.",
       "label_i18n": {
         "en": "Liquid Density",
-        "tr": "Liquid Density",
+        "tr": "Sıvı Yoğunluğu",
         "de": "Liquid Density",
         "fr": "Liquid Density",
         "es": "Liquid Density",
         "ar": "Liquid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluid being pumped.",
+        "tr": "Pompalanan akışkanın yoğunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height from fluid surface to pump centerline. Positive if fluid above pump, negative for suction lift.",
       "label_i18n": {
         "en": "Static Suction Head",
-        "tr": "Static Suction Head",
+        "tr": "Statik Emme Yüksekliği",
         "de": "Static Suction Head",
         "fr": "Static Suction Head",
         "es": "Static Suction Head",
         "ar": "Static Suction Head"
+      },
+      "businessContext_i18n": {
+        "en": "Height from fluid surface to pump centerline. Positive if fluid above pump, negative for suction lift.",
+        "tr": "Sıvı yüzeyinden pompa merkezine olan yükseklik. Sıvı pompanın üzerindeyse pozitif, emme yüksekliği için negatif."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Friction losses in suction piping, including fittings.",
       "label_i18n": {
         "en": "Friction Head Loss",
-        "tr": "Friction Head Loss",
+        "tr": "Sürtünme Kaybı Yüksekliği",
         "de": "Friction Head Loss",
         "fr": "Friction Head Loss",
         "es": "Friction Head Loss",
         "ar": "Friction Head Loss"
+      },
+      "businessContext_i18n": {
+        "en": "Friction losses in suction piping, including fittings.",
+        "tr": "Emme boru hattındaki bağlantı parçaları dahil sürtünme kayıpları."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Velocity head at pump suction, typically v²/(2g).",
       "label_i18n": {
         "en": "Velocity Head",
-        "tr": "Velocity Head",
+        "tr": "Hız Yüksekliği",
         "de": "Velocity Head",
         "fr": "Velocity Head",
         "es": "Velocity Head",
         "ar": "Velocity Head"
+      },
+      "businessContext_i18n": {
+        "en": "Velocity head at pump suction, typically v²/(2g).",
+        "tr": "Pompa emişindeki hız yüksekliği, tipik olarak v²/(2g)."
       }
     }
   ],

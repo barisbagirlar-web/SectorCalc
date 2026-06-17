@@ -10,11 +10,15 @@
       "businessContext": "The row number in Pascal's triangle, starting from 0.",
       "label_i18n": {
         "en": "Row Index (0-based)",
-        "tr": "Row Index (0-based)",
+        "tr": "Satır İndeksi (0 tabanlı)",
         "de": "Row Index (0-based)",
         "fr": "Row Index (0-based)",
         "es": "Row Index (0-based)",
         "ar": "Row Index (0-based)"
+      },
+      "businessContext_i18n": {
+        "en": "The row number in Pascal's triangle, starting from 0.",
+        "tr": "Pascal üçgeninde 0'dan başlayan satır numarası."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The column position within the specified row, starting from 0.",
       "label_i18n": {
         "en": "Column Index (0-based)",
-        "tr": "Column Index (0-based)",
+        "tr": "Sütun İndeksi (0 tabanlı)",
         "de": "Column Index (0-based)",
         "fr": "Column Index (0-based)",
         "es": "Column Index (0-based)",
         "ar": "Column Index (0-based)"
+      },
+      "businessContext_i18n": {
+        "en": "The column position within the specified row, starting from 0.",
+        "tr": "Belirtilen satırda 0'dan başlayan sütun konumu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of rows to generate for the triangle.",
       "label_i18n": {
         "en": "Number of Rows to Generate",
-        "tr": "Number of Rows to Generate",
+        "tr": "Oluşturulacak Satır Sayısı",
         "de": "Number of Rows to Generate",
         "fr": "Number of Rows to Generate",
         "es": "Number of Rows to Generate",
         "ar": "Number of Rows to Generate"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of rows to generate for the triangle.",
+        "tr": "Üçgen için oluşturulacak toplam satır sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Only display entries with value less than or equal to this threshold.",
       "label_i18n": {
         "en": "Maximum Value to Display",
-        "tr": "Maximum Value to Display",
+        "tr": "Görüntülenecek Maksimum Değer",
         "de": "Maximum Value to Display",
         "fr": "Maximum Value to Display",
         "es": "Maximum Value to Display",
         "ar": "Maximum Value to Display"
+      },
+      "businessContext_i18n": {
+        "en": "Only display entries with value less than or equal to this threshold.",
+        "tr": "Yalnızca bu eşik değerine eşit veya daha küçük girişleri göster."
       }
     }
   ],

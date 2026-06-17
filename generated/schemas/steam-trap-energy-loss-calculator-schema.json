@@ -21,10 +21,12 @@
       "max": 25,
       "businessContext": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm.",
       "label_i18n": {
-        "en": "Orifice Diameter"
+        "en": "Orifice Diameter",
+        "tr": "Orifis çapı"
       },
       "businessContext_i18n": {
-        "en": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm."
+        "en": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm.",
+        "tr": "Trap orifis çapı; tipik arızalı traplarda orifis 1 mm ile 20 mm arasındadır."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 30,
       "businessContext": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g.",
       "label_i18n": {
-        "en": "Steam Pressure (gauge)"
+        "en": "Steam Pressure (gauge)",
+        "tr": "Buhar Basıncı (gösterge)"
       },
       "businessContext_i18n": {
-        "en": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g."
+        "en": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g.",
+        "tr": "Trapin yukarı akışındaki buharın gösterge basıncı. Yaygın endüstriyel aralık 3–15 bar_g."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 8760,
       "businessContext": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr.",
       "label_i18n": {
-        "en": "Operating Hours per Year"
+        "en": "Operating Hours per Year",
+        "tr": "Yıllık Çalışma Saati"
       },
       "businessContext_i18n": {
-        "en": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr."
+        "en": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr.",
+        "tr": "Buhar sisteminin yıllık çalışma saati. Tipik sürekli proses: 8000 h/yıl."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance.",
       "label_i18n": {
-        "en": "Steam Cost"
+        "en": "Steam Cost",
+        "tr": "Buhar Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance."
+        "en": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance.",
+        "tr": "Yakıt, su arıtma ve bakım dahil olmak üzere bir metrik ton buhar üretme maliyeti."
       }
     },
     {
@@ -89,10 +97,12 @@
       "default": "Float & Thermostatic",
       "businessContext": "Type of steam trap influences discharge coefficient and failure mode.",
       "label_i18n": {
-        "en": "Trap Type"
+        "en": "Trap Type",
+        "tr": "Trap Türü"
       },
       "businessContext_i18n": {
-        "en": "Type of steam trap influences discharge coefficient and failure mode."
+        "en": "Type of steam trap influences discharge coefficient and failure mode.",
+        "tr": "Buhar trap türü, boşaltma katsayısını ve arıza modunu etkiler."
       },
       "unit": "unit"
     },
@@ -108,10 +118,12 @@
       "default": "Blow-through (fully open)",
       "businessContext": "Failure mode determines effective orifice area and discharge coefficient.",
       "label_i18n": {
-        "en": "Failure Mode"
+        "en": "Failure Mode",
+        "tr": "Arıza Modu"
       },
       "businessContext_i18n": {
-        "en": "Failure mode determines effective orifice area and discharge coefficient."
+        "en": "Failure mode determines effective orifice area and discharge coefficient.",
+        "tr": "Arıza modu, etkili orifis alanını ve boşaltma katsayısını belirler."
       },
       "unit": "unit"
     },
@@ -122,10 +134,12 @@
       "default": true,
       "businessContext": "Whether condensate is recovered; affects net energy loss calculation.",
       "label_i18n": {
-        "en": "Condensate Recovery"
+        "en": "Condensate Recovery",
+        "tr": "Kondens Geri Kazanımı"
       },
       "businessContext_i18n": {
-        "en": "Whether condensate is recovered; affects net energy loss calculation."
+        "en": "Whether condensate is recovered; affects net energy loss calculation.",
+        "tr": "Kondensin geri kazanılıp kazanılmadığı; net enerji kaybı hesaplamasını etkiler."
       },
       "unit": "unit"
     }

@@ -10,11 +10,15 @@
       "businessContext": "Power consumption of existing bulb",
       "label_i18n": {
         "en": "Current Bulb Wattage",
-        "tr": "Current Bulb Wattage",
+        "tr": "Mevcut Ampul Watt Değeri",
         "de": "Current Bulb Wattage",
         "fr": "Current Bulb Wattage",
         "es": "Current Bulb Wattage",
         "ar": "Current Bulb Wattage"
+      },
+      "businessContext_i18n": {
+        "en": "Power consumption of existing bulb",
+        "tr": "Mevcut ampulün güç tüketimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Power consumption of LED replacement",
       "label_i18n": {
         "en": "LED Bulb Wattage",
-        "tr": "LED Bulb Wattage",
+        "tr": "LED Ampul Watt Değeri",
         "de": "LED Bulb Wattage",
         "fr": "LED Bulb Wattage",
         "es": "LED Bulb Wattage",
         "ar": "LED Bulb Wattage"
+      },
+      "businessContext_i18n": {
+        "en": "Power consumption of LED replacement",
+        "tr": "LED değişimin güç tüketimi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total count of bulbs to replace",
       "label_i18n": {
         "en": "Number of Bulbs",
-        "tr": "Number of Bulbs",
+        "tr": "Ampul Sayısı",
         "de": "Number of Bulbs",
         "fr": "Number of Bulbs",
         "es": "Number of Bulbs",
         "ar": "Number of Bulbs"
+      },
+      "businessContext_i18n": {
+        "en": "Total count of bulbs to replace",
+        "tr": "Değiştirilecek toplam ampul sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average hours per day bulbs are on",
       "label_i18n": {
         "en": "Daily Usage Hours",
-        "tr": "Daily Usage Hours",
+        "tr": "Günlük Kullanım Saati",
         "de": "Daily Usage Hours",
         "fr": "Daily Usage Hours",
         "es": "Daily Usage Hours",
         "ar": "Daily Usage Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Average hours per day bulbs are on",
+        "tr": "Ampullerin günde ortalama açık olduğu saat"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of electricity per kilowatt-hour",
       "label_i18n": {
         "en": "Electricity Rate",
-        "tr": "Electricity Rate",
+        "tr": "Elektrik Tarifesi",
         "de": "Electricity Rate",
         "fr": "Electricity Rate",
         "es": "Electricity Rate",
         "ar": "Electricity Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kilowatt-hour",
+        "tr": "Kilovatsaat başına elektrik maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of days bulbs are used annually",
       "label_i18n": {
         "en": "Days of Operation per Year",
-        "tr": "Days of Operation per Year",
+        "tr": "Yıllık Çalışma Günü",
         "de": "Days of Operation per Year",
         "fr": "Days of Operation per Year",
         "es": "Days of Operation per Year",
         "ar": "Days of Operation per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days bulbs are used annually",
+        "tr": "Ampullerin yıllık kullanıldığı gün sayısı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Cost of one existing bulb",
       "label_i18n": {
         "en": "Current Bulb Cost",
-        "tr": "Current Bulb Cost",
+        "tr": "Mevcut Ampul Maliyeti",
         "de": "Current Bulb Cost",
         "fr": "Current Bulb Cost",
         "es": "Current Bulb Cost",
         "ar": "Current Bulb Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of one existing bulb",
+        "tr": "Bir mevcut ampulün maliyeti"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Cost of one LED bulb",
       "label_i18n": {
         "en": "LED Bulb Cost",
-        "tr": "LED Bulb Cost",
+        "tr": "LED Ampul Maliyeti",
         "de": "LED Bulb Cost",
         "fr": "LED Bulb Cost",
         "es": "LED Bulb Cost",
         "ar": "LED Bulb Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of one LED bulb",
+        "tr": "Bir LED ampulün maliyeti"
       }
     }
   ],

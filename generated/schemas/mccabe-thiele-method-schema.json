@@ -10,11 +10,15 @@
       "businessContext": "Mole fraction of more volatile component in distillate",
       "label_i18n": {
         "en": "Distillate mole fraction (xD)",
-        "tr": "Distillate mole fraction (xD)",
+        "tr": "Distilat mol kesri (xD)",
         "de": "Distillate mole fraction (xD)",
         "fr": "Distillate mole fraction (xD)",
         "es": "Distillate mole fraction (xD)",
         "ar": "Distillate mole fraction (xD)"
+      },
+      "businessContext_i18n": {
+        "en": "Mole fraction of more volatile component in distillate",
+        "tr": "Distilattaki daha uçucu bileşenin mol kesri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mole fraction of more volatile component in bottoms",
       "label_i18n": {
         "en": "Bottoms mole fraction (xB)",
-        "tr": "Bottoms mole fraction (xB)",
+        "tr": "Dipte kalan mol kesri (xB)",
         "de": "Bottoms mole fraction (xB)",
         "fr": "Bottoms mole fraction (xB)",
         "es": "Bottoms mole fraction (xB)",
         "ar": "Bottoms mole fraction (xB)"
+      },
+      "businessContext_i18n": {
+        "en": "Mole fraction of more volatile component in bottoms",
+        "tr": "Dipte kalan daha uçucu bileşenin mol kesri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mole fraction of more volatile component in feed",
       "label_i18n": {
         "en": "Feed mole fraction (xF)",
-        "tr": "Feed mole fraction (xF)",
+        "tr": "Besleme mol kesri (xF)",
         "de": "Feed mole fraction (xF)",
         "fr": "Feed mole fraction (xF)",
         "es": "Feed mole fraction (xF)",
         "ar": "Feed mole fraction (xF)"
+      },
+      "businessContext_i18n": {
+        "en": "Mole fraction of more volatile component in feed",
+        "tr": "Beslemedeki daha uçucu bileşenin mol kesri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ratio of liquid returned to column to distillate removed",
       "label_i18n": {
         "en": "Reflux ratio (R)",
-        "tr": "Reflux ratio (R)",
+        "tr": "Geri akış oranı (R)",
         "de": "Reflux ratio (R)",
         "fr": "Reflux ratio (R)",
         "es": "Reflux ratio (R)",
         "ar": "Reflux ratio (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of liquid returned to column to distillate removed",
+        "tr": "Kolona geri dönen sıvının alınan distilata oranı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Relative volatility of more volatile component",
       "label_i18n": {
         "en": "Relative volatility (α)",
-        "tr": "Relative volatility (α)",
+        "tr": "Bağıl uçuculuk (α)",
         "de": "Relative volatility (α)",
         "fr": "Relative volatility (α)",
         "es": "Relative volatility (α)",
         "ar": "Relative volatility (α)"
+      },
+      "businessContext_i18n": {
+        "en": "Relative volatility of more volatile component",
+        "tr": "Daha uçucu bileşenin bağıl uçuculuğu"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Fraction of feed that is liquid (1 for saturated liquid, 0 for saturated vapor)",
       "label_i18n": {
         "en": "Feed quality (q)",
-        "tr": "Feed quality (q)",
+        "tr": "Besleme kalitesi (q)",
         "de": "Feed quality (q)",
         "fr": "Feed quality (q)",
         "es": "Feed quality (q)",
         "ar": "Feed quality (q)"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of feed that is liquid (1 for saturated liquid, 0 for saturated vapor)",
+        "tr": "Beslemenin sıvı olan kesri (doygun sıvı için 1, doygun buhar için 0)"
       }
     }
   ],

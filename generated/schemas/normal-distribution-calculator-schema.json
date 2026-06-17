@@ -10,11 +10,15 @@
       "businessContext": "The average or central value of the normal distribution.",
       "label_i18n": {
         "en": "Mean (μ)",
-        "tr": "Mean (μ)",
+        "tr": "Ortalama (μ)",
         "de": "Mean (μ)",
         "fr": "Mean (μ)",
         "es": "Mean (μ)",
         "ar": "Mean (μ)"
+      },
+      "businessContext_i18n": {
+        "en": "The average or central value of the normal distribution.",
+        "tr": "Normal dağılımın ortalama veya merkezi değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "A measure of the dispersion or spread. Must be greater than 0.",
       "label_i18n": {
         "en": "Standard Deviation (σ)",
-        "tr": "Standard Deviation (σ)",
+        "tr": "Standart Sapma (σ)",
         "de": "Standard Deviation (σ)",
         "fr": "Standard Deviation (σ)",
         "es": "Standard Deviation (σ)",
         "ar": "Standard Deviation (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "A measure of the dispersion or spread. Must be greater than 0.",
+        "tr": "Dağılım veya yayılım ölçüsü. 0'dan büyük olmalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The value at which to evaluate the normal distribution functions.",
       "label_i18n": {
         "en": "X Value",
-        "tr": "X Value",
+        "tr": "X Değeri",
         "de": "X Value",
         "fr": "X Value",
         "es": "X Value",
         "ar": "X Value"
+      },
+      "businessContext_i18n": {
+        "en": "The value at which to evaluate the normal distribution functions.",
+        "tr": "Normal dağılım fonksiyonlarının değerlendirileceği değer."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Fixed fee for starting the ride",
       "label_i18n": {
         "en": "Base Fare",
-        "tr": "Base Fare",
+        "tr": "Taban ücret",
         "de": "Base Fare",
         "fr": "Base Fare",
         "es": "Base Fare",
         "ar": "Base Fare"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed fee for starting the ride",
+        "tr": "Sürüş başlangıcı için sabit ücret"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Charge per minute of travel time",
       "label_i18n": {
         "en": "Cost Per Minute",
-        "tr": "Cost Per Minute",
+        "tr": "Dakika Başına Maliyet",
         "de": "Cost Per Minute",
         "fr": "Cost Per Minute",
         "es": "Cost Per Minute",
         "ar": "Cost Per Minute"
+      },
+      "businessContext_i18n": {
+        "en": "Charge per minute of travel time",
+        "tr": "Seyahat süresi başına ücret"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Charge per mile traveled",
       "label_i18n": {
         "en": "Cost Per Mile",
-        "tr": "Cost Per Mile",
+        "tr": "Mil Başına Maliyet",
         "de": "Cost Per Mile",
         "fr": "Cost Per Mile",
         "es": "Cost Per Mile",
         "ar": "Cost Per Mile"
+      },
+      "businessContext_i18n": {
+        "en": "Charge per mile traveled",
+        "tr": "Seyahat edilen mil başına ücret"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total distance of the trip",
       "label_i18n": {
         "en": "Distance (Miles)",
-        "tr": "Distance (Miles)",
+        "tr": "Mesafe (Mil)",
         "de": "Distance (Miles)",
         "fr": "Distance (Miles)",
         "es": "Distance (Miles)",
         "ar": "Distance (Miles)"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance of the trip",
+        "tr": "Toplam seyahat mesafesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total trip duration",
       "label_i18n": {
         "en": "Duration (Minutes)",
-        "tr": "Duration (Minutes)",
+        "tr": "Süre (Dakika)",
         "de": "Duration (Minutes)",
         "fr": "Duration (Minutes)",
         "es": "Duration (Minutes)",
         "ar": "Duration (Minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total trip duration",
+        "tr": "Toplam yolculuk süresi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Multiplier applied during high demand (e.g., 1.5x)",
       "label_i18n": {
         "en": "Surge Multiplier",
-        "tr": "Surge Multiplier",
+        "tr": "Talep çarpanı",
         "de": "Surge Multiplier",
         "fr": "Surge Multiplier",
         "es": "Surge Multiplier",
         "ar": "Surge Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier applied during high demand (e.g., 1.5x)",
+        "tr": "Yüksek talep sırasında uygulanan çarpan (ör. 1,5x)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Fixed booking fee added to total",
       "label_i18n": {
         "en": "Booking Fee",
-        "tr": "Booking Fee",
+        "tr": "Rezervasyon ücreti",
         "de": "Booking Fee",
         "fr": "Booking Fee",
         "es": "Booking Fee",
         "ar": "Booking Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed booking fee added to total",
+        "tr": "Toplam tutara eklenen sabit rezervasyon ücreti"
       }
     }
   ],

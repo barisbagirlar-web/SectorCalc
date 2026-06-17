@@ -10,11 +10,15 @@
       "businessContext": "Time from failure occurrence to detection",
       "label_i18n": {
         "en": "Detection Time",
-        "tr": "Detection Time",
+        "tr": "Tespit Süresi",
         "de": "Detection Time",
         "fr": "Detection Time",
         "es": "Detection Time",
         "ar": "Detection Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time from failure occurrence to detection",
+        "tr": "Arıza oluşumundan tespitine kadar geçen süre"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time to respond and diagnose after detection",
       "label_i18n": {
         "en": "Response Time",
-        "tr": "Response Time",
+        "tr": "Yanıt Süresi",
         "de": "Response Time",
         "fr": "Response Time",
         "es": "Response Time",
         "ar": "Response Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time to respond and diagnose after detection",
+        "tr": "Tespitten sonra yanıt verme ve teşhis koyma süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time required to repair the failure",
       "label_i18n": {
         "en": "Repair Time",
-        "tr": "Repair Time",
+        "tr": "Onarım Süresi",
         "de": "Repair Time",
         "fr": "Repair Time",
         "es": "Repair Time",
         "ar": "Repair Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to repair the failure",
+        "tr": "Arızanın onarımı için gereken süre"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time to restart and stabilize after repair",
       "label_i18n": {
         "en": "Restart Time",
-        "tr": "Restart Time",
+        "tr": "Yeniden başlatma süresi",
         "de": "Restart Time",
         "fr": "Restart Time",
         "es": "Restart Time",
         "ar": "Restart Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time to restart and stabilize after repair",
+        "tr": "Onarım sonrası yeniden başlatma ve stabilize olma süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Time to verify full operational performance",
       "label_i18n": {
         "en": "Verification Time",
-        "tr": "Verification Time",
+        "tr": "Doğrulama süresi",
         "de": "Verification Time",
         "fr": "Verification Time",
         "es": "Verification Time",
         "ar": "Verification Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time to verify full operational performance",
+        "tr": "Tam operasyonel performansı doğrulama süresi"
       }
     }
   ],

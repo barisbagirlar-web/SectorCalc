@@ -10,11 +10,15 @@
       "businessContext": "Density of the fluid (e.g., water = 1000 kg/m³)",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluid (e.g., water = 1000 kg/m³)",
+        "tr": "Akışkan yoğunluğu (örn. su = 1000 kg/m³)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total volume of the submerged object",
       "label_i18n": {
         "en": "Object Volume",
-        "tr": "Object Volume",
+        "tr": "Cisim Hacmi",
         "de": "Object Volume",
         "fr": "Object Volume",
         "es": "Object Volume",
         "ar": "Object Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of the submerged object",
+        "tr": "Batık cismin toplam hacmi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of the object",
       "label_i18n": {
         "en": "Object Mass",
-        "tr": "Object Mass",
+        "tr": "Cisim Kütlesi",
         "de": "Object Mass",
         "fr": "Object Mass",
         "es": "Object Mass",
         "ar": "Object Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the object",
+        "tr": "Cismin kütlesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard gravity (9.81 m/s² on Earth)",
       "label_i18n": {
         "en": "Gravitational Acceleration",
-        "tr": "Gravitational Acceleration",
+        "tr": "Yerçekimi İvmesi",
         "de": "Gravitational Acceleration",
         "fr": "Gravitational Acceleration",
         "es": "Gravitational Acceleration",
         "ar": "Gravitational Acceleration"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravity (9.81 m/s² on Earth)",
+        "tr": "Standart yerçekimi (Dünya'da 9,81 m/s²)"
       }
     }
   ],

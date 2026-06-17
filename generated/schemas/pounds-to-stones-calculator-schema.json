@@ -10,11 +10,15 @@
       "businessContext": "The weight in pounds to convert to stones",
       "label_i18n": {
         "en": "Pounds",
-        "tr": "Pounds",
+        "tr": "Pound",
         "de": "Pounds",
         "fr": "Pounds",
         "es": "Pounds",
         "ar": "Pounds"
+      },
+      "businessContext_i18n": {
+        "en": "The weight in pounds to convert to stones",
+        "tr": "Ston'a dönüştürülecek pound cinsinden ağırlık"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional ounces to add to the pounds before conversion; 16 ounces = 1 pound",
       "label_i18n": {
         "en": "Ounces",
-        "tr": "Ounces",
+        "tr": "Ons",
         "de": "Ounces",
         "fr": "Ounces",
         "es": "Ounces",
         "ar": "Ounces"
+      },
+      "businessContext_i18n": {
+        "en": "Additional ounces to add to the pounds before conversion; 16 ounces = 1 pound",
+        "tr": "Dönüşümden önce pound'a eklenecek ek ons; 16 ons = 1 pound"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the primary decimal stones output",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the primary decimal stones output",
+        "tr": "Birincil ondalık ston çıktısı için ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of pounds in one stone (commonly 14), allows for historical or contextual variations",
       "label_i18n": {
         "en": "Stone Definition (lb)",
-        "tr": "Stone Definition (lb)",
+        "tr": "Ston Tanımı (lb)",
         "de": "Stone Definition (lb)",
         "fr": "Stone Definition (lb)",
         "es": "Stone Definition (lb)",
         "ar": "Stone Definition (lb)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of pounds in one stone (commonly 14), allows for historical or contextual variations",
+        "tr": "Bir stondaki pound sayısı (genellikle 14), tarihsel veya bağlamsal farklılıklara izin verir"
       }
     }
   ],

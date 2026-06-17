@@ -10,11 +10,15 @@
       "businessContext": "Mechanical power of the engine or motor",
       "label_i18n": {
         "en": "Horsepower",
-        "tr": "Horsepower",
+        "tr": "Beygir Gücü",
         "de": "Horsepower",
         "fr": "Horsepower",
         "es": "Horsepower",
         "ar": "Horsepower"
+      },
+      "businessContext_i18n": {
+        "en": "Mechanical power of the engine or motor",
+        "tr": "Motorun veya makinenin mekanik gücü"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of operation",
       "label_i18n": {
         "en": "Operating Time",
-        "tr": "Operating Time",
+        "tr": "Çalışma Süresi",
         "de": "Operating Time",
         "fr": "Operating Time",
         "es": "Operating Time",
         "ar": "Operating Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of operation",
+        "tr": "Çalışma süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Efficiency factor (100% for direct conversion)",
       "label_i18n": {
         "en": "Efficiency",
-        "tr": "Efficiency",
+        "tr": "Verim",
         "de": "Efficiency",
         "fr": "Efficiency",
         "es": "Efficiency",
         "ar": "Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency factor (100% for direct conversion)",
+        "tr": "Verim faktörü (doğrudan dönüşüm için %100)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost per kWh of electricity for cost estimation",
       "label_i18n": {
         "en": "Electricity Cost",
-        "tr": "Electricity Cost",
+        "tr": "Elektrik Maliyeti",
         "de": "Electricity Cost",
         "fr": "Electricity Cost",
         "es": "Electricity Cost",
         "ar": "Electricity Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per kWh of electricity for cost estimation",
+        "tr": "Elektrik kWh başına maliyet, maliyet tahmini için"
       }
     }
   ],

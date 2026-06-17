@@ -10,11 +10,15 @@
       "businessContext": "Patient's age at admission",
       "label_i18n": {
         "en": "Age (years)",
-        "tr": "Age (years)",
+        "tr": "Yaş (yıl)",
         "de": "Age (years)",
         "fr": "Age (years)",
         "es": "Age (years)",
         "ar": "Age (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's age at admission",
+        "tr": "Hastanın başvuru anındaki yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "White blood cell count at admission",
       "label_i18n": {
         "en": "WBC count",
-        "tr": "WBC count",
+        "tr": "WBC sayısı",
         "de": "WBC count",
         "fr": "WBC count",
         "es": "WBC count",
         "ar": "WBC count"
+      },
+      "businessContext_i18n": {
+        "en": "White blood cell count at admission",
+        "tr": "Başvuru anındaki beyaz kan hücresi sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Blood glucose level at admission",
       "label_i18n": {
         "en": "Blood Glucose",
-        "tr": "Blood Glucose",
+        "tr": "Kan Şekeri",
         "de": "Blood Glucose",
         "fr": "Blood Glucose",
         "es": "Blood Glucose",
         "ar": "Blood Glucose"
+      },
+      "businessContext_i18n": {
+        "en": "Blood glucose level at admission",
+        "tr": "Başvuru anındaki kan glukoz seviyesi"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "LDH",
         "es": "LDH",
         "ar": "LDH"
+      },
+      "businessContext_i18n": {
+        "en": "Lactate dehydrogenase level at admission",
+        "tr": "Başvuru anındaki laktat dehidrogenaz seviyesi"
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "AST",
         "es": "AST",
         "ar": "AST"
+      },
+      "businessContext_i18n": {
+        "en": "Aspartate aminotransferase level at admission",
+        "tr": "Başvuru anındaki aspartat aminotransferaz seviyesi"
       }
     }
   ],

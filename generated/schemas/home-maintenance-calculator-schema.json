@@ -10,11 +10,15 @@
       "businessContext": "Total livable area in square feet.",
       "label_i18n": {
         "en": "House Area",
-        "tr": "House Area",
+        "tr": "Ev Alanı",
         "de": "House Area",
         "fr": "House Area",
         "es": "House Area",
         "ar": "House Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total livable area in square feet.",
+        "tr": "Toplam yaşanabilir alan (ft²)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Years since construction.",
       "label_i18n": {
         "en": "House Age",
-        "tr": "House Age",
+        "tr": "Ev Yaşı",
         "de": "House Age",
         "fr": "House Age",
         "es": "House Age",
         "ar": "House Age"
+      },
+      "businessContext_i18n": {
+        "en": "Years since construction.",
+        "tr": "İnşa yılından bu yana geçen yıl sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average annual maintenance cost per square foot for a new house.",
       "label_i18n": {
         "en": "Base Maintenance Cost",
-        "tr": "Base Maintenance Cost",
+        "tr": "Temel Bakım Maliyeti",
         "de": "Base Maintenance Cost",
         "fr": "Base Maintenance Cost",
         "es": "Base Maintenance Cost",
         "ar": "Base Maintenance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Average annual maintenance cost per square foot for a new house.",
+        "tr": "Yeni bir ev için ft² başına yıllık ortalama bakım maliyeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional cost factor per year of age (e.g., 0.02 for 2% per year).",
       "label_i18n": {
         "en": "Age Factor",
-        "tr": "Age Factor",
+        "tr": "Yaş Faktörü",
         "de": "Age Factor",
         "fr": "Age Factor",
         "es": "Age Factor",
         "ar": "Age Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional cost factor per year of age (e.g., 0.02 for 2% per year).",
+        "tr": "Her yaş yılı başına ek maliyet faktörü (örn. 0,02 = %2/yıl)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Annual inflation rate as a decimal (e.g., 0.03 for 3%).",
       "label_i18n": {
         "en": "Inflation Rate",
-        "tr": "Inflation Rate",
+        "tr": "Enflasyon Oranı",
         "de": "Inflation Rate",
         "fr": "Inflation Rate",
         "es": "Inflation Rate",
         "ar": "Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual inflation rate as a decimal (e.g., 0.03 for 3%).",
+        "tr": "Yıllık enflasyon oranı (ondalık, örn. 0,03 = %3)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of years to project total maintenance cost.",
       "label_i18n": {
         "en": "Projection Years",
-        "tr": "Projection Years",
+        "tr": "Projeksiyon Yılları",
         "de": "Projection Years",
         "fr": "Projection Years",
         "es": "Projection Years",
         "ar": "Projection Years"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years to project total maintenance cost.",
+        "tr": "Toplam bakım maliyetinin hesaplanacağı yıl sayısı."
       }
     }
   ],

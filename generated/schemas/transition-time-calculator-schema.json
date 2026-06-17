@@ -10,11 +10,15 @@
       "businessContext": "Total linear distance to be covered during the transition",
       "label_i18n": {
         "en": "Travel Distance",
-        "tr": "Travel Distance",
+        "tr": "Seyahat Mesafesi",
         "de": "Travel Distance",
         "fr": "Travel Distance",
         "es": "Travel Distance",
         "ar": "Travel Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total linear distance to be covered during the transition",
+        "tr": "Geçiş sırasında katedilecek toplam doğrusal mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Maximum acceleration the system can achieve",
       "label_i18n": {
         "en": "Acceleration Capability",
-        "tr": "Acceleration Capability",
+        "tr": "Hızlanma Kapasitesi",
         "de": "Acceleration Capability",
         "fr": "Acceleration Capability",
         "es": "Acceleration Capability",
         "ar": "Acceleration Capability"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum acceleration the system can achieve",
+        "tr": "Sistemin ulaşabileceği maksimum ivme"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum velocity the system can sustain",
       "label_i18n": {
         "en": "Max Velocity Limit",
-        "tr": "Max Velocity Limit",
+        "tr": "Maksimum Hız Limiti",
         "de": "Max Velocity Limit",
         "fr": "Max Velocity Limit",
         "es": "Max Velocity Limit",
         "ar": "Max Velocity Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum velocity the system can sustain",
+        "tr": "Sistemin sürdürebileceği maksimum hız"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Delay before motion starts (e.g., signal processing, grip activation)",
       "label_i18n": {
         "en": "Pre-Motion Delay",
-        "tr": "Pre-Motion Delay",
+        "tr": "Hareket Öncesi Gecikme",
         "de": "Pre-Motion Delay",
         "fr": "Pre-Motion Delay",
         "es": "Pre-Motion Delay",
         "ar": "Pre-Motion Delay"
+      },
+      "businessContext_i18n": {
+        "en": "Delay before motion starts (e.g., signal processing, grip activation)",
+        "tr": "Hareket başlamadan önceki gecikme (örn. sinyal işleme, tutucu aktivasyonu)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Time required after reaching position for stabilization (vibration, settling)",
       "label_i18n": {
         "en": "Post-Motion Settling Time",
-        "tr": "Post-Motion Settling Time",
+        "tr": "Hareket Sonrası Yerleşme Süresi",
         "de": "Post-Motion Settling Time",
         "fr": "Post-Motion Settling Time",
         "es": "Post-Motion Settling Time",
         "ar": "Post-Motion Settling Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time required after reaching position for stabilization (vibration, settling)",
+        "tr": "Pozisyona ulaştıktan sonra stabilizasyon için gereken süre (titreşim, yerleşme)"
       }
     }
   ],

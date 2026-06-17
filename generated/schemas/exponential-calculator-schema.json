@@ -10,11 +10,15 @@
       "businessContext": "Starting quantity before exponential change.",
       "label_i18n": {
         "en": "Initial Value (a)",
-        "tr": "Initial Value (a)",
+        "tr": "Başlangıç Değeri (a)",
         "de": "Initial Value (a)",
         "fr": "Initial Value (a)",
         "es": "Initial Value (a)",
         "ar": "Initial Value (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Starting quantity before exponential change.",
+        "tr": "Üstel değişimden önceki başlangıç miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Continuous growth (positive) or decay (negative) rate per unit time.",
       "label_i18n": {
         "en": "Rate Constant (k)",
-        "tr": "Rate Constant (k)",
+        "tr": "Hız Sabiti (k)",
         "de": "Rate Constant (k)",
         "fr": "Rate Constant (k)",
         "es": "Rate Constant (k)",
         "ar": "Rate Constant (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Continuous growth (positive) or decay (negative) rate per unit time.",
+        "tr": "Birim zaman başına sürekli büyüme (pozitif) veya azalma (negatif) oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Elapsed time for the exponential process.",
       "label_i18n": {
         "en": "Time (t)",
-        "tr": "Time (t)",
+        "tr": "Zaman (t)",
         "de": "Time (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Elapsed time for the exponential process.",
+        "tr": "Üstel süreç için geçen süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rounding precision for the final result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Rounding precision for the final result.",
+        "tr": "Nihai sonuç için yuvarlama hassasiyeti."
       }
     }
   ],

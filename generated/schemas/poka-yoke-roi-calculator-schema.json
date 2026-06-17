@@ -21,10 +21,12 @@
       "max": 10000000,
       "businessContext": "Total number of units produced per year for the process line where the poka-yoke will be applied.",
       "label_i18n": {
-        "en": "Annual Units Produced"
+        "en": "Annual Units Produced",
+        "tr": "Yıllık Üretim Miktarı"
       },
       "businessContext_i18n": {
-        "en": "Total number of units produced per year for the process line where the poka-yoke will be applied."
+        "en": "Total number of units produced per year for the process line where the poka-yoke will be applied.",
+        "tr": "Poka-yoke uygulanacak proses hattında yılda üretilen toplam birim sayısı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100000,
       "businessContext": "Current defect rate in parts per million (ppm) for the process step targeted by the poka-yoke.",
       "label_i18n": {
-        "en": "Current Defect Rate"
+        "en": "Current Defect Rate",
+        "tr": "Mevcut Hata Oranı"
       },
       "businessContext_i18n": {
-        "en": "Current defect rate in parts per million (ppm) for the process step targeted by the poka-yoke."
+        "en": "Current defect rate in parts per million (ppm) for the process step targeted by the poka-yoke.",
+        "tr": "Poka-yoke hedeflenen proses adımı için milyonda parça (ppm) cinsinden mevcut hata oranı."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 5000,
       "businessContext": "Average total cost incurred per defective unit, including scrap, rework, warranty, and lost customer goodwill.",
       "label_i18n": {
-        "en": "Defect Cost per Unit"
+        "en": "Defect Cost per Unit",
+        "tr": "Birim Kusur Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Average total cost incurred per defective unit, including scrap, rework, warranty, and lost customer goodwill."
+        "en": "Average total cost incurred per defective unit, including scrap, rework, warranty, and lost customer goodwill.",
+        "tr": "Hatalı birim başına ortalama toplam maliyet (fire, yeniden işleme, garanti ve kaybedilen müşteri itibarı dahil)."
       }
     },
     {
@@ -73,10 +79,12 @@
       ],
       "businessContext": "Expected percentage of defects that will be prevented by the poka-yoke device or process.",
       "label_i18n": {
-        "en": "Poka-Yoke Effectiveness"
+        "en": "Poka-Yoke Effectiveness",
+        "tr": "Poka-Yoke Etkinliği"
       },
       "businessContext_i18n": {
-        "en": "Expected percentage of defects that will be prevented by the poka-yoke device or process."
+        "en": "Expected percentage of defects that will be prevented by the poka-yoke device or process.",
+        "tr": "Poka-yoke cihazı veya prosesi tarafından önlenmesi beklenen hataların yüzdesi."
       }
     },
     {
@@ -89,10 +97,12 @@
       "max": 500000,
       "businessContext": "Total one-time cost to design, purchase, install, and validate the poka-yoke solution.",
       "label_i18n": {
-        "en": "Implementation Cost"
+        "en": "Implementation Cost",
+        "tr": "Uygulama Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total one-time cost to design, purchase, install, and validate the poka-yoke solution."
+        "en": "Total one-time cost to design, purchase, install, and validate the poka-yoke solution.",
+        "tr": "Poka-yoke çözümünü tasarlamak, satın almak, kurmak ve doğrulamak için toplam tek seferlik maliyet."
       }
     },
     {
@@ -105,10 +115,12 @@
       "max": 50000,
       "businessContext": "Recurring yearly cost for calibration, spare parts, and upkeep of the poka-yoke system.",
       "label_i18n": {
-        "en": "Annual Maintenance Cost"
+        "en": "Annual Maintenance Cost",
+        "tr": "Yıllık Bakım Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Recurring yearly cost for calibration, spare parts, and upkeep of the poka-yoke system."
+        "en": "Recurring yearly cost for calibration, spare parts, and upkeep of the poka-yoke system.",
+        "tr": "Poka-yoke sisteminin kalibrasyonu, yedek parçaları ve bakımı için yıllık tekrarlanan maliyet."
       }
     },
     {
@@ -121,10 +133,12 @@
       "max": 10000,
       "businessContext": "Estimated reduction in inspection and rework labor hours per year due to the poka-yoke.",
       "label_i18n": {
-        "en": "Labor Hours Saved per Year"
+        "en": "Labor Hours Saved per Year",
+        "tr": "Yıllık Kurtarılan İşçilik Saati"
       },
       "businessContext_i18n": {
-        "en": "Estimated reduction in inspection and rework labor hours per year due to the poka-yoke."
+        "en": "Estimated reduction in inspection and rework labor hours per year due to the poka-yoke.",
+        "tr": "Poka-yoke sayesinde yılda tahmini olarak azaltılan muayene ve yeniden işleme işçilik saatleri."
       }
     },
     {
@@ -137,10 +151,12 @@
       "max": 150,
       "businessContext": "Fully burdened hourly labor cost for operators and inspectors.",
       "label_i18n": {
-        "en": "Labor Rate"
+        "en": "Labor Rate",
+        "tr": "İşçilik ücreti"
       },
       "businessContext_i18n": {
-        "en": "Fully burdened hourly labor cost for operators and inspectors."
+        "en": "Fully burdened hourly labor cost for operators and inspectors.",
+        "tr": "Operatörler ve denetçiler için tam yüklü saatlik işçilik maliyeti."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Velocity of exhaust gases relative to the rocket, typically 2000-4500 m/s for chemical rockets.",
       "label_i18n": {
         "en": "Effective Exhaust Velocity",
-        "tr": "Effective Exhaust Velocity",
+        "tr": "Etkin Egzoz Hızı",
         "de": "Effective Exhaust Velocity",
         "fr": "Effective Exhaust Velocity",
         "es": "Effective Exhaust Velocity",
         "ar": "Effective Exhaust Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Velocity of exhaust gases relative to the rocket, typically 2000-4500 m/s for chemical rockets.",
+        "tr": "Egzoz gazlarının rokete göre hızı, kimyasal roketler için tipik olarak 2000-4500 m/s."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total mass of the rocket at launch including propellant.",
       "label_i18n": {
         "en": "Initial Mass",
-        "tr": "Initial Mass",
+        "tr": "Başlangıç Kütlesi",
         "de": "Initial Mass",
         "fr": "Initial Mass",
         "es": "Initial Mass",
         "ar": "Initial Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of the rocket at launch including propellant.",
+        "tr": "Roketin fırlatma anındaki toplam kütlesi (yakıt dahil)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of the rocket after propellant is burned, excluding any discarded stages.",
       "label_i18n": {
         "en": "Final Mass",
-        "tr": "Final Mass",
+        "tr": "Son Kütle",
         "de": "Final Mass",
         "fr": "Final Mass",
         "es": "Final Mass",
         "ar": "Final Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the rocket after propellant is burned, excluding any discarded stages.",
+        "tr": "Yakıt yandıktan sonra roketin kütlesi, atılan aşamalar hariç."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Design safety factor applied to delta-V calculation, normally 1.0 (no margin).",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor applied to delta-V calculation, normally 1.0 (no margin).",
+        "tr": "Delta-V hesaplamasına uygulanan tasarım güvenlik faktörü, normalde 1.0 (marj yok)."
       }
     }
   ],

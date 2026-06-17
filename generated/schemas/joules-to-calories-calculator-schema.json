@@ -10,11 +10,15 @@
       "businessContext": "Enter the amount of energy in joules that you wish to convert into calories. Typical applications include food energy labeling, engineering thermal calculations, or scientific energy unit conversions.",
       "label_i18n": {
         "en": "Energy in Joules",
-        "tr": "Energy in Joules",
+        "tr": "Enerji (Joule)",
         "de": "Energy in Joules",
         "fr": "Energy in Joules",
         "es": "Energy in Joules",
         "ar": "Energy in Joules"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the amount of energy in joules that you wish to convert into calories. Typical applications include food energy labeling, engineering thermal calculations, or scientific energy unit conversions.",
+        "tr": "Kaloriye dönüştürmek istediğiniz enerji miktarını joule cinsinden girin. Tipik uygulamalar: gıda enerji etiketlemesi, mühendislik termal hesaplamaları veya bilimsel enerji birim dönüşümleri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Select the conversion standard: 1 = Thermochemical (4.184 J/cal), 2 = 4°C calorie (4.204 J/cal), 3 = 15°C calorie (4.1855 J/cal), 4 = International Steam Table (4.1868 J/cal), 5 = Mean calorie (4.190 J/cal). Used to ensure compliance with specific industry or regulatory definitions.",
       "label_i18n": {
         "en": "Calorie Standard",
-        "tr": "Calorie Standard",
+        "tr": "Kalori Standardı",
         "de": "Calorie Standard",
         "fr": "Calorie Standard",
         "es": "Calorie Standard",
         "ar": "Calorie Standard"
+      },
+      "businessContext_i18n": {
+        "en": "Select the conversion standard: 1 = Thermochemical (4.184 J/cal), 2 = 4°C calorie (4.204 J/cal), 3 = 15°C calorie (4.1855 J/cal), 4 = International Steam Table (4.1868 J/cal), 5 = Mean calorie (4.190 J/cal). Used to ensure compliance with specific industry or regulatory definitions.",
+        "tr": "Dönüşüm standardını seçin: 1 = Termokimyasal (4,184 J/cal), 2 = 4°C kalorisi (4,204 J/cal), 3 = 15°C kalorisi (4,1855 J/cal), 4 = Uluslararası Buhar Tablosu (4,1868 J/cal), 5 = Ortalama kalori (4,190 J/cal). Belirli endüstri veya düzenleyici tanımlara uygunluğu sağlamak için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Defines the number of decimal places in the final calorie output. Important for reporting accuracy in quality control or nutritional labeling (e.g., 0 for whole numbers, 2 for typical food labels).",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Defines the number of decimal places in the final calorie output. Important for reporting accuracy in quality control or nutritional labeling (e.g., 0 for whole numbers, 2 for typical food labels).",
+        "tr": "Nihai kalori çıktısındaki ondalık basamak sayısını tanımlar. Kalite kontrol veya besin etiketlemesinde raporlama doğruluğu için önemlidir (örneğin, tam sayılar için 0, tipik gıda etiketleri için 2)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = round to nearest (standard mathematical rounding), 1 = floor (always round down), 2 = ceil (always round up). Selection may depend on regulatory rounding rules or internal manufacturing conventions.",
       "label_i18n": {
         "en": "Rounding Method",
-        "tr": "Rounding Method",
+        "tr": "Yuvarlama yöntemi",
         "de": "Rounding Method",
         "fr": "Rounding Method",
         "es": "Rounding Method",
         "ar": "Rounding Method"
+      },
+      "businessContext_i18n": {
+        "en": "0 = round to nearest (standard mathematical rounding), 1 = floor (always round down), 2 = ceil (always round up). Selection may depend on regulatory rounding rules or internal manufacturing conventions.",
+        "tr": "0 = en yakına yuvarla (standart matematiksel yuvarlama), 1 = taban (her zaman aşağı yuvarla), 2 = tavan (her zaman yukarı yuvarla). Seçim, düzenleyici yuvarlama kurallarına veya iç üretim kurallarına bağlı olabilir."
       }
     }
   ],

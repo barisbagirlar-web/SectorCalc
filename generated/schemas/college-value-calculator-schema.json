@@ -10,11 +10,15 @@
       "businessContext": "Total direct costs of college: tuition, fees, books, and living expenses (not including foregone earnings).",
       "label_i18n": {
         "en": "Total Direct College Cost",
-        "tr": "Total Direct College Cost",
+        "tr": "Toplam Doğrudan Üniversite Maliyeti",
         "de": "Total Direct College Cost",
         "fr": "Total Direct College Cost",
         "es": "Total Direct College Cost",
         "ar": "Total Direct College Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total direct costs of college: tuition, fees, books, and living expenses (not including foregone earnings).",
+        "tr": "Üniversitenin toplam doğrudan maliyetleri: harç, ücretler, kitaplar ve yaşam giderleri (vazgeçilen kazançlar hariç)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of the college program.",
       "label_i18n": {
         "en": "Years in College",
-        "tr": "Years in College",
+        "tr": "Üniversite Yılı Sayısı",
         "de": "Years in College",
         "fr": "Years in College",
         "es": "Years in College",
         "ar": "Years in College"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the college program.",
+        "tr": "Üniversite programının süresi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Annual salary you expect to earn after graduation, in today's dollars.",
       "label_i18n": {
         "en": "Expected Annual Salary After College",
-        "tr": "Expected Annual Salary After College",
+        "tr": "Üniversite Sonrası Beklenen Yıllık Maaş",
         "de": "Expected Annual Salary After College",
         "fr": "Expected Annual Salary After College",
         "es": "Expected Annual Salary After College",
         "ar": "Expected Annual Salary After College"
+      },
+      "businessContext_i18n": {
+        "en": "Annual salary you expect to earn after graduation, in today's dollars.",
+        "tr": "Mezuniyetten sonra kazanmayı beklediğiniz yıllık maaş, bugünün doları cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual salary you would earn if you didn't attend college.",
       "label_i18n": {
         "en": "Annual Salary Without College",
-        "tr": "Annual Salary Without College",
+        "tr": "Üniversitesiz Yıllık Maaş",
         "de": "Annual Salary Without College",
         "fr": "Annual Salary Without College",
         "es": "Annual Salary Without College",
         "ar": "Annual Salary Without College"
+      },
+      "businessContext_i18n": {
+        "en": "Annual salary you would earn if you didn't attend college.",
+        "tr": "Üniversiteye gitmeseydiniz kazanacağınız yıllık maaş."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of years you expect to work after graduation (or from now).",
       "label_i18n": {
         "en": "Working Years",
-        "tr": "Working Years",
+        "tr": "Çalışma Yılı",
         "de": "Working Years",
         "fr": "Working Years",
         "es": "Working Years",
         "ar": "Working Years"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years you expect to work after graduation (or from now).",
+        "tr": "Mezuniyetten sonra (veya şu andan itibaren) çalışmayı beklediğiniz yıl sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Rate used to discount future cash flows to present value (e.g., inflation, required return). Must be greater than zero.",
       "label_i18n": {
         "en": "Annual Discount Rate",
-        "tr": "Annual Discount Rate",
+        "tr": "Yıllık İskonto Oranı",
         "de": "Annual Discount Rate",
         "fr": "Annual Discount Rate",
         "es": "Annual Discount Rate",
         "ar": "Annual Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Rate used to discount future cash flows to present value (e.g., inflation, required return). Must be greater than zero.",
+        "tr": "Gelecekteki nakit akışlarını bugünkü değere indirgemek için kullanılan oran (örneğin, enflasyon, gerekli getiri). Sıfırdan büyük olmalıdır."
       }
     }
   ],

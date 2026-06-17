@@ -10,11 +10,15 @@
       "businessContext": "Total steps taken, typically from a pedometer or smartphone",
       "label_i18n": {
         "en": "Number of Steps",
-        "tr": "Number of Steps",
+        "tr": "Adım Sayısı",
         "de": "Number of Steps",
         "fr": "Number of Steps",
         "es": "Number of Steps",
         "ar": "Number of Steps"
+      },
+      "businessContext_i18n": {
+        "en": "Total steps taken, typically from a pedometer or smartphone",
+        "tr": "Genellikle bir adımsayar veya akıllı telefondan alınan toplam adım sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of one step in meters; average is 0.762 m (2.5 ft)",
       "label_i18n": {
         "en": "Step Length",
-        "tr": "Step Length",
+        "tr": "Adım Uzunluğu",
         "de": "Step Length",
         "fr": "Step Length",
         "es": "Step Length",
         "ar": "Step Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of one step in meters; average is 0.762 m (2.5 ft)",
+        "tr": "Bir adımın metre cinsinden uzunluğu; ortalama 0.762 m (2.5 ft)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "User's body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight in kilograms",
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to adjust for walking intensity or individual metabolic rate",
       "label_i18n": {
         "en": "Intensity Factor",
-        "tr": "Intensity Factor",
+        "tr": "Yoğunluk Faktörü",
         "de": "Intensity Factor",
         "fr": "Intensity Factor",
         "es": "Intensity Factor",
         "ar": "Intensity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to adjust for walking intensity or individual metabolic rate",
+        "tr": "Yürüme yoğunluğunu veya bireysel metabolizma hızını ayarlamak için çarpan"
       }
     }
   ],

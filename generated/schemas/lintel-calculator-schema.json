@@ -10,11 +10,15 @@
       "businessContext": "Clear span of the opening.",
       "label_i18n": {
         "en": "Span Length",
-        "tr": "Span Length",
+        "tr": "Açıklık Uzunluğu",
         "de": "Span Length",
         "fr": "Span Length",
         "es": "Span Length",
         "ar": "Span Length"
+      },
+      "businessContext_i18n": {
+        "en": "Clear span of the opening.",
+        "tr": "Açıklığın net genişliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Uniformly distributed design load including finishes and live load.",
       "label_i18n": {
         "en": "Design Load",
-        "tr": "Design Load",
+        "tr": "Tasarım Yükü",
         "de": "Design Load",
         "fr": "Design Load",
         "es": "Design Load",
         "ar": "Design Load"
+      },
+      "businessContext_i18n": {
+        "en": "Uniformly distributed design load including finishes and live load.",
+        "tr": "Kaplamalar ve hareketli yük dahil düzgün yayılı tasarım yükü."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Material allowable stress (e.g., 165 MPa for S275 steel).",
       "label_i18n": {
         "en": "Allowable Bending Stress",
-        "tr": "Allowable Bending Stress",
+        "tr": "İzin Verilen Eğilme Gerilmesi",
         "de": "Allowable Bending Stress",
         "fr": "Allowable Bending Stress",
         "es": "Allowable Bending Stress",
         "ar": "Allowable Bending Stress"
+      },
+      "businessContext_i18n": {
+        "en": "Material allowable stress (e.g., 165 MPa for S275 steel).",
+        "tr": "Malzeme izin verilen gerilmesi (örneğin S275 çeliği için 165 MPa)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Safety factor for allowable stress design.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Safety factor for allowable stress design.",
+        "tr": "İzin verilen gerilme tasarımı için güvenlik faktörü."
       }
     }
   ],

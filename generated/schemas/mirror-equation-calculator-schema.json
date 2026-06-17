@@ -10,11 +10,15 @@
       "businessContext": "Distance from the object to the mirror. Positive for real objects (in front of the mirror).",
       "label_i18n": {
         "en": "Object Distance (p)",
-        "tr": "Object Distance (p)",
+        "tr": "Nesne Uzaklığı (p)",
         "de": "Object Distance (p)",
         "fr": "Object Distance (p)",
         "es": "Object Distance (p)",
         "ar": "Object Distance (p)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from the object to the mirror. Positive for real objects (in front of the mirror).",
+        "tr": "Nesnenin aynaya olan uzaklığı. Gerçek nesneler (aynanın önünde) için pozitif."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Radius of curvature of the mirror. Positive for concave mirrors, negative for convex mirrors (use absolute value and set mirror type).",
       "label_i18n": {
         "en": "Radius of Curvature (R)",
-        "tr": "Radius of Curvature (R)",
+        "tr": "Eğrilik Yarıçapı (R)",
         "de": "Radius of Curvature (R)",
         "fr": "Radius of Curvature (R)",
         "es": "Radius of Curvature (R)",
         "ar": "Radius of Curvature (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of curvature of the mirror. Positive for concave mirrors, negative for convex mirrors (use absolute value and set mirror type).",
+        "tr": "Aynanın eğrilik yarıçapı. İçbükey aynalar için pozitif, dışbükey aynalar için negatif (mutlak değer kullanın ve ayna tipini ayarlayın)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 for concave (converging) mirror, -1 for convex (diverging) mirror. Used to set the sign of the focal length.",
       "label_i18n": {
         "en": "Mirror Type (Concave=1, Convex=-1)",
-        "tr": "Mirror Type (Concave=1, Convex=-1)",
+        "tr": "Ayna Tipi (İçbükey=1, Dışbükey=-1)",
         "de": "Mirror Type (Concave=1, Convex=-1)",
         "fr": "Mirror Type (Concave=1, Convex=-1)",
         "es": "Mirror Type (Concave=1, Convex=-1)",
         "ar": "Mirror Type (Concave=1, Convex=-1)"
+      },
+      "businessContext_i18n": {
+        "en": "1 for concave (converging) mirror, -1 for convex (diverging) mirror. Used to set the sign of the focal length.",
+        "tr": "İçbükey (yakınsak) ayna için 1, dışbükey (ıraksak) ayna için -1. Odak uzunluğunun işaretini ayarlamak için kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of the object. Positive if upright relative to the optical axis.",
       "label_i18n": {
         "en": "Object Height (h₀)",
-        "tr": "Object Height (h₀)",
+        "tr": "Nesne Yüksekliği (h₀)",
         "de": "Object Height (h₀)",
         "fr": "Object Height (h₀)",
         "es": "Object Height (h₀)",
         "ar": "Object Height (h₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the object. Positive if upright relative to the optical axis.",
+        "tr": "Nesnenin yüksekliği. Optik eksene göre dik ise pozitif."
       }
     }
   ],

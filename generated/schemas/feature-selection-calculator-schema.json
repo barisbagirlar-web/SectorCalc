@@ -10,11 +10,15 @@
       "businessContext": "Pearson correlation between feature and target",
       "label_i18n": {
         "en": "Correlation Coefficient",
-        "tr": "Correlation Coefficient",
+        "tr": "Korelasyon Katsayısı",
         "de": "Correlation Coefficient",
         "fr": "Correlation Coefficient",
         "es": "Correlation Coefficient",
         "ar": "Correlation Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Pearson correlation between feature and target",
+        "tr": "Özellik ve hedef arasındaki Pearson korelasyonu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measure of spread (0-1 scale)",
       "label_i18n": {
         "en": "Normalized Variance",
-        "tr": "Normalized Variance",
+        "tr": "Normalleştirilmiş Varyans",
         "de": "Normalized Variance",
         "fr": "Normalized Variance",
         "es": "Normalized Variance",
         "ar": "Normalized Variance"
+      },
+      "businessContext_i18n": {
+        "en": "Measure of spread (0-1 scale)",
+        "tr": "Yayılım ölçüsü (0-1 ölçeği)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost to collect this feature data",
       "label_i18n": {
         "en": "Measurement Cost",
-        "tr": "Measurement Cost",
+        "tr": "Ölçüm Maliyeti",
         "de": "Measurement Cost",
         "fr": "Measurement Cost",
         "es": "Measurement Cost",
         "ar": "Measurement Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to collect this feature data",
+        "tr": "Bu özellik verisini toplama maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected accuracy gain from including this feature",
       "label_i18n": {
         "en": "Accuracy Impact",
-        "tr": "Accuracy Impact",
+        "tr": "Doğruluk Etkisi",
         "de": "Accuracy Impact",
         "fr": "Accuracy Impact",
         "es": "Accuracy Impact",
         "ar": "Accuracy Impact"
+      },
+      "businessContext_i18n": {
+        "en": "Expected accuracy gain from including this feature",
+        "tr": "Bu özelliği dahil etmekten beklenen doğruluk kazancı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Reliability of measurement over time (1 = stable)",
       "label_i18n": {
         "en": "Stability Index",
-        "tr": "Stability Index",
+        "tr": "Kararlılık Endeksi",
         "de": "Stability Index",
         "fr": "Stability Index",
         "es": "Stability Index",
         "ar": "Stability Index"
+      },
+      "businessContext_i18n": {
+        "en": "Reliability of measurement over time (1 = stable)",
+        "tr": "Zaman içinde ölçümün güvenilirliği (1 = kararlı)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Regulatory or compliance importance (1 = compliant)",
       "label_i18n": {
         "en": "Compliance Score",
-        "tr": "Compliance Score",
+        "tr": "Uyum Puanı",
         "de": "Compliance Score",
         "fr": "Compliance Score",
         "es": "Compliance Score",
         "ar": "Compliance Score"
+      },
+      "businessContext_i18n": {
+        "en": "Regulatory or compliance importance (1 = compliant)",
+        "tr": "Düzenleyici veya uyum önemi (1 = uyumlu)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Millivolt reading of soil-water suspension from pH electrode",
       "label_i18n": {
         "en": "Sample mV Reading",
-        "tr": "Sample mV Reading",
+        "tr": "Numune mV Okuması",
         "de": "Sample mV Reading",
         "fr": "Sample mV Reading",
         "es": "Sample mV Reading",
         "ar": "Sample mV Reading"
+      },
+      "businessContext_i18n": {
+        "en": "Millivolt reading of soil-water suspension from pH electrode",
+        "tr": "pH elektrotundan toprak-su süspansiyonunun milivolt okuması"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Millivolt reading of known pH buffer solution",
       "label_i18n": {
         "en": "Reference mV Reading",
-        "tr": "Reference mV Reading",
+        "tr": "Referans mV Okuması",
         "de": "Reference mV Reading",
         "fr": "Reference mV Reading",
         "es": "Reference mV Reading",
         "ar": "Reference mV Reading"
+      },
+      "businessContext_i18n": {
+        "en": "Millivolt reading of known pH buffer solution",
+        "tr": "Bilinen pH tampon çözeltisinin milivolt okuması"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "pH value of the reference buffer solution",
       "label_i18n": {
         "en": "Buffer pH",
-        "tr": "Buffer pH",
+        "tr": "Tampon pH",
         "de": "Buffer pH",
         "fr": "Buffer pH",
         "es": "Buffer pH",
         "ar": "Buffer pH"
+      },
+      "businessContext_i18n": {
+        "en": "pH value of the reference buffer solution",
+        "tr": "Referans tampon çözeltisinin pH değeri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of the samples and buffers (assumed equal)",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the samples and buffers (assumed equal)",
+        "tr": "Numunelerin ve tamponların sıcaklığı (eşit olduğu varsayılır)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Electrode slope percentage relative to theoretical Nernstian slope (100% = 59.16 mV/pH at 25°C)",
       "label_i18n": {
         "en": "Slope %",
-        "tr": "Slope %",
+        "tr": "Eğim %",
         "de": "Slope %",
         "fr": "Slope %",
         "es": "Slope %",
         "ar": "Slope %"
+      },
+      "businessContext_i18n": {
+        "en": "Electrode slope percentage relative to theoretical Nernstian slope (100% = 59.16 mV/pH at 25°C)",
+        "tr": "Elektrod eğiminin teorik Nernst eğimine göre yüzdesi (%100 = 25°C'de 59.16 mV/pH)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Outer diameter of the inductor coil.",
       "label_i18n": {
         "en": "Coil Diameter",
-        "tr": "Coil Diameter",
+        "tr": "Bobin Çapı",
         "de": "Coil Diameter",
         "fr": "Coil Diameter",
         "es": "Coil Diameter",
         "ar": "Coil Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Outer diameter of the inductor coil.",
+        "tr": "İndüktör bobininin dış çapı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of the coil along its axis.",
       "label_i18n": {
         "en": "Coil Length",
-        "tr": "Coil Length",
+        "tr": "Bobin Uzunluğu",
         "de": "Coil Length",
         "fr": "Coil Length",
         "es": "Coil Length",
         "ar": "Coil Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the coil along its axis.",
+        "tr": "Bobinin ekseni boyunca uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of wire turns in the coil.",
       "label_i18n": {
         "en": "Number of Turns",
-        "tr": "Number of Turns",
+        "tr": "Sarım Sayısı",
         "de": "Number of Turns",
         "fr": "Number of Turns",
         "es": "Number of Turns",
         "ar": "Number of Turns"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of wire turns in the coil.",
+        "tr": "Bobindeki toplam tel sarım sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Operating frequency of the AC signal in kilohertz.",
       "label_i18n": {
         "en": "Frequency",
-        "tr": "Frequency",
+        "tr": "Frekans",
         "de": "Frequency",
         "fr": "Frequency",
         "es": "Frequency",
         "ar": "Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Operating frequency of the AC signal in kilohertz.",
+        "tr": "AC sinyalinin kilohertz cinsinden çalışma frekansı."
       }
     }
   ],

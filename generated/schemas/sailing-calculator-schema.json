@@ -10,11 +10,15 @@
       "businessContext": "True wind speed in meters per second",
       "label_i18n": {
         "en": "Wind Speed",
-        "tr": "Wind Speed",
+        "tr": "Rüzgar Hızı",
         "de": "Wind Speed",
         "fr": "Wind Speed",
         "es": "Wind Speed",
         "ar": "Wind Speed"
+      },
+      "businessContext_i18n": {
+        "en": "True wind speed in meters per second",
+        "tr": "Gerçek rüzgar hızı (m/s)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total sail area in square meters",
       "label_i18n": {
         "en": "Sail Area",
-        "tr": "Sail Area",
+        "tr": "Yelken Alanı",
         "de": "Sail Area",
         "fr": "Sail Area",
         "es": "Sail Area",
         "ar": "Sail Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total sail area in square meters",
+        "tr": "Toplam yelken alanı (m²)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Vertical distance from center of gravity to center of effort of sails",
       "label_i18n": {
         "en": "Lever Arm",
-        "tr": "Lever Arm",
+        "tr": "Kaldıraç Kolu",
         "de": "Lever Arm",
         "fr": "Lever Arm",
         "es": "Lever Arm",
         "ar": "Lever Arm"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical distance from center of gravity to center of effort of sails",
+        "tr": "Ağırlık merkezinden yelken basınç merkezine dikey mesafe"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Air density (standard sea level value is 1.225 kg/m³)",
       "label_i18n": {
         "en": "Air Density",
-        "tr": "Air Density",
+        "tr": "Hava Yoğunluğu",
         "de": "Air Density",
         "fr": "Air Density",
         "es": "Air Density",
         "ar": "Air Density"
+      },
+      "businessContext_i18n": {
+        "en": "Air density (standard sea level value is 1.225 kg/m³)",
+        "tr": "Hava yoğunluğu (standart deniz seviyesi değeri 1,225 kg/m³)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Factor applied for safety margin (≥1.0)",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor applied for safety margin (≥1.0)",
+        "tr": "Güvenlik marjı için uygulanan faktör (≥1,0)"
       }
     }
   ],

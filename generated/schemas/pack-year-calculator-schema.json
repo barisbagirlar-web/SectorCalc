@@ -10,11 +10,15 @@
       "businessContext": "The age at which the individual began smoking regularly.",
       "label_i18n": {
         "en": "Smoking Start Age",
-        "tr": "Smoking Start Age",
+        "tr": "Sigara Başlama Yaşı",
         "de": "Smoking Start Age",
         "fr": "Smoking Start Age",
         "es": "Smoking Start Age",
         "ar": "Smoking Start Age"
+      },
+      "businessContext_i18n": {
+        "en": "The age at which the individual began smoking regularly.",
+        "tr": "Bireyin düzenli olarak sigara içmeye başladığı yaş."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The age at which smoking ended, or the current age if still smoking.",
       "label_i18n": {
         "en": "Smoking End Age (or Current Age)",
-        "tr": "Smoking End Age (or Current Age)",
+        "tr": "Sigara Bırakma Yaşı (veya Mevcut Yaş)",
         "de": "Smoking End Age (or Current Age)",
         "fr": "Smoking End Age (or Current Age)",
         "es": "Smoking End Age (or Current Age)",
         "ar": "Smoking End Age (or Current Age)"
+      },
+      "businessContext_i18n": {
+        "en": "The age at which smoking ended, or the current age if still smoking.",
+        "tr": "Sigaranın bırakıldığı yaş veya hala içiliyorsa mevcut yaş."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The average number of cigarettes smoked per day during the smoking period.",
       "label_i18n": {
         "en": "Average Cigarettes per Day",
-        "tr": "Average Cigarettes per Day",
+        "tr": "Günlük Ortalama Sigara Sayısı",
         "de": "Average Cigarettes per Day",
         "fr": "Average Cigarettes per Day",
         "es": "Average Cigarettes per Day",
         "ar": "Average Cigarettes per Day"
+      },
+      "businessContext_i18n": {
+        "en": "The average number of cigarettes smoked per day during the smoking period.",
+        "tr": "Sigara içme dönemi boyunca günde içilen ortalama sigara sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The number of cigarettes contained in a single pack, typically 20.",
       "label_i18n": {
         "en": "Cigarettes per Pack",
-        "tr": "Cigarettes per Pack",
+        "tr": "Paket Başına Sigara Sayısı",
         "de": "Cigarettes per Pack",
         "fr": "Cigarettes per Pack",
         "es": "Cigarettes per Pack",
         "ar": "Cigarettes per Pack"
+      },
+      "businessContext_i18n": {
+        "en": "The number of cigarettes contained in a single pack, typically 20.",
+        "tr": "Bir pakette bulunan sigara sayısı, genellikle 20."
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Clean design UA from manufacturer datasheet or initial commissioning test (ISO 50001:2018, Annex B).",
       "label_i18n": {
-        "en": "Design Overall Heat Transfer Coefficient × Area (UA_design)"
+        "en": "Design Overall Heat Transfer Coefficient × Area (UA_design)",
+        "tr": "Tasarım Toplam Isı Transfer Katsayısı × Alan (UA_tasarım)"
       },
       "businessContext_i18n": {
-        "en": "Clean design UA from manufacturer datasheet or initial commissioning test (ISO 50001:2018, Annex B)."
+        "en": "Clean design UA from manufacturer datasheet or initial commissioning test (ISO 50001:2018, Annex B).",
+        "tr": "Üretici veri sayfasından veya ilk devreye alma testinden temiz tasarım UA değeri (ISO 50001:2018, Ek B)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000,
       "businessContext": "Current measured UA from process data (temperature, flow) using heat balance. Indicates fouling severity.",
       "label_i18n": {
-        "en": "Actual Overall Heat Transfer Coefficient × Area (UA_actual)"
+        "en": "Actual Overall Heat Transfer Coefficient × Area (UA_actual)",
+        "tr": "Gerçek Toplam Isı Transfer Katsayısı × Alan (UA_gerçek)"
       },
       "businessContext_i18n": {
-        "en": "Current measured UA from process data (temperature, flow) using heat balance. Indicates fouling severity."
+        "en": "Current measured UA from process data (temperature, flow) using heat balance. Indicates fouling severity.",
+        "tr": "Proses verilerinden (sıcaklık, debi) ısı dengesi kullanılarak ölçülen mevcut UA. Kirlenme şiddetini gösterir."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 500,
       "businessContext": "Temperature of hot process stream entering the heat exchanger.",
       "label_i18n": {
-        "en": "Hot Fluid Inlet Temperature"
+        "en": "Hot Fluid Inlet Temperature",
+        "tr": "Sıcak Akışkan Giriş Sıcaklığı"
       },
       "businessContext_i18n": {
-        "en": "Temperature of hot process stream entering the heat exchanger."
+        "en": "Temperature of hot process stream entering the heat exchanger.",
+        "tr": "Isı değiştiriciye giren sıcak proses akışının sıcaklığı."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 200,
       "businessContext": "Temperature of cooling or heating utility entering the exchanger.",
       "label_i18n": {
-        "en": "Cold Fluid Inlet Temperature"
+        "en": "Cold Fluid Inlet Temperature",
+        "tr": "Soğuk Akışkan Giriş Sıcaklığı"
       },
       "businessContext_i18n": {
-        "en": "Temperature of cooling or heating utility entering the exchanger."
+        "en": "Temperature of cooling or heating utility entering the exchanger.",
+        "tr": "Isı değiştiriciye giren soğutma veya ısıtma yardımcı akışkanının sıcaklığı."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 1000,
       "businessContext": "Mass flow rate of the hot process stream.",
       "label_i18n": {
-        "en": "Hot Fluid Mass Flow Rate"
+        "en": "Hot Fluid Mass Flow Rate",
+        "tr": "Sıcak Akışkan Kütlesel Debisi"
       },
       "businessContext_i18n": {
-        "en": "Mass flow rate of the hot process stream."
+        "en": "Mass flow rate of the hot process stream.",
+        "tr": "Sıcak proses akışının kütlesel debisi."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 5,
       "businessContext": "Average specific heat of hot fluid over operating temperature range.",
       "label_i18n": {
-        "en": "Hot Fluid Specific Heat Capacity"
+        "en": "Hot Fluid Specific Heat Capacity",
+        "tr": "Sıcak Akışkan Özgül Isı Kapasitesi"
       },
       "businessContext_i18n": {
-        "en": "Average specific heat of hot fluid over operating temperature range."
+        "en": "Average specific heat of hot fluid over operating temperature range.",
+        "tr": "Çalışma sıcaklık aralığında sıcak akışkanın ortalama özgül ısısı."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 1,
       "businessContext": "Cost of thermal energy (steam, hot water, or electricity for pumping).",
       "label_i18n": {
-        "en": "Energy Cost"
+        "en": "Energy Cost",
+        "tr": "Enerji Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost of thermal energy (steam, hot water, or electricity for pumping)."
+        "en": "Cost of thermal energy (steam, hot water, or electricity for pumping).",
+        "tr": "Termal enerji maliyeti (buhar, sıcak su veya pompalama için elektrik)."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 8760,
       "businessContext": "Annual operating hours of the heat exchanger.",
       "label_i18n": {
-        "en": "Operating Hours per Year"
+        "en": "Operating Hours per Year",
+        "tr": "Yıllık Çalışma Saati"
       },
       "businessContext_i18n": {
-        "en": "Annual operating hours of the heat exchanger."
+        "en": "Annual operating hours of the heat exchanger.",
+        "tr": "Isı değiştiricinin yıllık çalışma saati."
       }
     }
   ],

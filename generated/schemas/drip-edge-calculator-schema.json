@@ -10,11 +10,15 @@
       "businessContext": "Horizontal length of the eave edge (building length), used to calculate total eave drip edge distance.",
       "label_i18n": {
         "en": "Roof Length",
-        "tr": "Roof Length",
+        "tr": "Çatı Uzunluğu",
         "de": "Roof Length",
         "fr": "Roof Length",
         "es": "Roof Length",
         "ar": "Roof Length"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal length of the eave edge (building length), used to calculate total eave drip edge distance.",
+        "tr": "Saçak kenarının yatay uzunluğu (bina uzunluğu), toplam saçak damlama mesafesini hesaplamak için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Horizontal span from eave to eave (building width), used to compute the horizontal run of the gable rake.",
       "label_i18n": {
         "en": "Roof Width",
-        "tr": "Roof Width",
+        "tr": "Çatı Genişliği",
         "de": "Roof Width",
         "fr": "Roof Width",
         "es": "Roof Width",
         "ar": "Roof Width"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal span from eave to eave (building width), used to compute the horizontal run of the gable rake.",
+        "tr": "Saçaktan saçağa yatay açıklık (bina genişliği), üçgen çatı eğiminin yatay koşusunu hesaplamak için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Rise in inches per 12 inches of horizontal run, used to compute the slope length of the rake.",
       "label_i18n": {
         "en": "Roof Pitch",
-        "tr": "Roof Pitch",
+        "tr": "Çatı Eğimi",
         "de": "Roof Pitch",
         "fr": "Roof Pitch",
         "es": "Roof Pitch",
         "ar": "Roof Pitch"
+      },
+      "businessContext_i18n": {
+        "en": "Rise in inches per 12 inches of horizontal run, used to compute the slope length of the rake.",
+        "tr": "12 inç yatay koşu başına inç cinsinden yükselme, eğimin eğim uzunluğunu hesaplamak için kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Horizontal projection of the rake beyond the gable wall, added to half of roof width to obtain the total run.",
       "label_i18n": {
         "en": "Gable Overhang",
-        "tr": "Gable Overhang",
+        "tr": "Üçgen Çatı Çıkıntısı",
         "de": "Gable Overhang",
         "fr": "Gable Overhang",
         "es": "Gable Overhang",
         "ar": "Gable Overhang"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal projection of the rake beyond the gable wall, added to half of roof width to obtain the total run.",
+        "tr": "Üçgen duvarın ötesindeki eğimin yatay izdüşümü, toplam koşuyu elde etmek için çatı genişliğinin yarısına eklenir."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of extra material to allow for cutting, fitting, and installation errors.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra material to allow for cutting, fitting, and installation errors.",
+        "tr": "Kesme, uydurma ve montaj hatalarına izin vermek için ekstra malzeme yüzdesi."
       }
     }
   ],

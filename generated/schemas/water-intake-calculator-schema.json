@@ -19,10 +19,12 @@
       "max": 100000,
       "businessContext": "Total full-time equivalent employees on site.",
       "label_i18n": {
-        "en": "Number of Employees"
+        "en": "Number of Employees",
+        "tr": "Çalışan Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total full-time equivalent employees on site."
+        "en": "Total full-time equivalent employees on site.",
+        "tr": "Sahadaki toplam tam zamanlı eşdeğer çalışan sayısı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 365,
       "businessContext": "Number of operating days per year.",
       "label_i18n": {
-        "en": "Work Days per Year"
+        "en": "Work Days per Year",
+        "tr": "Yıllık çalışma günü"
       },
       "businessContext_i18n": {
-        "en": "Number of operating days per year."
+        "en": "Number of operating days per year.",
+        "tr": "Yıllık faaliyet günü sayısı."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 500,
       "businessContext": "Estimated daily water consumption per employee (drinking, sanitation, cleaning).",
       "label_i18n": {
-        "en": "Average Water Use per Person per Day"
+        "en": "Average Water Use per Person per Day",
+        "tr": "Kişi başı günlük ortalama su kullanımı"
       },
       "businessContext_i18n": {
-        "en": "Estimated daily water consumption per employee (drinking, sanitation, cleaning)."
+        "en": "Estimated daily water consumption per employee (drinking, sanitation, cleaning).",
+        "tr": "Çalışan başına tahmini günlük su tüketimi (içme, temizlik, sanitasyon)."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 1000,
       "businessContext": "Water used per unit of production output (e.g., liters per product).",
       "label_i18n": {
-        "en": "Process Water Intensity"
+        "en": "Process Water Intensity",
+        "tr": "Proses su yoğunluğu"
       },
       "businessContext_i18n": {
-        "en": "Water used per unit of production output (e.g., liters per product)."
+        "en": "Water used per unit of production output (e.g., liters per product).",
+        "tr": "Birim üretim çıktısı başına kullanılan su (örn. ürün başına litre)."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 100000000,
       "businessContext": "Total units produced per year.",
       "label_i18n": {
-        "en": "Annual Production Units"
+        "en": "Annual Production Units",
+        "tr": "Yıllık Üretim Birimleri"
       },
       "businessContext_i18n": {
-        "en": "Total units produced per year."
+        "en": "Total units produced per year.",
+        "tr": "Yılda üretilen toplam birim sayısı."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": 50,
       "businessContext": "Estimated percentage of water lost due to leaks in the distribution system.",
       "label_i18n": {
-        "en": "Leakage Factor"
+        "en": "Leakage Factor",
+        "tr": "Kaçak faktörü"
       },
       "businessContext_i18n": {
-        "en": "Estimated percentage of water lost due to leaks in the distribution system."
+        "en": "Estimated percentage of water lost due to leaks in the distribution system.",
+        "tr": "Dağıtım sistemindeki sızıntılar nedeniyle kaybedilen suyun tahmini yüzdesi."
       }
     },
     {
@@ -115,10 +127,12 @@
       "max": 100,
       "businessContext": "Percentage of process water that is treated and reused.",
       "label_i18n": {
-        "en": "Water Recycling Rate"
+        "en": "Water Recycling Rate",
+        "tr": "Su geri dönüşüm oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of process water that is treated and reused."
+        "en": "Percentage of process water that is treated and reused.",
+        "tr": "Arıtılıp yeniden kullanılan proses suyunun yüzdesi."
       }
     },
     {
@@ -131,10 +145,12 @@
       "max": 2,
       "businessContext": "Multiplier to account for seasonal variations (e.g., summer peak).",
       "label_i18n": {
-        "en": "Seasonal Adjustment Factor"
+        "en": "Seasonal Adjustment Factor",
+        "tr": "Mevsimsel ayarlama faktörü"
       },
       "businessContext_i18n": {
-        "en": "Multiplier to account for seasonal variations (e.g., summer peak)."
+        "en": "Multiplier to account for seasonal variations (e.g., summer peak).",
+        "tr": "Mevsimsel değişiklikleri hesaba katmak için çarpan (örn. yaz zirvesi)."
       }
     }
   ],

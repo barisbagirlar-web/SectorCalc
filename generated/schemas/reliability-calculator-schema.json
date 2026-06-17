@@ -10,11 +10,15 @@
       "businessContext": "The constant failure rate per component (λ) assuming exponential distribution.",
       "label_i18n": {
         "en": "Component Failure Rate",
-        "tr": "Component Failure Rate",
+        "tr": "Bileşen Arıza Oranı",
         "de": "Component Failure Rate",
         "fr": "Component Failure Rate",
         "es": "Component Failure Rate",
         "ar": "Component Failure Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The constant failure rate per component (λ) assuming exponential distribution.",
+        "tr": "Üstel dağılım varsayımıyla bileşen başına sabit arıza oranı (λ)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The duration for which the system must operate without failure.",
       "label_i18n": {
         "en": "Mission Time",
-        "tr": "Mission Time",
+        "tr": "Görev Süresi",
         "de": "Mission Time",
         "fr": "Mission Time",
         "es": "Mission Time",
         "ar": "Mission Time"
+      },
+      "businessContext_i18n": {
+        "en": "The duration for which the system must operate without failure.",
+        "tr": "Sistemin arızasız çalışması gereken süre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of identical components connected in series within each string.",
       "label_i18n": {
         "en": "Number of Components in Series",
-        "tr": "Number of Components in Series",
+        "tr": "Serideki Bileşen Sayısı",
         "de": "Number of Components in Series",
         "fr": "Number of Components in Series",
         "es": "Number of Components in Series",
         "ar": "Number of Components in Series"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical components connected in series within each string.",
+        "tr": "Her bir dizede seri bağlı özdeş bileşen sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical series strings operating in parallel (active redundancy).",
       "label_i18n": {
         "en": "Number of Parallel Strings",
-        "tr": "Number of Parallel Strings",
+        "tr": "Paralel Dize Sayısı",
         "de": "Number of Parallel Strings",
         "fr": "Number of Parallel Strings",
         "es": "Number of Parallel Strings",
         "ar": "Number of Parallel Strings"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical series strings operating in parallel (active redundancy).",
+        "tr": "Paralel çalışan (aktif yedekleme) özdeş seri dize sayısı."
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": null,
       "businessContext": "Raw measurements from process output, e.g., dimensions, weights, cycle times.",
       "label_i18n": {
-        "en": "Data Points (comma or space separated)"
+        "en": "Data Points (comma or space separated)",
+        "tr": "Veri Noktaları (virgül veya boşlukla ayrılmış)"
       },
       "businessContext_i18n": {
-        "en": "Raw measurements from process output, e.g., dimensions, weights, cycle times."
+        "en": "Raw measurements from process output, e.g., dimensions, weights, cycle times.",
+        "tr": "Süreç çıktısından alınan ham ölçümler, örn. boyutlar, ağırlıklar, çevrim süreleri."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000,
       "businessContext": "Number of observations in the sample. Must be at least 2 for standard deviation calculation.",
       "label_i18n": {
-        "en": "Sample Size (n)"
+        "en": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)"
       },
       "businessContext_i18n": {
-        "en": "Number of observations in the sample. Must be at least 2 for standard deviation calculation."
+        "en": "Number of observations in the sample. Must be at least 2 for standard deviation calculation.",
+        "tr": "Örneklemdeki gözlem sayısı. Standart sapma hesaplaması için en az 2 olmalıdır."
       }
     },
     {
@@ -55,10 +59,12 @@
       ],
       "businessContext": "Continuous data (e.g., length, time) vs discrete (e.g., count of defects). Affects interpretation.",
       "label_i18n": {
-        "en": "Data Type"
+        "en": "Data Type",
+        "tr": "Veri Türü"
       },
       "businessContext_i18n": {
-        "en": "Continuous data (e.g., length, time) vs discrete (e.g., count of defects). Affects interpretation."
+        "en": "Continuous data (e.g., length, time) vs discrete (e.g., count of defects). Affects interpretation.",
+        "tr": "Sürekli veri (örn. uzunluk, süre) vs ayrık (örn. kusur sayısı). Yorumlamayı etkiler."
       }
     },
     {
@@ -73,10 +79,12 @@
       ],
       "businessContext": "Select 'population' if data covers entire population (n=N), else 'sample' for Bessel's correction.",
       "label_i18n": {
-        "en": "Population or Sample?"
+        "en": "Population or Sample?",
+        "tr": "Popülasyon mu Örneklem mi?"
       },
       "businessContext_i18n": {
-        "en": "Select 'population' if data covers entire population (n=N), else 'sample' for Bessel's correction."
+        "en": "Select 'population' if data covers entire population (n=N), else 'sample' for Bessel's correction.",
+        "tr": "Veriler tüm popülasyonu kapsıyorsa 'popülasyon' (n=N), aksi halde Bessel düzeltmesi için 'örneklem' seçin."
       }
     },
     {
@@ -89,10 +97,12 @@
       "max": null,
       "businessContext": "Physical unit of the data points (e.g., mm, sec, kg). Used for output labeling.",
       "label_i18n": {
-        "en": "Unit of Measure"
+        "en": "Unit of Measure",
+        "tr": "Ölçü Birimi"
       },
       "businessContext_i18n": {
-        "en": "Physical unit of the data points (e.g., mm, sec, kg). Used for output labeling."
+        "en": "Physical unit of the data points (e.g., mm, sec, kg). Used for output labeling.",
+        "tr": "Veri noktalarının fiziksel birimi (örn. mm, sn, kg). Çıktı etiketlemesi için kullanılır."
       }
     },
     {
@@ -105,10 +115,12 @@
       "max": null,
       "businessContext": "Lower bound of acceptable process output per engineering specifications.",
       "label_i18n": {
-        "en": "Lower Specification Limit (LSL)"
+        "en": "Lower Specification Limit (LSL)",
+        "tr": "Alt Spesifikasyon Limiti (LSL)"
       },
       "businessContext_i18n": {
-        "en": "Lower bound of acceptable process output per engineering specifications."
+        "en": "Lower bound of acceptable process output per engineering specifications.",
+        "tr": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının alt sınırı."
       }
     },
     {
@@ -121,10 +133,12 @@
       "max": null,
       "businessContext": "Upper bound of acceptable process output per engineering specifications.",
       "label_i18n": {
-        "en": "Upper Specification Limit (USL)"
+        "en": "Upper Specification Limit (USL)",
+        "tr": "Üst Spesifikasyon Limiti (USL)"
       },
       "businessContext_i18n": {
-        "en": "Upper bound of acceptable process output per engineering specifications."
+        "en": "Upper bound of acceptable process output per engineering specifications.",
+        "tr": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının üst sınırı."
       }
     },
     {
@@ -137,10 +151,12 @@
       "max": null,
       "businessContext": "Ideal process target, often the midpoint of specification limits.",
       "label_i18n": {
-        "en": "Target Value (Nominal)"
+        "en": "Target Value (Nominal)",
+        "tr": "Hedef Değer (Nominal)"
       },
       "businessContext_i18n": {
-        "en": "Ideal process target, often the midpoint of specification limits."
+        "en": "Ideal process target, often the midpoint of specification limits.",
+        "tr": "İdeal süreç hedefi, genellikle spesifikasyon limitlerinin orta noktası."
       }
     }
   ],

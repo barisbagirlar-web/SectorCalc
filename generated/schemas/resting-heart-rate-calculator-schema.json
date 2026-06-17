@@ -10,11 +10,15 @@
       "businessContext": "Number of pulse beats counted over the measurement period.",
       "label_i18n": {
         "en": "Heartbeats Counted",
-        "tr": "Heartbeats Counted",
+        "tr": "Sayılan Kalp Atışı",
         "de": "Heartbeats Counted",
         "fr": "Heartbeats Counted",
         "es": "Heartbeats Counted",
         "ar": "Heartbeats Counted"
+      },
+      "businessContext_i18n": {
+        "en": "Number of pulse beats counted over the measurement period.",
+        "tr": "Ölçüm süresi boyunca sayılan nabız atım sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time in seconds over which the beats were counted.",
       "label_i18n": {
         "en": "Measurement Duration",
-        "tr": "Measurement Duration",
+        "tr": "Ölçüm Süresi",
         "de": "Measurement Duration",
         "fr": "Measurement Duration",
         "es": "Measurement Duration",
         "ar": "Measurement Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Time in seconds over which the beats were counted.",
+        "tr": "Atımların sayıldığı saniye cinsinden süre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age of the person for reference comparison.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the person for reference comparison.",
+        "tr": "Karşılaştırma referansı için kişinin yaşı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Self-assessed fitness level from 1 (sedentary) to 10 (elite athlete). Used for interpretation.",
       "label_i18n": {
         "en": "Fitness Level",
-        "tr": "Fitness Level",
+        "tr": "Fitness Seviyesi",
         "de": "Fitness Level",
         "fr": "Fitness Level",
         "es": "Fitness Level",
         "ar": "Fitness Level"
+      },
+      "businessContext_i18n": {
+        "en": "Self-assessed fitness level from 1 (sedentary) to 10 (elite athlete). Used for interpretation.",
+        "tr": "1 (hareketsiz) ile 10 (elit atlet) arasında kendini değerlendirilen fitness seviyesi. Yorumlama için kullanılır."
       }
     }
   ],

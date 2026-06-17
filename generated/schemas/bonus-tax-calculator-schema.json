@@ -10,11 +10,15 @@
       "businessContext": "The gross bonus amount before any tax deductions.",
       "label_i18n": {
         "en": "Bonus Amount",
-        "tr": "Bonus Amount",
+        "tr": "Bonus Tutarı",
         "de": "Bonus Amount",
         "fr": "Bonus Amount",
         "es": "Bonus Amount",
         "ar": "Bonus Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The gross bonus amount before any tax deductions.",
+        "tr": "Herhangi bir vergi kesintisinden önceki brüt bonus tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Federal income tax withholding rate applied to bonuses (percent).",
       "label_i18n": {
         "en": "Federal Tax Rate",
-        "tr": "Federal Tax Rate",
+        "tr": "Federal Vergi Oranı",
         "de": "Federal Tax Rate",
         "fr": "Federal Tax Rate",
         "es": "Federal Tax Rate",
         "ar": "Federal Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Federal income tax withholding rate applied to bonuses (percent).",
+        "tr": "İkramiyelere uygulanan federal gelir vergisi stopaj oranı (yüzde)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Social Security tax rate on bonuses (percent).",
       "label_i18n": {
         "en": "Social Security Rate",
-        "tr": "Social Security Rate",
+        "tr": "Sosyal Güvenlik Oranı",
         "de": "Social Security Rate",
         "fr": "Social Security Rate",
         "es": "Social Security Rate",
         "ar": "Social Security Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Social Security tax rate on bonuses (percent).",
+        "tr": "İkramiyelere uygulanan Sosyal Güvenlik vergi oranı (yüzde)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Medicare tax rate on bonuses (percent).",
       "label_i18n": {
         "en": "Medicare Rate",
-        "tr": "Medicare Rate",
+        "tr": "Medicare Oranı",
         "de": "Medicare Rate",
         "fr": "Medicare Rate",
         "es": "Medicare Rate",
         "ar": "Medicare Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Medicare tax rate on bonuses (percent).",
+        "tr": "İkramiyelere uygulanan Medicare vergi oranı (yüzde)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "State income tax withholding rate on bonuses (percent).",
       "label_i18n": {
         "en": "State Tax Rate",
-        "tr": "State Tax Rate",
+        "tr": "Eyalet Vergi Oranı",
         "de": "State Tax Rate",
         "fr": "State Tax Rate",
         "es": "State Tax Rate",
         "ar": "State Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "State income tax withholding rate on bonuses (percent).",
+        "tr": "İkramiyelere uygulanan eyalet gelir vergisi stopaj oranı (yüzde)."
       }
     }
   ],

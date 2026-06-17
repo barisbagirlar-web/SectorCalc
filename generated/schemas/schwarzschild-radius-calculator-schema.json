@@ -10,11 +10,15 @@
       "businessContext": "Mass of the object.",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the object.",
+        "tr": "Nesnenin kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Newton's gravitational constant.",
       "label_i18n": {
         "en": "Gravitational Constant",
-        "tr": "Gravitational Constant",
+        "tr": "Yerçekimi Sabiti",
         "de": "Gravitational Constant",
         "fr": "Gravitational Constant",
         "es": "Gravitational Constant",
         "ar": "Gravitational Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Newton's gravitational constant.",
+        "tr": "Newton'un yerçekimi sabiti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Speed of light in vacuum.",
       "label_i18n": {
         "en": "Speed of Light",
-        "tr": "Speed of Light",
+        "tr": "Işık Hızı",
         "de": "Speed of Light",
         "fr": "Speed of Light",
         "es": "Speed of Light",
         "ar": "Speed of Light"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of light in vacuum.",
+        "tr": "Işığın vakumdaki hızı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to convert meters to desired unit (e.g., 100 for cm, 0.001 for km).",
       "label_i18n": {
         "en": "Output Unit Factor",
-        "tr": "Output Unit Factor",
+        "tr": "Çıktı Birim Faktörü",
         "de": "Output Unit Factor",
         "fr": "Output Unit Factor",
         "es": "Output Unit Factor",
         "ar": "Output Unit Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to convert meters to desired unit (e.g., 100 for cm, 0.001 for km).",
+        "tr": "Metreyi istenen birime dönüştürmek için çarpan (ör. cm için 100, km için 0.001)."
       }
     }
   ],

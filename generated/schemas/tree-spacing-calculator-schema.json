@@ -10,11 +10,15 @@
       "businessContext": "The length of the rectangular field in meters.",
       "label_i18n": {
         "en": "Field Length",
-        "tr": "Field Length",
+        "tr": "Tarla Uzunluğu",
         "de": "Field Length",
         "fr": "Field Length",
         "es": "Field Length",
         "ar": "Field Length"
+      },
+      "businessContext_i18n": {
+        "en": "The length of the rectangular field in meters.",
+        "tr": "Dikdörtgen tarlanın metre cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The width of the rectangular field in meters.",
       "label_i18n": {
         "en": "Field Width",
-        "tr": "Field Width",
+        "tr": "Tarla Genişliği",
         "de": "Field Width",
         "fr": "Field Width",
         "es": "Field Width",
         "ar": "Field Width"
+      },
+      "businessContext_i18n": {
+        "en": "The width of the rectangular field in meters.",
+        "tr": "Dikdörtgen tarlanın metre cinsinden genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The distance between trees within the same row, in meters.",
       "label_i18n": {
         "en": "Tree Spacing (In-Row)",
-        "tr": "Tree Spacing (In-Row)",
+        "tr": "Sıra Arası Ağaç Mesafesi (m)",
         "de": "Tree Spacing (In-Row)",
         "fr": "Tree Spacing (In-Row)",
         "es": "Tree Spacing (In-Row)",
         "ar": "Tree Spacing (In-Row)"
+      },
+      "businessContext_i18n": {
+        "en": "The distance between trees within the same row, in meters.",
+        "tr": "Aynı sıradaki ağaçlar arasındaki metre cinsinden mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The distance between adjacent rows, in meters.",
       "label_i18n": {
         "en": "Row Spacing (Between Rows)",
-        "tr": "Row Spacing (Between Rows)",
+        "tr": "Sıra Arası Mesafe (m)",
         "de": "Row Spacing (Between Rows)",
         "fr": "Row Spacing (Between Rows)",
         "es": "Row Spacing (Between Rows)",
         "ar": "Row Spacing (Between Rows)"
+      },
+      "businessContext_i18n": {
+        "en": "The distance between adjacent rows, in meters.",
+        "tr": "Bitişik sıralar arasındaki metre cinsinden mesafe."
       }
     }
   ],

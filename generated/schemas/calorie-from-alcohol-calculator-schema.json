@@ -10,11 +10,15 @@
       "businessContext": "Volume of the alcoholic beverage per serving in milliliters.",
       "label_i18n": {
         "en": "Drink Volume (mL)",
-        "tr": "Drink Volume (mL)",
+        "tr": "İçecek Hacmi (mL)",
         "de": "Drink Volume (mL)",
         "fr": "Drink Volume (mL)",
         "es": "Drink Volume (mL)",
         "ar": "Drink Volume (mL)"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of the alcoholic beverage per serving in milliliters.",
+        "tr": "Porsiyon başına alkollü içeceğin mililitre cinsinden hacmi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "ABV percentage shown on the beverage label.",
       "label_i18n": {
         "en": "Alcohol by Volume (%)",
-        "tr": "Alcohol by Volume (%)",
+        "tr": "Alkol Oranı (%)",
         "de": "Alcohol by Volume (%)",
         "fr": "Alcohol by Volume (%)",
         "es": "Alcohol by Volume (%)",
         "ar": "Alcohol by Volume (%)"
+      },
+      "businessContext_i18n": {
+        "en": "ABV percentage shown on the beverage label.",
+        "tr": "İçecek etiketinde gösterilen alkol yüzdesi (ABV)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "How many servings or drinks consumed.",
       "label_i18n": {
         "en": "Number of Drinks",
-        "tr": "Number of Drinks",
+        "tr": "İçecek Sayısı",
         "de": "Number of Drinks",
         "fr": "Number of Drinks",
         "es": "Number of Drinks",
         "ar": "Number of Drinks"
+      },
+      "businessContext_i18n": {
+        "en": "How many servings or drinks consumed.",
+        "tr": "Kaç porsiyon veya içecek tüketildiği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard density of pure ethanol (0.8 g/mL).",
       "label_i18n": {
         "en": "Ethanol Density (g/mL)",
-        "tr": "Ethanol Density (g/mL)",
+        "tr": "Etanol Yoğunluğu (g/mL)",
         "de": "Ethanol Density (g/mL)",
         "fr": "Ethanol Density (g/mL)",
         "es": "Ethanol Density (g/mL)",
         "ar": "Ethanol Density (g/mL)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard density of pure ethanol (0.8 g/mL).",
+        "tr": "Saf etanolün standart yoğunluğu (0.8 g/mL)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Metabolizable energy per gram of alcohol (7 kcal/g).",
       "label_i18n": {
         "en": "Energy per Gram of Alcohol (kcal/g)",
-        "tr": "Energy per Gram of Alcohol (kcal/g)",
+        "tr": "Gram Alkol Başına Enerji (kcal/g)",
         "de": "Energy per Gram of Alcohol (kcal/g)",
         "fr": "Energy per Gram of Alcohol (kcal/g)",
         "es": "Energy per Gram of Alcohol (kcal/g)",
         "ar": "Energy per Gram of Alcohol (kcal/g)"
+      },
+      "businessContext_i18n": {
+        "en": "Metabolizable energy per gram of alcohol (7 kcal/g).",
+        "tr": "Alkolün gram başına metabolize edilebilir enerji (7 kcal/g)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Horizontal distance between outer walls, defines truss bottom chord length.",
       "label_i18n": {
         "en": "Building Width (Span)",
-        "tr": "Building Width (Span)",
+        "tr": "Bina Genişliği (Açıklık)",
         "de": "Building Width (Span)",
         "fr": "Building Width (Span)",
         "es": "Building Width (Span)",
         "ar": "Building Width (Span)"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal distance between outer walls, defines truss bottom chord length.",
+        "tr": "Dış duvarlar arasındaki yatay mesafe, kiriş alt kiriş uzunluğunu belirler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vertical height from top of wall plate to ridge peak, determines roof slope.",
       "label_i18n": {
         "en": "Roof Rise",
-        "tr": "Roof Rise",
+        "tr": "Çatı Yükseltisi",
         "de": "Roof Rise",
         "fr": "Roof Rise",
         "es": "Roof Rise",
         "ar": "Roof Rise"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical height from top of wall plate to ridge peak, determines roof slope.",
+        "tr": "Duvar levhasının üstünden mahya tepesine kadar dikey yükseklik, çatı eğimini belirler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Horizontal projection of roof beyond exterior wall, extends rafter length.",
       "label_i18n": {
         "en": "Eave Overhang",
-        "tr": "Eave Overhang",
+        "tr": "Saçak çıkıntısı",
         "de": "Eave Overhang",
         "fr": "Eave Overhang",
         "es": "Eave Overhang",
         "ar": "Eave Overhang"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal projection of roof beyond exterior wall, extends rafter length.",
+        "tr": "Çatının dış duvarın ötesindeki yatay çıkıntısı, kiriş uzunluğunu uzatır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Building length along ridge direction, used with spacing to calculate total truss quantity.",
       "label_i18n": {
         "en": "Building Length",
-        "tr": "Building Length",
+        "tr": "Bina Uzunluğu",
         "de": "Building Length",
         "fr": "Building Length",
         "es": "Building Length",
         "ar": "Building Length"
+      },
+      "businessContext_i18n": {
+        "en": "Building length along ridge direction, used with spacing to calculate total truss quantity.",
+        "tr": "Mahya yönünde bina uzunluğu, toplam kiriş miktarını hesaplamak için aralıkla birlikte kullanılır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Center-to-center distance between consecutive trusses, typical range 0.4–1.2 m.",
       "label_i18n": {
         "en": "Truss Spacing",
-        "tr": "Truss Spacing",
+        "tr": "Kiriş Aralığı",
         "de": "Truss Spacing",
         "fr": "Truss Spacing",
         "es": "Truss Spacing",
         "ar": "Truss Spacing"
+      },
+      "businessContext_i18n": {
+        "en": "Center-to-center distance between consecutive trusses, typical range 0.4–1.2 m.",
+        "tr": "Ardışık kirişler arasındaki merkezden merkeze mesafe, tipik aralık 0.4–1.2 m."
       }
     }
   ],

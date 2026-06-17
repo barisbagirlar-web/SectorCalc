@@ -21,10 +21,12 @@
       "max": 1000000,
       "businessContext": "Primary input for logarithmic calculation. Represents throughput, defect count, or signal amplitude.",
       "label_i18n": {
-        "en": "Value X (operand)"
+        "en": "Value X (operand)",
+        "tr": "Değer X (işlenen)"
       },
       "businessContext_i18n": {
-        "en": "Primary input for logarithmic calculation. Represents throughput, defect count, or signal amplitude."
+        "en": "Primary input for logarithmic calculation. Represents throughput, defect count, or signal amplitude.",
+        "tr": "Logaritmik hesaplama için birincil girdi. Verim, hata sayısı veya sinyal genliğini temsil eder."
       }
     },
     {
@@ -42,10 +44,12 @@
       ],
       "businessContext": "Select logarithmic base per application: base 2 for binary entropy, base e for continuous processes, base 10 for decibel and pH scales.",
       "label_i18n": {
-        "en": "Logarithm Base"
+        "en": "Logarithm Base",
+        "tr": "Logaritma Tabanı"
       },
       "businessContext_i18n": {
-        "en": "Select logarithmic base per application: base 2 for binary entropy, base e for continuous processes, base 10 for decibel and pH scales."
+        "en": "Select logarithmic base per application: base 2 for binary entropy, base e for continuous processes, base 10 for decibel and pH scales.",
+        "tr": "Uygulamaya göre logaritma tabanını seçin: ikili entropi için taban 2, sürekli süreçler için taban e, desibel ve pH ölçekleri için taban 10."
       }
     },
     {
@@ -63,10 +67,12 @@
       ],
       "businessContext": "Select unit type to apply correct scaling for decibel calculations in acoustics, electronics, or vibration analysis.",
       "label_i18n": {
-        "en": "Unit Type"
+        "en": "Unit Type",
+        "tr": "Birim Türü"
       },
       "businessContext_i18n": {
-        "en": "Select unit type to apply correct scaling for decibel calculations in acoustics, electronics, or vibration analysis."
+        "en": "Select unit type to apply correct scaling for decibel calculations in acoustics, electronics, or vibration analysis.",
+        "tr": "Akustik, elektronik veya titreşim analizinde desibel hesaplamaları için doğru ölçeklendirmeyi uygulamak üzere birim türünü seçin."
       }
     },
     {
@@ -79,10 +85,12 @@
       "max": 1000000,
       "businessContext": "Reference baseline for ratio-based logarithmic calculations (e.g., reference power, reference amplitude).",
       "label_i18n": {
-        "en": "Reference Value (for ratio)"
+        "en": "Reference Value (for ratio)",
+        "tr": "Referans Değeri (oran için)"
       },
       "businessContext_i18n": {
-        "en": "Reference baseline for ratio-based logarithmic calculations (e.g., reference power, reference amplitude)."
+        "en": "Reference baseline for ratio-based logarithmic calculations (e.g., reference power, reference amplitude).",
+        "tr": "Oran bazlı logaritmik hesaplamalar için referans taban çizgisi (ör. referans güç, referans genlik)."
       }
     },
     {
@@ -95,10 +103,12 @@
       "max": null,
       "businessContext": "Toggle to activate automated alerts when logarithmic results exceed predefined industrial thresholds.",
       "label_i18n": {
-        "en": "Enable Threshold Alerts"
+        "en": "Enable Threshold Alerts",
+        "tr": "Eşik Uyarılarını Etkinleştir"
       },
       "businessContext_i18n": {
-        "en": "Toggle to activate automated alerts when logarithmic results exceed predefined industrial thresholds."
+        "en": "Toggle to activate automated alerts when logarithmic results exceed predefined industrial thresholds.",
+        "tr": "Logaritmik sonuçlar önceden tanımlanmış endüstriyel eşikleri aştığında otomatik uyarıları etkinleştirmek için geçiş yapın."
       }
     }
   ],

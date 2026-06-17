@@ -21,10 +21,12 @@
       "max": 10000000,
       "businessContext": "Total fabric produced per month, used as baseline for waste ratio calculations.",
       "label_i18n": {
-        "en": "Monthly Production Volume (meters)"
+        "en": "Monthly Production Volume (meters)",
+        "tr": "Aylık Üretim Hacmi (metre)"
       },
       "businessContext_i18n": {
-        "en": "Total fabric produced per month, used as baseline for waste ratio calculations."
+        "en": "Total fabric produced per month, used as baseline for waste ratio calculations.",
+        "tr": "Aylık üretilen toplam kumaş, atık oranı hesaplamaları için temel oluşturur."
       }
     },
     {
@@ -44,10 +46,12 @@
       ],
       "businessContext": "Different fabric types have distinct waste generation profiles and recycling potential.",
       "label_i18n": {
-        "en": "Fabric Type"
+        "en": "Fabric Type",
+        "tr": "Kumaş Türü"
       },
       "businessContext_i18n": {
-        "en": "Different fabric types have distinct waste generation profiles and recycling potential."
+        "en": "Different fabric types have distinct waste generation profiles and recycling potential.",
+        "tr": "Farklı kumaş türleri, farklı atık oluşum profillerine ve geri dönüşüm potansiyeline sahiptir."
       }
     },
     {
@@ -60,10 +64,12 @@
       "max": 100,
       "businessContext": "Measured waste as a percentage of total production, including cutting, sewing, and finishing losses.",
       "label_i18n": {
-        "en": "Current Waste Percentage (%)"
+        "en": "Current Waste Percentage (%)",
+        "tr": "Mevcut Atık Yüzdesi (%)"
       },
       "businessContext_i18n": {
-        "en": "Measured waste as a percentage of total production, including cutting, sewing, and finishing losses."
+        "en": "Measured waste as a percentage of total production, including cutting, sewing, and finishing losses.",
+        "tr": "Kesim, dikim ve bitirme kayıpları dahil olmak üzere toplam üretimin yüzdesi olarak ölçülen atık."
       }
     },
     {
@@ -76,10 +82,12 @@
       "max": 100,
       "businessContext": "Percentage of products requiring rework, a key Lean Six Sigma metric for process efficiency.",
       "label_i18n": {
-        "en": "Rework Rate (%)"
+        "en": "Rework Rate (%)",
+        "tr": "Yeniden İşleme Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of products requiring rework, a key Lean Six Sigma metric for process efficiency."
+        "en": "Percentage of products requiring rework, a key Lean Six Sigma metric for process efficiency.",
+        "tr": "Yeniden işleme gerektiren ürünlerin yüzdesi, proses verimliliği için temel bir Yalın Altı Sigma metriğidir."
       }
     },
     {
@@ -92,10 +100,12 @@
       "max": 1000,
       "businessContext": "Number of defects per 1000 meters of fabric, critical for quality control.",
       "label_i18n": {
-        "en": "Defect Density (defects per 1000 meters)"
+        "en": "Defect Density (defects per 1000 meters)",
+        "tr": "Kusur Yoğunluğu (1000 metrede kusur sayısı)"
       },
       "businessContext_i18n": {
-        "en": "Number of defects per 1000 meters of fabric, critical for quality control."
+        "en": "Number of defects per 1000 meters of fabric, critical for quality control.",
+        "tr": "1000 metre kumaş başına düşen kusur sayısı, kalite kontrol için kritiktir."
       }
     },
     {
@@ -108,10 +118,12 @@
       "max": 1,
       "businessContext": "Average electricity cost, used to calculate energy waste from inefficient processes.",
       "label_i18n": {
-        "en": "Energy Cost ($/kWh)"
+        "en": "Energy Cost ($/kWh)",
+        "tr": "Enerji Maliyeti ($/kWh)"
       },
       "businessContext_i18n": {
-        "en": "Average electricity cost, used to calculate energy waste from inefficient processes."
+        "en": "Average electricity cost, used to calculate energy waste from inefficient processes.",
+        "tr": "Ortalama elektrik maliyeti, verimsiz proseslerden kaynaklanan enerji atığını hesaplamak için kullanılır."
       }
     },
     {
@@ -124,10 +136,12 @@
       "max": 100,
       "businessContext": "Average hourly wage, used to quantify labor waste from rework and idle time.",
       "label_i18n": {
-        "en": "Labor Cost ($/hour)"
+        "en": "Labor Cost ($/hour)",
+        "tr": "İşçilik Maliyeti ($/saat)"
       },
       "businessContext_i18n": {
-        "en": "Average hourly wage, used to quantify labor waste from rework and idle time."
+        "en": "Average hourly wage, used to quantify labor waste from rework and idle time.",
+        "tr": "Ortalama saatlik ücret, yeniden işleme ve boşta geçen süreden kaynaklanan işgücü atığını ölçmek için kullanılır."
       }
     },
     {
@@ -146,10 +160,12 @@
       ],
       "businessContext": "Current ability to recycle waste fabric, affecting waste disposal cost and environmental impact.",
       "label_i18n": {
-        "en": "Recycling Capability"
+        "en": "Recycling Capability",
+        "tr": "Geri Dönüşüm Kapasitesi"
       },
       "businessContext_i18n": {
-        "en": "Current ability to recycle waste fabric, affecting waste disposal cost and environmental impact."
+        "en": "Current ability to recycle waste fabric, affecting waste disposal cost and environmental impact.",
+        "tr": "Atık kumaşı geri dönüştürme konusundaki mevcut yetenek; atık bertaraf maliyetini ve çevresel etkiyi etkiler."
       }
     }
   ],

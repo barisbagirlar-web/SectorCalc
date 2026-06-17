@@ -21,10 +21,12 @@
       "max": 50,
       "businessContext": "Average daily feed consumption per animal, based on species and growth stage.",
       "label_i18n": {
-        "en": "Daily feed intake per animal (kg)"
+        "en": "Daily feed intake per animal (kg)",
+        "tr": "Hayvan başına günlük yem alımı (kg)"
       },
       "businessContext_i18n": {
-        "en": "Average daily feed consumption per animal, based on species and growth stage."
+        "en": "Average daily feed consumption per animal, based on species and growth stage.",
+        "tr": "Tür ve büyüme aşamasına göre hayvan başına ortalama günlük yem tüketimi."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 5,
       "businessContext": "Cost of primary feed ingredients (corn, soybean meal, etc.) per kilogram.",
       "label_i18n": {
-        "en": "Raw material cost per kg"
+        "en": "Raw material cost per kg",
+        "tr": "Hammadde maliyeti (kg başına)"
       },
       "businessContext_i18n": {
-        "en": "Cost of primary feed ingredients (corn, soybean meal, etc.) per kilogram."
+        "en": "Cost of primary feed ingredients (corn, soybean meal, etc.) per kilogram.",
+        "tr": "Temel yem bileşenlerinin (mısır, soya küspesi vb.) kilogram başına maliyeti."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 15,
       "businessContext": "Percentage of raw material lost during milling, mixing, pelleting, or storage.",
       "label_i18n": {
-        "en": "Processing loss (%)"
+        "en": "Processing loss (%)",
+        "tr": "İşleme kaybı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of raw material lost during milling, mixing, pelleting, or storage."
+        "en": "Percentage of raw material lost during milling, mixing, pelleting, or storage.",
+        "tr": "Öğütme, karıştırma, peletleme veya depolama sırasında kaybedilen hammadde yüzdesi."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 1.15,
       "businessContext": "Correction factor for moisture content variation in raw materials (1.0 = standard).",
       "label_i18n": {
-        "en": "Moisture adjustment factor"
+        "en": "Moisture adjustment factor",
+        "tr": "Nem ayarlama faktörü"
       },
       "businessContext_i18n": {
-        "en": "Correction factor for moisture content variation in raw materials (1.0 = standard)."
+        "en": "Correction factor for moisture content variation in raw materials (1.0 = standard).",
+        "tr": "Hammaddelerdeki nem içeriği değişimi için düzeltme faktörü (1.0 = standart)."
       }
     },
     {
@@ -90,10 +98,12 @@
         "economy"
       ],
       "label_i18n": {
-        "en": "Quality grade"
+        "en": "Quality grade",
+        "tr": "Kalite sınıfı"
       },
       "businessContext_i18n": {
-        "en": "Grade of feed based on nutrient density and consistency (premium, standard, economy)."
+        "en": "Grade of feed based on nutrient density and consistency (premium, standard, economy).",
+        "tr": "Besin yoğunluğu ve tutarlılığına göre yem sınıfı (premium, standart, ekonomi)."
       }
     },
     {
@@ -106,10 +116,12 @@
       "max": null,
       "businessContext": "If true, adds a fixed transport surcharge per kg of feed.",
       "label_i18n": {
-        "en": "Include transport cost?"
+        "en": "Include transport cost?",
+        "tr": "Nakliye maliyeti dahil mi?"
       },
       "businessContext_i18n": {
-        "en": "If true, adds a fixed transport surcharge per kg of feed."
+        "en": "If true, adds a fixed transport surcharge per kg of feed.",
+        "tr": "Evet ise, kg yem başına sabit bir nakliye ek ücreti ekler."
       }
     }
   ],

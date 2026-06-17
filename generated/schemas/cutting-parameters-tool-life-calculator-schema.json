@@ -21,10 +21,12 @@
       "max": 500,
       "businessContext": "Surface speed of the workpiece relative to the cutting tool, based on ISO 3685.",
       "label_i18n": {
-        "en": "Cutting Speed"
+        "en": "Cutting Speed",
+        "tr": "Kesme Hızı"
       },
       "businessContext_i18n": {
-        "en": "Surface speed of the workpiece relative to the cutting tool, based on ISO 3685."
+        "en": "Surface speed of the workpiece relative to the cutting tool, based on ISO 3685.",
+        "tr": "İş parçasının kesici takıma göre yüzey hızı, ISO 3685'e dayanır."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 1,
       "businessContext": "Linear distance the tool advances per revolution, affects chip load and tool wear.",
       "label_i18n": {
-        "en": "Feed Rate"
+        "en": "Feed Rate",
+        "tr": "İlerleme Hızı"
       },
       "businessContext_i18n": {
-        "en": "Linear distance the tool advances per revolution, affects chip load and tool wear."
+        "en": "Linear distance the tool advances per revolution, affects chip load and tool wear.",
+        "tr": "Takımın devir başına ilerlediği doğrusal mesafe, talaş yükünü ve takım aşınmasını etkiler."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10,
       "businessContext": "Radial or axial engagement of the tool, influences cutting forces and heat generation.",
       "label_i18n": {
-        "en": "Depth of Cut"
+        "en": "Depth of Cut",
+        "tr": "Kesme Derinliği"
       },
       "businessContext_i18n": {
-        "en": "Radial or axial engagement of the tool, influences cutting forces and heat generation."
+        "en": "Radial or axial engagement of the tool, influences cutting forces and heat generation.",
+        "tr": "Takımın radyal veya eksenel teması, kesme kuvvetlerini ve ısı oluşumunu etkiler."
       }
     },
     {
@@ -76,10 +82,12 @@
         "diamond"
       ],
       "label_i18n": {
-        "en": "Tool Material"
+        "en": "Tool Material",
+        "tr": "Takım Malzemesi"
       },
       "businessContext_i18n": {
-        "en": "Material of the cutting tool, affects wear resistance and optimal cutting parameters."
+        "en": "Material of the cutting tool, affects wear resistance and optimal cutting parameters.",
+        "tr": "Kesici takımın malzemesi, aşınma direncini ve optimum kesme parametrelerini etkiler."
       }
     },
     {
@@ -100,10 +108,12 @@
         "superalloy"
       ],
       "label_i18n": {
-        "en": "Workpiece Material"
+        "en": "Workpiece Material",
+        "tr": "İş Parçası Malzemesi"
       },
       "businessContext_i18n": {
-        "en": "Material being machined, determines machinability rating and recommended speeds."
+        "en": "Material being machined, determines machinability rating and recommended speeds.",
+        "tr": "İşlenen malzeme, işlenebilirlik derecesini ve önerilen hızları belirler."
       }
     },
     {
@@ -116,10 +126,12 @@
       "max": null,
       "businessContext": "Indicates if coolant is applied, reduces thermal stress and extends tool life.",
       "label_i18n": {
-        "en": "Coolant Used"
+        "en": "Coolant Used",
+        "tr": "Kullanılan Soğutma Sıvısı"
       },
       "businessContext_i18n": {
-        "en": "Indicates if coolant is applied, reduces thermal stress and extends tool life."
+        "en": "Indicates if coolant is applied, reduces thermal stress and extends tool life.",
+        "tr": "Soğutma sıvısının uygulanıp uygulanmadığını belirtir, termal stresi azaltır ve takım ömrünü uzatır."
       }
     },
     {
@@ -132,10 +144,12 @@
       "max": 1.5,
       "businessContext": "Factor representing machine rigidity and vibration damping, based on condition monitoring data.",
       "label_i18n": {
-        "en": "Machine Stability Factor"
+        "en": "Machine Stability Factor",
+        "tr": "Makine Stabilite Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Factor representing machine rigidity and vibration damping, based on condition monitoring data."
+        "en": "Factor representing machine rigidity and vibration damping, based on condition monitoring data.",
+        "tr": "Makine rijitliğini ve titreşim sönümlemesini temsil eden faktör, durum izleme verilerine dayanır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Measured radiative flux of the celestial object",
       "label_i18n": {
         "en": "Object Flux",
-        "tr": "Object Flux",
+        "tr": "Nesne Akısı",
         "de": "Object Flux",
         "fr": "Object Flux",
         "es": "Object Flux",
         "ar": "Object Flux"
+      },
+      "businessContext_i18n": {
+        "en": "Measured radiative flux of the celestial object",
+        "tr": "Gök cisminin ölçülen ışınım akısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Flux corresponding to magnitude zero point",
       "label_i18n": {
         "en": "Reference Flux",
-        "tr": "Reference Flux",
+        "tr": "Referans Akısı",
         "de": "Reference Flux",
         "fr": "Reference Flux",
         "es": "Reference Flux",
         "ar": "Reference Flux"
+      },
+      "businessContext_i18n": {
+        "en": "Flux corresponding to magnitude zero point",
+        "tr": "Sıfır noktası büyüklüğüne karşılık gelen akı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Offset to align with a specific magnitude system",
       "label_i18n": {
         "en": "Zero Point Correction",
-        "tr": "Zero Point Correction",
+        "tr": "Sıfır Noktası Düzeltmesi",
         "de": "Zero Point Correction",
         "fr": "Zero Point Correction",
         "es": "Zero Point Correction",
         "ar": "Zero Point Correction"
+      },
+      "businessContext_i18n": {
+        "en": "Offset to align with a specific magnitude system",
+        "tr": "Belirli bir büyüklük sistemiyle uyum sağlamak için ofset"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Dimming due to interstellar dust (positive value reduces brightness)",
       "label_i18n": {
         "en": "Extinction",
-        "tr": "Extinction",
+        "tr": "Sönümleme",
         "de": "Extinction",
         "fr": "Extinction",
         "es": "Extinction",
         "ar": "Extinction"
+      },
+      "businessContext_i18n": {
+        "en": "Dimming due to interstellar dust (positive value reduces brightness)",
+        "tr": "Yıldızlararası toz nedeniyle kararma (pozitif değer parlaklığı azaltır)"
       }
     }
   ],

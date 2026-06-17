@@ -10,11 +10,15 @@
       "businessContext": "Enter 0 for male, 1 for female",
       "label_i18n": {
         "en": "Sex (0=Male, 1=Female)",
-        "tr": "Sex (0=Male, 1=Female)",
+        "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
         "de": "Sex (0=Male, 1=Female)",
         "fr": "Sex (0=Male, 1=Female)",
         "es": "Sex (0=Male, 1=Female)",
         "ar": "Sex (0=Male, 1=Female)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter 0 for male, 1 for female",
+        "tr": "Erkek için 0, kadın için 1 girin"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age in completed months",
       "label_i18n": {
         "en": "Age (months)",
-        "tr": "Age (months)",
+        "tr": "Yaş (ay)",
         "de": "Age (months)",
         "fr": "Age (months)",
         "es": "Age (months)",
         "ar": "Age (months)"
+      },
+      "businessContext_i18n": {
+        "en": "Age in completed months",
+        "tr": "Tamamlanmış ay cinsinden yaş"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Recumbent length for infants under 2 years",
       "label_i18n": {
         "en": "Height (Length)",
-        "tr": "Height (Length)",
+        "tr": "Boy (Uzunluk)",
         "de": "Height (Length)",
         "fr": "Height (Length)",
         "es": "Height (Length)",
         "ar": "Height (Length)"
+      },
+      "businessContext_i18n": {
+        "en": "Recumbent length for infants under 2 years",
+        "tr": "2 yaş altı bebekler için sırtüstü boy"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Skewness parameter from WHO growth standards for given age and sex",
       "label_i18n": {
         "en": "L (Box-Cox power)",
-        "tr": "L (Box-Cox power)",
+        "tr": "L (Box-Cox gücü)",
         "de": "L (Box-Cox power)",
         "fr": "L (Box-Cox power)",
         "es": "L (Box-Cox power)",
         "ar": "L (Box-Cox power)"
+      },
+      "businessContext_i18n": {
+        "en": "Skewness parameter from WHO growth standards for given age and sex",
+        "tr": "WHO büyüme standartlarına göre belirli yaş ve cinsiyet için çarpıklık parametresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Median height for given age and sex from reference growth chart",
       "label_i18n": {
         "en": "M (Median)",
-        "tr": "M (Median)",
+        "tr": "M (Medyan)",
         "de": "M (Median)",
         "fr": "M (Median)",
         "es": "M (Median)",
         "ar": "M (Median)"
+      },
+      "businessContext_i18n": {
+        "en": "Median height for given age and sex from reference growth chart",
+        "tr": "Referans büyüme tablosundan belirli yaş ve cinsiyet için medyan boy"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Coefficient of variation from WHO growth standards",
       "label_i18n": {
         "en": "S (Coefficient of variation)",
-        "tr": "S (Coefficient of variation)",
+        "tr": "S (Değişim katsayısı)",
         "de": "S (Coefficient of variation)",
         "fr": "S (Coefficient of variation)",
         "es": "S (Coefficient of variation)",
         "ar": "S (Coefficient of variation)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of variation from WHO growth standards",
+        "tr": "WHO büyüme standartlarından değişim katsayısı"
       }
     }
   ],

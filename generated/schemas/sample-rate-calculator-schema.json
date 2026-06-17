@@ -10,11 +10,15 @@
       "businessContext": "Total number of items in the batch or population to inspect.",
       "label_i18n": {
         "en": "Population Size (N)",
-        "tr": "Population Size (N)",
+        "tr": "Popülasyon Büyüklüğü (N)",
         "de": "Population Size (N)",
         "fr": "Population Size (N)",
         "es": "Population Size (N)",
         "ar": "Population Size (N)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of items in the batch or population to inspect.",
+        "tr": "Parti veya popülasyonda incelenecek toplam öğe sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Z-score corresponding to desired confidence level (e.g., 1.96 for 95% confidence).",
       "label_i18n": {
         "en": "Z-Score",
-        "tr": "Z-Score",
+        "tr": "Z-Skoru",
         "de": "Z-Score",
         "fr": "Z-Score",
         "es": "Z-Score",
         "ar": "Z-Score"
+      },
+      "businessContext_i18n": {
+        "en": "Z-score corresponding to desired confidence level (e.g., 1.96 for 95% confidence).",
+        "tr": "İstenen güven düzeyine karşılık gelen Z-skoru (ör. %95 güven için 1,96)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Acceptable margin of error as a percentage (e.g., 5 for ±5%). Note: input as percentage, e.g., 5 means 5%.",
       "label_i18n": {
         "en": "Margin of Error (E)",
-        "tr": "Margin of Error (E)",
+        "tr": "Hata Payı (E)",
         "de": "Margin of Error (E)",
         "fr": "Margin of Error (E)",
         "es": "Margin of Error (E)",
         "ar": "Margin of Error (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceptable margin of error as a percentage (e.g., 5 for ±5%). Note: input as percentage, e.g., 5 means 5%.",
+        "tr": "Yüzde olarak kabul edilebilir hata payı (ör. ±%5 için 5). Not: yüzde olarak girin, örn. 5, %5 anlamına gelir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated proportion of the characteristic in the population. Use 0.5 for maximum variability.",
       "label_i18n": {
         "en": "Estimated Proportion (p)",
-        "tr": "Estimated Proportion (p)",
+        "tr": "Tahmini Oran (p)",
         "de": "Estimated Proportion (p)",
         "fr": "Estimated Proportion (p)",
         "es": "Estimated Proportion (p)",
         "ar": "Estimated Proportion (p)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated proportion of the characteristic in the population. Use 0.5 for maximum variability.",
+        "tr": "Popülasyondaki karakteristiğin tahmini oranı. Maksimum değişkenlik için 0,5 kullanın."
       }
     }
   ],

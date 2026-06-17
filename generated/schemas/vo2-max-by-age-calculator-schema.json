@@ -10,11 +10,15 @@
       "businessContext": "Client age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Client age in years",
+        "tr": "Müşteri yaşı (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Client body weight in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Client body weight in kilograms",
+        "tr": "Müşteri vücut ağırlığı (kg)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Client gender (0 = Female, 1 = Male)",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Client gender (0 = Female, 1 = Male)",
+        "tr": "Müşteri cinsiyeti (0 = Kadın, 1 = Erkek)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time to walk 1 mile (1609 meters) on a flat track, in minutes",
       "label_i18n": {
         "en": "Walk Time",
-        "tr": "Walk Time",
+        "tr": "Yürüme Süresi",
         "de": "Walk Time",
         "fr": "Walk Time",
         "es": "Walk Time",
         "ar": "Walk Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time to walk 1 mile (1609 meters) on a flat track, in minutes",
+        "tr": "Düz bir parkurda 1 mil (1609 metre) yürüme süresi (dakika)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Heart rate immediately after the 1-mile walk, in beats per minute",
       "label_i18n": {
         "en": "Heart Rate",
-        "tr": "Heart Rate",
+        "tr": "Kalp Atış Hızı",
         "de": "Heart Rate",
         "fr": "Heart Rate",
         "es": "Heart Rate",
         "ar": "Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Heart rate immediately after the 1-mile walk, in beats per minute",
+        "tr": "1 mil yürüyüşten hemen sonraki kalp atış hızı (atım/dakika)"
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 24,
       "businessContext": "Total scheduled shift time in hours. Standard shifts are 8 or 12 hours.",
       "label_i18n": {
-        "en": "Shift Duration (hours)"
+        "en": "Shift Duration (hours)",
+        "tr": "Vardiya süresi (saat)"
       },
       "businessContext_i18n": {
-        "en": "Total scheduled shift time in hours. Standard shifts are 8 or 12 hours."
+        "en": "Total scheduled shift time in hours. Standard shifts are 8 or 12 hours.",
+        "tr": "Toplam planlanan vardiya süresi saat cinsinden. Standart vardiyalar 8 veya 12 saattir."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100000,
       "businessContext": "Total good units produced during the shift, including reworked units.",
       "label_i18n": {
-        "en": "Total Units Produced"
+        "en": "Total Units Produced",
+        "tr": "Toplam Üretilen Birim"
       },
       "businessContext_i18n": {
-        "en": "Total good units produced during the shift, including reworked units."
+        "en": "Total good units produced during the shift, including reworked units.",
+        "tr": "Vardiya boyunca üretilen, yeniden işlenen birimler dahil toplam iyi birim."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 100000,
       "businessContext": "Units that failed quality inspection and are not reworkable.",
       "label_i18n": {
-        "en": "Defective Units"
+        "en": "Defective Units",
+        "tr": "Hatalı Birimler"
       },
       "businessContext_i18n": {
-        "en": "Units that failed quality inspection and are not reworkable."
+        "en": "Units that failed quality inspection and are not reworkable.",
+        "tr": "Kalite kontrolünden geçemeyen ve yeniden işlenemeyen birimler."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100000,
       "businessContext": "Units that required rework to meet quality standards.",
       "label_i18n": {
-        "en": "Rework Units"
+        "en": "Rework Units",
+        "tr": "Yeniden İşleme Birimleri"
       },
       "businessContext_i18n": {
-        "en": "Units that required rework to meet quality standards."
+        "en": "Units that required rework to meet quality standards.",
+        "tr": "Kalite standartlarını karşılamak için yeniden işlenmesi gereken birimler."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 200,
       "businessContext": "Average fully loaded labor cost per operator per hour.",
       "label_i18n": {
-        "en": "Labor Cost per Hour"
+        "en": "Labor Cost per Hour",
+        "tr": "Saatlik işçilik maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Average fully loaded labor cost per operator per hour."
+        "en": "Average fully loaded labor cost per operator per hour.",
+        "tr": "Operatör başına saatlik ortalama tam yüklü işçilik maliyeti."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Total operators assigned to the shift.",
       "label_i18n": {
-        "en": "Number of Operators"
+        "en": "Number of Operators",
+        "tr": "Operatör Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total operators assigned to the shift."
+        "en": "Total operators assigned to the shift.",
+        "tr": "Vardiyaya atanan toplam operatör sayısı."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 1000,
       "businessContext": "Direct material cost per unit produced.",
       "label_i18n": {
-        "en": "Material Cost per Unit"
+        "en": "Material Cost per Unit",
+        "tr": "Birim Başına Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct material cost per unit produced."
+        "en": "Direct material cost per unit produced.",
+        "tr": "Üretilen birim başına doğrudan malzeme maliyeti."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 100000,
       "businessContext": "Total energy cost (electricity, gas, etc.) for the shift.",
       "label_i18n": {
-        "en": "Energy Cost per Shift"
+        "en": "Energy Cost per Shift",
+        "tr": "Vardiya Başına Enerji Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total energy cost (electricity, gas, etc.) for the shift."
+        "en": "Total energy cost (electricity, gas, etc.) for the shift.",
+        "tr": "Vardiya için toplam enerji maliyeti (elektrik, gaz vb.)."
       }
     }
   ],

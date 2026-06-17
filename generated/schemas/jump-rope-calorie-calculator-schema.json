@@ -10,11 +10,15 @@
       "businessContext": "User's body weight in kilograms. Used to compute energy expenditure.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight in kilograms. Used to compute energy expenditure.",
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı. Enerji harcamasını hesaplamak için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total time spent jumping rope in minutes.",
       "label_i18n": {
         "en": "Duration",
-        "tr": "Duration",
+        "tr": "Süre",
         "de": "Duration",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Total time spent jumping rope in minutes.",
+        "tr": "İp atlamada geçen toplam süre (dakika)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average number of rope skips per minute. Influences intensity (MET).",
       "label_i18n": {
         "en": "Jumps per Minute",
-        "tr": "Jumps per Minute",
+        "tr": "Dakikadaki Zıplama Sayısı",
         "de": "Jumps per Minute",
         "fr": "Jumps per Minute",
         "es": "Jumps per Minute",
         "ar": "Jumps per Minute"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of rope skips per minute. Influences intensity (MET).",
+        "tr": "Dakika başına ortalama ip atlama sayısı. Yoğunluğu (MET) etkiler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Individual fitness variation multiplier (1.0 = average, >1 = higher calorie burn).",
       "label_i18n": {
         "en": "Efficiency Factor",
-        "tr": "Efficiency Factor",
+        "tr": "Verimlilik Faktörü",
         "de": "Efficiency Factor",
         "fr": "Efficiency Factor",
         "es": "Efficiency Factor",
         "ar": "Efficiency Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Individual fitness variation multiplier (1.0 = average, >1 = higher calorie burn).",
+        "tr": "Bireysel fitness değişim çarpanı (1.0 = ortalama, >1 = daha yüksek kalori yakımı)."
       }
     }
   ],

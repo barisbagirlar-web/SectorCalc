@@ -10,11 +10,15 @@
       "businessContext": "The total resources owned by the company, including both current and non-current assets.",
       "label_i18n": {
         "en": "Total Assets",
-        "tr": "Total Assets",
+        "tr": "Toplam Varlıklar",
         "de": "Total Assets",
         "fr": "Total Assets",
         "es": "Total Assets",
         "ar": "Total Assets"
+      },
+      "businessContext_i18n": {
+        "en": "The total resources owned by the company, including both current and non-current assets.",
+        "tr": "Şirketin sahip olduğu, dönen ve duran varlıklar dahil toplam kaynaklar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Borrowings and financial obligations due after one year.",
       "label_i18n": {
         "en": "Long-Term Debt",
-        "tr": "Long-Term Debt",
+        "tr": "Uzun Vadeli Borç",
         "de": "Long-Term Debt",
         "fr": "Long-Term Debt",
         "es": "Long-Term Debt",
         "ar": "Long-Term Debt"
+      },
+      "businessContext_i18n": {
+        "en": "Borrowings and financial obligations due after one year.",
+        "tr": "Bir yıldan sonra vadesi gelen borçlanmalar ve finansal yükümlülükler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Short-term obligations due within one year, such as accounts payable and accruals.",
       "label_i18n": {
         "en": "Current Liabilities",
-        "tr": "Current Liabilities",
+        "tr": "Kısa Vadeli Yükümlülükler",
         "de": "Current Liabilities",
         "fr": "Current Liabilities",
         "es": "Current Liabilities",
         "ar": "Current Liabilities"
+      },
+      "businessContext_i18n": {
+        "en": "Short-term obligations due within one year, such as accounts payable and accruals.",
+        "tr": "Bir yıl içinde vadesi gelen kısa vadeli yükümlülükler (ticari borçlar ve tahakkuklar gibi)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Any other liabilities not classified as long-term debt or current liabilities, such as provisions or deferred tax liabilities.",
       "label_i18n": {
         "en": "Other Liabilities",
-        "tr": "Other Liabilities",
+        "tr": "Diğer Yükümlülükler",
         "de": "Other Liabilities",
         "fr": "Other Liabilities",
         "es": "Other Liabilities",
         "ar": "Other Liabilities"
+      },
+      "businessContext_i18n": {
+        "en": "Any other liabilities not classified as long-term debt or current liabilities, such as provisions or deferred tax liabilities.",
+        "tr": "Uzun vadeli borç veya kısa vadeli yükümlülükler olarak sınıflandırılmayan karşılıklar veya ertelenmiş vergi yükümlülükleri gibi diğer yükümlülükler."
       }
     }
   ],

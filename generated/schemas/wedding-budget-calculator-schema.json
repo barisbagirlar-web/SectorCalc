@@ -10,11 +10,15 @@
       "businessContext": "Expected guest count",
       "label_i18n": {
         "en": "Number of Guests",
-        "tr": "Number of Guests",
+        "tr": "Misafir Sayısı",
         "de": "Number of Guests",
         "fr": "Number of Guests",
         "es": "Number of Guests",
         "ar": "Number of Guests"
+      },
+      "businessContext_i18n": {
+        "en": "Expected guest count",
+        "tr": "Beklenen misafir sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average catering cost per guest",
       "label_i18n": {
         "en": "Cost per Guest (Catering)",
-        "tr": "Cost per Guest (Catering)",
+        "tr": "Misafir Başına Maliyet (İkram)",
         "de": "Cost per Guest (Catering)",
         "fr": "Cost per Guest (Catering)",
         "es": "Cost per Guest (Catering)",
         "ar": "Cost per Guest (Catering)"
+      },
+      "businessContext_i18n": {
+        "en": "Average catering cost per guest",
+        "tr": "Misafir başına ortalama ikram maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost for the venue",
       "label_i18n": {
         "en": "Venue Rental Cost",
-        "tr": "Venue Rental Cost",
+        "tr": "Mekan Kiralama Maliyeti",
         "de": "Venue Rental Cost",
         "fr": "Venue Rental Cost",
         "es": "Venue Rental Cost",
         "ar": "Venue Rental Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost for the venue",
+        "tr": "Mekan maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Flowers and decoration expenses",
       "label_i18n": {
         "en": "Decoration Cost",
-        "tr": "Decoration Cost",
+        "tr": "Dekorasyon Maliyeti",
         "de": "Decoration Cost",
         "fr": "Decoration Cost",
         "es": "Decoration Cost",
         "ar": "Decoration Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Flowers and decoration expenses",
+        "tr": "Çiçek ve dekorasyon giderleri"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Photography and videography package",
       "label_i18n": {
         "en": "Photography & Video Cost",
-        "tr": "Photography & Video Cost",
+        "tr": "Fotoğraf ve Video Maliyeti",
         "de": "Photography & Video Cost",
         "fr": "Photography & Video Cost",
         "es": "Photography & Video Cost",
         "ar": "Photography & Video Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Photography and videography package",
+        "tr": "Fotoğrafçılık ve videografi paketi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Other small expenses (invitations, favors, etc.)",
       "label_i18n": {
         "en": "Miscellaneous Cost",
-        "tr": "Miscellaneous Cost",
+        "tr": "Çeşitli Maliyetler",
         "de": "Miscellaneous Cost",
         "fr": "Miscellaneous Cost",
         "es": "Miscellaneous Cost",
         "ar": "Miscellaneous Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Other small expenses (invitations, favors, etc.)",
+        "tr": "Diğer küçük giderler (davetiyeler, hediyelikler vb.)"
       }
     }
   ],

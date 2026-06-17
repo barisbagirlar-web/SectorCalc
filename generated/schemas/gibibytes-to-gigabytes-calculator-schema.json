@@ -15,6 +15,10 @@
         "fr": "Gibibytes (GiB)",
         "es": "Gibibytes (GiB)",
         "ar": "Gibibytes (GiB)"
+      },
+      "businessContext_i18n": {
+        "en": "Input value in gibibytes.",
+        "tr": "Gibibytes cinsinden giriş değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Factor for converting GiB to GB (fixed, but overridable for calibration).",
       "label_i18n": {
         "en": "Conversion Factor (GB per GiB)",
-        "tr": "Conversion Factor (GB per GiB)",
+        "tr": "Dönüşüm Faktörü (GB/GiB)",
         "de": "Conversion Factor (GB per GiB)",
         "fr": "Conversion Factor (GB per GiB)",
         "es": "Conversion Factor (GB per GiB)",
         "ar": "Conversion Factor (GB per GiB)"
+      },
+      "businessContext_i18n": {
+        "en": "Factor for converting GiB to GB (fixed, but overridable for calibration).",
+        "tr": "GiB'yi GB'ye dönüştürme faktörü (sabittir, ancak kalibrasyon için değiştirilebilir)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal digits for output rounding.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal digits for output rounding.",
+        "tr": "Çıktı yuvarlaması için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage added to result as safety margin, e.g., 10 means increase by 10%.",
       "label_i18n": {
         "en": "Safety Factor (%)",
-        "tr": "Safety Factor (%)",
+        "tr": "Güvenlik Faktörü (%)",
         "de": "Safety Factor (%)",
         "fr": "Safety Factor (%)",
         "es": "Safety Factor (%)",
         "ar": "Safety Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage added to result as safety margin, e.g., 10 means increase by 10%.",
+        "tr": "Sonuca güvenlik marjı olarak eklenen yüzde; örn. 10, %10 artış anlamına gelir."
       }
     }
   ],

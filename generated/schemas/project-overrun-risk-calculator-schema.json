@@ -19,10 +19,12 @@
       "max": 120,
       "businessContext": "Original planned project duration in months as per baseline schedule.",
       "label_i18n": {
-        "en": "Planned Duration (months)"
+        "en": "Planned Duration (months)",
+        "tr": "Planlanan Süre (ay)"
       },
       "businessContext_i18n": {
-        "en": "Original planned project duration in months as per baseline schedule."
+        "en": "Original planned project duration in months as per baseline schedule.",
+        "tr": "Temel takvime göre orijinal planlanan proje süresi (ay cinsinden)."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 120,
       "businessContext": "Elapsed time since project start, used to compute schedule performance.",
       "label_i18n": {
-        "en": "Actual Duration to Date (months)"
+        "en": "Actual Duration to Date (months)",
+        "tr": "Bugüne Kadar Geçen Süre (ay)"
       },
       "businessContext_i18n": {
-        "en": "Elapsed time since project start, used to compute schedule performance."
+        "en": "Elapsed time since project start, used to compute schedule performance.",
+        "tr": "Proje başlangıcından bu yana geçen süre, takvim performansını hesaplamak için kullanılır."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 1000000000,
       "businessContext": "Total budgeted cost for the project at completion.",
       "label_i18n": {
-        "en": "Planned Total Cost (USD)"
+        "en": "Planned Total Cost (USD)",
+        "tr": "Planlanan Toplam Maliyet (USD)"
       },
       "businessContext_i18n": {
-        "en": "Total budgeted cost for the project at completion."
+        "en": "Total budgeted cost for the project at completion.",
+        "tr": "Projenin tamamlanması için bütçelenen toplam maliyet."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 1000000000,
       "businessContext": "Total costs actually incurred up to the current reporting period.",
       "label_i18n": {
-        "en": "Actual Cost Incurred (USD)"
+        "en": "Actual Cost Incurred (USD)",
+        "tr": "Gerçekleşen Maliyet (USD)"
       },
       "businessContext_i18n": {
-        "en": "Total costs actually incurred up to the current reporting period."
+        "en": "Total costs actually incurred up to the current reporting period.",
+        "tr": "Mevcut raporlama dönemine kadar fiilen gerçekleşen toplam maliyetler."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 100,
       "businessContext": "Estimated percentage of work completed based on earned value or physical progress.",
       "label_i18n": {
-        "en": "Percent Complete (%)"
+        "en": "Percent Complete (%)",
+        "tr": "Tamamlanma Yüzdesi (%)"
       },
       "businessContext_i18n": {
-        "en": "Estimated percentage of work completed based on earned value or physical progress."
+        "en": "Estimated percentage of work completed based on earned value or physical progress.",
+        "tr": "Kazanılmış değer veya fiziksel ilerlemeye dayalı olarak tahmini tamamlanma yüzdesi."
       }
     },
     {
@@ -104,10 +114,12 @@
       ],
       "businessContext": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+.",
       "label_i18n": {
-        "en": "Scope Change Frequency"
+        "en": "Scope Change Frequency",
+        "tr": "Kapsam Değişiklik Sıklığı"
       },
       "businessContext_i18n": {
-        "en": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+."
+        "en": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+.",
+        "tr": "Proje temelini etkileyen kapsam değişikliklerinin sıklığı. Düşük = 0-1 değişiklik, Orta = 2-4, Yüksek = 5+."
       }
     },
     {
@@ -125,10 +137,12 @@
       ],
       "businessContext": "Average experience level of the core project team.",
       "label_i18n": {
-        "en": "Team Experience Level"
+        "en": "Team Experience Level",
+        "tr": "Ekip Deneyim Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Average experience level of the core project team."
+        "en": "Average experience level of the core project team.",
+        "tr": "Proje ekibinin ortalama deneyim seviyesi."
       }
     },
     {
@@ -141,10 +155,12 @@
       "max": 1,
       "businessContext": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts).",
       "label_i18n": {
-        "en": "Quality Defect Rate (defects per unit)"
+        "en": "Quality Defect Rate (defects per unit)",
+        "tr": "Kalite Kusur Oranı (birim başına kusur)"
       },
       "businessContext_i18n": {
-        "en": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts)."
+        "en": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts).",
+        "tr": "Birim çıktı başına kusur sayısı (ör. 1000 kod satırı başına, 100 parça başına)."
       }
     }
   ],

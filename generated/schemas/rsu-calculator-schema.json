@@ -10,11 +10,15 @@
       "businessContext": "Total number of restricted stock units awarded.",
       "label_i18n": {
         "en": "Total RSUs Granted",
-        "tr": "Total RSUs Granted",
+        "tr": "Verilen Toplam RSU",
         "de": "Total RSUs Granted",
         "fr": "Total RSUs Granted",
         "es": "Total RSUs Granted",
         "ar": "Total RSUs Granted"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of restricted stock units awarded.",
+        "tr": "Verilen toplam kısıtlı hisse senedi birimi sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of RSUs that have vested.",
       "label_i18n": {
         "en": "Vested Percentage",
-        "tr": "Vested Percentage",
+        "tr": "Hakedilen Yüzde",
         "de": "Vested Percentage",
         "fr": "Vested Percentage",
         "es": "Vested Percentage",
         "ar": "Vested Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of RSUs that have vested.",
+        "tr": "Hakedilen RSU'ların yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current market price per share.",
       "label_i18n": {
         "en": "Current Share Price",
-        "tr": "Current Share Price",
+        "tr": "Güncel Hisse Fiyatı",
         "de": "Current Share Price",
         "fr": "Current Share Price",
         "es": "Current Share Price",
         "ar": "Current Share Price"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price per share.",
+        "tr": "Hisse başına güncel piyasa fiyatı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Combined federal and state tax rate applied at vesting.",
       "label_i18n": {
         "en": "Estimated Tax Rate",
-        "tr": "Estimated Tax Rate",
+        "tr": "Tahmini Vergi Oranı",
         "de": "Estimated Tax Rate",
         "fr": "Estimated Tax Rate",
         "es": "Estimated Tax Rate",
         "ar": "Estimated Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Combined federal and state tax rate applied at vesting.",
+        "tr": "Hakedişte uygulanan birleşik federal ve eyalet vergi oranı"
       }
     }
   ],

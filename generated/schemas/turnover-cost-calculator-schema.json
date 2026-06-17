@@ -21,10 +21,12 @@
       "max": 100000,
       "businessContext": "Total headcount at the start of the period.",
       "label_i18n": {
-        "en": "Number of Employees"
+        "en": "Number of Employees",
+        "tr": "Çalışan Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total headcount at the start of the period."
+        "en": "Total headcount at the start of the period.",
+        "tr": "Dönem başındaki toplam çalışan sayısı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100,
       "businessContext": "Percentage of employees leaving per year (voluntary + involuntary).",
       "label_i18n": {
-        "en": "Annual Turnover Rate"
+        "en": "Annual Turnover Rate",
+        "tr": "Yıllık İşgücü Devir Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of employees leaving per year (voluntary + involuntary)."
+        "en": "Percentage of employees leaving per year (voluntary + involuntary).",
+        "tr": "Yılda ayrılan çalışan yüzdesi (gönüllü + gönülsüz)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 500000,
       "businessContext": "Average total compensation (base + benefits) per employee.",
       "label_i18n": {
-        "en": "Average Annual Salary per Employee"
+        "en": "Average Annual Salary per Employee",
+        "tr": "Çalışan Başına Ortalama Yıllık Maaş"
       },
       "businessContext_i18n": {
-        "en": "Average total compensation (base + benefits) per employee."
+        "en": "Average total compensation (base + benefits) per employee.",
+        "tr": "Çalışan başına ortalama toplam ücret (temel maaş + yan haklar)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100000,
       "businessContext": "Advertising, agency fees, screening, interviewing.",
       "label_i18n": {
-        "en": "Recruitment Cost per Hire"
+        "en": "Recruitment Cost per Hire",
+        "tr": "İşe Alım Maliyeti (kişi başı)"
       },
       "businessContext_i18n": {
-        "en": "Advertising, agency fees, screening, interviewing."
+        "en": "Advertising, agency fees, screening, interviewing.",
+        "tr": "Reklam, ajans ücretleri, tarama, mülakat."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 50000,
       "businessContext": "Training materials, orientation, IT setup, mentor time.",
       "label_i18n": {
-        "en": "Onboarding Cost per Hire"
+        "en": "Onboarding Cost per Hire",
+        "tr": "İşe Başlatma Maliyeti (kişi başı)"
       },
       "businessContext_i18n": {
-        "en": "Training materials, orientation, IT setup, mentor time."
+        "en": "Training materials, orientation, IT setup, mentor time.",
+        "tr": "Eğitim materyalleri, oryantasyon, BT kurulumu, mentor süresi."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100000,
       "businessContext": "Formal training, certifications, on-the-job learning.",
       "label_i18n": {
-        "en": "Training Cost per Hire (first year)"
+        "en": "Training Cost per Hire (first year)",
+        "tr": "Eğitim Maliyeti (ilk yıl, kişi başı)"
       },
       "businessContext_i18n": {
-        "en": "Formal training, certifications, on-the-job learning."
+        "en": "Formal training, certifications, on-the-job learning.",
+        "tr": "Resmi eğitim, sertifikalar, iş başında öğrenme."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 12,
       "businessContext": "Average months of reduced output per new hire (ramp-up period).",
       "label_i18n": {
-        "en": "Lost Productivity Duration"
+        "en": "Lost Productivity Duration",
+        "tr": "Kayıp Verimlilik Süresi"
       },
       "businessContext_i18n": {
-        "en": "Average months of reduced output per new hire (ramp-up period)."
+        "en": "Average months of reduced output per new hire (ramp-up period).",
+        "tr": "Yeni işe alınan başına düşen ortalama düşük çıktı süresi (alışma dönemi)."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 100,
       "businessContext": "Average productivity level during ramp-up (e.g., 50% means half output).",
       "label_i18n": {
-        "en": "Productivity Factor during Ramp-up"
+        "en": "Productivity Factor during Ramp-up",
+        "tr": "Rampa Çıkışı Sırasında Verimlilik Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Average productivity level during ramp-up (e.g., 50% means half output)."
+        "en": "Average productivity level during ramp-up (e.g., 50% means half output).",
+        "tr": "Rampa çıkışı sırasındaki ortalama verimlilik seviyesi (örneğin, %50 yarı çıktı anlamına gelir)."
       }
     }
   ],

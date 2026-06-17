@@ -10,11 +10,15 @@
       "businessContext": "System operating pressure in Pascals",
       "label_i18n": {
         "en": "Operating Pressure",
-        "tr": "Operating Pressure",
+        "tr": "Çalışma basıncı",
         "de": "Operating Pressure",
         "fr": "Operating Pressure",
         "es": "Operating Pressure",
         "ar": "Operating Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "System operating pressure in Pascals",
+        "tr": "Sistem çalışma basıncı (Pascal)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Density of the pumped fluid",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the pumped fluid",
+        "tr": "Pompalanan akışkanın yoğunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Volumetric flow rate through the pipe",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate through the pipe",
+        "tr": "Borudaki hacimsel akış hızı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Inner diameter of the pipe",
       "label_i18n": {
         "en": "Pipe Diameter",
-        "tr": "Pipe Diameter",
+        "tr": "Boru Çapı",
         "de": "Pipe Diameter",
         "fr": "Pipe Diameter",
         "es": "Pipe Diameter",
         "ar": "Pipe Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the pipe",
+        "tr": "Boru iç çapı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Overall efficiency factor (0-1)",
       "label_i18n": {
         "en": "Efficiency Factor",
-        "tr": "Efficiency Factor",
+        "tr": "Verimlilik Faktörü",
         "de": "Efficiency Factor",
         "fr": "Efficiency Factor",
         "es": "Efficiency Factor",
         "ar": "Efficiency Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Overall efficiency factor (0-1)",
+        "tr": "Genel verimlilik faktörü (0-1)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The starting value or baseline measurement.",
       "label_i18n": {
         "en": "Initial Value",
-        "tr": "Initial Value",
+        "tr": "Başlangıç Değeri",
         "de": "Initial Value",
         "fr": "Initial Value",
         "es": "Initial Value",
         "ar": "Initial Value"
+      },
+      "businessContext_i18n": {
+        "en": "The starting value or baseline measurement.",
+        "tr": "Başlangıç değeri veya temel ölçüm."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The ending value or current measurement.",
       "label_i18n": {
         "en": "Final Value",
-        "tr": "Final Value",
+        "tr": "Nihai Değer",
         "de": "Final Value",
         "fr": "Final Value",
         "es": "Final Value",
         "ar": "Final Value"
+      },
+      "businessContext_i18n": {
+        "en": "The ending value or current measurement.",
+        "tr": "Bitiş değeri veya mevcut ölçüm."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the result.",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Factor to convert the relative change to a scaled percentage; typical value is 100 for percentage, 10000 for basis points.",
       "label_i18n": {
         "en": "Multiplier",
-        "tr": "Multiplier",
+        "tr": "Çarpan",
         "de": "Multiplier",
         "fr": "Multiplier",
         "es": "Multiplier",
         "ar": "Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to convert the relative change to a scaled percentage; typical value is 100 for percentage, 10000 for basis points.",
+        "tr": "Göreceli değişimi ölçeklendirilmiş yüzdeye dönüştüren faktör; yüzde için tipik değer 100, baz puan için 10000'dir."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Length of the product to be packaged",
       "label_i18n": {
         "en": "Product Length",
-        "tr": "Product Length",
+        "tr": "Ürün Uzunluğu",
         "de": "Product Length",
         "fr": "Product Length",
         "es": "Product Length",
         "ar": "Product Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the product to be packaged",
+        "tr": "Paketlenecek ürünün uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the product",
       "label_i18n": {
         "en": "Product Width",
-        "tr": "Product Width",
+        "tr": "Ürün Genişliği",
         "de": "Product Width",
         "fr": "Product Width",
         "es": "Product Width",
         "ar": "Product Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the product",
+        "tr": "Ürünün genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height of the product",
       "label_i18n": {
         "en": "Product Height",
-        "tr": "Product Height",
+        "tr": "Ürün Yüksekliği",
         "de": "Product Height",
         "fr": "Product Height",
         "es": "Product Height",
         "ar": "Product Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the product",
+        "tr": "Ürünün yüksekliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of packaging material per square meter",
       "label_i18n": {
         "en": "Material Cost per m²",
-        "tr": "Material Cost per m²",
+        "tr": "m² Başına Malzeme Maliyeti",
         "de": "Material Cost per m²",
         "fr": "Material Cost per m²",
         "es": "Material Cost per m²",
         "ar": "Material Cost per m²"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of packaging material per square meter",
+        "tr": "Metrekare başına ambalaj malzemesi maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total number of items to package",
       "label_i18n": {
         "en": "Number of Items",
-        "tr": "Number of Items",
+        "tr": "Öğe Sayısı",
         "de": "Number of Items",
         "fr": "Number of Items",
         "es": "Number of Items",
         "ar": "Number of Items"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of items to package",
+        "tr": "Paketlenecek toplam ürün sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional material percentage for waste or scrap",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional material percentage for waste or scrap",
+        "tr": "Fire veya hurda için ek malzeme yüzdesi"
       }
     }
   ],

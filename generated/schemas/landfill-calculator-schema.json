@@ -10,11 +10,15 @@
       "businessContext": "Average daily waste received at the landfill",
       "label_i18n": {
         "en": "Daily Waste Quantity",
-        "tr": "Daily Waste Quantity",
+        "tr": "Günlük Atık Miktarı",
         "de": "Daily Waste Quantity",
         "fr": "Daily Waste Quantity",
         "es": "Daily Waste Quantity",
         "ar": "Daily Waste Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Average daily waste received at the landfill",
+        "tr": "Depolama sahasına günlük ortalama atık kabulü"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "In-place density of waste after compaction",
       "label_i18n": {
         "en": "Compacted Density",
-        "tr": "Compacted Density",
+        "tr": "Sıkıştırılmış Yoğunluk",
         "de": "Compacted Density",
         "fr": "Compacted Density",
         "es": "Compacted Density",
         "ar": "Compacted Density"
+      },
+      "businessContext_i18n": {
+        "en": "In-place density of waste after compaction",
+        "tr": "Sıkıştırma sonrası atığın yerindeki yoğunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional volume for daily and intermediate cover as percentage of waste volume",
       "label_i18n": {
         "en": "Cover to Waste Ratio",
-        "tr": "Cover to Waste Ratio",
+        "tr": "Örtü/Atık Oranı",
         "de": "Cover to Waste Ratio",
         "fr": "Cover to Waste Ratio",
         "es": "Cover to Waste Ratio",
         "ar": "Cover to Waste Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Additional volume for daily and intermediate cover as percentage of waste volume",
+        "tr": "Günlük ve ara örtü için atık hacmine eklenen yüzde"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Design operational life of the landfill",
       "label_i18n": {
         "en": "Landfill Lifespan",
-        "tr": "Landfill Lifespan",
+        "tr": "Depolama Sahası Ömrü",
         "de": "Landfill Lifespan",
         "fr": "Landfill Lifespan",
         "es": "Landfill Lifespan",
         "ar": "Landfill Lifespan"
+      },
+      "businessContext_i18n": {
+        "en": "Design operational life of the landfill",
+        "tr": "Depolama sahasının tasarım işletme ömrü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Airspace already consumed by waste and cover",
       "label_i18n": {
         "en": "Already Filled Volume",
-        "tr": "Already Filled Volume",
+        "tr": "Doldurulmuş Hacim",
         "de": "Already Filled Volume",
         "fr": "Already Filled Volume",
         "es": "Already Filled Volume",
         "ar": "Already Filled Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Airspace already consumed by waste and cover",
+        "tr": "Atık ve örtü tarafından tüketilen hava sahası"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Plan area available for landfilling",
       "label_i18n": {
         "en": "Available Footprint Area",
-        "tr": "Available Footprint Area",
+        "tr": "Mevcut Ayak İzi Alanı",
         "de": "Available Footprint Area",
         "fr": "Available Footprint Area",
         "es": "Available Footprint Area",
         "ar": "Available Footprint Area"
+      },
+      "businessContext_i18n": {
+        "en": "Plan area available for landfilling",
+        "tr": "Depolama için kullanılabilir plan alanı"
       }
     }
   ],

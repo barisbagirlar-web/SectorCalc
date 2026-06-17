@@ -10,11 +10,15 @@
       "businessContext": "Number of alphanumeric characters to encode",
       "label_i18n": {
         "en": "Data Length (characters)",
-        "tr": "Data Length (characters)",
+        "tr": "Veri Uzunluğu (karakter)",
         "de": "Data Length (characters)",
         "fr": "Data Length (characters)",
         "es": "Data Length (characters)",
         "ar": "Data Length (characters)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of alphanumeric characters to encode",
+        "tr": "Kodlanacak alfanümerik karakter sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the narrowest element (X-dimension)",
       "label_i18n": {
         "en": "Module Width",
-        "tr": "Module Width",
+        "tr": "Modül Genişliği",
         "de": "Module Width",
         "fr": "Module Width",
         "es": "Module Width",
         "ar": "Module Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the narrowest element (X-dimension)",
+        "tr": "En dar elemanın genişliği (X-boyutu)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Left quiet zone width in modules",
       "label_i18n": {
         "en": "Left Quiet Zone",
-        "tr": "Left Quiet Zone",
+        "tr": "Sol Sessiz Bölge",
         "de": "Left Quiet Zone",
         "fr": "Left Quiet Zone",
         "es": "Left Quiet Zone",
         "ar": "Left Quiet Zone"
+      },
+      "businessContext_i18n": {
+        "en": "Left quiet zone width in modules",
+        "tr": "Sol sessiz bölge genişliği (modül cinsinden)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Right quiet zone width in modules",
       "label_i18n": {
         "en": "Right Quiet Zone",
-        "tr": "Right Quiet Zone",
+        "tr": "Sağ Sessiz Bölge",
         "de": "Right Quiet Zone",
         "fr": "Right Quiet Zone",
         "es": "Right Quiet Zone",
         "ar": "Right Quiet Zone"
+      },
+      "businessContext_i18n": {
+        "en": "Right quiet zone width in modules",
+        "tr": "Sağ sessiz bölge genişliği (modül cinsinden)"
       }
     }
   ],

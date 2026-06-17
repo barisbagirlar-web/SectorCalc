@@ -10,11 +10,15 @@
       "businessContext": "Total number of observations/trials.",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)",
         "de": "Sample Size (n)",
         "fr": "Sample Size (n)",
         "es": "Sample Size (n)",
         "ar": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of observations/trials.",
+        "tr": "Toplam gözlem/deneme sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Count of positive events/results in the sample.",
       "label_i18n": {
         "en": "Number of Successes (x)",
-        "tr": "Number of Successes (x)",
+        "tr": "Başarı sayısı (x)",
         "de": "Number of Successes (x)",
         "fr": "Number of Successes (x)",
         "es": "Number of Successes (x)",
         "ar": "Number of Successes (x)"
+      },
+      "businessContext_i18n": {
+        "en": "Count of positive events/results in the sample.",
+        "tr": "Örneklemdeki pozitif olay/sonuç sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Null hypothesis proportion (often 0.5 for symmetry).",
       "label_i18n": {
         "en": "Hypothesized Proportion (p₀)",
-        "tr": "Hypothesized Proportion (p₀)",
+        "tr": "Hipotez Edilen Oran (p₀)",
         "de": "Hypothesized Proportion (p₀)",
         "fr": "Hypothesized Proportion (p₀)",
         "es": "Hypothesized Proportion (p₀)",
         "ar": "Hypothesized Proportion (p₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Null hypothesis proportion (often 0.5 for symmetry).",
+        "tr": "Sıfır hipotezi oranı (genellikle simetri için 0.5)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Type I error probability threshold (commonly 0.05).",
       "label_i18n": {
         "en": "Significance Level (α)",
-        "tr": "Significance Level (α)",
+        "tr": "Anlamlılık Düzeyi (α)",
         "de": "Significance Level (α)",
         "fr": "Significance Level (α)",
         "es": "Significance Level (α)",
         "ar": "Significance Level (α)"
+      },
+      "businessContext_i18n": {
+        "en": "Type I error probability threshold (commonly 0.05).",
+        "tr": "Tip I hata olasılığı eşiği (genellikle 0.05)."
       }
     }
   ],

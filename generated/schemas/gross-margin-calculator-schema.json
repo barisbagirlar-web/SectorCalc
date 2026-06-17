@@ -10,11 +10,15 @@
       "businessContext": "The price at which each unit is sold to customers.",
       "label_i18n": {
         "en": "Selling Price per Unit",
-        "tr": "Selling Price per Unit",
+        "tr": "Birim Satış Fiyatı",
         "de": "Selling Price per Unit",
         "fr": "Selling Price per Unit",
         "es": "Selling Price per Unit",
         "ar": "Selling Price per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The price at which each unit is sold to customers.",
+        "tr": "Her birimin müşterilere satıldığı fiyat."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The direct material or purchase cost incurred for each unit.",
       "label_i18n": {
         "en": "Cost per Unit",
-        "tr": "Cost per Unit",
+        "tr": "Birim Başına Maliyet",
         "de": "Cost per Unit",
         "fr": "Cost per Unit",
         "es": "Cost per Unit",
         "ar": "Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The direct material or purchase cost incurred for each unit.",
+        "tr": "Her birim için katlanılan doğrudan malzeme veya satın alma maliyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The total quantity of units sold in the period under consideration.",
       "label_i18n": {
         "en": "Units Sold",
-        "tr": "Units Sold",
+        "tr": "Satılan Birim Sayısı",
         "de": "Units Sold",
         "fr": "Units Sold",
         "es": "Units Sold",
         "ar": "Units Sold"
+      },
+      "businessContext_i18n": {
+        "en": "The total quantity of units sold in the period under consideration.",
+        "tr": "İncelenen dönemde satılan toplam birim miktarı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Any other variable costs per unit that are directly attributable to the product (e.g., shipping, packaging) and form part of cost of goods sold.",
       "label_i18n": {
         "en": "Additional Variable Cost per Unit",
-        "tr": "Additional Variable Cost per Unit",
+        "tr": "Birim Başına Ek Değişken Maliyet",
         "de": "Additional Variable Cost per Unit",
         "fr": "Additional Variable Cost per Unit",
         "es": "Additional Variable Cost per Unit",
         "ar": "Additional Variable Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Any other variable costs per unit that are directly attributable to the product (e.g., shipping, packaging) and form part of cost of goods sold.",
+        "tr": "Ürüne doğrudan atfedilebilen diğer birim başına değişken maliyetler (örn. nakliye, paketleme) ve satılan malın maliyetinin bir parçası."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The average discount or price reduction given on the selling price, expressed as a percentage.",
       "label_i18n": {
         "en": "Discount Percentage",
-        "tr": "Discount Percentage",
+        "tr": "İndirim Yüzdesi",
         "de": "Discount Percentage",
         "fr": "Discount Percentage",
         "es": "Discount Percentage",
         "ar": "Discount Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "The average discount or price reduction given on the selling price, expressed as a percentage.",
+        "tr": "Satış fiyatı üzerinden verilen ortalama indirim veya fiyat düşüşü, yüzde olarak ifade edilir."
       }
     }
   ],

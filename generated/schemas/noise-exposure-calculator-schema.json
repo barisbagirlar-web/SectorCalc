@@ -10,11 +10,15 @@
       "businessContext": "Measured continuous noise level in A-weighted decibels",
       "label_i18n": {
         "en": "Noise Level",
-        "tr": "Noise Level",
+        "tr": "Gürültü Seviyesi",
         "de": "Noise Level",
         "fr": "Noise Level",
         "es": "Noise Level",
         "ar": "Noise Level"
+      },
+      "businessContext_i18n": {
+        "en": "Measured continuous noise level in A-weighted decibels",
+        "tr": "A-ağırlıklı desibel cinsinden ölçülen sürekli gürültü seviyesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total daily noise exposure duration",
       "label_i18n": {
         "en": "Exposure Time",
-        "tr": "Exposure Time",
+        "tr": "Maruziyet Süresi",
         "de": "Exposure Time",
         "fr": "Exposure Time",
         "es": "Exposure Time",
         "ar": "Exposure Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total daily noise exposure duration",
+        "tr": "Toplam günlük gürültü maruziyet süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Decibel exchange rate (3 for equal energy, 5 for OSHA)",
       "label_i18n": {
         "en": "Exchange Rate",
-        "tr": "Exchange Rate",
+        "tr": "Döviz Kuru",
         "de": "Exchange Rate",
         "fr": "Exchange Rate",
         "es": "Exchange Rate",
         "ar": "Exchange Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Decibel exchange rate (3 for equal energy, 5 for OSHA)",
+        "tr": "Desibel değişim oranı (eşit enerji için 3, OSHA için 5)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Permissible noise level for an 8-hour shift",
       "label_i18n": {
         "en": "Criterion Level",
-        "tr": "Criterion Level",
+        "tr": "Kriter Seviyesi",
         "de": "Criterion Level",
         "fr": "Criterion Level",
         "es": "Criterion Level",
         "ar": "Criterion Level"
+      },
+      "businessContext_i18n": {
+        "en": "Permissible noise level for an 8-hour shift",
+        "tr": "8 saatlik vardiya için izin verilen gürültü seviyesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Level below which noise is ignored (0 = no threshold)",
       "label_i18n": {
         "en": "Threshold Level",
-        "tr": "Threshold Level",
+        "tr": "Eşik Seviyesi",
         "de": "Threshold Level",
         "fr": "Threshold Level",
         "es": "Threshold Level",
         "ar": "Threshold Level"
+      },
+      "businessContext_i18n": {
+        "en": "Level below which noise is ignored (0 = no threshold)",
+        "tr": "Altında gürültünün dikkate alınmadığı seviye (0 = eşik yok)"
       }
     }
   ],

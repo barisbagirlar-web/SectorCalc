@@ -10,11 +10,15 @@
       "businessContext": "Athlete's age in years for normative reference (optional)",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Athlete's age in years for normative reference (optional)",
+        "tr": "Normatif referans için sporcunun yaşı (yıl cinsinden, isteğe bağlı)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0 for female, 1 for male. Used for normative classification if implemented.",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for female, 1 for male. Used for normative classification if implemented.",
+        "tr": "Kadın için 0, erkek için 1. Uygulanıyorsa normatif sınıflandırma için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total distance covered during a 12-minute run (Cooper test).",
       "label_i18n": {
         "en": "Distance in 12 minutes",
-        "tr": "Distance in 12 minutes",
+        "tr": "12 dakikada mesafe",
         "de": "Distance in 12 minutes",
         "fr": "Distance in 12 minutes",
         "es": "Distance in 12 minutes",
         "ar": "Distance in 12 minutes"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance covered during a 12-minute run (Cooper test).",
+        "tr": "12 dakikalık koşu (Cooper testi) sırasında kat edilen toplam mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Athlete's body weight in kilograms, used to compute absolute VO2 max.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Athlete's body weight in kilograms, used to compute absolute VO2 max.",
+        "tr": "Sporcunun kilogram cinsinden vücut ağırlığı, mutlak VO2 max hesaplamak için kullanılır."
       }
     }
   ],

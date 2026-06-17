@@ -10,11 +10,15 @@
       "businessContext": "Input speed in meters per second",
       "label_i18n": {
         "en": "Speed (m/s)",
-        "tr": "Speed (m/s)",
+        "tr": "Hız (m/s)",
         "de": "Speed (m/s)",
         "fr": "Speed (m/s)",
         "es": "Speed (m/s)",
         "ar": "Speed (m/s)"
+      },
+      "businessContext_i18n": {
+        "en": "Input speed in meters per second",
+        "tr": "Saniyede metre cinsinden giriş hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor from meters to miles",
       "label_i18n": {
         "en": "Meters to Miles Factor",
-        "tr": "Meters to Miles Factor",
+        "tr": "Metre-Mil Dönüşüm Faktörü",
         "de": "Meters to Miles Factor",
         "fr": "Meters to Miles Factor",
         "es": "Meters to Miles Factor",
         "ar": "Meters to Miles Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from meters to miles",
+        "tr": "Metreden mile dönüşüm faktörü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Conversion factor from seconds to hours",
       "label_i18n": {
         "en": "Seconds to Hours Factor",
-        "tr": "Seconds to Hours Factor",
+        "tr": "Saniye-Saat Dönüşüm Faktörü",
         "de": "Seconds to Hours Factor",
         "fr": "Seconds to Hours Factor",
         "es": "Seconds to Hours Factor",
         "ar": "Seconds to Hours Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from seconds to hours",
+        "tr": "Saniyeden saate dönüşüm faktörü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounding output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding output",
+        "tr": "Yuvarlama için ondalık basamak sayısı"
       }
     }
   ],

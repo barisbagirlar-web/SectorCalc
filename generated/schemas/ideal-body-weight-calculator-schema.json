@@ -10,11 +10,15 @@
       "businessContext": "User's height in feet, whole number part",
       "label_i18n": {
         "en": "Height (feet)",
-        "tr": "Height (feet)",
+        "tr": "Boy (feet)",
         "de": "Height (feet)",
         "fr": "Height (feet)",
         "es": "Height (feet)",
         "ar": "Height (feet)"
+      },
+      "businessContext_i18n": {
+        "en": "User's height in feet, whole number part",
+        "tr": "Kullanıcının fit cinsinden boyu, tam sayı kısmı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional inches beyond feet",
       "label_i18n": {
         "en": "Height (inches)",
-        "tr": "Height (inches)",
+        "tr": "Boy (inç)",
         "de": "Height (inches)",
         "fr": "Height (inches)",
         "es": "Height (inches)",
         "ar": "Height (inches)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional inches beyond feet",
+        "tr": "Fit'in ötesindeki ek inç"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 for male, 2 for female",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "1 for male, 2 for female",
+        "tr": "1 erkek, 2 kadın"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Body frame multiplier: 0.9 for small, 1.0 for medium, 1.1 for large",
       "label_i18n": {
         "en": "Frame Adjustment",
-        "tr": "Frame Adjustment",
+        "tr": "Vücut Yapısı Ayarı",
         "de": "Frame Adjustment",
         "fr": "Frame Adjustment",
         "es": "Frame Adjustment",
         "ar": "Frame Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "Body frame multiplier: 0.9 for small, 1.0 for medium, 1.1 for large",
+        "tr": "Vücut yapısı çarpanı: küçük için 0.9, orta için 1.0, büyük için 1.1"
       }
     }
   ],

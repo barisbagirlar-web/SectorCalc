@@ -10,11 +10,15 @@
       "businessContext": "The day component of the start date for calculating working days.",
       "label_i18n": {
         "en": "Start Day",
-        "tr": "Start Day",
+        "tr": "Başlangıç Günü",
         "de": "Start Day",
         "fr": "Start Day",
         "es": "Start Day",
         "ar": "Start Day"
+      },
+      "businessContext_i18n": {
+        "en": "The day component of the start date for calculating working days.",
+        "tr": "İş günü hesaplaması için başlangıç tarihinin gün bileşeni."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The month component (1-12) of the start date.",
       "label_i18n": {
         "en": "Start Month",
-        "tr": "Start Month",
+        "tr": "Başlangıç Ayı",
         "de": "Start Month",
         "fr": "Start Month",
         "es": "Start Month",
         "ar": "Start Month"
+      },
+      "businessContext_i18n": {
+        "en": "The month component (1-12) of the start date.",
+        "tr": "Başlangıç tarihinin ay bileşeni (1-12)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The year component of the start date.",
       "label_i18n": {
         "en": "Start Year",
-        "tr": "Start Year",
+        "tr": "Başlangıç Yılı",
         "de": "Start Year",
         "fr": "Start Year",
         "es": "Start Year",
         "ar": "Start Year"
+      },
+      "businessContext_i18n": {
+        "en": "The year component of the start date.",
+        "tr": "Başlangıç tarihinin yıl bileşeni."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The day component of the end date.",
       "label_i18n": {
         "en": "End Day",
-        "tr": "End Day",
+        "tr": "Bitiş Günü",
         "de": "End Day",
         "fr": "End Day",
         "es": "End Day",
         "ar": "End Day"
+      },
+      "businessContext_i18n": {
+        "en": "The day component of the end date.",
+        "tr": "Bitiş tarihinin gün bileşeni."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The month component (1-12) of the end date.",
       "label_i18n": {
         "en": "End Month",
-        "tr": "End Month",
+        "tr": "Bitiş Ayı",
         "de": "End Month",
         "fr": "End Month",
         "es": "End Month",
         "ar": "End Month"
+      },
+      "businessContext_i18n": {
+        "en": "The month component (1-12) of the end date.",
+        "tr": "Bitiş tarihinin ay bileşeni (1-12)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "The year component of the end date.",
       "label_i18n": {
         "en": "End Year",
-        "tr": "End Year",
+        "tr": "Bitiş Yılı",
         "de": "End Year",
         "fr": "End Year",
         "es": "End Year",
         "ar": "End Year"
+      },
+      "businessContext_i18n": {
+        "en": "The year component of the end date.",
+        "tr": "Bitiş tarihinin yıl bileşeni."
       }
     }
   ],

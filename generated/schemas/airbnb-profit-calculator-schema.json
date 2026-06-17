@@ -10,11 +10,15 @@
       "businessContext": "Average price per night charged to guests",
       "label_i18n": {
         "en": "Nightly Rate",
-        "tr": "Nightly Rate",
+        "tr": "Gecelik Ücret",
         "de": "Nightly Rate",
         "fr": "Nightly Rate",
         "es": "Nightly Rate",
         "ar": "Nightly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average price per night charged to guests",
+        "tr": "Misafirlere uygulanan ortalama gecelik fiyat"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of available nights that are booked",
       "label_i18n": {
         "en": "Occupancy Rate",
-        "tr": "Occupancy Rate",
+        "tr": "Doluluk Oranı",
         "de": "Occupancy Rate",
         "fr": "Occupancy Rate",
         "es": "Occupancy Rate",
         "ar": "Occupancy Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of available nights that are booked",
+        "tr": "Rezerve edilen uygun gecelerin yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total nights the property is available for booking per month",
       "label_i18n": {
         "en": "Nights Available per Month",
-        "tr": "Nights Available per Month",
+        "tr": "Aylık Uygun Gece Sayısı",
         "de": "Nights Available per Month",
         "fr": "Nights Available per Month",
         "es": "Nights Available per Month",
         "ar": "Nights Available per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Total nights the property is available for booking per month",
+        "tr": "Mülkün aylık rezervasyona açık olduğu toplam gece sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average duration of a guest's stay in nights",
       "label_i18n": {
         "en": "Average Length of Stay",
-        "tr": "Average Length of Stay",
+        "tr": "Ortalama Konaklama Süresi",
         "de": "Average Length of Stay",
         "fr": "Average Length of Stay",
         "es": "Average Length of Stay",
         "ar": "Average Length of Stay"
+      },
+      "businessContext_i18n": {
+        "en": "Average duration of a guest's stay in nights",
+        "tr": "Bir misafirin konaklamasının gece cinsinden ortalama süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fee charged per guest booking for cleaning",
       "label_i18n": {
         "en": "Cleaning Fee per Booking",
-        "tr": "Cleaning Fee per Booking",
+        "tr": "Rezervasyon Başına Temizlik Ücreti",
         "de": "Cleaning Fee per Booking",
         "fr": "Cleaning Fee per Booking",
         "es": "Cleaning Fee per Booking",
         "ar": "Cleaning Fee per Booking"
+      },
+      "businessContext_i18n": {
+        "en": "Fee charged per guest booking for cleaning",
+        "tr": "Misafir başına temizlik için alınan ücret"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Host service fee percentage charged by Airbnb on each booking",
       "label_i18n": {
         "en": "Airbnb Service Fee",
-        "tr": "Airbnb Service Fee",
+        "tr": "Airbnb Hizmet Ücreti",
         "de": "Airbnb Service Fee",
         "fr": "Airbnb Service Fee",
         "es": "Airbnb Service Fee",
         "ar": "Airbnb Service Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Host service fee percentage charged by Airbnb on each booking",
+        "tr": "Airbnb'nin her rezervasyonda aldığı ev sahibi hizmet ücreti yüzdesi"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Total monthly costs including mortgage/rent, utilities, maintenance, insurance, etc.",
       "label_i18n": {
         "en": "Monthly Expenses",
-        "tr": "Monthly Expenses",
+        "tr": "Aylık Giderler",
         "de": "Monthly Expenses",
         "fr": "Monthly Expenses",
         "es": "Monthly Expenses",
         "ar": "Monthly Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Total monthly costs including mortgage/rent, utilities, maintenance, insurance, etc.",
+        "tr": "İpotek/kira, elektrik, su, bakım, sigorta vb. dahil toplam aylık maliyetler"
       }
     }
   ],

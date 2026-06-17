@@ -22,10 +22,12 @@
       "max": 100000,
       "businessContext": "Standard selling price before any discount, as defined in ISO 9001 cost accounting procedures.",
       "label_i18n": {
-        "en": "List Price (per unit)"
+        "en": "List Price (per unit)",
+        "tr": "Liste Fiyatı (birim başına)"
       },
       "businessContext_i18n": {
-        "en": "Standard selling price before any discount, as defined in ISO 9001 cost accounting procedures."
+        "en": "Standard selling price before any discount, as defined in ISO 9001 cost accounting procedures.",
+        "tr": "ISO 9001 maliyet muhasebesi prosedürlerinde tanımlandığı gibi, herhangi bir indirimden önceki standart satış fiyatı."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 100,
       "businessContext": "Negotiated or promotional discount off list price, typical in Lean pricing strategies.",
       "label_i18n": {
-        "en": "Discount Percentage"
+        "en": "Discount Percentage",
+        "tr": "İndirim Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Negotiated or promotional discount off list price, typical in Lean pricing strategies."
+        "en": "Negotiated or promotional discount off list price, typical in Lean pricing strategies.",
+        "tr": "Yalın fiyatlandırma stratejilerinde tipik olan, liste fiyatından müzakere edilen veya promosyonel indirim."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 1000000,
       "businessContext": "Number of units in the transaction, used for volume-based discount analysis per WERC DC metrics.",
       "label_i18n": {
-        "en": "Order Quantity"
+        "en": "Order Quantity",
+        "tr": "Sipariş Miktarı"
       },
       "businessContext_i18n": {
-        "en": "Number of units in the transaction, used for volume-based discount analysis per WERC DC metrics."
+        "en": "Number of units in the transaction, used for volume-based discount analysis per WERC DC metrics.",
+        "tr": "WERC DC metriklerine göre hacim bazlı indirim analizi için kullanılan işlemdeki birim sayısı."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 100000,
       "businessContext": "Direct material, labor, and variable overhead per unit (ISO 14051 MFCA standard).",
       "label_i18n": {
-        "en": "Variable Cost per Unit"
+        "en": "Variable Cost per Unit",
+        "tr": "Birim Başına Değişken Maliyet"
       },
       "businessContext_i18n": {
-        "en": "Direct material, labor, and variable overhead per unit (ISO 14051 MFCA standard)."
+        "en": "Direct material, labor, and variable overhead per unit (ISO 14051 MFCA standard).",
+        "tr": "Birim başına direkt malzeme, işçilik ve değişken genel gider (ISO 14051 MFCA standardı)."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 10000000,
       "businessContext": "Allocated fixed costs for the order batch (e.g., setup, engineering, admin) per Lean cost deployment.",
       "label_i18n": {
-        "en": "Fixed Cost Allocation (total)"
+        "en": "Fixed Cost Allocation (total)",
+        "tr": "Sabit Maliyet Dağıtımı (toplam)"
       },
       "businessContext_i18n": {
-        "en": "Allocated fixed costs for the order batch (e.g., setup, engineering, admin) per Lean cost deployment."
+        "en": "Allocated fixed costs for the order batch (e.g., setup, engineering, admin) per Lean cost deployment.",
+        "tr": "Sipariş partisi için dağıtılan sabit maliyetler (örn. hazırlık, mühendislik, idari) Yalın maliyet dağıtımına göre."
       }
     },
     {
@@ -103,10 +113,12 @@
       "default": "percentage",
       "businessContext": "Method of discount application: percentage off list or fixed dollar amount per unit.",
       "label_i18n": {
-        "en": "Discount Type"
+        "en": "Discount Type",
+        "tr": "İndirim Türü"
       },
       "businessContext_i18n": {
-        "en": "Method of discount application: percentage off list or fixed dollar amount per unit."
+        "en": "Method of discount application: percentage off list or fixed dollar amount per unit.",
+        "tr": "İndirim uygulama yöntemi: liste fiyatından yüzde indirim veya birim başına sabit dolar tutarı."
       },
       "unit": "unit"
     },
@@ -117,10 +129,12 @@
       "default": true,
       "businessContext": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing).",
       "label_i18n": {
-        "en": "Apply Discount to All Units"
+        "en": "Apply Discount to All Units",
+        "tr": "İndirimi Tüm Birimlere Uygula"
       },
       "businessContext_i18n": {
-        "en": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing)."
+        "en": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing).",
+        "tr": "Doğruysa, indirim tüm miktara uygulanır; yanlışsa, yalnızca artan birimlere (kademeli fiyatlandırma)."
       },
       "unit": "unit"
     }

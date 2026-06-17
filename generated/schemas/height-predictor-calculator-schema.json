@@ -10,11 +10,15 @@
       "businessContext": "Height of the biological mother in centimeters.",
       "label_i18n": {
         "en": "Mother's Height",
-        "tr": "Mother's Height",
+        "tr": "Annenin Boyu",
         "de": "Mother's Height",
         "fr": "Mother's Height",
         "es": "Mother's Height",
         "ar": "Mother's Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the biological mother in centimeters.",
+        "tr": "Biyolojik annenin santimetre cinsinden boyu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the biological father in centimeters.",
       "label_i18n": {
         "en": "Father's Height",
-        "tr": "Father's Height",
+        "tr": "Babanın Boyu",
         "de": "Father's Height",
         "fr": "Father's Height",
         "es": "Father's Height",
         "ar": "Father's Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the biological father in centimeters.",
+        "tr": "Biyolojik babanın santimetre cinsinden boyu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0 for girl, 1 for boy. Used to apply gender-specific mid-parental height formula.",
       "label_i18n": {
         "en": "Child's Gender",
-        "tr": "Child's Gender",
+        "tr": "Çocuğun Cinsiyeti",
         "de": "Child's Gender",
         "fr": "Child's Gender",
         "es": "Child's Gender",
         "ar": "Child's Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for girl, 1 for boy. Used to apply gender-specific mid-parental height formula.",
+        "tr": "Kız için 0, erkek için 1. Cinsiyete özgü ortalama ebeveyn boyu formülünü uygulamak için kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current measured height of the child in centimeters. Used to adjust prediction toward the mid-parental height.",
       "label_i18n": {
         "en": "Current Height",
-        "tr": "Current Height",
+        "tr": "Mevcut Boy",
         "de": "Current Height",
         "fr": "Current Height",
         "es": "Current Height",
         "ar": "Current Height"
+      },
+      "businessContext_i18n": {
+        "en": "Current measured height of the child in centimeters. Used to adjust prediction toward the mid-parental height.",
+        "tr": "Çocuğun santimetre cinsinden mevcut ölçülen boyu. Tahmini ortalama ebeveyn boyuna doğru ayarlamak için kullanılır."
       }
     }
   ],

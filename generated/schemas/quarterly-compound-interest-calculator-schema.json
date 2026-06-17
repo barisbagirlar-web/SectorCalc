@@ -10,11 +10,15 @@
       "businessContext": "The initial sum of money invested or borrowed.",
       "label_i18n": {
         "en": "Principal Amount",
-        "tr": "Principal Amount",
+        "tr": "Anapara Tutarı",
         "de": "Principal Amount",
         "fr": "Principal Amount",
         "es": "Principal Amount",
         "ar": "Principal Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The initial sum of money invested or borrowed.",
+        "tr": "Yatırılan veya borç alınan başlangıç para miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The nominal annual interest rate before compounding.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The nominal annual interest rate before compounding.",
+        "tr": "Bileşik faiz öncesi nominal yıllık faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The total time the money is invested or borrowed for.",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Number of Years",
+        "tr": "Yıl Sayısı",
         "de": "Number of Years",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
+      },
+      "businessContext_i18n": {
+        "en": "The total time the money is invested or borrowed for.",
+        "tr": "Paranın yatırıldığı veya borç alındığı toplam süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The number of compounding periods per year. For quarterly, this is 4.",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı",
         "de": "Compounding Frequency",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "The number of compounding periods per year. For quarterly, this is 4.",
+        "tr": "Yıllık bileşik dönem sayısı. Üç aylık için bu 4'tür."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The expected average annual inflation rate, used to calculate the real value of money.",
       "label_i18n": {
         "en": "Annual Inflation Rate",
-        "tr": "Annual Inflation Rate",
+        "tr": "Yıllık Enflasyon Oranı",
         "de": "Annual Inflation Rate",
         "fr": "Annual Inflation Rate",
         "es": "Annual Inflation Rate",
         "ar": "Annual Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The expected average annual inflation rate, used to calculate the real value of money.",
+        "tr": "Beklenen ortalama yıllık enflasyon oranı, paranın reel değerini hesaplamak için kullanılır."
       }
     }
   ],

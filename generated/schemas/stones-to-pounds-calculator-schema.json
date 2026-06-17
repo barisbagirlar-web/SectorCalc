@@ -10,11 +10,15 @@
       "businessContext": "Weight in stones to convert",
       "label_i18n": {
         "en": "Stones",
-        "tr": "Stones",
+        "tr": "Stone",
         "de": "Stones",
         "fr": "Stones",
         "es": "Stones",
         "ar": "Stones"
+      },
+      "businessContext_i18n": {
+        "en": "Weight in stones to convert",
+        "tr": "Dönüştürülecek stone cinsinden ağırlık"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Pounds per stone, default 14 for standard conversion",
       "label_i18n": {
         "en": "Conversion Factor (lb/st)",
-        "tr": "Conversion Factor (lb/st)",
+        "tr": "Dönüşüm Faktörü (lb/st)",
         "de": "Conversion Factor (lb/st)",
         "fr": "Conversion Factor (lb/st)",
         "es": "Conversion Factor (lb/st)",
         "ar": "Conversion Factor (lb/st)"
+      },
+      "businessContext_i18n": {
+        "en": "Pounds per stone, default 14 for standard conversion",
+        "tr": "Stone başına pound, varsayılan 14 standart dönüşüm için"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Extra weight in pounds to add to the total",
       "label_i18n": {
         "en": "Additional Pounds",
-        "tr": "Additional Pounds",
+        "tr": "Ek Pound",
         "de": "Additional Pounds",
         "fr": "Additional Pounds",
         "es": "Additional Pounds",
         "ar": "Additional Pounds"
+      },
+      "businessContext_i18n": {
+        "en": "Extra weight in pounds to add to the total",
+        "tr": "Toplama eklenecek pound cinsinden ekstra ağırlık"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Weight in pounds to subtract from the total",
       "label_i18n": {
         "en": "Subtract Pounds",
-        "tr": "Subtract Pounds",
+        "tr": "Çıkarılacak Pound",
         "de": "Subtract Pounds",
         "fr": "Subtract Pounds",
         "es": "Subtract Pounds",
         "ar": "Subtract Pounds"
+      },
+      "businessContext_i18n": {
+        "en": "Weight in pounds to subtract from the total",
+        "tr": "Toplamdan çıkarılacak pound cinsinden ağırlık"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Extra weight in ounces to add (16 oz = 1 lb)",
       "label_i18n": {
         "en": "Additional Ounces",
-        "tr": "Additional Ounces",
+        "tr": "Ek Ons",
         "de": "Additional Ounces",
         "fr": "Additional Ounces",
         "es": "Additional Ounces",
         "ar": "Additional Ounces"
+      },
+      "businessContext_i18n": {
+        "en": "Extra weight in ounces to add (16 oz = 1 lb)",
+        "tr": "Eklenecek ekstra ons cinsinden ağırlık (16 oz = 1 lb)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of decimal places for rounded output",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounded output",
+        "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı"
       }
     }
   ],

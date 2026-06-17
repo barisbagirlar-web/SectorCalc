@@ -10,11 +10,15 @@
       "businessContext": "The initial amount of money invested or saved.",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "The initial amount of money invested or saved.",
+        "tr": "Yatırılan veya biriktirilen başlangıç para miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The yearly nominal interest rate.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The yearly nominal interest rate.",
+        "tr": "Yıllık nominal faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The investment duration in years.",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Number of Years",
+        "tr": "Yıl Sayısı",
         "de": "Number of Years",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
+      },
+      "businessContext_i18n": {
+        "en": "The investment duration in years.",
+        "tr": "Yatırım süresi (yıl olarak)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of times interest is compounded per year. e.g., 1 for annual, 12 for monthly.",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı",
         "de": "Compounding Frequency",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times interest is compounded per year. e.g., 1 for annual, 12 for monthly.",
+        "tr": "Yılda faizin bileşik hesaplanma sayısı. Örn: yıllık için 1, aylık için 12."
       }
     }
   ],

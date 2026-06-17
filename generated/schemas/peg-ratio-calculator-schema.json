@@ -10,11 +10,15 @@
       "businessContext": "Current market price per share",
       "label_i18n": {
         "en": "Stock Price",
-        "tr": "Stock Price",
+        "tr": "Hisse Senedi Fiyatı",
         "de": "Stock Price",
         "fr": "Stock Price",
         "es": "Stock Price",
         "ar": "Stock Price"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price per share",
+        "tr": "Hisse başına güncel piyasa fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Trailing twelve-month earnings per share",
       "label_i18n": {
         "en": "Earnings Per Share (EPS)",
-        "tr": "Earnings Per Share (EPS)",
+        "tr": "Hisse Başına Kâr (EPS)",
         "de": "Earnings Per Share (EPS)",
         "fr": "Earnings Per Share (EPS)",
         "es": "Earnings Per Share (EPS)",
         "ar": "Earnings Per Share (EPS)"
+      },
+      "businessContext_i18n": {
+        "en": "Trailing twelve-month earnings per share",
+        "tr": "Son on iki aylık hisse başına kâr"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected annual EPS growth rate (percentage)",
       "label_i18n": {
         "en": "Earnings Growth Rate",
-        "tr": "Earnings Growth Rate",
+        "tr": "Kâr Büyüme Oranı",
         "de": "Earnings Growth Rate",
         "fr": "Earnings Growth Rate",
         "es": "Earnings Growth Rate",
         "ar": "Earnings Growth Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual EPS growth rate (percentage)",
+        "tr": "Beklenen yıllık EPS büyüme oranı (yüzde)"
       }
     }
   ],

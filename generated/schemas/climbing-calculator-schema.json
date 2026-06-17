@@ -10,11 +10,15 @@
       "businessContext": "Mass of the climber including all gear (harness, rope, hardware) in kilograms.",
       "label_i18n": {
         "en": "Climber Mass",
-        "tr": "Climber Mass",
+        "tr": "Tırmanıcı Kütlesi",
         "de": "Climber Mass",
         "fr": "Climber Mass",
         "es": "Climber Mass",
         "ar": "Climber Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the climber including all gear (harness, rope, hardware) in kilograms.",
+        "tr": "Tırmanıcının tüm ekipmanı (emniyet kemeri, ip, donanım) dahil kilogram cinsinden kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Fall factor (ratio of free-fall height to length of dynamic rope in the system), typically between 0 and 2.",
       "label_i18n": {
         "en": "Fall Factor",
-        "tr": "Fall Factor",
+        "tr": "Düşme Faktörü",
         "de": "Fall Factor",
         "fr": "Fall Factor",
         "es": "Fall Factor",
         "ar": "Fall Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Fall factor (ratio of free-fall height to length of dynamic rope in the system), typically between 0 and 2.",
+        "tr": "Düşme faktörü (serbest düşüş yüksekliğinin sistemdeki dinamik ip uzunluğuna oranı), tipik olarak 0 ile 2 arasında."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Manufacturer-rated impact force of the rope for UIAA standard test (80 kg mass, 1.77 fall factor) in kilonewtons.",
       "label_i18n": {
         "en": "Rated Impact Force",
-        "tr": "Rated Impact Force",
+        "tr": "Anma Darbe Kuvveti",
         "de": "Rated Impact Force",
         "fr": "Rated Impact Force",
         "es": "Rated Impact Force",
         "ar": "Rated Impact Force"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturer-rated impact force of the rope for UIAA standard test (80 kg mass, 1.77 fall factor) in kilonewtons.",
+        "tr": "UIAA standart testi (80 kg kütle, 1.77 düşme faktörü) için ipin üretici tarafından belirtilen darbe kuvveti, kilonewton cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard test mass used for UIAA rating, typically 80 kg.",
       "label_i18n": {
         "en": "Rated Mass",
-        "tr": "Rated Mass",
+        "tr": "Anma Kütlesi",
         "de": "Rated Mass",
         "fr": "Rated Mass",
         "es": "Rated Mass",
         "ar": "Rated Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Standard test mass used for UIAA rating, typically 80 kg.",
+        "tr": "UIAA derecelendirmesi için kullanılan standart test kütlesi, tipik olarak 80 kg."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Standard test fall factor used for UIAA rating, typically 1.77.",
       "label_i18n": {
         "en": "Rated Fall Factor",
-        "tr": "Rated Fall Factor",
+        "tr": "Anma Düşme Faktörü",
         "de": "Rated Fall Factor",
         "fr": "Rated Fall Factor",
         "es": "Rated Fall Factor",
         "ar": "Rated Fall Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard test fall factor used for UIAA rating, typically 1.77.",
+        "tr": "UIAA derecelendirmesi için kullanılan standart test düşme faktörü, tipik olarak 1.77."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Design safety factor applied to the estimated force (e.g., 1.0 for theoretical, 1.5 for equipment margin).",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor applied to the estimated force (e.g., 1.0 for theoretical, 1.5 for equipment margin).",
+        "tr": "Tahmini kuvvete uygulanan tasarım güvenlik faktörü (örneğin, teorik için 1.0, ekipman marjı için 1.5)."
       }
     }
   ],

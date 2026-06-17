@@ -10,11 +10,15 @@
       "businessContext": "The weight of the dog in kilograms.",
       "label_i18n": {
         "en": "Dog Weight",
-        "tr": "Dog Weight",
+        "tr": "Köpek Ağırlığı",
         "de": "Dog Weight",
         "fr": "Dog Weight",
         "es": "Dog Weight",
         "ar": "Dog Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The weight of the dog in kilograms.",
+        "tr": "Köpeğin kilogram cinsinden ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Multiplier based on activity level: 1.2 for sedentary, 1.6 for typical, 2.0 for high activity.",
       "label_i18n": {
         "en": "Activity Factor",
-        "tr": "Activity Factor",
+        "tr": "Aktivite Faktörü",
         "de": "Activity Factor",
         "fr": "Activity Factor",
         "es": "Activity Factor",
         "ar": "Activity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier based on activity level: 1.2 for sedentary, 1.6 for typical, 2.0 for high activity.",
+        "tr": "Aktivite seviyesine göre çarpan: hareketsiz için 1.2, tipik için 1.6, yüksek aktivite için 2.0."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Life stage adjustment: 1.8 for puppy, 1.0 for adult, 0.8 for senior.",
       "label_i18n": {
         "en": "Age Multiplier",
-        "tr": "Age Multiplier",
+        "tr": "Yaş Çarpanı",
         "de": "Age Multiplier",
         "fr": "Age Multiplier",
         "es": "Age Multiplier",
         "ar": "Age Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Life stage adjustment: 1.8 for puppy, 1.0 for adult, 0.8 for senior.",
+        "tr": "Yaşam evresi ayarlaması: yavru için 1.8, yetişkin için 1.0, yaşlı için 0.8."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Energy content of the dog food in kilocalories per 100 grams, as stated on packaging.",
       "label_i18n": {
         "en": "Food Energy Density",
-        "tr": "Food Energy Density",
+        "tr": "Mama Enerji Yoğunluğu",
         "de": "Food Energy Density",
         "fr": "Food Energy Density",
         "es": "Food Energy Density",
         "ar": "Food Energy Density"
+      },
+      "businessContext_i18n": {
+        "en": "Energy content of the dog food in kilocalories per 100 grams, as stated on packaging.",
+        "tr": "Köpek mamasının ambalajında belirtilen, 100 gram başına kilokalori cinsinden enerji içeriği."
       }
     }
   ],

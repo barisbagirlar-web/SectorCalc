@@ -15,6 +15,10 @@
         "fr": "Duvar Alanı",
         "es": "Duvar Alanı",
         "ar": "Duvar Alanı"
+      },
+      "businessContext_i18n": {
+        "en": "Sıvanacak toplam duvar alanı (m² cinsinden).",
+        "tr": "Sıvanacak toplam duvar alanı (m² cinsinden)."
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Sıva Kalınlığı",
         "es": "Sıva Kalınlığı",
         "ar": "Sıva Kalınlığı"
+      },
+      "businessContext_i18n": {
+        "en": "Uygulanacak toplam sıva kalınlığı (mm cinsinden).",
+        "tr": "Sıva Kalınlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
       "label_i18n": {
         "en": "Karışım Yoğunluğu",
-        "tr": "Karışım Yoğunluğu",
+        "tr": "Uygulanacak toplam sıva kalınlığı (mm cinsinden).",
         "de": "Karışım Yoğunluğu",
         "fr": "Karışım Yoğunluğu",
         "es": "Karışım Yoğunluğu",
         "ar": "Karışım Yoğunluğu"
+      },
+      "businessContext_i18n": {
+        "en": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
+        "tr": "Karışım Yoğunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Bir torba sıva karışımının net ağırlığı (kg).",
       "label_i18n": {
         "en": "Torba Ağırlığı",
-        "tr": "Torba Ağırlığı",
+        "tr": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
         "de": "Torba Ağırlığı",
         "fr": "Torba Ağırlığı",
         "es": "Torba Ağırlığı",
         "ar": "Torba Ağırlığı"
+      },
+      "businessContext_i18n": {
+        "en": "Bir torba sıva karışımının net ağırlığı (kg).",
+        "tr": "Torba Ağırlığı"
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "Fire Oranı",
         "es": "Fire Oranı",
         "ar": "Fire Oranı"
+      },
+      "businessContext_i18n": {
+        "en": "Uygulama sırasında oluşacak fire oranı (% cinsinden).",
+        "tr": "Bir torba sıva karışımının net ağırlığı (kg)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "1: Decimal, 2: Fractional, 3: American",
       "label_i18n": {
         "en": "Odds Format",
-        "tr": "Odds Format",
+        "tr": "Oran Formatı",
         "de": "Odds Format",
         "fr": "Odds Format",
         "es": "Odds Format",
         "ar": "Odds Format"
+      },
+      "businessContext_i18n": {
+        "en": "1: Decimal, 2: Fractional, 3: American",
+        "tr": "1: Ondalık, 2: Kesirli, 3: Amerikan"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Enter decimal odds",
       "label_i18n": {
         "en": "Decimal Odds",
-        "tr": "Decimal Odds",
+        "tr": "Ondalık Oranlar",
         "de": "Decimal Odds",
         "fr": "Decimal Odds",
         "es": "Decimal Odds",
         "ar": "Decimal Odds"
+      },
+      "businessContext_i18n": {
+        "en": "Enter decimal odds",
+        "tr": "Ondalık oranı girin"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Numerator of fractional odds",
       "label_i18n": {
         "en": "Fractional Numerator",
-        "tr": "Fractional Numerator",
+        "tr": "Kesirli Pay",
         "de": "Fractional Numerator",
         "fr": "Fractional Numerator",
         "es": "Fractional Numerator",
         "ar": "Fractional Numerator"
+      },
+      "businessContext_i18n": {
+        "en": "Numerator of fractional odds",
+        "tr": "Kesirli oranın payı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Denominator of fractional odds",
       "label_i18n": {
         "en": "Fractional Denominator",
-        "tr": "Fractional Denominator",
+        "tr": "Kesirli Payda",
         "de": "Fractional Denominator",
         "fr": "Fractional Denominator",
         "es": "Fractional Denominator",
         "ar": "Fractional Denominator"
+      },
+      "businessContext_i18n": {
+        "en": "Denominator of fractional odds",
+        "tr": "Kesirli oranın paydası"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Positive for underdog, negative for favorite",
       "label_i18n": {
         "en": "American Odds",
-        "tr": "American Odds",
+        "tr": "Amerikan Oranları",
         "de": "American Odds",
         "fr": "American Odds",
         "es": "American Odds",
         "ar": "American Odds"
+      },
+      "businessContext_i18n": {
+        "en": "Positive for underdog, negative for favorite",
+        "tr": "Sürpriz için pozitif, favori için negatif"
       }
     }
   ],

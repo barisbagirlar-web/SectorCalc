@@ -21,10 +21,12 @@
       "max": 1000000000,
       "businessContext": "Total cost of goods or services at the start of the analysis period.",
       "label_i18n": {
-        "en": "Base Cost (Current Period)"
+        "en": "Base Cost (Current Period)",
+        "tr": "Temel Maliyet (Cari Dönem)"
       },
       "businessContext_i18n": {
-        "en": "Total cost of goods or services at the start of the analysis period."
+        "en": "Total cost of goods or services at the start of the analysis period.",
+        "tr": "Analiz dönemi başlangıcındaki toplam mal veya hizmet maliyeti."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100,
       "businessContext": "Expected annual inflation rate for the cost category (e.g., CPI, PPI).",
       "label_i18n": {
-        "en": "Annual Inflation Rate"
+        "en": "Annual Inflation Rate",
+        "tr": "Yıllık Enflasyon Oranı"
       },
       "businessContext_i18n": {
-        "en": "Expected annual inflation rate for the cost category (e.g., CPI, PPI)."
+        "en": "Expected annual inflation rate for the cost category (e.g., CPI, PPI).",
+        "tr": "Maliyet kategorisi için beklenen yıllık enflasyon oranı (örn. TÜFE, ÜFE)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 50,
       "businessContext": "Number of years over which inflation escalation is calculated.",
       "label_i18n": {
-        "en": "Analysis Period (Years)"
+        "en": "Analysis Period (Years)",
+        "tr": "Analiz Süresi (Yıl)"
       },
       "businessContext_i18n": {
-        "en": "Number of years over which inflation escalation is calculated."
+        "en": "Number of years over which inflation escalation is calculated.",
+        "tr": "Enflasyon artışının hesaplandığı yıl sayısı."
       }
     },
     {
@@ -71,10 +77,12 @@
       "default": "compound",
       "businessContext": "Method to apply inflation: compound (annual compounding), simple (linear), or stepwise (discrete annual steps).",
       "label_i18n": {
-        "en": "Escalation Method"
+        "en": "Escalation Method",
+        "tr": "Artış Yöntemi"
       },
       "businessContext_i18n": {
-        "en": "Method to apply inflation: compound (annual compounding), simple (linear), or stepwise (discrete annual steps)."
+        "en": "Method to apply inflation: compound (annual compounding), simple (linear), or stepwise (discrete annual steps).",
+        "tr": "Enflasyonu uygulama yöntemi: bileşik (yıllık bileşik), basit (doğrusal) veya adımlı (ayrık yıllık adımlar)."
       },
       "unit": "unit"
     },
@@ -85,10 +93,12 @@
       "default": true,
       "businessContext": "If true, applies a separate energy escalation factor (typically higher than general inflation).",
       "label_i18n": {
-        "en": "Include Energy Cost Escalation"
+        "en": "Include Energy Cost Escalation",
+        "tr": "Enerji Maliyeti Artışını Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "If true, applies a separate energy escalation factor (typically higher than general inflation)."
+        "en": "If true, applies a separate energy escalation factor (typically higher than general inflation).",
+        "tr": "Doğruysa, ayrı bir enerji artış faktörü uygular (genellikle genel enflasyondan yüksektir)."
       },
       "unit": "unit"
     },
@@ -102,10 +112,12 @@
       "max": 100,
       "businessContext": "Annual escalation rate for energy costs, often based on EIA forecasts.",
       "label_i18n": {
-        "en": "Energy Escalation Rate"
+        "en": "Energy Escalation Rate",
+        "tr": "Enerji Artış Oranı"
       },
       "businessContext_i18n": {
-        "en": "Annual escalation rate for energy costs, often based on EIA forecasts."
+        "en": "Annual escalation rate for energy costs, often based on EIA forecasts.",
+        "tr": "Enerji maliyetleri için yıllık artış oranı, genellikle EIA tahminlerine dayanır."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 20,
       "businessContext": "Annual productivity improvement that offsets labor cost inflation (Lean / Six Sigma metric).",
       "label_i18n": {
-        "en": "Labor Productivity Gain"
+        "en": "Labor Productivity Gain",
+        "tr": "İşgücü Verimlilik Kazancı"
       },
       "businessContext_i18n": {
-        "en": "Annual productivity improvement that offsets labor cost inflation (Lean / Six Sigma metric)."
+        "en": "Annual productivity improvement that offsets labor cost inflation (Lean / Six Sigma metric).",
+        "tr": "İşgücü maliyeti enflasyonunu dengeleyen yıllık verimlilik iyileştirmesi (Yalın / Altı Sigma metriği)."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 3,
       "businessContext": "Multiplier to adjust material inflation based on commodity volatility (e.g., copper, steel).",
       "label_i18n": {
-        "en": "Material Volatility Index"
+        "en": "Material Volatility Index",
+        "tr": "Malzeme Volatilite Endeksi"
       },
       "businessContext_i18n": {
-        "en": "Multiplier to adjust material inflation based on commodity volatility (e.g., copper, steel)."
+        "en": "Multiplier to adjust material inflation based on commodity volatility (e.g., copper, steel).",
+        "tr": "Emtia oynaklığına (örn. bakır, çelik) dayalı malzeme enflasyonunu ayarlamak için çarpan."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The total allocated time for completion, e.g., planned maintenance duration.",
       "label_i18n": {
         "en": "Total Duration",
-        "tr": "Total Duration",
+        "tr": "Toplam Süre",
         "de": "Total Duration",
         "fr": "Total Duration",
         "es": "Total Duration",
         "ar": "Total Duration"
+      },
+      "businessContext_i18n": {
+        "en": "The total allocated time for completion, e.g., planned maintenance duration.",
+        "tr": "Tamamlanması için ayrılan toplam süre, örn. planlı bakım süresi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The time already passed since the start.",
       "label_i18n": {
         "en": "Elapsed Duration",
-        "tr": "Elapsed Duration",
+        "tr": "Geçen Süre",
         "de": "Elapsed Duration",
         "fr": "Elapsed Duration",
         "es": "Elapsed Duration",
         "ar": "Elapsed Duration"
+      },
+      "businessContext_i18n": {
+        "en": "The time already passed since the start.",
+        "tr": "Başlangıçtan bu yana geçen süre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional safety margin added to total duration.",
       "label_i18n": {
         "en": "Buffer Time",
-        "tr": "Buffer Time",
+        "tr": "Tampon Süre",
         "de": "Buffer Time",
         "fr": "Buffer Time",
         "es": "Buffer Time",
         "ar": "Buffer Time"
+      },
+      "businessContext_i18n": {
+        "en": "Additional safety margin added to total duration.",
+        "tr": "Toplam süreye eklenen ek güvenlik marjı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "When remaining time falls below this percent, trigger warning.",
       "label_i18n": {
         "en": "Warning Threshold",
-        "tr": "Warning Threshold",
+        "tr": "Uyarı Eşiği",
         "de": "Warning Threshold",
         "fr": "Warning Threshold",
         "es": "Warning Threshold",
         "ar": "Warning Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "When remaining time falls below this percent, trigger warning.",
+        "tr": "Kalan süre bu yüzdenin altına düştüğünde uyarı tetiklenir."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "When remaining time falls below this percent, trigger critical alert.",
       "label_i18n": {
         "en": "Critical Threshold",
-        "tr": "Critical Threshold",
+        "tr": "Kritik Eşik",
         "de": "Critical Threshold",
         "fr": "Critical Threshold",
         "es": "Critical Threshold",
         "ar": "Critical Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "When remaining time falls below this percent, trigger critical alert.",
+        "tr": "Kalan süre bu yüzdenin altına düştüğünde kritik uyarı tetiklenir."
       }
     }
   ],

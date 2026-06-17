@@ -10,11 +10,15 @@
       "businessContext": "The volume in imperial gallons to convert.",
       "label_i18n": {
         "en": "Imperial Gallons",
-        "tr": "Imperial Gallons",
+        "tr": "İmparatorluk Galonu",
         "de": "Imperial Gallons",
         "fr": "Imperial Gallons",
         "es": "Imperial Gallons",
         "ar": "Imperial Gallons"
+      },
+      "businessContext_i18n": {
+        "en": "The volume in imperial gallons to convert.",
+        "tr": "Dönüştürülecek imparatorluk galonu cinsinden hacim."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of batches or containers being converted.",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of batches or containers being converted.",
+        "tr": "Dönüştürülen parti veya kap sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Allowable measurement tolerance as percentage.",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Allowable measurement tolerance as percentage.",
+        "tr": "Yüzde olarak izin verilen ölçüm toleransı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ambient temperature for density correction (if applicable).",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Ambient temperature for density correction (if applicable).",
+        "tr": "Yoğunluk düzeltmesi için ortam sıcaklığı (varsa)."
       }
     }
   ],

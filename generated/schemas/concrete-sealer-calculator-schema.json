@@ -10,11 +10,15 @@
       "businessContext": "Total surface area of concrete to be sealed",
       "label_i18n": {
         "en": "Surface Area",
-        "tr": "Surface Area",
+        "tr": "Yüzey Alanı",
         "de": "Surface Area",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total surface area of concrete to be sealed",
+        "tr": "Sızdırmazlık yapılacak toplam beton yüzey alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Manufacturer's stated coverage rate per coat",
       "label_i18n": {
         "en": "Coverage Rate",
-        "tr": "Coverage Rate",
+        "tr": "Kaplama Oranı",
         "de": "Coverage Rate",
         "fr": "Coverage Rate",
         "es": "Coverage Rate",
         "ar": "Coverage Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturer's stated coverage rate per coat",
+        "tr": "Üreticinin kat başına belirttiği kaplama oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of coats to apply",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Number of Coats",
+        "tr": "Kat Sayısı",
         "de": "Number of Coats",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
+      },
+      "businessContext_i18n": {
+        "en": "Number of coats to apply",
+        "tr": "Uygulanacak kat sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Extra material to account for spillage, overspray, and uneven application",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Extra material to account for spillage, overspray, and uneven application",
+        "tr": "Dökülme, aşırı püskürtme ve düzensiz uygulama için ekstra malzeme"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier for coverage based on concrete surface roughness (1.0 for smooth, 1.2 for medium, 1.5 for rough)",
       "label_i18n": {
         "en": "Porosity Factor",
-        "tr": "Porosity Factor",
+        "tr": "Gözeneklilik Faktörü",
         "de": "Porosity Factor",
         "fr": "Porosity Factor",
         "es": "Porosity Factor",
         "ar": "Porosity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for coverage based on concrete surface roughness (1.0 for smooth, 1.2 for medium, 1.5 for rough)",
+        "tr": "Beton yüzey pürüzlülüğüne göre kaplama çarpanı (düz için 1.0, orta için 1.2, pürüzlü için 1.5)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost of one gallon of sealer",
       "label_i18n": {
         "en": "Price per Gallon",
-        "tr": "Price per Gallon",
+        "tr": "Galon başına fiyat",
         "de": "Price per Gallon",
         "fr": "Price per Gallon",
         "es": "Price per Gallon",
         "ar": "Price per Gallon"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of one gallon of sealer",
+        "tr": "Bir galon sızdırmazlık malzemesinin maliyeti"
       }
     }
   ],

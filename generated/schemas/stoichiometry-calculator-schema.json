@@ -10,11 +10,15 @@
       "businessContext": "The mass of the substance whose amount is known.",
       "label_i18n": {
         "en": "Mass of Known Substance",
-        "tr": "Mass of Known Substance",
+        "tr": "Bilinen Maddenin Kütlesi",
         "de": "Mass of Known Substance",
         "fr": "Mass of Known Substance",
         "es": "Mass of Known Substance",
         "ar": "Mass of Known Substance"
+      },
+      "businessContext_i18n": {
+        "en": "The mass of the substance whose amount is known.",
+        "tr": "Miktarı bilinen maddenin kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Molar mass (molecular weight) of the known substance.",
       "label_i18n": {
         "en": "Molar Mass of Known Substance",
-        "tr": "Molar Mass of Known Substance",
+        "tr": "Bilinen Maddenin Molar Kütlesi",
         "de": "Molar Mass of Known Substance",
         "fr": "Molar Mass of Known Substance",
         "es": "Molar Mass of Known Substance",
         "ar": "Molar Mass of Known Substance"
+      },
+      "businessContext_i18n": {
+        "en": "Molar mass (molecular weight) of the known substance.",
+        "tr": "Bilinen maddenin molar kütlesi (molekül ağırlığı)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Molar mass of the substance whose mass is to be calculated.",
       "label_i18n": {
         "en": "Molar Mass of Unknown Substance",
-        "tr": "Molar Mass of Unknown Substance",
+        "tr": "Bilinmeyen Maddenin Molar Kütlesi",
         "de": "Molar Mass of Unknown Substance",
         "fr": "Molar Mass of Unknown Substance",
         "es": "Molar Mass of Unknown Substance",
         "ar": "Molar Mass of Unknown Substance"
+      },
+      "businessContext_i18n": {
+        "en": "Molar mass of the substance whose mass is to be calculated.",
+        "tr": "Kütlesi hesaplanacak maddenin molar kütlesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Stoichiometric coefficient of the known substance in the balanced equation.",
       "label_i18n": {
         "en": "Coefficient of Known Substance",
-        "tr": "Coefficient of Known Substance",
+        "tr": "Bilinen Maddenin Katsayısı",
         "de": "Coefficient of Known Substance",
         "fr": "Coefficient of Known Substance",
         "es": "Coefficient of Known Substance",
         "ar": "Coefficient of Known Substance"
+      },
+      "businessContext_i18n": {
+        "en": "Stoichiometric coefficient of the known substance in the balanced equation.",
+        "tr": "Denklemdeki bilinen maddenin stokiyometrik katsayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Stoichiometric coefficient of the unknown substance in the balanced equation.",
       "label_i18n": {
         "en": "Coefficient of Unknown Substance",
-        "tr": "Coefficient of Unknown Substance",
+        "tr": "Bilinmeyen Maddenin Katsayısı",
         "de": "Coefficient of Unknown Substance",
         "fr": "Coefficient of Unknown Substance",
         "es": "Coefficient of Unknown Substance",
         "ar": "Coefficient of Unknown Substance"
+      },
+      "businessContext_i18n": {
+        "en": "Stoichiometric coefficient of the unknown substance in the balanced equation.",
+        "tr": "Denklemdeki bilinmeyen maddenin stokiyometrik katsayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Fair value or cost of the asset being leased.",
       "label_i18n": {
         "en": "Asset Cost",
-        "tr": "Asset Cost",
+        "tr": "Varlık Maliyeti",
         "de": "Asset Cost",
         "fr": "Asset Cost",
         "es": "Asset Cost",
         "ar": "Asset Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Fair value or cost of the asset being leased.",
+        "tr": "Kiralanan varlığın gerçeğe uygun değeri veya maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of the lease in years.",
       "label_i18n": {
         "en": "Lease Term",
-        "tr": "Lease Term",
+        "tr": "Kira Süresi",
         "de": "Lease Term",
         "fr": "Lease Term",
         "es": "Lease Term",
         "ar": "Lease Term"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the lease in years.",
+        "tr": "Kira süresi (yıl olarak)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Implicit interest rate in the lease, per annum.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Implicit interest rate in the lease, per annum.",
+        "tr": "Kira sözleşmesindeki zımni faiz oranı (yıllık)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated fair value of the asset at the end of the lease term.",
       "label_i18n": {
         "en": "Residual Value",
-        "tr": "Residual Value",
+        "tr": "Kalıntı Değer",
         "de": "Residual Value",
         "fr": "Residual Value",
         "es": "Residual Value",
         "ar": "Residual Value"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated fair value of the asset at the end of the lease term.",
+        "tr": "Kira süresi sonunda varlığın tahmini gerçeğe uygun değeri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of lease payments per year (12 for monthly, 4 for quarterly, 1 for annual).",
       "label_i18n": {
         "en": "Payments per Year",
-        "tr": "Payments per Year",
+        "tr": "Yıllık Ödeme Sayısı",
         "de": "Payments per Year",
         "fr": "Payments per Year",
         "es": "Payments per Year",
         "ar": "Payments per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of lease payments per year (12 for monthly, 4 for quarterly, 1 for annual).",
+        "tr": "Yıllık kira ödeme sayısı (12 aylık, 4 üç aylık, 1 yıllık)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Value to compute natural logarithm of (e.g., process ratio, dimensionless parameter)",
       "label_i18n": {
         "en": "Input Value",
-        "tr": "Input Value",
+        "tr": "Giriş Değeri",
         "de": "Input Value",
         "fr": "Input Value",
         "es": "Input Value",
         "ar": "Input Value"
+      },
+      "businessContext_i18n": {
+        "en": "Value to compute natural logarithm of (e.g., process ratio, dimensionless parameter)",
+        "tr": "Doğal logaritması hesaplanacak değer (örn. proses oranı, boyutsuz parametre)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for output",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output",
+        "tr": "Çıktı için ondalık basamak sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiply the natural log by this factor (e.g., 0.434294 converts to log10)",
       "label_i18n": {
         "en": "Scale Factor",
-        "tr": "Scale Factor",
+        "tr": "Ölçek Faktörü",
         "de": "Scale Factor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiply the natural log by this factor (e.g., 0.434294 converts to log10)",
+        "tr": "Doğal logaritmayı bu faktörle çarp (örn. 0.434294 log10'a dönüştürür)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Add or subtract an offset to the scaled log value",
       "label_i18n": {
         "en": "Offset",
-        "tr": "Offset",
+        "tr": "Ofset",
         "de": "Offset",
         "fr": "Offset",
         "es": "Offset",
         "ar": "Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Add or subtract an offset to the scaled log value",
+        "tr": "Ölçeklenmiş log değerine bir ofset ekle veya çıkar"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Set to 1 to output e^x instead of the scaled natural log",
       "label_i18n": {
         "en": "Display e^x",
-        "tr": "Display e^x",
+        "tr": "e^x'i göster",
         "de": "Display e^x",
         "fr": "Display e^x",
         "es": "Display e^x",
         "ar": "Display e^x"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to output e^x instead of the scaled natural log",
+        "tr": "Ölçeklenmiş doğal logaritma yerine e^x çıktısı almak için 1 olarak ayarlayın"
       }
     }
   ],

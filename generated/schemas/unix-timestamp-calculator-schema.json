@@ -10,11 +10,15 @@
       "businessContext": "Number of whole days since Unix epoch (January 1, 1970).",
       "label_i18n": {
         "en": "Days",
-        "tr": "Days",
+        "tr": "Gün",
         "de": "Days",
         "fr": "Days",
         "es": "Days",
         "ar": "Days"
+      },
+      "businessContext_i18n": {
+        "en": "Number of whole days since Unix epoch (January 1, 1970).",
+        "tr": "Unix döneminden (1 Ocak 1970) bu yana geçen tam gün sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Remaining hours of the day (0-23).",
       "label_i18n": {
         "en": "Hours",
-        "tr": "Hours",
+        "tr": "Saat",
         "de": "Hours",
         "fr": "Hours",
         "es": "Hours",
         "ar": "Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Remaining hours of the day (0-23).",
+        "tr": "Günün kalan saatleri (0-23)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Remaining minutes of the hour (0-59).",
       "label_i18n": {
         "en": "Minutes",
-        "tr": "Minutes",
+        "tr": "Dakika",
         "de": "Minutes",
         "fr": "Minutes",
         "es": "Minutes",
         "ar": "Minutes"
+      },
+      "businessContext_i18n": {
+        "en": "Remaining minutes of the hour (0-59).",
+        "tr": "Saat içinde kalan dakikalar (0-59)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Remaining seconds of the minute (0-59).",
       "label_i18n": {
         "en": "Seconds",
-        "tr": "Seconds",
+        "tr": "Saniye",
         "de": "Seconds",
         "fr": "Seconds",
         "es": "Seconds",
         "ar": "Seconds"
+      },
+      "businessContext_i18n": {
+        "en": "Remaining seconds of the minute (0-59).",
+        "tr": "Dakika içinde kalan saniyeler (0-59)."
       }
     }
   ],

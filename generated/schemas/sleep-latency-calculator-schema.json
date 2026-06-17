@@ -10,11 +10,15 @@
       "businessContext": "Time when worker turns off lights and attempts to sleep (e.g., 22.5 for 22:30)",
       "label_i18n": {
         "en": "Lights Out Time (decimal hours)",
-        "tr": "Lights Out Time (decimal hours)",
+        "tr": "Işıklar Kapatma Saati (ondalık saat)",
         "de": "Lights Out Time (decimal hours)",
         "fr": "Lights Out Time (decimal hours)",
         "es": "Lights Out Time (decimal hours)",
         "ar": "Lights Out Time (decimal hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Time when worker turns off lights and attempts to sleep (e.g., 22.5 for 22:30)",
+        "tr": "İşçinin ışıkları kapatıp uyumaya çalıştığı saat (ör. 22.5, 22:30 için)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Worker's age in years; older age may increase sleep latency",
       "label_i18n": {
         "en": "Worker Age",
-        "tr": "Worker Age",
+        "tr": "İşçi Yaşı",
         "de": "Worker Age",
         "fr": "Worker Age",
         "es": "Worker Age",
         "ar": "Worker Age"
+      },
+      "businessContext_i18n": {
+        "en": "Worker's age in years; older age may increase sleep latency",
+        "tr": "İşçinin yıl cinsinden yaşı; ileri yaş uykuya dalma süresini artırabilir"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total caffeine consumed in mg within 6 hours before bedtime",
       "label_i18n": {
         "en": "Caffeine Intake Before Bed",
-        "tr": "Caffeine Intake Before Bed",
+        "tr": "Yatmadan Önce Kafein Alımı",
         "de": "Caffeine Intake Before Bed",
         "fr": "Caffeine Intake Before Bed",
         "es": "Caffeine Intake Before Bed",
         "ar": "Caffeine Intake Before Bed"
+      },
+      "businessContext_i18n": {
+        "en": "Total caffeine consumed in mg within 6 hours before bedtime",
+        "tr": "Yatmadan 6 saat içinde tüketilen toplam kafein (mg cinsinden)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Minutes spent on screens (phone, TV, computer) before lights out",
       "label_i18n": {
         "en": "Screen Time Before Bed",
-        "tr": "Screen Time Before Bed",
+        "tr": "Yatmadan Önce Ekran Süresi",
         "de": "Screen Time Before Bed",
         "fr": "Screen Time Before Bed",
         "es": "Screen Time Before Bed",
         "ar": "Screen Time Before Bed"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes spent on screens (phone, TV, computer) before lights out",
+        "tr": "Işıklar kapatılmadan önce ekranlarda (telefon, TV, bilgisayar) geçirilen dakika"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Bedroom temperature in degrees Celsius; optimal is around 20°C",
       "label_i18n": {
         "en": "Room Temperature",
-        "tr": "Room Temperature",
+        "tr": "Oda Sıcaklığı",
         "de": "Room Temperature",
         "fr": "Room Temperature",
         "es": "Room Temperature",
         "ar": "Room Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Bedroom temperature in degrees Celsius; optimal is around 20°C",
+        "tr": "Yatak Odası Sıcaklığı (°C)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Self-reported stress level on a scale of 1-10, 10 being extremely stressed",
       "label_i18n": {
         "en": "Stress Level (1-10)",
-        "tr": "Stress Level (1-10)",
+        "tr": "Stres Seviyesi (1-10)",
         "de": "Stress Level (1-10)",
         "fr": "Stress Level (1-10)",
         "es": "Stress Level (1-10)",
         "ar": "Stress Level (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Self-reported stress level on a scale of 1-10, 10 being extremely stressed",
+        "tr": "1-10 ölçeğinde kendi bildirilen stres seviyesi, 10 aşırı stresli"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Cash on hand and highly liquid short-term investments",
       "label_i18n": {
         "en": "Cash & Equivalents",
-        "tr": "Cash & Equivalents",
+        "tr": "Nakit ve Benzerleri",
         "de": "Cash & Equivalents",
         "fr": "Cash & Equivalents",
         "es": "Cash & Equivalents",
         "ar": "Cash & Equivalents"
+      },
+      "businessContext_i18n": {
+        "en": "Cash on hand and highly liquid short-term investments",
+        "tr": "Eldeki nakit ve yüksek likiditeye sahip kısa vadeli yatırımlar"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Money owed by customers for goods or services delivered",
       "label_i18n": {
         "en": "Accounts Receivable",
-        "tr": "Accounts Receivable",
+        "tr": "Alacak Hesapları",
         "de": "Accounts Receivable",
         "fr": "Accounts Receivable",
         "es": "Accounts Receivable",
         "ar": "Accounts Receivable"
+      },
+      "businessContext_i18n": {
+        "en": "Money owed by customers for goods or services delivered",
+        "tr": "Teslim edilen mal veya hizmetler için müşterilerin borçlu olduğu para"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Raw materials, work-in-progress, and finished goods held for sale",
       "label_i18n": {
         "en": "Inventory",
-        "tr": "Inventory",
+        "tr": "Stok",
         "de": "Inventory",
         "fr": "Inventory",
         "es": "Inventory",
         "ar": "Inventory"
+      },
+      "businessContext_i18n": {
+        "en": "Raw materials, work-in-progress, and finished goods held for sale",
+        "tr": "Satış için elde tutulan hammaddeler, yarı mamuller ve bitmiş ürünler"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Any other short-term assets not included above, such as prepaid expenses",
       "label_i18n": {
         "en": "Other Current Assets",
-        "tr": "Other Current Assets",
+        "tr": "Diğer Dönen Varlıklar",
         "de": "Other Current Assets",
         "fr": "Other Current Assets",
         "es": "Other Current Assets",
         "ar": "Other Current Assets"
+      },
+      "businessContext_i18n": {
+        "en": "Any other short-term assets not included above, such as prepaid expenses",
+        "tr": "Peşin ödenmiş giderler gibi yukarıda yer almayan diğer kısa vadeli varlıklar"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Money owed to suppliers for goods and services purchased on credit",
       "label_i18n": {
         "en": "Accounts Payable",
-        "tr": "Accounts Payable",
+        "tr": "Borç Hesapları",
         "de": "Accounts Payable",
         "fr": "Accounts Payable",
         "es": "Accounts Payable",
         "ar": "Accounts Payable"
+      },
+      "businessContext_i18n": {
+        "en": "Money owed to suppliers for goods and services purchased on credit",
+        "tr": "Kredili olarak satın alınan mal ve hizmetler için tedarikçilere borçlu olunan para"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Borrowings and current portion of long-term debt due within one year",
       "label_i18n": {
         "en": "Short-Term Debt",
-        "tr": "Short-Term Debt",
+        "tr": "Kısa Vadeli Borç",
         "de": "Short-Term Debt",
         "fr": "Short-Term Debt",
         "es": "Short-Term Debt",
         "ar": "Short-Term Debt"
+      },
+      "businessContext_i18n": {
+        "en": "Borrowings and current portion of long-term debt due within one year",
+        "tr": "Bir yıl içinde vadesi gelen borçlanmalar ve uzun vadeli borcun kısa vadeli kısmı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Other obligations due within one year, such as accrued expenses, taxes payable",
       "label_i18n": {
         "en": "Other Current Liabilities",
-        "tr": "Other Current Liabilities",
+        "tr": "Diğer Kısa Vadeli Yükümlülükler",
         "de": "Other Current Liabilities",
         "fr": "Other Current Liabilities",
         "es": "Other Current Liabilities",
         "ar": "Other Current Liabilities"
+      },
+      "businessContext_i18n": {
+        "en": "Other obligations due within one year, such as accrued expenses, taxes payable",
+        "tr": "Tahakkuk etmiş giderler, ödenecek vergiler gibi bir yıl içinde vadesi gelen diğer yükümlülükler"
       }
     }
   ],

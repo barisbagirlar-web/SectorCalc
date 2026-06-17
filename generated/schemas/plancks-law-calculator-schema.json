@@ -10,11 +10,15 @@
       "businessContext": "Temperature of the black body in Kelvin",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the black body in Kelvin",
+        "tr": "Kara cismin Kelvin cinsinden sıcaklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Wavelength at which spectral radiance is calculated",
       "label_i18n": {
         "en": "Wavelength",
-        "tr": "Wavelength",
+        "tr": "Dalgaboyu",
         "de": "Wavelength",
         "fr": "Wavelength",
         "es": "Wavelength",
         "ar": "Wavelength"
+      },
+      "businessContext_i18n": {
+        "en": "Wavelength at which spectral radiance is calculated",
+        "tr": "Spektral ışımanın hesaplandığı dalga boyu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minimum wavelength for integration range",
       "label_i18n": {
         "en": "Wavelength Min",
-        "tr": "Wavelength Min",
+        "tr": "Minimum Dalga Boyu",
         "de": "Wavelength Min",
         "fr": "Wavelength Min",
         "es": "Wavelength Min",
         "ar": "Wavelength Min"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum wavelength for integration range",
+        "tr": "Entegrasyon aralığı için minimum dalga boyu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum wavelength for integration range",
       "label_i18n": {
         "en": "Wavelength Max",
-        "tr": "Wavelength Max",
+        "tr": "Maksimum Dalga Boyu",
         "de": "Wavelength Max",
         "fr": "Wavelength Max",
         "es": "Wavelength Max",
         "ar": "Wavelength Max"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum wavelength for integration range",
+        "tr": "Entegrasyon aralığı için maksimum dalga boyu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of steps for numerical integration",
       "label_i18n": {
         "en": "Integration Steps",
-        "tr": "Integration Steps",
+        "tr": "Entegrasyon Adımları",
         "de": "Integration Steps",
         "fr": "Integration Steps",
         "es": "Integration Steps",
         "ar": "Integration Steps"
+      },
+      "businessContext_i18n": {
+        "en": "Number of steps for numerical integration",
+        "tr": "Sayısal entegrasyon için adım sayısı"
       }
     }
   ],

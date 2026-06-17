@@ -10,11 +10,15 @@
       "businessContext": "Age of the equipment in years",
       "label_i18n": {
         "en": "Equipment Age",
-        "tr": "Equipment Age",
+        "tr": "Ekipman yaşı",
         "de": "Equipment Age",
         "fr": "Equipment Age",
         "es": "Equipment Age",
         "ar": "Equipment Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the equipment in years",
+        "tr": "Ekipmanın yıl cinsinden yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average daily operating hours",
       "label_i18n": {
         "en": "Daily Utilization",
-        "tr": "Daily Utilization",
+        "tr": "Günlük Kullanım",
         "de": "Daily Utilization",
         "fr": "Daily Utilization",
         "es": "Daily Utilization",
         "ar": "Daily Utilization"
+      },
+      "businessContext_i18n": {
+        "en": "Average daily operating hours",
+        "tr": "Ortalama günlük çalışma saati"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Scheduled maintenance interval in days",
       "label_i18n": {
         "en": "Maintenance Interval",
-        "tr": "Maintenance Interval",
+        "tr": "Bakım Aralığı",
         "de": "Maintenance Interval",
         "fr": "Maintenance Interval",
         "es": "Maintenance Interval",
         "ar": "Maintenance Interval"
+      },
+      "businessContext_i18n": {
+        "en": "Scheduled maintenance interval in days",
+        "tr": "Planlı bakım aralığı (gün cinsinden)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Environmental condition severity (1=clean, 5=harsh)",
       "label_i18n": {
         "en": "Environment Severity",
-        "tr": "Environment Severity",
+        "tr": "Ortam Şiddeti",
         "de": "Environment Severity",
         "fr": "Environment Severity",
         "es": "Environment Severity",
         "ar": "Environment Severity"
+      },
+      "businessContext_i18n": {
+        "en": "Environmental condition severity (1=clean, 5=harsh)",
+        "tr": "Çevresel koşul şiddeti (1=temiz, 5=sert)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Score from the last inspection (0-100)",
       "label_i18n": {
         "en": "Last Inspection Score",
-        "tr": "Last Inspection Score",
+        "tr": "Son Denetim Puanı",
         "de": "Last Inspection Score",
         "fr": "Last Inspection Score",
         "es": "Last Inspection Score",
         "ar": "Last Inspection Score"
+      },
+      "businessContext_i18n": {
+        "en": "Score from the last inspection (0-100)",
+        "tr": "Son denetimden alınan puan (0-100)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Operator experience in years",
       "label_i18n": {
         "en": "Operator Experience",
-        "tr": "Operator Experience",
+        "tr": "Operatör Deneyimi",
         "de": "Operator Experience",
         "fr": "Operator Experience",
         "es": "Operator Experience",
         "ar": "Operator Experience"
+      },
+      "businessContext_i18n": {
+        "en": "Operator experience in years",
+        "tr": "Operatör deneyimi (yıl cinsinden)"
       }
     }
   ],

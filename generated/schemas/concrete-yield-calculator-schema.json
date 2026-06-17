@@ -10,11 +10,15 @@
       "businessContext": "Mass of cement in the concrete batch, typically in kilograms.",
       "label_i18n": {
         "en": "Cement Mass",
-        "tr": "Cement Mass",
+        "tr": "Çimento Kütlesi",
         "de": "Cement Mass",
         "fr": "Cement Mass",
         "es": "Cement Mass",
         "ar": "Cement Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of cement in the concrete batch, typically in kilograms.",
+        "tr": "Beton partisindeki çimento kütlesi, tipik olarak kilogram cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass of water in the batch, including water in admixtures if applicable.",
       "label_i18n": {
         "en": "Water Mass",
-        "tr": "Water Mass",
+        "tr": "Su Kütlesi",
         "de": "Water Mass",
         "fr": "Water Mass",
         "es": "Water Mass",
         "ar": "Water Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of water in the batch, including water in admixtures if applicable.",
+        "tr": "Partideki su kütlesi, varsa katkılardaki su dahil."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of fine aggregate (sand) in the batch.",
       "label_i18n": {
         "en": "Fine Aggregate (Sand) Mass",
-        "tr": "Fine Aggregate (Sand) Mass",
+        "tr": "İnce Agrega (Kum) Kütlesi",
         "de": "Fine Aggregate (Sand) Mass",
         "fr": "Fine Aggregate (Sand) Mass",
         "es": "Fine Aggregate (Sand) Mass",
         "ar": "Fine Aggregate (Sand) Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of fine aggregate (sand) in the batch.",
+        "tr": "Partideki ince agrega (kum) kütlesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Mass of coarse aggregate (gravel or crushed stone) in the batch.",
       "label_i18n": {
         "en": "Coarse Aggregate Mass",
-        "tr": "Coarse Aggregate Mass",
+        "tr": "İri Agrega Kütlesi",
         "de": "Coarse Aggregate Mass",
         "fr": "Coarse Aggregate Mass",
         "es": "Coarse Aggregate Mass",
         "ar": "Coarse Aggregate Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of coarse aggregate (gravel or crushed stone) in the batch.",
+        "tr": "Partideki iri agrega (çakıl veya kırma taş) kütlesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Mass of chemical admixtures added (if any), in kilograms. Convert liquid volume to mass using density if applicable.",
       "label_i18n": {
         "en": "Admixture Mass",
-        "tr": "Admixture Mass",
+        "tr": "Katkı Kütlesi",
         "de": "Admixture Mass",
         "fr": "Admixture Mass",
         "es": "Admixture Mass",
         "ar": "Admixture Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of chemical admixtures added (if any), in kilograms. Convert liquid volume to mass using density if applicable.",
+        "tr": "Eklenen kimyasal katkıların kütlesi (varsa), kilogram cinsinden. Sıvı hacmi, yoğunluk kullanılarak kütleye dönüştürülür."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Measured unit weight (density) of the fresh concrete. Typical range: 2200–2500 kg/m³.",
       "label_i18n": {
         "en": "Fresh Concrete Density",
-        "tr": "Fresh Concrete Density",
+        "tr": "Taze Beton Yoğunluğu",
         "de": "Fresh Concrete Density",
         "fr": "Fresh Concrete Density",
         "es": "Fresh Concrete Density",
         "ar": "Fresh Concrete Density"
+      },
+      "businessContext_i18n": {
+        "en": "Measured unit weight (density) of the fresh concrete. Typical range: 2200–2500 kg/m³.",
+        "tr": "Taze betonun ölçülen birim ağırlığı (yoğunluğu). Tipik aralık: 2200–2500 kg/m³."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Standard mass of one cement bag (e.g., 50 kg). Used to calculate yield per bag.",
       "label_i18n": {
         "en": "Cement Bag Mass",
-        "tr": "Cement Bag Mass",
+        "tr": "Çimento Torba Ağırlığı",
         "de": "Cement Bag Mass",
         "fr": "Cement Bag Mass",
         "es": "Cement Bag Mass",
         "ar": "Cement Bag Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Standard mass of one cement bag (e.g., 50 kg). Used to calculate yield per bag.",
+        "tr": "Bir çimento torbasının standart kütlesi (ör. 50 kg). Torba başına verimi hesaplamak için kullanılır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total number of steps recorded, e.g., from a pedometer or fitness tracker.",
       "label_i18n": {
         "en": "Number of Steps",
-        "tr": "Number of Steps",
+        "tr": "Adım Sayısı",
         "de": "Number of Steps",
         "fr": "Number of Steps",
         "es": "Number of Steps",
         "ar": "Number of Steps"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of steps recorded, e.g., from a pedometer or fitness tracker.",
+        "tr": "Kaydedilen toplam adım sayısı, örn. pedometre veya fitness takip cihazından."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "User-measured step length in centimeters. Leave 0 to estimate from stride or height.",
       "label_i18n": {
         "en": "Step Length",
-        "tr": "Step Length",
+        "tr": "Adım Uzunluğu",
         "de": "Step Length",
         "fr": "Step Length",
         "es": "Step Length",
         "ar": "Step Length"
+      },
+      "businessContext_i18n": {
+        "en": "User-measured step length in centimeters. Leave 0 to estimate from stride or height.",
+        "tr": "Kullanıcı tarafından ölçülen adım uzunluğu (santimetre). Tahmin için 0 bırakın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "User-measured stride length in centimeters (two steps). Leave 0 to use step length or estimate from height.",
       "label_i18n": {
         "en": "Stride Length",
-        "tr": "Stride Length",
+        "tr": "Adım Uzunluğu",
         "de": "Stride Length",
         "fr": "Stride Length",
         "es": "Stride Length",
         "ar": "Stride Length"
+      },
+      "businessContext_i18n": {
+        "en": "User-measured stride length in centimeters (two steps). Leave 0 to use step length or estimate from height.",
+        "tr": "Kullanıcı tarafından ölçülen çift adım uzunluğu (santimetre). Adım uzunluğu veya boydan tahmin için 0 bırakın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "User height in centimeters. Used to estimate step length if step length and stride length are not provided. Typical formula: stepLength ≈ height × 0.415.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "User height in centimeters. Used to estimate step length if step length and stride length are not provided. Typical formula: stepLength ≈ height × 0.415.",
+        "tr": "Kullanıcı boyu (santimetre). Adım uzunluğu ve çift adım uzunluğu verilmediğinde tahmin için kullanılır. Tipik formül: adımUzunluğu ≈ boy × 0.415."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier for terrain difficulty. 1.0 for flat, >1 for downhill (lengthens stride), <1 for uphill (shortens stride).",
       "label_i18n": {
         "en": "Terrain Factor",
-        "tr": "Terrain Factor",
+        "tr": "Arazi Faktörü",
         "de": "Terrain Factor",
         "fr": "Terrain Factor",
         "es": "Terrain Factor",
         "ar": "Terrain Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for terrain difficulty. 1.0 for flat, >1 for downhill (lengthens stride), <1 for uphill (shortens stride).",
+        "tr": "Arazi zorluğu çarpanı. Düz için 1.0, iniş için >1 (adımı uzatır), çıkış için <1 (adımı kısaltır)."
       }
     }
   ],

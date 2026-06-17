@@ -10,11 +10,15 @@
       "businessContext": "Total number of pages in the document.",
       "label_i18n": {
         "en": "Document Page Count",
-        "tr": "Document Page Count",
+        "tr": "Belge Sayfa Sayısı",
         "de": "Document Page Count",
         "fr": "Document Page Count",
         "es": "Document Page Count",
         "ar": "Document Page Count"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of pages in the document.",
+        "tr": "Belgedeki toplam sayfa sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Typical number of citations per page.",
       "label_i18n": {
         "en": "Average References per Page",
-        "tr": "Average References per Page",
+        "tr": "Sayfa Başına Ortalama Referans",
         "de": "Average References per Page",
         "fr": "Average References per Page",
         "es": "Average References per Page",
         "ar": "Average References per Page"
+      },
+      "businessContext_i18n": {
+        "en": "Typical number of citations per page.",
+        "tr": "Sayfa başına tipik alıntı sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of pages that have citations.",
       "label_i18n": {
         "en": "Citation Density",
-        "tr": "Citation Density",
+        "tr": "Alıntı Yoğunluğu",
         "de": "Citation Density",
         "fr": "Citation Density",
         "es": "Citation Density",
         "ar": "Citation Density"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of pages that have citations.",
+        "tr": "Alıntı içeren sayfaların yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time to format one reference according to style.",
       "label_i18n": {
         "en": "Formatting Time per Reference",
-        "tr": "Formatting Time per Reference",
+        "tr": "Referans Başına Biçimlendirme Süresi",
         "de": "Formatting Time per Reference",
         "fr": "Formatting Time per Reference",
         "es": "Formatting Time per Reference",
         "ar": "Formatting Time per Reference"
+      },
+      "businessContext_i18n": {
+        "en": "Time to format one reference according to style.",
+        "tr": "Stile göre bir referansı biçimlendirme süresi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier for bibliography style complexity (e.g., APA = 1.0, Chicago = 1.2).",
       "label_i18n": {
         "en": "Style Complexity Factor",
-        "tr": "Style Complexity Factor",
+        "tr": "Stil Karmaşıklık Faktörü",
         "de": "Style Complexity Factor",
         "fr": "Style Complexity Factor",
         "es": "Style Complexity Factor",
         "ar": "Style Complexity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for bibliography style complexity (e.g., APA = 1.0, Chicago = 1.2).",
+        "tr": "Kaynakça stili karmaşıklığı için çarpan (örn. APA = 1.0, Chicago = 1.2)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Fixed time for setting up bibliography tools.",
       "label_i18n": {
         "en": "Overhead Time",
-        "tr": "Overhead Time",
+        "tr": "Genel Gider Süresi",
         "de": "Overhead Time",
         "fr": "Overhead Time",
         "es": "Overhead Time",
         "ar": "Overhead Time"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed time for setting up bibliography tools.",
+        "tr": "Kaynakça araçlarını kurmak için sabit süre."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of references imported from external databases.",
       "label_i18n": {
         "en": "External References Count",
-        "tr": "External References Count",
+        "tr": "Harici Referans Sayısı",
         "de": "External References Count",
         "fr": "External References Count",
         "es": "External References Count",
         "ar": "External References Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of references imported from external databases.",
+        "tr": "Harici veritabanlarından içe aktarılan referans sayısı."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Time to automatically generate a reference from a database.",
       "label_i18n": {
         "en": "Auto-Generation Time per Reference",
-        "tr": "Auto-Generation Time per Reference",
+        "tr": "Referans Başına Otomatik Oluşturma Süresi",
         "de": "Auto-Generation Time per Reference",
         "fr": "Auto-Generation Time per Reference",
         "es": "Auto-Generation Time per Reference",
         "ar": "Auto-Generation Time per Reference"
+      },
+      "businessContext_i18n": {
+        "en": "Time to automatically generate a reference from a database.",
+        "tr": "Bir veritabanından referansı otomatik olarak oluşturma süresi."
       }
     }
   ],

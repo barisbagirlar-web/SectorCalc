@@ -10,11 +10,15 @@
       "businessContext": "Measured line-to-neutral voltage of phase A",
       "label_i18n": {
         "en": "Phase A Voltage (V)",
-        "tr": "Phase A Voltage (V)",
+        "tr": "Faz A Gerilimi (V)",
         "de": "Phase A Voltage (V)",
         "fr": "Phase A Voltage (V)",
         "es": "Phase A Voltage (V)",
         "ar": "Phase A Voltage (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured line-to-neutral voltage of phase A",
+        "tr": "Faz A'nın ölçülen hat-nötr gerilimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured line-to-neutral voltage of phase B",
       "label_i18n": {
         "en": "Phase B Voltage (V)",
-        "tr": "Phase B Voltage (V)",
+        "tr": "Faz B Gerilimi (V)",
         "de": "Phase B Voltage (V)",
         "fr": "Phase B Voltage (V)",
         "es": "Phase B Voltage (V)",
         "ar": "Phase B Voltage (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured line-to-neutral voltage of phase B",
+        "tr": "Faz B'nin nötr-toprak gerilimi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Measured line-to-neutral voltage of phase C",
       "label_i18n": {
         "en": "Phase C Voltage (V)",
-        "tr": "Phase C Voltage (V)",
+        "tr": "Faz C Gerilimi (V)",
         "de": "Phase C Voltage (V)",
         "fr": "Phase C Voltage (V)",
         "es": "Phase C Voltage (V)",
         "ar": "Phase C Voltage (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured line-to-neutral voltage of phase C",
+        "tr": "Faz C'nin nötr-toprak gerilimi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Phase angle of phase A voltage",
       "label_i18n": {
         "en": "Phase A Angle (deg)",
-        "tr": "Phase A Angle (deg)",
+        "tr": "Faz A Açısı (derece)",
         "de": "Phase A Angle (deg)",
         "fr": "Phase A Angle (deg)",
         "es": "Phase A Angle (deg)",
         "ar": "Phase A Angle (deg)"
+      },
+      "businessContext_i18n": {
+        "en": "Phase angle of phase A voltage",
+        "tr": "Faz A geriliminin faz açısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Phase angle of phase B voltage",
       "label_i18n": {
         "en": "Phase B Angle (deg)",
-        "tr": "Phase B Angle (deg)",
+        "tr": "Faz B Açısı (derece)",
         "de": "Phase B Angle (deg)",
         "fr": "Phase B Angle (deg)",
         "es": "Phase B Angle (deg)",
         "ar": "Phase B Angle (deg)"
+      },
+      "businessContext_i18n": {
+        "en": "Phase angle of phase B voltage",
+        "tr": "Faz B geriliminin faz açısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Phase angle of phase C voltage",
       "label_i18n": {
         "en": "Phase C Angle (deg)",
-        "tr": "Phase C Angle (deg)",
+        "tr": "Faz C Açısı (derece)",
         "de": "Phase C Angle (deg)",
         "fr": "Phase C Angle (deg)",
         "es": "Phase C Angle (deg)",
         "ar": "Phase C Angle (deg)"
+      },
+      "businessContext_i18n": {
+        "en": "Phase angle of phase C voltage",
+        "tr": "Faz C geriliminin faz açısı"
       }
     }
   ],

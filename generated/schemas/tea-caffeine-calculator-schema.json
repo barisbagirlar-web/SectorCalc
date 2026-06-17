@@ -10,11 +10,15 @@
       "businessContext": "Amount of caffeine in milligrams per gram of dry tea leaves.",
       "label_i18n": {
         "en": "Tea Caffeine Content (mg/g)",
-        "tr": "Tea Caffeine Content (mg/g)",
+        "tr": "Çay Kafein İçeriği (mg/g)",
         "de": "Tea Caffeine Content (mg/g)",
         "fr": "Tea Caffeine Content (mg/g)",
         "es": "Tea Caffeine Content (mg/g)",
         "ar": "Tea Caffeine Content (mg/g)"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of caffeine in milligrams per gram of dry tea leaves.",
+        "tr": "Kuru çay yapraklarının gramı başına miligram cinsinden kafein miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Grams of dry tea leaves used.",
       "label_i18n": {
         "en": "Amount of Tea (g)",
-        "tr": "Amount of Tea (g)",
+        "tr": "Çay Miktarı (g)",
         "de": "Amount of Tea (g)",
         "fr": "Amount of Tea (g)",
         "es": "Amount of Tea (g)",
         "ar": "Amount of Tea (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of dry tea leaves used.",
+        "tr": "Kullanılan kuru çay yapraklarının gramı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time the tea is steeped in minutes.",
       "label_i18n": {
         "en": "Steeping Time (min)",
-        "tr": "Steeping Time (min)",
+        "tr": "Demleme Süresi (dk)",
         "de": "Steeping Time (min)",
         "fr": "Steeping Time (min)",
         "es": "Steeping Time (min)",
         "ar": "Steeping Time (min)"
+      },
+      "businessContext_i18n": {
+        "en": "Time the tea is steeped in minutes.",
+        "tr": "Çayın demlendiği süre (dakika)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of water used for steeping.",
       "label_i18n": {
         "en": "Water Temperature (°C)",
-        "tr": "Water Temperature (°C)",
+        "tr": "Su Sıcaklığı (°C)",
         "de": "Water Temperature (°C)",
         "fr": "Water Temperature (°C)",
         "es": "Water Temperature (°C)",
         "ar": "Water Temperature (°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of water used for steeping.",
+        "tr": "Demleme için kullanılan suyun sıcaklığı."
       }
     }
   ],

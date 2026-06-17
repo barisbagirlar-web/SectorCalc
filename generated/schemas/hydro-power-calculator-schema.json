@@ -10,11 +10,15 @@
       "businessContext": "Volumetric flow rate of water through the turbine.",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of water through the turbine.",
+        "tr": "Türbinden geçen suyun hacimsel debisi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Net hydraulic head, the effective height water falls.",
       "label_i18n": {
         "en": "Head",
-        "tr": "Head",
+        "tr": "Düşü",
         "de": "Head",
         "fr": "Head",
         "es": "Head",
         "ar": "Head"
+      },
+      "businessContext_i18n": {
+        "en": "Net hydraulic head, the effective height water falls.",
+        "tr": "Net hidrolik düşü, suyun düştüğü etkin yükseklik."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Efficiency of the turbine in converting hydraulic energy to mechanical energy.",
       "label_i18n": {
         "en": "Turbine Efficiency",
-        "tr": "Turbine Efficiency",
+        "tr": "Türbin Verimi",
         "de": "Turbine Efficiency",
         "fr": "Turbine Efficiency",
         "es": "Turbine Efficiency",
         "ar": "Turbine Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the turbine in converting hydraulic energy to mechanical energy.",
+        "tr": "Türbinin hidrolik enerjiyi mekanik enerjiye dönüştürme verimi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Efficiency of the electrical generator in converting mechanical energy to electrical energy.",
       "label_i18n": {
         "en": "Generator Efficiency",
-        "tr": "Generator Efficiency",
+        "tr": "Jeneratör Verimliliği",
         "de": "Generator Efficiency",
         "fr": "Generator Efficiency",
         "es": "Generator Efficiency",
         "ar": "Generator Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the electrical generator in converting mechanical energy to electrical energy.",
+        "tr": "Elektrik jeneratörünün mekanik enerjiyi elektrik enerjisine dönüştürme verimi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Density of water, usually 1000 kg/m³ for freshwater.",
       "label_i18n": {
         "en": "Water Density",
-        "tr": "Water Density",
+        "tr": "Su Yoğunluğu",
         "de": "Water Density",
         "fr": "Water Density",
         "es": "Water Density",
         "ar": "Water Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of water, usually 1000 kg/m³ for freshwater.",
+        "tr": "Suyun yoğunluğu, genellikle tatlı su için 1000 kg/m³."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Acceleration due to gravity, standard is 9.81 m/s².",
       "label_i18n": {
         "en": "Gravity",
-        "tr": "Gravity",
+        "tr": "Yerçekimi",
         "de": "Gravity",
         "fr": "Gravity",
         "es": "Gravity",
         "ar": "Gravity"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity, standard is 9.81 m/s².",
+        "tr": "Yerçekimi ivmesi, standart 9.81 m/s²."
       }
     }
   ],

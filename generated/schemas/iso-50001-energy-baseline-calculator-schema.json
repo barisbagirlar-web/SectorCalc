@@ -21,10 +21,12 @@
       "max": 1000000000,
       "businessContext": "Total energy consumed by the organization in the baseline period (e.g., one year).",
       "label_i18n": {
-        "en": "Total Energy Consumption"
+        "en": "Total Energy Consumption",
+        "tr": "Toplam Enerji Tüketimi"
       },
       "businessContext_i18n": {
-        "en": "Total energy consumed by the organization in the baseline period (e.g., one year)."
+        "en": "Total energy consumed by the organization in the baseline period (e.g., one year).",
+        "tr": "Kuruluşun baz dönemde (örneğin bir yıl) tükettiği toplam enerji."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 1000000000,
       "businessContext": "Total production output in the baseline period (e.g., number of products, tons, or other relevant unit).",
       "label_i18n": {
-        "en": "Production Volume"
+        "en": "Production Volume",
+        "tr": "Üretim Hacmi"
       },
       "businessContext_i18n": {
-        "en": "Total production output in the baseline period (e.g., number of products, tons, or other relevant unit)."
+        "en": "Total production output in the baseline period (e.g., number of products, tons, or other relevant unit).",
+        "tr": "Baz dönemdeki toplam üretim çıktısı (örneğin ürün sayısı, ton veya diğer ilgili birim)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10000,
       "businessContext": "Annual heating degree days for the facility location, used to normalize weather-related energy use.",
       "label_i18n": {
-        "en": "Heating Degree Days (HDD)"
+        "en": "Heating Degree Days (HDD)",
+        "tr": "Isıtma Derece Günleri (HDD)"
       },
       "businessContext_i18n": {
-        "en": "Annual heating degree days for the facility location, used to normalize weather-related energy use."
+        "en": "Annual heating degree days for the facility location, used to normalize weather-related energy use.",
+        "tr": "Tesis konumu için yıllık ısıtma derece günleri, hava durumuna bağlı enerji kullanımını normalleştirmek için kullanılır."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 10000,
       "businessContext": "Annual cooling degree days for the facility location, used to normalize weather-related energy use.",
       "label_i18n": {
-        "en": "Cooling Degree Days (CDD)"
+        "en": "Cooling Degree Days (CDD)",
+        "tr": "Soğutma Derece Günleri (CDD)"
       },
       "businessContext_i18n": {
-        "en": "Annual cooling degree days for the facility location, used to normalize weather-related energy use."
+        "en": "Annual cooling degree days for the facility location, used to normalize weather-related energy use.",
+        "tr": "Tesis konumu için yıllık soğutma derece günleri, hava durumuna bağlı enerji kullanımını normalleştirmek için kullanılır."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 8760,
       "businessContext": "Total hours the facility operated during the baseline period.",
       "label_i18n": {
-        "en": "Operating Hours"
+        "en": "Operating Hours",
+        "tr": "Çalışma Saatleri"
       },
       "businessContext_i18n": {
-        "en": "Total hours the facility operated during the baseline period."
+        "en": "Total hours the facility operated during the baseline period.",
+        "tr": "Baz dönemde tesisin çalıştığı toplam saat."
       }
     },
     {
@@ -105,10 +115,12 @@
       "default": "Electricity only",
       "businessContext": "Primary energy sources used, affecting emission factors and normalization.",
       "label_i18n": {
-        "en": "Energy Source Mix"
+        "en": "Energy Source Mix",
+        "tr": "Enerji Kaynağı Karışımı"
       },
       "businessContext_i18n": {
-        "en": "Primary energy sources used, affecting emission factors and normalization."
+        "en": "Primary energy sources used, affecting emission factors and normalization.",
+        "tr": "Kullanılan birincil enerji kaynakları, emisyon faktörlerini ve normalleştirmeyi etkiler."
       },
       "unit": "unit"
     },
@@ -124,10 +136,12 @@
       "default": "Fixed baseline",
       "businessContext": "Type of baseline per ISO 50001:2018 clause 6.3.",
       "label_i18n": {
-        "en": "Baseline Type"
+        "en": "Baseline Type",
+        "tr": "Baz Tipi"
       },
       "businessContext_i18n": {
-        "en": "Type of baseline per ISO 50001:2018 clause 6.3."
+        "en": "Type of baseline per ISO 50001:2018 clause 6.3.",
+        "tr": "ISO 50001:2018 madde 6.3'e göre baz tipi."
       },
       "unit": "unit"
     },
@@ -138,10 +152,12 @@
       "default": true,
       "businessContext": "If true, adjusts energy consumption for heating and cooling degree days.",
       "label_i18n": {
-        "en": "Apply Weather Normalization"
+        "en": "Apply Weather Normalization",
+        "tr": "Hava Durumu Normalleştirmesi Uygula"
       },
       "businessContext_i18n": {
-        "en": "If true, adjusts energy consumption for heating and cooling degree days."
+        "en": "If true, adjusts energy consumption for heating and cooling degree days.",
+        "tr": "Doğruysa, enerji tüketimini ısıtma ve soğutma derece günlerine göre ayarlar."
       },
       "unit": "unit"
     }

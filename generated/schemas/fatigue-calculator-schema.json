@@ -10,11 +10,15 @@
       "businessContext": "Stress amplitude (sigma_a)",
       "label_i18n": {
         "en": "Alternating Stress",
-        "tr": "Alternating Stress",
+        "tr": "Değişken Gerilme",
         "de": "Alternating Stress",
         "fr": "Alternating Stress",
         "es": "Alternating Stress",
         "ar": "Alternating Stress"
+      },
+      "businessContext_i18n": {
+        "en": "Stress amplitude (sigma_a)",
+        "tr": "Gerilme genliği (sigma_a)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mean stress (sigma_m)",
       "label_i18n": {
         "en": "Mean Stress",
-        "tr": "Mean Stress",
+        "tr": "Ortalama Gerilme",
         "de": "Mean Stress",
         "fr": "Mean Stress",
         "es": "Mean Stress",
         "ar": "Mean Stress"
+      },
+      "businessContext_i18n": {
+        "en": "Mean stress (sigma_m)",
+        "tr": "Ortalama gerilme (sigma_m)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Material endurance limit (S_e)",
       "label_i18n": {
         "en": "Endurance Limit",
-        "tr": "Endurance Limit",
+        "tr": "Yorulma Sınırı",
         "de": "Endurance Limit",
         "fr": "Endurance Limit",
         "es": "Endurance Limit",
         "ar": "Endurance Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Material endurance limit (S_e)",
+        "tr": "Malzeme yorulma sınırı (S_e)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Material ultimate tensile strength (S_ut)",
       "label_i18n": {
         "en": "Ultimate Tensile Strength",
-        "tr": "Ultimate Tensile Strength",
+        "tr": "Çekme Dayanımı",
         "de": "Ultimate Tensile Strength",
         "fr": "Ultimate Tensile Strength",
         "es": "Ultimate Tensile Strength",
         "ar": "Ultimate Tensile Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Material ultimate tensile strength (S_ut)",
+        "tr": "Malzeme nihai çekme dayanımı (S_ut)"
       }
     }
   ],

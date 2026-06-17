@@ -10,11 +10,15 @@
       "businessContext": "Weight of the meat in kilograms.",
       "label_i18n": {
         "en": "Meat Weight",
-        "tr": "Meat Weight",
+        "tr": "Et Ağırlığı",
         "de": "Meat Weight",
         "fr": "Meat Weight",
         "es": "Meat Weight",
         "ar": "Meat Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the meat in kilograms.",
+        "tr": "Etin kilogram cinsinden ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Internal temperature of meat before cooking.",
       "label_i18n": {
         "en": "Starting Temperature",
-        "tr": "Starting Temperature",
+        "tr": "Başlangıç Sıcaklığı",
         "de": "Starting Temperature",
         "fr": "Starting Temperature",
         "es": "Starting Temperature",
         "ar": "Starting Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Internal temperature of meat before cooking.",
+        "tr": "Pişirmeden önce etin iç sıcaklığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired final internal temperature.",
       "label_i18n": {
         "en": "Target Internal Temperature",
-        "tr": "Target Internal Temperature",
+        "tr": "Hedef İç Sıcaklık",
         "de": "Target Internal Temperature",
         "fr": "Target Internal Temperature",
         "es": "Target Internal Temperature",
         "ar": "Target Internal Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Desired final internal temperature.",
+        "tr": "İstenen nihai iç sıcaklık."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of the oven or cooking environment.",
       "label_i18n": {
         "en": "Oven Temperature",
-        "tr": "Oven Temperature",
+        "tr": "Fırın Sıcaklığı",
         "de": "Oven Temperature",
         "fr": "Oven Temperature",
         "es": "Oven Temperature",
         "ar": "Oven Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the oven or cooking environment.",
+        "tr": "Fırın veya pişirme ortamının sıcaklığı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Empirical constant: ≈20 for beef, ≈25 for pork, ≈15 for poultry. Accounts for shape and thermal properties.",
       "label_i18n": {
         "en": "Thermal Factor",
-        "tr": "Thermal Factor",
+        "tr": "Termal Faktör",
         "de": "Thermal Factor",
         "fr": "Thermal Factor",
         "es": "Thermal Factor",
         "ar": "Thermal Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical constant: ≈20 for beef, ≈25 for pork, ≈15 for poultry. Accounts for shape and thermal properties.",
+        "tr": "Ampirik sabit: sığır eti için ≈20, domuz eti için ≈25, kümes hayvanları için ≈15. Şekil ve termal özellikleri hesaba katar."
       }
     }
   ],

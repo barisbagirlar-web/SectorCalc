@@ -10,11 +10,15 @@
       "businessContext": "Mass flow rate of fluid, typically gas",
       "label_i18n": {
         "en": "Mass Flow",
-        "tr": "Mass Flow",
+        "tr": "Kütle Akışı",
         "de": "Mass Flow",
         "fr": "Mass Flow",
         "es": "Mass Flow",
         "ar": "Mass Flow"
+      },
+      "businessContext_i18n": {
+        "en": "Mass flow rate of fluid, typically gas",
+        "tr": "Akışkanın kütle akış hızı, tipik olarak gaz"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Molar mass of the gas (e.g., air ≈ 28.96 g/mol)",
       "label_i18n": {
         "en": "Molar Mass",
-        "tr": "Molar Mass",
+        "tr": "Molar Kütle",
         "de": "Molar Mass",
         "fr": "Molar Mass",
         "es": "Molar Mass",
         "ar": "Molar Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Molar mass of the gas (e.g., air ≈ 28.96 g/mol)",
+        "tr": "Gazın molar kütlesi (örneğin, hava ≈ 28.96 g/mol)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Gas temperature in Celsius",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Gas temperature in Celsius",
+        "tr": "Santigrat cinsinden gaz sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Absolute pressure of gas (1 atm = 1.01325 bar)",
       "label_i18n": {
         "en": "Pressure",
-        "tr": "Pressure",
+        "tr": "Basınç",
         "de": "Pressure",
         "fr": "Pressure",
         "es": "Pressure",
         "ar": "Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute pressure of gas (1 atm = 1.01325 bar)",
+        "tr": "Gazın mutlak basıncı (1 atm = 1.01325 bar)"
       }
     }
   ],

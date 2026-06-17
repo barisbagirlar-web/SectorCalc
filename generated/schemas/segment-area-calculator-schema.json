@@ -10,11 +10,15 @@
       "businessContext": "The radius of the circle from which the segment is taken.",
       "label_i18n": {
         "en": "Radius",
-        "tr": "Radius",
+        "tr": "Yarıçap",
         "de": "Radius",
         "fr": "Radius",
         "es": "Radius",
         "ar": "Radius"
+      },
+      "businessContext_i18n": {
+        "en": "The radius of the circle from which the segment is taken.",
+        "tr": "Segmentin alındığı dairenin yarıçapı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The central angle of the segment in degrees.",
       "label_i18n": {
         "en": "Central Angle",
-        "tr": "Central Angle",
+        "tr": "Merkez Açı",
         "de": "Central Angle",
         "fr": "Central Angle",
         "es": "Central Angle",
         "ar": "Central Angle"
+      },
+      "businessContext_i18n": {
+        "en": "The central angle of the segment in degrees.",
+        "tr": "Segmentin merkez açısı (derece cinsinden)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Factor to account for safety or overage, e.g., 1.1 for 10% extra.",
       "label_i18n": {
         "en": "Scale Factor",
-        "tr": "Scale Factor",
+        "tr": "Ölçek Faktörü",
         "de": "Scale Factor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to account for safety or overage, e.g., 1.1 for 10% extra.",
+        "tr": "Güvenlik veya fire payı faktörü, örn. %10 fazla için 1.1."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical segments to calculate total area.",
       "label_i18n": {
         "en": "Number of Segments",
-        "tr": "Number of Segments",
+        "tr": "Segment Sayısı",
         "de": "Number of Segments",
         "fr": "Number of Segments",
         "es": "Number of Segments",
         "ar": "Number of Segments"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical segments to calculate total area.",
+        "tr": "Toplam alanı hesaplamak için özdeş segment sayısı."
       }
     }
   ],

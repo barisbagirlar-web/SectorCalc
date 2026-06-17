@@ -10,11 +10,15 @@
       "businessContext": "Total sales income before any deductions.",
       "label_i18n": {
         "en": "Total Revenue",
-        "tr": "Total Revenue",
+        "tr": "Toplam Gelir",
         "de": "Total Revenue",
         "fr": "Total Revenue",
         "es": "Total Revenue",
         "ar": "Total Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Total sales income before any deductions.",
+        "tr": "Herhangi bir kesintiden önceki toplam satış geliri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Direct costs attributable to the production of goods sold.",
       "label_i18n": {
         "en": "Cost of Goods Sold",
-        "tr": "Cost of Goods Sold",
+        "tr": "Satılan Malın Maliyeti",
         "de": "Cost of Goods Sold",
         "fr": "Cost of Goods Sold",
         "es": "Cost of Goods Sold",
         "ar": "Cost of Goods Sold"
+      },
+      "businessContext_i18n": {
+        "en": "Direct costs attributable to the production of goods sold.",
+        "tr": "Satılan malların üretimine doğrudan atfedilebilen maliyetler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expenses incurred from normal business operations like rent, utilities, salaries.",
       "label_i18n": {
         "en": "Operating Expenses",
-        "tr": "Operating Expenses",
+        "tr": "Faaliyet Giderleri",
         "de": "Operating Expenses",
         "fr": "Operating Expenses",
         "es": "Operating Expenses",
         "ar": "Operating Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Expenses incurred from normal business operations like rent, utilities, salaries.",
+        "tr": "Kira, kamu hizmetleri, maaşlar gibi normal iş operasyonlarından kaynaklanan giderler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of borrowing money.",
       "label_i18n": {
         "en": "Interest Expense",
-        "tr": "Interest Expense",
+        "tr": "Faiz Gideri",
         "de": "Interest Expense",
         "fr": "Interest Expense",
         "es": "Interest Expense",
         "ar": "Interest Expense"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of borrowing money.",
+        "tr": "Borçlanma maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Income tax owed based on taxable income.",
       "label_i18n": {
         "en": "Tax Expense",
-        "tr": "Tax Expense",
+        "tr": "Vergi Gideri",
         "de": "Tax Expense",
         "fr": "Tax Expense",
         "es": "Tax Expense",
         "ar": "Tax Expense"
+      },
+      "businessContext_i18n": {
+        "en": "Income tax owed based on taxable income.",
+        "tr": "Vergiye tabi gelir üzerinden ödenmesi gereken gelir vergisi."
       }
     }
   ],

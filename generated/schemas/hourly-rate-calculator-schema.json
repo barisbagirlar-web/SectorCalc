@@ -10,11 +10,15 @@
       "businessContext": "Annual base salary before taxes",
       "label_i18n": {
         "en": "Annual Salary",
-        "tr": "Annual Salary",
+        "tr": "Yıllık Maaş",
         "de": "Annual Salary",
         "fr": "Annual Salary",
         "es": "Annual Salary",
         "ar": "Annual Salary"
+      },
+      "businessContext_i18n": {
+        "en": "Annual base salary before taxes",
+        "tr": "Vergi öncesi yıllık brüt maaş"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of weeks typically worked in a year (e.g., 52 for full year)",
       "label_i18n": {
         "en": "Weeks Worked per Year",
-        "tr": "Weeks Worked per Year",
+        "tr": "Yılda Çalışılan Hafta Sayısı",
         "de": "Weeks Worked per Year",
         "fr": "Weeks Worked per Year",
         "es": "Weeks Worked per Year",
         "ar": "Weeks Worked per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of weeks typically worked in a year (e.g., 52 for full year)",
+        "tr": "Bir yılda tipik olarak çalışılan hafta sayısı (ör. tam yıl için 52)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard weekly working hours",
       "label_i18n": {
         "en": "Hours Worked per Week",
-        "tr": "Hours Worked per Week",
+        "tr": "Haftalık Çalışma Saati",
         "de": "Hours Worked per Week",
         "fr": "Hours Worked per Week",
         "es": "Hours Worked per Week",
         "ar": "Hours Worked per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Standard weekly working hours",
+        "tr": "Standart haftalık çalışma saati"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Employer cost of benefits as a decimal of salary (e.g., 0.3 for 30%)",
       "label_i18n": {
         "en": "Benefits Rate",
-        "tr": "Benefits Rate",
+        "tr": "Yan Haklar Oranı",
         "de": "Benefits Rate",
         "fr": "Benefits Rate",
         "es": "Benefits Rate",
         "ar": "Benefits Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Employer cost of benefits as a decimal of salary (e.g., 0.3 for 30%)",
+        "tr": "Yan hakların maaşa oranı olarak işveren maliyeti (ör. %30 için 0,3)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Overhead allocation as a decimal of total labor cost (e.g., 0.5 for 50%)",
       "label_i18n": {
         "en": "Overhead Rate",
-        "tr": "Overhead Rate",
+        "tr": "Genel gider oranı",
         "de": "Overhead Rate",
         "fr": "Overhead Rate",
         "es": "Overhead Rate",
         "ar": "Overhead Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Overhead allocation as a decimal of total labor cost (e.g., 0.5 for 50%)",
+        "tr": "Genel giderlerin toplam işçilik maliyetine oranı (ör. %50 için 0,5)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Percentage of eumelanin pigment in total melanin content. Typically ranges 60-80% for darker skin.",
       "label_i18n": {
         "en": "Eumelanin (%)",
-        "tr": "Eumelanin (%)",
+        "tr": "Ömelanin (%)",
         "de": "Eumelanin (%)",
         "fr": "Eumelanin (%)",
         "es": "Eumelanin (%)",
         "ar": "Eumelanin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of eumelanin pigment in total melanin content. Typically ranges 60-80% for darker skin.",
+        "tr": "Toplam melanin içeriğindeki ömelanin pigmenti yüzdesi. Koyu ten için tipik olarak %60-80 aralığındadır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of pheomelanin pigment. Sum with eumelanin should be 100%.",
       "label_i18n": {
         "en": "Pheomelanin (%)",
-        "tr": "Pheomelanin (%)",
+        "tr": "Feomelanin (%)",
         "de": "Pheomelanin (%)",
         "fr": "Pheomelanin (%)",
         "es": "Pheomelanin (%)",
         "ar": "Pheomelanin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of pheomelanin pigment. Sum with eumelanin should be 100%.",
+        "tr": "Feomelanin pigmenti yüzdesi. Ömelanin ile toplamı %100 olmalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of melanocytes per square millimeter of skin. Typically 900-2000.",
       "label_i18n": {
         "en": "Melanocyte Density (cells/mm²)",
-        "tr": "Melanocyte Density (cells/mm²)",
+        "tr": "Melanosit Yoğunluğu (hücre/mm²)",
         "de": "Melanocyte Density (cells/mm²)",
         "fr": "Melanocyte Density (cells/mm²)",
         "es": "Melanocyte Density (cells/mm²)",
         "ar": "Melanocyte Density (cells/mm²)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of melanocytes per square millimeter of skin. Typically 900-2000.",
+        "tr": "Milimetre kare başına melanosit sayısı. Tipik olarak 900-2000."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average melanin content per melanocyte in nanograms.",
       "label_i18n": {
         "en": "Avg. Melanin per Cell (ng)",
-        "tr": "Avg. Melanin per Cell (ng)",
+        "tr": "Hücre Başına Ort. Melanin (ng)",
         "de": "Avg. Melanin per Cell (ng)",
         "fr": "Avg. Melanin per Cell (ng)",
         "es": "Avg. Melanin per Cell (ng)",
         "ar": "Avg. Melanin per Cell (ng)"
+      },
+      "businessContext_i18n": {
+        "en": "Average melanin content per melanocyte in nanograms.",
+        "tr": "Melanosit başına nanogram cinsinden ortalama melanin içeriği."
       }
     }
   ],

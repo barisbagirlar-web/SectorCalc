@@ -10,11 +10,15 @@
       "businessContext": "Number of events (failures, outcomes) in the exposed group.",
       "label_i18n": {
         "en": "Exposed Events",
-        "tr": "Exposed Events",
+        "tr": "Maruz kalan olaylar",
         "de": "Exposed Events",
         "fr": "Exposed Events",
         "es": "Exposed Events",
         "ar": "Exposed Events"
+      },
+      "businessContext_i18n": {
+        "en": "Number of events (failures, outcomes) in the exposed group.",
+        "tr": "Maruz kalan gruptaki olay (arıza, sonuç) sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of subjects in the exposed group.",
       "label_i18n": {
         "en": "Exposed Total",
-        "tr": "Exposed Total",
+        "tr": "Maruz kalan toplam",
         "de": "Exposed Total",
         "fr": "Exposed Total",
         "es": "Exposed Total",
         "ar": "Exposed Total"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of subjects in the exposed group.",
+        "tr": "Maruz kalan gruptaki toplam denek sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of events in the control (unexposed) group.",
       "label_i18n": {
         "en": "Control Events",
-        "tr": "Control Events",
+        "tr": "Kontrol olayları",
         "de": "Control Events",
         "fr": "Control Events",
         "es": "Control Events",
         "ar": "Control Events"
+      },
+      "businessContext_i18n": {
+        "en": "Number of events in the control (unexposed) group.",
+        "tr": "Kontrol (maruz kalmayan) grubundaki olay sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of subjects in the control group.",
       "label_i18n": {
         "en": "Control Total",
-        "tr": "Control Total",
+        "tr": "Kontrol toplamı",
         "de": "Control Total",
         "fr": "Control Total",
         "es": "Control Total",
         "ar": "Control Total"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of subjects in the control group.",
+        "tr": "Kontrol grubundaki toplam denek sayısı."
       }
     }
   ],

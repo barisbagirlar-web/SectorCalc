@@ -10,11 +10,15 @@
       "businessContext": "The average total demand expected during the replenishment lead time.",
       "label_i18n": {
         "en": "Average Demand During Lead Time",
-        "tr": "Average Demand During Lead Time",
+        "tr": "Teslim Süresi Boyunca Ortalama Talep",
         "de": "Average Demand During Lead Time",
         "fr": "Average Demand During Lead Time",
         "es": "Average Demand During Lead Time",
         "ar": "Average Demand During Lead Time"
+      },
+      "businessContext_i18n": {
+        "en": "The average total demand expected during the replenishment lead time.",
+        "tr": "Yeniden sipariş verme süresi boyunca beklenen ortalama toplam talep."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The standard deviation of demand variability during the lead time.",
       "label_i18n": {
         "en": "Standard Deviation of Demand During Lead Time",
-        "tr": "Standard Deviation of Demand During Lead Time",
+        "tr": "Talep Süresi Boyunca Talebin Standart Sapması",
         "de": "Standard Deviation of Demand During Lead Time",
         "fr": "Standard Deviation of Demand During Lead Time",
         "es": "Standard Deviation of Demand During Lead Time",
         "ar": "Standard Deviation of Demand During Lead Time"
+      },
+      "businessContext_i18n": {
+        "en": "The standard deviation of demand variability during the lead time.",
+        "tr": "Talep süresi boyunca talep değişkenliğinin standart sapması."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Inventory level at which a new order is triggered.",
       "label_i18n": {
         "en": "Reorder Point",
-        "tr": "Reorder Point",
+        "tr": "Yeniden Sipariş Noktası",
         "de": "Reorder Point",
         "fr": "Reorder Point",
         "es": "Reorder Point",
         "ar": "Reorder Point"
+      },
+      "businessContext_i18n": {
+        "en": "Inventory level at which a new order is triggered.",
+        "tr": "Yeni bir siparişin tetiklendiği stok seviyesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The fixed order quantity placed each time.",
       "label_i18n": {
         "en": "Order Quantity",
-        "tr": "Order Quantity",
+        "tr": "Sipariş Miktarı",
         "de": "Order Quantity",
         "fr": "Order Quantity",
         "es": "Order Quantity",
         "ar": "Order Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "The fixed order quantity placed each time.",
+        "tr": "Her seferinde verilen sabit sipariş miktarı."
       }
     }
   ],

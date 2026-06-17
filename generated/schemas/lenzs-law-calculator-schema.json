@@ -10,11 +10,15 @@
       "businessContext": "Number of turns in the coil",
       "label_i18n": {
         "en": "Number of Turns (N)",
-        "tr": "Number of Turns (N)",
+        "tr": "Dönüş Sayısı (N)",
         "de": "Number of Turns (N)",
         "fr": "Number of Turns (N)",
         "es": "Number of Turns (N)",
         "ar": "Number of Turns (N)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of turns in the coil",
+        "tr": "Bobindeki sarım sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Change in magnetic flux density",
       "label_i18n": {
         "en": "Change in Magnetic Field (ΔB)",
-        "tr": "Change in Magnetic Field (ΔB)",
+        "tr": "Manyetik Alan Değişimi (ΔB)",
         "de": "Change in Magnetic Field (ΔB)",
         "fr": "Change in Magnetic Field (ΔB)",
         "es": "Change in Magnetic Field (ΔB)",
         "ar": "Change in Magnetic Field (ΔB)"
+      },
+      "businessContext_i18n": {
+        "en": "Change in magnetic flux density",
+        "tr": "Manyetik akı yoğunluğundaki değişim"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cross-sectional area of the coil",
       "label_i18n": {
         "en": "Area of Loop (A)",
-        "tr": "Area of Loop (A)",
+        "tr": "Döngü Alanı (A)",
         "de": "Area of Loop (A)",
         "fr": "Area of Loop (A)",
         "es": "Area of Loop (A)",
         "ar": "Area of Loop (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional area of the coil",
+        "tr": "Bobinin kesit alanı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time over which the magnetic field changes",
       "label_i18n": {
         "en": "Time Interval (Δt)",
-        "tr": "Time Interval (Δt)",
+        "tr": "Zaman Aralığı (Δt)",
         "de": "Time Interval (Δt)",
         "fr": "Time Interval (Δt)",
         "es": "Time Interval (Δt)",
         "ar": "Time Interval (Δt)"
+      },
+      "businessContext_i18n": {
+        "en": "Time over which the magnetic field changes",
+        "tr": "Manyetik alanın değiştiği süre"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Angle between magnetic field and normal to the loop",
       "label_i18n": {
         "en": "Angle (θ)",
-        "tr": "Angle (θ)",
+        "tr": "Açı (θ)",
         "de": "Angle (θ)",
         "fr": "Angle (θ)",
         "es": "Angle (θ)",
         "ar": "Angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between magnetic field and normal to the loop",
+        "tr": "Manyetik alan ile döngü normali arasındaki açı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Patient's age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's age in years",
+        "tr": "Hastanın yaşı (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Patient's heart rate in beats per minute",
       "label_i18n": {
         "en": "Heart Rate",
-        "tr": "Heart Rate",
+        "tr": "Kalp Atış Hızı",
         "de": "Heart Rate",
         "fr": "Heart Rate",
         "es": "Heart Rate",
         "ar": "Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's heart rate in beats per minute",
+        "tr": "Hastanın kalp atış hızı (atım/dakika)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Systolic blood pressure in mmHg",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Systolic blood pressure in mmHg",
+        "tr": "Sistolik kan basıncı (mmHg)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Body temperature in Celsius",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Body temperature in Celsius",
+        "tr": "Vücut sıcaklığı (Celsius)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1 if on mechanical ventilation or CPAP, else 0",
       "label_i18n": {
         "en": "Mechanical Ventilation",
-        "tr": "Mechanical Ventilation",
+        "tr": "Mekanik ventilasyon",
         "de": "Mechanical Ventilation",
         "fr": "Mechanical Ventilation",
         "es": "Mechanical Ventilation",
         "ar": "Mechanical Ventilation"
+      },
+      "businessContext_i18n": {
+        "en": "1 if on mechanical ventilation or CPAP, else 0",
+        "tr": "Mekanik ventilasyon veya CPAP kullanılıyorsa 1, değilse 0"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "PaO2/FiO2 ratio in mmHg, relevant only if ventilated",
       "label_i18n": {
         "en": "PaO2/FiO2 Ratio",
-        "tr": "PaO2/FiO2 Ratio",
+        "tr": "PaO2/FiO2 Oranı",
         "de": "PaO2/FiO2 Ratio",
         "fr": "PaO2/FiO2 Ratio",
         "es": "PaO2/FiO2 Ratio",
         "ar": "PaO2/FiO2 Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "PaO2/FiO2 ratio in mmHg, relevant only if ventilated",
+        "tr": "PaO2/FiO2 oranı (mmHg), yalnızca ventilasyon varsa geçerlidir"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Daily urine output in liters",
       "label_i18n": {
         "en": "Urine Output",
-        "tr": "Urine Output",
+        "tr": "İdrar çıkışı",
         "de": "Urine Output",
         "fr": "Urine Output",
         "es": "Urine Output",
         "ar": "Urine Output"
+      },
+      "businessContext_i18n": {
+        "en": "Daily urine output in liters",
+        "tr": "Günlük idrar çıkışı (litre)"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Serum urea concentration in mmol/L",
       "label_i18n": {
         "en": "Serum Urea",
-        "tr": "Serum Urea",
+        "tr": "Serum üre",
         "de": "Serum Urea",
         "fr": "Serum Urea",
         "es": "Serum Urea",
         "ar": "Serum Urea"
+      },
+      "businessContext_i18n": {
+        "en": "Serum urea concentration in mmol/L",
+        "tr": "Serum üre konsantrasyonu (mmol/L)"
       }
     }
   ],

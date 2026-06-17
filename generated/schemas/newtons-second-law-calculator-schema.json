@@ -10,11 +10,15 @@
       "businessContext": "1=Calculate Force, 2=Calculate Acceleration, 3=Calculate Mass",
       "label_i18n": {
         "en": "Calculation Mode",
-        "tr": "Calculation Mode",
+        "tr": "Hesaplama Modu",
         "de": "Calculation Mode",
         "fr": "Calculation Mode",
         "es": "Calculation Mode",
         "ar": "Calculation Mode"
+      },
+      "businessContext_i18n": {
+        "en": "1=Calculate Force, 2=Calculate Acceleration, 3=Calculate Mass",
+        "tr": "1=Kuvvet Hesapla, 2=İvme Hesapla, 3=Kütle Hesapla"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass of the object",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the object",
+        "tr": "Cismin kütlesi"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Acceleration",
         "es": "Acceleration",
         "ar": "Acceleration"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration of the object",
+        "tr": "Cismin ivmesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Net force acting on the object",
       "label_i18n": {
         "en": "Force",
-        "tr": "Force",
+        "tr": "Kuvvet",
         "de": "Force",
         "fr": "Force",
         "es": "Force",
         "ar": "Force"
+      },
+      "businessContext_i18n": {
+        "en": "Net force acting on the object",
+        "tr": "Cisme etki eden net kuvvet"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier for engineering safety margin (>=1)",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for engineering safety margin (>=1)",
+        "tr": "Mühendislik güvenlik marjı çarpanı (>=1)"
       }
     }
   ],

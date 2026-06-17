@@ -10,11 +10,15 @@
       "businessContext": "Concentration of hydroxide ions [OH-] in moles per liter. Typical values range from 1e-14 to 1e0.",
       "label_i18n": {
         "en": "Hydroxide Concentration",
-        "tr": "Hydroxide Concentration",
+        "tr": "Hidroksit Konsantrasyonu",
         "de": "Hydroxide Concentration",
         "fr": "Hydroxide Concentration",
         "es": "Hydroxide Concentration",
         "ar": "Hydroxide Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Concentration of hydroxide ions [OH-] in moles per liter. Typical values range from 1e-14 to 1e0.",
+        "tr": "Hidroksit iyonları [OH-] konsantrasyonu (mol/L). Tipik değerler 1e-14 ile 1e0 arasındadır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Temperature in degrees Celsius. Used to calculate water autoionization constant pKw. Standard pOH assumes 25°C where Kw = 1e-14.",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature in degrees Celsius. Used to calculate water autoionization constant pKw. Standard pOH assumes 25°C where Kw = 1e-14.",
+        "tr": "Santigrat derece cinsinden sıcaklık. Suyun otoiyonizasyon sabiti pKw'yi hesaplamak için kullanılır. Standart pOH, Kw = 1e-14 olduğu 25°C'yi varsayar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Volume of the aqueous sample in liters. For reference and scaling calculations.",
       "label_i18n": {
         "en": "Sample Volume",
-        "tr": "Sample Volume",
+        "tr": "Numune Hacmi",
         "de": "Sample Volume",
         "fr": "Sample Volume",
         "es": "Sample Volume",
         "ar": "Sample Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of the aqueous sample in liters. For reference and scaling calculations.",
+        "tr": "Sulu numunenin litre cinsinden hacmi. Referans ve ölçeklendirme hesaplamaları için."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Relative uncertainty of the hydroxide measurement, expressed as a percentage. For quality assurance documentation.",
       "label_i18n": {
         "en": "Measurement Uncertainty",
-        "tr": "Measurement Uncertainty",
+        "tr": "Ölçüm Belirsizliği",
         "de": "Measurement Uncertainty",
         "fr": "Measurement Uncertainty",
         "es": "Measurement Uncertainty",
         "ar": "Measurement Uncertainty"
+      },
+      "businessContext_i18n": {
+        "en": "Relative uncertainty of the hydroxide measurement, expressed as a percentage. For quality assurance documentation.",
+        "tr": "Hidroksit ölçümünün yüzde olarak ifade edilen bağıl belirsizliği. Kalite güvence dokümantasyonu için."
       }
     }
   ],

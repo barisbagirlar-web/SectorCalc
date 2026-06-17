@@ -10,11 +10,15 @@
       "businessContext": "Average observed time per cycle from time study",
       "label_i18n": {
         "en": "Observed Time (OT)",
-        "tr": "Observed Time (OT)",
+        "tr": "Gözlemlenen Süre (OT)",
         "de": "Observed Time (OT)",
         "fr": "Observed Time (OT)",
         "es": "Observed Time (OT)",
         "ar": "Observed Time (OT)"
+      },
+      "businessContext_i18n": {
+        "en": "Average observed time per cycle from time study",
+        "tr": "Zaman etüdünden çevrim başına ortalama gözlemlenen süre"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Performance rating to adjust pace (100% = normal)",
       "label_i18n": {
         "en": "Rating Factor",
-        "tr": "Rating Factor",
+        "tr": "Değerlendirme Faktörü",
         "de": "Rating Factor",
         "fr": "Rating Factor",
         "es": "Rating Factor",
         "ar": "Rating Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Performance rating to adjust pace (100% = normal)",
+        "tr": "Tempoyu ayarlamak için performans değerlendirmesi (%100 = normal)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Allowance for personal, fatigue, delays (percentage of normal time)",
       "label_i18n": {
         "en": "Allowance Factor",
-        "tr": "Allowance Factor",
+        "tr": "İzin Faktörü",
         "de": "Allowance Factor",
         "fr": "Allowance Factor",
         "es": "Allowance Factor",
         "ar": "Allowance Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Allowance for personal, fatigue, delays (percentage of normal time)",
+        "tr": "Kişisel, yorgunluk, gecikmeler için izin (normal sürenin yüzdesi)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of cycles timed to compute average; used for standard deviation",
       "label_i18n": {
         "en": "Number of Cycles Observed",
-        "tr": "Number of Cycles Observed",
+        "tr": "Gözlemlenen Çevrim Sayısı",
         "de": "Number of Cycles Observed",
         "fr": "Number of Cycles Observed",
         "es": "Number of Cycles Observed",
         "ar": "Number of Cycles Observed"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cycles timed to compute average; used for standard deviation",
+        "tr": "Ortalamayı hesaplamak için zamanlanan çevrim sayısı; standart sapma için kullanılır"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Standard deviation of the observed cycle times (minutes)",
       "label_i18n": {
         "en": "Standard Deviation of Observed Times",
-        "tr": "Standard Deviation of Observed Times",
+        "tr": "Gözlemlenen Sürelerin Standart Sapması",
         "de": "Standard Deviation of Observed Times",
         "fr": "Standard Deviation of Observed Times",
         "es": "Standard Deviation of Observed Times",
         "ar": "Standard Deviation of Observed Times"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of the observed cycle times (minutes)",
+        "tr": "Gözlemlenen çevrim sürelerinin standart sapması (dakika)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Desired precision (accuracy) as percentage (e.g., 5 for ±5%)",
       "label_i18n": {
         "en": "Precision",
-        "tr": "Precision",
+        "tr": "Hassasiyet",
         "de": "Precision",
         "fr": "Precision",
         "es": "Precision",
         "ar": "Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Desired precision (accuracy) as percentage (e.g., 5 for ±5%)",
+        "tr": "İstenen hassasiyet (doğruluk) yüzde olarak (örn. ±%5 için 5)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Standard normal deviate for desired confidence (e.g., 1.96 for 95%)",
       "label_i18n": {
         "en": "Z-score for Confidence Level",
-        "tr": "Z-score for Confidence Level",
+        "tr": "Güven Düzeyi için Z-skoru",
         "de": "Z-score for Confidence Level",
         "fr": "Z-score for Confidence Level",
         "es": "Z-score for Confidence Level",
         "ar": "Z-score for Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Standard normal deviate for desired confidence (e.g., 1.96 for 95%)",
+        "tr": "İstenen güven için standart normal sapma (örn. %95 için 1,96)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Body weight of the user",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight of the user",
+        "tr": "Kullanıcının vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Treadmill speed in km/h",
       "label_i18n": {
         "en": "Speed",
-        "tr": "Speed",
+        "tr": "Hız",
         "de": "Speed",
         "fr": "Speed",
         "es": "Speed",
         "ar": "Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Treadmill speed in km/h",
+        "tr": "Koşu bandı hızı (km/sa)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Incline percentage (e.g., 5 for 5%)",
       "label_i18n": {
         "en": "Incline",
-        "tr": "Incline",
+        "tr": "Eğim",
         "de": "Incline",
         "fr": "Incline",
         "es": "Incline",
         "ar": "Incline"
+      },
+      "businessContext_i18n": {
+        "en": "Incline percentage (e.g., 5 for 5%)",
+        "tr": "Eğim yüzdesi (örneğin %5 için 5)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Exercise duration in minutes",
       "label_i18n": {
         "en": "Duration",
-        "tr": "Duration",
+        "tr": "Süre",
         "de": "Duration",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Exercise duration in minutes",
+        "tr": "Dakika cinsinden egzersiz süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Type of exercise: 0 for walking, 1 for running",
       "label_i18n": {
         "en": "Exercise Type",
-        "tr": "Exercise Type",
+        "tr": "Egzersiz Türü",
         "de": "Exercise Type",
         "fr": "Exercise Type",
         "es": "Exercise Type",
         "ar": "Exercise Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of exercise: 0 for walking, 1 for running",
+        "tr": "Egzersiz türü: 0 yürüyüş, 1 koşu"
       }
     }
   ],

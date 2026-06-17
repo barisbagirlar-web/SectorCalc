@@ -10,11 +10,15 @@
       "businessContext": "The width of the screen, image, or element in pixels. Used to determine the horizontal dimension for aspect ratio calculation.",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "The width of the screen, image, or element in pixels. Used to determine the horizontal dimension for aspect ratio calculation.",
+        "tr": "Ekran, görüntü veya öğenin piksel cinsinden genişliği. En-boy oranı hesaplaması için yatay boyutu belirler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The height of the screen, image, or element in pixels. Used to determine the vertical dimension for aspect ratio calculation.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "The height of the screen, image, or element in pixels. Used to determine the vertical dimension for aspect ratio calculation.",
+        "tr": "Ekran, görüntü veya öğenin piksel cinsinden yüksekliği. En-boy oranı hesaplaması için dikey boyutu belirler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The width component of a target aspect ratio (e.g., 16 for 16:9). Used to compare how close the current aspect ratio is to a standard.",
       "label_i18n": {
         "en": "Target Ratio Width",
-        "tr": "Target Ratio Width",
+        "tr": "Hedef Oran Genişliği",
         "de": "Target Ratio Width",
         "fr": "Target Ratio Width",
         "es": "Target Ratio Width",
         "ar": "Target Ratio Width"
+      },
+      "businessContext_i18n": {
+        "en": "The width component of a target aspect ratio (e.g., 16 for 16:9). Used to compare how close the current aspect ratio is to a standard.",
+        "tr": "Hedef en-boy oranının genişlik bileşeni (ör. 16:9 için 16). Mevcut en-boy oranının bir standarda ne kadar yakın olduğunu karşılaştırmak için kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The height component of a target aspect ratio (e.g., 9 for 16:9). Used to compare how close the current aspect ratio is to a standard.",
       "label_i18n": {
         "en": "Target Ratio Height",
-        "tr": "Target Ratio Height",
+        "tr": "Hedef Oran Yüksekliği",
         "de": "Target Ratio Height",
         "fr": "Target Ratio Height",
         "es": "Target Ratio Height",
         "ar": "Target Ratio Height"
+      },
+      "businessContext_i18n": {
+        "en": "The height component of a target aspect ratio (e.g., 9 for 16:9). Used to compare how close the current aspect ratio is to a standard.",
+        "tr": "Hedef en-boy oranının yükseklik bileşeni (ör. 16:9 için 9). Mevcut en-boy oranının bir standarda ne kadar yakın olduğunu karşılaştırmak için kullanılır."
       }
     }
   ],

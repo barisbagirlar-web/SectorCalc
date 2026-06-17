@@ -10,11 +10,15 @@
       "businessContext": "Initial mass of the radioactive substance.",
       "label_i18n": {
         "en": "Initial Quantity",
-        "tr": "Initial Quantity",
+        "tr": "Başlangıç Miktarı",
         "de": "Initial Quantity",
         "fr": "Initial Quantity",
         "es": "Initial Quantity",
         "ar": "Initial Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Initial mass of the radioactive substance.",
+        "tr": "Radyoaktif maddenin başlangıç kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time required for half of the substance to decay.",
       "label_i18n": {
         "en": "Half-Life",
-        "tr": "Half-Life",
+        "tr": "Yarılanma Süresi",
         "de": "Half-Life",
         "fr": "Half-Life",
         "es": "Half-Life",
         "ar": "Half-Life"
+      },
+      "businessContext_i18n": {
+        "en": "Time required for half of the substance to decay.",
+        "tr": "Maddenin yarısının bozunması için gereken süre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time duration over which decay is calculated.",
       "label_i18n": {
         "en": "Elapsed Time",
-        "tr": "Elapsed Time",
+        "tr": "Geçen Süre",
         "de": "Elapsed Time",
         "fr": "Elapsed Time",
         "es": "Elapsed Time",
         "ar": "Elapsed Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time duration over which decay is calculated.",
+        "tr": "Bozunmanın hesaplandığı süre aralığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for safety margin in criticality or radiological assessments.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for safety margin in criticality or radiological assessments.",
+        "tr": "Kritiklik veya radyolojik değerlendirmelerde güvenlik marjı çarpanı."
       }
     }
   ],

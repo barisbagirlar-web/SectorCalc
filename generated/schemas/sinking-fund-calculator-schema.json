@@ -10,11 +10,15 @@
       "businessContext": "The future value needed to be accumulated.",
       "label_i18n": {
         "en": "Target Amount",
-        "tr": "Target Amount",
+        "tr": "Hedef Miktar",
         "de": "Target Amount",
         "fr": "Target Amount",
         "es": "Target Amount",
         "ar": "Target Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The future value needed to be accumulated.",
+        "tr": "Biriktirilmesi gereken gelecek değer."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual interest rate earned on the sinking fund.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate earned on the sinking fund.",
+        "tr": "Biriktirme fonunda kazanılan yıllık faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The time period over which to accumulate the target amount.",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Number of Years",
+        "tr": "Yıl Sayısı",
         "de": "Number of Years",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
+      },
+      "businessContext_i18n": {
+        "en": "The time period over which to accumulate the target amount.",
+        "tr": "Hedef tutarın biriktirileceği zaman dilimi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of compounding periods per year (e.g., monthly = 12, quarterly = 4).",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı",
         "de": "Compounding Frequency",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of compounding periods per year (e.g., monthly = 12, quarterly = 4).",
+        "tr": "Yıllık bileşik dönem sayısı (örneğin aylık = 12, üç aylık = 4)."
       }
     }
   ],

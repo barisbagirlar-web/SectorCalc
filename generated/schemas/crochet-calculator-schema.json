@@ -10,11 +10,15 @@
       "businessContext": "Width of the finished crochet project in centimeters.",
       "label_i18n": {
         "en": "Project Width",
-        "tr": "Project Width",
+        "tr": "Proje Genişliği",
         "de": "Project Width",
         "fr": "Project Width",
         "es": "Project Width",
         "ar": "Project Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the finished crochet project in centimeters.",
+        "tr": "Bitmiş tığ işi projesinin santimetre cinsinden genişliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the finished crochet project in centimeters.",
       "label_i18n": {
         "en": "Project Height",
-        "tr": "Project Height",
+        "tr": "Proje Yüksekliği",
         "de": "Project Height",
         "fr": "Project Height",
         "es": "Project Height",
         "ar": "Project Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the finished crochet project in centimeters.",
+        "tr": "Bitmiş tığ işi projesinin santimetre cinsinden yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of the gauge swatch made with the same stitch and yarn as the project.",
       "label_i18n": {
         "en": "Swatch Width",
-        "tr": "Swatch Width",
+        "tr": "Numune Genişliği",
         "de": "Swatch Width",
         "fr": "Swatch Width",
         "es": "Swatch Width",
         "ar": "Swatch Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the gauge swatch made with the same stitch and yarn as the project.",
+        "tr": "Projeyle aynı ilmek ve iplik kullanılarak yapılan ölçü numunesinin genişliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of the gauge swatch.",
       "label_i18n": {
         "en": "Swatch Height",
-        "tr": "Swatch Height",
+        "tr": "Numune Yüksekliği",
         "de": "Swatch Height",
         "fr": "Swatch Height",
         "es": "Swatch Height",
         "ar": "Swatch Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the gauge swatch.",
+        "tr": "Ölçü numunesinin yüksekliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Weight of the dry gauge swatch in grams.",
       "label_i18n": {
         "en": "Swatch Weight",
-        "tr": "Swatch Weight",
+        "tr": "Numune Ağırlığı",
         "de": "Swatch Weight",
         "fr": "Swatch Weight",
         "es": "Swatch Weight",
         "ar": "Swatch Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the dry gauge swatch in grams.",
+        "tr": "Kuru ölçü numunesinin gram cinsinden ağırlığı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Net weight of one full skein of yarn in grams.",
       "label_i18n": {
         "en": "Skein Weight",
-        "tr": "Skein Weight",
+        "tr": "Yumak Ağırlığı",
         "de": "Skein Weight",
         "fr": "Skein Weight",
         "es": "Skein Weight",
         "ar": "Skein Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Net weight of one full skein of yarn in grams.",
+        "tr": "Bir tam yumak ipliğin gram cinsinden net ağırlığı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Length of yarn per skein in meters, for estimating total yarn length needed.",
       "label_i18n": {
         "en": "Skein Length",
-        "tr": "Skein Length",
+        "tr": "Yumak Uzunluğu",
         "de": "Skein Length",
         "fr": "Skein Length",
         "es": "Skein Length",
         "ar": "Skein Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of yarn per skein in meters, for estimating total yarn length needed.",
+        "tr": "Toplam iplik uzunluğunu tahmin etmek için yumak başına metre cinsinden iplik uzunluğu."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Purchase price per skein of yarn in currency unit.",
       "label_i18n": {
         "en": "Cost per Skein",
-        "tr": "Cost per Skein",
+        "tr": "Yumak Başına Maliyet",
         "de": "Cost per Skein",
         "fr": "Cost per Skein",
         "es": "Cost per Skein",
         "ar": "Cost per Skein"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price per skein of yarn in currency unit.",
+        "tr": "Para birimi cinsinden yumak başına satın alma fiyatı."
       }
     }
   ],

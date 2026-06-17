@@ -10,11 +10,15 @@
       "businessContext": "Diameter of the wire used in the mesh",
       "label_i18n": {
         "en": "Wire Diameter",
-        "tr": "Wire Diameter",
+        "tr": "Tel Çapı",
         "de": "Wire Diameter",
         "fr": "Wire Diameter",
         "es": "Wire Diameter",
         "ar": "Wire Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the wire used in the mesh",
+        "tr": "Tel örgüde kullanılan telin çapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Clear opening size between adjacent parallel wires",
       "label_i18n": {
         "en": "Mesh Opening",
-        "tr": "Mesh Opening",
+        "tr": "Mesh Açıklığı",
         "de": "Mesh Opening",
         "fr": "Mesh Opening",
         "es": "Mesh Opening",
         "ar": "Mesh Opening"
+      },
+      "businessContext_i18n": {
+        "en": "Clear opening size between adjacent parallel wires",
+        "tr": "Paralel teller arasındaki net açıklık boyutu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of a single mesh sheet",
       "label_i18n": {
         "en": "Sheet Width",
-        "tr": "Sheet Width",
+        "tr": "Levha genişliği",
         "de": "Sheet Width",
         "fr": "Sheet Width",
         "es": "Sheet Width",
         "ar": "Sheet Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single mesh sheet",
+        "tr": "Tek bir mesh tabakasının genişliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Length of a single mesh sheet",
       "label_i18n": {
         "en": "Sheet Length",
-        "tr": "Sheet Length",
+        "tr": "Levha uzunluğu",
         "de": "Sheet Length",
         "fr": "Sheet Length",
         "es": "Sheet Length",
         "ar": "Sheet Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single mesh sheet",
+        "tr": "Tek bir mesh tabakasının uzunluğu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of mesh sheets",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of mesh sheets",
+        "tr": "Mesh tabakası sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Density of the wire material (e.g., steel = 7850 kg/m³)",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the wire material (e.g., steel = 7850 kg/m³)",
+        "tr": "Tel malzemesinin yoğunluğu (ör. çelik = 7850 kg/m³)"
       }
     }
   ],

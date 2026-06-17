@@ -10,11 +10,15 @@
       "businessContext": "Torsion moment applied to the shaft",
       "label_i18n": {
         "en": "Applied Torque",
-        "tr": "Applied Torque",
+        "tr": "Uygulanan Tork",
         "de": "Applied Torque",
         "fr": "Applied Torque",
         "es": "Applied Torque",
         "ar": "Applied Torque"
+      },
+      "businessContext_i18n": {
+        "en": "Torsion moment applied to the shaft",
+        "tr": "Milde uygulanan burulma momenti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of the shaft under torsion",
       "label_i18n": {
         "en": "Shaft Length",
-        "tr": "Shaft Length",
+        "tr": "Mil Uzunluğu",
         "de": "Shaft Length",
         "fr": "Shaft Length",
         "es": "Shaft Length",
         "ar": "Shaft Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the shaft under torsion",
+        "tr": "Burulma altındaki milin uzunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Shear modulus of the material, e.g., steel ~80 GPa",
       "label_i18n": {
         "en": "Shear Modulus (G)",
-        "tr": "Shear Modulus (G)",
+        "tr": "Kayma Modülü (G)",
         "de": "Shear Modulus (G)",
         "fr": "Shear Modulus (G)",
         "es": "Shear Modulus (G)",
         "ar": "Shear Modulus (G)"
+      },
+      "businessContext_i18n": {
+        "en": "Shear modulus of the material, e.g., steel ~80 GPa",
+        "tr": "Malzemenin kayma modülü, örn. çelik ~80 GPa"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Outer diameter of the shaft",
       "label_i18n": {
         "en": "Outer Diameter",
-        "tr": "Outer Diameter",
+        "tr": "Dış Çap",
         "de": "Outer Diameter",
         "fr": "Outer Diameter",
         "es": "Outer Diameter",
         "ar": "Outer Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Outer diameter of the shaft",
+        "tr": "Milin dış çapı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Inner diameter for hollow shafts; set to 0 for solid shafts",
       "label_i18n": {
         "en": "Inner Diameter",
-        "tr": "Inner Diameter",
+        "tr": "İç Çap",
         "de": "Inner Diameter",
         "fr": "Inner Diameter",
         "es": "Inner Diameter",
         "ar": "Inner Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter for hollow shafts; set to 0 for solid shafts",
+        "tr": "İçi boş miller için iç çap; dolu miller için 0 girin"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "First octet of the IP address (0-255)",
       "label_i18n": {
         "en": "IP Address Octet 1",
-        "tr": "IP Address Octet 1",
+        "tr": "Yukarıda yer almayan diğer tüm ödenmemiş yükümlülükler (ör. vergi borçları, tıbbi faturalar).",
         "de": "IP Address Octet 1",
         "fr": "IP Address Octet 1",
         "es": "IP Address Octet 1",
         "ar": "IP Address Octet 1"
+      },
+      "businessContext_i18n": {
+        "en": "First octet of the IP address (0-255)",
+        "tr": "IP Adresi 1. Sekizli"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Second octet of the IP address (0-255)",
       "label_i18n": {
         "en": "IP Address Octet 2",
-        "tr": "IP Address Octet 2",
+        "tr": "IP adresinin ilk sekizlisi (0-255)",
         "de": "IP Address Octet 2",
         "fr": "IP Address Octet 2",
         "es": "IP Address Octet 2",
         "ar": "IP Address Octet 2"
+      },
+      "businessContext_i18n": {
+        "en": "Second octet of the IP address (0-255)",
+        "tr": "IP Adresi 2. Sekizli"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Third octet of the IP address (0-255)",
       "label_i18n": {
         "en": "IP Address Octet 3",
-        "tr": "IP Address Octet 3",
+        "tr": "IP adresinin ikinci sekizlisi (0-255)",
         "de": "IP Address Octet 3",
         "fr": "IP Address Octet 3",
         "es": "IP Address Octet 3",
         "ar": "IP Address Octet 3"
+      },
+      "businessContext_i18n": {
+        "en": "Third octet of the IP address (0-255)",
+        "tr": "IP Adresi 3. Sekizli"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fourth octet of the IP address (0-255)",
       "label_i18n": {
         "en": "IP Address Octet 4",
-        "tr": "IP Address Octet 4",
+        "tr": "IP adresinin üçüncü sekizlisi (0-255)",
         "de": "IP Address Octet 4",
         "fr": "IP Address Octet 4",
         "es": "IP Address Octet 4",
         "ar": "IP Address Octet 4"
+      },
+      "businessContext_i18n": {
+        "en": "Fourth octet of the IP address (0-255)",
+        "tr": "IP Adresi 4. Sekizli"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Subnet mask length in CIDR notation (0-32)",
       "label_i18n": {
         "en": "CIDR Prefix Length",
-        "tr": "CIDR Prefix Length",
+        "tr": "IP adresinin dördüncü sekizlisi (0-255)",
         "de": "CIDR Prefix Length",
         "fr": "CIDR Prefix Length",
         "es": "CIDR Prefix Length",
         "ar": "CIDR Prefix Length"
+      },
+      "businessContext_i18n": {
+        "en": "Subnet mask length in CIDR notation (0-32)",
+        "tr": "CIDR Ön Eki Uzunluğu"
       }
     }
   ],

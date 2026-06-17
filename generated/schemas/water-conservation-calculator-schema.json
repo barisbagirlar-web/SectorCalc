@@ -10,11 +10,15 @@
       "businessContext": "Total water usage in the current period",
       "label_i18n": {
         "en": "Current Water Consumption",
-        "tr": "Current Water Consumption",
+        "tr": "Mevcut Su Tüketimi",
         "de": "Current Water Consumption",
         "fr": "Current Water Consumption",
         "es": "Current Water Consumption",
         "ar": "Current Water Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Total water usage in the current period",
+        "tr": "Cari dönemdeki toplam su kullanımı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Water consumption in a reference period for comparison",
       "label_i18n": {
         "en": "Baseline Water Consumption",
-        "tr": "Baseline Water Consumption",
+        "tr": "Baz Su Tüketimi",
         "de": "Baseline Water Consumption",
         "fr": "Baseline Water Consumption",
         "es": "Baseline Water Consumption",
         "ar": "Baseline Water Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Water consumption in a reference period for comparison",
+        "tr": "Karşılaştırma için referans dönemdeki su tüketimi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Unit cost of water supply",
       "label_i18n": {
         "en": "Water Cost per m³",
-        "tr": "Water Cost per m³",
+        "tr": "Metreküp Başına Su Maliyeti",
         "de": "Water Cost per m³",
         "fr": "Water Cost per m³",
         "es": "Water Cost per m³",
         "ar": "Water Cost per m³"
+      },
+      "businessContext_i18n": {
+        "en": "Unit cost of water supply",
+        "tr": "Su temininin birim maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated percentage of water lost due to leaks",
       "label_i18n": {
         "en": "Leakage Percentage",
-        "tr": "Leakage Percentage",
+        "tr": "Kaçak Yüzdesi",
         "de": "Leakage Percentage",
         "fr": "Leakage Percentage",
         "es": "Leakage Percentage",
         "ar": "Leakage Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of water lost due to leaks",
+        "tr": "Sızıntılar nedeniyle kaybedilen suyun tahmini yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Target percentage reduction in water use through efficiency measures",
       "label_i18n": {
         "en": "Efficiency Improvement Target",
-        "tr": "Efficiency Improvement Target",
+        "tr": "Verimlilik İyileştirme Hedefi",
         "de": "Efficiency Improvement Target",
         "fr": "Efficiency Improvement Target",
         "es": "Efficiency Improvement Target",
         "ar": "Efficiency Improvement Target"
+      },
+      "businessContext_i18n": {
+        "en": "Target percentage reduction in water use through efficiency measures",
+        "tr": "Verimlilik önlemleriyle su kullanımında hedeflenen yüzde azalma"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The mass in solar masses to convert.",
       "label_i18n": {
         "en": "Solar Masses",
-        "tr": "Solar Masses",
+        "tr": "Güneş Kütlesi",
         "de": "Solar Masses",
         "fr": "Solar Masses",
         "es": "Solar Masses",
         "ar": "Solar Masses"
+      },
+      "businessContext_i18n": {
+        "en": "The mass in solar masses to convert.",
+        "tr": "Dönüştürülecek güneş kütlesi cinsinden kütle."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The number of kilograms in one solar mass (default is 1.989 × 10³⁰ kg).",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The number of kilograms in one solar mass (default is 1.989 × 10³⁰ kg).",
+        "tr": "Bir güneş kütlesindeki kilogram sayısı (varsayılan 1.989 × 10³⁰ kg)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage uncertainty for the conversion, used to compute lower and upper bounds.",
       "label_i18n": {
         "en": "Uncertainty (±%)",
-        "tr": "Uncertainty (±%)",
+        "tr": "Belirsizlik (±%)",
         "de": "Uncertainty (±%)",
         "fr": "Uncertainty (±%)",
         "es": "Uncertainty (±%)",
         "ar": "Uncertainty (±%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage uncertainty for the conversion, used to compute lower and upper bounds.",
+        "tr": "Dönüşüm için yüzde belirsizlik, alt ve üst sınırları hesaplamak için kullanılır."
       }
     }
   ],

@@ -1,13 +1,12 @@
 import type { LucideIcon } from "lucide-react";
 import { Calculator } from "lucide-react";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
-import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import {
   resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
 } from "@/lib/generated-tools/resolve-tool-display";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
-import { resolveFreeToolFieldDisplay } from "@/lib/i18n/free-tool-form-i18n";
+import { resolveGeneratedFieldDisplay } from "@/lib/i18n/generated-field-display";
 import { isSnakeCaseTechnicalKey } from "@/lib/i18n/locale-field-copy-quality";
 import {
   inferFreeTrafficCategory,
@@ -68,19 +67,7 @@ export function resolveToolKeywordTags(
   limit = 3,
 ): readonly string[] {
   const tags = schema.inputs
-    .map((input) => {
-      const fallbackLabel = resolveGeneratedI18nText(input.label_i18n, locale, input.label).trim();
-      const fallbackHelper = resolveGeneratedI18nText(
-        input.businessContext_i18n,
-        locale,
-        input.businessContext,
-      ).trim();
-      return resolveFreeToolFieldDisplay(slug, input.id, locale, {
-        label: fallbackLabel,
-        placeholder: fallbackHelper || fallbackLabel,
-        helper: fallbackHelper,
-      }).label.trim();
-    })
+    .map((input) => resolveGeneratedFieldDisplay(slug, input, locale).label.trim())
     .filter((label) => label.length > 0);
 
   const unique = [...new Set(tags)];

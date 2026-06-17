@@ -10,11 +10,15 @@
       "businessContext": "Weight in troy pounds to be converted to kilograms",
       "label_i18n": {
         "en": "Troy Pound Amount",
-        "tr": "Troy Pound Amount",
+        "tr": "Troy Pound Miktarı",
         "de": "Troy Pound Amount",
         "fr": "Troy Pound Amount",
         "es": "Troy Pound Amount",
         "ar": "Troy Pound Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Weight in troy pounds to be converted to kilograms",
+        "tr": "Kilograma dönüştürülecek troy pound cinsinden ağırlık"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for rounded outputs",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounded outputs",
+        "tr": "Yuvarlatılmış çıktılar için ondalık basamak sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of identical items to calculate total weight for",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical items to calculate total weight for",
+        "tr": "Toplam ağırlığı hesaplamak için özdeş öğe sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplicative calibration correction factor for the weighing scale",
       "label_i18n": {
         "en": "Calibration Factor",
-        "tr": "Calibration Factor",
+        "tr": "Kalibrasyon Faktörü",
         "de": "Calibration Factor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplicative calibration correction factor for the weighing scale",
+        "tr": "Tartım terazisi için çarpımsal kalibrasyon düzeltme faktörü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Relative measurement uncertainty percentage for conformance bounds",
       "label_i18n": {
         "en": "Measurement Uncertainty (±%)",
-        "tr": "Measurement Uncertainty (±%)",
+        "tr": "Ölçüm Belirsizliği (±%)",
         "de": "Measurement Uncertainty (±%)",
         "fr": "Measurement Uncertainty (±%)",
         "es": "Measurement Uncertainty (±%)",
         "ar": "Measurement Uncertainty (±%)"
+      },
+      "businessContext_i18n": {
+        "en": "Relative measurement uncertainty percentage for conformance bounds",
+        "tr": "Uygunluk sınırları için bağıl ölçüm belirsizliği yüzdesi"
       }
     }
   ],

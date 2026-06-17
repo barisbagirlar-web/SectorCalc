@@ -10,11 +10,15 @@
       "businessContext": "Normal stress component in x-direction",
       "label_i18n": {
         "en": "Normal Stress σ_x",
-        "tr": "Normal Stress σ_x",
+        "tr": "Normal Gerilme σ_x",
         "de": "Normal Stress σ_x",
         "fr": "Normal Stress σ_x",
         "es": "Normal Stress σ_x",
         "ar": "Normal Stress σ_x"
+      },
+      "businessContext_i18n": {
+        "en": "Normal stress component in x-direction",
+        "tr": "x yönündeki normal gerilme bileşeni"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Normal stress component in y-direction",
       "label_i18n": {
         "en": "Normal Stress σ_y",
-        "tr": "Normal Stress σ_y",
+        "tr": "Normal Gerilme σ_y",
         "de": "Normal Stress σ_y",
         "fr": "Normal Stress σ_y",
         "es": "Normal Stress σ_y",
         "ar": "Normal Stress σ_y"
+      },
+      "businessContext_i18n": {
+        "en": "Normal stress component in y-direction",
+        "tr": "y yönündeki normal gerilme bileşeni"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Shear stress component in xy-plane",
       "label_i18n": {
         "en": "Shear Stress τ_xy",
-        "tr": "Shear Stress τ_xy",
+        "tr": "Kayma Gerilmesi τ_xy",
         "de": "Shear Stress τ_xy",
         "fr": "Shear Stress τ_xy",
         "es": "Shear Stress τ_xy",
         "ar": "Shear Stress τ_xy"
+      },
+      "businessContext_i18n": {
+        "en": "Shear stress component in xy-plane",
+        "tr": "xy düzlemindeki kayma gerilmesi bileşeni"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Material yield strength for safety assessment",
       "label_i18n": {
         "en": "Yield Strength",
-        "tr": "Yield Strength",
+        "tr": "Akma Dayanımı",
         "de": "Yield Strength",
         "fr": "Yield Strength",
         "es": "Yield Strength",
         "ar": "Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Material yield strength for safety assessment",
+        "tr": "Güvenlik değerlendirmesi için malzeme akma dayanımı"
       }
     }
   ],

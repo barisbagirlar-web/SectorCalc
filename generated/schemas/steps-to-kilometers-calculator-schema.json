@@ -10,11 +10,15 @@
       "businessContext": "Total step count recorded by a pedometer, fitness tracker, or manual counting.",
       "label_i18n": {
         "en": "Number of Steps",
-        "tr": "Number of Steps",
+        "tr": "Adım Sayısı",
         "de": "Number of Steps",
         "fr": "Number of Steps",
         "es": "Number of Steps",
         "ar": "Number of Steps"
+      },
+      "businessContext_i18n": {
+        "en": "Total step count recorded by a pedometer, fitness tracker, or manual counting.",
+        "tr": "Bir adımsayar, fitness takip cihazı veya manuel sayma ile kaydedilen toplam adım sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured length of one step in centimeters. Average adult walking step is ~76.2 cm. Used when height-based estimation is disabled.",
       "label_i18n": {
         "en": "Step Length",
-        "tr": "Step Length",
+        "tr": "Adım Uzunluğu",
         "de": "Step Length",
         "fr": "Step Length",
         "es": "Step Length",
         "ar": "Step Length"
+      },
+      "businessContext_i18n": {
+        "en": "Measured length of one step in centimeters. Average adult walking step is ~76.2 cm. Used when height-based estimation is disabled.",
+        "tr": "Bir adımın santimetre cinsinden ölçülen uzunluğu. Ortalama yetişkin yürüme adımı ~76.2 cm'dir. Boy bazlı tahmin devre dışı bırakıldığında kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body height in centimeters. Used as the basis for estimating step length (when height estimation is toggled on).",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Body height in centimeters. Used as the basis for estimating step length (when height estimation is toggled on).",
+        "tr": "Santimetre cinsinden vücut boyu. Adım uzunluğunu tahmin etmek için temel olarak kullanılır (boy tahmini açık olduğunda)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Set to 1 to calculate step length automatically from height (stride ratio * height); set to 0 to use the manual step length.",
       "label_i18n": {
         "en": "Estimate from Height",
-        "tr": "Estimate from Height",
+        "tr": "Boydan Tahmin Et",
         "de": "Estimate from Height",
         "fr": "Estimate from Height",
         "es": "Estimate from Height",
         "ar": "Estimate from Height"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to calculate step length automatically from height (stride ratio * height); set to 0 to use the manual step length.",
+        "tr": "Adım uzunluğunu otomatik olarak boydan hesaplamak için 1'e ayarlayın (adım oranı * boy); manuel adım uzunluğu kullanmak için 0'a ayarlayın."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Ratio of step length to height. Typical range: 0.40–0.50. 0.46 is a commonly accepted average for walking.",
       "label_i18n": {
         "en": "Stride-to-Height Ratio",
-        "tr": "Stride-to-Height Ratio",
+        "tr": "Adım Boyu-Boy Oranı",
         "de": "Stride-to-Height Ratio",
         "fr": "Stride-to-Height Ratio",
         "es": "Stride-to-Height Ratio",
         "ar": "Stride-to-Height Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of step length to height. Typical range: 0.40–0.50. 0.46 is a commonly accepted average for walking.",
+        "tr": "Adım uzunluğunun boya oranı. Tipik aralık: 0.40–0.50. Yürüyüş için genel kabul gören ortalama 0.46'dır."
       }
     }
   ],

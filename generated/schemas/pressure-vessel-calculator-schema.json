@@ -10,11 +10,15 @@
       "businessContext": "Design pressure of the vessel",
       "label_i18n": {
         "en": "Internal Pressure",
-        "tr": "Internal Pressure",
+        "tr": "İç Basınç",
         "de": "Internal Pressure",
         "fr": "Internal Pressure",
         "es": "Internal Pressure",
         "ar": "Internal Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Design pressure of the vessel",
+        "tr": "Kabın tasarım basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Internal diameter of the cylindrical shell",
       "label_i18n": {
         "en": "Inner Diameter",
-        "tr": "Inner Diameter",
+        "tr": "İç Çap",
         "de": "Inner Diameter",
         "fr": "Inner Diameter",
         "es": "Inner Diameter",
         "ar": "Inner Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Internal diameter of the cylindrical shell",
+        "tr": "Silindirik gövdenin iç çapı"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Allowable Stress",
         "es": "Allowable Stress",
         "ar": "Allowable Stress"
+      },
+      "businessContext_i18n": {
+        "en": "Material allowable stress at design temperature per ASME Section II Part D",
+        "tr": "Tasarım sıcaklığında malzemenin izin verilen gerilmesi, ASME Bölüm II Kısım D'ye göre"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Weld joint efficiency factor per ASME UW-12",
       "label_i18n": {
         "en": "Joint Efficiency",
-        "tr": "Joint Efficiency",
+        "tr": "Birleştirme Verimi",
         "de": "Joint Efficiency",
         "fr": "Joint Efficiency",
         "es": "Joint Efficiency",
         "ar": "Joint Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Weld joint efficiency factor per ASME UW-12",
+        "tr": "Kaynak bağlantı verimlilik faktörü, ASME UW-12'ye göre"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Corrosion allowance added to wall thickness",
       "label_i18n": {
         "en": "Corrosion Allowance",
-        "tr": "Corrosion Allowance",
+        "tr": "Korozyon Payı",
         "de": "Corrosion Allowance",
         "fr": "Corrosion Allowance",
         "es": "Corrosion Allowance",
         "ar": "Corrosion Allowance"
+      },
+      "businessContext_i18n": {
+        "en": "Corrosion allowance added to wall thickness",
+        "tr": "Duvar kalınlığına eklenen korozyon payı"
       }
     }
   ],

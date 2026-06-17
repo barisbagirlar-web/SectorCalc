@@ -10,11 +10,15 @@
       "businessContext": "Length of the area to be covered with sod in feet.",
       "label_i18n": {
         "en": "Length (ft)",
-        "tr": "Length (ft)",
+        "tr": "Uzunluk (ft)",
         "de": "Length (ft)",
         "fr": "Length (ft)",
         "es": "Length (ft)",
         "ar": "Length (ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the area to be covered with sod in feet.",
+        "tr": "Çim serilecek alanın fit cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the area to be covered with sod in feet.",
       "label_i18n": {
         "en": "Width (ft)",
-        "tr": "Width (ft)",
+        "tr": "Genişlik (ft)",
         "de": "Width (ft)",
         "fr": "Width (ft)",
         "es": "Width (ft)",
         "ar": "Width (ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the area to be covered with sod in feet.",
+        "tr": "Çim serilecek alanın fit cinsinden genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional percentage of sod to account for cutting and fitting waste.",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Waste Factor (%)",
+        "tr": "Fire Faktörü (%)",
         "de": "Waste Factor (%)",
         "fr": "Waste Factor (%)",
         "es": "Waste Factor (%)",
         "ar": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage of sod to account for cutting and fitting waste.",
+        "tr": "Kesim ve uyum kaybını karşılamak için ek çim yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Area covered by a single roll of sod in square feet.",
       "label_i18n": {
         "en": "Coverage per Roll (sq ft)",
-        "tr": "Coverage per Roll (sq ft)",
+        "tr": "Rulo Başına Kaplama (ft²)",
         "de": "Coverage per Roll (sq ft)",
         "fr": "Coverage per Roll (sq ft)",
         "es": "Coverage per Roll (sq ft)",
         "ar": "Coverage per Roll (sq ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Area covered by a single roll of sod in square feet.",
+        "tr": "Tek bir çim rulosunun fit kare cinsinden kapladığı alan."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Unit cost of one roll of sod in dollars.",
       "label_i18n": {
         "en": "Price per Roll ($)",
-        "tr": "Price per Roll ($)",
+        "tr": "Rulo Fiyatı ($)",
         "de": "Price per Roll ($)",
         "fr": "Price per Roll ($)",
         "es": "Price per Roll ($)",
         "ar": "Price per Roll ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Unit cost of one roll of sod in dollars.",
+        "tr": "Bir rulo çimin dolar cinsinden birim maliyeti."
       }
     }
   ],

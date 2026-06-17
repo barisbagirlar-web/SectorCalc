@@ -26,10 +26,12 @@
         "female"
       ],
       "label_i18n": {
-        "en": "Gender"
+        "en": "Gender",
+        "tr": "Cinsiyet"
       },
       "businessContext_i18n": {
-        "en": "Biological sex used in anthropometric regression models (ISO 7250-1)."
+        "en": "Biological sex used in anthropometric regression models (ISO 7250-1).",
+        "tr": "Antropometrik regresyon modellerinde kullanılan biyolojik cinsiyet (ISO 7250-1)."
       }
     },
     {
@@ -42,10 +44,12 @@
       "max": 100,
       "businessContext": "Age affects body composition and metabolic rate (Six Sigma DMAIC phase: Measure).",
       "label_i18n": {
-        "en": "Age"
+        "en": "Age",
+        "tr": "Yaş"
       },
       "businessContext_i18n": {
-        "en": "Age affects body composition and metabolic rate (Six Sigma DMAIC phase: Measure)."
+        "en": "Age affects body composition and metabolic rate (Six Sigma DMAIC phase: Measure).",
+        "tr": "Yaş, vücut kompozisyonunu ve metabolizma hızını etkiler (Altı Sigma DMAIC aşaması: Ölç)."
       }
     },
     {
@@ -58,10 +62,12 @@
       "max": 250,
       "businessContext": "Stature measurement per ISO 7250-1 for normalization.",
       "label_i18n": {
-        "en": "Height"
+        "en": "Height",
+        "tr": "Boy"
       },
       "businessContext_i18n": {
-        "en": "Stature measurement per ISO 7250-1 for normalization."
+        "en": "Stature measurement per ISO 7250-1 for normalization.",
+        "tr": "Normalizasyon için ISO 7250-1'e göre boy ölçümü."
       }
     },
     {
@@ -74,10 +80,12 @@
       "max": 300,
       "businessContext": "Body mass for BMI and fat mass calculations.",
       "label_i18n": {
-        "en": "Weight"
+        "en": "Weight",
+        "tr": "Ağırlık"
       },
       "businessContext_i18n": {
-        "en": "Body mass for BMI and fat mass calculations."
+        "en": "Body mass for BMI and fat mass calculations.",
+        "tr": "Vücut kütlesi, BMI ve yağ kütlesi hesaplamaları için."
       }
     },
     {
@@ -90,10 +98,12 @@
       "max": 60,
       "businessContext": "Key input for body density estimation (Navy method, Lean Six Sigma MSA).",
       "label_i18n": {
-        "en": "Neck Circumference"
+        "en": "Neck Circumference",
+        "tr": "Boyun Çevresi"
       },
       "businessContext_i18n": {
-        "en": "Key input for body density estimation (Navy method, Lean Six Sigma MSA)."
+        "en": "Key input for body density estimation (Navy method, Lean Six Sigma MSA).",
+        "tr": "Vücut yoğunluğu tahmini için ana girdi (Navy yöntemi, Yalın Altı Sigma MSA)."
       }
     },
     {
@@ -106,10 +116,12 @@
       "max": 150,
       "businessContext": "Abdominal girth for visceral fat risk (WERC ergonomic guidelines).",
       "label_i18n": {
-        "en": "Waist Circumference"
+        "en": "Waist Circumference",
+        "tr": "Bel Çevresi"
       },
       "businessContext_i18n": {
-        "en": "Abdominal girth for visceral fat risk (WERC ergonomic guidelines)."
+        "en": "Abdominal girth for visceral fat risk (WERC ergonomic guidelines).",
+        "tr": "Visseral yağ riski için karın çevresi (WERC ergonomi kılavuzu)."
       }
     },
     {
@@ -122,10 +134,12 @@
       "max": 160,
       "businessContext": "Required for female body fat calculation (ISO 20685).",
       "label_i18n": {
-        "en": "Hip Circumference"
+        "en": "Hip Circumference",
+        "tr": "Kalça Çevresi"
       },
       "businessContext_i18n": {
-        "en": "Required for female body fat calculation (ISO 20685)."
+        "en": "Required for female body fat calculation (ISO 20685).",
+        "tr": "Kadın vücut yağ hesaplaması için gereklidir (ISO 20685)."
       }
     },
     {
@@ -145,10 +159,12 @@
         "very active"
       ],
       "label_i18n": {
-        "en": "Activity Level"
+        "en": "Activity Level",
+        "tr": "Aktivite Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Physical activity multiplier for energy expenditure (Lean Kaizen continuous improvement)."
+        "en": "Physical activity multiplier for energy expenditure (Lean Kaizen continuous improvement).",
+        "tr": "Enerji harcaması için fiziksel aktivite çarpanı (Yalın Kaizen sürekli iyileştirme)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The desired wake-up time in decimal hours (e.g., 7.5 = 7:30 AM).",
       "label_i18n": {
         "en": "Wake-up time (24h decimal)",
-        "tr": "Wake-up time (24h decimal)",
+        "tr": "Uyanma zamanı (24 saatlik ondalık)",
         "de": "Wake-up time (24h decimal)",
         "fr": "Wake-up time (24h decimal)",
         "es": "Wake-up time (24h decimal)",
         "ar": "Wake-up time (24h decimal)"
+      },
+      "businessContext_i18n": {
+        "en": "The desired wake-up time in decimal hours (e.g., 7.5 = 7:30 AM).",
+        "tr": "İstenen uyanma zamanı ondalık saat cinsinden (ör. 7,5 = 07:30)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of the core sleep segment in hours.",
       "label_i18n": {
         "en": "Core sleep duration",
-        "tr": "Core sleep duration",
+        "tr": "Çekirdek uyku süresi",
         "de": "Core sleep duration",
         "fr": "Core sleep duration",
         "es": "Core sleep duration",
         "ar": "Core sleep duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the core sleep segment in hours.",
+        "tr": "Çekirdek uyku segmentinin saat cinsinden süresi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of the nap segment in hours.",
       "label_i18n": {
         "en": "Nap duration",
-        "tr": "Nap duration",
+        "tr": "Şekerleme süresi",
         "de": "Nap duration",
         "fr": "Nap duration",
         "es": "Nap duration",
         "ar": "Nap duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the nap segment in hours.",
+        "tr": "Şekerleme bölümünün saat cinsinden süresi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The desired start time for the nap (e.g., 14.0 = 2:00 PM).",
       "label_i18n": {
         "en": "Nap start time (24h decimal)",
-        "tr": "Nap start time (24h decimal)",
+        "tr": "Şekerleme başlangıç saati (24 saatlik ondalık)",
         "de": "Nap start time (24h decimal)",
         "fr": "Nap start time (24h decimal)",
         "es": "Nap start time (24h decimal)",
         "ar": "Nap start time (24h decimal)"
+      },
+      "businessContext_i18n": {
+        "en": "The desired start time for the nap (e.g., 14.0 = 2:00 PM).",
+        "tr": "Şekerleme için istenen başlangıç saati (ör. 14.0 = 14:00)."
       }
     }
   ],

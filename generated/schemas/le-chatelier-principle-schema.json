@@ -10,11 +10,15 @@
       "businessContext": "Positive for endothermic, negative for exothermic reactions.",
       "label_i18n": {
         "en": "Enthalpy Change (ΔH)",
-        "tr": "Enthalpy Change (ΔH)",
+        "tr": "Entalpi Değişimi (ΔH)",
         "de": "Enthalpy Change (ΔH)",
         "fr": "Enthalpy Change (ΔH)",
         "es": "Enthalpy Change (ΔH)",
         "ar": "Enthalpy Change (ΔH)"
+      },
+      "businessContext_i18n": {
+        "en": "Positive for endothermic, negative for exothermic reactions.",
+        "tr": "Endotermik reaksiyonlar için pozitif, ekzotermik reaksiyonlar için negatif."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Difference between moles of gaseous products and reactants.",
       "label_i18n": {
         "en": "Change in Moles of Gas (Δn)",
-        "tr": "Change in Moles of Gas (Δn)",
+        "tr": "Gaz Mol Sayısı Değişimi (Δn)",
         "de": "Change in Moles of Gas (Δn)",
         "fr": "Change in Moles of Gas (Δn)",
         "es": "Change in Moles of Gas (Δn)",
         "ar": "Change in Moles of Gas (Δn)"
+      },
+      "businessContext_i18n": {
+        "en": "Difference between moles of gaseous products and reactants.",
+        "tr": "Gaz halindeki ürünler ve reaktanların mol sayıları arasındaki fark."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Positive for increase, negative for decrease.",
       "label_i18n": {
         "en": "Temperature Change",
-        "tr": "Temperature Change",
+        "tr": "Sıcaklık Değişimi",
         "de": "Temperature Change",
         "fr": "Temperature Change",
         "es": "Temperature Change",
         "ar": "Temperature Change"
+      },
+      "businessContext_i18n": {
+        "en": "Positive for increase, negative for decrease.",
+        "tr": "Artış için pozitif, azalış için negatif."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Positive for increase, negative for decrease.",
       "label_i18n": {
         "en": "Pressure Change",
-        "tr": "Pressure Change",
+        "tr": "Basınç Değişimi",
         "de": "Pressure Change",
         "fr": "Pressure Change",
         "es": "Pressure Change",
         "ar": "Pressure Change"
+      },
+      "businessContext_i18n": {
+        "en": "Positive for increase, negative for decrease.",
+        "tr": "Artış için pozitif, azalış için negatif."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Positive for increase, negative for decrease.",
       "label_i18n": {
         "en": "Concentration Change of Reactant",
-        "tr": "Concentration Change of Reactant",
+        "tr": "Reaktan Derişim Değişimi",
         "de": "Concentration Change of Reactant",
         "fr": "Concentration Change of Reactant",
         "es": "Concentration Change of Reactant",
         "ar": "Concentration Change of Reactant"
+      },
+      "businessContext_i18n": {
+        "en": "Positive for increase, negative for decrease.",
+        "tr": "Artış için pozitif, azalış için negatif."
       }
     }
   ],

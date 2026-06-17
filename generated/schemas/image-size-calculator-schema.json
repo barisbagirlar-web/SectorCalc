@@ -10,11 +10,15 @@
       "businessContext": "Image width in pixels",
       "label_i18n": {
         "en": "Width (px)",
-        "tr": "Width (px)",
+        "tr": "Genişlik (px)",
         "de": "Width (px)",
         "fr": "Width (px)",
         "es": "Width (px)",
         "ar": "Width (px)"
+      },
+      "businessContext_i18n": {
+        "en": "Image width in pixels",
+        "tr": "Piksel cinsinden görüntü genişliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Image height in pixels",
       "label_i18n": {
         "en": "Height (px)",
-        "tr": "Height (px)",
+        "tr": "Yükseklik (px)",
         "de": "Height (px)",
         "fr": "Height (px)",
         "es": "Height (px)",
         "ar": "Height (px)"
+      },
+      "businessContext_i18n": {
+        "en": "Image height in pixels",
+        "tr": "Piksel cinsinden görüntü yüksekliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Color depth per channel (e.g., 8, 16, 32)",
       "label_i18n": {
         "en": "Bit Depth",
-        "tr": "Bit Depth",
+        "tr": "Bit Derinliği",
         "de": "Bit Depth",
         "fr": "Bit Depth",
         "es": "Bit Depth",
         "ar": "Bit Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Color depth per channel (e.g., 8, 16, 32)",
+        "tr": "Kanal başına renk derinliği (örn. 8, 16, 32)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of color channels (1 for grayscale, 3 for RGB, 4 for CMYK)",
       "label_i18n": {
         "en": "Color Channels",
-        "tr": "Color Channels",
+        "tr": "Renk Kanalları",
         "de": "Color Channels",
         "fr": "Color Channels",
         "es": "Color Channels",
         "ar": "Color Channels"
+      },
+      "businessContext_i18n": {
+        "en": "Number of color channels (1 for grayscale, 3 for RGB, 4 for CMYK)",
+        "tr": "Renk kanalı sayısı (gri tonlama için 1, RGB için 3, CMYK için 4)"
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "DPI",
         "es": "DPI",
         "ar": "DPI"
+      },
+      "businessContext_i18n": {
+        "en": "Dots per inch for print size calculation",
+        "tr": "Baskı boyutu hesaplaması için inç başına nokta sayısı"
       }
     }
   ],

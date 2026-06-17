@@ -10,11 +10,15 @@
       "businessContext": "Total field area in hectares.",
       "label_i18n": {
         "en": "Field Area",
-        "tr": "Field Area",
+        "tr": "Tarla Alanı",
         "de": "Field Area",
         "fr": "Field Area",
         "es": "Field Area",
         "ar": "Field Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total field area in hectares.",
+        "tr": "Toplam alan hektar cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired number of plants per square meter after emergence.",
       "label_i18n": {
         "en": "Target Plant Density",
-        "tr": "Target Plant Density",
+        "tr": "Hedef Bitki Yoğunluğu",
         "de": "Target Plant Density",
         "fr": "Target Plant Density",
         "es": "Target Plant Density",
         "ar": "Target Plant Density"
+      },
+      "businessContext_i18n": {
+        "en": "Desired number of plants per square meter after emergence.",
+        "tr": "Çıkış sonrası metrekare başına istenen bitki sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected percentage of seeds that will germinate under normal conditions.",
       "label_i18n": {
         "en": "Germination Rate",
-        "tr": "Germination Rate",
+        "tr": "Çimlenme Oranı",
         "de": "Germination Rate",
         "fr": "Germination Rate",
         "es": "Germination Rate",
         "ar": "Germination Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage of seeds that will germinate under normal conditions.",
+        "tr": "Normal koşullarda çimlenmesi beklenen tohum yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of pure, viable seeds in the lot (excludes inert matter and other crop seeds).",
       "label_i18n": {
         "en": "Seed Purity",
-        "tr": "Seed Purity",
+        "tr": "Tohum Saflığı",
         "de": "Seed Purity",
         "fr": "Seed Purity",
         "es": "Seed Purity",
         "ar": "Seed Purity"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of pure, viable seeds in the lot (excludes inert matter and other crop seeds).",
+        "tr": "Partideki saf, canlı tohum yüzdesi (inert madde ve diğer ürün tohumları hariç)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Weight of 1000 kernels in grams, indicating seed size and quality.",
       "label_i18n": {
         "en": "Thousand Kernel Weight",
-        "tr": "Thousand Kernel Weight",
+        "tr": "Bin Tane Ağırlığı",
         "de": "Thousand Kernel Weight",
         "fr": "Thousand Kernel Weight",
         "es": "Thousand Kernel Weight",
         "ar": "Thousand Kernel Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of 1000 kernels in grams, indicating seed size and quality.",
+        "tr": "1000 tane ağırlığı gram cinsinden, tohum boyutunu ve kalitesini belirtir."
       }
     }
   ],

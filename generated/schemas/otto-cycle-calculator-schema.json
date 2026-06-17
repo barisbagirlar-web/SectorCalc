@@ -10,11 +10,15 @@
       "businessContext": "Ratio of cylinder volume before compression (BDC) to volume after compression (TDC)",
       "label_i18n": {
         "en": "Compression Ratio (r)",
-        "tr": "Compression Ratio (r)",
+        "tr": "Sıkıştırma Oranı (r)",
         "de": "Compression Ratio (r)",
         "fr": "Compression Ratio (r)",
         "es": "Compression Ratio (r)",
         "ar": "Compression Ratio (r)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of cylinder volume before compression (BDC) to volume after compression (TDC)",
+        "tr": "Sıkıştırma öncesi silindir hacminin (AÖN) sıkıştırma sonrası hacme (ÜÖN) oranı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Adiabatic index (cp/cv) of the working fluid, typically 1.4 for air",
       "label_i18n": {
         "en": "Specific Heat Ratio (k)",
-        "tr": "Specific Heat Ratio (k)",
+        "tr": "Özgül Isı Oranı (k)",
         "de": "Specific Heat Ratio (k)",
         "fr": "Specific Heat Ratio (k)",
         "es": "Specific Heat Ratio (k)",
         "ar": "Specific Heat Ratio (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Adiabatic index (cp/cv) of the working fluid, typically 1.4 for air",
+        "tr": "Çalışma akışkanının adyabatik indeksi (cp/cv), hava için tipik olarak 1.4"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Temperature at the start of compression stroke",
       "label_i18n": {
         "en": "Initial Temperature (T1)",
-        "tr": "Initial Temperature (T1)",
+        "tr": "Başlangıç Sıcaklığı (T1)",
         "de": "Initial Temperature (T1)",
         "fr": "Initial Temperature (T1)",
         "es": "Initial Temperature (T1)",
         "ar": "Initial Temperature (T1)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature at the start of compression stroke",
+        "tr": "Sıkıştırma stroku başlangıcındaki sıcaklık"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Pressure at the start of compression stroke (intake pressure)",
       "label_i18n": {
         "en": "Initial Pressure (P1)",
-        "tr": "Initial Pressure (P1)",
+        "tr": "Başlangıç Basıncı (P1)",
         "de": "Initial Pressure (P1)",
         "fr": "Initial Pressure (P1)",
         "es": "Initial Pressure (P1)",
         "ar": "Initial Pressure (P1)"
+      },
+      "businessContext_i18n": {
+        "en": "Pressure at the start of compression stroke (intake pressure)",
+        "tr": "Sıkıştırma stroku başlangıcındaki basınç (emme basıncı)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Temperature after constant volume heat addition (combustion)",
       "label_i18n": {
         "en": "Maximum Temperature (T3)",
-        "tr": "Maximum Temperature (T3)",
+        "tr": "Maksimum Sıcaklık (T3)",
         "de": "Maximum Temperature (T3)",
         "fr": "Maximum Temperature (T3)",
         "es": "Maximum Temperature (T3)",
         "ar": "Maximum Temperature (T3)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature after constant volume heat addition (combustion)",
+        "tr": "Sabit hacimde ısı ilavesi (yanma) sonrası sıcaklık"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Specific heat at constant volume of the working fluid (air ≈ 0.718 kJ/kg·K)",
       "label_i18n": {
         "en": "Specific Heat (Cv)",
-        "tr": "Specific Heat (Cv)",
+        "tr": "Özgül Isı (Cv)",
         "de": "Specific Heat (Cv)",
         "fr": "Specific Heat (Cv)",
         "es": "Specific Heat (Cv)",
         "ar": "Specific Heat (Cv)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific heat at constant volume of the working fluid (air ≈ 0.718 kJ/kg·K)",
+        "tr": "Çalışma akışkanının sabit hacimdeki özgül ısısı (hava ≈ 0,718 kJ/kg·K)"
       }
     }
   ],

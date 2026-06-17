@@ -10,11 +10,15 @@
       "businessContext": "Length of the beam between supports",
       "label_i18n": {
         "en": "Beam Length",
-        "tr": "Beam Length",
+        "tr": "Kiriş Uzunluğu",
         "de": "Beam Length",
         "fr": "Beam Length",
         "es": "Beam Length",
         "ar": "Beam Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the beam between supports",
+        "tr": "Destekler arasındaki kiriş uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Magnitude of the concentrated load",
       "label_i18n": {
         "en": "Point Load",
-        "tr": "Point Load",
+        "tr": "Noktasal Yük",
         "de": "Point Load",
         "fr": "Point Load",
         "es": "Point Load",
         "ar": "Point Load"
+      },
+      "businessContext_i18n": {
+        "en": "Magnitude of the concentrated load",
+        "tr": "Konsantre yükün büyüklüğü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance from left support to the load application point",
       "label_i18n": {
         "en": "Load Distance from Left",
-        "tr": "Load Distance from Left",
+        "tr": "Soldan Yük Mesafesi",
         "de": "Load Distance from Left",
         "fr": "Load Distance from Left",
         "es": "Load Distance from Left",
         "ar": "Load Distance from Left"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from left support to the load application point",
+        "tr": "Sol destekten yük uygulama noktasına olan mesafe"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance from left support at which shear force is evaluated",
       "label_i18n": {
         "en": "Shear Force Location",
-        "tr": "Shear Force Location",
+        "tr": "Kesme Kuvveti Konumu",
         "de": "Shear Force Location",
         "fr": "Shear Force Location",
         "es": "Shear Force Location",
         "ar": "Shear Force Location"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from left support at which shear force is evaluated",
+        "tr": "Kesme kuvvetinin değerlendirildiği sol destekten uzaklık"
       }
     }
   ],

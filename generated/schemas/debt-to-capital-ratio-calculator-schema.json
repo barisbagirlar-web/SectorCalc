@@ -10,11 +10,15 @@
       "businessContext": "Total interest-bearing debt (short-term + long-term)",
       "label_i18n": {
         "en": "Total Debt",
-        "tr": "Total Debt",
+        "tr": "Toplam Borç",
         "de": "Total Debt",
         "fr": "Total Debt",
         "es": "Total Debt",
         "ar": "Total Debt"
+      },
+      "businessContext_i18n": {
+        "en": "Total interest-bearing debt (short-term + long-term)",
+        "tr": "Toplam faiz getiren borç (kısa vadeli + uzun vadeli)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Common stock equity",
       "label_i18n": {
         "en": "Common Stock",
-        "tr": "Common Stock",
+        "tr": "Adi Hisse Senedi",
         "de": "Common Stock",
         "fr": "Common Stock",
         "es": "Common Stock",
         "ar": "Common Stock"
+      },
+      "businessContext_i18n": {
+        "en": "Common stock equity",
+        "tr": "Adi hisse senedi özkaynağı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Preferred stock equity",
       "label_i18n": {
         "en": "Preferred Stock",
-        "tr": "Preferred Stock",
+        "tr": "İmtiyazlı Hisse Senedi",
         "de": "Preferred Stock",
         "fr": "Preferred Stock",
         "es": "Preferred Stock",
         "ar": "Preferred Stock"
+      },
+      "businessContext_i18n": {
+        "en": "Preferred stock equity",
+        "tr": "İmtiyazlı hisse senedi özkaynağı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Accumulated retained earnings",
       "label_i18n": {
         "en": "Retained Earnings",
-        "tr": "Retained Earnings",
+        "tr": "Dağıtılmamış Kârlar",
         "de": "Retained Earnings",
         "fr": "Retained Earnings",
         "es": "Retained Earnings",
         "ar": "Retained Earnings"
+      },
+      "businessContext_i18n": {
+        "en": "Accumulated retained earnings",
+        "tr": "Birikmiş karlar"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Other comprehensive equity components",
       "label_i18n": {
         "en": "Other Equity",
-        "tr": "Other Equity",
+        "tr": "Diğer Özkaynak",
         "de": "Other Equity",
         "fr": "Other Equity",
         "es": "Other Equity",
         "ar": "Other Equity"
+      },
+      "businessContext_i18n": {
+        "en": "Other comprehensive equity components",
+        "tr": "Diğer kapsamlı özkaynak bileşenleri"
       }
     }
   ],

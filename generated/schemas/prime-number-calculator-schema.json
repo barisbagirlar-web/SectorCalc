@@ -10,11 +10,15 @@
       "businessContext": "Start of range to estimate prime count",
       "label_i18n": {
         "en": "Lower Bound",
-        "tr": "Lower Bound",
+        "tr": "Alt Sınır",
         "de": "Lower Bound",
         "fr": "Lower Bound",
         "es": "Lower Bound",
         "ar": "Lower Bound"
+      },
+      "businessContext_i18n": {
+        "en": "Start of range to estimate prime count",
+        "tr": "Asal sayı sayısını tahmin etmek için aralığın başlangıcı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "End of range to estimate prime count",
       "label_i18n": {
         "en": "Upper Bound",
-        "tr": "Upper Bound",
+        "tr": "Üst Sınır",
         "de": "Upper Bound",
         "fr": "Upper Bound",
         "es": "Upper Bound",
         "ar": "Upper Bound"
+      },
+      "businessContext_i18n": {
+        "en": "End of range to estimate prime count",
+        "tr": "Asal sayı sayısını tahmin etmek için aralığın sonu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of random samples for verification (not used in estimation formula but for process quality)",
       "label_i18n": {
         "en": "Sample Size",
-        "tr": "Sample Size",
+        "tr": "Örneklem büyüklüğü",
         "de": "Sample Size",
         "fr": "Sample Size",
         "es": "Sample Size",
         "ar": "Sample Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of random samples for verification (not used in estimation formula but for process quality)",
+        "tr": "Doğrulama için rastgele örnek sayısı (tahmin formülünde değil, süreç kalitesi için kullanılır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Allowed percentage deviation in the estimate (used for error margin calculation)",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Allowed percentage deviation in the estimate (used for error margin calculation)",
+        "tr": "Tahminde izin verilen yüzde sapma (hata payı hesaplaması için kullanılır)"
       }
     }
   ],

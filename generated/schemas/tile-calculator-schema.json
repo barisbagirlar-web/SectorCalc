@@ -10,11 +10,15 @@
       "businessContext": "Length of the room to be tiled",
       "label_i18n": {
         "en": "Room Length (m)",
-        "tr": "Room Length (m)",
+        "tr": "Oda Uzunluğu (m)",
         "de": "Room Length (m)",
         "fr": "Room Length (m)",
         "es": "Room Length (m)",
         "ar": "Room Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the room to be tiled",
+        "tr": "Fayans döşenecek odanın uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the room to be tiled",
       "label_i18n": {
         "en": "Room Width (m)",
-        "tr": "Room Width (m)",
+        "tr": "Oda Genişliği (m)",
         "de": "Room Width (m)",
         "fr": "Room Width (m)",
         "es": "Room Width (m)",
         "ar": "Room Width (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the room to be tiled",
+        "tr": "Fayans döşenecek odanın genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of a single tile",
       "label_i18n": {
         "en": "Tile Length (cm)",
-        "tr": "Tile Length (cm)",
+        "tr": "Fayans Uzunluğu (cm)",
         "de": "Tile Length (cm)",
         "fr": "Tile Length (cm)",
         "es": "Tile Length (cm)",
         "ar": "Tile Length (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single tile",
+        "tr": "Tek bir fayansın uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of a single tile",
       "label_i18n": {
         "en": "Tile Width (cm)",
-        "tr": "Tile Width (cm)",
+        "tr": "Fayans Genişliği (cm)",
         "de": "Tile Width (cm)",
         "fr": "Tile Width (cm)",
         "es": "Tile Width (cm)",
         "ar": "Tile Width (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single tile",
+        "tr": "Tek bir fayansın genişliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of extra tiles for waste and cuts",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Waste Factor (%)",
+        "tr": "Fire Faktörü (%)",
         "de": "Waste Factor (%)",
         "fr": "Waste Factor (%)",
         "es": "Waste Factor (%)",
         "ar": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra tiles for waste and cuts",
+        "tr": "Atık ve kesimler için ek fayans yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost of one tile",
       "label_i18n": {
         "en": "Price per Tile (currency)",
-        "tr": "Price per Tile (currency)",
+        "tr": "Fayans Başına Fiyat (para birimi)",
         "de": "Price per Tile (currency)",
         "fr": "Price per Tile (currency)",
         "es": "Price per Tile (currency)",
         "ar": "Price per Tile (currency)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of one tile",
+        "tr": "Bir fayansın maliyeti"
       }
     }
   ],

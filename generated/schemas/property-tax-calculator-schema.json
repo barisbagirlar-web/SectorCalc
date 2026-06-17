@@ -10,11 +10,15 @@
       "businessContext": "The fair market value of the property.",
       "label_i18n": {
         "en": "Property Market Value",
-        "tr": "Property Market Value",
+        "tr": "Gayrimenkul Piyasa Değeri",
         "de": "Property Market Value",
         "fr": "Property Market Value",
         "es": "Property Market Value",
         "ar": "Property Market Value"
+      },
+      "businessContext_i18n": {
+        "en": "The fair market value of the property.",
+        "tr": "Gayrimenkulün adil piyasa değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of market value used for tax assessment.",
       "label_i18n": {
         "en": "Assessment Ratio",
-        "tr": "Assessment Ratio",
+        "tr": "Değerleme Oranı",
         "de": "Assessment Ratio",
         "fr": "Assessment Ratio",
         "es": "Assessment Ratio",
         "ar": "Assessment Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of market value used for tax assessment.",
+        "tr": "Vergi değerlemesi için kullanılan piyasa değeri yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Tax per $1,000 of assessed value, expressed in mills.",
       "label_i18n": {
         "en": "Mill Rate",
-        "tr": "Mill Rate",
+        "tr": "Vergi Oranı (binde)",
         "de": "Mill Rate",
         "fr": "Mill Rate",
         "es": "Mill Rate",
         "ar": "Mill Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Tax per $1,000 of assessed value, expressed in mills.",
+        "tr": "Değerlendirilen değerin 1.000$'ı başına vergi, binde olarak ifade edilir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total value of tax exemptions applied.",
       "label_i18n": {
         "en": "Exemption Amount",
-        "tr": "Exemption Amount",
+        "tr": "Muafiyet Tutarı",
         "de": "Exemption Amount",
         "fr": "Exemption Amount",
         "es": "Exemption Amount",
         "ar": "Exemption Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total value of tax exemptions applied.",
+        "tr": "Uygulanan toplam vergi muafiyet değeri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Any additional taxes or fees.",
       "label_i18n": {
         "en": "Additional Fees",
-        "tr": "Additional Fees",
+        "tr": "Ek Ücretler",
         "de": "Additional Fees",
         "fr": "Additional Fees",
         "es": "Additional Fees",
         "ar": "Additional Fees"
+      },
+      "businessContext_i18n": {
+        "en": "Any additional taxes or fees.",
+        "tr": "Ek vergiler veya ücretler."
       }
     }
   ],

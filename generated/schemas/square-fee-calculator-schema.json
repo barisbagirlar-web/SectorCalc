@@ -10,11 +10,15 @@
       "businessContext": "The length of the rectangular area in meters.",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "The length of the rectangular area in meters.",
+        "tr": "Dikdörtgen alanın metre cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The width of the rectangular area in meters.",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "The width of the rectangular area in meters.",
+        "tr": "Dikdörtgen alanın metre cinsinden genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The cost per square meter for the area.",
       "label_i18n": {
         "en": "Price per Square Meter",
-        "tr": "Price per Square Meter",
+        "tr": "Metrekare Başına Fiyat",
         "de": "Price per Square Meter",
         "fr": "Price per Square Meter",
         "es": "Price per Square Meter",
         "ar": "Price per Square Meter"
+      },
+      "businessContext_i18n": {
+        "en": "The cost per square meter for the area.",
+        "tr": "Alan için metrekare başına maliyet."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Applicable tax rate as a percentage.",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable tax rate as a percentage.",
+        "tr": "Yüzde olarak uygulanabilir vergi oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fixed service charge additional to the area cost.",
       "label_i18n": {
         "en": "Service Fee",
-        "tr": "Service Fee",
+        "tr": "Hizmet Ücreti",
         "de": "Service Fee",
         "fr": "Service Fee",
         "es": "Service Fee",
         "ar": "Service Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed service charge additional to the area cost.",
+        "tr": "Alan maliyetine eklenen sabit hizmet ücreti."
       }
     }
   ],

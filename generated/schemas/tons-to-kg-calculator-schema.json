@@ -10,11 +10,15 @@
       "businessContext": "Weight in metric tons (1 t = 1000 kg)",
       "label_i18n": {
         "en": "Metric Tons (t)",
-        "tr": "Metric Tons (t)",
+        "tr": "Metrik Ton (t)",
         "de": "Metric Tons (t)",
         "fr": "Metric Tons (t)",
         "es": "Metric Tons (t)",
         "ar": "Metric Tons (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight in metric tons (1 t = 1000 kg)",
+        "tr": "Metrik ton cinsinden ağırlık (1 t = 1000 kg)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Weight in short tons (1 short t = 907.18474 kg)",
       "label_i18n": {
         "en": "Short Tons (US)",
-        "tr": "Short Tons (US)",
+        "tr": "Kısa Ton (ABD)",
         "de": "Short Tons (US)",
         "fr": "Short Tons (US)",
         "es": "Short Tons (US)",
         "ar": "Short Tons (US)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight in short tons (1 short t = 907.18474 kg)",
+        "tr": "Kısa ton cinsinden ağırlık (1 kısa t = 907,18474 kg)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight in long tons (1 long t = 1016.0469088 kg)",
       "label_i18n": {
         "en": "Long Tons (UK)",
-        "tr": "Long Tons (UK)",
+        "tr": "Uzun Ton (İngiltere)",
         "de": "Long Tons (UK)",
         "fr": "Long Tons (UK)",
         "es": "Long Tons (UK)",
         "ar": "Long Tons (UK)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight in long tons (1 long t = 1016.0469088 kg)",
+        "tr": "Uzun ton cinsinden ağırlık (1 uzun t = 1016,0469088 kg)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Previously measured weight in kilograms for cross-check validation",
       "label_i18n": {
         "en": "Known Kilograms (verification)",
-        "tr": "Known Kilograms (verification)",
+        "tr": "Bilinen Kilogram (doğrulama)",
         "de": "Known Kilograms (verification)",
         "fr": "Known Kilograms (verification)",
         "es": "Known Kilograms (verification)",
         "ar": "Known Kilograms (verification)"
+      },
+      "businessContext_i18n": {
+        "en": "Previously measured weight in kilograms for cross-check validation",
+        "tr": "Doğrulama çapraz kontrolü için kilogram cinsinden önceden ölçülmüş ağırlık"
       }
     }
   ],

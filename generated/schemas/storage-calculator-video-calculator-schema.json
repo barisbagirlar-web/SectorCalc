@@ -10,11 +10,15 @@
       "businessContext": "Total IP cameras in system",
       "label_i18n": {
         "en": "Number of Cameras",
-        "tr": "Number of Cameras",
+        "tr": "Kamera Sayısı",
         "de": "Number of Cameras",
         "fr": "Number of Cameras",
         "es": "Number of Cameras",
         "ar": "Number of Cameras"
+      },
+      "businessContext_i18n": {
+        "en": "Total IP cameras in system",
+        "tr": "Sistemdeki toplam IP kamera sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated bitrate per camera (depends on resolution, fps, compression)",
       "label_i18n": {
         "en": "Average Bitrate per Camera",
-        "tr": "Average Bitrate per Camera",
+        "tr": "Kamera Başına Ortalama Bit Hızı",
         "de": "Average Bitrate per Camera",
         "fr": "Average Bitrate per Camera",
         "es": "Average Bitrate per Camera",
         "ar": "Average Bitrate per Camera"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated bitrate per camera (depends on resolution, fps, compression)",
+        "tr": "Kamera başına tahmini bit hızı (çözünürlük, fps, sıkıştırmaya bağlıdır)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Daily recording duration per camera",
       "label_i18n": {
         "en": "Recording Hours per Day",
-        "tr": "Recording Hours per Day",
+        "tr": "Günlük Kayıt Saati",
         "de": "Recording Hours per Day",
         "fr": "Recording Hours per Day",
         "es": "Recording Hours per Day",
         "ar": "Recording Hours per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Daily recording duration per camera",
+        "tr": "Kamera başına günlük kayıt süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of days to keep footage",
       "label_i18n": {
         "en": "Retention Period",
-        "tr": "Retention Period",
+        "tr": "Saklama Süresi",
         "de": "Retention Period",
         "fr": "Retention Period",
         "es": "Retention Period",
         "ar": "Retention Period"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days to keep footage",
+        "tr": "Görüntülerin saklanacağı gün sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional capacity for RAID, formatting, and system",
       "label_i18n": {
         "en": "Storage Overhead",
-        "tr": "Storage Overhead",
+        "tr": "Depolama Yükü",
         "de": "Storage Overhead",
         "fr": "Storage Overhead",
         "es": "Storage Overhead",
         "ar": "Storage Overhead"
+      },
+      "businessContext_i18n": {
+        "en": "Additional capacity for RAID, formatting, and system",
+        "tr": "RAID, biçimlendirme ve sistem için ek kapasite"
       }
     }
   ],

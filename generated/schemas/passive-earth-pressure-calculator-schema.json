@@ -10,11 +10,15 @@
       "businessContext": "Weight of soil per unit volume",
       "label_i18n": {
         "en": "Soil Unit Weight (γ)",
-        "tr": "Soil Unit Weight (γ)",
+        "tr": "Zemin Birim Hacim Ağırlığı (γ)",
         "de": "Soil Unit Weight (γ)",
         "fr": "Soil Unit Weight (γ)",
         "es": "Soil Unit Weight (γ)",
         "ar": "Soil Unit Weight (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of soil per unit volume",
+        "tr": "Birim hacim başına zemin ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vertical height of the retaining wall",
       "label_i18n": {
         "en": "Height of Retaining Wall (H)",
-        "tr": "Height of Retaining Wall (H)",
+        "tr": "İstinat Duvarı Yüksekliği (H)",
         "de": "Height of Retaining Wall (H)",
         "fr": "Height of Retaining Wall (H)",
         "es": "Height of Retaining Wall (H)",
         "ar": "Height of Retaining Wall (H)"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical height of the retaining wall",
+        "tr": "İstinat duvarının dikey yüksekliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle of internal friction of the backfill soil",
       "label_i18n": {
         "en": "Internal Friction Angle (φ)",
-        "tr": "Internal Friction Angle (φ)",
+        "tr": "İçsel Sürtünme Açısı (φ)",
         "de": "Internal Friction Angle (φ)",
         "fr": "Internal Friction Angle (φ)",
         "es": "Internal Friction Angle (φ)",
         "ar": "Internal Friction Angle (φ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of internal friction of the backfill soil",
+        "tr": "Dolgu zeminin içsel sürtünme açısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cohesion intercept of the soil",
       "label_i18n": {
         "en": "Cohesion (c)",
-        "tr": "Cohesion (c)",
+        "tr": "Kohezyon (c)",
         "de": "Cohesion (c)",
         "fr": "Cohesion (c)",
         "es": "Cohesion (c)",
         "ar": "Cohesion (c)"
+      },
+      "businessContext_i18n": {
+        "en": "Cohesion intercept of the soil",
+        "tr": "Zeminin kohezyon kesişimi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Uniform surcharge load on the backfill surface",
       "label_i18n": {
         "en": "Surcharge Pressure (q)",
-        "tr": "Surcharge Pressure (q)",
+        "tr": "Sürşarj Basıncı (q)",
         "de": "Surcharge Pressure (q)",
         "fr": "Surcharge Pressure (q)",
         "es": "Surcharge Pressure (q)",
         "ar": "Surcharge Pressure (q)"
+      },
+      "businessContext_i18n": {
+        "en": "Uniform surcharge load on the backfill surface",
+        "tr": "Dolgu yüzeyindeki düzgün yayılı sürşarj yükü"
       }
     }
   ],

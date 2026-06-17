@@ -10,11 +10,15 @@
       "businessContext": "In fractal generation, the number of smaller self-similar pieces.",
       "label_i18n": {
         "en": "Number of Copies (N)",
-        "tr": "Number of Copies (N)",
+        "tr": "Kopya Sayısı (N)",
         "de": "Number of Copies (N)",
         "fr": "Number of Copies (N)",
         "es": "Number of Copies (N)",
         "ar": "Number of Copies (N)"
+      },
+      "businessContext_i18n": {
+        "en": "In fractal generation, the number of smaller self-similar pieces.",
+        "tr": "Fraktal oluşturmada, daha küçük kendine benzer parçaların sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The linear scaling factor applied to get each smaller copy.",
       "label_i18n": {
         "en": "Scaling Factor (r)",
-        "tr": "Scaling Factor (r)",
+        "tr": "Ölçekleme Faktörü (r)",
         "de": "Scaling Factor (r)",
         "fr": "Scaling Factor (r)",
         "es": "Scaling Factor (r)",
         "ar": "Scaling Factor (r)"
+      },
+      "businessContext_i18n": {
+        "en": "The linear scaling factor applied to get each smaller copy.",
+        "tr": "Her küçük kopyayı elde etmek için uygulanan doğrusal ölçekleme faktörü."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of iterations for computing total length or number of pieces.",
       "label_i18n": {
         "en": "Iteration Count (n)",
-        "tr": "Iteration Count (n)",
+        "tr": "Yineleme Sayısı (n)",
         "de": "Iteration Count (n)",
         "fr": "Iteration Count (n)",
         "es": "Iteration Count (n)",
         "ar": "Iteration Count (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of iterations for computing total length or number of pieces.",
+        "tr": "Toplam uzunluk veya parça sayısını hesaplamak için yineleme sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Initial length of the curve segment or initiator.",
       "label_i18n": {
         "en": "Initial Length (L0)",
-        "tr": "Initial Length (L0)",
+        "tr": "Başlangıç Uzunluğu (L0)",
         "de": "Initial Length (L0)",
         "fr": "Initial Length (L0)",
         "es": "Initial Length (L0)",
         "ar": "Initial Length (L0)"
+      },
+      "businessContext_i18n": {
+        "en": "Initial length of the curve segment or initiator.",
+        "tr": "Eğri parçasının veya başlatıcının başlangıç uzunluğu."
       }
     }
   ],

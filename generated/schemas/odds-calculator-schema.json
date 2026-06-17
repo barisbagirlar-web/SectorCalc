@@ -10,11 +10,15 @@
       "businessContext": "Estimated probability of home team winning, as percentage.",
       "label_i18n": {
         "en": "Home Win Probability",
-        "tr": "Home Win Probability",
+        "tr": "Ev Sahibi Galibiyet Olasılığı",
         "de": "Home Win Probability",
         "fr": "Home Win Probability",
         "es": "Home Win Probability",
         "ar": "Home Win Probability"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated probability of home team winning, as percentage.",
+        "tr": "Ev sahibi takımın kazanma olasılığı tahmini, yüzde olarak."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated probability of a draw, as percentage.",
       "label_i18n": {
         "en": "Draw Probability",
-        "tr": "Draw Probability",
+        "tr": "Beraberlik Olasılığı",
         "de": "Draw Probability",
         "fr": "Draw Probability",
         "es": "Draw Probability",
         "ar": "Draw Probability"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated probability of a draw, as percentage.",
+        "tr": "Beraberlik olasılığı tahmini, yüzde olarak."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Estimated probability of away team winning, as percentage.",
       "label_i18n": {
         "en": "Away Win Probability",
-        "tr": "Away Win Probability",
+        "tr": "Deplasman Galibiyet Olasılığı",
         "de": "Away Win Probability",
         "fr": "Away Win Probability",
         "es": "Away Win Probability",
         "ar": "Away Win Probability"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated probability of away team winning, as percentage.",
+        "tr": "Deplasman takımının kazanma olasılığı tahmini, yüzde olarak."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Bookmaker margin as percentage over fair odds (e.g., 5% overround).",
       "label_i18n": {
         "en": "Margin (Overround)",
-        "tr": "Margin (Overround)",
+        "tr": "Marj (Overround)",
         "de": "Margin (Overround)",
         "fr": "Margin (Overround)",
         "es": "Margin (Overround)",
         "ar": "Margin (Overround)"
+      },
+      "businessContext_i18n": {
+        "en": "Bookmaker margin as percentage over fair odds (e.g., 5% overround).",
+        "tr": "Bahis şirketinin adil oranlar üzerindeki yüzde marjı (ör. %5 overround)."
       }
     }
   ],

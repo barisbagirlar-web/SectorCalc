@@ -10,11 +10,15 @@
       "businessContext": "The area in square meters to convert.",
       "label_i18n": {
         "en": "Area (m²)",
-        "tr": "Area (m²)",
+        "tr": "Alan (m²)",
         "de": "Area (m²)",
         "fr": "Area (m²)",
         "es": "Area (m²)",
         "ar": "Area (m²)"
+      },
+      "businessContext_i18n": {
+        "en": "The area in square meters to convert.",
+        "tr": "Dönüştürülecek metrekare cinsinden alan."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from m² to ft². 1 m² = 10.7639104 ft².",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from m² to ft². 1 m² = 10.7639104 ft².",
+        "tr": "m²'den ft²'ye standart dönüşüm faktörü. 1 m² = 10,7639104 ft²."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the output.",
+        "tr": "Çıktının yuvarlanması için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional: price per square foot for cost estimation.",
       "label_i18n": {
         "en": "Unit Price",
-        "tr": "Unit Price",
+        "tr": "Birim Fiyat",
         "de": "Unit Price",
         "fr": "Unit Price",
         "es": "Unit Price",
         "ar": "Unit Price"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: price per square foot for cost estimation.",
+        "tr": "İsteğe bağlı: maliyet tahmini için fit kare başına fiyat."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional: percentage of additional area for material waste.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: percentage of additional area for material waste.",
+        "tr": "İsteğe bağlı: malzeme israfı için ek alan yüzdesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Measurement uncertainty percentage for tolerance band.",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Measurement uncertainty percentage for tolerance band.",
+        "tr": "Tolerans bandı için ölçüm belirsizliği yüzdesi."
       }
     }
   ],

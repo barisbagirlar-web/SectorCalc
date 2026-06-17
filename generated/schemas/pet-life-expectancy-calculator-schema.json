@@ -10,11 +10,15 @@
       "businessContext": "Average lifespan for species",
       "label_i18n": {
         "en": "Base Lifespan",
-        "tr": "Base Lifespan",
+        "tr": "Temel Yaşam Süresi",
         "de": "Base Lifespan",
         "fr": "Base Lifespan",
         "es": "Base Lifespan",
         "ar": "Base Lifespan"
+      },
+      "businessContext_i18n": {
+        "en": "Average lifespan for species",
+        "tr": "Tür için ortalama yaşam süresi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current weight",
       "label_i18n": {
         "en": "Pet Weight",
-        "tr": "Pet Weight",
+        "tr": "Evcil Hayvan Ağırlığı",
         "de": "Pet Weight",
         "fr": "Pet Weight",
         "es": "Pet Weight",
         "ar": "Pet Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Current weight",
+        "tr": "Mevcut ağırlık"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Ideal weight for breed/species",
       "label_i18n": {
         "en": "Ideal Weight",
-        "tr": "Ideal Weight",
+        "tr": "İdeal Ağırlık",
         "de": "Ideal Weight",
         "fr": "Ideal Weight",
         "es": "Ideal Weight",
         "ar": "Ideal Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Ideal weight for breed/species",
+        "tr": "Cins/tür için ideal ağırlık"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Daily activity score",
       "label_i18n": {
         "en": "Activity Level (0-10)",
-        "tr": "Activity Level (0-10)",
+        "tr": "Aktivite Seviyesi (0-10)",
         "de": "Activity Level (0-10)",
         "fr": "Activity Level (0-10)",
         "es": "Activity Level (0-10)",
         "ar": "Activity Level (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Daily activity score",
+        "tr": "Günlük aktivite puanı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Quality of nutrition",
       "label_i18n": {
         "en": "Diet Quality (0-10)",
-        "tr": "Diet Quality (0-10)",
+        "tr": "Diyet Kalitesi (0-10)",
         "de": "Diet Quality (0-10)",
         "fr": "Diet Quality (0-10)",
         "es": "Diet Quality (0-10)",
         "ar": "Diet Quality (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Quality of nutrition",
+        "tr": "Beslenme kalitesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual veterinary check-ups",
       "label_i18n": {
         "en": "Vet Visits per Year",
-        "tr": "Vet Visits per Year",
+        "tr": "Yıllık Veteriner Ziyareti",
         "de": "Vet Visits per Year",
         "fr": "Vet Visits per Year",
         "es": "Vet Visits per Year",
         "ar": "Vet Visits per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Annual veterinary check-ups",
+        "tr": "Yıllık veteriner kontrolleri"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "1 if sterilized, 0 otherwise",
       "label_i18n": {
         "en": "Sterilized (0/1)",
-        "tr": "Sterilized (0/1)",
+        "tr": "Kısırlaştırılmış (0/1)",
         "de": "Sterilized (0/1)",
         "fr": "Sterilized (0/1)",
         "es": "Sterilized (0/1)",
         "ar": "Sterilized (0/1)"
+      },
+      "businessContext_i18n": {
+        "en": "1 if sterilized, 0 otherwise",
+        "tr": "Kısırlaştırılmışsa 1, değilse 0"
       }
     }
   ],

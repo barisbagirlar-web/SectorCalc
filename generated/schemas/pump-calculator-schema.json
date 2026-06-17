@@ -10,11 +10,15 @@
       "businessContext": "The volumetric flow rate of the fluid through the pump.",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The volumetric flow rate of the fluid through the pump.",
+        "tr": "Pompadan geçen akışkanın hacimsel debisi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The total dynamic head, i.e., the height to which the fluid is pumped.",
       "label_i18n": {
         "en": "Total Head",
-        "tr": "Total Head",
+        "tr": "Toplam Basma Yüksekliği",
         "de": "Total Head",
         "fr": "Total Head",
         "es": "Total Head",
         "ar": "Total Head"
+      },
+      "businessContext_i18n": {
+        "en": "The total dynamic head, i.e., the height to which the fluid is pumped.",
+        "tr": "Toplam dinamik basma yüksekliği, yani akışkanın pompalandığı yükseklik."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The mass density of the fluid. Default value is for water at 20°C.",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "The mass density of the fluid. Default value is for water at 20°C.",
+        "tr": "Akışkanın kütle yoğunluğu. Varsayılan değer 20°C'deki su içindir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The hydraulic efficiency of the pump (from manufacturer curve). Enter as percentage.",
       "label_i18n": {
         "en": "Pump Efficiency",
-        "tr": "Pump Efficiency",
+        "tr": "Pompa Verimliliği",
         "de": "Pump Efficiency",
         "fr": "Pump Efficiency",
         "es": "Pump Efficiency",
         "ar": "Pump Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "The hydraulic efficiency of the pump (from manufacturer curve). Enter as percentage.",
+        "tr": "Pompanın hidrolik verimliliği (üretici eğrisinden). Yüzde olarak girin."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The efficiency of the electric motor driving the pump. Enter as percentage.",
       "label_i18n": {
         "en": "Motor Efficiency",
-        "tr": "Motor Efficiency",
+        "tr": "Motor verimliliği",
         "de": "Motor Efficiency",
         "fr": "Motor Efficiency",
         "es": "Motor Efficiency",
         "ar": "Motor Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "The efficiency of the electric motor driving the pump. Enter as percentage.",
+        "tr": "Pompayı çalıştıran elektrik motorunun verimliliği. Yüzde olarak girin."
       }
     }
   ],

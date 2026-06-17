@@ -10,11 +10,15 @@
       "businessContext": "Total meals you intend to prepare",
       "label_i18n": {
         "en": "Number of Servings Needed",
-        "tr": "Number of Servings Needed",
+        "tr": "Gerekli Porsiyon Sayısı",
         "de": "Number of Servings Needed",
         "fr": "Number of Servings Needed",
         "es": "Number of Servings Needed",
         "ar": "Number of Servings Needed"
+      },
+      "businessContext_i18n": {
+        "en": "Total meals you intend to prepare",
+        "tr": "Hazırlamayı planladığınız toplam öğün sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Servings yielded by one full recipe batch",
       "label_i18n": {
         "en": "Servings per Recipe",
-        "tr": "Servings per Recipe",
+        "tr": "Tarif Başına Porsiyon",
         "de": "Servings per Recipe",
         "fr": "Servings per Recipe",
         "es": "Servings per Recipe",
         "ar": "Servings per Recipe"
+      },
+      "businessContext_i18n": {
+        "en": "Servings yielded by one full recipe batch",
+        "tr": "Bir tam tarif partisinden elde edilen porsiyon sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of all raw ingredients for one recipe batch",
       "label_i18n": {
         "en": "Total Recipe Cost",
-        "tr": "Total Recipe Cost",
+        "tr": "Toplam Tarif Maliyeti",
         "de": "Total Recipe Cost",
         "fr": "Total Recipe Cost",
         "es": "Total Recipe Cost",
         "ar": "Total Recipe Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of all raw ingredients for one recipe batch",
+        "tr": "Bir tarif partisi için tüm ham malzemelerin maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of ingredients lost to trimming, spillage, or overcooking",
       "label_i18n": {
         "en": "Expected Waste",
-        "tr": "Expected Waste",
+        "tr": "Beklenen Fire",
         "de": "Expected Waste",
         "fr": "Expected Waste",
         "es": "Expected Waste",
         "ar": "Expected Waste"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of ingredients lost to trimming, spillage, or overcooking",
+        "tr": "Düzeltme, dökülme veya aşırı pişirme nedeniyle kaybedilen malzeme yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of disposable containers, foil, film per portion",
       "label_i18n": {
         "en": "Packaging Cost per Serving",
-        "tr": "Packaging Cost per Serving",
+        "tr": "Porsiyon Başına Ambalaj Maliyeti",
         "de": "Packaging Cost per Serving",
         "fr": "Packaging Cost per Serving",
         "es": "Packaging Cost per Serving",
         "ar": "Packaging Cost per Serving"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of disposable containers, foil, film per portion",
+        "tr": "Porsiyon başına tek kullanımlık kaplar, folyo, film maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Equipment rental, utilities, or any one-time overhead",
       "label_i18n": {
         "en": "Fixed Costs",
-        "tr": "Fixed Costs",
+        "tr": "Sabit Maliyetler",
         "de": "Fixed Costs",
         "fr": "Fixed Costs",
         "es": "Fixed Costs",
         "ar": "Fixed Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Equipment rental, utilities, or any one-time overhead",
+        "tr": "Ekipman kiralama, elektrik faturaları veya herhangi bir tek seferlik genel gider"
       }
     }
   ],

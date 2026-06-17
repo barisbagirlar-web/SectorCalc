@@ -10,11 +10,15 @@
       "businessContext": "Total number of credits enrolled in the semester",
       "label_i18n": {
         "en": "Total Credits Attempted",
-        "tr": "Total Credits Attempted",
+        "tr": "Denenen Toplam Kredi",
         "de": "Total Credits Attempted",
         "fr": "Total Credits Attempted",
         "es": "Total Credits Attempted",
         "ar": "Total Credits Attempted"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of credits enrolled in the semester",
+        "tr": "Dönemde kayıtlı toplam kredi sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of credits successfully completed",
       "label_i18n": {
         "en": "Earned Credits",
-        "tr": "Earned Credits",
+        "tr": "Kazanılan Krediler",
         "de": "Earned Credits",
         "fr": "Earned Credits",
         "es": "Earned Credits",
         "ar": "Earned Credits"
+      },
+      "businessContext_i18n": {
+        "en": "Number of credits successfully completed",
+        "tr": "Başarıyla tamamlanan kredi sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Grade point average for the semester (0.0 - 4.0 scale)",
       "label_i18n": {
         "en": "Semester GPA",
-        "tr": "Semester GPA",
+        "tr": "Dönem Not Ortalaması",
         "de": "Semester GPA",
         "fr": "Semester GPA",
         "es": "Semester GPA",
         "ar": "Semester GPA"
+      },
+      "businessContext_i18n": {
+        "en": "Grade point average for the semester (0.0 - 4.0 scale)",
+        "tr": "Dönem için not ortalaması (0.0 - 4.0 ölçeği)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Minimum GPA threshold for Dean's List (e.g., 3.5)",
       "label_i18n": {
         "en": "Minimum GPA Requirement",
-        "tr": "Minimum GPA Requirement",
+        "tr": "Minimum Not Ortalaması Gereksinimi",
         "de": "Minimum GPA Requirement",
         "fr": "Minimum GPA Requirement",
         "es": "Minimum GPA Requirement",
         "ar": "Minimum GPA Requirement"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum GPA threshold for Dean's List (e.g., 3.5)",
+        "tr": "Dekan Listesi için minimum not ortalaması eşiği (ör. 3.5)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Minimum number of earned credits required for Dean's List",
       "label_i18n": {
         "en": "Minimum Credits Requirement",
-        "tr": "Minimum Credits Requirement",
+        "tr": "Minimum Kredi Gereksinimi",
         "de": "Minimum Credits Requirement",
         "fr": "Minimum Credits Requirement",
         "es": "Minimum Credits Requirement",
         "ar": "Minimum Credits Requirement"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum number of earned credits required for Dean's List",
+        "tr": "Dekan Listesi için gereken minimum kazanılan kredi sayısı"
       }
     }
   ],

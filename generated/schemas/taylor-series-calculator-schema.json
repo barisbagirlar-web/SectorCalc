@@ -10,11 +10,15 @@
       "businessContext": "The point about which the Taylor series is expanded.",
       "label_i18n": {
         "en": "Expansion Point (a)",
-        "tr": "Expansion Point (a)",
+        "tr": "Genişleme Noktası (a)",
         "de": "Expansion Point (a)",
         "fr": "Expansion Point (a)",
         "es": "Expansion Point (a)",
         "ar": "Expansion Point (a)"
+      },
+      "businessContext_i18n": {
+        "en": "The point about which the Taylor series is expanded.",
+        "tr": "Taylor serisinin açıldığı nokta"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The point at which the function is approximated.",
       "label_i18n": {
         "en": "Evaluation Point (x)",
-        "tr": "Evaluation Point (x)",
+        "tr": "Değerlendirme Noktası (x)",
         "de": "Evaluation Point (x)",
         "fr": "Evaluation Point (x)",
         "es": "Evaluation Point (x)",
         "ar": "Evaluation Point (x)"
+      },
+      "businessContext_i18n": {
+        "en": "The point at which the function is approximated.",
+        "tr": "Fonksiyonun yaklaşık olarak hesaplandığı nokta."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Highest order of the Taylor polynomial (0–3).",
       "label_i18n": {
         "en": "Polynomial Degree",
-        "tr": "Polynomial Degree",
+        "tr": "Polinom Derecesi",
         "de": "Polynomial Degree",
         "fr": "Polynomial Degree",
         "es": "Polynomial Degree",
         "ar": "Polynomial Degree"
+      },
+      "businessContext_i18n": {
+        "en": "Highest order of the Taylor polynomial (0–3).",
+        "tr": "Taylor polinomunun en yüksek derecesi (0–3)."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "f(a)",
         "es": "f(a)",
         "ar": "f(a)"
+      },
+      "businessContext_i18n": {
+        "en": "Function value at the expansion point.",
+        "tr": "Açılım noktasındaki fonksiyon değeri."
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "f'(a)",
         "es": "f'(a)",
         "ar": "f'(a)"
+      },
+      "businessContext_i18n": {
+        "en": "First derivative at the expansion point.",
+        "tr": "Açılım noktasındaki birinci türev."
       }
     },
     {
@@ -95,6 +115,10 @@
         "fr": "f''(a)",
         "es": "f''(a)",
         "ar": "f''(a)"
+      },
+      "businessContext_i18n": {
+        "en": "Second derivative at the expansion point.",
+        "tr": "Açılım noktasındaki ikinci türev."
       }
     },
     {
@@ -111,6 +135,10 @@
         "fr": "f'''(a)",
         "es": "f'''(a)",
         "ar": "f'''(a)"
+      },
+      "businessContext_i18n": {
+        "en": "Third derivative at the expansion point.",
+        "tr": "Açılım noktasındaki üçüncü türev."
       }
     }
   ],

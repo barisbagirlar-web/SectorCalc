@@ -10,11 +10,15 @@
       "businessContext": "Average score of trainees before training, as percentage of maximum.",
       "label_i18n": {
         "en": "Pre-Training Assessment Score",
-        "tr": "Pre-Training Assessment Score",
+        "tr": "Eğitim Öncesi Değerlendirme Puanı",
         "de": "Pre-Training Assessment Score",
         "fr": "Pre-Training Assessment Score",
         "es": "Pre-Training Assessment Score",
         "ar": "Pre-Training Assessment Score"
+      },
+      "businessContext_i18n": {
+        "en": "Average score of trainees before training, as percentage of maximum.",
+        "tr": "Eğitim öncesi kursiyerlerin ortalama puanı, maksimumun yüzdesi olarak."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average score of trainees after training, as percentage of maximum.",
       "label_i18n": {
         "en": "Post-Training Assessment Score",
-        "tr": "Post-Training Assessment Score",
+        "tr": "Eğitim Sonrası Değerlendirme Puanı",
         "de": "Post-Training Assessment Score",
         "fr": "Post-Training Assessment Score",
         "es": "Post-Training Assessment Score",
         "ar": "Post-Training Assessment Score"
+      },
+      "businessContext_i18n": {
+        "en": "Average score of trainees after training, as percentage of maximum.",
+        "tr": "Eğitim sonrası kursiyerlerin ortalama puanı, maksimumun yüzdesi olarak."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total hours of training delivered.",
       "label_i18n": {
         "en": "Training Duration",
-        "tr": "Training Duration",
+        "tr": "Eğitim Süresi",
         "de": "Training Duration",
         "fr": "Training Duration",
         "es": "Training Duration",
         "ar": "Training Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Total hours of training delivered.",
+        "tr": "Verilen toplam eğitim saati."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost per hour including instructor, materials, overhead.",
       "label_i18n": {
         "en": "Training Cost per Hour",
-        "tr": "Training Cost per Hour",
+        "tr": "Saatlik Eğitim Maliyeti",
         "de": "Training Cost per Hour",
         "fr": "Training Cost per Hour",
         "es": "Training Cost per Hour",
         "ar": "Training Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per hour including instructor, materials, overhead.",
+        "tr": "Eğitmen, malzeme ve genel giderler dahil saatlik maliyet."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of defective output before training.",
       "label_i18n": {
         "en": "Scrap Rate Before Training",
-        "tr": "Scrap Rate Before Training",
+        "tr": "Eğitim Öncesi Fire Oranı",
         "de": "Scrap Rate Before Training",
         "fr": "Scrap Rate Before Training",
         "es": "Scrap Rate Before Training",
         "ar": "Scrap Rate Before Training"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of defective output before training.",
+        "tr": "Eğitim öncesi hatalı çıktı yüzdesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage of defective output after training.",
       "label_i18n": {
         "en": "Scrap Rate After Training",
-        "tr": "Scrap Rate After Training",
+        "tr": "Eğitim Sonrası Fire Oranı",
         "de": "Scrap Rate After Training",
         "fr": "Scrap Rate After Training",
         "es": "Scrap Rate After Training",
         "ar": "Scrap Rate After Training"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of defective output after training.",
+        "tr": "Eğitim sonrası hatalı çıktı yüzdesi."
       }
     }
   ],

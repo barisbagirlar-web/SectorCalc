@@ -24,10 +24,12 @@
       ],
       "businessContext": "Select the category of waste to apply appropriate cost factors and regulatory thresholds.",
       "label_i18n": {
-        "en": "Waste Type"
+        "en": "Waste Type",
+        "tr": "Atık Türü"
       },
       "businessContext_i18n": {
-        "en": "Select the category of waste to apply appropriate cost factors and regulatory thresholds."
+        "en": "Select the category of waste to apply appropriate cost factors and regulatory thresholds.",
+        "tr": "Uygun maliyet faktörlerini ve düzenleyici eşikleri uygulamak için atık kategorisini seçin."
       }
     },
     {
@@ -40,10 +42,12 @@
       "max": 1000000,
       "businessContext": "Total mass of waste generated in the reporting period.",
       "label_i18n": {
-        "en": "Waste Volume (kg)"
+        "en": "Waste Volume (kg)",
+        "tr": "Atık Hacmi (kg)"
       },
       "businessContext_i18n": {
-        "en": "Total mass of waste generated in the reporting period."
+        "en": "Total mass of waste generated in the reporting period.",
+        "tr": "Raporlama döneminde üretilen toplam atık kütlesi."
       }
     },
     {
@@ -56,10 +60,12 @@
       "max": 10,
       "businessContext": "Average cost paid to waste management vendor per kilogram.",
       "label_i18n": {
-        "en": "Disposal Cost per kg"
+        "en": "Disposal Cost per kg",
+        "tr": "Bertaraf Maliyeti (kg başına)"
       },
       "businessContext_i18n": {
-        "en": "Average cost paid to waste management vendor per kilogram."
+        "en": "Average cost paid to waste management vendor per kilogram.",
+        "tr": "Atık yönetimi tedarikçisine kilogram başına ödenen ortalama maliyet."
       }
     },
     {
@@ -72,10 +78,12 @@
       "max": 5000,
       "businessContext": "One-way distance from facility to disposal or recycling site.",
       "label_i18n": {
-        "en": "Transport Distance (km)"
+        "en": "Transport Distance (km)",
+        "tr": "Taşıma Mesafesi (km)"
       },
       "businessContext_i18n": {
-        "en": "One-way distance from facility to disposal or recycling site."
+        "en": "One-way distance from facility to disposal or recycling site.",
+        "tr": "Tesisten bertaraf veya geri dönüşüm sahasına tek yön mesafe."
       }
     },
     {
@@ -88,10 +96,12 @@
       "max": 100,
       "businessContext": "Cost per kilometer for waste transport, including fuel and labor.",
       "label_i18n": {
-        "en": "Transport Cost per km"
+        "en": "Transport Cost per km",
+        "tr": "Taşıma Maliyeti (km başına)"
       },
       "businessContext_i18n": {
-        "en": "Cost per kilometer for waste transport, including fuel and labor."
+        "en": "Cost per kilometer for waste transport, including fuel and labor.",
+        "tr": "Yakıt ve işçilik dahil atık taşıma için kilometre başına maliyet."
       }
     },
     {
@@ -104,10 +114,12 @@
       "max": 50,
       "businessContext": "Direct labor hours required to handle, sort, and prepare one ton of waste.",
       "label_i18n": {
-        "en": "Labor Hours per Ton"
+        "en": "Labor Hours per Ton",
+        "tr": "Ton başına İşçilik Saati"
       },
       "businessContext_i18n": {
-        "en": "Direct labor hours required to handle, sort, and prepare one ton of waste."
+        "en": "Direct labor hours required to handle, sort, and prepare one ton of waste.",
+        "tr": "Bir ton atığı elleçlemek, ayırmak ve hazırlamak için gereken doğrudan işçilik saati."
       }
     },
     {
@@ -120,10 +132,12 @@
       "max": 200,
       "businessContext": "Hourly wage including overhead for waste handling personnel.",
       "label_i18n": {
-        "en": "Labor Rate per Hour"
+        "en": "Labor Rate per Hour",
+        "tr": "Saatlik İşçilik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Hourly wage including overhead for waste handling personnel."
+        "en": "Hourly wage including overhead for waste handling personnel.",
+        "tr": "Atık elleçleme personeli için genel giderler dahil saatlik ücret."
       }
     },
     {
@@ -136,10 +150,12 @@
       "max": 5,
       "businessContext": "Revenue received from selling recyclable materials per kilogram.",
       "label_i18n": {
-        "en": "Recycling Revenue per kg"
+        "en": "Recycling Revenue per kg",
+        "tr": "Geri Dönüşüm Geliri (kg başına)"
       },
       "businessContext_i18n": {
-        "en": "Revenue received from selling recyclable materials per kilogram."
+        "en": "Revenue received from selling recyclable materials per kilogram.",
+        "tr": "Geri dönüştürülebilir malzemelerin kilogram başına satışından elde edilen gelir."
       }
     }
   ],

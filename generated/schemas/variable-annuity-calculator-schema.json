@@ -10,11 +10,15 @@
       "businessContext": "The starting balance of the annuity, if already invested.",
       "label_i18n": {
         "en": "Initial Balance",
-        "tr": "Initial Balance",
+        "tr": "Başlangıç bakiyesi",
         "de": "Initial Balance",
         "fr": "Initial Balance",
         "es": "Initial Balance",
         "ar": "Initial Balance"
+      },
+      "businessContext_i18n": {
+        "en": "The starting balance of the annuity, if already invested.",
+        "tr": "Zaten yatırılmışsa, anüitenin başlangıç bakiyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The amount added to the annuity each year.",
       "label_i18n": {
         "en": "Annual Contribution",
-        "tr": "Annual Contribution",
+        "tr": "Yıllık Katkı",
         "de": "Annual Contribution",
         "fr": "Annual Contribution",
         "es": "Annual Contribution",
         "ar": "Annual Contribution"
+      },
+      "businessContext_i18n": {
+        "en": "The amount added to the annuity each year.",
+        "tr": "Anüiteye her yıl eklenen miktar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of years the annuity will grow.",
       "label_i18n": {
         "en": "Investment Period",
-        "tr": "Investment Period",
+        "tr": "Yatırım Süresi",
         "de": "Investment Period",
         "fr": "Investment Period",
         "es": "Investment Period",
         "ar": "Investment Period"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the annuity will grow.",
+        "tr": "Anüitenin büyüyeceği yıl sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The average annual rate of return of the underlying investments before fees.",
       "label_i18n": {
         "en": "Expected Annual Return",
-        "tr": "Expected Annual Return",
+        "tr": "Beklenen Yıllık Getiri",
         "de": "Expected Annual Return",
         "fr": "Expected Annual Return",
         "es": "Expected Annual Return",
         "ar": "Expected Annual Return"
+      },
+      "businessContext_i18n": {
+        "en": "The average annual rate of return of the underlying investments before fees.",
+        "tr": "Ücretlerden önce temel yatırımların ortalama yıllık getiri oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The annual management fee deducted from the account balance.",
       "label_i18n": {
         "en": "Annual Fee",
-        "tr": "Annual Fee",
+        "tr": "Yıllık Ücret",
         "de": "Annual Fee",
         "fr": "Annual Fee",
         "es": "Annual Fee",
         "ar": "Annual Fee"
+      },
+      "businessContext_i18n": {
+        "en": "The annual management fee deducted from the account balance.",
+        "tr": "Hesap bakiyesinden kesilen yıllık yönetim ücreti."
       }
     }
   ],

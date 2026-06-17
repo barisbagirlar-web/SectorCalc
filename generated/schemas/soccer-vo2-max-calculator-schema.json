@@ -10,11 +10,15 @@
       "businessContext": "0 for Shuttle Run (20m), 1 for Yo-Yo Intermittent Recovery Test Level 1",
       "label_i18n": {
         "en": "Test Type",
-        "tr": "Test Type",
+        "tr": "Test Türü",
         "de": "Test Type",
         "fr": "Test Type",
         "es": "Test Type",
         "ar": "Test Type"
+      },
+      "businessContext_i18n": {
+        "en": "0 for Shuttle Run (20m), 1 for Yo-Yo Intermittent Recovery Test Level 1",
+        "tr": "0 Mekik Koşusu (20m), 1 Yo-Yo Aralıklı Toparlanma Testi Seviye 1"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Speed at the last completed stage of the shuttle run test.",
       "label_i18n": {
         "en": "Maximum Speed",
-        "tr": "Maximum Speed",
+        "tr": "Maksimum Hız",
         "de": "Maximum Speed",
         "fr": "Maximum Speed",
         "es": "Maximum Speed",
         "ar": "Maximum Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Speed at the last completed stage of the shuttle run test.",
+        "tr": "Mekik koşusu testinin son tamamlanan aşamasındaki hız."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age of the athlete.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the athlete.",
+        "tr": "Sporcunun yaşı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total distance covered during the Yo-Yo IR1 test.",
       "label_i18n": {
         "en": "Distance Covered",
-        "tr": "Distance Covered",
+        "tr": "Katedilen Mesafe",
         "de": "Distance Covered",
         "fr": "Distance Covered",
         "es": "Distance Covered",
         "ar": "Distance Covered"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance covered during the Yo-Yo IR1 test.",
+        "tr": "Yo-Yo IR1 testi sırasında katedilen toplam mesafe."
       }
     }
   ],

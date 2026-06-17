@@ -10,11 +10,15 @@
       "businessContext": "Sample size after excluding zero differences",
       "label_i18n": {
         "en": "Number of Non-Zero Differences (n)",
-        "tr": "Number of Non-Zero Differences (n)",
+        "tr": "Sıfır Olmayan Fark Sayısı (n)",
         "de": "Number of Non-Zero Differences (n)",
         "fr": "Number of Non-Zero Differences (n)",
         "es": "Number of Non-Zero Differences (n)",
         "ar": "Number of Non-Zero Differences (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Sample size after excluding zero differences",
+        "tr": "Sıfır farklar çıkarıldıktan sonraki örneklem büyüklüğü"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Wilcoxon signed-rank test statistic",
       "label_i18n": {
         "en": "Sum of Positive Ranks (T+)",
-        "tr": "Sum of Positive Ranks (T+)",
+        "tr": "Pozitif Sıraların Toplamı (T+)",
         "de": "Sum of Positive Ranks (T+)",
         "fr": "Sum of Positive Ranks (T+)",
         "es": "Sum of Positive Ranks (T+)",
         "ar": "Sum of Positive Ranks (T+)"
+      },
+      "businessContext_i18n": {
+        "en": "Wilcoxon signed-rank test statistic",
+        "tr": "Wilcoxon işaretli sıra test istatistiği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Apply Yates' continuity correction for normal approximation",
       "label_i18n": {
         "en": "Continuity Correction (1 = Yes, 0 = No)",
-        "tr": "Continuity Correction (1 = Yes, 0 = No)",
+        "tr": "Süreklilik Düzeltmesi (1 = Evet, 0 = Hayır)",
         "de": "Continuity Correction (1 = Yes, 0 = No)",
         "fr": "Continuity Correction (1 = Yes, 0 = No)",
         "es": "Continuity Correction (1 = Yes, 0 = No)",
         "ar": "Continuity Correction (1 = Yes, 0 = No)"
+      },
+      "businessContext_i18n": {
+        "en": "Apply Yates' continuity correction for normal approximation",
+        "tr": "Normal yaklaşım için Yates süreklilik düzeltmesini uygula"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places to round the z-score",
       "label_i18n": {
         "en": "Decimal Places for Output",
-        "tr": "Decimal Places for Output",
+        "tr": "Çıktı için Ondalık Basamak Sayısı",
         "de": "Decimal Places for Output",
         "fr": "Decimal Places for Output",
         "es": "Decimal Places for Output",
         "ar": "Decimal Places for Output"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the z-score",
+        "tr": "Z-skorunun yuvarlanacağı ondalık basamak sayısı"
       }
     }
   ],

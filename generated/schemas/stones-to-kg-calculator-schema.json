@@ -10,11 +10,15 @@
       "businessContext": "Enter the weight in stones to be converted to kilograms.",
       "label_i18n": {
         "en": "Weight in stones",
-        "tr": "Weight in stones",
+        "tr": "Stone cinsinden ağırlık",
         "de": "Weight in stones",
         "fr": "Weight in stones",
         "es": "Weight in stones",
         "ar": "Weight in stones"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the weight in stones to be converted to kilograms.",
+        "tr": "Kilograma dönüştürülecek stone cinsinden ağırlığı girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Enter any additional pounds (0–13). 1 stone = 14 pounds.",
       "label_i18n": {
         "en": "Additional pounds",
-        "tr": "Additional pounds",
+        "tr": "Ek pound",
         "de": "Additional pounds",
         "fr": "Additional pounds",
         "es": "Additional pounds",
         "ar": "Additional pounds"
+      },
+      "businessContext_i18n": {
+        "en": "Enter any additional pounds (0–13). 1 stone = 14 pounds.",
+        "tr": "Ek pound girin (0–13). 1 stone = 14 pound."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard conversion factor: 1 stone = 6.35029 kg. Adjust if local standards require a different factor.",
       "label_i18n": {
         "en": "Conversion factor",
-        "tr": "Conversion factor",
+        "tr": "Dönüşüm faktörü",
         "de": "Conversion factor",
         "fr": "Conversion factor",
         "es": "Conversion factor",
         "ar": "Conversion factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor: 1 stone = 6.35029 kg. Adjust if local standards require a different factor.",
+        "tr": "Standart dönüşüm faktörü: 1 stone = 6,35029 kg. Yerel standartlar farklı bir faktör gerektiriyorsa ayarlayın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the output in kilograms.",
       "label_i18n": {
         "en": "Decimal places",
-        "tr": "Decimal places",
+        "tr": "Ondalık basamaklar",
         "de": "Decimal places",
         "fr": "Decimal places",
         "es": "Decimal places",
         "ar": "Decimal places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output in kilograms.",
+        "tr": "Kilogram çıktısı için ondalık basamak sayısı."
       }
     }
   ],

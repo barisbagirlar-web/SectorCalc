@@ -10,11 +10,15 @@
       "businessContext": "Total light output of the light source in lumens.",
       "label_i18n": {
         "en": "Luminous Flux",
-        "tr": "Luminous Flux",
+        "tr": "Işık Akısı",
         "de": "Luminous Flux",
         "fr": "Luminous Flux",
         "es": "Luminous Flux",
         "ar": "Luminous Flux"
+      },
+      "businessContext_i18n": {
+        "en": "Total light output of the light source in lumens.",
+        "tr": "Işık kaynağının lümen cinsinden toplam ışık çıkışı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Full angle at which 50% of the peak luminous intensity is maintained.",
       "label_i18n": {
         "en": "Beam Angle",
-        "tr": "Beam Angle",
+        "tr": "Işın Açısı",
         "de": "Beam Angle",
         "fr": "Beam Angle",
         "es": "Beam Angle",
         "ar": "Beam Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Full angle at which 50% of the peak luminous intensity is maintained.",
+        "tr": "Tepe ışık şiddetinin %50'sinin korunduğu tam açı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance from the light source to the target surface.",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from the light source to the target surface.",
+        "tr": "Işık kaynağından hedef yüzeye olan mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Factor accounting for dirt accumulation, lamp aging, and optical losses (0-1).",
       "label_i18n": {
         "en": "Luminaire Efficiency",
-        "tr": "Luminaire Efficiency",
+        "tr": "Armatür Verimliliği",
         "de": "Luminaire Efficiency",
         "fr": "Luminaire Efficiency",
         "es": "Luminaire Efficiency",
         "ar": "Luminaire Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Factor accounting for dirt accumulation, lamp aging, and optical losses (0-1).",
+        "tr": "Kir birikimi, lamba yaşlanması ve optik kayıpları hesaba katan faktör (0-1)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Existing ambient light level at the target surface in lux.",
       "label_i18n": {
         "en": "Ambient Light",
-        "tr": "Ambient Light",
+        "tr": "Ortam Işığı",
         "de": "Ambient Light",
         "fr": "Ambient Light",
         "es": "Ambient Light",
         "ar": "Ambient Light"
+      },
+      "businessContext_i18n": {
+        "en": "Existing ambient light level at the target surface in lux.",
+        "tr": "Hedef yüzeydeki lüks cinsinden mevcut ortam ışığı seviyesi."
       }
     }
   ],

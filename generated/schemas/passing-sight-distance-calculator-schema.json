@@ -10,11 +10,15 @@
       "businessContext": "Speed of the passing vehicle before maneuver",
       "label_i18n": {
         "en": "Initial Speed",
-        "tr": "Initial Speed",
+        "tr": "Başlangıç Hızı",
         "de": "Initial Speed",
         "fr": "Initial Speed",
         "es": "Initial Speed",
         "ar": "Initial Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of the passing vehicle before maneuver",
+        "tr": "Manevra öncesi geçen aracın hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Speed after acceleration for passing",
       "label_i18n": {
         "en": "Target Speed",
-        "tr": "Target Speed",
+        "tr": "Hedef Hız",
         "de": "Target Speed",
         "fr": "Target Speed",
         "es": "Target Speed",
         "ar": "Target Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Speed after acceleration for passing",
+        "tr": "Geçiş için hızlanma sonrası hız"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Acceleration",
         "es": "Acceleration",
         "ar": "Acceleration"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration rate of vehicle",
+        "tr": "Aracın ivme oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration traveling at constant target speed in opposing lane",
       "label_i18n": {
         "en": "Constant Speed Duration",
-        "tr": "Constant Speed Duration",
+        "tr": "Sabit Hız Süresi",
         "de": "Constant Speed Duration",
         "fr": "Constant Speed Duration",
         "es": "Constant Speed Duration",
         "ar": "Constant Speed Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration traveling at constant target speed in opposing lane",
+        "tr": "Karşı şeritte hedef hızda seyahat süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Time to perceive and react before starting acceleration",
       "label_i18n": {
         "en": "Perception-Reaction Time",
-        "tr": "Perception-Reaction Time",
+        "tr": "Algılama-Tepki Süresi",
         "de": "Perception-Reaction Time",
         "fr": "Perception-Reaction Time",
         "es": "Perception-Reaction Time",
         "ar": "Perception-Reaction Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time to perceive and react before starting acceleration",
+        "tr": "Hızlanmaya başlamadan önce algılama ve tepki süresi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Safety clearance distance between passing and opposing vehicle",
       "label_i18n": {
         "en": "Clearance Distance",
-        "tr": "Clearance Distance",
+        "tr": "Güvenlik Mesafesi",
         "de": "Clearance Distance",
         "fr": "Clearance Distance",
         "es": "Clearance Distance",
         "ar": "Clearance Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Safety clearance distance between passing and opposing vehicle",
+        "tr": "Geçen araç ile karşıdan gelen araç arasındaki güvenlik mesafesi"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Estimated speed of oncoming vehicle",
       "label_i18n": {
         "en": "Opposing Vehicle Speed",
-        "tr": "Opposing Vehicle Speed",
+        "tr": "Karşıdan Gelen Araç Hızı",
         "de": "Opposing Vehicle Speed",
         "fr": "Opposing Vehicle Speed",
         "es": "Opposing Vehicle Speed",
         "ar": "Opposing Vehicle Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated speed of oncoming vehicle",
+        "tr": "Karşıdan gelen aracın tahmini hızı"
       }
     }
   ],

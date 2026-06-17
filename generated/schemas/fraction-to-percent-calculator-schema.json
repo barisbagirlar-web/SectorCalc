@@ -10,11 +10,15 @@
       "businessContext": "Top part of the fraction (dividend).",
       "label_i18n": {
         "en": "Numerator",
-        "tr": "Numerator",
+        "tr": "Pay",
         "de": "Numerator",
         "fr": "Numerator",
         "es": "Numerator",
         "ar": "Numerator"
+      },
+      "businessContext_i18n": {
+        "en": "Top part of the fraction (dividend).",
+        "tr": "Kesrin üst kısmı (bölünen)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Bottom part of the fraction (divisor). Must be non-zero.",
       "label_i18n": {
         "en": "Denominator",
-        "tr": "Denominator",
+        "tr": "Payda",
         "de": "Denominator",
         "fr": "Denominator",
         "es": "Denominator",
         "ar": "Denominator"
+      },
+      "businessContext_i18n": {
+        "en": "Bottom part of the fraction (divisor). Must be non-zero.",
+        "tr": "Kesrin alt kısmı (bölen). Sıfırdan farklı olmalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Whole number part for mixed fractions (optional).",
       "label_i18n": {
         "en": "Whole Number",
-        "tr": "Whole Number",
+        "tr": "Tam sayı",
         "de": "Whole Number",
         "fr": "Whole Number",
         "es": "Whole Number",
         "ar": "Whole Number"
+      },
+      "businessContext_i18n": {
+        "en": "Whole number part for mixed fractions (optional).",
+        "tr": "Karışık kesirler için tam sayı kısmı (isteğe bağlı)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places in the final percentage.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places in the final percentage.",
+        "tr": "Nihai yüzdedeki ondalık basamak sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "0 = standard rounding (half up), 1 = floor, 2 = ceil, 3 = truncate.",
       "label_i18n": {
         "en": "Rounding Mode",
-        "tr": "Rounding Mode",
+        "tr": "Yuvarlama Modu",
         "de": "Rounding Mode",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
+      },
+      "businessContext_i18n": {
+        "en": "0 = standard rounding (half up), 1 = floor, 2 = ceil, 3 = truncate.",
+        "tr": "0 = standart yuvarlama (half up), 1 = taban, 2 = tavan, 3 = kesme."
       }
     }
   ],

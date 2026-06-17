@@ -10,11 +10,15 @@
       "businessContext": "Total sales revenue for the period",
       "label_i18n": {
         "en": "Revenue",
-        "tr": "Revenue",
+        "tr": "Gelir",
         "de": "Revenue",
         "fr": "Revenue",
         "es": "Revenue",
         "ar": "Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Total sales revenue for the period",
+        "tr": "Dönem için toplam satış geliri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total operating expenses including COGS, SG&A, etc.",
       "label_i18n": {
         "en": "Operating Expenses",
-        "tr": "Operating Expenses",
+        "tr": "Faaliyet Giderleri",
         "de": "Operating Expenses",
         "fr": "Operating Expenses",
         "es": "Operating Expenses",
         "ar": "Operating Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Total operating expenses including COGS, SG&A, etc.",
+        "tr": "SMM, SG&A vb. dahil toplam işletme giderleri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Effective tax rate percentage",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Effective tax rate percentage",
+        "tr": "Efektif vergi oranı yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Depreciation and amortization expense (non-cash)",
       "label_i18n": {
         "en": "Depreciation",
-        "tr": "Depreciation",
+        "tr": "Amortisman Gideri",
         "de": "Depreciation",
         "fr": "Depreciation",
         "es": "Depreciation",
         "ar": "Depreciation"
+      },
+      "businessContext_i18n": {
+        "en": "Depreciation and amortization expense (non-cash)",
+        "tr": "Amortisman ve itfa payı gideri (nakit dışı)"
       }
     }
   ],

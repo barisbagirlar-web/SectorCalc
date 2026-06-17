@@ -10,11 +10,15 @@
       "businessContext": "Number of cases with condition and positive test",
       "label_i18n": {
         "en": "True Positives",
-        "tr": "True Positives",
+        "tr": "Gerçek Pozitif",
         "de": "True Positives",
         "fr": "True Positives",
         "es": "True Positives",
         "ar": "True Positives"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cases with condition and positive test",
+        "tr": "Durumu olan ve testi pozitif çıkan vaka sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of cases without condition but positive test",
       "label_i18n": {
         "en": "False Positives",
-        "tr": "False Positives",
+        "tr": "Yanlış Pozitif",
         "de": "False Positives",
         "fr": "False Positives",
         "es": "False Positives",
         "ar": "False Positives"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cases without condition but positive test",
+        "tr": "Durumu olmayan ancak testi pozitif çıkan vaka sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of cases with condition and negative test",
       "label_i18n": {
         "en": "False Negatives",
-        "tr": "False Negatives",
+        "tr": "Yanlış Negatif",
         "de": "False Negatives",
         "fr": "False Negatives",
         "es": "False Negatives",
         "ar": "False Negatives"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cases with condition and negative test",
+        "tr": "Durumu olan ancak testi negatif çıkan vaka sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of cases without condition and negative test",
       "label_i18n": {
         "en": "True Negatives",
-        "tr": "True Negatives",
+        "tr": "Gerçek Negatif",
         "de": "True Negatives",
         "fr": "True Negatives",
         "es": "True Negatives",
         "ar": "True Negatives"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cases without condition and negative test",
+        "tr": "Durumu olmayan ve testi negatif çıkan vaka sayısı"
       }
     }
   ],

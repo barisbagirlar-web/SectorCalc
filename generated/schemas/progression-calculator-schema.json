@@ -10,11 +10,15 @@
       "businessContext": "Starting value of the arithmetic progression",
       "label_i18n": {
         "en": "First Term (a1)",
-        "tr": "First Term (a1)",
+        "tr": "Birinci Terim (a1)",
         "de": "First Term (a1)",
         "fr": "First Term (a1)",
         "es": "First Term (a1)",
         "ar": "First Term (a1)"
+      },
+      "businessContext_i18n": {
+        "en": "Starting value of the arithmetic progression",
+        "tr": "Aritmetik dizinin başlangıç değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Constant difference between consecutive terms",
       "label_i18n": {
         "en": "Common Difference (d)",
-        "tr": "Common Difference (d)",
+        "tr": "Ortak Fark (d)",
         "de": "Common Difference (d)",
         "fr": "Common Difference (d)",
         "es": "Common Difference (d)",
         "ar": "Common Difference (d)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant difference between consecutive terms",
+        "tr": "Ardışık terimler arasındaki sabit fark"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Index of the first term to include in the segment (1-based)",
       "label_i18n": {
         "en": "Start Term Index",
-        "tr": "Start Term Index",
+        "tr": "Başlangıç Terim İndeksi",
         "de": "Start Term Index",
         "fr": "Start Term Index",
         "es": "Start Term Index",
         "ar": "Start Term Index"
+      },
+      "businessContext_i18n": {
+        "en": "Index of the first term to include in the segment (1-based)",
+        "tr": "Segmente dahil edilecek ilk terimin indeksi (1 tabanlı)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Index of the last term to include in the segment (must be ≥ startIndex)",
       "label_i18n": {
         "en": "End Term Index",
-        "tr": "End Term Index",
+        "tr": "Bitiş Terim İndeksi",
         "de": "End Term Index",
         "fr": "End Term Index",
         "es": "End Term Index",
         "ar": "End Term Index"
+      },
+      "businessContext_i18n": {
+        "en": "Index of the last term to include in the segment (must be ≥ startIndex)",
+        "tr": "Segmente dahil edilecek son terimin indeksi (startIndex'ten büyük veya eşit olmalı)"
       }
     }
   ],

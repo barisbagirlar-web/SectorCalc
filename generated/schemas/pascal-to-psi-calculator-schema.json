@@ -10,11 +10,15 @@
       "businessContext": "Actual pressure reading from sensor in pascals.",
       "label_i18n": {
         "en": "Pressure Reading (Pa)",
-        "tr": "Pressure Reading (Pa)",
+        "tr": "Basınç Okuması (Pa)",
         "de": "Pressure Reading (Pa)",
         "fr": "Pressure Reading (Pa)",
         "es": "Pressure Reading (Pa)",
         "ar": "Pressure Reading (Pa)"
+      },
+      "businessContext_i18n": {
+        "en": "Actual pressure reading from sensor in pascals.",
+        "tr": "Sensörden paskal cinsinden gerçek basınç okuması."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Multiplier for sensor calibration, typically 0.95-1.05.",
       "label_i18n": {
         "en": "Calibration Factor",
-        "tr": "Calibration Factor",
+        "tr": "Kalibrasyon Faktörü",
         "de": "Calibration Factor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for sensor calibration, typically 0.95-1.05.",
+        "tr": "Sensör kalibrasyonu için çarpan, tipik olarak 0,95-1,05."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum pressure rating of the sensor.",
       "label_i18n": {
         "en": "Sensor Full Scale (Pa)",
-        "tr": "Sensor Full Scale (Pa)",
+        "tr": "Sensör Tam Ölçek (Pa)",
         "de": "Sensor Full Scale (Pa)",
         "fr": "Sensor Full Scale (Pa)",
         "es": "Sensor Full Scale (Pa)",
         "ar": "Sensor Full Scale (Pa)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum pressure rating of the sensor.",
+        "tr": "Sensörün maksimum basınç değeri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Accuracy as a percentage of full scale (e.g., 0.5 for 0.5% FS).",
       "label_i18n": {
         "en": "Sensor Accuracy Class",
-        "tr": "Sensor Accuracy Class",
+        "tr": "Sensör Doğruluk Sınıfı",
         "de": "Sensor Accuracy Class",
         "fr": "Sensor Accuracy Class",
         "es": "Sensor Accuracy Class",
         "ar": "Sensor Accuracy Class"
+      },
+      "businessContext_i18n": {
+        "en": "Accuracy as a percentage of full scale (e.g., 0.5 for 0.5% FS).",
+        "tr": "Tam ölçeğin yüzdesi olarak doğruluk (örn. %0,5 FS için 0,5)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal digits for psi output; must be integer >=0.",
       "label_i18n": {
         "en": "Output Decimal Places",
-        "tr": "Output Decimal Places",
+        "tr": "Çıktı Ondalık Basamakları",
         "de": "Output Decimal Places",
         "fr": "Output Decimal Places",
         "es": "Output Decimal Places",
         "ar": "Output Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal digits for psi output; must be integer >=0.",
+        "tr": "psi çıktısı için ondalık basamak sayısı; tamsayı >=0 olmalıdır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Discharge coefficient accounting for flow contraction and friction losses, typically 0.6-0.7 for orifice plates.",
       "label_i18n": {
         "en": "Discharge Coefficient (C)",
-        "tr": "Discharge Coefficient (C)",
+        "tr": "Deşarj Katsayısı (C)",
         "de": "Discharge Coefficient (C)",
         "fr": "Discharge Coefficient (C)",
         "es": "Discharge Coefficient (C)",
         "ar": "Discharge Coefficient (C)"
+      },
+      "businessContext_i18n": {
+        "en": "Discharge coefficient accounting for flow contraction and friction losses, typically 0.6-0.7 for orifice plates.",
+        "tr": "Akış daralması ve sürtünme kayıplarını hesaba katan deşarj katsayısı, orifis plakaları için tipik olarak 0.6-0.7."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cross-sectional area of the orifice or restriction.",
       "label_i18n": {
         "en": "Orifice Area (A)",
-        "tr": "Orifice Area (A)",
+        "tr": "Orifis Alanı (A)",
         "de": "Orifice Area (A)",
         "fr": "Orifice Area (A)",
         "es": "Orifice Area (A)",
         "ar": "Orifice Area (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional area of the orifice or restriction.",
+        "tr": "Orifis veya kısıtlamanın kesit alanı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of the fluid. For water at 20°C, 998 kg/m³.",
       "label_i18n": {
         "en": "Fluid Density (ρ)",
-        "tr": "Fluid Density (ρ)",
+        "tr": "Akışkan Yoğunluğu (ρ)",
         "de": "Fluid Density (ρ)",
         "fr": "Fluid Density (ρ)",
         "es": "Fluid Density (ρ)",
         "ar": "Fluid Density (ρ)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluid. For water at 20°C, 998 kg/m³.",
+        "tr": "Akışkanın yoğunluğu. 20°C'de su için 998 kg/m³."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Differential pressure across the orifice, measured in Pascals.",
       "label_i18n": {
         "en": "Pressure Difference (ΔP)",
-        "tr": "Pressure Difference (ΔP)",
+        "tr": "Basınç Farkı (ΔP)",
         "de": "Pressure Difference (ΔP)",
         "fr": "Pressure Difference (ΔP)",
         "es": "Pressure Difference (ΔP)",
         "ar": "Pressure Difference (ΔP)"
+      },
+      "businessContext_i18n": {
+        "en": "Differential pressure across the orifice, measured in Pascals.",
+        "tr": "Orifis boyunca diferansiyel basınç, Pascal cinsinden ölçülür."
       }
     }
   ],

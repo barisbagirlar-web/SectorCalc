@@ -10,11 +10,15 @@
       "businessContext": "The par or principal amount of the bond",
       "label_i18n": {
         "en": "Face Value",
-        "tr": "Face Value",
+        "tr": "Nominal Değer",
         "de": "Face Value",
         "fr": "Face Value",
         "es": "Face Value",
         "ar": "Face Value"
+      },
+      "businessContext_i18n": {
+        "en": "The par or principal amount of the bond",
+        "tr": "Tahvilin nominal veya anapara tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual coupon rate as a percentage of face value",
       "label_i18n": {
         "en": "Coupon Rate (%)",
-        "tr": "Coupon Rate (%)",
+        "tr": "Kupon Oranı (%)",
         "de": "Coupon Rate (%)",
         "fr": "Coupon Rate (%)",
         "es": "Coupon Rate (%)",
         "ar": "Coupon Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual coupon rate as a percentage of face value",
+        "tr": "Nominal değerin yüzdesi olarak yıllık kupon oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of coupon payments per year (e.g., 2 for semi-annual)",
       "label_i18n": {
         "en": "Payment Frequency",
-        "tr": "Payment Frequency",
+        "tr": "Ödeme Sıklığı",
         "de": "Payment Frequency",
         "fr": "Payment Frequency",
         "es": "Payment Frequency",
         "ar": "Payment Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of coupon payments per year (e.g., 2 for semi-annual)",
+        "tr": "Yıllık kupon ödemesi sayısı (örn. altı aylık için 2)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Remaining time until bond matures",
       "label_i18n": {
         "en": "Years to Maturity",
-        "tr": "Years to Maturity",
+        "tr": "Vadeye Kalan Yıl",
         "de": "Years to Maturity",
         "fr": "Years to Maturity",
         "es": "Years to Maturity",
         "ar": "Years to Maturity"
+      },
+      "businessContext_i18n": {
+        "en": "Remaining time until bond matures",
+        "tr": "Tahvilin vadesine kalan süre"
       }
     }
   ],

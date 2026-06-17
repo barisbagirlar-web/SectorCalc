@@ -10,11 +10,15 @@
       "businessContext": "Enter the percentage score to convert to a letter grade.",
       "label_i18n": {
         "en": "Percentage Score",
-        "tr": "Percentage Score",
+        "tr": "Yüzde Puanı",
         "de": "Percentage Score",
         "fr": "Percentage Score",
         "es": "Percentage Score",
         "ar": "Percentage Score"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the percentage score to convert to a letter grade.",
+        "tr": "Harf notuna dönüştürmek için yüzde puanını girin."
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "A Minimum",
         "es": "A Minimum",
         "ar": "A Minimum"
+      },
+      "businessContext_i18n": {
+        "en": "Set the minimum percentage required to achieve an A grade.",
+        "tr": "A sınıfına ulaşmak için gereken minimum yüzdeyi ayarlayın."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "B Minimum",
         "es": "B Minimum",
         "ar": "B Minimum"
+      },
+      "businessContext_i18n": {
+        "en": "Set the minimum percentage required to achieve a B grade.",
+        "tr": "B sınıfına ulaşmak için gereken minimum yüzdeyi ayarlayın."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "C Minimum",
         "es": "C Minimum",
         "ar": "C Minimum"
+      },
+      "businessContext_i18n": {
+        "en": "Set the minimum percentage required to achieve a C grade.",
+        "tr": "C sınıfına ulaşmak için gereken minimum yüzdeyi ayarlayın."
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "D Minimum",
         "es": "D Minimum",
         "ar": "D Minimum"
+      },
+      "businessContext_i18n": {
+        "en": "Set the minimum percentage required to achieve a D grade.",
+        "tr": "D sınıfına ulaşmak için gereken minimum yüzdeyi ayarlayın."
       }
     }
   ],

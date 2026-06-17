@@ -10,11 +10,15 @@
       "businessContext": "Angle component in degrees",
       "label_i18n": {
         "en": "Degrees",
-        "tr": "Degrees",
+        "tr": "Derece",
         "de": "Degrees",
         "fr": "Degrees",
         "es": "Degrees",
         "ar": "Degrees"
+      },
+      "businessContext_i18n": {
+        "en": "Angle component in degrees",
+        "tr": "Derece cinsinden açı bileşeni"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Angle component in arcminutes",
       "label_i18n": {
         "en": "Arcminutes",
-        "tr": "Arcminutes",
+        "tr": "Dakika",
         "de": "Arcminutes",
         "fr": "Arcminutes",
         "es": "Arcminutes",
         "ar": "Arcminutes"
+      },
+      "businessContext_i18n": {
+        "en": "Angle component in arcminutes",
+        "tr": "Dakika cinsinden açı bileşeni"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle component in arcseconds",
       "label_i18n": {
         "en": "Arcseconds",
-        "tr": "Arcseconds",
+        "tr": "Saniye",
         "de": "Arcseconds",
         "fr": "Arcseconds",
         "es": "Arcseconds",
         "ar": "Arcseconds"
+      },
+      "businessContext_i18n": {
+        "en": "Angle component in arcseconds",
+        "tr": "Saniye cinsinden açı bileşeni"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplicative calibration factor for conversion (e.g., instrument scale)",
       "label_i18n": {
         "en": "Calibration Factor",
-        "tr": "Calibration Factor",
+        "tr": "Kalibrasyon Faktörü",
         "de": "Calibration Factor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplicative calibration factor for conversion (e.g., instrument scale)",
+        "tr": "Dönüşüm için çarpımsal kalibrasyon faktörü (ör. enstrüman ölçeği)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additive offset in arcminutes (e.g., zero error)",
       "label_i18n": {
         "en": "Offset",
-        "tr": "Offset",
+        "tr": "Ofset",
         "de": "Offset",
         "fr": "Offset",
         "es": "Offset",
         "ar": "Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Additive offset in arcminutes (e.g., zero error)",
+        "tr": "Dakika cinsinden toplamsal ofset (ör. sıfır hatası)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of decimal places for rounded output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounded output",
+        "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı"
       }
     }
   ],

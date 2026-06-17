@@ -10,11 +10,15 @@
       "businessContext": "Suction pressure at compressor inlet",
       "label_i18n": {
         "en": "Inlet Pressure",
-        "tr": "Inlet Pressure",
+        "tr": "Giriş basıncı",
         "de": "Inlet Pressure",
         "fr": "Inlet Pressure",
         "es": "Inlet Pressure",
         "ar": "Inlet Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Suction pressure at compressor inlet",
+        "tr": "Kompresör girişinde emme basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Discharge pressure required",
       "label_i18n": {
         "en": "Outlet Pressure",
-        "tr": "Outlet Pressure",
+        "tr": "Çıkış basıncı",
         "de": "Outlet Pressure",
         "fr": "Outlet Pressure",
         "es": "Outlet Pressure",
         "ar": "Outlet Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Discharge pressure required",
+        "tr": "Gerekli boşaltma basıncı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum allowable pressure ratio for a single stage based on compressor type",
       "label_i18n": {
         "en": "Max Pressure Ratio per Stage",
-        "tr": "Max Pressure Ratio per Stage",
+        "tr": "Kademe Başına Maksimum Basınç Oranı",
         "de": "Max Pressure Ratio per Stage",
         "fr": "Max Pressure Ratio per Stage",
         "es": "Max Pressure Ratio per Stage",
         "ar": "Max Pressure Ratio per Stage"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable pressure ratio for a single stage based on compressor type",
+        "tr": "Kompresör tipine göre tek bir kademe için izin verilen maksimum basınç oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Factor to oversize number of stages for reliability, typically 1.05-1.2",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to oversize number of stages for reliability, typically 1.05-1.2",
+        "tr": "Güvenilirlik için kademe sayısını büyütme faktörü, tipik olarak 1.05-1.2"
       }
     }
   ],

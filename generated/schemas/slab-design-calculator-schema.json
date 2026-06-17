@@ -10,11 +10,15 @@
       "businessContext": "Clear span of the slab (simply supported)",
       "label_i18n": {
         "en": "Span Length",
-        "tr": "Span Length",
+        "tr": "Açıklık Uzunluğu",
         "de": "Span Length",
         "fr": "Span Length",
         "es": "Span Length",
         "ar": "Span Length"
+      },
+      "businessContext_i18n": {
+        "en": "Clear span of the slab (simply supported)",
+        "tr": "Döşemenin açık açıklığı (basit mesnetli)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Imposed load (occupancy)",
       "label_i18n": {
         "en": "Live Load",
-        "tr": "Live Load",
+        "tr": "Hareketli Yük",
         "de": "Live Load",
         "fr": "Live Load",
         "es": "Live Load",
         "ar": "Live Load"
+      },
+      "businessContext_i18n": {
+        "en": "Imposed load (occupancy)",
+        "tr": "Hareketli yük (kullanım yükü)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Superimposed dead load (finishes, services)",
       "label_i18n": {
         "en": "Dead Load (excluding self-weight)",
-        "tr": "Dead Load (excluding self-weight)",
+        "tr": "Sabit yük (öz ağırlık hariç)",
         "de": "Dead Load (excluding self-weight)",
         "fr": "Dead Load (excluding self-weight)",
         "es": "Dead Load (excluding self-weight)",
         "ar": "Dead Load (excluding self-weight)"
+      },
+      "businessContext_i18n": {
+        "en": "Superimposed dead load (finishes, services)",
+        "tr": "Sabit ek yük (kaplamalar, servisler)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total depth of slab",
       "label_i18n": {
         "en": "Slab Thickness",
-        "tr": "Slab Thickness",
+        "tr": "Döşeme Kalınlığı",
         "de": "Slab Thickness",
         "fr": "Slab Thickness",
         "es": "Slab Thickness",
         "ar": "Slab Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Total depth of slab",
+        "tr": "Toplam döşeme derinliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "28-day cylinder compressive strength",
       "label_i18n": {
         "en": "Concrete Characteristic Strength (fck)",
-        "tr": "Concrete Characteristic Strength (fck)",
+        "tr": "Beton Karakteristik Dayanımı (fck)",
         "de": "Concrete Characteristic Strength (fck)",
         "fr": "Concrete Characteristic Strength (fck)",
         "es": "Concrete Characteristic Strength (fck)",
         "ar": "Concrete Characteristic Strength (fck)"
+      },
+      "businessContext_i18n": {
+        "en": "28-day cylinder compressive strength",
+        "tr": "28 günlük silindir basınç dayanımı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Characteristic yield strength of reinforcement",
       "label_i18n": {
         "en": "Steel Yield Strength (fyk)",
-        "tr": "Steel Yield Strength (fyk)",
+        "tr": "Çelik Akma Dayanımı (fyk)",
         "de": "Steel Yield Strength (fyk)",
         "fr": "Steel Yield Strength (fyk)",
         "es": "Steel Yield Strength (fyk)",
         "ar": "Steel Yield Strength (fyk)"
+      },
+      "businessContext_i18n": {
+        "en": "Characteristic yield strength of reinforcement",
+        "tr": "Donatının karakteristik akma dayanımı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Clear cover to reinforcement",
       "label_i18n": {
         "en": "Concrete Cover",
-        "tr": "Concrete Cover",
+        "tr": "Beton Örtüsü",
         "de": "Concrete Cover",
         "fr": "Concrete Cover",
         "es": "Concrete Cover",
         "ar": "Concrete Cover"
+      },
+      "businessContext_i18n": {
+        "en": "Clear cover to reinforcement",
+        "tr": "Donatıya net örtü"
       }
     }
   ],

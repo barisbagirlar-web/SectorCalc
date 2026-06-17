@@ -10,11 +10,15 @@
       "businessContext": "Number to convert to scientific notation (when converting from decimal).",
       "label_i18n": {
         "en": "Decimal Number",
-        "tr": "Decimal Number",
+        "tr": "Ondalık Sayı",
         "de": "Decimal Number",
         "fr": "Decimal Number",
         "es": "Decimal Number",
         "ar": "Decimal Number"
+      },
+      "businessContext_i18n": {
+        "en": "Number to convert to scientific notation (when converting from decimal).",
+        "tr": "Bilimsel gösterime dönüştürülecek sayı (ondalıktan dönüştürürken)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Coefficient in scientific notation (when converting from scientific).",
       "label_i18n": {
         "en": "Scientific Coefficient",
-        "tr": "Scientific Coefficient",
+        "tr": "Bilimsel Katsayı",
         "de": "Scientific Coefficient",
         "fr": "Scientific Coefficient",
         "es": "Scientific Coefficient",
         "ar": "Scientific Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient in scientific notation (when converting from scientific).",
+        "tr": "Bilimsel gösterimde katsayı (bilimselden dönüştürürken)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Exponent in scientific notation (when converting from scientific).",
       "label_i18n": {
         "en": "Scientific Exponent",
-        "tr": "Scientific Exponent",
+        "tr": "Bilimsel Üs",
         "de": "Scientific Exponent",
         "fr": "Scientific Exponent",
         "es": "Scientific Exponent",
         "ar": "Scientific Exponent"
+      },
+      "businessContext_i18n": {
+        "en": "Exponent in scientific notation (when converting from scientific).",
+        "tr": "Bilimsel gösterimde üs (bilimselden dönüştürürken)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Select conversion direction.",
       "label_i18n": {
         "en": "Conversion Mode",
-        "tr": "Conversion Mode",
+        "tr": "Dönüştürme Modu",
         "de": "Conversion Mode",
         "fr": "Conversion Mode",
         "es": "Conversion Mode",
         "ar": "Conversion Mode"
+      },
+      "businessContext_i18n": {
+        "en": "Select conversion direction.",
+        "tr": "Dönüştürme yönünü seçin."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places in output.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places in output.",
+        "tr": "Çıktıdaki ondalık basamak sayısı."
       }
     }
   ],

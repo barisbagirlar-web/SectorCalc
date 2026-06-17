@@ -10,11 +10,15 @@
       "businessContext": "Density of deuterium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter.",
       "label_i18n": {
         "en": "Deuterium Density (n_D)",
-        "tr": "Deuterium Density (n_D)",
+        "tr": "Döteryum Yoğunluğu (n_D)",
         "de": "Deuterium Density (n_D)",
         "fr": "Deuterium Density (n_D)",
         "es": "Deuterium Density (n_D)",
         "ar": "Deuterium Density (n_D)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of deuterium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter.",
+        "tr": "Füzyon plazmasındaki döteryum iyonlarının yoğunluğu, metreküp başına 10^20 parçacık birimiyle ölçülür."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Density of tritium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter.",
       "label_i18n": {
         "en": "Tritium Density (n_T)",
-        "tr": "Tritium Density (n_T)",
+        "tr": "Trityum Yoğunluğu (n_T)",
         "de": "Tritium Density (n_T)",
         "fr": "Tritium Density (n_T)",
         "es": "Tritium Density (n_T)",
         "ar": "Tritium Density (n_T)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of tritium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter.",
+        "tr": "Füzyon plazmasındaki trityum iyonlarının yoğunluğu, metreküp başına 10^20 parçacık birimiyle ölçülür."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Plasma ion temperature in kilo-electronvolts (keV), typically 10-20 keV for DT fusion.",
       "label_i18n": {
         "en": "Ion Temperature (T)",
-        "tr": "Ion Temperature (T)",
+        "tr": "İyon Sıcaklığı (T)",
         "de": "Ion Temperature (T)",
         "fr": "Ion Temperature (T)",
         "es": "Ion Temperature (T)",
         "ar": "Ion Temperature (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Plasma ion temperature in kilo-electronvolts (keV), typically 10-20 keV for DT fusion.",
+        "tr": "Plazma iyon sıcaklığı kilo-elektronvolt (keV) cinsinden, DT füzyonu için tipik olarak 10-20 keV."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Energy confinement time in seconds, representing how well the plasma retains its heat.",
       "label_i18n": {
         "en": "Energy Confinement Time (τ)",
-        "tr": "Energy Confinement Time (τ)",
+        "tr": "Enerji Hapsolma Süresi (τ)",
         "de": "Energy Confinement Time (τ)",
         "fr": "Energy Confinement Time (τ)",
         "es": "Energy Confinement Time (τ)",
         "ar": "Energy Confinement Time (τ)"
+      },
+      "businessContext_i18n": {
+        "en": "Energy confinement time in seconds, representing how well the plasma retains its heat.",
+        "tr": "Plazmanın ısısını ne kadar iyi koruduğunu temsil eden enerji hapsolma süresi saniye cinsinden."
       }
     }
   ],

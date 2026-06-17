@@ -10,11 +10,15 @@
       "businessContext": "Design force acting on the welded joint.",
       "label_i18n": {
         "en": "Applied Force",
-        "tr": "Applied Force",
+        "tr": "Uygulanan Kuvvet",
         "de": "Applied Force",
         "fr": "Applied Force",
         "es": "Applied Force",
         "ar": "Applied Force"
+      },
+      "businessContext_i18n": {
+        "en": "Design force acting on the welded joint.",
+        "tr": "Kaynaklı birleşime etki eden tasarım kuvveti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Allowable shear stress for the weld material, as per applicable welding code (e.g., AWS D1.1, EN 1993-1-8).",
       "label_i18n": {
         "en": "Allowable Shear Stress",
-        "tr": "Allowable Shear Stress",
+        "tr": "İzin Verilen Kayma Gerilmesi",
         "de": "Allowable Shear Stress",
         "fr": "Allowable Shear Stress",
         "es": "Allowable Shear Stress",
         "ar": "Allowable Shear Stress"
+      },
+      "businessContext_i18n": {
+        "en": "Allowable shear stress for the weld material, as per applicable welding code (e.g., AWS D1.1, EN 1993-1-8).",
+        "tr": "Kaynak malzemesi için izin verilen kayma gerilmesi, ilgili kaynak koduna göre (örn. AWS D1.1, EN 1993-1-8)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of fillet welds sharing the load.",
       "label_i18n": {
         "en": "Number of Welds",
-        "tr": "Number of Welds",
+        "tr": "Kaynak Sayısı",
         "de": "Number of Welds",
         "fr": "Number of Welds",
         "es": "Number of Welds",
         "ar": "Number of Welds"
+      },
+      "businessContext_i18n": {
+        "en": "Number of fillet welds sharing the load.",
+        "tr": "Yükü paylaşan köşe kaynak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Effective length of each individual fillet weld.",
       "label_i18n": {
         "en": "Length per Weld",
-        "tr": "Length per Weld",
+        "tr": "Kaynak Başına Uzunluk",
         "de": "Length per Weld",
         "fr": "Length per Weld",
         "es": "Length per Weld",
         "ar": "Length per Weld"
+      },
+      "businessContext_i18n": {
+        "en": "Effective length of each individual fillet weld.",
+        "tr": "Her bir köşe kaynağının etkili uzunluğu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Design safety factor to account for uncertainties.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor to account for uncertainties.",
+        "tr": "Belirsizlikleri hesaba katmak için tasarım güvenlik faktörü."
       }
     }
   ],

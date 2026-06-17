@@ -10,11 +10,15 @@
       "businessContext": "Total amount of dividends paid to shareholders in the period (e.g., quarterly or annually).",
       "label_i18n": {
         "en": "Paid Dividends",
-        "tr": "Paid Dividends",
+        "tr": "Ödenen Temettüler",
         "de": "Paid Dividends",
         "fr": "Paid Dividends",
         "es": "Paid Dividends",
         "ar": "Paid Dividends"
+      },
+      "businessContext_i18n": {
+        "en": "Total amount of dividends paid to shareholders in the period (e.g., quarterly or annually).",
+        "tr": "Dönemde (örneğin üç aylık veya yıllık) hissedarlara ödenen toplam temettü tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Company’s net income (profit after all expenses) for the same period.",
       "label_i18n": {
         "en": "Net Income",
-        "tr": "Net Income",
+        "tr": "Net Gelir",
         "de": "Net Income",
         "fr": "Net Income",
         "es": "Net Income",
         "ar": "Net Income"
+      },
+      "businessContext_i18n": {
+        "en": "Company’s net income (profit after all expenses) for the same period.",
+        "tr": "Şirketin aynı dönemdeki net geliri (tüm giderler sonrası kar)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Dividends paid per outstanding share (alternative numerator for per-share calculation).",
       "label_i18n": {
         "en": "Dividends Per Share",
-        "tr": "Dividends Per Share",
+        "tr": "Hisse Başına Temettü",
         "de": "Dividends Per Share",
         "fr": "Dividends Per Share",
         "es": "Dividends Per Share",
         "ar": "Dividends Per Share"
+      },
+      "businessContext_i18n": {
+        "en": "Dividends paid per outstanding share (alternative numerator for per-share calculation).",
+        "tr": "Ödenmemiş hisse başına ödenen temettü (hisse başına hesaplama için alternatif pay)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Earnings per share for the period (alternative denominator for per-share calculation).",
       "label_i18n": {
         "en": "Earnings Per Share",
-        "tr": "Earnings Per Share",
+        "tr": "Hisse Başına Kazanç",
         "de": "Earnings Per Share",
         "fr": "Earnings Per Share",
         "es": "Earnings Per Share",
         "ar": "Earnings Per Share"
+      },
+      "businessContext_i18n": {
+        "en": "Earnings per share for the period (alternative denominator for per-share calculation).",
+        "tr": "Dönem için hisse başına kazanç (hisse başına hesaplama için alternatif payda)."
       }
     }
   ],

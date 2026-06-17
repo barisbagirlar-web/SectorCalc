@@ -10,11 +10,15 @@
       "businessContext": "The selling price of the property you are giving up",
       "label_i18n": {
         "en": "Sale Price of Relinquished Property",
-        "tr": "Sale Price of Relinquished Property",
+        "tr": "Devredilen Mülkün Satış Fiyatı",
         "de": "Sale Price of Relinquished Property",
         "fr": "Sale Price of Relinquished Property",
         "es": "Sale Price of Relinquished Property",
         "ar": "Sale Price of Relinquished Property"
+      },
+      "businessContext_i18n": {
+        "en": "The selling price of the property you are giving up",
+        "tr": "Vazgeçtiğiniz mülkün satış fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Outstanding mortgage balance on the relinquished property that will be paid off at sale",
       "label_i18n": {
         "en": "Mortgage Payoff on Relinquished Property",
-        "tr": "Mortgage Payoff on Relinquished Property",
+        "tr": "Devredilen Mülkün Mortgage Ödemesi",
         "de": "Mortgage Payoff on Relinquished Property",
         "fr": "Mortgage Payoff on Relinquished Property",
         "es": "Mortgage Payoff on Relinquished Property",
         "ar": "Mortgage Payoff on Relinquished Property"
+      },
+      "businessContext_i18n": {
+        "en": "Outstanding mortgage balance on the relinquished property that will be paid off at sale",
+        "tr": "Satışta ödenecek devredilen mülkün kalan mortgage bakiyesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total costs associated with selling the relinquished property, e.g., agent commissions, legal fees",
       "label_i18n": {
         "en": "Selling Costs (Commissions, Closing)",
-        "tr": "Selling Costs (Commissions, Closing)",
+        "tr": "Satış Maliyetleri (Komisyonlar, Kapanış)",
         "de": "Selling Costs (Commissions, Closing)",
         "fr": "Selling Costs (Commissions, Closing)",
         "es": "Selling Costs (Commissions, Closing)",
         "ar": "Selling Costs (Commissions, Closing)"
+      },
+      "businessContext_i18n": {
+        "en": "Total costs associated with selling the relinquished property, e.g., agent commissions, legal fees",
+        "tr": "Devredilen mülkün satışıyla ilgili toplam maliyetler, örn. emlakçı komisyonları, yasal ücretler"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The purchase price of the replacement property you intend to acquire",
       "label_i18n": {
         "en": "Purchase Price of Replacement Property",
-        "tr": "Purchase Price of Replacement Property",
+        "tr": "Yedek Mülkün Satın Alma Fiyatı",
         "de": "Purchase Price of Replacement Property",
         "fr": "Purchase Price of Replacement Property",
         "es": "Purchase Price of Replacement Property",
         "ar": "Purchase Price of Replacement Property"
+      },
+      "businessContext_i18n": {
+        "en": "The purchase price of the replacement property you intend to acquire",
+        "tr": "Satın almayı planladığınız ikame mülkün satın alma fiyatı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Amount of new mortgage or debt assumed on the replacement property",
       "label_i18n": {
         "en": "New Mortgage on Replacement Property",
-        "tr": "New Mortgage on Replacement Property",
+        "tr": "İkame Mülk Üzerindeki Yeni İpotek",
         "de": "New Mortgage on Replacement Property",
         "fr": "New Mortgage on Replacement Property",
         "es": "New Mortgage on Replacement Property",
         "ar": "New Mortgage on Replacement Property"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of new mortgage or debt assumed on the replacement property",
+        "tr": "İkame mülk üzerinde üstlenilen yeni ipotek veya borç tutarı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total costs associated with purchasing the replacement property, e.g., title insurance, recording fees",
       "label_i18n": {
         "en": "Buying Costs (Closing)",
-        "tr": "Buying Costs (Closing)",
+        "tr": "Satın Alma Maliyetleri (Kapanış)",
         "de": "Buying Costs (Closing)",
         "fr": "Buying Costs (Closing)",
         "es": "Buying Costs (Closing)",
         "ar": "Buying Costs (Closing)"
+      },
+      "businessContext_i18n": {
+        "en": "Total costs associated with purchasing the replacement property, e.g., title insurance, recording fees",
+        "tr": "İkame mülkün satın alınmasıyla ilgili toplam maliyetler, örn. tapu sigortası, kayıt ücretleri"
       }
     }
   ],

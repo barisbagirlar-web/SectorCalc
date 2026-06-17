@@ -10,11 +10,15 @@
       "businessContext": "The standard reduction potential of the half-reaction under standard conditions (1 M, 1 atm, 25°C).",
       "label_i18n": {
         "en": "Standard Reduction Potential (E°)",
-        "tr": "Standard Reduction Potential (E°)",
+        "tr": "Standart İndirgenme Potansiyeli (E°)",
         "de": "Standard Reduction Potential (E°)",
         "fr": "Standard Reduction Potential (E°)",
         "es": "Standard Reduction Potential (E°)",
         "ar": "Standard Reduction Potential (E°)"
+      },
+      "businessContext_i18n": {
+        "en": "The standard reduction potential of the half-reaction under standard conditions (1 M, 1 atm, 25°C).",
+        "tr": "Standart koşullar altında (1 M, 1 atm, 25°C) yarı reaksiyonun standart indirgenme potansiyeli."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Temperature in Kelvin.",
       "label_i18n": {
         "en": "Temperature (T)",
-        "tr": "Temperature (T)",
+        "tr": "Sıcaklık (T)",
         "de": "Temperature (T)",
         "fr": "Temperature (T)",
         "es": "Temperature (T)",
         "ar": "Temperature (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature in Kelvin.",
+        "tr": "Kelvin cinsinden sıcaklık."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Stoichiometric number of electrons in the half-reaction.",
       "label_i18n": {
         "en": "Number of Electrons Transferred (n)",
-        "tr": "Number of Electrons Transferred (n)",
+        "tr": "Transfer Edilen Elektron Sayısı (n)",
         "de": "Number of Electrons Transferred (n)",
         "fr": "Number of Electrons Transferred (n)",
         "es": "Number of Electrons Transferred (n)",
         "ar": "Number of Electrons Transferred (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Stoichiometric number of electrons in the half-reaction.",
+        "tr": "Yarı reaksiyondaki elektronların stokiyometrik sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Molar concentration of the oxidized species (reactant).",
       "label_i18n": {
         "en": "Concentration of Oxidized Species [Ox]",
-        "tr": "Concentration of Oxidized Species [Ox]",
+        "tr": "Yükseltgenmiş Türlerin Konsantrasyonu [Ox]",
         "de": "Concentration of Oxidized Species [Ox]",
         "fr": "Concentration of Oxidized Species [Ox]",
         "es": "Concentration of Oxidized Species [Ox]",
         "ar": "Concentration of Oxidized Species [Ox]"
+      },
+      "businessContext_i18n": {
+        "en": "Molar concentration of the oxidized species (reactant).",
+        "tr": "Yükseltgenmiş türün (reaktan) molar konsantrasyonu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Molar concentration of the reduced species (product).",
       "label_i18n": {
         "en": "Concentration of Reduced Species [Red]",
-        "tr": "Concentration of Reduced Species [Red]",
+        "tr": "İndirgenmiş Tür Konsantrasyonu [Red]",
         "de": "Concentration of Reduced Species [Red]",
         "fr": "Concentration of Reduced Species [Red]",
         "es": "Concentration of Reduced Species [Red]",
         "ar": "Concentration of Reduced Species [Red]"
+      },
+      "businessContext_i18n": {
+        "en": "Molar concentration of the reduced species (product).",
+        "tr": "İndirgenmiş türün molar konsantrasyonu (ürün)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Coefficient for the oxidized species in the balanced half-reaction: aOx + ne- → bRed.",
       "label_i18n": {
         "en": "Stoichiometric Coefficient of Oxidized Species (a)",
-        "tr": "Stoichiometric Coefficient of Oxidized Species (a)",
+        "tr": "Yükseltgenmiş Türün Stokiyometrik Katsayısı (a)",
         "de": "Stoichiometric Coefficient of Oxidized Species (a)",
         "fr": "Stoichiometric Coefficient of Oxidized Species (a)",
         "es": "Stoichiometric Coefficient of Oxidized Species (a)",
         "ar": "Stoichiometric Coefficient of Oxidized Species (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for the oxidized species in the balanced half-reaction: aOx + ne- → bRed.",
+        "tr": "Dengeli yarı reaksiyondaki yükseltgenmiş türün katsayısı: aOx + ne- → bRed."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Coefficient for the reduced species in the balanced half-reaction.",
       "label_i18n": {
         "en": "Stoichiometric Coefficient of Reduced Species (b)",
-        "tr": "Stoichiometric Coefficient of Reduced Species (b)",
+        "tr": "İndirgenmiş Türün Stokiyometrik Katsayısı (b)",
         "de": "Stoichiometric Coefficient of Reduced Species (b)",
         "fr": "Stoichiometric Coefficient of Reduced Species (b)",
         "es": "Stoichiometric Coefficient of Reduced Species (b)",
         "ar": "Stoichiometric Coefficient of Reduced Species (b)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for the reduced species in the balanced half-reaction.",
+        "tr": "Dengeli yarı reaksiyondaki indirgenmiş türün katsayısı."
       }
     }
   ],

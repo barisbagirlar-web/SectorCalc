@@ -21,10 +21,12 @@
       "max": 30,
       "businessContext": "The prevailing market interest rate for the reference period.",
       "label_i18n": {
-        "en": "Current Interest Rate (%)"
+        "en": "Current Interest Rate (%)",
+        "tr": "Mevcut Faiz Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "The prevailing market interest rate for the reference period."
+        "en": "The prevailing market interest rate for the reference period.",
+        "tr": "Referans dönemi için geçerli piyasa faiz oranı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 500,
       "businessContext": "Anticipated shift in interest rate in basis points (1 bps = 0.01%).",
       "label_i18n": {
-        "en": "Expected Rate Change (bps)"
+        "en": "Expected Rate Change (bps)",
+        "tr": "Beklenen Faiz Değişimi (bps)"
       },
       "businessContext_i18n": {
-        "en": "Anticipated shift in interest rate in basis points (1 bps = 0.01%)."
+        "en": "Anticipated shift in interest rate in basis points (1 bps = 0.01%).",
+        "tr": "Baz puan cinsinden beklenen faiz değişimi (1 bps = %0,01)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10000000000,
       "businessContext": "Total notional value of the fixed-income portfolio.",
       "label_i18n": {
-        "en": "Portfolio Value (USD)"
+        "en": "Portfolio Value (USD)",
+        "tr": "Portföy Değeri (USD)"
       },
       "businessContext_i18n": {
-        "en": "Total notional value of the fixed-income portfolio."
+        "en": "Total notional value of the fixed-income portfolio.",
+        "tr": "Sabit getirili portföyün toplam nominal değeri."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 30,
       "businessContext": "Sensitivity of bond price to yield changes, adjusted for yield.",
       "label_i18n": {
-        "en": "Modified Duration (years)"
+        "en": "Modified Duration (years)",
+        "tr": "Modifiye Süre (yıl)"
       },
       "businessContext_i18n": {
-        "en": "Sensitivity of bond price to yield changes, adjusted for yield."
+        "en": "Sensitivity of bond price to yield changes, adjusted for yield.",
+        "tr": "Tahvil fiyatının getiri değişimlerine duyarlılığı, getiriye göre düzeltilmiş."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 500,
       "businessContext": "Second-order measure of curvature in price-yield relationship.",
       "label_i18n": {
-        "en": "Convexity"
+        "en": "Convexity",
+        "tr": "Konveksite"
       },
       "businessContext_i18n": {
-        "en": "Second-order measure of curvature in price-yield relationship."
+        "en": "Second-order measure of curvature in price-yield relationship.",
+        "tr": "Fiyat-getiri ilişkisindeki eğriliğin ikinci derece ölçüsü."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Percentage of portfolio hedged using derivatives or swaps.",
       "label_i18n": {
-        "en": "Hedge Ratio (%)"
+        "en": "Hedge Ratio (%)",
+        "tr": "Korunma Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of portfolio hedged using derivatives or swaps."
+        "en": "Percentage of portfolio hedged using derivatives or swaps.",
+        "tr": "Türev veya swap kullanılarak korunan portföy yüzdesi."
       }
     },
     {
@@ -122,10 +134,12 @@
         "99%"
       ],
       "label_i18n": {
-        "en": "Confidence Level"
+        "en": "Confidence Level",
+        "tr": "Güven Düzeyi"
       },
       "businessContext_i18n": {
-        "en": "Statistical confidence for VaR and tail risk estimation."
+        "en": "Statistical confidence for VaR and tail risk estimation.",
+        "tr": "VaR ve kuyruk risk tahmini için istatistiksel güven."
       }
     },
     {
@@ -144,10 +158,12 @@
         "extreme"
       ],
       "label_i18n": {
-        "en": "Volatility Regime"
+        "en": "Volatility Regime",
+        "tr": "Volatilite Rejimi"
       },
       "businessContext_i18n": {
-        "en": "Market volatility environment for stress testing."
+        "en": "Market volatility environment for stress testing.",
+        "tr": "Stres testi için piyasa volatilite ortamı."
       }
     }
   ],

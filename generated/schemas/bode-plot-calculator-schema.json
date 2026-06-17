@@ -10,11 +10,15 @@
       "businessContext": "System static gain (K)",
       "label_i18n": {
         "en": "DC Gain",
-        "tr": "DC Gain",
+        "tr": "DC Kazanç",
         "de": "DC Gain",
         "fr": "DC Gain",
         "es": "DC Gain",
         "ar": "DC Gain"
+      },
+      "businessContext_i18n": {
+        "en": "System static gain (K)",
+        "tr": "Sistem statik kazancı (K)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cut-off frequency of dominant pole (>0 Hz)",
       "label_i18n": {
         "en": "Pole Frequency",
-        "tr": "Pole Frequency",
+        "tr": "Kutup Frekansı",
         "de": "Pole Frequency",
         "fr": "Pole Frequency",
         "es": "Pole Frequency",
         "ar": "Pole Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Cut-off frequency of dominant pole (>0 Hz)",
+        "tr": "Baskın kutbun kesme frekansı (>0 Hz)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Frequency of zero (>0 Hz)",
       "label_i18n": {
         "en": "Zero Frequency",
-        "tr": "Zero Frequency",
+        "tr": "Sıfır Frekans",
         "de": "Zero Frequency",
         "fr": "Zero Frequency",
         "es": "Zero Frequency",
         "ar": "Zero Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency of zero (>0 Hz)",
+        "tr": "Sıfır frekansı (>0 Hz)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Frequency at which to evaluate magnitude",
       "label_i18n": {
         "en": "Test Frequency",
-        "tr": "Test Frequency",
+        "tr": "Test Frekansı",
         "de": "Test Frequency",
         "fr": "Test Frequency",
         "es": "Test Frequency",
         "ar": "Test Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency at which to evaluate magnitude",
+        "tr": "Genliğin değerlendirileceği frekans"
       }
     }
   ],

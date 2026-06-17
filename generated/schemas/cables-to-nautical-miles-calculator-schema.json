@@ -10,11 +10,15 @@
       "businessContext": "Length in cables (1 standard cable = 0.1 nautical miles).",
       "label_i18n": {
         "en": "Cables",
-        "tr": "Cables",
+        "tr": "Kablolar",
         "de": "Cables",
         "fr": "Cables",
         "es": "Cables",
         "ar": "Cables"
+      },
+      "businessContext_i18n": {
+        "en": "Length in cables (1 standard cable = 0.1 nautical miles).",
+        "tr": "Kablolarda uzunluk (1 standart kablo = 0,1 deniz mili)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nautical miles per cable. Standard is 0.1. Adjust for non-standard cable definitions.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Nautical miles per cable. Standard is 0.1. Adjust for non-standard cable definitions.",
+        "tr": "Kablo başına deniz mili. Standart 0,1'dir. Standart olmayan kablo tanımları için ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "± uncertainty in the cable measurement.",
       "label_i18n": {
         "en": "Measurement Uncertainty",
-        "tr": "Measurement Uncertainty",
+        "tr": "Ölçüm Belirsizliği",
         "de": "Measurement Uncertainty",
         "fr": "Measurement Uncertainty",
         "es": "Measurement Uncertainty",
         "ar": "Measurement Uncertainty"
+      },
+      "businessContext_i18n": {
+        "en": "± uncertainty in the cable measurement.",
+        "tr": "Kablo ölçümünde ± belirsizlik."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     }
   ],

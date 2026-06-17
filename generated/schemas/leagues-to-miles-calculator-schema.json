@@ -10,11 +10,15 @@
       "businessContext": "Distance in leagues to convert",
       "label_i18n": {
         "en": "Leagues",
-        "tr": "Leagues",
+        "tr": "Lig",
         "de": "Leagues",
         "fr": "Leagues",
         "es": "Leagues",
         "ar": "Leagues"
+      },
+      "businessContext_i18n": {
+        "en": "Distance in leagues to convert",
+        "tr": "Dönüştürülecek lig cinsinden mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0: Statute (3 mi/lg), 1: Nautical (3.452 mi/lg), 2: Metric (2.485 mi/lg)",
       "label_i18n": {
         "en": "League Type",
-        "tr": "League Type",
+        "tr": "Lig Türü",
         "de": "League Type",
         "fr": "League Type",
         "es": "League Type",
         "ar": "League Type"
+      },
+      "businessContext_i18n": {
+        "en": "0: Statute (3 mi/lg), 1: Nautical (3.452 mi/lg), 2: Metric (2.485 mi/lg)",
+        "tr": "0: Kara (3 mil/lg), 1: Deniz (3.452 mil/lg), 2: Metrik (2.485 mil/lg)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounded output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounded output",
+        "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Override miles per league; if zero, uses league type default",
       "label_i18n": {
         "en": "Custom Factor (0=use type)",
-        "tr": "Custom Factor (0=use type)",
+        "tr": "Özel Faktör (0=türü kullan)",
         "de": "Custom Factor (0=use type)",
         "fr": "Custom Factor (0=use type)",
         "es": "Custom Factor (0=use type)",
         "ar": "Custom Factor (0=use type)"
+      },
+      "businessContext_i18n": {
+        "en": "Override miles per league; if zero, uses league type default",
+        "tr": "Mil/lig değerini geçersiz kılar; sıfırsa lig türü varsayılanını kullanır"
       }
     }
   ],

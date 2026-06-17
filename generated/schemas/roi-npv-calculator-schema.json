@@ -24,10 +24,12 @@
       "max": 100000000,
       "businessContext": "Total upfront capital expenditure including equipment, installation, and training costs.",
       "label_i18n": {
-        "en": "Initial Investment"
+        "en": "Initial Investment",
+        "tr": "Başlangıç Yatırımı"
       },
       "businessContext_i18n": {
-        "en": "Total upfront capital expenditure including equipment, installation, and training costs."
+        "en": "Total upfront capital expenditure including equipment, installation, and training costs.",
+        "tr": "Ekipman, kurulum ve eğitim maliyetleri dahil toplam peşin sermaye harcaması."
       }
     },
     {
@@ -40,10 +42,12 @@
       "max": 100000000,
       "businessContext": "Expected annual net cash inflow from the investment (revenue increase or cost savings).",
       "label_i18n": {
-        "en": "Annual Cash Inflow"
+        "en": "Annual Cash Inflow",
+        "tr": "Yıllık Nakit Girişi"
       },
       "businessContext_i18n": {
-        "en": "Expected annual net cash inflow from the investment (revenue increase or cost savings)."
+        "en": "Expected annual net cash inflow from the investment (revenue increase or cost savings).",
+        "tr": "Yatırımdan beklenen yıllık net nakit girişi (gelir artışı veya maliyet tasarrufu)."
       }
     },
     {
@@ -56,10 +60,12 @@
       "max": 100000000,
       "businessContext": "Annual operating and maintenance costs associated with the investment.",
       "label_i18n": {
-        "en": "Annual Cash Outflow"
+        "en": "Annual Cash Outflow",
+        "tr": "Yıllık Nakit Çıkışı"
       },
       "businessContext_i18n": {
-        "en": "Annual operating and maintenance costs associated with the investment."
+        "en": "Annual operating and maintenance costs associated with the investment.",
+        "tr": "Yatırımla ilgili yıllık işletme ve bakım maliyetleri."
       }
     },
     {
@@ -72,10 +78,12 @@
       "max": 100,
       "businessContext": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663.",
       "label_i18n": {
-        "en": "Discount Rate (%)"
+        "en": "Discount Rate (%)",
+        "tr": "İskonto Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663."
+        "en": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663.",
+        "tr": "ISO 15663'e göre ağırlıklı ortalama sermaye maliyeti (WACC) veya gerekli getiri oranı."
       }
     },
     {
@@ -88,10 +96,12 @@
       "max": 50,
       "businessContext": "Expected useful life of the investment per ISO 15686.",
       "label_i18n": {
-        "en": "Project Life (Years)"
+        "en": "Project Life (Years)",
+        "tr": "Proje Ömrü (Yıl)"
       },
       "businessContext_i18n": {
-        "en": "Expected useful life of the investment per ISO 15686."
+        "en": "Expected useful life of the investment per ISO 15686.",
+        "tr": "ISO 15686'ya göre yatırımın beklenen faydalı ömrü."
       }
     },
     {
@@ -104,10 +114,12 @@
       "max": 100000000,
       "businessContext": "Estimated residual value at end of project life.",
       "label_i18n": {
-        "en": "Salvage Value"
+        "en": "Salvage Value",
+        "tr": "Hurda Değeri"
       },
       "businessContext_i18n": {
-        "en": "Estimated residual value at end of project life."
+        "en": "Estimated residual value at end of project life.",
+        "tr": "Proje ömrü sonunda tahmini kalıntı değer."
       }
     },
     {
@@ -120,10 +132,12 @@
       "max": 100,
       "businessContext": "Expected annual inflation rate for adjusting future cash flows.",
       "label_i18n": {
-        "en": "Inflation Rate (%)"
+        "en": "Inflation Rate (%)",
+        "tr": "Enflasyon Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Expected annual inflation rate for adjusting future cash flows."
+        "en": "Expected annual inflation rate for adjusting future cash flows.",
+        "tr": "Gelecekteki nakit akışlarını düzeltmek için beklenen yıllık enflasyon oranı."
       }
     },
     {
@@ -136,10 +150,12 @@
       "max": 100,
       "businessContext": "Effective corporate tax rate for after-tax cash flow calculations.",
       "label_i18n": {
-        "en": "Tax Rate (%)"
+        "en": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Effective corporate tax rate for after-tax cash flow calculations."
+        "en": "Effective corporate tax rate for after-tax cash flow calculations.",
+        "tr": "Vergi sonrası nakit akışı hesaplamaları için efektif kurumlar vergisi oranı."
       }
     }
   ],

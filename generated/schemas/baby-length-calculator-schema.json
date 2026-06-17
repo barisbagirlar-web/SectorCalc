@@ -10,11 +10,15 @@
       "businessContext": "Baby's age in months, used for length estimation based on standard growth curves.",
       "label_i18n": {
         "en": "Age (months)",
-        "tr": "Age (months)",
+        "tr": "Yaş (ay)",
         "de": "Age (months)",
         "fr": "Age (months)",
         "es": "Age (months)",
         "ar": "Age (months)"
+      },
+      "businessContext_i18n": {
+        "en": "Baby's age in months, used for length estimation based on standard growth curves.",
+        "tr": "Bebeğin ay cinsinden yaşı, standart büyüme eğrilerine dayalı boy tahmini için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Baby's weight in kilograms, a supplementary predictor for length.",
       "label_i18n": {
         "en": "Weight (kg)",
-        "tr": "Weight (kg)",
+        "tr": "Ağırlık (kg)",
         "de": "Weight (kg)",
         "fr": "Weight (kg)",
         "es": "Weight (kg)",
         "ar": "Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Baby's weight in kilograms, a supplementary predictor for length.",
+        "tr": "Bebeğin kilogram cinsinden ağırlığı, boy için tamamlayıcı bir tahmin edici."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Gender code (0 for female, 1 for male) to apply length offset.",
       "label_i18n": {
         "en": "Gender (0=girl, 1=boy)",
-        "tr": "Gender (0=girl, 1=boy)",
+        "tr": "Cinsiyet (0=kız, 1=erkek)",
         "de": "Gender (0=girl, 1=boy)",
         "fr": "Gender (0=girl, 1=boy)",
         "es": "Gender (0=girl, 1=boy)",
         "ar": "Gender (0=girl, 1=boy)"
+      },
+      "businessContext_i18n": {
+        "en": "Gender code (0 for female, 1 for male) to apply length offset.",
+        "tr": "Cinsiyet kodu (0 kadın, 1 erkek) boy ofsetini uygulamak için."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of weeks born early; used to correct age for prematurity adjustment.",
       "label_i18n": {
         "en": "Premature (weeks)",
-        "tr": "Premature (weeks)",
+        "tr": "Prematüre (hafta)",
         "de": "Premature (weeks)",
         "fr": "Premature (weeks)",
         "es": "Premature (weeks)",
         "ar": "Premature (weeks)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of weeks born early; used to correct age for prematurity adjustment.",
+        "tr": "Erken doğan hafta sayısı; prematüre ayarlaması için yaşı düzeltmek amacıyla kullanılır."
       }
     }
   ],

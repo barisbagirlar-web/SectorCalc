@@ -22,10 +22,12 @@
       "max": 1000000,
       "businessContext": "Total weight of finished goods produced in the reporting period (ISO 14051 material flow).",
       "label_i18n": {
-        "en": "Total Production (kg)"
+        "en": "Total Production (kg)",
+        "tr": "Toplam Üretim (kg)"
       },
       "businessContext_i18n": {
-        "en": "Total weight of finished goods produced in the reporting period (ISO 14051 material flow)."
+        "en": "Total weight of finished goods produced in the reporting period (ISO 14051 material flow).",
+        "tr": "Raporlama döneminde üretilen mamullerin toplam ağırlığı (ISO 14051 malzeme akışı)."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 1000000,
       "businessContext": "Total weight of food waste generated (including trim, spoilage, overproduction, and expired product).",
       "label_i18n": {
-        "en": "Waste (kg)"
+        "en": "Waste (kg)",
+        "tr": "Fire (kg)"
       },
       "businessContext_i18n": {
-        "en": "Total weight of food waste generated (including trim, spoilage, overproduction, and expired product)."
+        "en": "Total weight of food waste generated (including trim, spoilage, overproduction, and expired product).",
+        "tr": "Oluşan toplam gıda atığı ağırlığı (kırpıntı, bozulma, aşırı üretim ve son kullanma tarihi geçmiş ürün dahil)."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 1000,
       "businessContext": "Average revenue per kg of finished product sold (net of discounts).",
       "label_i18n": {
-        "en": "Selling Price per kg"
+        "en": "Selling Price per kg",
+        "tr": "Kg başına satış fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Average revenue per kg of finished product sold (net of discounts)."
+        "en": "Average revenue per kg of finished product sold (net of discounts).",
+        "tr": "Satılan mamulün kg başına ortalama geliri (iskontolar düşülmüş)."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 1000,
       "businessContext": "Total variable cost per kg (raw materials, labor, energy, packaging).",
       "label_i18n": {
-        "en": "Cost per kg"
+        "en": "Cost per kg",
+        "tr": "Kg başına maliyet"
       },
       "businessContext_i18n": {
-        "en": "Total variable cost per kg (raw materials, labor, energy, packaging)."
+        "en": "Total variable cost per kg (raw materials, labor, energy, packaging).",
+        "tr": "Kg başına toplam değişken maliyet (hammadde, işçilik, enerji, ambalaj)."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 10,
       "businessContext": "Cost to dispose of waste (landfill, composting, incineration).",
       "label_i18n": {
-        "en": "Waste Disposal Cost per kg"
+        "en": "Waste Disposal Cost per kg",
+        "tr": "Kg başına atık bertaraf maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost to dispose of waste (landfill, composting, incineration)."
+        "en": "Cost to dispose of waste (landfill, composting, incineration).",
+        "tr": "Atığın bertaraf maliyeti (depolama, kompostlama, yakma)."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 100,
       "businessContext": "Percentage of production that requires rework (Lean Six Sigma defect rate).",
       "label_i18n": {
-        "en": "Rework Percentage"
+        "en": "Rework Percentage",
+        "tr": "Yeniden işleme yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Percentage of production that requires rework (Lean Six Sigma defect rate)."
+        "en": "Percentage of production that requires rework (Lean Six Sigma defect rate).",
+        "tr": "Yeniden işleme gerektiren üretim yüzdesi (Yalın Altı Sigma kusur oranı)."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 200,
       "businessContext": "Average fully loaded labor cost per hour (including benefits).",
       "label_i18n": {
-        "en": "Labor Hourly Rate"
+        "en": "Labor Hourly Rate",
+        "tr": "İşçilik Saatlik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Average fully loaded labor cost per hour (including benefits)."
+        "en": "Average fully loaded labor cost per hour (including benefits).",
+        "tr": "Saat başına ortalama tam yüklü işçilik maliyeti (yan haklar dahil)."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 10,
       "businessContext": "Average labor hours required to rework one kg of product.",
       "label_i18n": {
-        "en": "Rework Hours per kg"
+        "en": "Rework Hours per kg",
+        "tr": "kg başına yeniden işleme saati"
       },
       "businessContext_i18n": {
-        "en": "Average labor hours required to rework one kg of product."
+        "en": "Average labor hours required to rework one kg of product.",
+        "tr": "Bir kg ürünü yeniden işlemek için gereken ortalama işçilik saati."
       }
     }
   ],

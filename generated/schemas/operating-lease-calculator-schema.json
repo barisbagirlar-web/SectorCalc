@@ -10,11 +10,15 @@
       "businessContext": "Initial purchase price of the asset.",
       "label_i18n": {
         "en": "Asset Cost",
-        "tr": "Asset Cost",
+        "tr": "Varlık Maliyeti",
         "de": "Asset Cost",
         "fr": "Asset Cost",
         "es": "Asset Cost",
         "ar": "Asset Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Initial purchase price of the asset.",
+        "tr": "Varlığın ilk satın alma fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated value of the asset at end of lease.",
       "label_i18n": {
         "en": "Residual Value",
-        "tr": "Residual Value",
+        "tr": "Kalıntı Değer",
         "de": "Residual Value",
         "fr": "Residual Value",
         "es": "Residual Value",
         "ar": "Residual Value"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated value of the asset at end of lease.",
+        "tr": "Varlığın kiralama sonunda tahmini değeri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of the lease in months.",
       "label_i18n": {
         "en": "Lease Term",
-        "tr": "Lease Term",
+        "tr": "Kira Süresi",
         "de": "Lease Term",
         "fr": "Lease Term",
         "es": "Lease Term",
         "ar": "Lease Term"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the lease in months.",
+        "tr": "Kiralama süresi (ay)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual interest rate for lease financing.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate for lease financing.",
+        "tr": "Kiralama finansmanı için yıllık faiz oranı"
       }
     }
   ],

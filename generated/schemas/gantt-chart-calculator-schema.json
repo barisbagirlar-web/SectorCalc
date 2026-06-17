@@ -10,11 +10,15 @@
       "businessContext": "Toplam görev sayısı. Artan görevler proje süresini uzatabilir.",
       "label_i18n": {
         "en": "Number of Tasks",
-        "tr": "Number of Tasks",
+        "tr": "Görev Sayısı",
         "de": "Number of Tasks",
         "fr": "Number of Tasks",
         "es": "Number of Tasks",
         "ar": "Number of Tasks"
+      },
+      "businessContext_i18n": {
+        "en": "Toplam görev sayısı. Artan görevler proje süresini uzatabilir.",
+        "tr": "Toplam görev sayısı. Artan görevler proje süresini uzatabilir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Her bir görevin tamamlanması için gereken süre (gün).",
       "label_i18n": {
         "en": "Duration per Task",
-        "tr": "Duration per Task",
+        "tr": "Görev Başına Süre",
         "de": "Duration per Task",
         "fr": "Duration per Task",
         "es": "Duration per Task",
         "ar": "Duration per Task"
+      },
+      "businessContext_i18n": {
+        "en": "Her bir görevin tamamlanması için gereken süre (gün).",
+        "tr": "Her bir görevin tamamlanması için gereken süre (gün)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Ardışık görevler arasındaki örtüşme yüzdesi (fast-tracking). %0-100 arası.",
       "label_i18n": {
         "en": "Overlap Percentage",
-        "tr": "Overlap Percentage",
+        "tr": "Örtüşme Yüzdesi",
         "de": "Overlap Percentage",
         "fr": "Overlap Percentage",
         "es": "Overlap Percentage",
         "ar": "Overlap Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Ardışık görevler arasındaki örtüşme yüzdesi (fast-tracking). %0-100 arası.",
+        "tr": "Ardışık görevler arasındaki örtüşme yüzdesi (fast-tracking). %0-100 arası."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "İlk göreve başlamadan önceki gecikme süresi.",
       "label_i18n": {
         "en": "Start Delay",
-        "tr": "Start Delay",
+        "tr": "Başlangıç Gecikmesi",
         "de": "Start Delay",
         "fr": "Start Delay",
         "es": "Start Delay",
         "ar": "Start Delay"
+      },
+      "businessContext_i18n": {
+        "en": "İlk göreve başlamadan önceki gecikme süresi.",
+        "tr": "İlk göreve başlamadan önceki gecikme süresi."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Enter the gross pay for the pay period",
       "label_i18n": {
         "en": "Gross Pay per Period",
-        "tr": "Gross Pay per Period",
+        "tr": "Dönem Brüt Ücreti",
         "de": "Gross Pay per Period",
         "fr": "Gross Pay per Period",
         "es": "Gross Pay per Period",
         "ar": "Gross Pay per Period"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the gross pay for the pay period",
+        "tr": "Ödeme dönemi için brüt ücreti girin"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Social security tax rate for employee (e.g., 6.2%)",
       "label_i18n": {
         "en": "Employee SS Rate (%)",
-        "tr": "Employee SS Rate (%)",
+        "tr": "Çalışan SS Oranı (%)",
         "de": "Employee SS Rate (%)",
         "fr": "Employee SS Rate (%)",
         "es": "Employee SS Rate (%)",
         "ar": "Employee SS Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Social security tax rate for employee (e.g., 6.2%)",
+        "tr": "Çalışan için sosyal güvenlik vergisi oranı (örn. %6,2)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Social security tax rate for employer (e.g., 6.2%)",
       "label_i18n": {
         "en": "Employer SS Rate (%)",
-        "tr": "Employer SS Rate (%)",
+        "tr": "İşveren SS Oranı (%)",
         "de": "Employer SS Rate (%)",
         "fr": "Employer SS Rate (%)",
         "es": "Employer SS Rate (%)",
         "ar": "Employer SS Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Social security tax rate for employer (e.g., 6.2%)",
+        "tr": "İşveren için sosyal güvenlik vergisi oranı (örn. %6,2)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum amount of annual earnings subject to social security tax",
       "label_i18n": {
         "en": "Annual Wage Ceiling",
-        "tr": "Annual Wage Ceiling",
+        "tr": "Yıllık Ücret Tavanı",
         "de": "Annual Wage Ceiling",
         "fr": "Annual Wage Ceiling",
         "es": "Annual Wage Ceiling",
         "ar": "Annual Wage Ceiling"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum amount of annual earnings subject to social security tax",
+        "tr": "Sosyal güvenlik vergisine tabi yıllık kazancın azami tutarı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of pay periods per year (e.g., 12 for monthly, 26 for bi-weekly)",
       "label_i18n": {
         "en": "Pay Periods per Year",
-        "tr": "Pay Periods per Year",
+        "tr": "Yıllık Ödeme Dönemi Sayısı",
         "de": "Pay Periods per Year",
         "fr": "Pay Periods per Year",
         "es": "Pay Periods per Year",
         "ar": "Pay Periods per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of pay periods per year (e.g., 12 for monthly, 26 for bi-weekly)",
+        "tr": "Yıllık ödeme dönemi sayısı (örn. aylık için 12, iki haftada bir için 26)"
       }
     }
   ],

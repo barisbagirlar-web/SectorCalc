@@ -10,11 +10,15 @@
       "businessContext": "Body weight at the beginning of the first diet cycle",
       "label_i18n": {
         "en": "Initial Weight",
-        "tr": "Initial Weight",
+        "tr": "Başlangıç Ağırlığı",
         "de": "Initial Weight",
         "fr": "Initial Weight",
         "es": "Initial Weight",
         "ar": "Initial Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight at the beginning of the first diet cycle",
+        "tr": "İlk diyet döngüsünün başlangıcındaki vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current body weight after all diet cycles",
       "label_i18n": {
         "en": "Current Weight",
-        "tr": "Current Weight",
+        "tr": "Mevcut Ağırlık",
         "de": "Current Weight",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Current body weight after all diet cycles",
+        "tr": "Tüm diyet döngülerinden sonraki mevcut vücut ağırlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of completed yo-yo diet cycles",
       "label_i18n": {
         "en": "Number of Cycles",
-        "tr": "Number of Cycles",
+        "tr": "Döngü Sayısı",
         "de": "Number of Cycles",
         "fr": "Number of Cycles",
         "es": "Number of Cycles",
         "ar": "Number of Cycles"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of completed yo-yo diet cycles",
+        "tr": "Tamamlanan toplam yo-yo diyet döngüsü sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average weight lost during the loss phase of one cycle",
       "label_i18n": {
         "en": "Weight Loss per Cycle",
-        "tr": "Weight Loss per Cycle",
+        "tr": "Döngü Başına Kilo Kaybı",
         "de": "Weight Loss per Cycle",
         "fr": "Weight Loss per Cycle",
         "es": "Weight Loss per Cycle",
         "ar": "Weight Loss per Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "Average weight lost during the loss phase of one cycle",
+        "tr": "Bir döngünün kayıp aşamasında kaybedilen ortalama kilo"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average weight regained during the regain phase of one cycle",
       "label_i18n": {
         "en": "Weight Regain per Cycle",
-        "tr": "Weight Regain per Cycle",
+        "tr": "Döngü Başına Kilo Alımı",
         "de": "Weight Regain per Cycle",
         "fr": "Weight Regain per Cycle",
         "es": "Weight Regain per Cycle",
         "ar": "Weight Regain per Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "Average weight regained during the regain phase of one cycle",
+        "tr": "Bir döngünün geri kazanım aşamasında geri alınan ortalama kilo"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average duration of one complete diet cycle (loss + regain)",
       "label_i18n": {
         "en": "Cycle Duration",
-        "tr": "Cycle Duration",
+        "tr": "Döngü Süresi",
         "de": "Cycle Duration",
         "fr": "Cycle Duration",
         "es": "Cycle Duration",
         "ar": "Cycle Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Average duration of one complete diet cycle (loss + regain)",
+        "tr": "Bir tam diyet döngüsünün ortalama süresi (kayıp + geri kazanım)"
       }
     }
   ],

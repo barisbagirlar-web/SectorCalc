@@ -10,11 +10,15 @@
       "businessContext": "X-coordinate of the ellipse center.",
       "label_i18n": {
         "en": "Center X (h)",
-        "tr": "Center X (h)",
+        "tr": "Merkez X (h)",
         "de": "Center X (h)",
         "fr": "Center X (h)",
         "es": "Center X (h)",
         "ar": "Center X (h)"
+      },
+      "businessContext_i18n": {
+        "en": "X-coordinate of the ellipse center.",
+        "tr": "Elips merkezinin X koordinatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Y-coordinate of the ellipse center.",
       "label_i18n": {
         "en": "Center Y (k)",
-        "tr": "Center Y (k)",
+        "tr": "Merkez Y (k)",
         "de": "Center Y (k)",
         "fr": "Center Y (k)",
         "es": "Center Y (k)",
         "ar": "Center Y (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Y-coordinate of the ellipse center.",
+        "tr": "Elips merkezinin Y koordinatı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of the semi-major axis.",
       "label_i18n": {
         "en": "Semi-major axis (a)",
-        "tr": "Semi-major axis (a)",
+        "tr": "Yarı-büyük eksen (a)",
         "de": "Semi-major axis (a)",
         "fr": "Semi-major axis (a)",
         "es": "Semi-major axis (a)",
         "ar": "Semi-major axis (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the semi-major axis.",
+        "tr": "Yarı-büyük eksenin uzunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Length of the semi-minor axis.",
       "label_i18n": {
         "en": "Semi-minor axis (b)",
-        "tr": "Semi-minor axis (b)",
+        "tr": "Yarı-küçük eksen (b)",
         "de": "Semi-minor axis (b)",
         "fr": "Semi-minor axis (b)",
         "es": "Semi-minor axis (b)",
         "ar": "Semi-minor axis (b)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the semi-minor axis.",
+        "tr": "Yarı-küçük eksenin uzunluğu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Rotation angle of the ellipse axes relative to coordinate axes.",
       "label_i18n": {
         "en": "Rotation angle (θ)",
-        "tr": "Rotation angle (θ)",
+        "tr": "Dönme açısı (θ)",
         "de": "Rotation angle (θ)",
         "fr": "Rotation angle (θ)",
         "es": "Rotation angle (θ)",
         "ar": "Rotation angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Rotation angle of the ellipse axes relative to coordinate axes.",
+        "tr": "Elips eksenlerinin koordinat eksenlerine göre dönme açısı."
       }
     }
   ],

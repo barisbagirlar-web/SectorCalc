@@ -10,11 +10,15 @@
       "businessContext": "The angle measured in full rotations.",
       "label_i18n": {
         "en": "Number of Turns",
-        "tr": "Number of Turns",
+        "tr": "Sarım Sayısı",
         "de": "Number of Turns",
         "fr": "Number of Turns",
         "es": "Number of Turns",
         "ar": "Number of Turns"
+      },
+      "businessContext_i18n": {
+        "en": "The angle measured in full rotations.",
+        "tr": "Tam dönüş cinsinden ölçülen açı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Precision of output for quality control documentation.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Precision of output for quality control documentation.",
+        "tr": "Kalite kontrol dokümantasyonu için çıktı hassasiyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Identifier of the operator performing the measurement for traceability.",
       "label_i18n": {
         "en": "Operator ID",
-        "tr": "Operator ID",
+        "tr": "Operatör Kimliği",
         "de": "Operator ID",
         "fr": "Operator ID",
         "es": "Operator ID",
         "ar": "Operator ID"
+      },
+      "businessContext_i18n": {
+        "en": "Identifier of the operator performing the measurement for traceability.",
+        "tr": "İzlenebilirlik için ölçümü yapan operatörün tanımlayıcısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Date of measurement for ISO 9001 records.",
       "label_i18n": {
         "en": "Measurement Date (YYYYMMDD)",
-        "tr": "Measurement Date (YYYYMMDD)",
+        "tr": "Ölçüm Tarihi (YYYYAAAGGG)",
         "de": "Measurement Date (YYYYMMDD)",
         "fr": "Measurement Date (YYYYMMDD)",
         "es": "Measurement Date (YYYYMMDD)",
         "ar": "Measurement Date (YYYYMMDD)"
+      },
+      "businessContext_i18n": {
+        "en": "Date of measurement for ISO 9001 records.",
+        "tr": "ISO 9001 kayıtları için ölçüm tarihi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Machine used for measurement if automated.",
       "label_i18n": {
         "en": "Machine ID",
-        "tr": "Machine ID",
+        "tr": "Makine Kimliği",
         "de": "Machine ID",
         "fr": "Machine ID",
         "es": "Machine ID",
         "ar": "Machine ID"
+      },
+      "businessContext_i18n": {
+        "en": "Machine used for measurement if automated.",
+        "tr": "Otomatik ise ölçüm için kullanılan makine."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Production batch for traceability.",
       "label_i18n": {
         "en": "Batch Number",
-        "tr": "Batch Number",
+        "tr": "Parti Numarası",
         "de": "Batch Number",
         "fr": "Batch Number",
         "es": "Batch Number",
         "ar": "Batch Number"
+      },
+      "businessContext_i18n": {
+        "en": "Production batch for traceability.",
+        "tr": "İzlenebilirlik için üretim partisi."
       }
     }
   ],

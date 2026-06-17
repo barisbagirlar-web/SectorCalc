@@ -10,11 +10,15 @@
       "businessContext": "Current body weight of the individual in kilograms.",
       "label_i18n": {
         "en": "Current Weight",
-        "tr": "Current Weight",
+        "tr": "Mevcut Ağırlık",
         "de": "Current Weight",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Current body weight of the individual in kilograms.",
+        "tr": "Bireyin kilogram cinsinden mevcut vücut ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target weight to achieve in kilograms.",
       "label_i18n": {
         "en": "Goal Weight",
-        "tr": "Goal Weight",
+        "tr": "Hedef Ağırlık",
         "de": "Goal Weight",
         "fr": "Goal Weight",
         "es": "Goal Weight",
         "ar": "Goal Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Target weight to achieve in kilograms.",
+        "tr": "Hedeflenen kilogram cinsinden ağırlık."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of weeks over which the weight change is planned.",
       "label_i18n": {
         "en": "Timeframe",
-        "tr": "Timeframe",
+        "tr": "Zaman Çerçevesi",
         "de": "Timeframe",
         "fr": "Timeframe",
         "es": "Timeframe",
         "ar": "Timeframe"
+      },
+      "businessContext_i18n": {
+        "en": "Number of weeks over which the weight change is planned.",
+        "tr": "Kilo değişiminin planlandığı hafta sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Physical activity factor (1.2 = sedentary, 1.375 = light exercise, 1.55 = moderate, 1.725 = heavy, 1.9 = athlete).",
       "label_i18n": {
         "en": "Activity Level",
-        "tr": "Activity Level",
+        "tr": "Aktivite Seviyesi",
         "de": "Activity Level",
         "fr": "Activity Level",
         "es": "Activity Level",
         "ar": "Activity Level"
+      },
+      "businessContext_i18n": {
+        "en": "Physical activity factor (1.2 = sedentary, 1.375 = light exercise, 1.55 = moderate, 1.725 = heavy, 1.9 = athlete).",
+        "tr": "Fiziksel aktivite faktörü (1.2 = hareketsiz, 1.375 = hafif egzersiz, 1.55 = orta, 1.725 = ağır, 1.9 = atlet)."
       }
     }
   ],

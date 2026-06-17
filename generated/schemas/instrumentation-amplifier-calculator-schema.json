@@ -10,11 +10,15 @@
       "businessContext": "Value of the gain-setting resistor in the instrumentation amplifier circuit. Adjusted to set the desired gain.",
       "label_i18n": {
         "en": "R1 (Gain Resistor)",
-        "tr": "R1 (Gain Resistor)",
+        "tr": "R1 (Kazanç Direnci)",
         "de": "R1 (Gain Resistor)",
         "fr": "R1 (Gain Resistor)",
         "es": "R1 (Gain Resistor)",
         "ar": "R1 (Gain Resistor)"
+      },
+      "businessContext_i18n": {
+        "en": "Value of the gain-setting resistor in the instrumentation amplifier circuit. Adjusted to set the desired gain.",
+        "tr": "Enstrümantasyon yükseltici devresinde kazancı ayarlayan direncin değeri. İstenen kazancı ayarlamak için değiştirilir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Value of the two feedback resistors (typically equal) in the first stage of the instrumentation amplifier. Usually matched for symmetry.",
       "label_i18n": {
         "en": "R2 (Feedback Resistor)",
-        "tr": "R2 (Feedback Resistor)",
+        "tr": "R2 (Geri Besleme Direnci)",
         "de": "R2 (Feedback Resistor)",
         "fr": "R2 (Feedback Resistor)",
         "es": "R2 (Feedback Resistor)",
         "ar": "R2 (Feedback Resistor)"
+      },
+      "businessContext_i18n": {
+        "en": "Value of the two feedback resistors (typically equal) in the first stage of the instrumentation amplifier. Usually matched for symmetry.",
+        "tr": "Enstrümantasyon yükselticinin ilk aşamasındaki iki geri besleme direncinin (genellikle eşit) değeri. Simetri için genellikle eşleştirilir."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Vin+",
         "es": "Vin+",
         "ar": "Vin+"
+      },
+      "businessContext_i18n": {
+        "en": "Non-inverting input voltage. Typically a small differential signal plus common-mode.",
+        "tr": "Evirmeyen giriş voltajı. Genellikle ortak modlu küçük bir diferansiyel sinyal."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Vin-",
         "es": "Vin-",
         "ar": "Vin-"
+      },
+      "businessContext_i18n": {
+        "en": "Inverting input voltage. The differential voltage is Vin+ minus Vin-.",
+        "tr": "Evevirici giriş voltajı. Diferansiyel voltaj Vin+ eksi Vin-'dir."
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "Vref",
         "es": "Vref",
         "ar": "Vref"
+      },
+      "businessContext_i18n": {
+        "en": "Reference voltage applied to the output stage, allowing level shifting of the output.",
+        "tr": "Çıkış aşamasına uygulanan referans voltajı, çıkışın seviye kaydırmasına izin verir."
       }
     }
   ],

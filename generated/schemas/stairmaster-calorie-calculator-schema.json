@@ -10,11 +10,15 @@
       "businessContext": "User's body weight in kilograms for accurate metabolic and mechanical work calculations",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight in kilograms for accurate metabolic and mechanical work calculations",
+        "tr": "Doğru metabolik ve mekanik iş hesaplamaları için kullanıcının kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total exercise duration in minutes",
       "label_i18n": {
         "en": "Duration",
-        "tr": "Duration",
+        "tr": "Süre",
         "de": "Duration",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Total exercise duration in minutes",
+        "tr": "Dakika cinsinden toplam egzersiz süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Metabolic Equivalent of Task representing intensity; 5.5 typical for moderate stair stepping",
       "label_i18n": {
         "en": "MET Value",
-        "tr": "MET Value",
+        "tr": "MET Değeri",
         "de": "MET Value",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
+      },
+      "businessContext_i18n": {
+        "en": "Metabolic Equivalent of Task representing intensity; 5.5 typical for moderate stair stepping",
+        "tr": "Görevin metabolik eşdeğeri (MET); orta düzey merdiven çıkma için tipik 5.5"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of each step in meters (typical stair riser height)",
       "label_i18n": {
         "en": "Step Height",
-        "tr": "Step Height",
+        "tr": "Basamak Yüksekliği",
         "de": "Step Height",
         "fr": "Step Height",
         "es": "Step Height",
         "ar": "Step Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of each step in meters (typical stair riser height)",
+        "tr": "Her bir basamağın metre cinsinden yüksekliği (tipik merdiven rıht yüksekliği)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average stepping rate during exercise",
       "label_i18n": {
         "en": "Steps per Minute",
-        "tr": "Steps per Minute",
+        "tr": "Dakikadaki Adım Sayısı",
         "de": "Steps per Minute",
         "fr": "Steps per Minute",
         "es": "Steps per Minute",
         "ar": "Steps per Minute"
+      },
+      "businessContext_i18n": {
+        "en": "Average stepping rate during exercise",
+        "tr": "Egzersiz sırasında ortalama adım atma hızı"
       }
     }
   ],

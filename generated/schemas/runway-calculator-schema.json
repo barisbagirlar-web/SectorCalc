@@ -10,11 +10,15 @@
       "businessContext": "Total liquid cash on hand.",
       "label_i18n": {
         "en": "Current Cash Balance",
-        "tr": "Current Cash Balance",
+        "tr": "Mevcut Nakit Bakiyesi",
         "de": "Current Cash Balance",
         "fr": "Current Cash Balance",
         "es": "Current Cash Balance",
         "ar": "Current Cash Balance"
+      },
+      "businessContext_i18n": {
+        "en": "Total liquid cash on hand.",
+        "tr": "Eldeki toplam likit nakit."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total monthly cash outflows (operational costs, rent, salaries).",
       "label_i18n": {
         "en": "Monthly Expenses",
-        "tr": "Monthly Expenses",
+        "tr": "Aylık Giderler",
         "de": "Monthly Expenses",
         "fr": "Monthly Expenses",
         "es": "Monthly Expenses",
         "ar": "Monthly Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Total monthly cash outflows (operational costs, rent, salaries).",
+        "tr": "Toplam aylık nakit çıkışları (operasyonel maliyetler, kira, maaşlar)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total monthly cash inflows from sales or other income.",
       "label_i18n": {
         "en": "Monthly Revenue",
-        "tr": "Monthly Revenue",
+        "tr": "Aylık Gelir",
         "de": "Monthly Revenue",
         "fr": "Monthly Revenue",
         "es": "Monthly Revenue",
         "ar": "Monthly Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Total monthly cash inflows from sales or other income.",
+        "tr": "Satışlardan veya diğer gelirlerden elde edilen toplam aylık nakit girişleri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of cash reserved as a safety buffer, not used in runway calculation.",
       "label_i18n": {
         "en": "Cash Buffer (%)",
-        "tr": "Cash Buffer (%)",
+        "tr": "Nakit Tamponu (%)",
         "de": "Cash Buffer (%)",
         "fr": "Cash Buffer (%)",
         "es": "Cash Buffer (%)",
         "ar": "Cash Buffer (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of cash reserved as a safety buffer, not used in runway calculation.",
+        "tr": "Nakit rezerv olarak ayrılan yüzde, nakit akışı hesaplamasında kullanılmaz."
       }
     }
   ],

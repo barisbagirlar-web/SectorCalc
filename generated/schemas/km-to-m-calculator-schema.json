@@ -10,11 +10,15 @@
       "businessContext": "Distance in kilometers to convert to meters.",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Distance (km)",
+        "tr": "Mesafe (km)",
         "de": "Distance (km)",
         "fr": "Distance (km)",
         "es": "Distance (km)",
         "ar": "Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance in kilometers to convert to meters.",
+        "tr": "Metreye dönüştürülecek kilometre cinsinden mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Meters per kilometer. Standard value is 1000.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Meters per kilometer. Standard value is 1000.",
+        "tr": "Kilometre başına metre. Standart değer 1000'dir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the result.",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = round, 1 = floor, 2 = ceil.",
       "label_i18n": {
         "en": "Rounding Method",
-        "tr": "Rounding Method",
+        "tr": "Yuvarlama yöntemi",
         "de": "Rounding Method",
         "fr": "Rounding Method",
         "es": "Rounding Method",
         "ar": "Rounding Method"
+      },
+      "businessContext_i18n": {
+        "en": "0 = round, 1 = floor, 2 = ceil.",
+        "tr": "0 = yuvarla, 1 = taban, 2 = tavan."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Output value floor, useful for safety margins.",
       "label_i18n": {
         "en": "Minimum Threshold (m)",
-        "tr": "Minimum Threshold (m)",
+        "tr": "Minimum Eşik (m)",
         "de": "Minimum Threshold (m)",
         "fr": "Minimum Threshold (m)",
         "es": "Minimum Threshold (m)",
         "ar": "Minimum Threshold (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Output value floor, useful for safety margins.",
+        "tr": "Çıktı değeri tabanı, güvenlik payları için kullanışlıdır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Output value ceiling, for limiting results.",
       "label_i18n": {
         "en": "Maximum Threshold (m)",
-        "tr": "Maximum Threshold (m)",
+        "tr": "Maksimum Eşik (m)",
         "de": "Maximum Threshold (m)",
         "fr": "Maximum Threshold (m)",
         "es": "Maximum Threshold (m)",
         "ar": "Maximum Threshold (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Output value ceiling, for limiting results.",
+        "tr": "Çıktı değeri tavanı, sonuçları sınırlamak için."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Batch multiplier for bulk conversions.",
       "label_i18n": {
         "en": "Scale Factor",
-        "tr": "Scale Factor",
+        "tr": "Ölçek Faktörü",
         "de": "Scale Factor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Batch multiplier for bulk conversions.",
+        "tr": "Toplu dönüşümler için parti çarpanı."
       }
     }
   ],

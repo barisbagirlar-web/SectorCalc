@@ -10,11 +10,15 @@
       "businessContext": "Total number of stock options or shares granted under the vesting plan.",
       "label_i18n": {
         "en": "Total Grant Amount",
-        "tr": "Total Grant Amount",
+        "tr": "Toplam Hibe Miktarı",
         "de": "Total Grant Amount",
         "fr": "Total Grant Amount",
         "es": "Total Grant Amount",
         "ar": "Total Grant Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of stock options or shares granted under the vesting plan.",
+        "tr": "Hak ediş planı kapsamında verilen toplam hisse senedi opsiyonu veya hisse sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The month (relative to a reference) when the vesting period begins. Typically 0 means grant date.",
       "label_i18n": {
         "en": "Vesting Start Month",
-        "tr": "Vesting Start Month",
+        "tr": "Hak Ediş Başlangıç Ayı",
         "de": "Vesting Start Month",
         "fr": "Vesting Start Month",
         "es": "Vesting Start Month",
         "ar": "Vesting Start Month"
+      },
+      "businessContext_i18n": {
+        "en": "The month (relative to a reference) when the vesting period begins. Typically 0 means grant date.",
+        "tr": "Hak ediş döneminin başladığı ay (bir referansa göre). Genellikle 0, hibe tarihini ifade eder."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The current month number from the vesting start to calculate vested shares.",
       "label_i18n": {
         "en": "Current Month",
-        "tr": "Current Month",
+        "tr": "Geçerli Ay",
         "de": "Current Month",
         "fr": "Current Month",
         "es": "Current Month",
         "ar": "Current Month"
+      },
+      "businessContext_i18n": {
+        "en": "The current month number from the vesting start to calculate vested shares.",
+        "tr": "Hak edilen hisseleri hesaplamak için hak ediş başlangıcından itibaren geçerli ay numarası."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total duration in months over which the grant fully vests.",
       "label_i18n": {
         "en": "Vesting Period (Full Term)",
-        "tr": "Vesting Period (Full Term)",
+        "tr": "Hak Ediş Süresi (Tam Vade)",
         "de": "Vesting Period (Full Term)",
         "fr": "Vesting Period (Full Term)",
         "es": "Vesting Period (Full Term)",
         "ar": "Vesting Period (Full Term)"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration in months over which the grant fully vests.",
+        "tr": "Hibenin tamamen hak edildiği toplam süre (ay olarak)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Initial period where no vesting occurs. After cliff, vesting may be accelerated or linear.",
       "label_i18n": {
         "en": "Cliff Period",
-        "tr": "Cliff Period",
+        "tr": "Uçurum Süresi",
         "de": "Cliff Period",
         "fr": "Cliff Period",
         "es": "Cliff Period",
         "ar": "Cliff Period"
+      },
+      "businessContext_i18n": {
+        "en": "Initial period where no vesting occurs. After cliff, vesting may be accelerated or linear.",
+        "tr": "Hiçbir hak edişin olmadığı başlangıç dönemi. Uçurumdan sonra hak ediş hızlandırılabilir veya doğrusal olabilir."
       }
     }
   ],

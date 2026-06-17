@@ -19,10 +19,12 @@
       "max": 2000000,
       "businessContext": "Total available warehouse floor space in square feet.",
       "label_i18n": {
-        "en": "Total Floor Area"
+        "en": "Total Floor Area",
+        "tr": "Toplam Kat Alanı"
       },
       "businessContext_i18n": {
-        "en": "Total available warehouse floor space in square feet."
+        "en": "Total available warehouse floor space in square feet.",
+        "tr": "Metrekare cinsinden toplam kullanılabilir depo taban alanı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 90,
       "businessContext": "Percentage of total floor area dedicated to storage (pallet racks, shelving).",
       "label_i18n": {
-        "en": "Storage Area Percentage"
+        "en": "Storage Area Percentage",
+        "tr": "Depolama Alanı Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Percentage of total floor area dedicated to storage (pallet racks, shelving)."
+        "en": "Percentage of total floor area dedicated to storage (pallet racks, shelving).",
+        "tr": "Toplam taban alanının depolamaya (palet rafları, raf sistemleri) ayrılan yüzdesi"
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 20,
       "businessContext": "Width of main travel aisles in feet.",
       "label_i18n": {
-        "en": "Aisle Width"
+        "en": "Aisle Width",
+        "tr": "Koridor Genişliği"
       },
       "businessContext_i18n": {
-        "en": "Width of main travel aisles in feet."
+        "en": "Width of main travel aisles in feet.",
+        "tr": "Ana taşıma koridorlarının fit cinsinden genişliği."
       }
     },
     {
@@ -70,10 +76,12 @@
       "default": "single_deep",
       "businessContext": "Type of pallet storage system used.",
       "label_i18n": {
-        "en": "Pallet Flow Type"
+        "en": "Pallet Flow Type",
+        "tr": "Palet Akış Türü"
       },
       "businessContext_i18n": {
-        "en": "Type of pallet storage system used."
+        "en": "Type of pallet storage system used.",
+        "tr": "Kullanılan palet depolama sistemi türü."
       },
       "unit": "unit"
     },
@@ -87,10 +95,12 @@
       "max": 20,
       "businessContext": "Average footprint of a single pallet (length x width).",
       "label_i18n": {
-        "en": "Average Pallet Size (footprint)"
+        "en": "Average Pallet Size (footprint)",
+        "tr": "Ortalama Palet Boyutu (ayak izi)"
       },
       "businessContext_i18n": {
-        "en": "Average footprint of a single pallet (length x width)."
+        "en": "Average footprint of a single pallet (length x width).",
+        "tr": "Tek bir paletin ortalama ayak izi (uzunluk x genişlik)."
       }
     },
     {
@@ -103,10 +113,12 @@
       "max": 52,
       "businessContext": "Number of times inventory is cycled annually.",
       "label_i18n": {
-        "en": "Average Inventory Turns per Year"
+        "en": "Average Inventory Turns per Year",
+        "tr": "Yıllık Ortalama Envanter Devir Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Number of times inventory is cycled annually."
+        "en": "Number of times inventory is cycled annually.",
+        "tr": "Envanterin yılda kaç kez döndüğü."
       }
     },
     {
@@ -119,10 +131,12 @@
       "max": 60,
       "businessContext": "Fully loaded hourly wage for warehouse operators.",
       "label_i18n": {
-        "en": "Labor Cost per Hour"
+        "en": "Labor Cost per Hour",
+        "tr": "Saatlik işçilik maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Fully loaded hourly wage for warehouse operators."
+        "en": "Fully loaded hourly wage for warehouse operators.",
+        "tr": "Depo operatörleri için tam yüklü saatlik ücret."
       }
     },
     {
@@ -135,10 +149,12 @@
       "max": 50,
       "businessContext": "Hourly cost of material handling equipment (forklifts, pallet jacks).",
       "label_i18n": {
-        "en": "Equipment Cost per Hour"
+        "en": "Equipment Cost per Hour",
+        "tr": "Ekipman Saatlik Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Hourly cost of material handling equipment (forklifts, pallet jacks)."
+        "en": "Hourly cost of material handling equipment (forklifts, pallet jacks).",
+        "tr": "Malzeme taşıma ekipmanının (forklift, palet jakı) saatlik maliyeti."
       }
     }
   ],

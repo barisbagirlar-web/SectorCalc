@@ -10,11 +10,15 @@
       "businessContext": "Width of the output image in pixels for rendering.",
       "label_i18n": {
         "en": "Resolution Width",
-        "tr": "Resolution Width",
+        "tr": "Çözünürlük Genişliği",
         "de": "Resolution Width",
         "fr": "Resolution Width",
         "es": "Resolution Width",
         "ar": "Resolution Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the output image in pixels for rendering.",
+        "tr": "Oluşturma için çıktı görüntüsünün piksel cinsinden genişliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the output image in pixels for rendering.",
       "label_i18n": {
         "en": "Resolution Height",
-        "tr": "Resolution Height",
+        "tr": "Çözünürlük Yüksekliği",
         "de": "Resolution Height",
         "fr": "Resolution Height",
         "es": "Resolution Height",
         "ar": "Resolution Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the output image in pixels for rendering.",
+        "tr": "Oluşturma için çıktı görüntüsünün piksel cinsinden yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of samples per pixel for anti-aliasing quality.",
       "label_i18n": {
         "en": "Samples per Pixel",
-        "tr": "Samples per Pixel",
+        "tr": "Piksel Başına Örnek",
         "de": "Samples per Pixel",
         "fr": "Samples per Pixel",
         "es": "Samples per Pixel",
         "ar": "Samples per Pixel"
+      },
+      "businessContext_i18n": {
+        "en": "Number of samples per pixel for anti-aliasing quality.",
+        "tr": "Kenar yumuşatma kalitesi için piksel başına örnek sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of frames to render, e.g., for animation.",
       "label_i18n": {
         "en": "Frame Count",
-        "tr": "Frame Count",
+        "tr": "Kare Sayısı",
         "de": "Frame Count",
         "fr": "Frame Count",
         "es": "Frame Count",
         "ar": "Frame Count"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of frames to render, e.g., for animation.",
+        "tr": "Örn. animasyon için oluşturulacak toplam kare sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Render engine throughput in rays per second. Adjust for hardware/software.",
       "label_i18n": {
         "en": "Render Engine Speed",
-        "tr": "Render Engine Speed",
+        "tr": "Oluşturma Motoru Hızı",
         "de": "Render Engine Speed",
         "fr": "Render Engine Speed",
         "es": "Render Engine Speed",
         "ar": "Render Engine Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Render engine throughput in rays per second. Adjust for hardware/software.",
+        "tr": "Oluşturma motorunun saniyedeki ışın işleme hızı. Donanım/yazılıma göre ayarlayın."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Scene complexity multiplier. 1 for simple, 5 for highly complex.",
       "label_i18n": {
         "en": "Complexity Factor",
-        "tr": "Complexity Factor",
+        "tr": "Karmaşıklık Faktörü",
         "de": "Complexity Factor",
         "fr": "Complexity Factor",
         "es": "Complexity Factor",
         "ar": "Complexity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Scene complexity multiplier. 1 for simple, 5 for highly complex.",
+        "tr": "Sahne karmaşıklık çarpanı. Basit için 1, çok karmaşık için 5."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Maximum light bounces for global illumination. Higher increases realism and time.",
       "label_i18n": {
         "en": "Max Ray Bounces",
-        "tr": "Max Ray Bounces",
+        "tr": "Maksimum Işın Sıçraması",
         "de": "Max Ray Bounces",
         "fr": "Max Ray Bounces",
         "es": "Max Ray Bounces",
         "ar": "Max Ray Bounces"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum light bounces for global illumination. Higher increases realism and time.",
+        "tr": "Küresel aydınlatma için maksimum ışık sıçraması. Yüksek değer gerçekçiliği ve süreyi artırır."
       }
     }
   ],

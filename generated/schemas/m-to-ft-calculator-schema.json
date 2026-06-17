@@ -10,11 +10,15 @@
       "businessContext": "Nominal length in meters as per engineering drawing or measurement.",
       "label_i18n": {
         "en": "Length (m)",
-        "tr": "Length (m)",
+        "tr": "Uzunluk (m)",
         "de": "Length (m)",
         "fr": "Length (m)",
         "es": "Length (m)",
         "ar": "Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal length in meters as per engineering drawing or measurement.",
+        "tr": "Mühendislik çizimine veya ölçüme göre metre cinsinden nominal uzunluk."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from meters to feet per ISO 80000-3. Adjust if using US survey foot (3.280833333).",
       "label_i18n": {
         "en": "Conversion Factor (ft/m)",
-        "tr": "Conversion Factor (ft/m)",
+        "tr": "Dönüşüm faktörü (ft/m)",
         "de": "Conversion Factor (ft/m)",
         "fr": "Conversion Factor (ft/m)",
         "es": "Conversion Factor (ft/m)",
         "ar": "Conversion Factor (ft/m)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from meters to feet per ISO 80000-3. Adjust if using US survey foot (3.280833333).",
+        "tr": "ISO 80000-3'e göre metreden feet'e standart dönüşüm faktörü. ABD survey foot (3,280833333) kullanılıyorsa ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Combined standard uncertainty of the length measurement per ISO/IEC 17025 calibration certificate.",
       "label_i18n": {
         "en": "Measurement Uncertainty (± m)",
-        "tr": "Measurement Uncertainty (± m)",
+        "tr": "Ölçüm Belirsizliği (± m)",
         "de": "Measurement Uncertainty (± m)",
         "fr": "Measurement Uncertainty (± m)",
         "es": "Measurement Uncertainty (± m)",
         "ar": "Measurement Uncertainty (± m)"
+      },
+      "businessContext_i18n": {
+        "en": "Combined standard uncertainty of the length measurement per ISO/IEC 17025 calibration certificate.",
+        "tr": "ISO/IEC 17025 kalibrasyon sertifikasına göre uzunluk ölçümünün birleşik standart belirsizliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature deviation from reference 20°C. For steel tapes, expansion coefficient ~0.0000116/K. Enter difference in K (e.g., if 25°C, enter 5).",
       "label_i18n": {
         "en": "Temperature Offset (K)",
-        "tr": "Temperature Offset (K)",
+        "tr": "Sıcaklık Sapması (K)",
         "de": "Temperature Offset (K)",
         "fr": "Temperature Offset (K)",
         "es": "Temperature Offset (K)",
         "ar": "Temperature Offset (K)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature deviation from reference 20°C. For steel tapes, expansion coefficient ~0.0000116/K. Enter difference in K (e.g., if 25°C, enter 5).",
+        "tr": "Referans 20°C'den sıcaklık sapması. Çelik şerit metreler için genleşme katsayısı ~0,0000116/K'dir. Farkı K cinsinden girin (örneğin 25°C ise 5 girin)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places to round the output feet value as per project tolerance requirements.",
       "label_i18n": {
         "en": "Decimal Places for Output",
-        "tr": "Decimal Places for Output",
+        "tr": "Çıktı için Ondalık Basamak Sayısı",
         "de": "Decimal Places for Output",
         "fr": "Decimal Places for Output",
         "es": "Decimal Places for Output",
         "ar": "Decimal Places for Output"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the output feet value as per project tolerance requirements.",
+        "tr": "Proje tolerans gereksinimlerine göre çıktı fit değerinin yuvarlanacağı ondalık basamak sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Toggle to apply temperature and uncertainty corrections. Set to 1 for calibrated results, 0 for nominal conversion only.",
       "label_i18n": {
         "en": "Apply Correction? (1=Yes, 0=No)",
-        "tr": "Apply Correction? (1=Yes, 0=No)",
+        "tr": "Düzeltme Uygulansın mı? (1=Evet, 0=Hayır)",
         "de": "Apply Correction? (1=Yes, 0=No)",
         "fr": "Apply Correction? (1=Yes, 0=No)",
         "es": "Apply Correction? (1=Yes, 0=No)",
         "ar": "Apply Correction? (1=Yes, 0=No)"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to apply temperature and uncertainty corrections. Set to 1 for calibrated results, 0 for nominal conversion only.",
+        "tr": "Sıcaklık ve belirsizlik düzeltmelerini uygulamak için geçiş yapın. Kalibre edilmiş sonuçlar için 1, yalnızca nominal dönüşüm için 0 olarak ayarlayın."
       }
     }
   ],

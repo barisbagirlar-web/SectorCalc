@@ -10,11 +10,15 @@
       "businessContext": "Primary sphere radius in base units (if multiplier=1)",
       "label_i18n": {
         "en": "Sphere 1 Radius",
-        "tr": "Sphere 1 Radius",
+        "tr": "Küre 1 Yarıçapı",
         "de": "Sphere 1 Radius",
         "fr": "Sphere 1 Radius",
         "es": "Sphere 1 Radius",
         "ar": "Sphere 1 Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Primary sphere radius in base units (if multiplier=1)",
+        "tr": "Birincil küre yarıçapı (temel birimlerde, çarpan=1 ise)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Optional secondary sphere radius",
       "label_i18n": {
         "en": "Sphere 2 Radius",
-        "tr": "Sphere 2 Radius",
+        "tr": "Küre 2 Yarıçapı",
         "de": "Sphere 2 Radius",
         "fr": "Sphere 2 Radius",
         "es": "Sphere 2 Radius",
         "ar": "Sphere 2 Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Optional secondary sphere radius",
+        "tr": "İsteğe bağlı ikincil küre yarıçapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Optional tertiary sphere radius",
       "label_i18n": {
         "en": "Sphere 3 Radius",
-        "tr": "Sphere 3 Radius",
+        "tr": "Küre 3 Yarıçapı",
         "de": "Sphere 3 Radius",
         "fr": "Sphere 3 Radius",
         "es": "Sphere 3 Radius",
         "ar": "Sphere 3 Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Optional tertiary sphere radius",
+        "tr": "İsteğe bağlı üçüncül küre yarıçapı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional quaternary sphere radius",
       "label_i18n": {
         "en": "Sphere 4 Radius",
-        "tr": "Sphere 4 Radius",
+        "tr": "Küre 4 Yarıçapı",
         "de": "Sphere 4 Radius",
         "fr": "Sphere 4 Radius",
         "es": "Sphere 4 Radius",
         "ar": "Sphere 4 Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Optional quaternary sphere radius",
+        "tr": "İsteğe bağlı dördüncül küre yarıçapı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Conversion factor to convert input radii to meters (e.g., cm=0.01, mm=0.001)",
       "label_i18n": {
         "en": "Radius Unit Conversion to m",
-        "tr": "Radius Unit Conversion to m",
+        "tr": "Yarıçap Birim Dönüşümü (m'ye)",
         "de": "Radius Unit Conversion to m",
         "fr": "Radius Unit Conversion to m",
         "es": "Radius Unit Conversion to m",
         "ar": "Radius Unit Conversion to m"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor to convert input radii to meters (e.g., cm=0.01, mm=0.001)",
+        "tr": "Girilen yarıçapları metreye dönüştürme çarpanı (örn. cm=0.01, mm=0.001)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Density of the material for weight calculation",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the material for weight calculation",
+        "tr": "Ağırlık hesaplaması için malzeme yoğunluğu"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Percentage of material waste considered for procurement",
       "label_i18n": {
         "en": "Material Waste Factor",
-        "tr": "Material Waste Factor",
+        "tr": "Malzeme Fire Faktörü",
         "de": "Material Waste Factor",
         "fr": "Material Waste Factor",
         "es": "Material Waste Factor",
         "ar": "Material Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of material waste considered for procurement",
+        "tr": "Tedarik için dikkate alınan malzeme fire yüzdesi"
       }
     }
   ],

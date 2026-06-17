@@ -15,6 +15,10 @@
         "fr": "Doğru Pozitif (DP)",
         "es": "Doğru Pozitif (DP)",
         "ar": "Doğru Pozitif (DP)"
+      },
+      "businessContext_i18n": {
+        "en": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı.",
+        "tr": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı."
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Yanlış Pozitif (YP)",
         "es": "Yanlış Pozitif (YP)",
         "ar": "Yanlış Pozitif (YP)"
+      },
+      "businessContext_i18n": {
+        "en": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı.",
+        "tr": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Yanlış Negatif (YN)",
         "es": "Yanlış Negatif (YN)",
         "ar": "Yanlış Negatif (YN)"
+      },
+      "businessContext_i18n": {
+        "en": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı.",
+        "tr": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Doğru Negatif (DN)",
         "es": "Doğru Negatif (DN)",
         "ar": "Doğru Negatif (DN)"
+      },
+      "businessContext_i18n": {
+        "en": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı.",
+        "tr": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı."
       }
     }
   ],

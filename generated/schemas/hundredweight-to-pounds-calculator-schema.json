@@ -10,11 +10,15 @@
       "businessContext": "Enter the weight in hundredweight to convert to pounds.",
       "label_i18n": {
         "en": "Weight in Hundredweight",
-        "tr": "Weight in Hundredweight",
+        "tr": "Ağırlık (Hundredweight)",
         "de": "Weight in Hundredweight",
         "fr": "Weight in Hundredweight",
         "es": "Weight in Hundredweight",
         "ar": "Weight in Hundredweight"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the weight in hundredweight to convert to pounds.",
+        "tr": "Pound'a dönüştürmek için hundredweight cinsinden ağırlığı girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Pounds per hundredweight. Default 100 for short hundredweight; use 112 for long hundredweight.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Pounds per hundredweight. Default 100 for short hundredweight; use 112 for long hundredweight.",
+        "tr": "Hundredweight başına pound. Kısa hundredweight için varsayılan 100; uzun hundredweight için 112 kullanın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of identical items. Use 1 if converting a single weight.",
       "label_i18n": {
         "en": "Number of Items",
-        "tr": "Number of Items",
+        "tr": "Öğe Sayısı",
         "de": "Number of Items",
         "fr": "Number of Items",
         "es": "Number of Items",
         "ar": "Number of Items"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical items. Use 1 if converting a single weight.",
+        "tr": "Aynı öğelerin sayısı. Tek bir ağırlık dönüştürülüyorsa 1 kullanın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     }
   ],

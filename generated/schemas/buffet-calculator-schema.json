@@ -10,11 +10,15 @@
       "businessContext": "The number of guests expected at the buffet.",
       "label_i18n": {
         "en": "Guest Count",
-        "tr": "Guest Count",
+        "tr": "Misafir Sayısı",
         "de": "Guest Count",
         "fr": "Guest Count",
         "es": "Guest Count",
         "ar": "Guest Count"
+      },
+      "businessContext_i18n": {
+        "en": "The number of guests expected at the buffet.",
+        "tr": "Büfede beklenen misafir sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The price each guest pays for the buffet.",
       "label_i18n": {
         "en": "Ticket Price",
-        "tr": "Ticket Price",
+        "tr": "Bilet Fiyatı",
         "de": "Ticket Price",
         "fr": "Ticket Price",
         "es": "Ticket Price",
         "ar": "Ticket Price"
+      },
+      "businessContext_i18n": {
+        "en": "The price each guest pays for the buffet.",
+        "tr": "Her misafirin büfe için ödediği fiyat."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The average cost of food ingredients per guest.",
       "label_i18n": {
         "en": "Food Cost",
-        "tr": "Food Cost",
+        "tr": "Yiyecek Maliyeti",
         "de": "Food Cost",
         "fr": "Food Cost",
         "es": "Food Cost",
         "ar": "Food Cost"
+      },
+      "businessContext_i18n": {
+        "en": "The average cost of food ingredients per guest.",
+        "tr": "Misafir başına ortalama yiyecek malzemesi maliyeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total labor cost for the event, including preparation and service.",
       "label_i18n": {
         "en": "Labor Cost",
-        "tr": "Labor Cost",
+        "tr": "İşçilik Maliyeti",
         "de": "Labor Cost",
         "fr": "Labor Cost",
         "es": "Labor Cost",
         "ar": "Labor Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total labor cost for the event, including preparation and service.",
+        "tr": "Hazırlık ve servis dahil etkinlik için toplam işçilik maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fixed overhead costs such as rent, utilities, equipment rental.",
       "label_i18n": {
         "en": "Overhead Cost",
-        "tr": "Overhead Cost",
+        "tr": "Genel Gider Maliyeti",
         "de": "Overhead Cost",
         "fr": "Overhead Cost",
         "es": "Overhead Cost",
         "ar": "Overhead Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed overhead costs such as rent, utilities, equipment rental.",
+        "tr": "Kira, elektrik, ekipman kiralama gibi sabit genel giderler."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage of food cost expected to be wasted (spoilage, leftovers).",
       "label_i18n": {
         "en": "Waste Percentage",
-        "tr": "Waste Percentage",
+        "tr": "Fire Yüzdesi",
         "de": "Waste Percentage",
         "fr": "Waste Percentage",
         "es": "Waste Percentage",
         "ar": "Waste Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of food cost expected to be wasted (spoilage, leftovers).",
+        "tr": "Yiyecek maliyetinin israf edilmesi beklenen yüzdesi (bozulma, artıklar)."
       }
     }
   ],

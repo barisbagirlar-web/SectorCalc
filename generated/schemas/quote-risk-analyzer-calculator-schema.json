@@ -22,10 +22,12 @@
       "max": 1000000,
       "businessContext": "Total quantity of items in the quote. Higher volumes may reduce unit cost but increase risk exposure.",
       "label_i18n": {
-        "en": "Order Volume (units)"
+        "en": "Order Volume (units)",
+        "tr": "Sipariş Hacmi (birim)"
       },
       "businessContext_i18n": {
-        "en": "Total quantity of items in the quote. Higher volumes may reduce unit cost but increase risk exposure."
+        "en": "Total quantity of items in the quote. Higher volumes may reduce unit cost but increase risk exposure.",
+        "tr": "Teklifteki toplam ürün miktarı. Yüksek hacimler birim maliyeti düşürebilir ancak risk maruziyetini artırabilir."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 100000,
       "businessContext": "Price per unit quoted to the customer.",
       "label_i18n": {
-        "en": "Unit Price ($)"
+        "en": "Unit Price ($)",
+        "tr": "Birim Fiyat ($)"
       },
       "businessContext_i18n": {
-        "en": "Price per unit quoted to the customer."
+        "en": "Price per unit quoted to the customer.",
+        "tr": "Müşteriye teklif edilen birim fiyat."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 365,
       "businessContext": "Time from order placement to delivery. Longer lead times increase demand forecast risk.",
       "label_i18n": {
-        "en": "Production Lead Time (days)"
+        "en": "Production Lead Time (days)",
+        "tr": "Üretim Teslim Süresi (gün)"
       },
       "businessContext_i18n": {
-        "en": "Time from order placement to delivery. Longer lead times increase demand forecast risk."
+        "en": "Time from order placement to delivery. Longer lead times increase demand forecast risk.",
+        "tr": "Siparişten teslimata kadar geçen süre. Uzun teslim süreleri talep tahmin riskini artırır."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 50,
       "businessContext": "Expected fluctuation in raw material costs during the lead time. Based on historical volatility.",
       "label_i18n": {
-        "en": "Material Cost Variability (%)"
+        "en": "Material Cost Variability (%)",
+        "tr": "Malzeme Maliyet Değişkenliği (%)"
       },
       "businessContext_i18n": {
-        "en": "Expected fluctuation in raw material costs during the lead time. Based on historical volatility."
+        "en": "Expected fluctuation in raw material costs during the lead time. Based on historical volatility.",
+        "tr": "Teslim süresi boyunca hammadde maliyetlerinde beklenen dalgalanma. Geçmiş volatiliteye dayanır."
       }
     },
     {
@@ -91,10 +99,12 @@
       ],
       "businessContext": "Skill level of the workforce assigned to the project. Low skill increases defect risk.",
       "label_i18n": {
-        "en": "Labor Skill Level"
+        "en": "Labor Skill Level",
+        "tr": "İşçilik Beceri Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Skill level of the workforce assigned to the project. Low skill increases defect risk."
+        "en": "Skill level of the workforce assigned to the project. Low skill increases defect risk.",
+        "tr": "Projeye atanan iş gücünün beceri seviyesi. Düşük beceri kusur riskini artırır."
       }
     },
     {
@@ -107,10 +117,12 @@
       "max": 100,
       "businessContext": "Historical percentage of defective units from similar production runs. Used for Six Sigma DPMO calculation.",
       "label_i18n": {
-        "en": "Historical Defect Rate (%)"
+        "en": "Historical Defect Rate (%)",
+        "tr": "Geçmiş Kusur Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Historical percentage of defective units from similar production runs. Used for Six Sigma DPMO calculation."
+        "en": "Historical percentage of defective units from similar production runs. Used for Six Sigma DPMO calculation.",
+        "tr": "Benzer üretim serilerinden geçmiş kusurlu birim yüzdesi. Altı Sigma DPMO hesaplaması için kullanılır."
       }
     },
     {
@@ -123,10 +135,12 @@
       "max": 10,
       "businessContext": "Score based on number of shipping modes, customs requirements, and distance. Higher score increases risk.",
       "label_i18n": {
-        "en": "Logistics Complexity Score"
+        "en": "Logistics Complexity Score",
+        "tr": "Lojistik Karmaşıklık Puanı"
       },
       "businessContext_i18n": {
-        "en": "Score based on number of shipping modes, customs requirements, and distance. Higher score increases risk."
+        "en": "Score based on number of shipping modes, customs requirements, and distance. Higher score increases risk.",
+        "tr": "Nakliye modları, gümrük gereksinimleri ve mesafe sayısına dayalı puan. Yüksek puan riski artırır."
       }
     },
     {
@@ -149,10 +163,12 @@
       ],
       "businessContext": "Standard credit rating of the customer. Lower ratings increase payment default risk.",
       "label_i18n": {
-        "en": "Customer Credit Rating"
+        "en": "Customer Credit Rating",
+        "tr": "Müşteri Kredi Notu"
       },
       "businessContext_i18n": {
-        "en": "Standard credit rating of the customer. Lower ratings increase payment default risk."
+        "en": "Standard credit rating of the customer. Lower ratings increase payment default risk.",
+        "tr": "Müşterinin standart kredi notu. Düşük notlar ödeme temerrüt riskini artırır."
       }
     }
   ],

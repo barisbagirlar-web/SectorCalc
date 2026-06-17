@@ -10,11 +10,15 @@
       "businessContext": "The length measurement in meters.",
       "label_i18n": {
         "en": "Meter Value",
-        "tr": "Meter Value",
+        "tr": "Metre değeri",
         "de": "Meter Value",
         "fr": "Meter Value",
         "es": "Meter Value",
         "ar": "Meter Value"
+      },
+      "businessContext_i18n": {
+        "en": "The length measurement in meters.",
+        "tr": "Metre cinsinden uzunluk ölçümü."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Calibration factor. Standard is 100 cm/m. Adjust if using non-standard units.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Calibration factor. Standard is 100 cm/m. Adjust if using non-standard units.",
+        "tr": "Kalibrasyon faktörü. Standart 100 cm/m'dir. Standart dışı birimler kullanılıyorsa ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Relative uncertainty of the measurement, for error propagation.",
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
-        "tr": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)",
         "de": "Measurement Uncertainty (%)",
         "fr": "Measurement Uncertainty (%)",
         "es": "Measurement Uncertainty (%)",
         "ar": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Relative uncertainty of the measurement, for error propagation.",
+        "tr": "Hata yayılımı için ölçümün bağıl belirsizliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for output rounding.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output rounding.",
+        "tr": "Çıktı yuvarlama için ondalık basamak sayısı."
       }
     }
   ],

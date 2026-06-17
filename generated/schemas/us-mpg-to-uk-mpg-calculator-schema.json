@@ -10,11 +10,15 @@
       "businessContext": "Fuel economy in miles per US gallon",
       "label_i18n": {
         "en": "US MPG",
-        "tr": "US MPG",
+        "tr": "ABD MPG",
         "de": "US MPG",
         "fr": "US MPG",
         "es": "US MPG",
         "ar": "US MPG"
+      },
+      "businessContext_i18n": {
+        "en": "Fuel economy in miles per US gallon",
+        "tr": "Mil başına ABD galonu cinsinden yakıt ekonomisi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Factor to convert US mpg to UK mpg. Based on 1 US gallon = 0.832674 UK gallon",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to convert US mpg to UK mpg. Based on 1 US gallon = 0.832674 UK gallon",
+        "tr": "ABD mpg'yi İngiliz mpg'ye dönüştürme faktörü. 1 ABD galonu = 0,832674 İngiliz galonu esas alınmıştır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounded output",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounded output",
+        "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional reference UK mpg value for comparison",
       "label_i18n": {
         "en": "Reference Value",
-        "tr": "Reference Value",
+        "tr": "Referans Değer",
         "de": "Reference Value",
         "fr": "Reference Value",
         "es": "Reference Value",
         "ar": "Reference Value"
+      },
+      "businessContext_i18n": {
+        "en": "Optional reference UK mpg value for comparison",
+        "tr": "Karşılaştırma için isteğe bağlı referans İngiliz mpg değeri"
       }
     }
   ],

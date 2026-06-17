@@ -10,11 +10,15 @@
       "businessContext": "Total distance to be shipped",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance to be shipped",
+        "tr": "Sevk edilecek toplam mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total weight of the shipment",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of the shipment",
+        "tr": "Gönderinin toplam ağırlığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total volume of the shipment",
       "label_i18n": {
         "en": "Volume",
-        "tr": "Volume",
+        "tr": "Hacim",
         "de": "Volume",
         "fr": "Volume",
         "es": "Volume",
         "ar": "Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of the shipment",
+        "tr": "Gönderinin toplam hacmi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current fuel price per liter",
       "label_i18n": {
         "en": "Fuel Price",
-        "tr": "Fuel Price",
+        "tr": "Yakıt Fiyatı",
         "de": "Fuel Price",
         "fr": "Fuel Price",
         "es": "Fuel Price",
         "ar": "Fuel Price"
+      },
+      "businessContext_i18n": {
+        "en": "Current fuel price per liter",
+        "tr": "Litre başına güncel yakıt fiyatı"
       }
     }
   ],

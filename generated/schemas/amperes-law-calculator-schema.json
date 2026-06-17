@@ -10,11 +10,15 @@
       "businessContext": "Current flowing through the conductor",
       "label_i18n": {
         "en": "Electric Current",
-        "tr": "Electric Current",
+        "tr": "Elektrik Akımı",
         "de": "Electric Current",
         "fr": "Electric Current",
         "es": "Electric Current",
         "ar": "Electric Current"
+      },
+      "businessContext_i18n": {
+        "en": "Current flowing through the conductor",
+        "tr": "İletkenden geçen akım"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Radial distance from the wire to the point of measurement",
       "label_i18n": {
         "en": "Distance from Wire",
-        "tr": "Distance from Wire",
+        "tr": "Telden Uzaklık",
         "de": "Distance from Wire",
         "fr": "Distance from Wire",
         "es": "Distance from Wire",
         "ar": "Distance from Wire"
+      },
+      "businessContext_i18n": {
+        "en": "Radial distance from the wire to the point of measurement",
+        "tr": "Telden ölçüm noktasına radyal mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Magnetic permeability of the surrounding medium (default: vacuum)",
       "label_i18n": {
         "en": "Permeability of Medium",
-        "tr": "Permeability of Medium",
+        "tr": "Ortamın Geçirgenliği",
         "de": "Permeability of Medium",
         "fr": "Permeability of Medium",
         "es": "Permeability of Medium",
         "ar": "Permeability of Medium"
+      },
+      "businessContext_i18n": {
+        "en": "Magnetic permeability of the surrounding medium (default: vacuum)",
+        "tr": "Çevreleyen ortamın manyetik geçirgenliği (varsayılan: vakum)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of parallel wires carrying current (for multi-wire configurations)",
       "label_i18n": {
         "en": "Number of Wires",
-        "tr": "Number of Wires",
+        "tr": "Tel Sayısı",
         "de": "Number of Wires",
         "fr": "Number of Wires",
         "es": "Number of Wires",
         "ar": "Number of Wires"
+      },
+      "businessContext_i18n": {
+        "en": "Number of parallel wires carrying current (for multi-wire configurations)",
+        "tr": "Akım taşıyan paralel tel sayısı (çok telli konfigürasyonlar için)"
       }
     }
   ],

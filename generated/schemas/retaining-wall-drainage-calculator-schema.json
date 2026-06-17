@@ -10,11 +10,15 @@
       "businessContext": "Height of retaining wall from base to top.",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of retaining wall from base to top.",
+        "tr": "Temelden tepeye istinat duvarı yüksekliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of wall section being drained.",
       "label_i18n": {
         "en": "Wall Length",
-        "tr": "Wall Length",
+        "tr": "Duvar Uzunluğu (m)",
         "de": "Wall Length",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of wall section being drained.",
+        "tr": "Drene edilen duvar bölümünün uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Hydraulic conductivity of backfill soil. Fine sand ~1e-5, gravel ~1e-3.",
       "label_i18n": {
         "en": "Soil Permeability (k)",
-        "tr": "Soil Permeability (k)",
+        "tr": "Toprak geçirgenliği (k)",
         "de": "Soil Permeability (k)",
         "fr": "Soil Permeability (k)",
         "es": "Soil Permeability (k)",
         "ar": "Soil Permeability (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Hydraulic conductivity of backfill soil. Fine sand ~1e-5, gravel ~1e-3.",
+        "tr": "Dolgu toprağının hidrolik iletkenliği. İnce kum ~1e-5, çakıl ~1e-3."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Inner diameter of drainage pipe.",
       "label_i18n": {
         "en": "Drain Pipe Diameter",
-        "tr": "Drain Pipe Diameter",
+        "tr": "Drenaj borusu çapı",
         "de": "Drain Pipe Diameter",
         "fr": "Drain Pipe Diameter",
         "es": "Drain Pipe Diameter",
         "ar": "Drain Pipe Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of drainage pipe.",
+        "tr": "Drenaj borusu iç çapı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Slope of drain pipe as percentage (e.g., 1 = 1%).",
       "label_i18n": {
         "en": "Pipe Slope",
-        "tr": "Pipe Slope",
+        "tr": "Boru Eğimi",
         "de": "Pipe Slope",
         "fr": "Pipe Slope",
         "es": "Pipe Slope",
         "ar": "Pipe Slope"
+      },
+      "businessContext_i18n": {
+        "en": "Slope of drain pipe as percentage (e.g., 1 = 1%).",
+        "tr": "Drenaj borusu eğimi yüzde olarak (örn. 1 = %1)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Roughness coefficient for pipe material (e.g., concrete=0.013, corrugated metal=0.024).",
       "label_i18n": {
         "en": "Manning's n",
-        "tr": "Manning's n",
+        "tr": "Manning n",
         "de": "Manning's n",
         "fr": "Manning's n",
         "es": "Manning's n",
         "ar": "Manning's n"
+      },
+      "businessContext_i18n": {
+        "en": "Roughness coefficient for pipe material (e.g., concrete=0.013, corrugated metal=0.024).",
+        "tr": "Boru malzemesi pürüzlülük katsayısı (örn. beton=0.013, oluklu metal=0.024)."
       }
     }
   ],

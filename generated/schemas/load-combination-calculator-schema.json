@@ -10,11 +10,15 @@
       "businessContext": "Permanent action, e.g., self-weight of structure",
       "label_i18n": {
         "en": "Dead Load (G)",
-        "tr": "Dead Load (G)",
+        "tr": "Sabit Yük (G)",
         "de": "Dead Load (G)",
         "fr": "Dead Load (G)",
         "es": "Dead Load (G)",
         "ar": "Dead Load (G)"
+      },
+      "businessContext_i18n": {
+        "en": "Permanent action, e.g., self-weight of structure",
+        "tr": "Kalıcı etki, örn. yapının öz ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Main variable action, e.g., occupancy or traffic",
       "label_i18n": {
         "en": "Live Load (Q)",
-        "tr": "Live Load (Q)",
+        "tr": "Hareketli Yük (Q)",
         "de": "Live Load (Q)",
         "fr": "Live Load (Q)",
         "es": "Live Load (Q)",
         "ar": "Live Load (Q)"
+      },
+      "businessContext_i18n": {
+        "en": "Main variable action, e.g., occupancy or traffic",
+        "tr": "Ana değişken etki, örn. kullanım veya trafik"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Accompanying variable action: wind pressure",
       "label_i18n": {
         "en": "Wind Load (W)",
-        "tr": "Wind Load (W)",
+        "tr": "Rüzgar Yükü (W)",
         "de": "Wind Load (W)",
         "fr": "Wind Load (W)",
         "es": "Wind Load (W)",
         "ar": "Wind Load (W)"
+      },
+      "businessContext_i18n": {
+        "en": "Accompanying variable action: wind pressure",
+        "tr": "Eşlik eden değişken etki: rüzgar basıncı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Accompanying variable action: snow load",
       "label_i18n": {
         "en": "Snow Load (S)",
-        "tr": "Snow Load (S)",
+        "tr": "Kar Yükü (S)",
         "de": "Snow Load (S)",
         "fr": "Snow Load (S)",
         "es": "Snow Load (S)",
         "ar": "Snow Load (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Accompanying variable action: snow load",
+        "tr": "Eşlik eden değişken etki: kar yükü"
       }
     }
   ],

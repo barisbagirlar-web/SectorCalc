@@ -10,11 +10,15 @@
       "businessContext": "Planned maximum depth of the dive, affecting inert gas loading and decompression risk.",
       "label_i18n": {
         "en": "Target Dive Depth",
-        "tr": "Target Dive Depth",
+        "tr": "Hedef Dalış Derinliği",
         "de": "Target Dive Depth",
         "fr": "Target Dive Depth",
         "es": "Target Dive Depth",
         "ar": "Target Dive Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Planned maximum depth of the dive, affecting inert gas loading and decompression risk.",
+        "tr": "Dalışın planlanan maksimum derinliği, inert gaz yüklenmesini ve dekompresyon riskini etkiler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Safe maximum partial pressure of oxygen to avoid CNS toxicity (1.4–1.6 atm).",
       "label_i18n": {
         "en": "Target Partial Pressure O₂",
-        "tr": "Target Partial Pressure O₂",
+        "tr": "Hedef Kısmi O₂ Basıncı",
         "de": "Target Partial Pressure O₂",
         "fr": "Target Partial Pressure O₂",
         "es": "Target Partial Pressure O₂",
         "ar": "Target Partial Pressure O₂"
+      },
+      "businessContext_i18n": {
+        "en": "Safe maximum partial pressure of oxygen to avoid CNS toxicity (1.4–1.6 atm).",
+        "tr": "CNS toksisitesini önlemek için güvenli maksimum kısmi oksijen basıncı (1.4–1.6 atm)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Oxygen percentage in the breathing gas mix, determines depth limits and decompression efficiency.",
       "label_i18n": {
         "en": "Nitrox O₂ Fraction",
-        "tr": "Nitrox O₂ Fraction",
+        "tr": "Nitrox O₂ Oranı",
         "de": "Nitrox O₂ Fraction",
         "fr": "Nitrox O₂ Fraction",
         "es": "Nitrox O₂ Fraction",
         "ar": "Nitrox O₂ Fraction"
+      },
+      "businessContext_i18n": {
+        "en": "Oxygen percentage in the breathing gas mix, determines depth limits and decompression efficiency.",
+        "tr": "Solunum gazı karışımındaki oksijen yüzdesi, derinlik limitlerini ve dekompresyon verimliliğini belirler."
       }
     }
   ],

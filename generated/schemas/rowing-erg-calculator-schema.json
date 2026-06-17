@@ -10,11 +10,15 @@
       "businessContext": "Total workout time in seconds",
       "label_i18n": {
         "en": "Time",
-        "tr": "Time",
+        "tr": "Zaman",
         "de": "Time",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total workout time in seconds",
+        "tr": "Saniye cinsinden toplam antrenman süresi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total distance rowed in meters",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance rowed in meters",
+        "tr": "Metre cinsinden toplam kürek çekme mesafesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Rower's body weight in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Rower's body weight in kilograms",
+        "tr": "Kürekçinin kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average strokes per minute during the session",
       "label_i18n": {
         "en": "Stroke Rate",
-        "tr": "Stroke Rate",
+        "tr": "Strok Hızı",
         "de": "Stroke Rate",
         "fr": "Stroke Rate",
         "es": "Stroke Rate",
         "ar": "Stroke Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average strokes per minute during the session",
+        "tr": "Seans sırasında dakikadaki ortalama strok sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The damper setting and overall drag factor of the rowing ergometer",
       "label_i18n": {
         "en": "Drag Factor",
-        "tr": "Drag Factor",
+        "tr": "Sürükleme Faktörü",
         "de": "Drag Factor",
         "fr": "Drag Factor",
         "es": "Drag Factor",
         "ar": "Drag Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The damper setting and overall drag factor of the rowing ergometer",
+        "tr": "Kürek ergometresinin damper ayarı ve genel sürükleme faktörü"
       }
     }
   ],

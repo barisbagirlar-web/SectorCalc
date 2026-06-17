@@ -10,11 +10,15 @@
       "businessContext": "Wavelength of the light used, in nanometers.",
       "label_i18n": {
         "en": "Wavelength",
-        "tr": "Wavelength",
+        "tr": "Dalgaboyu",
         "de": "Wavelength",
         "fr": "Wavelength",
         "es": "Wavelength",
         "ar": "Wavelength"
+      },
+      "businessContext_i18n": {
+        "en": "Wavelength of the light used, in nanometers.",
+        "tr": "Kullanılan ışığın dalga boyu, nanometre cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the single slit, in millimeters.",
       "label_i18n": {
         "en": "Slit Width",
-        "tr": "Slit Width",
+        "tr": "Yarık Genişliği",
         "de": "Slit Width",
         "fr": "Slit Width",
         "es": "Slit Width",
         "ar": "Slit Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the single slit, in millimeters.",
+        "tr": "Tek yarığın genişliği, milimetre cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Order of the minimum (positive integer).",
       "label_i18n": {
         "en": "Order (m)",
-        "tr": "Order (m)",
+        "tr": "Sıra (m)",
         "de": "Order (m)",
         "fr": "Order (m)",
         "es": "Order (m)",
         "ar": "Order (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Order of the minimum (positive integer).",
+        "tr": "Minimumun sırası (pozitif tam sayı)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance from the slit to the screen, in meters.",
       "label_i18n": {
         "en": "Screen Distance",
-        "tr": "Screen Distance",
+        "tr": "Ekran Mesafesi",
         "de": "Screen Distance",
         "fr": "Screen Distance",
         "es": "Screen Distance",
         "ar": "Screen Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from the slit to the screen, in meters.",
+        "tr": "Yarıktan ekrana olan mesafe, metre cinsinden."
       }
     }
   ],

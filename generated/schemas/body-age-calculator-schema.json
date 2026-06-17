@@ -10,11 +10,15 @@
       "businessContext": "Current age in years.",
       "label_i18n": {
         "en": "Chronological Age",
-        "tr": "Chronological Age",
+        "tr": "Kronolojik Yaş",
         "de": "Chronological Age",
         "fr": "Chronological Age",
         "es": "Chronological Age",
         "ar": "Chronological Age"
+      },
+      "businessContext_i18n": {
+        "en": "Current age in years.",
+        "tr": "Mevcut yaş (yıl)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average resting heart rate in beats per minute.",
       "label_i18n": {
         "en": "Resting Heart Rate",
-        "tr": "Resting Heart Rate",
+        "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Resting Heart Rate",
         "fr": "Resting Heart Rate",
         "es": "Resting Heart Rate",
         "ar": "Resting Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average resting heart rate in beats per minute.",
+        "tr": "Dinlenme halindeki ortalama kalp atış hızı, atım/dakika."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Waist measurement at navel level in centimeters.",
       "label_i18n": {
         "en": "Waist Circumference",
-        "tr": "Waist Circumference",
+        "tr": "Bel Çevresi",
         "de": "Waist Circumference",
         "fr": "Waist Circumference",
         "es": "Waist Circumference",
         "ar": "Waist Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Waist measurement at navel level in centimeters.",
+        "tr": "Göbek deliği seviyesinde bel ölçümü, santimetre cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Days per week with at least 30 minutes of moderate exercise.",
       "label_i18n": {
         "en": "Exercise Days per Week",
-        "tr": "Exercise Days per Week",
+        "tr": "Haftalık Egzersiz Günü",
         "de": "Exercise Days per Week",
         "fr": "Exercise Days per Week",
         "es": "Exercise Days per Week",
         "ar": "Exercise Days per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Days per week with at least 30 minutes of moderate exercise.",
+        "tr": "Haftada en az 30 dakika orta düzeyde egzersiz yapılan gün sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Systolic blood pressure reading in mmHg.",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Systolic blood pressure reading in mmHg.",
+        "tr": "Sistolik kan basıncı değeri, mmHg."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Diastolic blood pressure reading in mmHg.",
       "label_i18n": {
         "en": "Diastolic Blood Pressure",
-        "tr": "Diastolic Blood Pressure",
+        "tr": "Diyastolik Kan Basıncı",
         "de": "Diastolic Blood Pressure",
         "fr": "Diastolic Blood Pressure",
         "es": "Diastolic Blood Pressure",
         "ar": "Diastolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Diastolic blood pressure reading in mmHg.",
+        "tr": "Diyastolik kan basıncı değeri, mmHg."
       }
     }
   ],

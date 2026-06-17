@@ -10,11 +10,15 @@
       "businessContext": "Measured torque in Newton-meters",
       "label_i18n": {
         "en": "Torque Reading",
-        "tr": "Torque Reading",
+        "tr": "Tork Okuması",
         "de": "Torque Reading",
         "fr": "Torque Reading",
         "es": "Torque Reading",
         "ar": "Torque Reading"
+      },
+      "businessContext_i18n": {
+        "en": "Measured torque in Newton-meters",
+        "tr": "Newton-metre cinsinden ölçülen tork"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Off-axis angle in degrees",
       "label_i18n": {
         "en": "Angle Reading",
-        "tr": "Angle Reading",
+        "tr": "Açı Okuması",
         "de": "Angle Reading",
         "fr": "Angle Reading",
         "es": "Angle Reading",
         "ar": "Angle Reading"
+      },
+      "businessContext_i18n": {
+        "en": "Off-axis angle in degrees",
+        "tr": "Derece cinsinden eksen dışı açı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Vibration RMS velocity",
       "label_i18n": {
         "en": "Vibration Level",
-        "tr": "Vibration Level",
+        "tr": "Titreşim Seviyesi",
         "de": "Vibration Level",
         "fr": "Vibration Level",
         "es": "Vibration Level",
         "ar": "Vibration Level"
+      },
+      "businessContext_i18n": {
+        "en": "Vibration RMS velocity",
+        "tr": "Titreşim RMS hızı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of quality defects detected",
       "label_i18n": {
         "en": "Defect Count",
-        "tr": "Defect Count",
+        "tr": "Kusur Sayısı",
         "de": "Defect Count",
         "fr": "Defect Count",
         "es": "Defect Count",
         "ar": "Defect Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of quality defects detected",
+        "tr": "Tespit edilen kalite kusurlarının sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Equipment calibration multiplier",
       "label_i18n": {
         "en": "Calibration Factor",
-        "tr": "Calibration Factor",
+        "tr": "Kalibrasyon Faktörü",
         "de": "Calibration Factor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Equipment calibration multiplier",
+        "tr": "Ekipman kalibrasyon çarpanı"
       }
     }
   ],

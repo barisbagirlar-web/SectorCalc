@@ -10,11 +10,15 @@
       "businessContext": "Current credit card balance before interest",
       "label_i18n": {
         "en": "Outstanding Balance",
-        "tr": "Outstanding Balance",
+        "tr": "Kalan Bakiye",
         "de": "Outstanding Balance",
         "fr": "Outstanding Balance",
         "es": "Outstanding Balance",
         "ar": "Outstanding Balance"
+      },
+      "businessContext_i18n": {
+        "en": "Current credit card balance before interest",
+        "tr": "Faiz öncesi mevcut kredi kartı bakiyesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual percentage rate applied to balance",
       "label_i18n": {
         "en": "Annual Interest Rate (APR)",
-        "tr": "Annual Interest Rate (APR)",
+        "tr": "Yıllık Faiz Oranı (APR)",
         "de": "Annual Interest Rate (APR)",
         "fr": "Annual Interest Rate (APR)",
         "es": "Annual Interest Rate (APR)",
         "ar": "Annual Interest Rate (APR)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual percentage rate applied to balance",
+        "tr": "Bakiyeye uygulanan yıllık yüzde oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of balance used in minimum payment calculation",
       "label_i18n": {
         "en": "Minimum Payment Percentage",
-        "tr": "Minimum Payment Percentage",
+        "tr": "Asgari Ödeme Yüzdesi",
         "de": "Minimum Payment Percentage",
         "fr": "Minimum Payment Percentage",
         "es": "Minimum Payment Percentage",
         "ar": "Minimum Payment Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of balance used in minimum payment calculation",
+        "tr": "Asgari ödeme hesaplamasında kullanılan bakiye yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Dollar floor for minimum payment if percentage is lower",
       "label_i18n": {
         "en": "Fixed Minimum Amount",
-        "tr": "Fixed Minimum Amount",
+        "tr": "Sabit Asgari Tutar",
         "de": "Fixed Minimum Amount",
         "fr": "Fixed Minimum Amount",
         "es": "Fixed Minimum Amount",
         "ar": "Fixed Minimum Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Dollar floor for minimum payment if percentage is lower",
+        "tr": "Yüzde daha düşükse asgari ödeme için dolar tabanı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Any past due amount added to minimum payment",
       "label_i18n": {
         "en": "Past Due Amount",
-        "tr": "Past Due Amount",
+        "tr": "Gecikmiş Tutar",
         "de": "Past Due Amount",
         "fr": "Past Due Amount",
         "es": "Past Due Amount",
         "ar": "Past Due Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Any past due amount added to minimum payment",
+        "tr": "Asgari ödemeye eklenen gecikmiş tutar"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Over limit fee added to minimum payment",
       "label_i18n": {
         "en": "Over Limit Amount",
-        "tr": "Over Limit Amount",
+        "tr": "Limit Aşımı Tutarı",
         "de": "Over Limit Amount",
         "fr": "Over Limit Amount",
         "es": "Over Limit Amount",
         "ar": "Over Limit Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Over limit fee added to minimum payment",
+        "tr": "Asgari ödemeye eklenen limit aşımı ücreti"
       }
     }
   ],

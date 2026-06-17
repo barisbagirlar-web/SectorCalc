@@ -10,11 +10,15 @@
       "businessContext": "Color hue angle, range 0-360 degrees.",
       "label_i18n": {
         "en": "Hue",
-        "tr": "Hue",
+        "tr": "Renk tonu",
         "de": "Hue",
         "fr": "Hue",
         "es": "Hue",
         "ar": "Hue"
+      },
+      "businessContext_i18n": {
+        "en": "Color hue angle, range 0-360 degrees.",
+        "tr": "Renk tonu açısı, 0-360 derece aralığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Color saturation percentage, 0-100.",
       "label_i18n": {
         "en": "Saturation",
-        "tr": "Saturation",
+        "tr": "Doygunluk",
         "de": "Saturation",
         "fr": "Saturation",
         "es": "Saturation",
         "ar": "Saturation"
+      },
+      "businessContext_i18n": {
+        "en": "Color saturation percentage, 0-100.",
+        "tr": "Renk doygunluk yüzdesi, 0-100."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Color lightness percentage, 0-100.",
       "label_i18n": {
         "en": "Lightness",
-        "tr": "Lightness",
+        "tr": "Açıklık",
         "de": "Lightness",
         "fr": "Lightness",
         "es": "Lightness",
         "ar": "Lightness"
+      },
+      "businessContext_i18n": {
+        "en": "Color lightness percentage, 0-100.",
+        "tr": "Renk açıklık yüzdesi, 0-100."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum value for each RGB channel, e.g., 255 for 8-bit.",
       "label_i18n": {
         "en": "Max RGB Value",
-        "tr": "Max RGB Value",
+        "tr": "Maksimum RGB Değeri",
         "de": "Max RGB Value",
         "fr": "Max RGB Value",
         "es": "Max RGB Value",
         "ar": "Max RGB Value"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum value for each RGB channel, e.g., 255 for 8-bit.",
+        "tr": "Her RGB kanalı için maksimum değer, örn. 8-bit için 255."
       }
     }
   ],

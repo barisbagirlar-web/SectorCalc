@@ -10,11 +10,15 @@
       "businessContext": "Distance covered in 12 minutes, in meters.",
       "label_i18n": {
         "en": "Distance Covered (meters)",
-        "tr": "Distance Covered (meters)",
+        "tr": "Katedilen Mesafe (metre)",
         "de": "Distance Covered (meters)",
         "fr": "Distance Covered (meters)",
         "es": "Distance Covered (meters)",
         "ar": "Distance Covered (meters)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance covered in 12 minutes, in meters.",
+        "tr": "12 dakikada katedilen mesafe (metre cinsinden)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age of the individual in years.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the individual in years.",
+        "tr": "Bireyin yıl cinsinden yaşı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Gender encoded as 0 for male, 1 for female, used for fitness category determination.",
       "label_i18n": {
         "en": "Gender (0=Male, 1=Female)",
-        "tr": "Gender (0=Male, 1=Female)",
+        "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
         "de": "Gender (0=Male, 1=Female)",
         "fr": "Gender (0=Male, 1=Female)",
         "es": "Gender (0=Male, 1=Female)",
         "ar": "Gender (0=Male, 1=Female)"
+      },
+      "businessContext_i18n": {
+        "en": "Gender encoded as 0 for male, 1 for female, used for fitness category determination.",
+        "tr": "Cinsiyet: erkek için 0, kadın için 1; fitness kategorisi belirlemede kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Body weight in kilograms for calorie estimation.",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms for calorie estimation.",
+        "tr": "Kalori tahmini için vücut ağırlığı (kilogram)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total length of seams in the garment (meters)",
       "label_i18n": {
         "en": "Seam Length",
-        "tr": "Seam Length",
+        "tr": "Dikiş Yeri Uzunluğu",
         "de": "Seam Length",
         "fr": "Seam Length",
         "es": "Seam Length",
         "ar": "Seam Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of seams in the garment (meters)",
+        "tr": "Giysideki toplam dikiş uzunluğu (metre)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Stitch density (stitches per centimeter)",
       "label_i18n": {
         "en": "Stitches per cm",
-        "tr": "Stitches per cm",
+        "tr": "cm başına dikiş sayısı",
         "de": "Stitches per cm",
         "fr": "Stitches per cm",
         "es": "Stitches per cm",
         "ar": "Stitches per cm"
+      },
+      "businessContext_i18n": {
+        "en": "Stitch density (stitches per centimeter)",
+        "tr": "Dikiş yoğunluğu (santimetre başına dikiş sayısı)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average thread consumed per stitch (cm)",
       "label_i18n": {
         "en": "Thread Consumption per Stitch",
-        "tr": "Thread Consumption per Stitch",
+        "tr": "Dikiş Başına İplik Tüketimi",
         "de": "Thread Consumption per Stitch",
         "fr": "Thread Consumption per Stitch",
         "es": "Thread Consumption per Stitch",
         "ar": "Thread Consumption per Stitch"
+      },
+      "businessContext_i18n": {
+        "en": "Average thread consumed per stitch (cm)",
+        "tr": "Dikiş başına ortalama iplik tüketimi (cm)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of garments to be produced",
       "label_i18n": {
         "en": "Number of Garments",
-        "tr": "Number of Garments",
+        "tr": "Giysi Sayısı",
         "de": "Number of Garments",
         "fr": "Number of Garments",
         "es": "Number of Garments",
         "ar": "Number of Garments"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of garments to be produced",
+        "tr": "Üretilecek toplam giysi sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Waste factor for thread breakage, bobbin changes, etc.",
       "label_i18n": {
         "en": "Waste Percentage",
-        "tr": "Waste Percentage",
+        "tr": "Fire Yüzdesi",
         "de": "Waste Percentage",
         "fr": "Waste Percentage",
         "es": "Waste Percentage",
         "ar": "Waste Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Waste factor for thread breakage, bobbin changes, etc.",
+        "tr": "İplik kopması, masura değişimi vb. için fire faktörü"
       }
     }
   ],

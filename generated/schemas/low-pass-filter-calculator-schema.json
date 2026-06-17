@@ -10,11 +10,15 @@
       "businessContext": "Resistor value in ohms",
       "label_i18n": {
         "en": "Resistance (R)",
-        "tr": "Resistance (R)",
+        "tr": "Direnç (R)",
         "de": "Resistance (R)",
         "fr": "Resistance (R)",
         "es": "Resistance (R)",
         "ar": "Resistance (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Resistor value in ohms",
+        "tr": "Direnç değeri (ohm)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Resistor tolerance (±%)",
       "label_i18n": {
         "en": "Resistance Tolerance",
-        "tr": "Resistance Tolerance",
+        "tr": "Direnç Toleransı",
         "de": "Resistance Tolerance",
         "fr": "Resistance Tolerance",
         "es": "Resistance Tolerance",
         "ar": "Resistance Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Resistor tolerance (±%)",
+        "tr": "Direnç toleransı (±%)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Capacitor value in farads",
       "label_i18n": {
         "en": "Capacitance (C)",
-        "tr": "Capacitance (C)",
+        "tr": "Kapasitans (C)",
         "de": "Capacitance (C)",
         "fr": "Capacitance (C)",
         "es": "Capacitance (C)",
         "ar": "Capacitance (C)"
+      },
+      "businessContext_i18n": {
+        "en": "Capacitor value in farads",
+        "tr": "Kondansatör değeri (farad)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Capacitor tolerance (±%)",
       "label_i18n": {
         "en": "Capacitance Tolerance",
-        "tr": "Capacitance Tolerance",
+        "tr": "Kapasitans Toleransı",
         "de": "Capacitance Tolerance",
         "fr": "Capacitance Tolerance",
         "es": "Capacitance Tolerance",
         "ar": "Capacitance Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Capacitor tolerance (±%)",
+        "tr": "Kapasitör toleransı (±%)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Frequency of the input signal for attenuation calculation",
       "label_i18n": {
         "en": "Input Signal Frequency",
-        "tr": "Input Signal Frequency",
+        "tr": "Giriş Sinyali Frekansı",
         "de": "Input Signal Frequency",
         "fr": "Input Signal Frequency",
         "es": "Input Signal Frequency",
         "ar": "Input Signal Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency of the input signal for attenuation calculation",
+        "tr": "Zayıflama hesaplaması için giriş sinyalinin frekansı"
       }
     }
   ],

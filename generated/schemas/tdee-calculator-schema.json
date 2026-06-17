@@ -22,10 +22,12 @@
       "max": 120,
       "businessContext": "Age affects basal metabolic rate; used in Mifflin-St Jeor and Harris-Benedict equations.",
       "label_i18n": {
-        "en": "Age"
+        "en": "Age",
+        "tr": "Yaş"
       },
       "businessContext_i18n": {
-        "en": "Age affects basal metabolic rate; used in Mifflin-St Jeor and Harris-Benedict equations."
+        "en": "Age affects basal metabolic rate; used in Mifflin-St Jeor and Harris-Benedict equations.",
+        "tr": "Yaş, bazal metabolizma hızını etkiler; Mifflin-St Jeor ve Harris-Benedict denklemlerinde kullanılır."
       }
     },
     {
@@ -42,10 +44,12 @@
       ],
       "businessContext": "Gender-specific coefficients for BMR estimation per ISO 8996 and clinical standards.",
       "label_i18n": {
-        "en": "Gender"
+        "en": "Gender",
+        "tr": "Cinsiyet"
       },
       "businessContext_i18n": {
-        "en": "Gender-specific coefficients for BMR estimation per ISO 8996 and clinical standards."
+        "en": "Gender-specific coefficients for BMR estimation per ISO 8996 and clinical standards.",
+        "tr": "ISO 8996 ve klinik standartlara göre BMR tahmini için cinsiyete özgü katsayılar."
       }
     },
     {
@@ -58,10 +62,12 @@
       "max": 300,
       "businessContext": "Primary driver of energy expenditure; used in all BMR formulas.",
       "label_i18n": {
-        "en": "Body Weight"
+        "en": "Body Weight",
+        "tr": "Vücut Ağırlığı"
       },
       "businessContext_i18n": {
-        "en": "Primary driver of energy expenditure; used in all BMR formulas."
+        "en": "Primary driver of energy expenditure; used in all BMR formulas.",
+        "tr": "Enerji harcamasının ana belirleyicisi; tüm BMR formüllerinde kullanılır."
       }
     },
     {
@@ -74,10 +80,12 @@
       "max": 250,
       "businessContext": "Height influences lean body mass and BMR; used in Mifflin-St Jeor and Harris-Benedict.",
       "label_i18n": {
-        "en": "Height"
+        "en": "Height",
+        "tr": "Boy"
       },
       "businessContext_i18n": {
-        "en": "Height influences lean body mass and BMR; used in Mifflin-St Jeor and Harris-Benedict."
+        "en": "Height influences lean body mass and BMR; used in Mifflin-St Jeor and Harris-Benedict.",
+        "tr": "Boy, yağsız vücut kütlesini ve BMR'yi etkiler; Mifflin-St Jeor ve Harris-Benedict'te kullanılır."
       }
     },
     {
@@ -97,10 +105,12 @@
       ],
       "businessContext": "Physical activity level (PAL) multiplier per WHO/FAO and ISO 8996 metabolic rate classification.",
       "label_i18n": {
-        "en": "Activity Level"
+        "en": "Activity Level",
+        "tr": "Aktivite Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Physical activity level (PAL) multiplier per WHO/FAO and ISO 8996 metabolic rate classification."
+        "en": "Physical activity level (PAL) multiplier per WHO/FAO and ISO 8996 metabolic rate classification.",
+        "tr": "WHO/FAO ve ISO 8996 metabolik hız sınıflandırmasına göre fiziksel aktivite düzeyi (PAL) çarpanı."
       }
     },
     {
@@ -113,10 +123,12 @@
       "max": 60,
       "businessContext": "Optional input for Katch-McArdle formula; improves accuracy for lean mass estimation.",
       "label_i18n": {
-        "en": "Body Fat Percentage"
+        "en": "Body Fat Percentage",
+        "tr": "Vücut yağ yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Optional input for Katch-McArdle formula; improves accuracy for lean mass estimation."
+        "en": "Optional input for Katch-McArdle formula; improves accuracy for lean mass estimation.",
+        "tr": "Katch-McArdle formülü için isteğe bağlı girdi; yağsız kütle tahmininde doğruluğu artırır."
       }
     },
     {
@@ -129,10 +141,12 @@
       "max": null,
       "businessContext": "Activates adjusted activity multipliers for high-frequency training (6+ sessions/week).",
       "label_i18n": {
-        "en": "Athlete Mode"
+        "en": "Athlete Mode",
+        "tr": "Sporcu Modu"
       },
       "businessContext_i18n": {
-        "en": "Activates adjusted activity multipliers for high-frequency training (6+ sessions/week)."
+        "en": "Activates adjusted activity multipliers for high-frequency training (6+ sessions/week).",
+        "tr": "Yüksek frekanslı antrenman (haftada 6+ seans) için ayarlanmış aktivite çarpanlarını etkinleştirir."
       }
     }
   ],

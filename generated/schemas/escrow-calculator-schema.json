@@ -10,11 +10,15 @@
       "businessContext": "Yearly property tax amount as declared by local tax authority",
       "label_i18n": {
         "en": "Annual Property Tax",
-        "tr": "Annual Property Tax",
+        "tr": "Yıllık Emlak Vergisi",
         "de": "Annual Property Tax",
         "fr": "Annual Property Tax",
         "es": "Annual Property Tax",
         "ar": "Annual Property Tax"
+      },
+      "businessContext_i18n": {
+        "en": "Yearly property tax amount as declared by local tax authority",
+        "tr": "Yerel vergi dairesi tarafından beyan edilen yıllık emlak vergisi tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total yearly insurance premium for the property",
       "label_i18n": {
         "en": "Annual Homeowner's Insurance Premium",
-        "tr": "Annual Homeowner's Insurance Premium",
+        "tr": "Yıllık Ev Sahibi Sigorta Primi",
         "de": "Annual Homeowner's Insurance Premium",
         "fr": "Annual Homeowner's Insurance Premium",
         "es": "Annual Homeowner's Insurance Premium",
         "ar": "Annual Homeowner's Insurance Premium"
+      },
+      "businessContext_i18n": {
+        "en": "Total yearly insurance premium for the property",
+        "tr": "Mülk için toplam yıllık sigorta primi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of extra months’ payment held as reserve, typically 2 months",
       "label_i18n": {
         "en": "Cushion Months",
-        "tr": "Cushion Months",
+        "tr": "Yedek Ay Sayısı",
         "de": "Cushion Months",
         "fr": "Cushion Months",
         "es": "Cushion Months",
         "ar": "Cushion Months"
+      },
+      "businessContext_i18n": {
+        "en": "Number of extra months’ payment held as reserve, typically 2 months",
+        "tr": "Genellikle 2 ay olmak üzere yedek olarak tutulan ekstra ödeme ayı sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of payment months in a year, normally 12",
       "label_i18n": {
         "en": "Months Per Year",
-        "tr": "Months Per Year",
+        "tr": "Yıllık Ay Sayısı",
         "de": "Months Per Year",
         "fr": "Months Per Year",
         "es": "Months Per Year",
         "ar": "Months Per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of payment months in a year, normally 12",
+        "tr": "Bir yıldaki ödeme ayı sayısı, normalde 12"
       }
     }
   ],

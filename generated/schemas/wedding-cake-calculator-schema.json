@@ -10,11 +10,15 @@
       "businessContext": "The total number of wedding guests to be served cake, determines the total quantity needed and drives portion sizing to avoid shortage or excess.",
       "label_i18n": {
         "en": "Guest Count",
-        "tr": "Guest Count",
+        "tr": "Misafir Sayısı",
         "de": "Guest Count",
         "fr": "Guest Count",
         "es": "Guest Count",
         "ar": "Guest Count"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of wedding guests to be served cake, determines the total quantity needed and drives portion sizing to avoid shortage or excess.",
+        "tr": "Düğün misafirlerine servis edilecek toplam pasta sayısı, gereken toplam miktarı belirler ve eksiklik veya fazlalığı önlemek için porsiyon boyutlandırmasını yönlendirir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average weight of a single serving of cake in grams, based on typical dessert portions; affects total cake mass and ingredient requirements.",
       "label_i18n": {
         "en": "Portion Size",
-        "tr": "Portion Size",
+        "tr": "Porsiyon Boyutu",
         "de": "Portion Size",
         "fr": "Portion Size",
         "es": "Portion Size",
         "ar": "Portion Size"
+      },
+      "businessContext_i18n": {
+        "en": "Average weight of a single serving of cake in grams, based on typical dessert portions; affects total cake mass and ingredient requirements.",
+        "tr": "Tipik tatlı porsiyonlarına dayalı olarak gram cinsinden tek bir pasta diliminin ortalama ağırlığı; toplam pasta kütlesini ve içerik gereksinimlerini etkiler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of raw materials (flour, sugar, eggs, etc.) per kilogram; fundamental for calculating the base food cost of the cake.",
       "label_i18n": {
         "en": "Ingredient Cost per kg",
-        "tr": "Ingredient Cost per kg",
+        "tr": "İçerik Maliyeti (kg başına)",
         "de": "Ingredient Cost per kg",
         "fr": "Ingredient Cost per kg",
         "es": "Ingredient Cost per kg",
         "ar": "Ingredient Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw materials (flour, sugar, eggs, etc.) per kilogram; fundamental for calculating the base food cost of the cake.",
+        "tr": "Kilogram başına hammadde (un, şeker, yumurta vb.) maliyeti; pastanın temel gıda maliyetini hesaplamak için temel oluşturur."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total direct labor time spent on baking and decorating the cake; used to compute labor expense.",
       "label_i18n": {
         "en": "Labor Hours",
-        "tr": "Labor Hours",
+        "tr": "İşçilik Saati",
         "de": "Labor Hours",
         "fr": "Labor Hours",
         "es": "Labor Hours",
         "ar": "Labor Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total direct labor time spent on baking and decorating the cake; used to compute labor expense.",
+        "tr": "Pastanın pişirilmesi ve süslenmesi için harcanan toplam doğrudan işçilik süresi; işçilik giderini hesaplamak için kullanılır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Hourly wage of the pastry chef or baker; multiplied by labor hours to get total labor cost.",
       "label_i18n": {
         "en": "Labor Rate",
-        "tr": "Labor Rate",
+        "tr": "İşçilik ücreti",
         "de": "Labor Rate",
         "fr": "Labor Rate",
         "es": "Labor Rate",
         "ar": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage of the pastry chef or baker; multiplied by labor hours to get total labor cost.",
+        "tr": "Pastacı şefinin veya fırıncının saatlik ücreti; toplam işçilik maliyetini elde etmek için işçilik saatleriyle çarpılır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Indirect costs (utilities, rent, equipment amortization) expressed as a percentage of direct costs (ingredients + labor); ensures full cost recovery.",
       "label_i18n": {
         "en": "Overhead Percentage",
-        "tr": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi",
         "de": "Overhead Percentage",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect costs (utilities, rent, equipment amortization) expressed as a percentage of direct costs (ingredients + labor); ensures full cost recovery.",
+        "tr": "Doğrudan maliyetlerin (içerikler + işçilik) yüzdesi olarak ifade edilen dolaylı maliyetler (elektrik, kira, ekipman amortismanı); tam maliyet geri kazanımını sağlar."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Desired net profit as a percentage of total cost; used to set the final selling price and ensure business sustainability.",
       "label_i18n": {
         "en": "Profit Margin",
-        "tr": "Profit Margin",
+        "tr": "Kâr Marjı",
         "de": "Profit Margin",
         "fr": "Profit Margin",
         "es": "Profit Margin",
         "ar": "Profit Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Desired net profit as a percentage of total cost; used to set the final selling price and ensure business sustainability.",
+        "tr": "Toplam maliyetin yüzdesi olarak istenen net kâr; nihai satış fiyatını belirlemek ve iş sürdürülebilirliğini sağlamak için kullanılır."
       }
     }
   ],

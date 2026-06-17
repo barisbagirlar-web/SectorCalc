@@ -10,11 +10,15 @@
       "businessContext": "Specify 1 for a call option, 0 for a put option.",
       "label_i18n": {
         "en": "Option Type (1=Call, 0=Put)",
-        "tr": "Option Type (1=Call, 0=Put)",
+        "tr": "Opsiyon Türü (1=Alım, 0=Satım)",
         "de": "Option Type (1=Call, 0=Put)",
         "fr": "Option Type (1=Call, 0=Put)",
         "es": "Option Type (1=Call, 0=Put)",
         "ar": "Option Type (1=Call, 0=Put)"
+      },
+      "businessContext_i18n": {
+        "en": "Specify 1 for a call option, 0 for a put option.",
+        "tr": "Alım opsiyonu için 1, satım opsiyonu için 0 belirtin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The current market price of the underlying asset.",
       "label_i18n": {
         "en": "Current Stock Price",
-        "tr": "Current Stock Price",
+        "tr": "Mevcut Hisse Senedi Fiyatı",
         "de": "Current Stock Price",
         "fr": "Current Stock Price",
         "es": "Current Stock Price",
         "ar": "Current Stock Price"
+      },
+      "businessContext_i18n": {
+        "en": "The current market price of the underlying asset.",
+        "tr": "Dayanak varlığın güncel piyasa fiyatı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The price at which the option can be exercised.",
       "label_i18n": {
         "en": "Strike Price",
-        "tr": "Strike Price",
+        "tr": "Kullanım Fiyatı",
         "de": "Strike Price",
         "fr": "Strike Price",
         "es": "Strike Price",
         "ar": "Strike Price"
+      },
+      "businessContext_i18n": {
+        "en": "The price at which the option can be exercised.",
+        "tr": "Opsiyonun kullanılabileceği fiyat."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time remaining until option expiration, expressed in years.",
       "label_i18n": {
         "en": "Time to Maturity",
-        "tr": "Time to Maturity",
+        "tr": "Vadeye Kalan Süre",
         "de": "Time to Maturity",
         "fr": "Time to Maturity",
         "es": "Time to Maturity",
         "ar": "Time to Maturity"
+      },
+      "businessContext_i18n": {
+        "en": "Time remaining until option expiration, expressed in years.",
+        "tr": "Opsiyon vadesine kalan süre, yıl cinsinden ifade edilir."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Annual risk-free interest rate (e.g., 5 for 5%).",
       "label_i18n": {
         "en": "Risk-Free Interest Rate",
-        "tr": "Risk-Free Interest Rate",
+        "tr": "Risksiz Faiz Oranı",
         "de": "Risk-Free Interest Rate",
         "fr": "Risk-Free Interest Rate",
         "es": "Risk-Free Interest Rate",
         "ar": "Risk-Free Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual risk-free interest rate (e.g., 5 for 5%).",
+        "tr": "Yıllık risksiz faiz oranı (örneğin %5 için 5)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annualized standard deviation of the underlying's returns (e.g., 20 for 20%).",
       "label_i18n": {
         "en": "Volatility",
-        "tr": "Volatility",
+        "tr": "Volatilite",
         "de": "Volatility",
         "fr": "Volatility",
         "es": "Volatility",
         "ar": "Volatility"
+      },
+      "businessContext_i18n": {
+        "en": "Annualized standard deviation of the underlying's returns (e.g., 20 for 20%).",
+        "tr": "Dayanak varlık getirilerinin yıllık standart sapması (örneğin %20 için 20)."
       }
     }
   ],

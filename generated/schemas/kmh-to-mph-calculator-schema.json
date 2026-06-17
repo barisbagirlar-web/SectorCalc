@@ -10,11 +10,15 @@
       "businessContext": "Enter the speed in kilometers per hour",
       "label_i18n": {
         "en": "Speed (km/h)",
-        "tr": "Speed (km/h)",
+        "tr": "Hız (km/s)",
         "de": "Speed (km/h)",
         "fr": "Speed (km/h)",
         "es": "Speed (km/h)",
         "ar": "Speed (km/h)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the speed in kilometers per hour",
+        "tr": "Hızı kilometre/saat cinsinden girin"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of kilometers in one mile. Standard is 1.609344.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Number of kilometers in one mile. Standard is 1.609344.",
+        "tr": "Bir mildeki kilometre sayısı. Standart 1,609344'tür."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the result",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the result",
+        "tr": "Sonuç için ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "If you know the correct mph, enter here for error calculation.",
       "label_i18n": {
         "en": "Known mph (for verification)",
-        "tr": "Known mph (for verification)",
+        "tr": "Bilinen mph (doğrulama için)",
         "de": "Known mph (for verification)",
         "fr": "Known mph (for verification)",
         "es": "Known mph (for verification)",
         "ar": "Known mph (for verification)"
+      },
+      "businessContext_i18n": {
+        "en": "If you know the correct mph, enter here for error calculation.",
+        "tr": "Doğru mph'yi biliyorsanız, hata hesaplaması için buraya girin."
       }
     }
   ],

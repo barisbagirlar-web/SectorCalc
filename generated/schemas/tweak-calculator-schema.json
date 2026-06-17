@@ -10,11 +10,15 @@
       "businessContext": "Measured current value of the parameter to be adjusted (e.g., pressure, speed, temperature).",
       "label_i18n": {
         "en": "Current Parameter Value",
-        "tr": "Current Parameter Value",
+        "tr": "Mevcut Parametre Değeri",
         "de": "Current Parameter Value",
         "fr": "Current Parameter Value",
         "es": "Current Parameter Value",
         "ar": "Current Parameter Value"
+      },
+      "businessContext_i18n": {
+        "en": "Measured current value of the parameter to be adjusted (e.g., pressure, speed, temperature).",
+        "tr": "Ayarlanacak parametrenin ölçülen mevcut değeri (örneğin, basınç, hız, sıcaklık)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired target value for the parameter after adjustment.",
       "label_i18n": {
         "en": "Target Value",
-        "tr": "Target Value",
+        "tr": "Hedef Değer",
         "de": "Target Value",
         "fr": "Target Value",
         "es": "Target Value",
         "ar": "Target Value"
+      },
+      "businessContext_i18n": {
+        "en": "Desired target value for the parameter after adjustment.",
+        "tr": "Ayarlama sonrası parametre için istenen hedef değer."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current process efficiency affecting the parameter response (0-100).",
       "label_i18n": {
         "en": "Efficiency Factor",
-        "tr": "Efficiency Factor",
+        "tr": "Verimlilik Faktörü",
         "de": "Efficiency Factor",
         "fr": "Efficiency Factor",
         "es": "Efficiency Factor",
         "ar": "Efficiency Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Current process efficiency affecting the parameter response (0-100).",
+        "tr": "Parametre yanıtını etkileyen mevcut proses verimliliği (0-100)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Safety factor applied to the adjustment to prevent overshoot (typically >=100).",
       "label_i18n": {
         "en": "Safety Margin",
-        "tr": "Safety Margin",
+        "tr": "Güvenlik Marjı",
         "de": "Safety Margin",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Safety factor applied to the adjustment to prevent overshoot (typically >=100).",
+        "tr": "Aşmayı önlemek için ayarlamaya uygulanan güvenlik faktörü (tipik olarak >=100)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum permissible tweak percentage variation before issuing a warning.",
       "label_i18n": {
         "en": "Adjustment Tolerance",
-        "tr": "Adjustment Tolerance",
+        "tr": "Ayarlama Toleransı",
         "de": "Adjustment Tolerance",
         "fr": "Adjustment Tolerance",
         "es": "Adjustment Tolerance",
         "ar": "Adjustment Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum permissible tweak percentage variation before issuing a warning.",
+        "tr": "Uyarı vermeden önce izin verilen maksimum ince ayar yüzdesi değişimi."
       }
     }
   ],

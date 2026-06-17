@@ -10,11 +10,15 @@
       "businessContext": "Refractive index at the Fraunhofer D-line (589.3 nm), typically for yellow light.",
       "label_i18n": {
         "en": "Refractive Index n_d",
-        "tr": "Refractive Index n_d",
+        "tr": "Kırılma İndisi n_d",
         "de": "Refractive Index n_d",
         "fr": "Refractive Index n_d",
         "es": "Refractive Index n_d",
         "ar": "Refractive Index n_d"
+      },
+      "businessContext_i18n": {
+        "en": "Refractive index at the Fraunhofer D-line (589.3 nm), typically for yellow light.",
+        "tr": "Fraunhofer D-çizgisinde (589.3 nm) kırılma indisi, tipik olarak sarı ışık için."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Refractive index at the Fraunhofer F-line (486.1 nm), blue hydrogen line.",
       "label_i18n": {
         "en": "Refractive Index n_F",
-        "tr": "Refractive Index n_F",
+        "tr": "Kırılma İndisi n_F",
         "de": "Refractive Index n_F",
         "fr": "Refractive Index n_F",
         "es": "Refractive Index n_F",
         "ar": "Refractive Index n_F"
+      },
+      "businessContext_i18n": {
+        "en": "Refractive index at the Fraunhofer F-line (486.1 nm), blue hydrogen line.",
+        "tr": "Fraunhofer F-çizgisinde (486.1 nm) kırılma indisi, mavi hidrojen çizgisi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Refractive index at the Fraunhofer C-line (656.3 nm), red hydrogen line.",
       "label_i18n": {
         "en": "Refractive Index n_C",
-        "tr": "Refractive Index n_C",
+        "tr": "Kırılma İndisi n_C",
         "de": "Refractive Index n_C",
         "fr": "Refractive Index n_C",
         "es": "Refractive Index n_C",
         "ar": "Refractive Index n_C"
+      },
+      "businessContext_i18n": {
+        "en": "Refractive index at the Fraunhofer C-line (656.3 nm), red hydrogen line.",
+        "tr": "Fraunhofer C-çizgisinde (656.3 nm) kırılma indisi, kırmızı hidrojen çizgisi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Wavelength for n_d measurement, default is 589.3 nm.",
       "label_i18n": {
         "en": "Reference Wavelength",
-        "tr": "Reference Wavelength",
+        "tr": "Referans Dalga Boyu",
         "de": "Reference Wavelength",
         "fr": "Reference Wavelength",
         "es": "Reference Wavelength",
         "ar": "Reference Wavelength"
+      },
+      "businessContext_i18n": {
+        "en": "Wavelength for n_d measurement, default is 589.3 nm.",
+        "tr": "n_d ölçümü için dalga boyu, varsayılan 589,3 nm."
       }
     }
   ],

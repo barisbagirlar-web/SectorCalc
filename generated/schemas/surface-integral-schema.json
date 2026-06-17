@@ -10,11 +10,15 @@
       "businessContext": "Scalar function value on surface",
       "label_i18n": {
         "en": "Surface Function f(x,y)",
-        "tr": "Surface Function f(x,y)",
+        "tr": "Yüzey Fonksiyonu f(x,y)",
         "de": "Surface Function f(x,y)",
         "fr": "Surface Function f(x,y)",
         "es": "Surface Function f(x,y)",
         "ar": "Surface Function f(x,y)"
+      },
+      "businessContext_i18n": {
+        "en": "Scalar function value on surface",
+        "tr": "Yüzeydeki skaler fonksiyon değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Lower limit of x integration",
       "label_i18n": {
         "en": "X Lower Bound",
-        "tr": "X Lower Bound",
+        "tr": "X Alt Sınırı",
         "de": "X Lower Bound",
         "fr": "X Lower Bound",
         "es": "X Lower Bound",
         "ar": "X Lower Bound"
+      },
+      "businessContext_i18n": {
+        "en": "Lower limit of x integration",
+        "tr": "x entegrasyonunun alt limiti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Upper limit of x integration",
       "label_i18n": {
         "en": "X Upper Bound",
-        "tr": "X Upper Bound",
+        "tr": "X Üst Sınırı",
         "de": "X Upper Bound",
         "fr": "X Upper Bound",
         "es": "X Upper Bound",
         "ar": "X Upper Bound"
+      },
+      "businessContext_i18n": {
+        "en": "Upper limit of x integration",
+        "tr": "x entegrasyonunun üst limiti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Lower limit of y integration",
       "label_i18n": {
         "en": "Y Lower Bound",
-        "tr": "Y Lower Bound",
+        "tr": "Y Alt Sınırı",
         "de": "Y Lower Bound",
         "fr": "Y Lower Bound",
         "es": "Y Lower Bound",
         "ar": "Y Lower Bound"
+      },
+      "businessContext_i18n": {
+        "en": "Lower limit of y integration",
+        "tr": "y entegrasyonunun alt limiti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Upper limit of y integration",
       "label_i18n": {
         "en": "Y Upper Bound",
-        "tr": "Y Upper Bound",
+        "tr": "Y Üst Sınırı",
         "de": "Y Upper Bound",
         "fr": "Y Upper Bound",
         "es": "Y Upper Bound",
         "ar": "Y Upper Bound"
+      },
+      "businessContext_i18n": {
+        "en": "Upper limit of y integration",
+        "tr": "y entegrasyonunun üst limiti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Discretization step in x",
       "label_i18n": {
         "en": "Step Size dx",
-        "tr": "Step Size dx",
+        "tr": "Adım Boyutu dx",
         "de": "Step Size dx",
         "fr": "Step Size dx",
         "es": "Step Size dx",
         "ar": "Step Size dx"
+      },
+      "businessContext_i18n": {
+        "en": "Discretization step in x",
+        "tr": "x yönünde ayrıklaştırma adımı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Discretization step in y",
       "label_i18n": {
         "en": "Step Size dy",
-        "tr": "Step Size dy",
+        "tr": "Adım Boyutu dy",
         "de": "Step Size dy",
         "fr": "Step Size dy",
         "es": "Step Size dy",
         "ar": "Step Size dy"
+      },
+      "businessContext_i18n": {
+        "en": "Discretization step in y",
+        "tr": "y'de ayrıklaştırma adımı"
       }
     }
   ],

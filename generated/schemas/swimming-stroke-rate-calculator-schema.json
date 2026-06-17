@@ -10,11 +10,15 @@
       "businessContext": "Total stroke count during the measured interval.",
       "label_i18n": {
         "en": "Number of Strokes",
-        "tr": "Number of Strokes",
+        "tr": "Kol çekme sayısı",
         "de": "Number of Strokes",
         "fr": "Number of Strokes",
         "es": "Number of Strokes",
         "ar": "Number of Strokes"
+      },
+      "businessContext_i18n": {
+        "en": "Total stroke count during the measured interval.",
+        "tr": "Ölçüm aralığındaki toplam kol çekme sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of the measurement in seconds.",
       "label_i18n": {
         "en": "Time",
-        "tr": "Time",
+        "tr": "Zaman",
         "de": "Time",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the measurement in seconds.",
+        "tr": "Ölçüm süresi (saniye)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of pool lengths completed.",
       "label_i18n": {
         "en": "Number of Laps",
-        "tr": "Number of Laps",
+        "tr": "Tur Sayısı",
         "de": "Number of Laps",
         "fr": "Number of Laps",
         "es": "Number of Laps",
         "ar": "Number of Laps"
+      },
+      "businessContext_i18n": {
+        "en": "Number of pool lengths completed.",
+        "tr": "Tamamlanan havuz boyu sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard length of the swimming pool.",
       "label_i18n": {
         "en": "Pool Length",
-        "tr": "Pool Length",
+        "tr": "Havuz Uzunluğu",
         "de": "Pool Length",
         "fr": "Pool Length",
         "es": "Pool Length",
         "ar": "Pool Length"
+      },
+      "businessContext_i18n": {
+        "en": "Standard length of the swimming pool.",
+        "tr": "Havuzun standart boyu."
       }
     }
   ],

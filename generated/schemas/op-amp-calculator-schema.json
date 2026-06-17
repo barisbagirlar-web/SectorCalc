@@ -10,11 +10,15 @@
       "businessContext": "Input signal voltage from sensor or source (peak or DC)",
       "label_i18n": {
         "en": "Input Voltage (Vin)",
-        "tr": "Input Voltage (Vin)",
+        "tr": "Giriş voltajı (Vin)",
         "de": "Input Voltage (Vin)",
         "fr": "Input Voltage (Vin)",
         "es": "Input Voltage (Vin)",
         "ar": "Input Voltage (Vin)"
+      },
+      "businessContext_i18n": {
+        "en": "Input signal voltage from sensor or source (peak or DC)",
+        "tr": "Sensörden veya kaynaktan giriş sinyali voltajı (tepe veya DC)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Resistance from non-inverting terminal to ground; sets input impedance",
       "label_i18n": {
         "en": "Input Resistance (Rin)",
-        "tr": "Input Resistance (Rin)",
+        "tr": "Giriş Direnci (Rin)",
         "de": "Input Resistance (Rin)",
         "fr": "Input Resistance (Rin)",
         "es": "Input Resistance (Rin)",
         "ar": "Input Resistance (Rin)"
+      },
+      "businessContext_i18n": {
+        "en": "Resistance from non-inverting terminal to ground; sets input impedance",
+        "tr": "Evirmeyen terminalden toprağa direnç; giriş empedansını belirler"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Feedback resistor between output and inverting input for gain setting",
       "label_i18n": {
         "en": "Feedback Resistance (Rf)",
-        "tr": "Feedback Resistance (Rf)",
+        "tr": "Geri Besleme Direnci (Rf)",
         "de": "Feedback Resistance (Rf)",
         "fr": "Feedback Resistance (Rf)",
         "es": "Feedback Resistance (Rf)",
         "ar": "Feedback Resistance (Rf)"
+      },
+      "businessContext_i18n": {
+        "en": "Feedback resistor between output and inverting input for gain setting",
+        "tr": "Kazanç ayarı için çıkış ile eviren giriş arasındaki geri besleme direnci"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Positive supply rail; output cannot exceed Vcc - 1.5V (typical)",
       "label_i18n": {
         "en": "Positive Supply (Vcc)",
-        "tr": "Positive Supply (Vcc)",
+        "tr": "Pozitif Besleme (Vcc)",
         "de": "Positive Supply (Vcc)",
         "fr": "Positive Supply (Vcc)",
         "es": "Positive Supply (Vcc)",
         "ar": "Positive Supply (Vcc)"
+      },
+      "businessContext_i18n": {
+        "en": "Positive supply rail; output cannot exceed Vcc - 1.5V (typical)",
+        "tr": "Pozitif besleme rayı; çıkış tipik olarak Vcc - 1.5V'u aşamaz"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Negative supply rail; for single supply this is ground (0V)",
       "label_i18n": {
         "en": "Negative Supply (Vee)",
-        "tr": "Negative Supply (Vee)",
+        "tr": "Negatif Besleme (Vee)",
         "de": "Negative Supply (Vee)",
         "fr": "Negative Supply (Vee)",
         "es": "Negative Supply (Vee)",
         "ar": "Negative Supply (Vee)"
+      },
+      "businessContext_i18n": {
+        "en": "Negative supply rail; for single supply this is ground (0V)",
+        "tr": "Negatif besleme rayı; tek besleme için bu topraktır (0V)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total monetary value of sales closed in the commission period.",
       "label_i18n": {
         "en": "Total Sales",
-        "tr": "Total Sales",
+        "tr": "Toplam Satış",
         "de": "Total Sales",
         "fr": "Total Sales",
         "es": "Total Sales",
         "ar": "Total Sales"
+      },
+      "businessContext_i18n": {
+        "en": "Total monetary value of sales closed in the commission period.",
+        "tr": "Komisyon döneminde kapatılan satışların toplam parasal değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard commission rate applied to total sales.",
       "label_i18n": {
         "en": "Commission Rate",
-        "tr": "Commission Rate",
+        "tr": "Komisyon Oranı",
         "de": "Commission Rate",
         "fr": "Commission Rate",
         "es": "Commission Rate",
         "ar": "Commission Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Standard commission rate applied to total sales.",
+        "tr": "Toplam satışlara uygulanan standart komisyon oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sales threshold above which a bonus is earned.",
       "label_i18n": {
         "en": "Target Sales",
-        "tr": "Target Sales",
+        "tr": "Hedef Satış",
         "de": "Target Sales",
         "fr": "Target Sales",
         "es": "Target Sales",
         "ar": "Target Sales"
+      },
+      "businessContext_i18n": {
+        "en": "Sales threshold above which a bonus is earned.",
+        "tr": "Üzerinde prim kazanılan satış eşiği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional commission rate applied to sales above target.",
       "label_i18n": {
         "en": "Bonus Rate",
-        "tr": "Bonus Rate",
+        "tr": "Prim Oranı",
         "de": "Bonus Rate",
         "fr": "Bonus Rate",
         "es": "Bonus Rate",
         "ar": "Bonus Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Additional commission rate applied to sales above target.",
+        "tr": "Hedefin üzerindeki satışlara uygulanan ek komisyon oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fixed base salary regardless of sales.",
       "label_i18n": {
         "en": "Base Salary",
-        "tr": "Base Salary",
+        "tr": "Temel Maaş",
         "de": "Base Salary",
         "fr": "Base Salary",
         "es": "Base Salary",
         "ar": "Base Salary"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed base salary regardless of sales.",
+        "tr": "Satışlardan bağımsız sabit taban maaş."
       }
     }
   ],

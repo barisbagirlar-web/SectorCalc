@@ -10,11 +10,15 @@
       "businessContext": "Employee's gross monthly income before deductions",
       "label_i18n": {
         "en": "Gross Monthly Salary",
-        "tr": "Gross Monthly Salary",
+        "tr": "Brüt Aylık Maaş",
         "de": "Gross Monthly Salary",
         "fr": "Gross Monthly Salary",
         "es": "Gross Monthly Salary",
         "ar": "Gross Monthly Salary"
+      },
+      "businessContext_i18n": {
+        "en": "Employee's gross monthly income before deductions",
+        "tr": "Kesintiler öncesi çalışanın brüt aylık geliri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Monthly tax-free allowance",
       "label_i18n": {
         "en": "Tax Allowance",
-        "tr": "Tax Allowance",
+        "tr": "Vergi İstisnası",
         "de": "Tax Allowance",
         "fr": "Tax Allowance",
         "es": "Tax Allowance",
         "ar": "Tax Allowance"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly tax-free allowance",
+        "tr": "Aylık vergiden muaf tutar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Employee social security contribution rate",
       "label_i18n": {
         "en": "Social Security Rate",
-        "tr": "Social Security Rate",
+        "tr": "Sosyal Güvenlik Oranı",
         "de": "Social Security Rate",
         "fr": "Social Security Rate",
         "es": "Social Security Rate",
         "ar": "Social Security Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Employee social security contribution rate",
+        "tr": "Çalışan sosyal güvenlik katkı oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Marginal income tax rate",
       "label_i18n": {
         "en": "Income Tax Rate",
-        "tr": "Income Tax Rate",
+        "tr": "Gelir Vergisi Oranı",
         "de": "Income Tax Rate",
         "fr": "Income Tax Rate",
         "es": "Income Tax Rate",
         "ar": "Income Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Marginal income tax rate",
+        "tr": "Marjinal gelir vergisi oranı."
       }
     }
   ],

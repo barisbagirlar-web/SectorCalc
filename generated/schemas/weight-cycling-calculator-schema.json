@@ -10,11 +10,15 @@
       "businessContext": "The mass of the load being cycled (lifted and lowered).",
       "label_i18n": {
         "en": "Mass of Load",
-        "tr": "Mass of Load",
+        "tr": "Yük Kütlesi",
         "de": "Mass of Load",
         "fr": "Mass of Load",
         "es": "Mass of Load",
         "ar": "Mass of Load"
+      },
+      "businessContext_i18n": {
+        "en": "The mass of the load being cycled (lifted and lowered).",
+        "tr": "Çevrimlenen (kaldırılıp indirilen) yükün kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vertical distance the load is lifted each cycle.",
       "label_i18n": {
         "en": "Lifting Height",
-        "tr": "Lifting Height",
+        "tr": "Kaldırma Yüksekliği",
         "de": "Lifting Height",
         "fr": "Lifting Height",
         "es": "Lifting Height",
         "ar": "Lifting Height"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical distance the load is lifted each cycle.",
+        "tr": "Her çevrimde yükün kaldırıldığı dikey mesafe."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of lift cycles per operating day.",
       "label_i18n": {
         "en": "Cycles per Day",
-        "tr": "Cycles per Day",
+        "tr": "Günlük Çevrim Sayısı",
         "de": "Cycles per Day",
         "fr": "Cycles per Day",
         "es": "Cycles per Day",
         "ar": "Cycles per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of lift cycles per operating day.",
+        "tr": "Çalışma günü başına kaldırma çevrimi sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of operating days per year or period.",
       "label_i18n": {
         "en": "Operating Days",
-        "tr": "Operating Days",
+        "tr": "Çalışma Günleri",
         "de": "Operating Days",
         "fr": "Operating Days",
         "es": "Operating Days",
         "ar": "Operating Days"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of operating days per year or period.",
+        "tr": "Yıllık veya dönem başına toplam çalışma günü sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Overall efficiency of the lifting mechanism including motor, transmission, etc. Enter as percentage (0-100).",
       "label_i18n": {
         "en": "System Efficiency",
-        "tr": "System Efficiency",
+        "tr": "Sistem Verimliliği",
         "de": "System Efficiency",
         "fr": "System Efficiency",
         "es": "System Efficiency",
         "ar": "System Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Overall efficiency of the lifting mechanism including motor, transmission, etc. Enter as percentage (0-100).",
+        "tr": "Motor, şanzıman vb. dahil kaldırma mekanizmasının genel verimliliği. Yüzde olarak girin (0-100)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost of electricity per kilowatt-hour in your currency.",
       "label_i18n": {
         "en": "Energy Cost",
-        "tr": "Energy Cost",
+        "tr": "Enerji Maliyeti",
         "de": "Energy Cost",
         "fr": "Energy Cost",
         "es": "Energy Cost",
         "ar": "Energy Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kilowatt-hour in your currency.",
+        "tr": "Para biriminizde kilovat-saat başına elektrik maliyeti."
       }
     }
   ],

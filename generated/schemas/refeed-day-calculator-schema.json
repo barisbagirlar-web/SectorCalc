@@ -10,11 +10,15 @@
       "businessContext": "Daily number of good units produced",
       "label_i18n": {
         "en": "Production Rate",
-        "tr": "Production Rate",
+        "tr": "Üretim Hızı",
         "de": "Production Rate",
         "fr": "Production Rate",
         "es": "Production Rate",
         "ar": "Production Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Daily number of good units produced",
+        "tr": "Günlük üretilen iyi birim sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Scrap generated as percentage of good output",
       "label_i18n": {
         "en": "Scrap Rate",
-        "tr": "Scrap Rate",
+        "tr": "Fire Oranı",
         "de": "Scrap Rate",
         "fr": "Scrap Rate",
         "es": "Scrap Rate",
         "ar": "Scrap Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Scrap generated as percentage of good output",
+        "tr": "İyi çıktının yüzdesi olarak oluşan fire"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Target percentage of total input material from refeed",
       "label_i18n": {
         "en": "Refeed Target Ratio",
-        "tr": "Refeed Target Ratio",
+        "tr": "Geri Besleme Hedef Oranı",
         "de": "Refeed Target Ratio",
         "fr": "Refeed Target Ratio",
         "es": "Refeed Target Ratio",
         "ar": "Refeed Target Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Target percentage of total input material from refeed",
+        "tr": "Toplam girdi malzemenin geri beslemeden gelmesi hedeflenen yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total refeed material available in inventory",
       "label_i18n": {
         "en": "Refeed Material Availability",
-        "tr": "Refeed Material Availability",
+        "tr": "Geri Besleme Malzeme Bulunabilirliği",
         "de": "Refeed Material Availability",
         "fr": "Refeed Material Availability",
         "es": "Refeed Material Availability",
         "ar": "Refeed Material Availability"
+      },
+      "businessContext_i18n": {
+        "en": "Total refeed material available in inventory",
+        "tr": "Stokta bulunan toplam geri besleme malzemesi miktarı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum refeed processing capacity per day (0 for unlimited)",
       "label_i18n": {
         "en": "Max Refeed Capacity",
-        "tr": "Max Refeed Capacity",
+        "tr": "Maksimum Geri Besleme Kapasitesi",
         "de": "Max Refeed Capacity",
         "fr": "Max Refeed Capacity",
         "es": "Max Refeed Capacity",
         "ar": "Max Refeed Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum refeed processing capacity per day (0 for unlimited)",
+        "tr": "Günlük maksimum geri besleme işleme kapasitesi (sınırsız için 0)"
       }
     }
   ],

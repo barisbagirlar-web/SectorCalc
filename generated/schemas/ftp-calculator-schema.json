@@ -10,11 +10,15 @@
       "businessContext": "Duration of the test in minutes (typically 20 or 60).",
       "label_i18n": {
         "en": "Test Duration (min)",
-        "tr": "Test Duration (min)",
+        "tr": "Test Süresi (dk)",
         "de": "Test Duration (min)",
         "fr": "Test Duration (min)",
         "es": "Test Duration (min)",
         "ar": "Test Duration (min)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the test in minutes (typically 20 or 60).",
+        "tr": "Testin dakika cinsinden süresi (genellikle 20 veya 60)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average power output during the test in watts.",
       "label_i18n": {
         "en": "Average Power (W)",
-        "tr": "Average Power (W)",
+        "tr": "Ortalama Güç (W)",
         "de": "Average Power (W)",
         "fr": "Average Power (W)",
         "es": "Average Power (W)",
         "ar": "Average Power (W)"
+      },
+      "businessContext_i18n": {
+        "en": "Average power output during the test in watts.",
+        "tr": "Test sırasında watt cinsinden ortalama güç çıkışı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Rider's body weight in kilograms.",
       "label_i18n": {
         "en": "Rider Weight (kg)",
-        "tr": "Rider Weight (kg)",
+        "tr": "Sürücü Ağırlığı (kg)",
         "de": "Rider Weight (kg)",
         "fr": "Rider Weight (kg)",
         "es": "Rider Weight (kg)",
         "ar": "Rider Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Rider's body weight in kilograms.",
+        "tr": "Sürücünün kilogram cinsinden vücut ağırlığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ambient temperature during the test in degrees Celsius.",
       "label_i18n": {
         "en": "Ambient Temperature (°C)",
-        "tr": "Ambient Temperature (°C)",
+        "tr": "Ortam Sıcaklığı (°C)",
         "de": "Ambient Temperature (°C)",
         "fr": "Ambient Temperature (°C)",
         "es": "Ambient Temperature (°C)",
         "ar": "Ambient Temperature (°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Ambient temperature during the test in degrees Celsius.",
+        "tr": "Test sırasında santigrat derece cinsinden ortam sıcaklığı."
       }
     }
   ],

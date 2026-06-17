@@ -20,10 +20,12 @@
       "max": 10000000,
       "businessContext": "Total number of units shipped per year across all modes.",
       "label_i18n": {
-        "en": "Annual Shipping Volume (units)"
+        "en": "Annual Shipping Volume (units)",
+        "tr": "Yıllık Sevkiyat Hacmi (birim)"
       },
       "businessContext_i18n": {
-        "en": "Total number of units shipped per year across all modes."
+        "en": "Total number of units shipped per year across all modes.",
+        "tr": "Tüm modlarda yılda sevk edilen toplam birim sayısı."
       }
     },
     {
@@ -36,10 +38,12 @@
       "max": 50000,
       "businessContext": "Average weight per shipment, used to compute freight cost and risk exposure.",
       "label_i18n": {
-        "en": "Average Shipment Weight (kg)"
+        "en": "Average Shipment Weight (kg)",
+        "tr": "Ortalama Sevkiyat Ağırlığı (kg)"
       },
       "businessContext_i18n": {
-        "en": "Average weight per shipment, used to compute freight cost and risk exposure."
+        "en": "Average weight per shipment, used to compute freight cost and risk exposure.",
+        "tr": "Sevkiyat başına ortalama ağırlık, navlun maliyeti ve risk maruziyetini hesaplamak için kullanılır."
       }
     },
     {
@@ -52,10 +56,12 @@
       "max": 20000,
       "businessContext": "Average haul distance for each shipment, influences fuel cost and transit risk.",
       "label_i18n": {
-        "en": "Average Distance per Shipment (km)"
+        "en": "Average Distance per Shipment (km)",
+        "tr": "Sevkiyat Başına Ortalama Mesafe (km)"
       },
       "businessContext_i18n": {
-        "en": "Average haul distance for each shipment, influences fuel cost and transit risk."
+        "en": "Average haul distance for each shipment, influences fuel cost and transit risk.",
+        "tr": "Her sevkiyat için ortalama taşıma mesafesi, yakıt maliyetini ve transit riskini etkiler."
       }
     },
     {
@@ -74,10 +80,12 @@
         "air"
       ],
       "label_i18n": {
-        "en": "Transport Mode"
+        "en": "Transport Mode",
+        "tr": "Taşıma Modu"
       },
       "businessContext_i18n": {
-        "en": "Primary mode of transport: truck, rail, ocean, air."
+        "en": "Primary mode of transport: truck, rail, ocean, air.",
+        "tr": "Birincil taşıma modu: kamyon, tren, okyanus, hava."
       }
     },
     {
@@ -90,10 +98,12 @@
       "max": 3,
       "businessContext": "Current diesel or bunker fuel price, used for variable cost estimation.",
       "label_i18n": {
-        "en": "Fuel Price (USD per liter)"
+        "en": "Fuel Price (USD per liter)",
+        "tr": "Yakıt Fiyatı (USD/litre)"
       },
       "businessContext_i18n": {
-        "en": "Current diesel or bunker fuel price, used for variable cost estimation."
+        "en": "Current diesel or bunker fuel price, used for variable cost estimation.",
+        "tr": "Güncel dizel veya bunker yakıt fiyatı, değişken maliyet tahmini için kullanılır."
       }
     },
     {
@@ -106,10 +116,12 @@
       "max": 80,
       "businessContext": "Average hourly wage for drivers/operators, used in labor cost calculation.",
       "label_i18n": {
-        "en": "Labor Rate (USD per hour)"
+        "en": "Labor Rate (USD per hour)",
+        "tr": "İşçilik Ücreti (USD/saat)"
       },
       "businessContext_i18n": {
-        "en": "Average hourly wage for drivers/operators, used in labor cost calculation."
+        "en": "Average hourly wage for drivers/operators, used in labor cost calculation.",
+        "tr": "Sürücü/operatörler için ortalama saatlik ücret, işçilik maliyeti hesaplamasında kullanılır."
       }
     },
     {
@@ -122,10 +134,12 @@
       "max": 60,
       "businessContext": "Expected door-to-door transit time, affects inventory carrying cost and risk.",
       "label_i18n": {
-        "en": "Transit Time (days)"
+        "en": "Transit Time (days)",
+        "tr": "Transit Süresi (gün)"
       },
       "businessContext_i18n": {
-        "en": "Expected door-to-door transit time, affects inventory carrying cost and risk."
+        "en": "Expected door-to-door transit time, affects inventory carrying cost and risk.",
+        "tr": "Beklenen kapıdan kapıya transit süresi, envanter taşıma maliyetini ve riski etkiler."
       }
     },
     {
@@ -138,10 +152,12 @@
       "max": 20,
       "businessContext": "Percentage of shipments damaged in transit, based on historical data.",
       "label_i18n": {
-        "en": "Historical Damage Rate (%)"
+        "en": "Historical Damage Rate (%)",
+        "tr": "Geçmiş Hasar Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of shipments damaged in transit, based on historical data."
+        "en": "Percentage of shipments damaged in transit, based on historical data.",
+        "tr": "Transit sırasında hasar gören sevkiyatların yüzdesi, geçmiş verilere dayanır."
       }
     }
   ],

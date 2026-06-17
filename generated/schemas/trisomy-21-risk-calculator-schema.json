@@ -10,11 +10,15 @@
       "businessContext": "Mother's age at expected delivery date",
       "label_i18n": {
         "en": "Maternal Age",
-        "tr": "Maternal Age",
+        "tr": "Anne Yaşı",
         "de": "Maternal Age",
         "fr": "Maternal Age",
         "es": "Maternal Age",
         "ar": "Maternal Age"
+      },
+      "businessContext_i18n": {
+        "en": "Mother's age at expected delivery date",
+        "tr": "Annenin beklenen doğum tarihindeki yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Weeks of pregnancy",
       "label_i18n": {
         "en": "Gestational Age",
-        "tr": "Gestational Age",
+        "tr": "Gebelik Haftası",
         "de": "Gestational Age",
         "fr": "Gestational Age",
         "es": "Gestational Age",
         "ar": "Gestational Age"
+      },
+      "businessContext_i18n": {
+        "en": "Weeks of pregnancy",
+        "tr": "Gebelik haftası"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "NT thickness measured via ultrasound",
       "label_i18n": {
         "en": "Nuchal Translucency (NT)",
-        "tr": "Nuchal Translucency (NT)",
+        "tr": "Ense Kalınlığı (NT)",
         "de": "Nuchal Translucency (NT)",
         "fr": "Nuchal Translucency (NT)",
         "es": "Nuchal Translucency (NT)",
         "ar": "Nuchal Translucency (NT)"
+      },
+      "businessContext_i18n": {
+        "en": "NT thickness measured via ultrasound",
+        "tr": "Ultrason ile ölçülen NT kalınlığı"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "PAPP-A",
         "es": "PAPP-A",
         "ar": "PAPP-A"
+      },
+      "businessContext_i18n": {
+        "en": "Pregnancy-associated plasma protein A in multiples of median",
+        "tr": "Medyan katları cinsinden gebelikle ilişkili plazma protein A"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Free beta human chorionic gonadotropin in multiples of median",
       "label_i18n": {
         "en": "Free β-hCG",
-        "tr": "Free β-hCG",
+        "tr": "Serbest β-hCG",
         "de": "Free β-hCG",
         "fr": "Free β-hCG",
         "es": "Free β-hCG",
         "ar": "Free β-hCG"
+      },
+      "businessContext_i18n": {
+        "en": "Free beta human chorionic gonadotropin in multiples of median",
+        "tr": "Medyan katları cinsinden serbest beta insan koryonik gonadotropin"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of prior pregnancies affected by trisomy 21",
       "label_i18n": {
         "en": "Previous Trisomy 21",
-        "tr": "Previous Trisomy 21",
+        "tr": "Önceki Trizomi 21",
         "de": "Previous Trisomy 21",
         "fr": "Previous Trisomy 21",
         "es": "Previous Trisomy 21",
         "ar": "Previous Trisomy 21"
+      },
+      "businessContext_i18n": {
+        "en": "Number of prior pregnancies affected by trisomy 21",
+        "tr": "Trizomi 21'den etkilenen önceki gebelik sayısı"
       }
     }
   ],

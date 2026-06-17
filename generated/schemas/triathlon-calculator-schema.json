@@ -10,11 +10,15 @@
       "businessContext": "Total swimming distance in meters",
       "label_i18n": {
         "en": "Swim Distance",
-        "tr": "Swim Distance",
+        "tr": "Yüzme Mesafesi",
         "de": "Swim Distance",
         "fr": "Swim Distance",
         "es": "Swim Distance",
         "ar": "Swim Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total swimming distance in meters",
+        "tr": "Toplam yüzme mesafesi (metre)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total cycling distance in kilometers",
       "label_i18n": {
         "en": "Bike Distance",
-        "tr": "Bike Distance",
+        "tr": "Bisiklet Mesafesi",
         "de": "Bike Distance",
         "fr": "Bike Distance",
         "es": "Bike Distance",
         "ar": "Bike Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total cycling distance in kilometers",
+        "tr": "Toplam bisiklet mesafesi (kilometre)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total running distance in kilometers",
       "label_i18n": {
         "en": "Run Distance",
-        "tr": "Run Distance",
+        "tr": "Koşu Mesafesi",
         "de": "Run Distance",
         "fr": "Run Distance",
         "es": "Run Distance",
         "ar": "Run Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total running distance in kilometers",
+        "tr": "Toplam koşu mesafesi (kilometre)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average swimming time per 100 meters in minutes",
       "label_i18n": {
         "en": "Swim Pace",
-        "tr": "Swim Pace",
+        "tr": "Yüzme Temposu",
         "de": "Swim Pace",
         "fr": "Swim Pace",
         "es": "Swim Pace",
         "ar": "Swim Pace"
+      },
+      "businessContext_i18n": {
+        "en": "Average swimming time per 100 meters in minutes",
+        "tr": "100 metre başına ortalama yüzme süresi (dakika)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average cycling speed in kilometers per hour",
       "label_i18n": {
         "en": "Bike Speed",
-        "tr": "Bike Speed",
+        "tr": "Bisiklet Hızı",
         "de": "Bike Speed",
         "fr": "Bike Speed",
         "es": "Bike Speed",
         "ar": "Bike Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Average cycling speed in kilometers per hour",
+        "tr": "Ortalama bisiklet hızı (km/saat)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average running time per kilometer in minutes",
       "label_i18n": {
         "en": "Run Pace",
-        "tr": "Run Pace",
+        "tr": "Koşu Temposu",
         "de": "Run Pace",
         "fr": "Run Pace",
         "es": "Run Pace",
         "ar": "Run Pace"
+      },
+      "businessContext_i18n": {
+        "en": "Average running time per kilometer in minutes",
+        "tr": "Kilometre başına ortalama koşu süresi (dakika)"
       }
     }
   ],

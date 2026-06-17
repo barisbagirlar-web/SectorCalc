@@ -10,11 +10,15 @@
       "businessContext": "Atomic number of the nucleus.",
       "label_i18n": {
         "en": "Number of Protons (Z)",
-        "tr": "Number of Protons (Z)",
+        "tr": "Proton Sayısı (Z)",
         "de": "Number of Protons (Z)",
         "fr": "Number of Protons (Z)",
         "es": "Number of Protons (Z)",
         "ar": "Number of Protons (Z)"
+      },
+      "businessContext_i18n": {
+        "en": "Atomic number of the nucleus.",
+        "tr": "Çekirdeğin atom numarası."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of neutrons in the nucleus.",
       "label_i18n": {
         "en": "Number of Neutrons (N)",
-        "tr": "Number of Neutrons (N)",
+        "tr": "Nötron Sayısı (N)",
         "de": "Number of Neutrons (N)",
         "fr": "Number of Neutrons (N)",
         "es": "Number of Neutrons (N)",
         "ar": "Number of Neutrons (N)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of neutrons in the nucleus.",
+        "tr": "Çekirdekteki nötron sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Rest mass of a proton in atomic mass units.",
       "label_i18n": {
         "en": "Proton Mass",
-        "tr": "Proton Mass",
+        "tr": "Proton Kütlesi",
         "de": "Proton Mass",
         "fr": "Proton Mass",
         "es": "Proton Mass",
         "ar": "Proton Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Rest mass of a proton in atomic mass units.",
+        "tr": "Bir protonun atomik kütle birimi cinsinden durgun kütlesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rest mass of a neutron in atomic mass units.",
       "label_i18n": {
         "en": "Neutron Mass",
-        "tr": "Neutron Mass",
+        "tr": "Nötron Kütlesi",
         "de": "Neutron Mass",
         "fr": "Neutron Mass",
         "es": "Neutron Mass",
         "ar": "Neutron Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Rest mass of a neutron in atomic mass units.",
+        "tr": "Bir nötronun atomik kütle birimi cinsinden durgun kütlesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Actual measured mass of the nucleus in atomic mass units.",
       "label_i18n": {
         "en": "Nucleus Mass",
-        "tr": "Nucleus Mass",
+        "tr": "Çekirdek Kütlesi",
         "de": "Nucleus Mass",
         "fr": "Nucleus Mass",
         "es": "Nucleus Mass",
         "ar": "Nucleus Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Actual measured mass of the nucleus in atomic mass units.",
+        "tr": "Çekirdeğin atomik kütle birimi cinsinden gerçek ölçülen kütlesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Energy equivalent of 1 u, standard value 931.494 MeV/u.",
       "label_i18n": {
         "en": "Mass-Energy Conversion (c²)",
-        "tr": "Mass-Energy Conversion (c²)",
+        "tr": "Kütle-Enerji Dönüşümü (c²)",
         "de": "Mass-Energy Conversion (c²)",
         "fr": "Mass-Energy Conversion (c²)",
         "es": "Mass-Energy Conversion (c²)",
         "ar": "Mass-Energy Conversion (c²)"
+      },
+      "businessContext_i18n": {
+        "en": "Energy equivalent of 1 u, standard value 931.494 MeV/u.",
+        "tr": "1 u'nun enerji eşdeğeri, standart değer 931.494 MeV/u."
       }
     }
   ],

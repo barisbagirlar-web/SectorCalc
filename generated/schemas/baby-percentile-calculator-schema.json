@@ -10,11 +10,15 @@
       "businessContext": "Baby's age in months, 0-36",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Baby's age in months, 0-36",
+        "tr": "Bebeğin ay cinsinden yaşı, 0-36"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Body weight in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms",
+        "tr": "Vücut ağırlığı (kilogram cinsinden)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body length in centimeters",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Body length in centimeters",
+        "tr": "Santimetre cinsinden vücut uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Head circumference in centimeters",
       "label_i18n": {
         "en": "Head Circumference",
-        "tr": "Head Circumference",
+        "tr": "Baş Çevresi",
         "de": "Head Circumference",
         "fr": "Head Circumference",
         "es": "Head Circumference",
         "ar": "Head Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Head circumference in centimeters",
+        "tr": "Santimetre cinsinden baş çevresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "0 for boy, 1 for girl",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for boy, 1 for girl",
+        "tr": "0 erkek, 1 kız"
       }
     }
   ],

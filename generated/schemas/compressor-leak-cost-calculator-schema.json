@@ -21,10 +21,12 @@
       "max": 200,
       "businessContext": "Operating pressure of the compressed air system; higher pressure increases leak flow rate.",
       "label_i18n": {
-        "en": "System Pressure"
+        "en": "System Pressure",
+        "tr": "Sistem Basıncı"
       },
       "businessContext_i18n": {
-        "en": "Operating pressure of the compressed air system; higher pressure increases leak flow rate."
+        "en": "Operating pressure of the compressed air system; higher pressure increases leak flow rate.",
+        "tr": "Basınçlı hava sisteminin işletme basıncı; daha yüksek basınç kaçak debisini artırır."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 1,
       "businessContext": "Diameter of a round orifice representing the average leak size. Common sizes: 1/8\", 1/4\", 1/2\".",
       "label_i18n": {
-        "en": "Equivalent Leak Diameter"
+        "en": "Equivalent Leak Diameter",
+        "tr": "Eşdeğer Kaçak Çapı"
       },
       "businessContext_i18n": {
-        "en": "Diameter of a round orifice representing the average leak size. Common sizes: 1/8\", 1/4\", 1/2\"."
+        "en": "Diameter of a round orifice representing the average leak size. Common sizes: 1/8\", 1/4\", 1/2\".",
+        "tr": "Ortalama kaçak boyutunu temsil eden yuvarlak bir orifisin çapı. Yaygın boyutlar: 1/8\", 1/4\", 1/2\"."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1000,
       "businessContext": "Total number of identified or estimated leaks in the system.",
       "label_i18n": {
-        "en": "Number of Leaks"
+        "en": "Number of Leaks",
+        "tr": "Kaçak Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total number of identified or estimated leaks in the system."
+        "en": "Total number of identified or estimated leaks in the system.",
+        "tr": "Sistemde tespit edilen veya tahmin edilen toplam kaçak sayısı."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 8760,
       "businessContext": "Total hours the compressor runs per year. Continuous operation = 8760 h.",
       "label_i18n": {
-        "en": "Annual Operating Hours"
+        "en": "Annual Operating Hours",
+        "tr": "Yıllık Çalışma Saati"
       },
       "businessContext_i18n": {
-        "en": "Total hours the compressor runs per year. Continuous operation = 8760 h."
+        "en": "Total hours the compressor runs per year. Continuous operation = 8760 h.",
+        "tr": "Kompresörün yılda çalıştığı toplam saat. Sürekli çalışma = 8760 saat."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 0.5,
       "businessContext": "Average blended cost of electricity per kilowatt-hour.",
       "label_i18n": {
-        "en": "Electricity Cost"
+        "en": "Electricity Cost",
+        "tr": "Elektrik Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Average blended cost of electricity per kilowatt-hour."
+        "en": "Average blended cost of electricity per kilowatt-hour.",
+        "tr": "Kilovat-saat başına harmanlanmış ortalama elektrik maliyeti."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 95,
       "businessContext": "Overall efficiency of the compressor system (motor + drive + compressor). Typical range 70-85%.",
       "label_i18n": {
-        "en": "Compressor Efficiency"
+        "en": "Compressor Efficiency",
+        "tr": "Kompresör Verimi"
       },
       "businessContext_i18n": {
-        "en": "Overall efficiency of the compressor system (motor + drive + compressor). Typical range 70-85%."
+        "en": "Overall efficiency of the compressor system (motor + drive + compressor). Typical range 70-85%.",
+        "tr": "Kompresör sisteminin genel verimi (motor + sürücü + kompresör). Tipik aralık %70-85."
       }
     },
     {
@@ -119,10 +131,12 @@
       "default": "Round orifice",
       "businessContext": "Geometry of the leak affects discharge coefficient. Round orifice is most common.",
       "label_i18n": {
-        "en": "Leak Type"
+        "en": "Leak Type",
+        "tr": "Kaçak Tipi"
       },
       "businessContext_i18n": {
-        "en": "Geometry of the leak affects discharge coefficient. Round orifice is most common."
+        "en": "Geometry of the leak affects discharge coefficient. Round orifice is most common.",
+        "tr": "Kaçağın geometrisi boşaltma katsayısını etkiler. Yuvarlak orifis en yaygın olanıdır."
       },
       "unit": "unit"
     },
@@ -133,10 +147,12 @@
       "default": true,
       "businessContext": "If true, adds estimated labor and material cost for leak repair.",
       "label_i18n": {
-        "en": "Include Maintenance Cost"
+        "en": "Include Maintenance Cost",
+        "tr": "Bakım Maliyetini Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "If true, adds estimated labor and material cost for leak repair."
+        "en": "If true, adds estimated labor and material cost for leak repair.",
+        "tr": "Doğruysa, sızıntı onarımı için tahmini işçilik ve malzeme maliyeti ekler."
       },
       "unit": "unit"
     }

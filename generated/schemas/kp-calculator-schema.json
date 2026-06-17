@@ -10,11 +10,15 @@
       "businessContext": "Steady-state gain of the process, ratio of output change to input change.",
       "label_i18n": {
         "en": "Process Gain (K)",
-        "tr": "Process Gain (K)",
+        "tr": "Proses Kazancı (K)",
         "de": "Process Gain (K)",
         "fr": "Process Gain (K)",
         "es": "Process Gain (K)",
         "ar": "Process Gain (K)"
+      },
+      "businessContext_i18n": {
+        "en": "Steady-state gain of the process, ratio of output change to input change.",
+        "tr": "Prosesin kararlı hal kazancı, çıktı değişiminin girdi değişimine oranı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time taken for the process response to reach 63.2% of its final value.",
       "label_i18n": {
         "en": "Time Constant (T)",
-        "tr": "Time Constant (T)",
+        "tr": "Zaman Sabiti (T)",
         "de": "Time Constant (T)",
         "fr": "Time Constant (T)",
         "es": "Time Constant (T)",
         "ar": "Time Constant (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Time taken for the process response to reach 63.2% of its final value.",
+        "tr": "Proses yanıtının son değerinin %63,2'sine ulaşması için geçen süre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Delay between input change and process response.",
       "label_i18n": {
         "en": "Dead Time (L)",
-        "tr": "Dead Time (L)",
+        "tr": "Ölü Zaman (L)",
         "de": "Dead Time (L)",
         "fr": "Dead Time (L)",
         "es": "Dead Time (L)",
         "ar": "Dead Time (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Delay between input change and process response.",
+        "tr": "Girdi değişimi ile proses yanıtı arasındaki gecikme."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to derate the calculated gain for robustness.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to derate the calculated gain for robustness.",
+        "tr": "Hesaplanan kazancı sağlamlık için düşüren çarpan."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Selects the tuning rule: 1 for P-only, 2 for PI, 3 for PID based on Ziegler-Nichols open-loop method.",
       "label_i18n": {
         "en": "Controller Type (1=P, 2=PI, 3=PID)",
-        "tr": "Controller Type (1=P, 2=PI, 3=PID)",
+        "tr": "Kontrolör Tipi (1=P, 2=PI, 3=PID)",
         "de": "Controller Type (1=P, 2=PI, 3=PID)",
         "fr": "Controller Type (1=P, 2=PI, 3=PID)",
         "es": "Controller Type (1=P, 2=PI, 3=PID)",
         "ar": "Controller Type (1=P, 2=PI, 3=PID)"
+      },
+      "businessContext_i18n": {
+        "en": "Selects the tuning rule: 1 for P-only, 2 for PI, 3 for PID based on Ziegler-Nichols open-loop method.",
+        "tr": "Ziegler-Nichols açık çevrim yöntemine göre ayar kuralını seçer: 1 sadece P, 2 PI, 3 PID."
       }
     }
   ],

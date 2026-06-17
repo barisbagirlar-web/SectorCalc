@@ -10,11 +10,15 @@
       "businessContext": "The US shoe size to convert (e.g., 5-14 for men, 5-12 for women, 1-7 for children). Set to 0 to use foot length instead.",
       "label_i18n": {
         "en": "US Shoe Size",
-        "tr": "US Shoe Size",
+        "tr": "ABD Ayakkabı Numarası",
         "de": "US Shoe Size",
         "fr": "US Shoe Size",
         "es": "US Shoe Size",
         "ar": "US Shoe Size"
+      },
+      "businessContext_i18n": {
+        "en": "The US shoe size to convert (e.g., 5-14 for men, 5-12 for women, 1-7 for children). Set to 0 to use foot length instead.",
+        "tr": "Dönüştürülecek ABD ayakkabı numarası (örn. erkekler için 5-14, kadınlar için 5-12, çocuklar için 1-7). Ayak uzunluğu kullanmak için 0 olarak ayarlayın."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Foot length in centimeters. Used only when US size is 0. Conversion formula: EU = 1.5 × (footLengthCm + 1.5).",
       "label_i18n": {
         "en": "Foot Length (cm)",
-        "tr": "Foot Length (cm)",
+        "tr": "Ayak Uzunluğu (cm)",
         "de": "Foot Length (cm)",
         "fr": "Foot Length (cm)",
         "es": "Foot Length (cm)",
         "ar": "Foot Length (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Foot length in centimeters. Used only when US size is 0. Conversion formula: EU = 1.5 × (footLengthCm + 1.5).",
+        "tr": "Santimetre cinsinden ayak uzunluğu. Yalnızca ABD numarası 0 olduğunda kullanılır. Dönüşüm formülü: EU = 1,5 × (ayakUzunluğuCm + 1,5)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0: Men (EU ≈ US + 33), 1: Women (EU ≈ US + 31), 2: Children (EU ≈ US + 16). Used only when US size > 0.",
       "label_i18n": {
         "en": "Gender/Age Group",
-        "tr": "Gender/Age Group",
+        "tr": "Cinsiyet/Yaş Grubu",
         "de": "Gender/Age Group",
         "fr": "Gender/Age Group",
         "es": "Gender/Age Group",
         "ar": "Gender/Age Group"
+      },
+      "businessContext_i18n": {
+        "en": "0: Men (EU ≈ US + 33), 1: Women (EU ≈ US + 31), 2: Children (EU ≈ US + 16). Used only when US size > 0.",
+        "tr": "0: Erkek (EU ≈ US + 33), 1: Kadın (EU ≈ US + 31), 2: Çocuk (EU ≈ US + 16). Yalnızca ABD numarası > 0 olduğunda kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional manual adjustment to the final EU size to account for brand variation or personal fit (e.g., +0.5 for a wider fit).",
       "label_i18n": {
         "en": "User Adjustment",
-        "tr": "User Adjustment",
+        "tr": "Kullanıcı Ayarı",
         "de": "User Adjustment",
         "fr": "User Adjustment",
         "es": "User Adjustment",
         "ar": "User Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "Optional manual adjustment to the final EU size to account for brand variation or personal fit (e.g., +0.5 for a wider fit).",
+        "tr": "Marka farklılığı veya kişisel uyum için nihai EU numarasına isteğe bağlı manuel ayar (örn. daha geniş uyum için +0,5)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Amount of caffeine consumed in milligrams. Typical cup of coffee: ~100 mg.",
       "label_i18n": {
         "en": "Caffeine Dose",
-        "tr": "Caffeine Dose",
+        "tr": "Kafein Dozu",
         "de": "Caffeine Dose",
         "fr": "Caffeine Dose",
         "es": "Caffeine Dose",
         "ar": "Caffeine Dose"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of caffeine consumed in milligrams. Typical cup of coffee: ~100 mg.",
+        "tr": "Miligram cinsinden tüketilen kafein miktarı. Tipik bir fincan kahve: ~100 mg."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Elimination half-life of caffeine. Default 5 hours for healthy adults.",
       "label_i18n": {
         "en": "Caffeine Half-life",
-        "tr": "Caffeine Half-life",
+        "tr": "Kafein Yarılanma Süresi",
         "de": "Caffeine Half-life",
         "fr": "Caffeine Half-life",
         "es": "Caffeine Half-life",
         "ar": "Caffeine Half-life"
+      },
+      "businessContext_i18n": {
+        "en": "Elimination half-life of caffeine. Default 5 hours for healthy adults.",
+        "tr": "Kafeinin eliminasyon yarılanma süresi. Sağlıklı yetişkinler için varsayılan 5 saat."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of hours from caffeine consumption to desired bedtime.",
       "label_i18n": {
         "en": "Time Until Sleep",
-        "tr": "Time Until Sleep",
+        "tr": "Uykuya Kadar Geçen Süre",
         "de": "Time Until Sleep",
         "fr": "Time Until Sleep",
         "es": "Time Until Sleep",
         "ar": "Time Until Sleep"
+      },
+      "businessContext_i18n": {
+        "en": "Number of hours from caffeine consumption to desired bedtime.",
+        "tr": "Kafein tüketiminden istenen yatma saatine kadar geçen saat sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Individual tolerance multiplier: 1=normal, <1 more sensitive, >1 higher tolerance.",
       "label_i18n": {
         "en": "Tolerance Factor",
-        "tr": "Tolerance Factor",
+        "tr": "Tolerans Faktörü",
         "de": "Tolerance Factor",
         "fr": "Tolerance Factor",
         "es": "Tolerance Factor",
         "ar": "Tolerance Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Individual tolerance multiplier: 1=normal, <1 more sensitive, >1 higher tolerance.",
+        "tr": "Bireysel tolerans çarpanı: 1=normal, <1 daha hassas, >1 daha yüksek tolerans."
       }
     }
   ],

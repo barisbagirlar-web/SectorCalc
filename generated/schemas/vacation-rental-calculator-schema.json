@@ -10,11 +10,15 @@
       "businessContext": "The base cost per night of the rental.",
       "label_i18n": {
         "en": "Nightly Rate",
-        "tr": "Nightly Rate",
+        "tr": "Gecelik Ücret",
         "de": "Nightly Rate",
         "fr": "Nightly Rate",
         "es": "Nightly Rate",
         "ar": "Nightly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The base cost per night of the rental.",
+        "tr": "Kiralık konutun gece başına taban maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total nights the rental is booked.",
       "label_i18n": {
         "en": "Number of Nights",
-        "tr": "Number of Nights",
+        "tr": "Gece Sayısı",
         "de": "Number of Nights",
         "fr": "Number of Nights",
         "es": "Number of Nights",
         "ar": "Number of Nights"
+      },
+      "businessContext_i18n": {
+        "en": "Total nights the rental is booked.",
+        "tr": "Kiralanan gecelerin toplam sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "One-time cleaning fee added to the total.",
       "label_i18n": {
         "en": "Cleaning Fee",
-        "tr": "Cleaning Fee",
+        "tr": "Temizlik Ücreti",
         "de": "Cleaning Fee",
         "fr": "Cleaning Fee",
         "es": "Cleaning Fee",
         "ar": "Cleaning Fee"
+      },
+      "businessContext_i18n": {
+        "en": "One-time cleaning fee added to the total.",
+        "tr": "Toplam tutara eklenen tek seferlik temizlik ücreti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Service fee as a percentage of the rental cost after any discounts.",
       "label_i18n": {
         "en": "Service Fee (%)",
-        "tr": "Service Fee (%)",
+        "tr": "Hizmet Ücreti (%)",
         "de": "Service Fee (%)",
         "fr": "Service Fee (%)",
         "es": "Service Fee (%)",
         "ar": "Service Fee (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Service fee as a percentage of the rental cost after any discounts.",
+        "tr": "İndirimler sonrası kiralama maliyetinin yüzdesi olarak hizmet ücreti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Tax percentage applied to the pre-tax total.",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)",
         "de": "Tax Rate (%)",
         "fr": "Tax Rate (%)",
         "es": "Tax Rate (%)",
         "ar": "Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Tax percentage applied to the pre-tax total.",
+        "tr": "Vergi öncesi toplama uygulanan vergi yüzdesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Discount percentage applied to the base rental cost (nightly rate × nights).",
       "label_i18n": {
         "en": "Discount (%)",
-        "tr": "Discount (%)",
+        "tr": "İndirim (%)",
         "de": "Discount (%)",
         "fr": "Discount (%)",
         "es": "Discount (%)",
         "ar": "Discount (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Discount percentage applied to the base rental cost (nightly rate × nights).",
+        "tr": "Temel kiralama maliyetine (gecelik ücret × gece sayısı) uygulanan indirim yüzdesi."
       }
     }
   ],

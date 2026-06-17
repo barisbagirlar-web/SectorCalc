@@ -10,11 +10,15 @@
       "businessContext": "Total upfront capital expenditure for the project",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Total upfront capital expenditure for the project",
+        "tr": "Proje için toplam peşin sermaye harcaması"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual discount rate reflecting cost of capital or required return",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual discount rate reflecting cost of capital or required return",
+        "tr": "Sermaye maliyetini veya gerekli getiriyi yansıtan yıllık iskonto oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected constant annual net cash inflow from the project",
       "label_i18n": {
         "en": "Annual Cash Flow",
-        "tr": "Annual Cash Flow",
+        "tr": "Yıllık Nakit Akışı",
         "de": "Annual Cash Flow",
         "fr": "Annual Cash Flow",
         "es": "Annual Cash Flow",
         "ar": "Annual Cash Flow"
+      },
+      "businessContext_i18n": {
+        "en": "Expected constant annual net cash inflow from the project",
+        "tr": "Projeden beklenen sabit yıllık net nakit girişi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum number of years to consider for payback; beyond this, payback is not achieved",
       "label_i18n": {
         "en": "Maximum Evaluation Period",
-        "tr": "Maximum Evaluation Period",
+        "tr": "Maksimum Değerlendirme Süresi",
         "de": "Maximum Evaluation Period",
         "fr": "Maximum Evaluation Period",
         "es": "Maximum Evaluation Period",
         "ar": "Maximum Evaluation Period"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum number of years to consider for payback; beyond this, payback is not achieved",
+        "tr": "Geri ödeme için dikkate alınacak maksimum yıl sayısı; bunun ötesinde geri ödeme sağlanamaz"
       }
     }
   ],

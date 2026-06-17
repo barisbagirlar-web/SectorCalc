@@ -10,11 +10,15 @@
       "businessContext": "The unit cost of the product or service.",
       "label_i18n": {
         "en": "Cost Price",
-        "tr": "Cost Price",
+        "tr": "Maliyet Fiyatı",
         "de": "Cost Price",
         "fr": "Cost Price",
         "es": "Cost Price",
         "ar": "Cost Price"
+      },
+      "businessContext_i18n": {
+        "en": "The unit cost of the product or service.",
+        "tr": "Ürün veya hizmetin birim maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The percentage markup applied to the cost price.",
       "label_i18n": {
         "en": "Markup Percentage",
-        "tr": "Markup Percentage",
+        "tr": "Kar Marjı Yüzdesi",
         "de": "Markup Percentage",
         "fr": "Markup Percentage",
         "es": "Markup Percentage",
         "ar": "Markup Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage markup applied to the cost price.",
+        "tr": "Maliyet fiyatına uygulanan yüzde kar marjı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of units to calculate totals for.",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units to calculate totals for.",
+        "tr": "Toplamları hesaplamak için birim sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Extra cost per unit such as shipping, packaging, or handling.",
       "label_i18n": {
         "en": "Additional Cost per Unit",
-        "tr": "Additional Cost per Unit",
+        "tr": "Birim Başına Ek Maliyet",
         "de": "Additional Cost per Unit",
         "fr": "Additional Cost per Unit",
         "es": "Additional Cost per Unit",
         "ar": "Additional Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Extra cost per unit such as shipping, packaging, or handling.",
+        "tr": "Nakliye, paketleme veya elleçleme gibi birim başına ek maliyet."
       }
     }
   ],

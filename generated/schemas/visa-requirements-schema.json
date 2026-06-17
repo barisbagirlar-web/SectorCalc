@@ -10,11 +10,15 @@
       "businessContext": "Age of the visa applicant",
       "label_i18n": {
         "en": "Applicant Age",
-        "tr": "Applicant Age",
+        "tr": "Başvuru Sahibinin Yaşı",
         "de": "Applicant Age",
         "fr": "Applicant Age",
         "es": "Applicant Age",
         "ar": "Applicant Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the visa applicant",
+        "tr": "Vize başvuru sahibinin yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Remaining validity of passport in months",
       "label_i18n": {
         "en": "Passport Validity",
-        "tr": "Passport Validity",
+        "tr": "Pasaport Geçerlilik Süresi",
         "de": "Passport Validity",
         "fr": "Passport Validity",
         "es": "Passport Validity",
         "ar": "Passport Validity"
+      },
+      "businessContext_i18n": {
+        "en": "Remaining validity of passport in months",
+        "tr": "Pasaportun kalan geçerlilik süresi (ay cinsinden)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of visas held in the past 5 years",
       "label_i18n": {
         "en": "Number of Previous Visas",
-        "tr": "Number of Previous Visas",
+        "tr": "Önceki Vize Sayısı",
         "de": "Number of Previous Visas",
         "fr": "Number of Previous Visas",
         "es": "Number of Previous Visas",
         "ar": "Number of Previous Visas"
+      },
+      "businessContext_i18n": {
+        "en": "Number of visas held in the past 5 years",
+        "tr": "Son 5 yılda sahip olunan vize sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Score based on travel history (0-100)",
       "label_i18n": {
         "en": "Travel History Score",
-        "tr": "Travel History Score",
+        "tr": "Seyahat Geçmişi Puanı",
         "de": "Travel History Score",
         "fr": "Travel History Score",
         "es": "Travel History Score",
         "ar": "Travel History Score"
+      },
+      "businessContext_i18n": {
+        "en": "Score based on travel history (0-100)",
+        "tr": "Seyahat geçmişine dayalı puan (0-100)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Score based on financial stability (0-100)",
       "label_i18n": {
         "en": "Financial Stability Score",
-        "tr": "Financial Stability Score",
+        "tr": "Finansal İstikrar Puanı",
         "de": "Financial Stability Score",
         "fr": "Financial Stability Score",
         "es": "Financial Stability Score",
         "ar": "Financial Stability Score"
+      },
+      "businessContext_i18n": {
+        "en": "Score based on financial stability (0-100)",
+        "tr": "Finansal istikrara dayalı puan (0-100)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Score based on employment status (0-100)",
       "label_i18n": {
         "en": "Employment Status Score",
-        "tr": "Employment Status Score",
+        "tr": "İstihdam Durumu Puanı",
         "de": "Employment Status Score",
         "fr": "Employment Status Score",
         "es": "Employment Status Score",
         "ar": "Employment Status Score"
+      },
+      "businessContext_i18n": {
+        "en": "Score based on employment status (0-100)",
+        "tr": "İstihdam durumuna dayalı puan (0-100)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Score based on purpose of visit (0-100)",
       "label_i18n": {
         "en": "Purpose of Visit Score",
-        "tr": "Purpose of Visit Score",
+        "tr": "Ziyaret Amacı Puanı",
         "de": "Purpose of Visit Score",
         "fr": "Purpose of Visit Score",
         "es": "Purpose of Visit Score",
         "ar": "Purpose of Visit Score"
+      },
+      "businessContext_i18n": {
+        "en": "Score based on purpose of visit (0-100)",
+        "tr": "Ziyaret amacına dayalı puan (0-100)"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Score based on completeness of application (0-100)",
       "label_i18n": {
         "en": "Application Completeness Score",
-        "tr": "Application Completeness Score",
+        "tr": "Başvuru Eksiksizlik Puanı",
         "de": "Application Completeness Score",
         "fr": "Application Completeness Score",
         "es": "Application Completeness Score",
         "ar": "Application Completeness Score"
+      },
+      "businessContext_i18n": {
+        "en": "Score based on completeness of application (0-100)",
+        "tr": "Başvurunun eksiksizliğine dayalı puan (0-100)"
       }
     }
   ],

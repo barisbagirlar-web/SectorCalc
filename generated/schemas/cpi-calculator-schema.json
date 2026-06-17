@@ -10,11 +10,15 @@
       "businessContext": "Value of work actually performed.",
       "label_i18n": {
         "en": "Earned Value (EV)",
-        "tr": "Earned Value (EV)",
+        "tr": "Kazanılan Değer (EV)",
         "de": "Earned Value (EV)",
         "fr": "Earned Value (EV)",
         "es": "Earned Value (EV)",
         "ar": "Earned Value (EV)"
+      },
+      "businessContext_i18n": {
+        "en": "Value of work actually performed.",
+        "tr": "Gerçekte gerçekleştirilen işin değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total cost incurred for work performed.",
       "label_i18n": {
         "en": "Actual Cost (AC)",
-        "tr": "Actual Cost (AC)",
+        "tr": "Gerçek Maliyet (AC)",
         "de": "Actual Cost (AC)",
         "fr": "Actual Cost (AC)",
         "es": "Actual Cost (AC)",
         "ar": "Actual Cost (AC)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost incurred for work performed.",
+        "tr": "Gerçekleştirilen iş için oluşan toplam maliyet."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Authorized budget for scheduled work.",
       "label_i18n": {
         "en": "Planned Value (PV)",
-        "tr": "Planned Value (PV)",
+        "tr": "Planlanan Değer (PV)",
         "de": "Planned Value (PV)",
         "fr": "Planned Value (PV)",
         "es": "Planned Value (PV)",
         "ar": "Planned Value (PV)"
+      },
+      "businessContext_i18n": {
+        "en": "Authorized budget for scheduled work.",
+        "tr": "Planlanan iş için onaylanan bütçe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total original budget for the project.",
       "label_i18n": {
         "en": "Budget at Completion (BAC)",
-        "tr": "Budget at Completion (BAC)",
+        "tr": "Tamamlanma Bütçesi (BAC)",
         "de": "Budget at Completion (BAC)",
         "fr": "Budget at Completion (BAC)",
         "es": "Budget at Completion (BAC)",
         "ar": "Budget at Completion (BAC)"
+      },
+      "businessContext_i18n": {
+        "en": "Total original budget for the project.",
+        "tr": "Proje için orijinal toplam bütçe."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Input time value in nanoseconds, e.g., from an oscilloscope measurement or timing circuit.",
       "label_i18n": {
         "en": "Nanoseconds (ns)",
-        "tr": "Nanoseconds (ns)",
+        "tr": "Nanosecond (ns)",
         "de": "Nanoseconds (ns)",
         "fr": "Nanoseconds (ns)",
         "es": "Nanoseconds (ns)",
         "ar": "Nanoseconds (ns)"
+      },
+      "businessContext_i18n": {
+        "en": "Input time value in nanoseconds, e.g., from an oscilloscope measurement or timing circuit.",
+        "tr": "Giriş zaman değeri nanosaniye cinsinden, örn. osiloskop ölçümü veya zamanlama devresinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of picoseconds per nanosecond. Standard is 1000 ps/ns.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Number of picoseconds per nanosecond. Standard is 1000 ps/ns.",
+        "tr": "Nanosecond başına pikosecond sayısı. Standart 1000 ps/ns."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the formatted output. Set according to measurement precision.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the formatted output. Set according to measurement precision.",
+        "tr": "Biçimlendirilmiş çıktı için ondalık basamak sayısı. Ölçüm hassasiyetine göre ayarlayın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for the converted value, e.g., for array measurements or normalization.",
       "label_i18n": {
         "en": "Scale Factor",
-        "tr": "Scale Factor",
+        "tr": "Ölçek Faktörü",
         "de": "Scale Factor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for the converted value, e.g., for array measurements or normalization.",
+        "tr": "Dönüştürülen değer için çarpan, örn. dizi ölçümleri veya normalizasyon için."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additive offset applied after conversion and scaling. Useful for calibration adjustments.",
       "label_i18n": {
         "en": "Offset (ps)",
-        "tr": "Offset (ps)",
+        "tr": "Ofset (ps)",
         "de": "Offset (ps)",
         "fr": "Offset (ps)",
         "es": "Offset (ps)",
         "ar": "Offset (ps)"
+      },
+      "businessContext_i18n": {
+        "en": "Additive offset applied after conversion and scaling. Useful for calibration adjustments.",
+        "tr": "Dönüşüm ve ölçeklemeden sonra uygulanan toplamsal ofset. Kalibrasyon ayarlamaları için kullanışlıdır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Toggle scientific notation for the formatted output: 0 = off (fixed), 1 = on.",
       "label_i18n": {
         "en": "Scientific Notation (0/1)",
-        "tr": "Scientific Notation (0/1)",
+        "tr": "Bilimsel Gösterim (0/1)",
         "de": "Scientific Notation (0/1)",
         "fr": "Scientific Notation (0/1)",
         "es": "Scientific Notation (0/1)",
         "ar": "Scientific Notation (0/1)"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle scientific notation for the formatted output: 0 = off (fixed), 1 = on.",
+        "tr": "Biçimlendirilmiş çıktı için bilimsel gösterimi aç/kapa: 0 = kapalı (sabit), 1 = açık."
       }
     }
   ],

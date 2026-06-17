@@ -10,11 +10,15 @@
       "businessContext": "Mass of the substance undergoing phase change",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the substance undergoing phase change",
+        "tr": "Faz değişimine uğrayan maddenin kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Energy required per kilogram to change phase at constant temperature",
       "label_i18n": {
         "en": "Specific Latent Heat",
-        "tr": "Specific Latent Heat",
+        "tr": "Özgül gizli ısı",
         "de": "Specific Latent Heat",
         "fr": "Specific Latent Heat",
         "es": "Specific Latent Heat",
         "ar": "Specific Latent Heat"
+      },
+      "businessContext_i18n": {
+        "en": "Energy required per kilogram to change phase at constant temperature",
+        "tr": "Sabit sıcaklıkta faz değişimi için kilogram başına gereken enerji"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of complete phase change cycles (e.g., melt-freeze)",
       "label_i18n": {
         "en": "Number of Cycles",
-        "tr": "Number of Cycles",
+        "tr": "Döngü Sayısı",
         "de": "Number of Cycles",
         "fr": "Number of Cycles",
         "es": "Number of Cycles",
         "ar": "Number of Cycles"
+      },
+      "businessContext_i18n": {
+        "en": "Number of complete phase change cycles (e.g., melt-freeze)",
+        "tr": "Tamamlanan faz değişimi döngüsü sayısı (örn. erime-donma)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Heat transfer efficiency (0–100%) accounting for losses",
       "label_i18n": {
         "en": "Efficiency",
-        "tr": "Efficiency",
+        "tr": "Verim",
         "de": "Efficiency",
         "fr": "Efficiency",
         "es": "Efficiency",
         "ar": "Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Heat transfer efficiency (0–100%) accounting for losses",
+        "tr": "Kayıpları hesaba katan ısı transfer verimliliği (%0–100)"
       }
     }
   ],

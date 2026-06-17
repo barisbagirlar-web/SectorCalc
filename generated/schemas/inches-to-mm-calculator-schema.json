@@ -10,11 +10,15 @@
       "businessContext": "Length in inches to convert to millimeters",
       "label_i18n": {
         "en": "Inches",
-        "tr": "Inches",
+        "tr": "İnç",
         "de": "Inches",
         "fr": "Inches",
         "es": "Inches",
         "ar": "Inches"
+      },
+      "businessContext_i18n": {
+        "en": "Length in inches to convert to millimeters",
+        "tr": "Milimetreye dönüştürülecek inç cinsinden uzunluk"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor (1 inch = 25.4 mm). Modify only for non-standard applications.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor (1 inch = 25.4 mm). Modify only for non-standard applications.",
+        "tr": "Standart dönüşüm faktörü (1 inç = 25,4 mm). Yalnızca standart dışı uygulamalar için değiştirin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Manufacturing tolerance for conversion accuracy.",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturing tolerance for conversion accuracy.",
+        "tr": "Dönüşüm doğruluğu için üretim toleransı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional scaling factor for batch conversions or scaling.",
       "label_i18n": {
         "en": "Scale Factor",
-        "tr": "Scale Factor",
+        "tr": "Ölçek Faktörü",
         "de": "Scale Factor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Optional scaling factor for batch conversions or scaling.",
+        "tr": "Toplu dönüşümler veya ölçekleme için isteğe bağlı ölçekleme faktörü."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Offset to add after conversion (e.g., for calibration).",
       "label_i18n": {
         "en": "Offset",
-        "tr": "Offset",
+        "tr": "Ofset",
         "de": "Offset",
         "fr": "Offset",
         "es": "Offset",
         "ar": "Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Offset to add after conversion (e.g., for calibration).",
+        "tr": "Dönüşümden sonra eklenecek ofset (örn. kalibrasyon için)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Unit price of the first product",
       "label_i18n": {
         "en": "Price of Product A",
-        "tr": "Price of Product A",
+        "tr": "A Ürününün Fiyatı",
         "de": "Price of Product A",
         "fr": "Price of Product A",
         "es": "Price of Product A",
         "ar": "Price of Product A"
+      },
+      "businessContext_i18n": {
+        "en": "Unit price of the first product",
+        "tr": "İlk ürünün birim fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Unit price of the second product",
       "label_i18n": {
         "en": "Price of Product B",
-        "tr": "Price of Product B",
+        "tr": "B Ürününün Fiyatı",
         "de": "Price of Product B",
         "fr": "Price of Product B",
         "es": "Price of Product B",
         "ar": "Price of Product B"
+      },
+      "businessContext_i18n": {
+        "en": "Unit price of the second product",
+        "tr": "İkinci ürünün birim fiyatı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of units for Product A",
       "label_i18n": {
         "en": "Quantity of A",
-        "tr": "Quantity of A",
+        "tr": "A Miktarı",
         "de": "Quantity of A",
         "fr": "Quantity of A",
         "es": "Quantity of A",
         "ar": "Quantity of A"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units for Product A",
+        "tr": "A Ürünü için adet sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of units for Product B",
       "label_i18n": {
         "en": "Quantity of B",
-        "tr": "Quantity of B",
+        "tr": "B Miktarı",
         "de": "Quantity of B",
         "fr": "Quantity of B",
         "es": "Quantity of B",
         "ar": "Quantity of B"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units for Product B",
+        "tr": "B Ürünü için adet sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Discount percentage for Product A",
       "label_i18n": {
         "en": "Discount on A (%)",
-        "tr": "Discount on A (%)",
+        "tr": "A İndirimi (%)",
         "de": "Discount on A (%)",
         "fr": "Discount on A (%)",
         "es": "Discount on A (%)",
         "ar": "Discount on A (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Discount percentage for Product A",
+        "tr": "A Ürünü için indirim yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Discount percentage for Product B",
       "label_i18n": {
         "en": "Discount on B (%)",
-        "tr": "Discount on B (%)",
+        "tr": "B İndirimi (%)",
         "de": "Discount on B (%)",
         "fr": "Discount on B (%)",
         "es": "Discount on B (%)",
         "ar": "Discount on B (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Discount percentage for Product B",
+        "tr": "B Ürünü için indirim yüzdesi"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Applicable tax rate percentage",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)",
         "de": "Tax Rate (%)",
         "fr": "Tax Rate (%)",
         "es": "Tax Rate (%)",
         "ar": "Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable tax rate percentage",
+        "tr": "Geçerli vergi oranı yüzdesi"
       }
     }
   ],

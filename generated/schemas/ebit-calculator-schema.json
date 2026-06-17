@@ -10,11 +10,15 @@
       "businessContext": "Total sales revenue from primary business operations",
       "label_i18n": {
         "en": "Revenue",
-        "tr": "Revenue",
+        "tr": "Gelir",
         "de": "Revenue",
         "fr": "Revenue",
         "es": "Revenue",
         "ar": "Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Total sales revenue from primary business operations",
+        "tr": "Toplam Satış Geliri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Direct costs attributable to the production of goods sold",
       "label_i18n": {
         "en": "Cost of Goods Sold",
-        "tr": "Cost of Goods Sold",
+        "tr": "Satılan Malın Maliyeti",
         "de": "Cost of Goods Sold",
         "fr": "Cost of Goods Sold",
         "es": "Cost of Goods Sold",
         "ar": "Cost of Goods Sold"
+      },
+      "businessContext_i18n": {
+        "en": "Direct costs attributable to the production of goods sold",
+        "tr": "Satılan malların üretimine doğrudan atfedilebilen maliyetler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Indirect operating expenses including sales, marketing, and administrative costs",
       "label_i18n": {
         "en": "Selling, General & Administrative Expenses",
-        "tr": "Selling, General & Administrative Expenses",
+        "tr": "Satış, Genel ve İdari Giderler",
         "de": "Selling, General & Administrative Expenses",
         "fr": "Selling, General & Administrative Expenses",
         "es": "Selling, General & Administrative Expenses",
         "ar": "Selling, General & Administrative Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect operating expenses including sales, marketing, and administrative costs",
+        "tr": "Satış, pazarlama ve idari maliyetleri içeren dolaylı işletme giderleri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expenditures for innovation, product development, and process improvements",
       "label_i18n": {
         "en": "Research & Development Expenses",
-        "tr": "Research & Development Expenses",
+        "tr": "Araştırma ve Geliştirme Giderleri",
         "de": "Research & Development Expenses",
         "fr": "Research & Development Expenses",
         "es": "Research & Development Expenses",
         "ar": "Research & Development Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Expenditures for innovation, product development, and process improvements",
+        "tr": "İnovasyon, ürün geliştirme ve süreç iyileştirmeleri için yapılan harcamalar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Systematic allocation of tangible and intangible asset costs over useful lives",
       "label_i18n": {
         "en": "Depreciation & Amortization",
-        "tr": "Depreciation & Amortization",
+        "tr": "Amortisman ve İtfa",
         "de": "Depreciation & Amortization",
         "fr": "Depreciation & Amortization",
         "es": "Depreciation & Amortization",
         "ar": "Depreciation & Amortization"
+      },
+      "businessContext_i18n": {
+        "en": "Systematic allocation of tangible and intangible asset costs over useful lives",
+        "tr": "Maddi ve maddi olmayan duran varlık maliyetlerinin faydalı ömürlerine sistematik olarak dağıtılması"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional operating costs not captured in SG&A, R&D, or D&A",
       "label_i18n": {
         "en": "Other Operating Expenses",
-        "tr": "Other Operating Expenses",
+        "tr": "Diğer Faaliyet Giderleri",
         "de": "Other Operating Expenses",
         "fr": "Other Operating Expenses",
         "es": "Other Operating Expenses",
         "ar": "Other Operating Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Additional operating costs not captured in SG&A, R&D, or D&A",
+        "tr": "SG&A, Ar-Ge veya D&A'ya dahil olmayan ek faaliyet giderleri"
       }
     }
   ],

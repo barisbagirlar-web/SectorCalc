@@ -10,11 +10,15 @@
       "businessContext": "The total amount of all items before any deductions or additions.",
       "label_i18n": {
         "en": "Subtotal",
-        "tr": "Subtotal",
+        "tr": "Ara Toplam",
         "de": "Subtotal",
         "fr": "Subtotal",
         "es": "Subtotal",
         "ar": "Subtotal"
+      },
+      "businessContext_i18n": {
+        "en": "The total amount of all items before any deductions or additions.",
+        "tr": "Herhangi bir kesinti veya eklemeden önceki tüm kalemlerin toplam tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Discount rate applied to the subtotal.",
       "label_i18n": {
         "en": "Discount Percentage",
-        "tr": "Discount Percentage",
+        "tr": "İndirim Yüzdesi",
         "de": "Discount Percentage",
         "fr": "Discount Percentage",
         "es": "Discount Percentage",
         "ar": "Discount Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Discount rate applied to the subtotal.",
+        "tr": "Ara toplama uygulanan iskonto oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Tax rate applied after discount, e.g., VAT.",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate applied after discount, e.g., VAT.",
+        "tr": "İskonto sonrası uygulanan vergi oranı, örn. KDV."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Flat shipping charge added to the invoice.",
       "label_i18n": {
         "en": "Shipping Cost",
-        "tr": "Shipping Cost",
+        "tr": "Kargo Ücreti",
         "de": "Shipping Cost",
         "fr": "Shipping Cost",
         "es": "Shipping Cost",
         "ar": "Shipping Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Flat shipping charge added to the invoice.",
+        "tr": "Faturaya eklenen sabit kargo ücreti."
       }
     }
   ],

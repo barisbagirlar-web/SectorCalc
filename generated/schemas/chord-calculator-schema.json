@@ -10,11 +10,15 @@
       "businessContext": "Circle radius",
       "label_i18n": {
         "en": "Radius",
-        "tr": "Radius",
+        "tr": "Yarıçap",
         "de": "Radius",
         "fr": "Radius",
         "es": "Radius",
         "ar": "Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Circle radius",
+        "tr": "Daire yarıçapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Angle in degrees (0 if using arc length or offset)",
       "label_i18n": {
         "en": "Central Angle",
-        "tr": "Central Angle",
+        "tr": "Merkez Açı",
         "de": "Central Angle",
         "fr": "Central Angle",
         "es": "Central Angle",
         "ar": "Central Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle in degrees (0 if using arc length or offset)",
+        "tr": "Derece cinsinden açı (yay uzunluğu veya ofset kullanılıyorsa 0)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Arc length alternative to angle (0 to ignore)",
       "label_i18n": {
         "en": "Arc Length",
-        "tr": "Arc Length",
+        "tr": "Yay Uzunluğu",
         "de": "Arc Length",
         "fr": "Arc Length",
         "es": "Arc Length",
         "ar": "Arc Length"
+      },
+      "businessContext_i18n": {
+        "en": "Arc length alternative to angle (0 to ignore)",
+        "tr": "Açıya alternatif yay uzunluğu (yok saymak için 0)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance from center to chord (0 to ignore)",
       "label_i18n": {
         "en": "Chord Offset",
-        "tr": "Chord Offset",
+        "tr": "Kiriş Ofseti",
         "de": "Chord Offset",
         "fr": "Chord Offset",
         "es": "Chord Offset",
         "ar": "Chord Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from center to chord (0 to ignore)",
+        "tr": "Merkezden kirişe olan mesafe (yok saymak için 0)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for outputs",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for outputs",
+        "tr": "Çıktılar için ondalık basamak sayısı"
       }
     }
   ],

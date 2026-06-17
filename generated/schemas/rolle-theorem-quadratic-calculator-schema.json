@@ -10,11 +10,15 @@
       "businessContext": "Leading coefficient of quadratic function f(x)=ax^2+bx+c",
       "label_i18n": {
         "en": "Coefficient a",
-        "tr": "Coefficient a",
+        "tr": "Katsayı a",
         "de": "Coefficient a",
         "fr": "Coefficient a",
         "es": "Coefficient a",
         "ar": "Coefficient a"
+      },
+      "businessContext_i18n": {
+        "en": "Leading coefficient of quadratic function f(x)=ax^2+bx+c",
+        "tr": "İkinci dereceden f(x)=ax^2+bx+c fonksiyonunun baş katsayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Linear coefficient",
       "label_i18n": {
         "en": "Coefficient b",
-        "tr": "Coefficient b",
+        "tr": "Katsayı b",
         "de": "Coefficient b",
         "fr": "Coefficient b",
         "es": "Coefficient b",
         "ar": "Coefficient b"
+      },
+      "businessContext_i18n": {
+        "en": "Linear coefficient",
+        "tr": "Doğrusal katsayı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Constant term",
       "label_i18n": {
         "en": "Coefficient c",
-        "tr": "Coefficient c",
+        "tr": "Katsayı c",
         "de": "Coefficient c",
         "fr": "Coefficient c",
         "es": "Coefficient c",
         "ar": "Coefficient c"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term",
+        "tr": "Sabit terim"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "x1",
         "es": "x1",
         "ar": "x1"
+      },
+      "businessContext_i18n": {
+        "en": "Left endpoint of interval",
+        "tr": "Aralığın sol uç noktası"
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "x2",
         "es": "x2",
         "ar": "x2"
+      },
+      "businessContext_i18n": {
+        "en": "Right endpoint of interval",
+        "tr": "Aralığın sağ uç noktası"
       }
     }
   ],

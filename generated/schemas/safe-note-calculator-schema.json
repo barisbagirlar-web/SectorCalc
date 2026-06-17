@@ -10,11 +10,15 @@
       "businessContext": "Amount of money invested via SAFE",
       "label_i18n": {
         "en": "Investment Amount",
-        "tr": "Investment Amount",
+        "tr": "Yatırım Tutarı",
         "de": "Investment Amount",
         "fr": "Investment Amount",
         "es": "Investment Amount",
         "ar": "Investment Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of money invested via SAFE",
+        "tr": "SAFE ile yatırılan para miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Maximum valuation at which SAFE converts",
       "label_i18n": {
         "en": "Valuation Cap",
-        "tr": "Valuation Cap",
+        "tr": "Değerleme Tavanı",
         "de": "Valuation Cap",
         "fr": "Valuation Cap",
         "es": "Valuation Cap",
         "ar": "Valuation Cap"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum valuation at which SAFE converts",
+        "tr": "SAFE'nin dönüştüğü maksimum değerleme"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Discount on the next round's price per share",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Discount on the next round's price per share",
+        "tr": "Bir sonraki turun hisse başına fiyatındaki indirim"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Pre-money valuation of the next funding round",
       "label_i18n": {
         "en": "Pre-Money Valuation",
-        "tr": "Pre-Money Valuation",
+        "tr": "Yatırım Öncesi Değerleme",
         "de": "Pre-Money Valuation",
         "fr": "Pre-Money Valuation",
         "es": "Pre-Money Valuation",
         "ar": "Pre-Money Valuation"
+      },
+      "businessContext_i18n": {
+        "en": "Pre-money valuation of the next funding round",
+        "tr": "Bir sonraki fonlama turunun yatırım öncesi değerlemesi"
       }
     }
   ],

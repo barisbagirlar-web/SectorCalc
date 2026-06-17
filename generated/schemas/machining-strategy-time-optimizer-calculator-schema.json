@@ -22,11 +22,15 @@
       "businessContext": "ISO 3685 standard for tool life; affects surface finish and cycle time.",
       "label_i18n": {
         "en": "Cutting Speed (Vc)",
-        "tr": "Cutting Speed (Vc)",
+        "tr": "Kesme Hızı (Vc)",
         "de": "Cutting Speed (Vc)",
         "fr": "Cutting Speed (Vc)",
         "es": "Cutting Speed (Vc)",
         "ar": "Cutting Speed (Vc)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 3685 standard for tool life; affects surface finish and cycle time.",
+        "tr": "Takım ömrü için ISO 3685 standardı; yüzey kalitesini ve çevrim süresini etkiler."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "ISO 3002/1 standard; influences chip load and tool wear.",
       "label_i18n": {
         "en": "Feed Rate (f)",
-        "tr": "Feed Rate (f)",
+        "tr": "İlerleme Hızı (f)",
         "de": "Feed Rate (f)",
         "fr": "Feed Rate (f)",
         "es": "Feed Rate (f)",
         "ar": "Feed Rate (f)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 3002/1 standard; influences chip load and tool wear.",
+        "tr": "ISO 3002/1 standardı; talaş yükünü ve takım aşınmasını etkiler."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "ISO 3002/1; affects cutting forces and power consumption.",
       "label_i18n": {
         "en": "Depth of Cut (ap)",
-        "tr": "Depth of Cut (ap)",
+        "tr": "Kesme Derinliği (ap)",
         "de": "Depth of Cut (ap)",
         "fr": "Depth of Cut (ap)",
         "es": "Depth of Cut (ap)",
         "ar": "Depth of Cut (ap)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 3002/1; affects cutting forces and power consumption.",
+        "tr": "ISO 3002/1; kesme kuvvetlerini ve güç tüketimini etkiler."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Workpiece geometry; defines total travel distance.",
       "label_i18n": {
         "en": "Part Length (L)",
-        "tr": "Part Length (L)",
+        "tr": "Parça Uzunluğu (L)",
         "de": "Part Length (L)",
         "fr": "Part Length (L)",
         "es": "Part Length (L)",
         "ar": "Part Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Workpiece geometry; defines total travel distance.",
+        "tr": "İş parçası geometrisi; toplam hareket mesafesini tanımlar."
       }
     },
     {
@@ -94,11 +110,15 @@
       "businessContext": "Workpiece diameter; used for rotational speed calculation.",
       "label_i18n": {
         "en": "Part Diameter (D)",
-        "tr": "Part Diameter (D)",
+        "tr": "Parça Çapı (D)",
         "de": "Part Diameter (D)",
         "fr": "Part Diameter (D)",
         "es": "Part Diameter (D)",
         "ar": "Part Diameter (D)"
+      },
+      "businessContext_i18n": {
+        "en": "Workpiece diameter; used for rotational speed calculation.",
+        "tr": "İş parçası çapı; dönme hızı hesaplamasında kullanılır."
       }
     },
     {
@@ -112,11 +132,15 @@
       "businessContext": "SMED (Single Minute Exchange of Die) metric; Lean manufacturing.",
       "label_i18n": {
         "en": "Tool Change Time (Tct)",
-        "tr": "Tool Change Time (Tct)",
+        "tr": "Takım Değiştirme Süresi (Tct)",
         "de": "Tool Change Time (Tct)",
         "fr": "Tool Change Time (Tct)",
         "es": "Tool Change Time (Tct)",
         "ar": "Tool Change Time (Tct)"
+      },
+      "businessContext_i18n": {
+        "en": "SMED (Single Minute Exchange of Die) metric; Lean manufacturing.",
+        "tr": "SMED (Single Minute Exchange of Die) metriği; Yalın üretim."
       }
     },
     {
@@ -130,11 +154,15 @@
       "businessContext": "ISO 3685 Taylor tool life equation; affects cost and downtime.",
       "label_i18n": {
         "en": "Tool Life (T)",
-        "tr": "Tool Life (T)",
+        "tr": "Takım Ömrü (T)",
         "de": "Tool Life (T)",
         "fr": "Tool Life (T)",
         "es": "Tool Life (T)",
         "ar": "Tool Life (T)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 3685 Taylor tool life equation; affects cost and downtime.",
+        "tr": "ISO 3685 Taylor takım ömrü denklemi; maliyet ve duruş süresini etkiler."
       }
     },
     {
@@ -148,11 +176,15 @@
       "businessContext": "Roughing/finishing strategy; impacts total cycle time.",
       "label_i18n": {
         "en": "Number of Passes (n_passes)",
-        "tr": "Number of Passes (n_passes)",
+        "tr": "Pas Sayısı (n_passes)",
         "de": "Number of Passes (n_passes)",
         "fr": "Number of Passes (n_passes)",
         "es": "Number of Passes (n_passes)",
         "ar": "Number of Passes (n_passes)"
+      },
+      "businessContext_i18n": {
+        "en": "Roughing/finishing strategy; impacts total cycle time.",
+        "tr": "Kaba/ince işleme stratejisi; toplam çevrim süresini etkiler."
       }
     }
   ],

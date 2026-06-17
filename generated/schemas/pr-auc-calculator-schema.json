@@ -10,11 +10,15 @@
       "businessContext": "First recall value (must be the smallest, in ascending order)",
       "label_i18n": {
         "en": "Recall 1",
-        "tr": "Recall 1",
+        "tr": "Geri Çağırma 1",
         "de": "Recall 1",
         "fr": "Recall 1",
         "es": "Recall 1",
         "ar": "Recall 1"
+      },
+      "businessContext_i18n": {
+        "en": "First recall value (must be the smallest, in ascending order)",
+        "tr": "İlk geri çağırma değeri (en küçük, artan sırada olmalıdır)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Precision corresponding to Recall 1",
       "label_i18n": {
         "en": "Precision 1",
-        "tr": "Precision 1",
+        "tr": "Kesinlik 1",
         "de": "Precision 1",
         "fr": "Precision 1",
         "es": "Precision 1",
         "ar": "Precision 1"
+      },
+      "businessContext_i18n": {
+        "en": "Precision corresponding to Recall 1",
+        "tr": "Geri Çağırma 1'e karşılık gelen kesinlik"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Second recall value (greater than or equal to Recall 1)",
       "label_i18n": {
         "en": "Recall 2",
-        "tr": "Recall 2",
+        "tr": "Geri Çağırma 2",
         "de": "Recall 2",
         "fr": "Recall 2",
         "es": "Recall 2",
         "ar": "Recall 2"
+      },
+      "businessContext_i18n": {
+        "en": "Second recall value (greater than or equal to Recall 1)",
+        "tr": "İkinci geri çağırma değeri (Geri Çağırma 1'den büyük veya eşit)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Precision corresponding to Recall 2",
       "label_i18n": {
         "en": "Precision 2",
-        "tr": "Precision 2",
+        "tr": "Kesinlik 2",
         "de": "Precision 2",
         "fr": "Precision 2",
         "es": "Precision 2",
         "ar": "Precision 2"
+      },
+      "businessContext_i18n": {
+        "en": "Precision corresponding to Recall 2",
+        "tr": "Geri Çağırma 2'ye karşılık gelen kesinlik"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Third recall value (greater than or equal to Recall 2)",
       "label_i18n": {
         "en": "Recall 3",
-        "tr": "Recall 3",
+        "tr": "Geri Çağırma 3",
         "de": "Recall 3",
         "fr": "Recall 3",
         "es": "Recall 3",
         "ar": "Recall 3"
+      },
+      "businessContext_i18n": {
+        "en": "Third recall value (greater than or equal to Recall 2)",
+        "tr": "Üçüncü geri çağırma değeri (Geri Çağırma 2'den büyük veya eşit)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Precision corresponding to Recall 3",
       "label_i18n": {
         "en": "Precision 3",
-        "tr": "Precision 3",
+        "tr": "Kesinlik 3",
         "de": "Precision 3",
         "fr": "Precision 3",
         "es": "Precision 3",
         "ar": "Precision 3"
+      },
+      "businessContext_i18n": {
+        "en": "Precision corresponding to Recall 3",
+        "tr": "Geri Çağırma 3'e karşılık gelen kesinlik"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Fourth recall value (the largest, equal to or greater than Recall 3, typically 1)",
       "label_i18n": {
         "en": "Recall 4",
-        "tr": "Recall 4",
+        "tr": "Geri Çağırma 4",
         "de": "Recall 4",
         "fr": "Recall 4",
         "es": "Recall 4",
         "ar": "Recall 4"
+      },
+      "businessContext_i18n": {
+        "en": "Fourth recall value (the largest, equal to or greater than Recall 3, typically 1)",
+        "tr": "Dördüncü geri çağırma değeri (en büyük, Geri Çağırma 3'e eşit veya büyük, genellikle 1)"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Precision corresponding to Recall 4",
       "label_i18n": {
         "en": "Precision 4",
-        "tr": "Precision 4",
+        "tr": "Hassasiyet 4",
         "de": "Precision 4",
         "fr": "Precision 4",
         "es": "Precision 4",
         "ar": "Precision 4"
+      },
+      "businessContext_i18n": {
+        "en": "Precision corresponding to Recall 4",
+        "tr": "Hassasiyet 4'e karşılık gelen Geri Çağırma"
       }
     }
   ],

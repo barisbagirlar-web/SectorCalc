@@ -10,11 +10,15 @@
       "businessContext": "Normal working hours per period (e.g., per week)",
       "label_i18n": {
         "en": "Regular Hours",
-        "tr": "Regular Hours",
+        "tr": "Normal Saatler",
         "de": "Regular Hours",
         "fr": "Regular Hours",
         "es": "Regular Hours",
         "ar": "Regular Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Normal working hours per period (e.g., per week)",
+        "tr": "Dönem başına normal çalışma saatleri (ör. haftalık)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Overtime hours worked beyond regular time",
       "label_i18n": {
         "en": "Overtime Hours",
-        "tr": "Overtime Hours",
+        "tr": "Fazla Mesai Saatleri",
         "de": "Overtime Hours",
         "fr": "Overtime Hours",
         "es": "Overtime Hours",
         "ar": "Overtime Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Overtime hours worked beyond regular time",
+        "tr": "Fazla mesai saatleri (normal sürenin üzerinde çalışılan)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Normal hourly wage rate",
       "label_i18n": {
         "en": "Hourly Rate",
-        "tr": "Hourly Rate",
+        "tr": "Saatlik Ücret",
         "de": "Hourly Rate",
         "fr": "Hourly Rate",
         "es": "Hourly Rate",
         "ar": "Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Normal hourly wage rate",
+        "tr": "Normal saatlik ücret"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier applied to hourly rate for overtime (e.g., 1.5 for time and a half)",
       "label_i18n": {
         "en": "Overtime Multiplier",
-        "tr": "Overtime Multiplier",
+        "tr": "Fazla Mesai Çarpanı",
         "de": "Overtime Multiplier",
         "fr": "Overtime Multiplier",
         "es": "Overtime Multiplier",
         "ar": "Overtime Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier applied to hourly rate for overtime (e.g., 1.5 for time and a half)",
+        "tr": "Fazla mesai için saatlik ücrete uygulanan çarpan (ör. 1.5 bir buçuk kat)"
       }
     }
   ],

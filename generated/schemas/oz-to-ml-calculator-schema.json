@@ -10,11 +10,15 @@
       "businessContext": "Amount of liquid in fluid ounces to convert to milliliters",
       "label_i18n": {
         "en": "Fluid Ounces",
-        "tr": "Fluid Ounces",
+        "tr": "Sıvı Ons",
         "de": "Fluid Ounces",
         "fr": "Fluid Ounces",
         "es": "Fluid Ounces",
         "ar": "Fluid Ounces"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of liquid in fluid ounces to convert to milliliters",
+        "tr": "Mililitreye dönüştürülecek sıvı miktarı (sıvı ons cinsinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0 for US fluid ounce (29.5735 ml), 1 for UK imperial fluid ounce (28.4131 ml)",
       "label_i18n": {
         "en": "Ounce System",
-        "tr": "Ounce System",
+        "tr": "Ons Sistemi",
         "de": "Ounce System",
         "fr": "Ounce System",
         "es": "Ounce System",
         "ar": "Ounce System"
+      },
+      "businessContext_i18n": {
+        "en": "0 for US fluid ounce (29.5735 ml), 1 for UK imperial fluid ounce (28.4131 ml)",
+        "tr": "0 ABD sıvı onsu (29,5735 ml), 1 İngiliz emperyal sıvı onsu (28,4131 ml)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output, typically 2 for laboratory precision",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output, typically 2 for laboratory precision",
+        "tr": "Çıktı için ondalık basamak sayısı, laboratuvar hassasiyeti için genellikle 2"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiply conversion result by number of units if converting for a batch",
       "label_i18n": {
         "en": "Batch Size Multiplier",
-        "tr": "Batch Size Multiplier",
+        "tr": "Parti Boyutu Çarpanı",
         "de": "Batch Size Multiplier",
         "fr": "Batch Size Multiplier",
         "es": "Batch Size Multiplier",
         "ar": "Batch Size Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiply conversion result by number of units if converting for a batch",
+        "tr": "Bir parti için dönüştürme yapılıyorsa dönüşüm sonucunu birim sayısıyla çarpın."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Percentage of defect-free outputs",
       "label_i18n": {
         "en": "Quality Rate",
-        "tr": "Quality Rate",
+        "tr": "Kalite Oranı",
         "de": "Quality Rate",
         "fr": "Quality Rate",
         "es": "Quality Rate",
         "ar": "Quality Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of defect-free outputs",
+        "tr": "Hataya düşmeyen çıktıların yüzdesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Actual production rate vs. ideal rate",
       "label_i18n": {
         "en": "Efficiency Rate",
-        "tr": "Efficiency Rate",
+        "tr": "Verimlilik Oranı",
         "de": "Efficiency Rate",
         "fr": "Efficiency Rate",
         "es": "Efficiency Rate",
         "ar": "Efficiency Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Actual production rate vs. ideal rate",
+        "tr": "Gerçek üretim hızının ideal hıza oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of scheduled uptime",
       "label_i18n": {
         "en": "Availability Rate",
-        "tr": "Availability Rate",
+        "tr": "Kullanılabilirlik Oranı",
         "de": "Availability Rate",
         "fr": "Availability Rate",
         "es": "Availability Rate",
         "ar": "Availability Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of scheduled uptime",
+        "tr": "Planlanan çalışma süresinin yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost index relative to standard (100 = standard, higher is worse)",
       "label_i18n": {
         "en": "Cost Index",
-        "tr": "Cost Index",
+        "tr": "Maliyet Endeksi",
         "de": "Cost Index",
         "fr": "Cost Index",
         "es": "Cost Index",
         "ar": "Cost Index"
+      },
+      "businessContext_i18n": {
+        "en": "Cost index relative to standard (100 = standard, higher is worse)",
+        "tr": "Standart değere göre maliyet endeksi (100 = standart, yüksek değer daha kötü)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Safety performance score (0–100)",
       "label_i18n": {
         "en": "Safety Score",
-        "tr": "Safety Score",
+        "tr": "Güvenlik Puanı",
         "de": "Safety Score",
         "fr": "Safety Score",
         "es": "Safety Score",
         "ar": "Safety Score"
+      },
+      "businessContext_i18n": {
+        "en": "Safety performance score (0–100)",
+        "tr": "Güvenlik performans puanı (0–100)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Energy consumption performance vs. baseline",
       "label_i18n": {
         "en": "Energy Efficiency",
-        "tr": "Energy Efficiency",
+        "tr": "Enerji Verimliliği",
         "de": "Energy Efficiency",
         "fr": "Energy Efficiency",
         "es": "Energy Efficiency",
         "ar": "Energy Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Energy consumption performance vs. baseline",
+        "tr": "Taban değere göre enerji tüketim performansı"
       }
     }
   ],

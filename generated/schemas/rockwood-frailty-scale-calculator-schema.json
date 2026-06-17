@@ -10,11 +10,15 @@
       "businessContext": "Patient's chronological age",
       "label_i18n": {
         "en": "Age (years)",
-        "tr": "Age (years)",
+        "tr": "Yaş (yıl)",
         "de": "Age (years)",
         "fr": "Age (years)",
         "es": "Age (years)",
         "ar": "Age (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's chronological age",
+        "tr": "Hastanın kronolojik yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Self-selected walking speed over 4 meters",
       "label_i18n": {
         "en": "Walking Speed (m/s)",
-        "tr": "Walking Speed (m/s)",
+        "tr": "Yürüme Hızı (m/s)",
         "de": "Walking Speed (m/s)",
         "fr": "Walking Speed (m/s)",
         "es": "Walking Speed (m/s)",
         "ar": "Walking Speed (m/s)"
+      },
+      "businessContext_i18n": {
+        "en": "Self-selected walking speed over 4 meters",
+        "tr": "4 metre üzerinde kendi seçtiği yürüme hızı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum handgrip strength in dominant hand",
       "label_i18n": {
         "en": "Grip Strength (kg)",
-        "tr": "Grip Strength (kg)",
+        "tr": "Kavrama Kuvveti (kg)",
         "de": "Grip Strength (kg)",
         "fr": "Grip Strength (kg)",
         "es": "Grip Strength (kg)",
         "ar": "Grip Strength (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum handgrip strength in dominant hand",
+        "tr": "Baskın elde maksimum el kavrama kuvveti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Count of significant chronic conditions",
       "label_i18n": {
         "en": "Number of Comorbidities",
-        "tr": "Number of Comorbidities",
+        "tr": "Komorbidite Sayısı",
         "de": "Number of Comorbidities",
         "fr": "Number of Comorbidities",
         "es": "Number of Comorbidities",
         "ar": "Number of Comorbidities"
+      },
+      "businessContext_i18n": {
+        "en": "Count of significant chronic conditions",
+        "tr": "Önemli kronik durumların sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Self-reported exhaustion (0=No, 1=Yes)",
       "label_i18n": {
         "en": "Exhaustion (0/1)",
-        "tr": "Exhaustion (0/1)",
+        "tr": "Tükenmişlik (0/1)",
         "de": "Exhaustion (0/1)",
         "fr": "Exhaustion (0/1)",
         "es": "Exhaustion (0/1)",
         "ar": "Exhaustion (0/1)"
+      },
+      "businessContext_i18n": {
+        "en": "Self-reported exhaustion (0=No, 1=Yes)",
+        "tr": "Kendi bildirdiği tükenmişlik (0=Hayır, 1=Evet)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Weight loss over past year not due to diet",
       "label_i18n": {
         "en": "Unintentional Weight Loss (kg)",
-        "tr": "Unintentional Weight Loss (kg)",
+        "tr": "İstenmeyen Kilo Kaybı (kg)",
         "de": "Unintentional Weight Loss (kg)",
         "fr": "Unintentional Weight Loss (kg)",
         "es": "Unintentional Weight Loss (kg)",
         "ar": "Unintentional Weight Loss (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight loss over past year not due to diet",
+        "tr": "Diyete bağlı olmayan son bir yıldaki kilo kaybı"
       }
     }
   ],

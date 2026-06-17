@@ -10,11 +10,15 @@
       "businessContext": "The market value or purchase price of the property.",
       "label_i18n": {
         "en": "Property Value",
-        "tr": "Property Value",
+        "tr": "Mülk Değeri",
         "de": "Property Value",
         "fr": "Property Value",
         "es": "Property Value",
         "ar": "Property Value"
+      },
+      "businessContext_i18n": {
+        "en": "The market value or purchase price of the property.",
+        "tr": "Mülkün piyasa değeri veya satın alma fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The amount of title insurance coverage, typically equal to the property value. Can be higher if there is additional risk.",
       "label_i18n": {
         "en": "Coverage Amount",
-        "tr": "Coverage Amount",
+        "tr": "Teminat Tutarı",
         "de": "Coverage Amount",
         "fr": "Coverage Amount",
         "es": "Coverage Amount",
         "ar": "Coverage Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of title insurance coverage, typically equal to the property value. Can be higher if there is additional risk.",
+        "tr": "Genellikle mülk değerine eşit olan tapu sigortası teminat tutarı. Ek risk varsa daha yüksek olabilir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The title insurance premium rate per $1000 of coverage. Varies by state and insurer.",
       "label_i18n": {
         "en": "Rate per $1000",
-        "tr": "Rate per $1000",
+        "tr": "1000$ başına oran",
         "de": "Rate per $1000",
         "fr": "Rate per $1000",
         "es": "Rate per $1000",
         "ar": "Rate per $1000"
+      },
+      "businessContext_i18n": {
+        "en": "The title insurance premium rate per $1000 of coverage. Varies by state and insurer.",
+        "tr": "1000$ teminat başına tapu sigortası prim oranı. Eyalete ve sigortacıya göre değişir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fixed administrative fee for issuing the title insurance policy.",
       "label_i18n": {
         "en": "Policy Fee",
-        "tr": "Policy Fee",
+        "tr": "Poliçe Ücreti",
         "de": "Policy Fee",
         "fr": "Policy Fee",
         "es": "Policy Fee",
         "ar": "Policy Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed administrative fee for issuing the title insurance policy.",
+        "tr": "Tapu sigortası poliçesi düzenlenmesi için sabit idari ücret."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "State tax rate applied to the premium, expressed as a percentage.",
       "label_i18n": {
         "en": "State Tax Rate",
-        "tr": "State Tax Rate",
+        "tr": "Eyalet Vergi Oranı",
         "de": "State Tax Rate",
         "fr": "State Tax Rate",
         "es": "State Tax Rate",
         "ar": "State Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "State tax rate applied to the premium, expressed as a percentage.",
+        "tr": "Prime uygulanan eyalet vergi oranı, yüzde olarak ifade edilir."
       }
     }
   ],

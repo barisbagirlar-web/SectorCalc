@@ -10,11 +10,15 @@
       "businessContext": "Total mass of ore mined or processed.",
       "label_i18n": {
         "en": "Ore Tonnage",
-        "tr": "Ore Tonnage",
+        "tr": "Cevher Tonajı",
         "de": "Ore Tonnage",
         "fr": "Ore Tonnage",
         "es": "Ore Tonnage",
         "ar": "Ore Tonnage"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of ore mined or processed.",
+        "tr": "Çıkarılan veya işlenen toplam cevher kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of valuable mineral in the ore.",
       "label_i18n": {
         "en": "Ore Grade",
-        "tr": "Ore Grade",
+        "tr": "Cevher Tenörü",
         "de": "Ore Grade",
         "fr": "Ore Grade",
         "es": "Ore Grade",
         "ar": "Ore Grade"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of valuable mineral in the ore.",
+        "tr": "Cevherdeki değerli mineral yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of the valuable mineral that can be recovered during processing.",
       "label_i18n": {
         "en": "Recovery Rate",
-        "tr": "Recovery Rate",
+        "tr": "Geri Kazanım Oranı",
         "de": "Recovery Rate",
         "fr": "Recovery Rate",
         "es": "Recovery Rate",
         "ar": "Recovery Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of the valuable mineral that can be recovered during processing.",
+        "tr": "İşleme sırasında geri kazanılabilen değerli mineral yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Market price of the recovered metal per ton.",
       "label_i18n": {
         "en": "Metal Price",
-        "tr": "Metal Price",
+        "tr": "Metal Fiyatı",
         "de": "Metal Price",
         "fr": "Metal Price",
         "es": "Metal Price",
         "ar": "Metal Price"
+      },
+      "businessContext_i18n": {
+        "en": "Market price of the recovered metal per ton.",
+        "tr": "Geri kazanılan metalin ton başına piyasa fiyatı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost to process one ton of ore.",
       "label_i18n": {
         "en": "Processing Cost",
-        "tr": "Processing Cost",
+        "tr": "İşleme Maliyeti",
         "de": "Processing Cost",
         "fr": "Processing Cost",
         "es": "Processing Cost",
         "ar": "Processing Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to process one ton of ore.",
+        "tr": "Bir ton cevheri işleme maliyeti."
       }
     }
   ],

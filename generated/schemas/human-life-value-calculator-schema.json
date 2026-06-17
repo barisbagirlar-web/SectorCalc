@@ -10,11 +10,15 @@
       "businessContext": "Gross annual income of the individual",
       "label_i18n": {
         "en": "Annual Income",
-        "tr": "Annual Income",
+        "tr": "Yıllık Gelir",
         "de": "Annual Income",
         "fr": "Annual Income",
         "es": "Annual Income",
         "ar": "Annual Income"
+      },
+      "businessContext_i18n": {
+        "en": "Gross annual income of the individual",
+        "tr": "Bireyin brüt yıllık geliri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of years until retirement",
       "label_i18n": {
         "en": "Years to Retirement",
-        "tr": "Years to Retirement",
+        "tr": "Emekliliğe Kalan Yıl",
         "de": "Years to Retirement",
         "fr": "Years to Retirement",
         "es": "Years to Retirement",
         "ar": "Years to Retirement"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years until retirement",
+        "tr": "Emekliliğe kadar kalan yıl sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fraction of income spent on personal expenses (e.g., 0.3 for 30%)",
       "label_i18n": {
         "en": "Personal Expense Ratio",
-        "tr": "Personal Expense Ratio",
+        "tr": "Kişisel Harcama Oranı",
         "de": "Personal Expense Ratio",
         "fr": "Personal Expense Ratio",
         "es": "Personal Expense Ratio",
         "ar": "Personal Expense Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of income spent on personal expenses (e.g., 0.3 for 30%)",
+        "tr": "Kişisel harcamalara harcanan gelir oranı (örn. %30 için 0,3)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected annual investment return (e.g., 0.05 for 5%)",
       "label_i18n": {
         "en": "Rate of Return",
-        "tr": "Rate of Return",
+        "tr": "Getiri Oranı",
         "de": "Rate of Return",
         "fr": "Rate of Return",
         "es": "Rate of Return",
         "ar": "Rate of Return"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual investment return (e.g., 0.05 for 5%)",
+        "tr": "Beklenen yıllık yatırım getirisi (örn. %5 için 0,05)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected annual inflation rate (e.g., 0.02 for 2%)",
       "label_i18n": {
         "en": "Inflation Rate",
-        "tr": "Inflation Rate",
+        "tr": "Enflasyon Oranı",
         "de": "Inflation Rate",
         "fr": "Inflation Rate",
         "es": "Inflation Rate",
         "ar": "Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual inflation rate (e.g., 0.02 for 2%)",
+        "tr": "Beklenen yıllık enflasyon oranı (örn. %2 için 0,02)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Existing savings or liquid assets",
       "label_i18n": {
         "en": "Current Savings",
-        "tr": "Current Savings",
+        "tr": "Mevcut Birikimler",
         "de": "Current Savings",
         "fr": "Current Savings",
         "es": "Current Savings",
         "ar": "Current Savings"
+      },
+      "businessContext_i18n": {
+        "en": "Existing savings or liquid assets",
+        "tr": "Mevcut birikimler veya likit varlıklar"
       }
     }
   ],

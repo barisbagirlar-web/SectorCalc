@@ -10,11 +10,15 @@
       "businessContext": "1 for Male, 0 for Female",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "1 for Male, 0 for Female",
+        "tr": "1 Erkek, 0 Kadın"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Feet component of height",
       "label_i18n": {
         "en": "Height (ft)",
-        "tr": "Height (ft)",
+        "tr": "Yükseklik (ft)",
         "de": "Height (ft)",
         "fr": "Height (ft)",
         "es": "Height (ft)",
         "ar": "Height (ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Feet component of height",
+        "tr": "Yüksekliğin fit bileşeni"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Inches component of height",
       "label_i18n": {
         "en": "Height (in)",
-        "tr": "Height (in)",
+        "tr": "Boy (inç)",
         "de": "Height (in)",
         "fr": "Height (in)",
         "es": "Height (in)",
         "ar": "Height (in)"
+      },
+      "businessContext_i18n": {
+        "en": "Inches component of height",
+        "tr": "Yüksekliğin inç bileşeni"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 for lbs, 1 for kg",
       "label_i18n": {
         "en": "Output Unit",
-        "tr": "Output Unit",
+        "tr": "Çıktı Birimi",
         "de": "Output Unit",
         "fr": "Output Unit",
         "es": "Output Unit",
         "ar": "Output Unit"
+      },
+      "businessContext_i18n": {
+        "en": "0 for lbs, 1 for kg",
+        "tr": "0 lbs, 1 kg için"
       }
     }
   ],

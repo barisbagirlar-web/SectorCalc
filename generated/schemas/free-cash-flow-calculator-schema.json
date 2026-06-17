@@ -10,11 +10,15 @@
       "businessContext": "The company's operating profit before interest and tax expenses.",
       "label_i18n": {
         "en": "EBIT (Earnings Before Interest and Taxes)",
-        "tr": "EBIT (Earnings Before Interest and Taxes)",
+        "tr": "EBIT (Faiz ve Vergi Öncesi Kar)",
         "de": "EBIT (Earnings Before Interest and Taxes)",
         "fr": "EBIT (Earnings Before Interest and Taxes)",
         "es": "EBIT (Earnings Before Interest and Taxes)",
         "ar": "EBIT (Earnings Before Interest and Taxes)"
+      },
+      "businessContext_i18n": {
+        "en": "The company's operating profit before interest and tax expenses.",
+        "tr": "Şirketin faiz ve vergi giderlerinden önceki faaliyet karı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Effective corporate tax rate as a percentage (e.g., 30 for 30%).",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Effective corporate tax rate as a percentage (e.g., 30 for 30%).",
+        "tr": "Efektif kurumlar vergisi oranı yüzde olarak (örneğin, %30 için 30)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Non-cash expenses from depreciation and amortization of assets.",
       "label_i18n": {
         "en": "Depreciation & Amortization",
-        "tr": "Depreciation & Amortization",
+        "tr": "Amortisman ve İtfa",
         "de": "Depreciation & Amortization",
         "fr": "Depreciation & Amortization",
         "es": "Depreciation & Amortization",
         "ar": "Depreciation & Amortization"
+      },
+      "businessContext_i18n": {
+        "en": "Non-cash expenses from depreciation and amortization of assets.",
+        "tr": "Amortisman ve itfa payları gibi nakit dışı giderler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cash spent on acquiring or maintaining fixed assets (CapEx).",
       "label_i18n": {
         "en": "Capital Expenditures",
-        "tr": "Capital Expenditures",
+        "tr": "Sermaye Harcamaları",
         "de": "Capital Expenditures",
         "fr": "Capital Expenditures",
         "es": "Capital Expenditures",
         "ar": "Capital Expenditures"
+      },
+      "businessContext_i18n": {
+        "en": "Cash spent on acquiring or maintaining fixed assets (CapEx).",
+        "tr": "Sabit varlıkların edinimi veya bakımı için harcanan nakit (CapEx)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Increase in net working capital (current assets minus current liabilities) that consumes cash.",
       "label_i18n": {
         "en": "Change in Net Working Capital",
-        "tr": "Change in Net Working Capital",
+        "tr": "Net İşletme Sermayesi Değişimi",
         "de": "Change in Net Working Capital",
         "fr": "Change in Net Working Capital",
         "es": "Change in Net Working Capital",
         "ar": "Change in Net Working Capital"
+      },
+      "businessContext_i18n": {
+        "en": "Increase in net working capital (current assets minus current liabilities) that consumes cash.",
+        "tr": "Nakit tüketen net işletme sermayesindeki (dönen varlıklar eksi kısa vadeli yükümlülükler) artış."
       }
     }
   ],

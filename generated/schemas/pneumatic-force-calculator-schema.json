@@ -10,11 +10,15 @@
       "businessContext": "Working pressure supplied to the cylinder",
       "label_i18n": {
         "en": "System Pressure",
-        "tr": "System Pressure",
+        "tr": "Sistem Basıncı",
         "de": "System Pressure",
         "fr": "System Pressure",
         "es": "System Pressure",
         "ar": "System Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Working pressure supplied to the cylinder",
+        "tr": "Silindire sağlanan çalışma basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Inner diameter of the cylinder barrel",
       "label_i18n": {
         "en": "Bore Diameter",
-        "tr": "Bore Diameter",
+        "tr": "Delik Çapı",
         "de": "Bore Diameter",
         "fr": "Bore Diameter",
         "es": "Bore Diameter",
         "ar": "Bore Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the cylinder barrel",
+        "tr": "Silindir gövdesinin iç çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Diameter of the piston rod (0 for rodless cylinder)",
       "label_i18n": {
         "en": "Rod Diameter",
-        "tr": "Rod Diameter",
+        "tr": "Piston çubuğu çapı",
         "de": "Rod Diameter",
         "fr": "Rod Diameter",
         "es": "Rod Diameter",
         "ar": "Rod Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the piston rod (0 for rodless cylinder)",
+        "tr": "Piston çubuğunun çapı (çubuksuz silindir için 0)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical cylinders operating together",
       "label_i18n": {
         "en": "Number of Cylinders",
-        "tr": "Number of Cylinders",
+        "tr": "Silindir sayısı",
         "de": "Number of Cylinders",
         "fr": "Number of Cylinders",
         "es": "Number of Cylinders",
         "ar": "Number of Cylinders"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical cylinders operating together",
+        "tr": "Birlikte çalışan özdeş silindir sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Design safety margin (≥1.5 per ISO 4414)",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety margin (≥1.5 per ISO 4414)",
+        "tr": "Tasarım güvenlik marjı (ISO 4414'e göre ≥1.5)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cylinder efficiency (0.85–0.95 typical)",
       "label_i18n": {
         "en": "Efficiency",
-        "tr": "Efficiency",
+        "tr": "Verim",
         "de": "Efficiency",
         "fr": "Efficiency",
         "es": "Efficiency",
         "ar": "Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Cylinder efficiency (0.85–0.95 typical)",
+        "tr": "Silindir verimliliği (tipik 0.85–0.95)"
       }
     }
   ],

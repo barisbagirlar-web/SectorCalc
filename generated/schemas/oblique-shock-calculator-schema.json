@@ -10,11 +10,15 @@
       "businessContext": "Freestream Mach number before the shock.",
       "label_i18n": {
         "en": "Upstream Mach Number (M₁)",
-        "tr": "Upstream Mach Number (M₁)",
+        "tr": "Yukarı Akış Mach Sayısı (M₁)",
         "de": "Upstream Mach Number (M₁)",
         "fr": "Upstream Mach Number (M₁)",
         "es": "Upstream Mach Number (M₁)",
         "ar": "Upstream Mach Number (M₁)"
+      },
+      "businessContext_i18n": {
+        "en": "Freestream Mach number before the shock.",
+        "tr": "Şok öncesi serbest akış Mach sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Angle between upstream flow direction and the shock wave.",
       "label_i18n": {
         "en": "Shock Angle (β)",
-        "tr": "Shock Angle (β)",
+        "tr": "Şok Açısı (β)",
         "de": "Shock Angle (β)",
         "fr": "Shock Angle (β)",
         "es": "Shock Angle (β)",
         "ar": "Shock Angle (β)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between upstream flow direction and the shock wave.",
+        "tr": "Yukarı akış yönü ile şok dalgası arasındaki açı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Ratio of specific heats, typically 1.4 for air.",
       "label_i18n": {
         "en": "Specific Heat Ratio (γ)",
-        "tr": "Specific Heat Ratio (γ)",
+        "tr": "Özgül Isı Oranı (γ)",
         "de": "Specific Heat Ratio (γ)",
         "fr": "Specific Heat Ratio (γ)",
         "es": "Specific Heat Ratio (γ)",
         "ar": "Specific Heat Ratio (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of specific heats, typically 1.4 for air.",
+        "tr": "Özgül ısı oranı, tipik olarak hava için 1.4."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Stagnation pressure of the freestream, standard sea level is 101325 Pa.",
       "label_i18n": {
         "en": "Upstream Total Pressure (P₀₁)",
-        "tr": "Upstream Total Pressure (P₀₁)",
+        "tr": "Yukarı Akış Toplam Basıncı (P₀₁)",
         "de": "Upstream Total Pressure (P₀₁)",
         "fr": "Upstream Total Pressure (P₀₁)",
         "es": "Upstream Total Pressure (P₀₁)",
         "ar": "Upstream Total Pressure (P₀₁)"
+      },
+      "businessContext_i18n": {
+        "en": "Stagnation pressure of the freestream, standard sea level is 101325 Pa.",
+        "tr": "Serbest akışın durma basıncı, standart deniz seviyesi 101325 Pa."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Stagnation temperature of the freestream.",
       "label_i18n": {
         "en": "Upstream Total Temperature (T₀₁)",
-        "tr": "Upstream Total Temperature (T₀₁)",
+        "tr": "Yukarı Akış Toplam Sıcaklığı (T₀₁)",
         "de": "Upstream Total Temperature (T₀₁)",
         "fr": "Upstream Total Temperature (T₀₁)",
         "es": "Upstream Total Temperature (T₀₁)",
         "ar": "Upstream Total Temperature (T₀₁)"
+      },
+      "businessContext_i18n": {
+        "en": "Stagnation temperature of the freestream.",
+        "tr": "Serbest akışın durma sıcaklığı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Specific gas constant, 287 J/(kg·K) for dry air.",
       "label_i18n": {
         "en": "Gas Constant (R)",
-        "tr": "Gas Constant (R)",
+        "tr": "Gaz Sabiti (R)",
         "de": "Gas Constant (R)",
         "fr": "Gas Constant (R)",
         "es": "Gas Constant (R)",
         "ar": "Gas Constant (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific gas constant, 287 J/(kg·K) for dry air.",
+        "tr": "Özgül gaz sabiti, kuru hava için 287 J/(kg·K)."
       }
     }
   ],

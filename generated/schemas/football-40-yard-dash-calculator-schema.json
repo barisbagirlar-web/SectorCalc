@@ -10,11 +10,15 @@
       "businessContext": "Standard test distance for NFL Combine is 40 yards.",
       "label_i18n": {
         "en": "Distance (yards)",
-        "tr": "Distance (yards)",
+        "tr": "Mesafe (yarda)",
         "de": "Distance (yards)",
         "fr": "Distance (yards)",
         "es": "Distance (yards)",
         "ar": "Distance (yards)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard test distance for NFL Combine is 40 yards.",
+        "tr": "NFL Combine için standart test mesafesi 40 yardadır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Recorded time for the 40-yard dash.",
       "label_i18n": {
         "en": "Time (seconds)",
-        "tr": "Time (seconds)",
+        "tr": "Süre (saniye)",
         "de": "Time (seconds)",
         "fr": "Time (seconds)",
         "es": "Time (seconds)",
         "ar": "Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Recorded time for the 40-yard dash.",
+        "tr": "40 yarda koşusu için kaydedilen süre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body weight of the athlete to estimate power output.",
       "label_i18n": {
         "en": "Player Weight (lbs)",
-        "tr": "Player Weight (lbs)",
+        "tr": "Oyuncu Ağırlığı (lbs)",
         "de": "Player Weight (lbs)",
         "fr": "Player Weight (lbs)",
         "es": "Player Weight (lbs)",
         "ar": "Player Weight (lbs)"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight of the athlete to estimate power output.",
+        "tr": "Güç çıkışını tahmin etmek için sporcunun vücut ağırlığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Wind speed, positive for tailwind, negative for headwind, to adjust effective time.",
       "label_i18n": {
         "en": "Wind Speed (mph)",
-        "tr": "Wind Speed (mph)",
+        "tr": "Rüzgar Hızı (mph)",
         "de": "Wind Speed (mph)",
         "fr": "Wind Speed (mph)",
         "es": "Wind Speed (mph)",
         "ar": "Wind Speed (mph)"
+      },
+      "businessContext_i18n": {
+        "en": "Wind speed, positive for tailwind, negative for headwind, to adjust effective time.",
+        "tr": "Rüzgar hızı, arkadan rüzgar için pozitif, karşıdan rüzgar için negatif, etkin süreyi ayarlamak için."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Input distance to convert",
       "label_i18n": {
         "en": "Distance in Miles",
-        "tr": "Distance in Miles",
+        "tr": "Mil Cinsinden Mesafe",
         "de": "Distance in Miles",
         "fr": "Distance in Miles",
         "es": "Distance in Miles",
         "ar": "Distance in Miles"
+      },
+      "businessContext_i18n": {
+        "en": "Input distance to convert",
+        "tr": "Dönüştürülecek mesafe girişi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard international mile to meter conversion factor",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard international mile to meter conversion factor",
+        "tr": "Standart uluslararası mil-metre dönüşüm faktörü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places in output",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places in output",
+        "tr": "Çıktıdaki ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rounding method: 0 rounds to nearest, 1 always rounds down, 2 always rounds up",
       "label_i18n": {
         "en": "Rounding Mode (0=round, 1=floor, 2=ceil)",
-        "tr": "Rounding Mode (0=round, 1=floor, 2=ceil)",
+        "tr": "Yuvarlama Modu (0=yuvarla, 1=taban, 2=tavan)",
         "de": "Rounding Mode (0=round, 1=floor, 2=ceil)",
         "fr": "Rounding Mode (0=round, 1=floor, 2=ceil)",
         "es": "Rounding Mode (0=round, 1=floor, 2=ceil)",
         "ar": "Rounding Mode (0=round, 1=floor, 2=ceil)"
+      },
+      "businessContext_i18n": {
+        "en": "Rounding method: 0 rounds to nearest, 1 always rounds down, 2 always rounds up",
+        "tr": "Yuvarlama yöntemi: 0 en yakına yuvarlar, 1 her zaman aşağı yuvarlar, 2 her zaman yukarı yuvarlar"
       }
     }
   ],

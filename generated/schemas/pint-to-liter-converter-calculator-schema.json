@@ -10,11 +10,15 @@
       "businessContext": "Volume in pints to be converted",
       "label_i18n": {
         "en": "Pints",
-        "tr": "Pints",
+        "tr": "Pint",
         "de": "Pints",
         "fr": "Pints",
         "es": "Pints",
         "ar": "Pints"
+      },
+      "businessContext_i18n": {
+        "en": "Volume in pints to be converted",
+        "tr": "Dönüştürülecek pint cinsinden hacim"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Selection of pint definition; 1 for UK pint, 2 for US liquid pint, 3 for US dry pint",
       "label_i18n": {
         "en": "Conversion Type",
-        "tr": "Conversion Type",
+        "tr": "Dönüştürme Türü",
         "de": "Conversion Type",
         "fr": "Conversion Type",
         "es": "Conversion Type",
         "ar": "Conversion Type"
+      },
+      "businessContext_i18n": {
+        "en": "Selection of pint definition; 1 for UK pint, 2 for US liquid pint, 3 for US dry pint",
+        "tr": "Pint tanımı seçimi; 1: İngiltere pinti, 2: ABD sıvı pinti, 3: ABD kuru pinti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Batch identifier for traceability (does not affect calculation)",
       "label_i18n": {
         "en": "Batch ID",
-        "tr": "Batch ID",
+        "tr": "Parti Kimliği",
         "de": "Batch ID",
         "fr": "Batch ID",
         "es": "Batch ID",
         "ar": "Batch ID"
+      },
+      "businessContext_i18n": {
+        "en": "Batch identifier for traceability (does not affect calculation)",
+        "tr": "İzlenebilirlik için parti tanımlayıcısı (hesaplamayı etkilemez)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature at which volume is measured (for potential thermal correction, not used in current formula)",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature at which volume is measured (for potential thermal correction, not used in current formula)",
+        "tr": "Hacmin ölçüldüğü sıcaklık (olası termal düzeltme için, mevcut formülde kullanılmaz)"
       }
     }
   ],

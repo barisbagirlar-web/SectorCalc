@@ -10,11 +10,15 @@
       "businessContext": "Nominal line voltage",
       "label_i18n": {
         "en": "Voltage",
-        "tr": "Voltage",
+        "tr": "Voltaj",
         "de": "Voltage",
         "fr": "Voltage",
         "es": "Voltage",
         "ar": "Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal line voltage",
+        "tr": "Nominal hat gerilimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Operating current",
       "label_i18n": {
         "en": "Current",
-        "tr": "Current",
+        "tr": "Akım",
         "de": "Current",
         "fr": "Current",
         "es": "Current",
         "ar": "Current"
+      },
+      "businessContext_i18n": {
+        "en": "Operating current",
+        "tr": "İşletme akımı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Power factor (cos φ)",
       "label_i18n": {
         "en": "Power Factor",
-        "tr": "Power Factor",
+        "tr": "Güç Faktörü",
         "de": "Power Factor",
         "fr": "Power Factor",
         "es": "Power Factor",
         "ar": "Power Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Power factor (cos φ)",
+        "tr": "Güç faktörü (cos φ)"
       }
     }
   ],

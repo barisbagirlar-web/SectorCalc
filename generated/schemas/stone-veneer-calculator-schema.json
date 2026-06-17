@@ -10,11 +10,15 @@
       "businessContext": "The total width of the wall to be covered",
       "label_i18n": {
         "en": "Wall Width",
-        "tr": "Wall Width",
+        "tr": "Duvar genişliği",
         "de": "Wall Width",
         "fr": "Wall Width",
         "es": "Wall Width",
         "ar": "Wall Width"
+      },
+      "businessContext_i18n": {
+        "en": "The total width of the wall to be covered",
+        "tr": "Kaplanacak duvarın toplam genişliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The total height of the wall to be covered",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "The total height of the wall to be covered",
+        "tr": "Kaplanacak duvarın toplam yüksekliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of a single stone veneer piece",
       "label_i18n": {
         "en": "Stone Length",
-        "tr": "Stone Length",
+        "tr": "Taş Uzunluğu",
         "de": "Stone Length",
         "fr": "Stone Length",
         "es": "Stone Length",
         "ar": "Stone Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single stone veneer piece",
+        "tr": "Tek bir taş kaplama parçasının uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of a single stone veneer piece",
       "label_i18n": {
         "en": "Stone Height",
-        "tr": "Stone Height",
+        "tr": "Taş Yüksekliği",
         "de": "Stone Height",
         "fr": "Stone Height",
         "es": "Stone Height",
         "ar": "Stone Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of a single stone veneer piece",
+        "tr": "Tek bir taş kaplama parçasının yüksekliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Gap between stones (grout joint)",
       "label_i18n": {
         "en": "Joint Gap",
-        "tr": "Joint Gap",
+        "tr": "Derz Aralığı",
         "de": "Joint Gap",
         "fr": "Joint Gap",
         "es": "Joint Gap",
         "ar": "Joint Gap"
+      },
+      "businessContext_i18n": {
+        "en": "Gap between stones (grout joint)",
+        "tr": "Taşlar arası boşluk (derz)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage of extra material for cuts and breakage",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra material for cuts and breakage",
+        "tr": "Kesim ve kırılma için ekstra malzeme yüzdesi"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Material cost per square foot of stone",
       "label_i18n": {
         "en": "Cost per Square Foot",
-        "tr": "Cost per Square Foot",
+        "tr": "Metrekare Başına Maliyet",
         "de": "Cost per Square Foot",
         "fr": "Cost per Square Foot",
         "es": "Cost per Square Foot",
         "ar": "Cost per Square Foot"
+      },
+      "businessContext_i18n": {
+        "en": "Material cost per square foot of stone",
+        "tr": "Taşın metrekare başına malzeme maliyeti"
       }
     }
   ],

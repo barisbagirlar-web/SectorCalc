@@ -10,11 +10,15 @@
       "businessContext": "The raw data volume in petabytes.",
       "label_i18n": {
         "en": "Raw Data Volume (PB)",
-        "tr": "Raw Data Volume (PB)",
+        "tr": "Ham Veri Hacmi (PB)",
         "de": "Raw Data Volume (PB)",
         "fr": "Raw Data Volume (PB)",
         "es": "Raw Data Volume (PB)",
         "ar": "Raw Data Volume (PB)"
+      },
+      "businessContext_i18n": {
+        "en": "The raw data volume in petabytes.",
+        "tr": "Petabayt cinsinden ham veri hacmi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of replicas (e.g., HDFS replication factor).",
       "label_i18n": {
         "en": "Replication Factor",
-        "tr": "Replication Factor",
+        "tr": "Çoğaltma Faktörü",
         "de": "Replication Factor",
         "fr": "Replication Factor",
         "es": "Replication Factor",
         "ar": "Replication Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Number of replicas (e.g., HDFS replication factor).",
+        "tr": "Kopya sayısı (ör. HDFS çoğaltma faktörü)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage overhead for RAID, erasure coding, or other redundancy.",
       "label_i18n": {
         "en": "Redundancy Overhead (%)",
-        "tr": "Redundancy Overhead (%)",
+        "tr": "Yedeklilik Ek Yükü (%)",
         "de": "Redundancy Overhead (%)",
         "fr": "Redundancy Overhead (%)",
         "es": "Redundancy Overhead (%)",
         "ar": "Redundancy Overhead (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage overhead for RAID, erasure coding, or other redundancy.",
+        "tr": "RAID, hata düzeltme kodlaması veya diğer yedeklilik için yüzde ek yük."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Extra capacity for future growth or temporary spikes.",
       "label_i18n": {
         "en": "Provisioning Buffer (%)",
-        "tr": "Provisioning Buffer (%)",
+        "tr": "Tedarik Tamponu (%)",
         "de": "Provisioning Buffer (%)",
         "fr": "Provisioning Buffer (%)",
         "es": "Provisioning Buffer (%)",
         "ar": "Provisioning Buffer (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Extra capacity for future growth or temporary spikes.",
+        "tr": "Gelecekteki büyüme veya geçici ani artışlar için ek kapasite."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Lossless compression ratio (e.g., 2 means 2:1 compression).",
       "label_i18n": {
         "en": "Compression Ratio",
-        "tr": "Compression Ratio",
+        "tr": "Sıkıştırma Oranı",
         "de": "Compression Ratio",
         "fr": "Compression Ratio",
         "es": "Compression Ratio",
         "ar": "Compression Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Lossless compression ratio (e.g., 2 means 2:1 compression).",
+        "tr": "Kayıpsız sıkıştırma oranı (örneğin, 2, 2:1 sıkıştırma anlamına gelir)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     }
   ],

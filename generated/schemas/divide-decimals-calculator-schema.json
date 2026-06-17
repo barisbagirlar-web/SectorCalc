@@ -10,11 +10,15 @@
       "businessContext": "The number to be divided",
       "label_i18n": {
         "en": "Dividend",
-        "tr": "Dividend",
+        "tr": "Bölünen",
         "de": "Dividend",
         "fr": "Dividend",
         "es": "Dividend",
         "ar": "Dividend"
+      },
+      "businessContext_i18n": {
+        "en": "The number to be divided",
+        "tr": "Bölünecek sayı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The number to divide by (must be non-zero)",
       "label_i18n": {
         "en": "Divisor",
-        "tr": "Divisor",
+        "tr": "Bölen",
         "de": "Divisor",
         "fr": "Divisor",
         "es": "Divisor",
         "ar": "Divisor"
+      },
+      "businessContext_i18n": {
+        "en": "The number to divide by (must be non-zero)",
+        "tr": "Bölen sayı (sıfır olmamalıdır)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places to round the result",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the result",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = floor, 1 = half up, 2 = ceiling",
       "label_i18n": {
         "en": "Rounding Mode",
-        "tr": "Rounding Mode",
+        "tr": "Yuvarlama Modu",
         "de": "Rounding Mode",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
+      },
+      "businessContext_i18n": {
+        "en": "0 = floor, 1 = half up, 2 = ceiling",
+        "tr": "0 = taban, 1 = yarı yukarı, 2 = tavan"
       }
     }
   ],

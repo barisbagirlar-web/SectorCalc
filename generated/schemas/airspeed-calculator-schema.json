@@ -10,11 +10,15 @@
       "businessContext": "Airspeed shown on the airspeed indicator",
       "label_i18n": {
         "en": "Indicated Airspeed",
-        "tr": "Indicated Airspeed",
+        "tr": "Gösterge Hava Hızı",
         "de": "Indicated Airspeed",
         "fr": "Indicated Airspeed",
         "es": "Indicated Airspeed",
         "ar": "Indicated Airspeed"
+      },
+      "businessContext_i18n": {
+        "en": "Airspeed shown on the airspeed indicator",
+        "tr": "Hava hızı göstergesinde görünen hava hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Altitude shown on the altimeter with a given altimeter setting",
       "label_i18n": {
         "en": "Indicated Altitude",
-        "tr": "Indicated Altitude",
+        "tr": "Gösterge İrtifası",
         "de": "Indicated Altitude",
         "fr": "Indicated Altitude",
         "es": "Indicated Altitude",
         "ar": "Indicated Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Altitude shown on the altimeter with a given altimeter setting",
+        "tr": "Belirli bir altimetre ayarı ile altimetrede görünen irtifa"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current altimeter setting from weather station",
       "label_i18n": {
         "en": "Altimeter Setting",
-        "tr": "Altimeter Setting",
+        "tr": "Altimetre Ayarı",
         "de": "Altimeter Setting",
         "fr": "Altimeter Setting",
         "es": "Altimeter Setting",
         "ar": "Altimeter Setting"
+      },
+      "businessContext_i18n": {
+        "en": "Current altimeter setting from weather station",
+        "tr": "Hava istasyonundan güncel altimetre ayarı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "OAT measured in Celsius",
       "label_i18n": {
         "en": "Outside Air Temperature",
-        "tr": "Outside Air Temperature",
+        "tr": "Dış Hava Sıcaklığı",
         "de": "Outside Air Temperature",
         "fr": "Outside Air Temperature",
         "es": "Outside Air Temperature",
         "ar": "Outside Air Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "OAT measured in Celsius",
+        "tr": "Santigrat cinsinden ölçülen DHS"
       }
     }
   ],

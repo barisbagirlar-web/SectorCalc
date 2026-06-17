@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Rated free air delivery of the compressor at standard conditions.",
       "label_i18n": {
-        "en": "Compressor Flow Rate"
+        "en": "Compressor Flow Rate",
+        "tr": "Kompresör Debisi"
       },
       "businessContext_i18n": {
-        "en": "Rated free air delivery of the compressor at standard conditions."
+        "en": "Rated free air delivery of the compressor at standard conditions.",
+        "tr": "Kompresörün standart koşullardaki anma serbest hava debisi."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 9500,
       "businessContext": "Average compressed air consumption of the system.",
       "label_i18n": {
-        "en": "Average Demand Flow Rate"
+        "en": "Average Demand Flow Rate",
+        "tr": "Ortalama Talep Debisi"
       },
       "businessContext_i18n": {
-        "en": "Average compressed air consumption of the system."
+        "en": "Average compressed air consumption of the system.",
+        "tr": "Sistemin ortalama basınçlı hava tüketimi."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 15000,
       "businessContext": "Maximum instantaneous demand during operation.",
       "label_i18n": {
-        "en": "Peak Demand Flow Rate"
+        "en": "Peak Demand Flow Rate",
+        "tr": "Tepe Talep Debisi"
       },
       "businessContext_i18n": {
-        "en": "Maximum instantaneous demand during operation."
+        "en": "Maximum instantaneous demand during operation.",
+        "tr": "Çalışma sırasında maksimum anlık talep."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 600,
       "businessContext": "Duration of the peak demand event.",
       "label_i18n": {
-        "en": "Peak Demand Duration"
+        "en": "Peak Demand Duration",
+        "tr": "Tepe Talep Süresi"
       },
       "businessContext_i18n": {
-        "en": "Duration of the peak demand event."
+        "en": "Duration of the peak demand event.",
+        "tr": "Tepe talep olayının süresi."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 250,
       "businessContext": "Nominal pressure at which the system operates.",
       "label_i18n": {
-        "en": "System Operating Pressure"
+        "en": "System Operating Pressure",
+        "tr": "Sistem Çalışma Basıncı"
       },
       "businessContext_i18n": {
-        "en": "Nominal pressure at which the system operates."
+        "en": "Nominal pressure at which the system operates.",
+        "tr": "Sistemin çalıştığı nominal basınç."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 50,
       "businessContext": "Maximum acceptable pressure drop during peak event.",
       "label_i18n": {
-        "en": "Allowable Pressure Differential"
+        "en": "Allowable Pressure Differential",
+        "tr": "İzin Verilen Basınç Farkı"
       },
       "businessContext_i18n": {
-        "en": "Maximum acceptable pressure drop during peak event."
+        "en": "Maximum acceptable pressure drop during peak event.",
+        "tr": "Tepe olayı sırasında izin verilen maksimum basınç düşüşü."
       }
     },
     {
@@ -120,10 +132,12 @@
       "default": "Load/Unload",
       "businessContext": "Type of compressor capacity control, affects tank sizing factor.",
       "label_i18n": {
-        "en": "Compressor Control Type"
+        "en": "Compressor Control Type",
+        "tr": "Kompresör Kontrol Tipi"
       },
       "businessContext_i18n": {
-        "en": "Type of compressor capacity control, affects tank sizing factor."
+        "en": "Type of compressor capacity control, affects tank sizing factor.",
+        "tr": "Kompresör kapasite kontrol tipi, tank boyutlandırma faktörünü etkiler."
       },
       "unit": "unit"
     },
@@ -137,10 +151,12 @@
       "max": 130,
       "businessContext": "Average ambient temperature at compressor location.",
       "label_i18n": {
-        "en": "Ambient Temperature"
+        "en": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı"
       },
       "businessContext_i18n": {
-        "en": "Average ambient temperature at compressor location."
+        "en": "Average ambient temperature at compressor location.",
+        "tr": "Kompresör konumundaki ortalama ortam sıcaklığı."
       }
     }
   ],

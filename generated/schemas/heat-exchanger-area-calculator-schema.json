@@ -10,11 +10,15 @@
       "businessContext": "Required thermal power to be transferred",
       "label_i18n": {
         "en": "Heat Duty",
-        "tr": "Heat Duty",
+        "tr": "Isı Yükü",
         "de": "Heat Duty",
         "fr": "Heat Duty",
         "es": "Heat Duty",
         "ar": "Heat Duty"
+      },
+      "businessContext_i18n": {
+        "en": "Required thermal power to be transferred",
+        "tr": "Aktarılması gereken gerekli termal güç"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Combined conductive and convective heat transfer coefficient",
       "label_i18n": {
         "en": "Overall Heat Transfer Coefficient",
-        "tr": "Overall Heat Transfer Coefficient",
+        "tr": "Toplam Isı Transfer Katsayısı",
         "de": "Overall Heat Transfer Coefficient",
         "fr": "Overall Heat Transfer Coefficient",
         "es": "Overall Heat Transfer Coefficient",
         "ar": "Overall Heat Transfer Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Combined conductive and convective heat transfer coefficient",
+        "tr": "Birleşik iletim ve taşınım ısı transfer katsayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Temperature of hot fluid entering the exchanger",
       "label_i18n": {
         "en": "Hot Fluid Inlet Temperature",
-        "tr": "Hot Fluid Inlet Temperature",
+        "tr": "Sıcak Akışkan Giriş Sıcaklığı",
         "de": "Hot Fluid Inlet Temperature",
         "fr": "Hot Fluid Inlet Temperature",
         "es": "Hot Fluid Inlet Temperature",
         "ar": "Hot Fluid Inlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of hot fluid entering the exchanger",
+        "tr": "Isı değiştiriciye giren sıcak akışkanın sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of hot fluid leaving the exchanger",
       "label_i18n": {
         "en": "Hot Fluid Outlet Temperature",
-        "tr": "Hot Fluid Outlet Temperature",
+        "tr": "Sıcak Akışkan Çıkış Sıcaklığı",
         "de": "Hot Fluid Outlet Temperature",
         "fr": "Hot Fluid Outlet Temperature",
         "es": "Hot Fluid Outlet Temperature",
         "ar": "Hot Fluid Outlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of hot fluid leaving the exchanger",
+        "tr": "Isı değiştiriciden çıkan sıcak akışkanın sıcaklığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Temperature of cold fluid entering the exchanger",
       "label_i18n": {
         "en": "Cold Fluid Inlet Temperature",
-        "tr": "Cold Fluid Inlet Temperature",
+        "tr": "Soğuk Akışkan Giriş Sıcaklığı",
         "de": "Cold Fluid Inlet Temperature",
         "fr": "Cold Fluid Inlet Temperature",
         "es": "Cold Fluid Inlet Temperature",
         "ar": "Cold Fluid Inlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of cold fluid entering the exchanger",
+        "tr": "Isı değiştiriciye giren soğuk akışkanın sıcaklığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Temperature of cold fluid leaving the exchanger",
       "label_i18n": {
         "en": "Cold Fluid Outlet Temperature",
-        "tr": "Cold Fluid Outlet Temperature",
+        "tr": "Soğuk Akışkan Çıkış Sıcaklığı",
         "de": "Cold Fluid Outlet Temperature",
         "fr": "Cold Fluid Outlet Temperature",
         "es": "Cold Fluid Outlet Temperature",
         "ar": "Cold Fluid Outlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of cold fluid leaving the exchanger",
+        "tr": "Isı değiştiriciden çıkan soğuk akışkanın sıcaklığı"
       }
     }
   ],

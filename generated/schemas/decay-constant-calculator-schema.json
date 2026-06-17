@@ -10,11 +10,15 @@
       "businessContext": "Half-life of the radioactive substance",
       "label_i18n": {
         "en": "Half-life",
-        "tr": "Half-life",
+        "tr": "Yarılanma Süresi",
         "de": "Half-life",
         "fr": "Half-life",
         "es": "Half-life",
         "ar": "Half-life"
+      },
+      "businessContext_i18n": {
+        "en": "Half-life of the radioactive substance",
+        "tr": "Radyoaktif maddenin yarılanma süresi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average lifetime (tau)",
       "label_i18n": {
         "en": "Mean Lifetime",
-        "tr": "Mean Lifetime",
+        "tr": "Ortalama Ömür",
         "de": "Mean Lifetime",
         "fr": "Mean Lifetime",
         "es": "Mean Lifetime",
         "ar": "Mean Lifetime"
+      },
+      "businessContext_i18n": {
+        "en": "Average lifetime (tau)",
+        "tr": "Ortalama ömür (tau)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Initial amount of substance",
       "label_i18n": {
         "en": "Initial Quantity",
-        "tr": "Initial Quantity",
+        "tr": "Başlangıç Miktarı",
         "de": "Initial Quantity",
         "fr": "Initial Quantity",
         "es": "Initial Quantity",
         "ar": "Initial Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Initial amount of substance",
+        "tr": "Maddenin başlangıç miktarı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Final amount after time t",
       "label_i18n": {
         "en": "Final Quantity",
-        "tr": "Final Quantity",
+        "tr": "Son Miktar",
         "de": "Final Quantity",
         "fr": "Final Quantity",
         "es": "Final Quantity",
         "ar": "Final Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Final amount after time t",
+        "tr": "t süresi sonundaki madde miktarı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Elapsed time between measurements",
       "label_i18n": {
         "en": "Time Elapsed",
-        "tr": "Time Elapsed",
+        "tr": "Geçen Süre",
         "de": "Time Elapsed",
         "fr": "Time Elapsed",
         "es": "Time Elapsed",
         "ar": "Time Elapsed"
+      },
+      "businessContext_i18n": {
+        "en": "Elapsed time between measurements",
+        "tr": "Ölçümler arasında geçen süre"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Multiplier to convert time units (e.g., 1 for seconds, 60 for minutes, 3600 for hours, 86400 for days) to get decay constant in desired reciprocal time unit. Output will be in 1/(converted unit).",
       "label_i18n": {
         "en": "Time Unit Conversion Factor",
-        "tr": "Time Unit Conversion Factor",
+        "tr": "Zaman Birimi Dönüşüm Faktörü",
         "de": "Time Unit Conversion Factor",
         "fr": "Time Unit Conversion Factor",
         "es": "Time Unit Conversion Factor",
         "ar": "Time Unit Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to convert time units (e.g., 1 for seconds, 60 for minutes, 3600 for hours, 86400 for days) to get decay constant in desired reciprocal time unit. Output will be in 1/(converted unit).",
+        "tr": "Zaman birimlerini dönüştürmek için çarpan (örn. saniye için 1, dakika için 60, saat için 3600, gün için 86400) ile bozunma sabiti istenen ters zaman biriminde elde edilir. Çıktı 1/(dönüştürülmüş birim) cinsinden olacaktır."
       }
     }
   ],

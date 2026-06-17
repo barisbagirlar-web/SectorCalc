@@ -19,10 +19,12 @@
       "max": 365,
       "businessContext": "Standard calibration frequency per ISO 17025 or manufacturer recommendation.",
       "label_i18n": {
-        "en": "Calibration Interval (days)"
+        "en": "Calibration Interval (days)",
+        "tr": "Kalibrasyon Aralığı (gün)"
       },
       "businessContext_i18n": {
-        "en": "Standard calibration frequency per ISO 17025 or manufacturer recommendation."
+        "en": "Standard calibration frequency per ISO 17025 or manufacturer recommendation.",
+        "tr": "ISO 17025 veya üretici tavsiyesine göre standart kalibrasyon sıklığı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 730,
       "businessContext": "Actual elapsed time since the most recent calibration event.",
       "label_i18n": {
-        "en": "Days Since Last Calibration"
+        "en": "Days Since Last Calibration",
+        "tr": "Son Kalibrasyondan Bu Yana Geçen Gün"
       },
       "businessContext_i18n": {
-        "en": "Actual elapsed time since the most recent calibration event."
+        "en": "Actual elapsed time since the most recent calibration event.",
+        "tr": "En son kalibrasyon olayından bu yana geçen fiili süre."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 20,
       "businessContext": "Maximum allowable deviation from nominal value, typically defined by process specs or Six Sigma limits.",
       "label_i18n": {
-        "en": "Measurement Tolerance (%)"
+        "en": "Measurement Tolerance (%)",
+        "tr": "Ölçüm Toleransı (%)"
       },
       "businessContext_i18n": {
-        "en": "Maximum allowable deviation from nominal value, typically defined by process specs or Six Sigma limits."
+        "en": "Maximum allowable deviation from nominal value, typically defined by process specs or Six Sigma limits.",
+        "tr": "Nominal değerden izin verilen maksimum sapma, genellikle proses spesifikasyonları veya Altı Sigma limitleri ile tanımlanır."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 25,
       "businessContext": "Measured deviation from nominal at last verification, expressed as percentage of full scale.",
       "label_i18n": {
-        "en": "Observed Drift (%)"
+        "en": "Observed Drift (%)",
+        "tr": "Gözlemlenen Sürüklenme (%)"
       },
       "businessContext_i18n": {
-        "en": "Measured deviation from nominal at last verification, expressed as percentage of full scale."
+        "en": "Measured deviation from nominal at last verification, expressed as percentage of full scale.",
+        "tr": "Son doğrulamada nominal değerden ölçülen sapma, tam skalaya göre yüzde olarak ifade edilir."
       }
     },
     {
@@ -89,10 +97,12 @@
       ],
       "businessContext": "Qualitative assessment of temperature, humidity, vibration, and contamination effects on drift rate.",
       "label_i18n": {
-        "en": "Environmental Stress Factor"
+        "en": "Environmental Stress Factor",
+        "tr": "Çevresel Stres Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Qualitative assessment of temperature, humidity, vibration, and contamination effects on drift rate."
+        "en": "Qualitative assessment of temperature, humidity, vibration, and contamination effects on drift rate.",
+        "tr": "Sıcaklık, nem, titreşim ve kirlenmenin sürüklenme hızı üzerindeki etkilerinin nitel değerlendirmesi."
       }
     },
     {
@@ -111,10 +121,12 @@
       ],
       "businessContext": "Impact of measurement error on product quality, safety, or regulatory compliance (per ISO 9001 risk-based thinking).",
       "label_i18n": {
-        "en": "Criticality Level"
+        "en": "Criticality Level",
+        "tr": "Kritiklik Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Impact of measurement error on product quality, safety, or regulatory compliance (per ISO 9001 risk-based thinking)."
+        "en": "Impact of measurement error on product quality, safety, or regulatory compliance (per ISO 9001 risk-based thinking).",
+        "tr": "Ölçüm hatasının ürün kalitesi, güvenlik veya mevzuat uyumluluğu üzerindeki etkisi (ISO 9001 risk temelli düşünceye göre)."
       }
     },
     {
@@ -127,10 +139,12 @@
       "max": 50,
       "businessContext": "Number of times the instrument exceeded tolerance in the last 100 calibration events, used for reliability trending.",
       "label_i18n": {
-        "en": "Historical Failure Rate (per 100 calibrations)"
+        "en": "Historical Failure Rate (per 100 calibrations)",
+        "tr": "Geçmiş Arıza Oranı (100 kalibrasyon başına)"
       },
       "businessContext_i18n": {
-        "en": "Number of times the instrument exceeded tolerance in the last 100 calibration events, used for reliability trending."
+        "en": "Number of times the instrument exceeded tolerance in the last 100 calibration events, used for reliability trending.",
+        "tr": "Son 100 kalibrasyon olayında cihazın toleransı aştığı sayı, güvenilirlik trendi için kullanılır."
       }
     },
     {
@@ -143,10 +157,12 @@
       "max": 100,
       "businessContext": "Subjective or calculated measure of data quality based on measurement system analysis (MSA) per AIAG MSA manual.",
       "label_i18n": {
-        "en": "Data Confidence Score (0-100)"
+        "en": "Data Confidence Score (0-100)",
+        "tr": "Veri Güven Skoru (0-100)"
       },
       "businessContext_i18n": {
-        "en": "Subjective or calculated measure of data quality based on measurement system analysis (MSA) per AIAG MSA manual."
+        "en": "Subjective or calculated measure of data quality based on measurement system analysis (MSA) per AIAG MSA manual.",
+        "tr": "AIAG MSA kılavuzuna göre ölçüm sistemi analizine (MSA) dayalı, öznel veya hesaplanmış veri kalitesi ölçüsü."
       }
     }
   ],

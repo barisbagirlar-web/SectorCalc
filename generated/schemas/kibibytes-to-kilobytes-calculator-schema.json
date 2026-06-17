@@ -10,11 +10,15 @@
       "businessContext": "Amount of data in kibibytes (binary) to be converted",
       "label_i18n": {
         "en": "Kibibytes",
-        "tr": "Kibibytes",
+        "tr": "Kibibayt",
         "de": "Kibibytes",
         "fr": "Kibibytes",
         "es": "Kibibytes",
         "ar": "Kibibytes"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of data in kibibytes (binary) to be converted",
+        "tr": "Dönüştürülecek kibibayt (ikili) cinsinden veri miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for rounding the final result",
       "label_i18n": {
         "en": "Decimal places",
-        "tr": "Decimal places",
+        "tr": "Ondalık basamaklar",
         "de": "Decimal places",
         "fr": "Decimal places",
         "es": "Decimal places",
         "ar": "Decimal places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the final result",
+        "tr": "Nihai sonucu yuvarlamak için ondalık basamak sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiplier for storage redundancy (e.g., RAID, replication)",
       "label_i18n": {
         "en": "Redundancy factor",
-        "tr": "Redundancy factor",
+        "tr": "Yedeklilik faktörü",
         "de": "Redundancy factor",
         "fr": "Redundancy factor",
         "es": "Redundancy factor",
         "ar": "Redundancy factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for storage redundancy (e.g., RAID, replication)",
+        "tr": "Depolama yedekliliği için çarpan (örneğin, RAID, replikasyon)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional overhead percentage for filesystem metadata or provisioning",
       "label_i18n": {
         "en": "Overhead percent",
-        "tr": "Overhead percent",
+        "tr": "Ek yük yüzdesi",
         "de": "Overhead percent",
         "fr": "Overhead percent",
         "es": "Overhead percent",
         "ar": "Overhead percent"
+      },
+      "businessContext_i18n": {
+        "en": "Additional overhead percentage for filesystem metadata or provisioning",
+        "tr": "Dosya sistemi meta verileri veya provizyon için ek yük yüzdesi"
       }
     }
   ],

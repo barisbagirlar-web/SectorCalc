@@ -10,11 +10,15 @@
       "businessContext": "Length of the patio area to be paved.",
       "label_i18n": {
         "en": "Patio Length",
-        "tr": "Patio Length",
+        "tr": "Teras Uzunluğu",
         "de": "Patio Length",
         "fr": "Patio Length",
         "es": "Patio Length",
         "ar": "Patio Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the patio area to be paved.",
+        "tr": "Döşenecek teras alanının uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the patio area to be paved.",
       "label_i18n": {
         "en": "Patio Width",
-        "tr": "Patio Width",
+        "tr": "Teras Genişliği",
         "de": "Patio Width",
         "fr": "Patio Width",
         "es": "Patio Width",
         "ar": "Patio Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the patio area to be paved.",
+        "tr": "Döşenecek teras alanının genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of a single paving stone.",
       "label_i18n": {
         "en": "Paver Length",
-        "tr": "Paver Length",
+        "tr": "Döşeme Uzunluğu",
         "de": "Paver Length",
         "fr": "Paver Length",
         "es": "Paver Length",
         "ar": "Paver Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single paving stone.",
+        "tr": "Tek bir döşeme taşının uzunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of a single paving stone.",
       "label_i18n": {
         "en": "Paver Width",
-        "tr": "Paver Width",
+        "tr": "Döşeme Genişliği",
         "de": "Paver Width",
         "fr": "Paver Width",
         "es": "Paver Width",
         "ar": "Paver Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single paving stone.",
+        "tr": "Tek bir döşeme taşının genişliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Gap between pavers (e.g., mortar joint width).",
       "label_i18n": {
         "en": "Joint Gap",
-        "tr": "Joint Gap",
+        "tr": "Derz Aralığı",
         "de": "Joint Gap",
         "fr": "Joint Gap",
         "es": "Joint Gap",
         "ar": "Joint Gap"
+      },
+      "businessContext_i18n": {
+        "en": "Gap between pavers (e.g., mortar joint width).",
+        "tr": "Parke taşları arasındaki boşluk (örneğin harç derz genişliği)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Extra material factor for cutting and breakage (e.g., 0.05 = 5%).",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Extra material factor for cutting and breakage (e.g., 0.05 = 5%).",
+        "tr": "Kesim ve kırılma için ek malzeme faktörü (örneğin 0,05 = %5)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Unit cost of one paver (in currency units).",
       "label_i18n": {
         "en": "Cost per Paver",
-        "tr": "Cost per Paver",
+        "tr": "Parke Taşı Başına Maliyet",
         "de": "Cost per Paver",
         "fr": "Cost per Paver",
         "es": "Cost per Paver",
         "ar": "Cost per Paver"
+      },
+      "businessContext_i18n": {
+        "en": "Unit cost of one paver (in currency units).",
+        "tr": "Bir parke taşının birim maliyeti (para birimi cinsinden)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Coefficient of x². Must be non-zero for a quadratic equation.",
       "label_i18n": {
         "en": "a (quadratic coefficient)",
-        "tr": "a (quadratic coefficient)",
+        "tr": "a (kuadratik katsayı)",
         "de": "a (quadratic coefficient)",
         "fr": "a (quadratic coefficient)",
         "es": "a (quadratic coefficient)",
         "ar": "a (quadratic coefficient)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of x². Must be non-zero for a quadratic equation.",
+        "tr": "x² katsayısı. Kuadratik denklem için sıfırdan farklı olmalıdır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Coefficient of x.",
       "label_i18n": {
         "en": "b (linear coefficient)",
-        "tr": "b (linear coefficient)",
+        "tr": "b (doğrusal katsayı)",
         "de": "b (linear coefficient)",
         "fr": "b (linear coefficient)",
         "es": "b (linear coefficient)",
         "ar": "b (linear coefficient)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of x.",
+        "tr": "x katsayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Constant term.",
       "label_i18n": {
         "en": "c (constant)",
-        "tr": "c (constant)",
+        "tr": "c (sabit)",
         "de": "c (constant)",
         "fr": "c (constant)",
         "es": "c (constant)",
         "ar": "c (constant)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term.",
+        "tr": "Sabit terim."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Point at which to evaluate the polynomial.",
       "label_i18n": {
         "en": "x (evaluation point)",
-        "tr": "x (evaluation point)",
+        "tr": "x (değerlendirme noktası)",
         "de": "x (evaluation point)",
         "fr": "x (evaluation point)",
         "es": "x (evaluation point)",
         "ar": "x (evaluation point)"
+      },
+      "businessContext_i18n": {
+        "en": "Point at which to evaluate the polynomial.",
+        "tr": "Polinomun değerlendirileceği nokta."
       }
     }
   ],

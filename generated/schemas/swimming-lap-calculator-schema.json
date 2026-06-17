@@ -10,11 +10,15 @@
       "businessContext": "Length of the swimming pool in meters.",
       "label_i18n": {
         "en": "Pool Length",
-        "tr": "Pool Length",
+        "tr": "Havuz Uzunluğu",
         "de": "Pool Length",
         "fr": "Pool Length",
         "es": "Pool Length",
         "ar": "Pool Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the swimming pool in meters.",
+        "tr": "Yüzme havuzunun metre cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of laps to be swum.",
       "label_i18n": {
         "en": "Number of Laps",
-        "tr": "Number of Laps",
+        "tr": "Tur Sayısı",
         "de": "Number of Laps",
         "fr": "Number of Laps",
         "es": "Number of Laps",
         "ar": "Number of Laps"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of laps to be swum.",
+        "tr": "Yüzülecek toplam tur sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Swimmer's pace in seconds per 100 meters.",
       "label_i18n": {
         "en": "Pace per 100m",
-        "tr": "Pace per 100m",
+        "tr": "100m başına tempo",
         "de": "Pace per 100m",
         "fr": "Pace per 100m",
         "es": "Pace per 100m",
         "ar": "Pace per 100m"
+      },
+      "businessContext_i18n": {
+        "en": "Swimmer's pace in seconds per 100 meters.",
+        "tr": "Yüzücünün 100 metre başına saniye cinsinden temposu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rest time in seconds taken after each lap (except the last).",
       "label_i18n": {
         "en": "Rest Between Laps",
-        "tr": "Rest Between Laps",
+        "tr": "Turlar Arası Dinlenme",
         "de": "Rest Between Laps",
         "fr": "Rest Between Laps",
         "es": "Rest Between Laps",
         "ar": "Rest Between Laps"
+      },
+      "businessContext_i18n": {
+        "en": "Rest time in seconds taken after each lap (except the last).",
+        "tr": "Her turdan sonra alınan dinlenme süresi (son tur hariç) (saniye)."
       }
     }
   ],

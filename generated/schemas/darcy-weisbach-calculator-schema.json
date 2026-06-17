@@ -10,11 +10,15 @@
       "businessContext": "Inner diameter of the pipe. Affects flow velocity and pressure loss.",
       "label_i18n": {
         "en": "Pipe Inner Diameter",
-        "tr": "Pipe Inner Diameter",
+        "tr": "Boru İç Çapı",
         "de": "Pipe Inner Diameter",
         "fr": "Pipe Inner Diameter",
         "es": "Pipe Inner Diameter",
         "ar": "Pipe Inner Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the pipe. Affects flow velocity and pressure loss.",
+        "tr": "Boru iç çapı. Akış hızını ve basınç kaybını etkiler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of straight pipe segment. Pressure loss is directly proportional to length.",
       "label_i18n": {
         "en": "Pipe Length",
-        "tr": "Pipe Length",
+        "tr": "Boru Uzunluğu",
         "de": "Pipe Length",
         "fr": "Pipe Length",
         "es": "Pipe Length",
         "ar": "Pipe Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of straight pipe segment. Pressure loss is directly proportional to length.",
+        "tr": "Düz boru bölümünün uzunluğu. Basınç kaybı uzunlukla doğru orantılıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Dimensionless friction factor (f) from Moody chart or Colebrook equation, depends on pipe roughness and Reynolds number.",
       "label_i18n": {
         "en": "Darcy Friction Factor",
-        "tr": "Darcy Friction Factor",
+        "tr": "Darcy Sürtünme Faktörü",
         "de": "Darcy Friction Factor",
         "fr": "Darcy Friction Factor",
         "es": "Darcy Friction Factor",
         "ar": "Darcy Friction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Dimensionless friction factor (f) from Moody chart or Colebrook equation, depends on pipe roughness and Reynolds number.",
+        "tr": "Moody diyagramı veya Colebrook denkleminden boyutsuz sürtünme faktörü (f), boru pürüzlülüğüne ve Reynolds sayısına bağlıdır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Mass density of the fluid (e.g., 1000 kg/m³ for water). Affects pressure loss magnitude.",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Mass density of the fluid (e.g., 1000 kg/m³ for water). Affects pressure loss magnitude.",
+        "tr": "Akışkanın kütle yoğunluğu (örneğin su için 1000 kg/m³). Basınç kaybının büyüklüğünü etkiler."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Volume flow rate of the fluid. Determines velocity and hence friction losses.",
       "label_i18n": {
         "en": "Volumetric Flow Rate",
-        "tr": "Volumetric Flow Rate",
+        "tr": "Hacimsel Akış Hızı",
         "de": "Volumetric Flow Rate",
         "fr": "Volumetric Flow Rate",
         "es": "Volumetric Flow Rate",
         "ar": "Volumetric Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volume flow rate of the fluid. Determines velocity and hence friction losses.",
+        "tr": "Akışkanın hacimsel akış hızı. Hızı ve dolayısıyla sürtünme kayıplarını belirler."
       }
     }
   ],

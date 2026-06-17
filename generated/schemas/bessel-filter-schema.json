@@ -10,11 +10,15 @@
       "businessContext": "Order of the Bessel filter (integer >= 1). Higher order gives steeper roll-off.",
       "label_i18n": {
         "en": "Filter Order (n)",
-        "tr": "Filter Order (n)",
+        "tr": "Filtre Derecesi (n)",
         "de": "Filter Order (n)",
         "fr": "Filter Order (n)",
         "es": "Filter Order (n)",
         "ar": "Filter Order (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Order of the Bessel filter (integer >= 1). Higher order gives steeper roll-off.",
+        "tr": "Bessel filtresinin derecesi (tam sayı >= 1). Yüksek derece daha dik geçiş sağlar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The -3 dB cutoff frequency of the filter in Hz.",
       "label_i18n": {
         "en": "Cutoff Frequency (fc)",
-        "tr": "Cutoff Frequency (fc)",
+        "tr": "Kesim Frekansı (fc)",
         "de": "Cutoff Frequency (fc)",
         "fr": "Cutoff Frequency (fc)",
         "es": "Cutoff Frequency (fc)",
         "ar": "Cutoff Frequency (fc)"
+      },
+      "businessContext_i18n": {
+        "en": "The -3 dB cutoff frequency of the filter in Hz.",
+        "tr": "Filtrenin -3 dB kesim frekansı (Hz cinsinden)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sampling frequency for digital implementation (must be > 2*fc).",
       "label_i18n": {
         "en": "Sampling Frequency (fs)",
-        "tr": "Sampling Frequency (fs)",
+        "tr": "Örnekleme Frekansı (fs)",
         "de": "Sampling Frequency (fs)",
         "fr": "Sampling Frequency (fs)",
         "es": "Sampling Frequency (fs)",
         "ar": "Sampling Frequency (fs)"
+      },
+      "businessContext_i18n": {
+        "en": "Sampling frequency for digital implementation (must be > 2*fc).",
+        "tr": "Dijital uygulama için örnekleme frekansı (2*fc'den büyük olmalıdır)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Frequency at which to evaluate the filter response.",
       "label_i18n": {
         "en": "Frequency Point (f)",
-        "tr": "Frequency Point (f)",
+        "tr": "Frekans Noktası (f)",
         "de": "Frequency Point (f)",
         "fr": "Frequency Point (f)",
         "es": "Frequency Point (f)",
         "ar": "Frequency Point (f)"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency at which to evaluate the filter response.",
+        "tr": "Filtre yanıtının değerlendirileceği frekans."
       }
     }
   ],

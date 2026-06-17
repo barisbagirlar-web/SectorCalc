@@ -10,11 +10,15 @@
       "businessContext": "Observed average of the sample data.",
       "label_i18n": {
         "en": "Sample Mean (x̄)",
-        "tr": "Sample Mean (x̄)",
+        "tr": "Örneklem ortalaması (x̄)",
         "de": "Sample Mean (x̄)",
         "fr": "Sample Mean (x̄)",
         "es": "Sample Mean (x̄)",
         "ar": "Sample Mean (x̄)"
+      },
+      "businessContext_i18n": {
+        "en": "Observed average of the sample data.",
+        "tr": "Örnek verilerin gözlemlenen ortalaması."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Hypothesized population mean under the null hypothesis.",
       "label_i18n": {
         "en": "Null Hypothesis Mean (μ₀)",
-        "tr": "Null Hypothesis Mean (μ₀)",
+        "tr": "Sıfır Hipotezi Ortalaması (μ₀)",
         "de": "Null Hypothesis Mean (μ₀)",
         "fr": "Null Hypothesis Mean (μ₀)",
         "es": "Null Hypothesis Mean (μ₀)",
         "ar": "Null Hypothesis Mean (μ₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Hypothesized population mean under the null hypothesis.",
+        "tr": "Sıfır hipotezi altında varsayılan popülasyon ortalaması."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Known standard deviation of the population. For unknown σ, use sample standard deviation with t-test; this tool assumes normal distribution.",
       "label_i18n": {
         "en": "Population Standard Deviation (σ)",
-        "tr": "Population Standard Deviation (σ)",
+        "tr": "Popülasyon Standart Sapması (σ)",
         "de": "Population Standard Deviation (σ)",
         "fr": "Population Standard Deviation (σ)",
         "es": "Population Standard Deviation (σ)",
         "ar": "Population Standard Deviation (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "Known standard deviation of the population. For unknown σ, use sample standard deviation with t-test; this tool assumes normal distribution.",
+        "tr": "Popülasyonun bilinen standart sapması. σ bilinmiyorsa, t-testi ile örnek standart sapması kullanın; bu araç normal dağılım varsayar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of observations in the sample.",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)",
         "de": "Sample Size (n)",
         "fr": "Sample Size (n)",
         "es": "Sample Size (n)",
         "ar": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of observations in the sample.",
+        "tr": "Örneklemdeki gözlem sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Probability threshold for rejecting the null hypothesis (e.g., 0.05 for 5%).",
       "label_i18n": {
         "en": "Significance Level (α)",
-        "tr": "Significance Level (α)",
+        "tr": "Anlamlılık Düzeyi (α)",
         "de": "Significance Level (α)",
         "fr": "Significance Level (α)",
         "es": "Significance Level (α)",
         "ar": "Significance Level (α)"
+      },
+      "businessContext_i18n": {
+        "en": "Probability threshold for rejecting the null hypothesis (e.g., 0.05 for 5%).",
+        "tr": "Sıfır hipotezini reddetmek için olasılık eşiği (örneğin %5 için 0,05)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1 for one-tailed test, 2 for two-tailed test.",
       "label_i18n": {
         "en": "Tail Type",
-        "tr": "Tail Type",
+        "tr": "Kuyruk Türü",
         "de": "Tail Type",
         "fr": "Tail Type",
         "es": "Tail Type",
         "ar": "Tail Type"
+      },
+      "businessContext_i18n": {
+        "en": "1 for one-tailed test, 2 for two-tailed test.",
+        "tr": "Tek kuyruklu test için 1, çift kuyruklu test için 2."
       }
     }
   ],

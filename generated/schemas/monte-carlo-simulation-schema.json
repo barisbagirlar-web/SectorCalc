@@ -10,11 +10,15 @@
       "businessContext": "Expected value of the process output",
       "label_i18n": {
         "en": "Mean (μ)",
-        "tr": "Mean (μ)",
+        "tr": "Ortalama (μ)",
         "de": "Mean (μ)",
         "fr": "Mean (μ)",
         "es": "Mean (μ)",
         "ar": "Mean (μ)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected value of the process output",
+        "tr": "Süreç çıktısının beklenen değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Variability of the process output",
       "label_i18n": {
         "en": "Standard Deviation (σ)",
-        "tr": "Standard Deviation (σ)",
+        "tr": "Standart Sapma (σ)",
         "de": "Standard Deviation (σ)",
         "fr": "Standard Deviation (σ)",
         "es": "Standard Deviation (σ)",
         "ar": "Standard Deviation (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "Variability of the process output",
+        "tr": "Süreç çıktısının değişkenliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minimum acceptable value",
       "label_i18n": {
         "en": "Lower Specification Limit (LSL)",
-        "tr": "Lower Specification Limit (LSL)",
+        "tr": "Alt Spesifikasyon Limiti (LSL)",
         "de": "Lower Specification Limit (LSL)",
         "fr": "Lower Specification Limit (LSL)",
         "es": "Lower Specification Limit (LSL)",
         "ar": "Lower Specification Limit (LSL)"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum acceptable value",
+        "tr": "Minimum kabul edilebilir değer"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum acceptable value",
       "label_i18n": {
         "en": "Upper Specification Limit (USL)",
-        "tr": "Upper Specification Limit (USL)",
+        "tr": "Üst Spesifikasyon Limiti (USL)",
         "de": "Upper Specification Limit (USL)",
         "fr": "Upper Specification Limit (USL)",
         "es": "Upper Specification Limit (USL)",
         "ar": "Upper Specification Limit (USL)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum acceptable value",
+        "tr": "Maksimum kabul edilebilir değer"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of Monte Carlo iterations",
       "label_i18n": {
         "en": "Number of Samples",
-        "tr": "Number of Samples",
+        "tr": "Örnek Sayısı",
         "de": "Number of Samples",
         "fr": "Number of Samples",
         "es": "Number of Samples",
         "ar": "Number of Samples"
+      },
+      "businessContext_i18n": {
+        "en": "Number of Monte Carlo iterations",
+        "tr": "Monte Carlo iterasyon sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Seed for reproducible random numbers",
       "label_i18n": {
         "en": "Random Seed",
-        "tr": "Random Seed",
+        "tr": "Rastgele Tohum",
         "de": "Random Seed",
         "fr": "Random Seed",
         "es": "Random Seed",
         "ar": "Random Seed"
+      },
+      "businessContext_i18n": {
+        "en": "Seed for reproducible random numbers",
+        "tr": "Tekrarlanabilir rastgele sayılar için tohum"
       }
     }
   ],

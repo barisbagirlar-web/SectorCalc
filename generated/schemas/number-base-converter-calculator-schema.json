@@ -10,11 +10,15 @@
       "businessContext": "The decimal integer to be converted into other bases.",
       "label_i18n": {
         "en": "Decimal Number",
-        "tr": "Decimal Number",
+        "tr": "Ondalık Sayı",
         "de": "Decimal Number",
         "fr": "Decimal Number",
         "es": "Decimal Number",
         "ar": "Decimal Number"
+      },
+      "businessContext_i18n": {
+        "en": "The decimal integer to be converted into other bases.",
+        "tr": "Diğer tabanlara dönüştürülecek ondalık tam sayı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "First target base for conversion (2-36).",
       "label_i18n": {
         "en": "Base 1",
-        "tr": "Base 1",
+        "tr": "Taban 1",
         "de": "Base 1",
         "fr": "Base 1",
         "es": "Base 1",
         "ar": "Base 1"
+      },
+      "businessContext_i18n": {
+        "en": "First target base for conversion (2-36).",
+        "tr": "Dönüşüm için ilk hedef taban (2-36)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Second target base for conversion (2-36).",
       "label_i18n": {
         "en": "Base 2",
-        "tr": "Base 2",
+        "tr": "Taban 2",
         "de": "Base 2",
         "fr": "Base 2",
         "es": "Base 2",
         "ar": "Base 2"
+      },
+      "businessContext_i18n": {
+        "en": "Second target base for conversion (2-36).",
+        "tr": "Dönüşüm için ikinci hedef taban (2-36)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Third target base for conversion (2-36).",
       "label_i18n": {
         "en": "Base 3",
-        "tr": "Base 3",
+        "tr": "Taban 3",
         "de": "Base 3",
         "fr": "Base 3",
         "es": "Base 3",
         "ar": "Base 3"
+      },
+      "businessContext_i18n": {
+        "en": "Third target base for conversion (2-36).",
+        "tr": "Dönüşüm için üçüncü hedef taban (2-36)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fourth target base for conversion (2-36).",
       "label_i18n": {
         "en": "Base 4",
-        "tr": "Base 4",
+        "tr": "Taban 4",
         "de": "Base 4",
         "fr": "Base 4",
         "es": "Base 4",
         "ar": "Base 4"
+      },
+      "businessContext_i18n": {
+        "en": "Fourth target base for conversion (2-36).",
+        "tr": "Dönüşüm için dördüncü hedef taban (2-36)."
       }
     }
   ],

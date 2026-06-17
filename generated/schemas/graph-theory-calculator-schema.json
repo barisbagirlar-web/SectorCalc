@@ -10,11 +10,15 @@
       "businessContext": "Total graph vertices count",
       "label_i18n": {
         "en": "Number of Vertices (V)",
-        "tr": "Number of Vertices (V)",
+        "tr": "Köşe Sayısı (V)",
         "de": "Number of Vertices (V)",
         "fr": "Number of Vertices (V)",
         "es": "Number of Vertices (V)",
         "ar": "Number of Vertices (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Total graph vertices count",
+        "tr": "Toplam grafik köşe sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total graph edges count",
       "label_i18n": {
         "en": "Number of Edges (E)",
-        "tr": "Number of Edges (E)",
+        "tr": "Kenar Sayısı (E)",
         "de": "Number of Edges (E)",
         "fr": "Number of Edges (E)",
         "es": "Number of Edges (E)",
         "ar": "Number of Edges (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Total graph edges count",
+        "tr": "Toplam grafik kenar sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Planar graph faces count (including outer face)",
       "label_i18n": {
         "en": "Number of Faces (F)",
-        "tr": "Number of Faces (F)",
+        "tr": "Yüz Sayısı (F)",
         "de": "Number of Faces (F)",
         "fr": "Number of Faces (F)",
         "es": "Number of Faces (F)",
         "ar": "Number of Faces (F)"
+      },
+      "businessContext_i18n": {
+        "en": "Planar graph faces count (including outer face)",
+        "tr": "Düzlemsel grafik yüz sayısı (dış yüz dahil)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Connected components in the graph",
       "label_i18n": {
         "en": "Number of Components (C)",
-        "tr": "Number of Components (C)",
+        "tr": "Bileşen Sayısı (C)",
         "de": "Number of Components (C)",
         "fr": "Number of Components (C)",
         "es": "Number of Components (C)",
         "ar": "Number of Components (C)"
+      },
+      "businessContext_i18n": {
+        "en": "Connected components in the graph",
+        "tr": "Grafikteki bağlı bileşenler"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total planned operating time for the machine.",
       "label_i18n": {
         "en": "Planned Production Time",
-        "tr": "Planned Production Time",
+        "tr": "Planlanan Üretim Süresi",
         "de": "Planned Production Time",
         "fr": "Planned Production Time",
         "es": "Planned Production Time",
         "ar": "Planned Production Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total planned operating time for the machine.",
+        "tr": "Makinenin toplam planlanan çalışma süresi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time lost due to breakdowns or unscheduled stops.",
       "label_i18n": {
         "en": "Unplanned Downtime",
-        "tr": "Unplanned Downtime",
+        "tr": "Plansız Duruş",
         "de": "Unplanned Downtime",
         "fr": "Unplanned Downtime",
         "es": "Unplanned Downtime",
         "ar": "Unplanned Downtime"
+      },
+      "businessContext_i18n": {
+        "en": "Time lost due to breakdowns or unscheduled stops.",
+        "tr": "Arıza veya plansız duruşlar nedeniyle kaybedilen süre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Theoretically fastest time to produce one unit.",
       "label_i18n": {
         "en": "Ideal Cycle Time",
-        "tr": "Ideal Cycle Time",
+        "tr": "İdeal Çevrim Süresi",
         "de": "Ideal Cycle Time",
         "fr": "Ideal Cycle Time",
         "es": "Ideal Cycle Time",
         "ar": "Ideal Cycle Time"
+      },
+      "businessContext_i18n": {
+        "en": "Theoretically fastest time to produce one unit.",
+        "tr": "Bir birim üretmek için teorik olarak en hızlı süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total output including defective units during planned time.",
       "label_i18n": {
         "en": "Total Units Produced",
-        "tr": "Total Units Produced",
+        "tr": "Toplam Üretilen Birim",
         "de": "Total Units Produced",
         "fr": "Total Units Produced",
         "es": "Total Units Produced",
         "ar": "Total Units Produced"
+      },
+      "businessContext_i18n": {
+        "en": "Total output including defective units during planned time.",
+        "tr": "Planlanan sürede üretilen hatalı birimler dahil toplam çıktı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Units that do not meet quality standards.",
       "label_i18n": {
         "en": "Defective Units",
-        "tr": "Defective Units",
+        "tr": "Hatalı Birimler",
         "de": "Defective Units",
         "fr": "Defective Units",
         "es": "Defective Units",
         "ar": "Defective Units"
+      },
+      "businessContext_i18n": {
+        "en": "Units that do not meet quality standards.",
+        "tr": "Kalite standartlarını karşılamayan birimler."
       }
     }
   ],

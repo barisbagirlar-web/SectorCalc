@@ -10,11 +10,15 @@
       "businessContext": "Total cost to purchase the asset outright.",
       "label_i18n": {
         "en": "Purchase Price",
-        "tr": "Purchase Price",
+        "tr": "Satın Alma Fiyatı",
         "de": "Purchase Price",
         "fr": "Purchase Price",
         "es": "Purchase Price",
         "ar": "Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost to purchase the asset outright.",
+        "tr": "Varlığı doğrudan satın almanın toplam maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Monthly lease payment for the asset.",
       "label_i18n": {
         "en": "Monthly Lease Payment",
-        "tr": "Monthly Lease Payment",
+        "tr": "Aylık Kira Ödemesi",
         "de": "Monthly Lease Payment",
         "fr": "Monthly Lease Payment",
         "es": "Monthly Lease Payment",
         "ar": "Monthly Lease Payment"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly lease payment for the asset.",
+        "tr": "Varlık için aylık kira ödemesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of months for the lease agreement.",
       "label_i18n": {
         "en": "Lease Term",
-        "tr": "Lease Term",
+        "tr": "Kira Süresi",
         "de": "Lease Term",
         "fr": "Lease Term",
         "es": "Lease Term",
         "ar": "Lease Term"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months for the lease agreement.",
+        "tr": "Kira sözleşmesinin ay cinsinden süresi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated value of the asset at the end of the lease term.",
       "label_i18n": {
         "en": "Residual Value",
-        "tr": "Residual Value",
+        "tr": "Kalıntı Değer",
         "de": "Residual Value",
         "fr": "Residual Value",
         "es": "Residual Value",
         "ar": "Residual Value"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated value of the asset at the end of the lease term.",
+        "tr": "Kira süresi sonunda varlığın tahmini değeri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Annual discount rate for net present value calculations.",
       "label_i18n": {
         "en": "Annual Discount Rate",
-        "tr": "Annual Discount Rate",
+        "tr": "Yıllık İskonto Oranı",
         "de": "Annual Discount Rate",
         "fr": "Annual Discount Rate",
         "es": "Annual Discount Rate",
         "ar": "Annual Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual discount rate for net present value calculations.",
+        "tr": "Net bugünkü değer hesaplamaları için yıllık iskonto oranı."
       }
     }
   ],

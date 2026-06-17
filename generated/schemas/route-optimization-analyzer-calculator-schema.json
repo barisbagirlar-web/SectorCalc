@@ -19,10 +19,12 @@
       "max": 200,
       "businessContext": "Total delivery or service stops on the route.",
       "label_i18n": {
-        "en": "Number of Stops"
+        "en": "Number of Stops",
+        "tr": "Duruş Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total delivery or service stops on the route."
+        "en": "Total delivery or service stops on the route.",
+        "tr": "Rotadaki toplam teslimat veya hizmet durağı sayısı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 5000,
       "businessContext": "Total distance traveled for the route in kilometers.",
       "label_i18n": {
-        "en": "Total Route Distance"
+        "en": "Total Route Distance",
+        "tr": "Toplam Rota Mesafesi"
       },
       "businessContext_i18n": {
-        "en": "Total distance traveled for the route in kilometers."
+        "en": "Total distance traveled for the route in kilometers.",
+        "tr": "Rota için kilometre cinsinden kat edilen toplam mesafe."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 120,
       "businessContext": "Average vehicle speed including traffic and stops.",
       "label_i18n": {
-        "en": "Average Speed"
+        "en": "Average Speed",
+        "tr": "Ortalama Hız"
       },
       "businessContext_i18n": {
-        "en": "Average vehicle speed including traffic and stops."
+        "en": "Average vehicle speed including traffic and stops.",
+        "tr": "Trafik ve duraklar dahil ortalama araç hızı."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 120,
       "businessContext": "Average time spent at each stop for loading/unloading.",
       "label_i18n": {
-        "en": "Dwell Time per Stop"
+        "en": "Dwell Time per Stop",
+        "tr": "Durak Başına Bekleme Süresi"
       },
       "businessContext_i18n": {
-        "en": "Average time spent at each stop for loading/unloading."
+        "en": "Average time spent at each stop for loading/unloading.",
+        "tr": "Yükleme/boşaltma için her durakta harcanan ortalama süre."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 10,
       "businessContext": "Fuel cost per kilometer driven.",
       "label_i18n": {
-        "en": "Fuel Cost per km"
+        "en": "Fuel Cost per km",
+        "tr": "km Başına Yakıt Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Fuel cost per kilometer driven."
+        "en": "Fuel cost per kilometer driven.",
+        "tr": "Sürülen kilometre başına yakıt maliyeti."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": 100,
       "businessContext": "Hourly wage cost for the driver.",
       "label_i18n": {
-        "en": "Driver Hourly Rate"
+        "en": "Driver Hourly Rate",
+        "tr": "Sürücü Saatlik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Hourly wage cost for the driver."
+        "en": "Hourly wage cost for the driver.",
+        "tr": "Sürücü için saatlik ücret maliyeti."
       }
     },
     {
@@ -121,10 +133,12 @@
         "refrigerated"
       ],
       "label_i18n": {
-        "en": "Vehicle Type"
+        "en": "Vehicle Type",
+        "tr": "Araç Türü"
       },
       "businessContext_i18n": {
-        "en": "Type of vehicle used for the route."
+        "en": "Type of vehicle used for the route.",
+        "tr": "Rota için kullanılan araç türü."
       }
     },
     {
@@ -142,10 +156,12 @@
         "heavy"
       ],
       "label_i18n": {
-        "en": "Traffic Condition"
+        "en": "Traffic Condition",
+        "tr": "Trafik Durumu"
       },
       "businessContext_i18n": {
-        "en": "Expected traffic condition along the route."
+        "en": "Expected traffic condition along the route.",
+        "tr": "Rota boyunca beklenen trafik durumu."
       }
     }
   ],

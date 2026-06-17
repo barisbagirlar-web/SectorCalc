@@ -10,11 +10,15 @@
       "businessContext": "Temperature value in Newton scale",
       "label_i18n": {
         "en": "Newton Temperature",
-        "tr": "Newton Temperature",
+        "tr": "CIDR notasyonunda alt ağ maskesi uzunluğu (0-32)",
         "de": "Newton Temperature",
         "fr": "Newton Temperature",
         "es": "Newton Temperature",
         "ar": "Newton Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature value in Newton scale",
+        "tr": "Newton ölçeğinde sıcaklık değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for result",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for result",
+        "tr": "Sonuç için ondalık basamak sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mathematical rounding method code",
       "label_i18n": {
         "en": "Rounding Method (0: round, 1: floor, 2: ceil)",
-        "tr": "Rounding Method (0: round, 1: floor, 2: ceil)",
+        "tr": "Yuvarlama yöntemi (0: yuvarla, 1: taban, 2: tavan)",
         "de": "Rounding Method (0: round, 1: floor, 2: ceil)",
         "fr": "Rounding Method (0: round, 1: floor, 2: ceil)",
         "es": "Rounding Method (0: round, 1: floor, 2: ceil)",
         "ar": "Rounding Method (0: round, 1: floor, 2: ceil)"
+      },
+      "businessContext_i18n": {
+        "en": "Mathematical rounding method code",
+        "tr": "Matematiksel yuvarlama yöntem kodu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional calibration offset in degrees Celsius",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Optional calibration offset in degrees Celsius",
+        "tr": "Santigrat derece cinsinden isteğe bağlı kalibrasyon ofseti"
       }
     }
   ],

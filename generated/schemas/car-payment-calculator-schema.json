@@ -10,11 +10,15 @@
       "businessContext": "The total purchase price of the car before taxes and fees",
       "label_i18n": {
         "en": "Car Price",
-        "tr": "Car Price",
+        "tr": "Araba Fiyatı",
         "de": "Car Price",
         "fr": "Car Price",
         "es": "Car Price",
         "ar": "Car Price"
+      },
+      "businessContext_i18n": {
+        "en": "The total purchase price of the car before taxes and fees",
+        "tr": "Vergi ve ücretlerden önce arabanın toplam satın alma fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount paid upfront, reducing the loan principal",
       "label_i18n": {
         "en": "Down Payment",
-        "tr": "Down Payment",
+        "tr": "Peşinat",
         "de": "Down Payment",
         "fr": "Down Payment",
         "es": "Down Payment",
         "ar": "Down Payment"
+      },
+      "businessContext_i18n": {
+        "en": "Amount paid upfront, reducing the loan principal",
+        "tr": "Peşin ödenen miktar, kredi anaparasını azaltır"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Yearly interest rate on the loan",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Yearly interest rate on the loan",
+        "tr": "Kredinin yıllık faiz oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration of the loan in months",
       "label_i18n": {
         "en": "Loan Term (Months)",
-        "tr": "Loan Term (Months)",
+        "tr": "Kredi Vadesi (Ay)",
         "de": "Loan Term (Months)",
         "fr": "Loan Term (Months)",
         "es": "Loan Term (Months)",
         "ar": "Loan Term (Months)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the loan in months",
+        "tr": "Kredi süresi (ay olarak)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Sales tax applied to the car price",
       "label_i18n": {
         "en": "Sales Tax Rate",
-        "tr": "Sales Tax Rate",
+        "tr": "Satış Vergisi Oranı",
         "de": "Sales Tax Rate",
         "fr": "Sales Tax Rate",
         "es": "Sales Tax Rate",
         "ar": "Sales Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Sales tax applied to the car price",
+        "tr": "Araba fiyatına uygulanan satış vergisi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Extra charges like registration, documentation, etc.",
       "label_i18n": {
         "en": "Additional Fees",
-        "tr": "Additional Fees",
+        "tr": "Ek Ücretler",
         "de": "Additional Fees",
         "fr": "Additional Fees",
         "es": "Additional Fees",
         "ar": "Additional Fees"
+      },
+      "businessContext_i18n": {
+        "en": "Extra charges like registration, documentation, etc.",
+        "tr": "Kayıt, belgelendirme vb. gibi ekstra masraflar"
       }
     }
   ],

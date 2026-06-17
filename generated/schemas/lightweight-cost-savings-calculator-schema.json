@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Weight of the product or packaging before lightweighting.",
       "label_i18n": {
-        "en": "Current Weight per Unit (kg)"
+        "en": "Current Weight per Unit (kg)",
+        "tr": "Mevcut Birim Ağırlık (kg)"
       },
       "businessContext_i18n": {
-        "en": "Weight of the product or packaging before lightweighting."
+        "en": "Weight of the product or packaging before lightweighting.",
+        "tr": "Hafifletme öncesi ürün veya ambalaj ağırlığı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000,
       "businessContext": "Weight of the product or packaging after lightweighting.",
       "label_i18n": {
-        "en": "New Weight per Unit (kg)"
+        "en": "New Weight per Unit (kg)",
+        "tr": "Yeni Birim Ağırlık (kg)"
       },
       "businessContext_i18n": {
-        "en": "Weight of the product or packaging after lightweighting."
+        "en": "Weight of the product or packaging after lightweighting.",
+        "tr": "Hafifletme sonrası ürün veya ambalaj ağırlığı."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1000000000,
       "businessContext": "Total number of units produced or shipped per year.",
       "label_i18n": {
-        "en": "Annual Volume (units)"
+        "en": "Annual Volume (units)",
+        "tr": "Yıllık Hacim (adet)"
       },
       "businessContext_i18n": {
-        "en": "Total number of units produced or shipped per year."
+        "en": "Total number of units produced or shipped per year.",
+        "tr": "Yılda üretilen veya sevk edilen toplam birim sayısı."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 1000,
       "businessContext": "Cost of raw material per kilogram.",
       "label_i18n": {
-        "en": "Material Cost per kg"
+        "en": "Material Cost per kg",
+        "tr": "Malzeme Maliyeti (kg başına)"
       },
       "businessContext_i18n": {
-        "en": "Cost of raw material per kilogram."
+        "en": "Cost of raw material per kilogram.",
+        "tr": "Kilogram başına hammadde maliyeti."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 100,
       "businessContext": "Average freight cost per kilogram.",
       "label_i18n": {
-        "en": "Shipping Cost per kg"
+        "en": "Shipping Cost per kg",
+        "tr": "Nakliye Maliyeti (kg başına)"
       },
       "businessContext_i18n": {
-        "en": "Average freight cost per kilogram."
+        "en": "Average freight cost per kilogram.",
+        "tr": "Kilogram başına ortalama navlun maliyeti."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Percentage of material wasted during production (scrap, rework).",
       "label_i18n": {
-        "en": "Waste Rate (%)"
+        "en": "Waste Rate (%)",
+        "tr": "Fire Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of material wasted during production (scrap, rework)."
+        "en": "Percentage of material wasted during production (scrap, rework).",
+        "tr": "Üretim sırasında israf edilen malzeme yüzdesi (fire, yeniden işleme)."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100,
       "businessContext": "Direct labor hours required to produce one unit.",
       "label_i18n": {
-        "en": "Labor Hours per Unit"
+        "en": "Labor Hours per Unit",
+        "tr": "Birim Başına İşçilik Saati"
       },
       "businessContext_i18n": {
-        "en": "Direct labor hours required to produce one unit."
+        "en": "Direct labor hours required to produce one unit.",
+        "tr": "Bir birim üretmek için gereken doğrudan işçilik saati."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 500,
       "businessContext": "Hourly wage including benefits.",
       "label_i18n": {
-        "en": "Labor Rate per Hour"
+        "en": "Labor Rate per Hour",
+        "tr": "Saatlik İşçilik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Hourly wage including benefits."
+        "en": "Hourly wage including benefits.",
+        "tr": "Yan haklar dahil saatlik ücret."
       }
     }
   ],

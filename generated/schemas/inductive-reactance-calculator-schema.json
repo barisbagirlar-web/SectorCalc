@@ -10,11 +10,15 @@
       "businessContext": "AC supply frequency or operating frequency",
       "label_i18n": {
         "en": "Frequency",
-        "tr": "Frequency",
+        "tr": "Frekans",
         "de": "Frequency",
         "fr": "Frequency",
         "es": "Frequency",
         "ar": "Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "AC supply frequency or operating frequency",
+        "tr": "AC besleme frekansı veya çalışma frekansı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Inductance of the coil or inductor",
       "label_i18n": {
         "en": "Inductance",
-        "tr": "Inductance",
+        "tr": "Endüktans",
         "de": "Inductance",
         "fr": "Inductance",
         "es": "Inductance",
         "ar": "Inductance"
+      },
+      "businessContext_i18n": {
+        "en": "Inductance of the coil or inductor",
+        "tr": "Bobin veya indüktörün endüktansı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "RMS voltage measured across the inductor (optional for experimental verification)",
       "label_i18n": {
         "en": "Measured Voltage",
-        "tr": "Measured Voltage",
+        "tr": "Ölçülen Gerilim",
         "de": "Measured Voltage",
         "fr": "Measured Voltage",
         "es": "Measured Voltage",
         "ar": "Measured Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "RMS voltage measured across the inductor (optional for experimental verification)",
+        "tr": "İndüktör üzerinde ölçülen RMS gerilimi (deneysel doğrulama için isteğe bağlı)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "RMS current through the inductor (optional for experimental verification)",
       "label_i18n": {
         "en": "Measured Current",
-        "tr": "Measured Current",
+        "tr": "Ölçülen Akım",
         "de": "Measured Current",
         "fr": "Measured Current",
         "es": "Measured Current",
         "ar": "Measured Current"
+      },
+      "businessContext_i18n": {
+        "en": "RMS current through the inductor (optional for experimental verification)",
+        "tr": "İndüktörden geçen RMS akımı (deneysel doğrulama için isteğe bağlı)"
       }
     }
   ],

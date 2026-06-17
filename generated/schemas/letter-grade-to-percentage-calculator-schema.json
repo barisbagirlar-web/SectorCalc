@@ -10,11 +10,15 @@
       "businessContext": "The numeric grade point on a 4.0 scale, e.g., 4.0 for A, 3.0 for B, etc.",
       "label_i18n": {
         "en": "Grade Point (4.0 Scale)",
-        "tr": "Grade Point (4.0 Scale)",
+        "tr": "Not Puanı (4.0 Ölçeği)",
         "de": "Grade Point (4.0 Scale)",
         "fr": "Grade Point (4.0 Scale)",
         "es": "Grade Point (4.0 Scale)",
         "ar": "Grade Point (4.0 Scale)"
+      },
+      "businessContext_i18n": {
+        "en": "The numeric grade point on a 4.0 scale, e.g., 4.0 for A, 3.0 for B, etc.",
+        "tr": "4.0 ölçeğinde sayısal not puanı, örn. A için 4.0, B için 3.0 vb."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Points per grade point.",
       "label_i18n": {
         "en": "Slope",
-        "tr": "Slope",
+        "tr": "Eğim",
         "de": "Slope",
         "fr": "Slope",
         "es": "Slope",
         "ar": "Slope"
+      },
+      "businessContext_i18n": {
+        "en": "Points per grade point.",
+        "tr": "Not puanı başına puan."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Base percentage when grade point is 0.",
       "label_i18n": {
         "en": "Intercept",
-        "tr": "Intercept",
+        "tr": "Kesişim",
         "de": "Intercept",
         "fr": "Intercept",
         "es": "Intercept",
         "ar": "Intercept"
+      },
+      "businessContext_i18n": {
+        "en": "Base percentage when grade point is 0.",
+        "tr": "Not puanı 0 olduğunda temel yüzde."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Lower clamp limit for the output percentage.",
       "label_i18n": {
         "en": "Minimum Percentage",
-        "tr": "Minimum Percentage",
+        "tr": "Minimum Yüzde",
         "de": "Minimum Percentage",
         "fr": "Minimum Percentage",
         "es": "Minimum Percentage",
         "ar": "Minimum Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Lower clamp limit for the output percentage.",
+        "tr": "Çıktı yüzdesi için alt sınır değeri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Upper clamp limit for the output percentage.",
       "label_i18n": {
         "en": "Maximum Percentage",
-        "tr": "Maximum Percentage",
+        "tr": "Maksimum Yüzde",
         "de": "Maximum Percentage",
         "fr": "Maximum Percentage",
         "es": "Maximum Percentage",
         "ar": "Maximum Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Upper clamp limit for the output percentage.",
+        "tr": "Çıktı yüzdesi için üst sınır değeri."
       }
     }
   ],

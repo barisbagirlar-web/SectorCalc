@@ -10,11 +10,15 @@
       "businessContext": "Length of the beam between supports in meters.",
       "label_i18n": {
         "en": "Beam Length",
-        "tr": "Beam Length",
+        "tr": "Kiriş Uzunluğu",
         "de": "Beam Length",
         "fr": "Beam Length",
         "es": "Beam Length",
         "ar": "Beam Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the beam between supports in meters.",
+        "tr": "Destekler arasındaki kiriş uzunluğu, metre cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the beam rectangular cross-section in meters.",
       "label_i18n": {
         "en": "Cross-Section Width",
-        "tr": "Cross-Section Width",
+        "tr": "Kesit Genişliği",
         "de": "Cross-Section Width",
         "fr": "Cross-Section Width",
         "es": "Cross-Section Width",
         "ar": "Cross-Section Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the beam rectangular cross-section in meters.",
+        "tr": "Dikdörtgen kiriş kesitinin genişliği, metre cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height of the beam rectangular cross-section in meters.",
       "label_i18n": {
         "en": "Cross-Section Height",
-        "tr": "Cross-Section Height",
+        "tr": "Kesit Yüksekliği",
         "de": "Cross-Section Height",
         "fr": "Cross-Section Height",
         "es": "Cross-Section Height",
         "ar": "Cross-Section Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the beam rectangular cross-section in meters.",
+        "tr": "Dikdörtgen kiriş kesitinin yüksekliği, metre cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Uniformly distributed load applied along the beam length in Newtons per meter.",
       "label_i18n": {
         "en": "Distributed Load",
-        "tr": "Distributed Load",
+        "tr": "Yayılı Yük",
         "de": "Distributed Load",
         "fr": "Distributed Load",
         "es": "Distributed Load",
         "ar": "Distributed Load"
+      },
+      "businessContext_i18n": {
+        "en": "Uniformly distributed load applied along the beam length in Newtons per meter.",
+        "tr": "Kiriş boyunca düzgün yayılı yük, Newton/metre cinsinden."
       }
     }
   ],

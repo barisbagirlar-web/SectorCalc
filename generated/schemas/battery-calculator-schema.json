@@ -10,11 +10,15 @@
       "businessContext": "Rated ampere-hour capacity of a single battery",
       "label_i18n": {
         "en": "Battery Capacity (Ah)",
-        "tr": "Battery Capacity (Ah)",
+        "tr": "Akü Kapasitesi (Ah)",
         "de": "Battery Capacity (Ah)",
         "fr": "Battery Capacity (Ah)",
         "es": "Battery Capacity (Ah)",
         "ar": "Battery Capacity (Ah)"
+      },
+      "businessContext_i18n": {
+        "en": "Rated ampere-hour capacity of a single battery",
+        "tr": "Tek bir akünün anma amper-saat kapasitesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal voltage of the battery",
       "label_i18n": {
         "en": "Nominal Voltage (V)",
-        "tr": "Nominal Voltage (V)",
+        "tr": "Nominal Gerilim (V)",
         "de": "Nominal Voltage (V)",
         "fr": "Nominal Voltage (V)",
         "es": "Nominal Voltage (V)",
         "ar": "Nominal Voltage (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal voltage of the battery",
+        "tr": "Akünün nominal gerilimi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Continuous power draw from the battery",
       "label_i18n": {
         "en": "Load Power (W)",
-        "tr": "Load Power (W)",
+        "tr": "Yük Gücü (W)",
         "de": "Load Power (W)",
         "fr": "Load Power (W)",
         "es": "Load Power (W)",
         "ar": "Load Power (W)"
+      },
+      "businessContext_i18n": {
+        "en": "Continuous power draw from the battery",
+        "tr": "Aküden sürekli güç çekişi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum discharge depth to avoid battery damage",
       "label_i18n": {
         "en": "Depth of Discharge (%)",
-        "tr": "Depth of Discharge (%)",
+        "tr": "Deşarj Derinliği (%)",
         "de": "Depth of Discharge (%)",
         "fr": "Depth of Discharge (%)",
         "es": "Depth of Discharge (%)",
         "ar": "Depth of Discharge (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum discharge depth to avoid battery damage",
+        "tr": "Akü hasarını önlemek için maksimum deşarj derinliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Combined inverter and wiring efficiency losses",
       "label_i18n": {
         "en": "System Efficiency (%)",
-        "tr": "System Efficiency (%)",
+        "tr": "Sistem Verimliliği (%)",
         "de": "System Efficiency (%)",
         "fr": "System Efficiency (%)",
         "es": "System Efficiency (%)",
         "ar": "System Efficiency (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Combined inverter and wiring efficiency losses",
+        "tr": "Kombine invertör ve kablo kayıpları"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total number of identical batteries in parallel (adds capacity)",
       "label_i18n": {
         "en": "Number of Batteries",
-        "tr": "Number of Batteries",
+        "tr": "Akü Sayısı",
         "de": "Number of Batteries",
         "fr": "Number of Batteries",
         "es": "Number of Batteries",
         "ar": "Number of Batteries"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of identical batteries in parallel (adds capacity)",
+        "tr": "Paralel bağlı toplam özdeş akü sayısı (kapasite ekler)"
       }
     }
   ],

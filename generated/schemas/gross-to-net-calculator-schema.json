@@ -10,11 +10,15 @@
       "businessContext": "The total gross salary before any deductions.",
       "label_i18n": {
         "en": "Gross Salary",
-        "tr": "Gross Salary",
+        "tr": "Brüt Maaş",
         "de": "Gross Salary",
         "fr": "Gross Salary",
         "es": "Gross Salary",
         "ar": "Gross Salary"
+      },
+      "businessContext_i18n": {
+        "en": "The total gross salary before any deductions.",
+        "tr": "Kesintilerden önceki toplam brüt maaş."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Income tax rate applied to gross salary.",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Income tax rate applied to gross salary.",
+        "tr": "Brüt maaşa uygulanan gelir vergisi oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Social security contribution rate.",
       "label_i18n": {
         "en": "Social Security Rate",
-        "tr": "Social Security Rate",
+        "tr": "Sosyal Güvenlik Oranı",
         "de": "Social Security Rate",
         "fr": "Social Security Rate",
         "es": "Social Security Rate",
         "ar": "Social Security Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Social security contribution rate.",
+        "tr": "Sosyal güvenlik katkı oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Any other fixed deductions from the salary.",
       "label_i18n": {
         "en": "Other Deductions",
-        "tr": "Other Deductions",
+        "tr": "Diğer Kesintiler",
         "de": "Other Deductions",
         "fr": "Other Deductions",
         "es": "Other Deductions",
         "ar": "Other Deductions"
+      },
+      "businessContext_i18n": {
+        "en": "Any other fixed deductions from the salary.",
+        "tr": "Maaştan yapılan diğer sabit kesintiler."
       }
     }
   ],

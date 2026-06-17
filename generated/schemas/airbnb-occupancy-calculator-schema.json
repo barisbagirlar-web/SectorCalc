@@ -10,11 +10,15 @@
       "businessContext": "Total number of nights booked in the period.",
       "label_i18n": {
         "en": "Booked Nights",
-        "tr": "Booked Nights",
+        "tr": "Rezerve Edilen Geceler",
         "de": "Booked Nights",
         "fr": "Booked Nights",
         "es": "Booked Nights",
         "ar": "Booked Nights"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of nights booked in the period.",
+        "tr": "Dönem içinde rezerve edilen toplam gece sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total nights the property was available for booking.",
       "label_i18n": {
         "en": "Total Available Nights",
-        "tr": "Total Available Nights",
+        "tr": "Toplam Uygun Gece Sayısı",
         "de": "Total Available Nights",
         "fr": "Total Available Nights",
         "es": "Total Available Nights",
         "ar": "Total Available Nights"
+      },
+      "businessContext_i18n": {
+        "en": "Total nights the property was available for booking.",
+        "tr": "Mülkün rezervasyona açık olduğu toplam gece sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average nightly rental rate before fees.",
       "label_i18n": {
         "en": "Average Daily Rate",
-        "tr": "Average Daily Rate",
+        "tr": "Ortalama Günlük Fiyat",
         "de": "Average Daily Rate",
         "fr": "Average Daily Rate",
         "es": "Average Daily Rate",
         "ar": "Average Daily Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average nightly rental rate before fees.",
+        "tr": "Ücretler hariç ortalama gecelik kiralama ücreti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fixed cleaning fee added per booking.",
       "label_i18n": {
         "en": "Cleaning Fee per Booking",
-        "tr": "Cleaning Fee per Booking",
+        "tr": "Rezervasyon Başına Temizlik Ücreti",
         "de": "Cleaning Fee per Booking",
         "fr": "Cleaning Fee per Booking",
         "es": "Cleaning Fee per Booking",
         "ar": "Cleaning Fee per Booking"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed cleaning fee added per booking.",
+        "tr": "Her rezervasyona eklenen sabit temizlik ücreti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total number of separate bookings in the period.",
       "label_i18n": {
         "en": "Number of Bookings",
-        "tr": "Number of Bookings",
+        "tr": "Rezervasyon Sayısı",
         "de": "Number of Bookings",
         "fr": "Number of Bookings",
         "es": "Number of Bookings",
         "ar": "Number of Bookings"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of separate bookings in the period.",
+        "tr": "Dönem içindeki toplam ayrı rezervasyon sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "All fixed monthly expenses (mortgage, utilities, insurance, etc.).",
       "label_i18n": {
         "en": "Fixed Monthly Costs",
-        "tr": "Fixed Monthly Costs",
+        "tr": "Sabit Aylık Maliyetler",
         "de": "Fixed Monthly Costs",
         "fr": "Fixed Monthly Costs",
         "es": "Fixed Monthly Costs",
         "ar": "Fixed Monthly Costs"
+      },
+      "businessContext_i18n": {
+        "en": "All fixed monthly expenses (mortgage, utilities, insurance, etc.).",
+        "tr": "Tüm sabit aylık giderler (ipotek, elektrik, sigorta vb.)."
       }
     }
   ],

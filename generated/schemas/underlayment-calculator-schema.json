@@ -10,11 +10,15 @@
       "businessContext": "The total area of the floor to be covered with underlayment, measured in square feet.",
       "label_i18n": {
         "en": "Total Floor Area",
-        "tr": "Total Floor Area",
+        "tr": "Toplam Kat Alanı",
         "de": "Total Floor Area",
         "fr": "Total Floor Area",
         "es": "Total Floor Area",
         "ar": "Total Floor Area"
+      },
+      "businessContext_i18n": {
+        "en": "The total area of the floor to be covered with underlayment, measured in square feet.",
+        "tr": "Altlık ile kaplanacak zeminin toplam alanı, fit kare cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The length of a single roll of underlayment, in feet.",
       "label_i18n": {
         "en": "Roll Length",
-        "tr": "Roll Length",
+        "tr": "Rulo uzunluğu",
         "de": "Roll Length",
         "fr": "Roll Length",
         "es": "Roll Length",
         "ar": "Roll Length"
+      },
+      "businessContext_i18n": {
+        "en": "The length of a single roll of underlayment, in feet.",
+        "tr": "Tek bir altlık rulosunun uzunluğu, fit cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The width of a single roll of underlayment, in feet.",
       "label_i18n": {
         "en": "Roll Width",
-        "tr": "Roll Width",
+        "tr": "Rulo genişliği",
         "de": "Roll Width",
         "fr": "Roll Width",
         "es": "Roll Width",
         "ar": "Roll Width"
+      },
+      "businessContext_i18n": {
+        "en": "The width of a single roll of underlayment, in feet.",
+        "tr": "Tek bir altlık rulosunun genişliği, fit cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The percentage of additional material needed to account for cuts, fitting, and waste.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage of additional material needed to account for cuts, fitting, and waste.",
+        "tr": "Kesim, uyum ve fireyi hesaba katmak için gereken ek malzeme yüzdesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The cost of one roll of underlayment in US dollars.",
       "label_i18n": {
         "en": "Price per Roll",
-        "tr": "Price per Roll",
+        "tr": "Rulo Başına Fiyat",
         "de": "Price per Roll",
         "fr": "Price per Roll",
         "es": "Price per Roll",
         "ar": "Price per Roll"
+      },
+      "businessContext_i18n": {
+        "en": "The cost of one roll of underlayment in US dollars.",
+        "tr": "Bir rulo altlığın ABD doları cinsinden maliyeti."
       }
     }
   ],

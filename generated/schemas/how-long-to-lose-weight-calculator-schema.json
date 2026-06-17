@@ -10,11 +10,15 @@
       "businessContext": "User's current body weight in kilograms.",
       "label_i18n": {
         "en": "Current Weight",
-        "tr": "Current Weight",
+        "tr": "Mevcut Ağırlık",
         "de": "Current Weight",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's current body weight in kilograms.",
+        "tr": "Kullanıcının kilogram cinsinden mevcut vücut ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target body weight in kilograms.",
       "label_i18n": {
         "en": "Goal Weight",
-        "tr": "Goal Weight",
+        "tr": "Hedef Ağırlık",
         "de": "Goal Weight",
         "fr": "Goal Weight",
         "es": "Goal Weight",
         "ar": "Goal Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Target body weight in kilograms.",
+        "tr": "Kilogram cinsinden hedef vücut ağırlığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "User's height in centimeters, used for BMR calculation.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "User's height in centimeters, used for BMR calculation.",
+        "tr": "BMR hesaplaması için kullanılan, santimetre cinsinden kullanıcının boyu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "User's age in years, used for BMR calculation.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "User's age in years, used for BMR calculation.",
+        "tr": "BMR hesaplaması için kullanılan, yıl cinsinden kullanıcının yaşı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1 for male, 0 for female. Used in BMR formula.",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "1 for male, 0 for female. Used in BMR formula.",
+        "tr": "Erkek için 1, kadın için 0. BMR formülünde kullanılır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Physical activity factor: 1.2 sedentary, 1.375 lightly active, 1.55 moderately active, 1.725 very active, 1.9 extra active.",
       "label_i18n": {
         "en": "Activity Level",
-        "tr": "Activity Level",
+        "tr": "Aktivite Seviyesi",
         "de": "Activity Level",
         "fr": "Activity Level",
         "es": "Activity Level",
         "ar": "Activity Level"
+      },
+      "businessContext_i18n": {
+        "en": "Physical activity factor: 1.2 sedentary, 1.375 lightly active, 1.55 moderately active, 1.725 very active, 1.9 extra active.",
+        "tr": "Fiziksel aktivite faktörü: 1.2 hareketsiz, 1.375 hafif aktif, 1.55 orta aktif, 1.725 çok aktif, 1.9 ekstra aktif."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Average daily calorie consumption.",
       "label_i18n": {
         "en": "Daily Calorie Intake",
-        "tr": "Daily Calorie Intake",
+        "tr": "Günlük Kalori Alımı",
         "de": "Daily Calorie Intake",
         "fr": "Daily Calorie Intake",
         "es": "Daily Calorie Intake",
         "ar": "Daily Calorie Intake"
+      },
+      "businessContext_i18n": {
+        "en": "Average daily calorie consumption.",
+        "tr": "Ortalama günlük kalori tüketimi."
       }
     }
   ],

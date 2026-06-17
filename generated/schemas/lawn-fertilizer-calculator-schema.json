@@ -10,11 +10,15 @@
       "businessContext": "Total area of the lawn to be fertilized",
       "label_i18n": {
         "en": "Lawn Area",
-        "tr": "Lawn Area",
+        "tr": "Çim Alanı",
         "de": "Lawn Area",
         "fr": "Lawn Area",
         "es": "Lawn Area",
         "ar": "Lawn Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total area of the lawn to be fertilized",
+        "tr": "Gübrelenecek toplam çim alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of nitrogen by weight in the fertilizer product (N-P-K first number)",
       "label_i18n": {
         "en": "Nitrogen Content (N%)",
-        "tr": "Nitrogen Content (N%)",
+        "tr": "Azot İçeriği (N%)",
         "de": "Nitrogen Content (N%)",
         "fr": "Nitrogen Content (N%)",
         "es": "Nitrogen Content (N%)",
         "ar": "Nitrogen Content (N%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of nitrogen by weight in the fertilizer product (N-P-K first number)",
+        "tr": "Gübre ürünündeki ağırlıkça azot yüzdesi (N-P-K ilk sayı)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Target application rate of pure nitrogen per square meter per application",
       "label_i18n": {
         "en": "Desired Nitrogen Rate",
-        "tr": "Desired Nitrogen Rate",
+        "tr": "Hedef Azot Oranı",
         "de": "Desired Nitrogen Rate",
         "fr": "Desired Nitrogen Rate",
         "es": "Desired Nitrogen Rate",
         "ar": "Desired Nitrogen Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Target application rate of pure nitrogen per square meter per application",
+        "tr": "Uygulama başına metrekare başına hedeflenen saf azot miktarı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of fertilizer applications planned per year",
       "label_i18n": {
         "en": "Applications per Year",
-        "tr": "Applications per Year",
+        "tr": "Yıllık Uygulama Sayısı",
         "de": "Applications per Year",
         "fr": "Applications per Year",
         "es": "Applications per Year",
         "ar": "Applications per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of fertilizer applications planned per year",
+        "tr": "Yılda planlanan gübre uygulaması sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Weight of a single fertilizer bag",
       "label_i18n": {
         "en": "Bag Weight",
-        "tr": "Bag Weight",
+        "tr": "Çanta Ağırlığı",
         "de": "Bag Weight",
         "fr": "Bag Weight",
         "es": "Bag Weight",
         "ar": "Bag Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of a single fertilizer bag",
+        "tr": "Tek bir gübre çantasının ağırlığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Purchase cost of one fertilizer bag (optional, set to 0 for no cost calculation)",
       "label_i18n": {
         "en": "Cost per Bag",
-        "tr": "Cost per Bag",
+        "tr": "Torba Başına Maliyet",
         "de": "Cost per Bag",
         "fr": "Cost per Bag",
         "es": "Cost per Bag",
         "ar": "Cost per Bag"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase cost of one fertilizer bag (optional, set to 0 for no cost calculation)",
+        "tr": "Bir gübre torbasının satın alma maliyeti (isteğe bağlı, maliyet hesaplanmayacaksa 0 girin)"
       }
     }
   ],

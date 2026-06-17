@@ -10,11 +10,15 @@
       "businessContext": "Distance between supports in feet",
       "label_i18n": {
         "en": "Joist Span",
-        "tr": "Joist Span",
+        "tr": "Kiriş Açıklığı",
         "de": "Joist Span",
         "fr": "Joist Span",
         "es": "Joist Span",
         "ar": "Joist Span"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between supports in feet",
+        "tr": "Destekler arasındaki fit cinsinden mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Center-to-center distance between joists in inches",
       "label_i18n": {
         "en": "Joist Spacing",
-        "tr": "Joist Spacing",
+        "tr": "Kiriş Aralığı",
         "de": "Joist Spacing",
         "fr": "Joist Spacing",
         "es": "Joist Spacing",
         "ar": "Joist Spacing"
+      },
+      "businessContext_i18n": {
+        "en": "Center-to-center distance between joists in inches",
+        "tr": "Kirişler arasındaki inç cinsinden merkezden merkeze mesafe."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Design live load (e.g., 40 psf for residential)",
       "label_i18n": {
         "en": "Live Load",
-        "tr": "Live Load",
+        "tr": "Hareketli Yük",
         "de": "Live Load",
         "fr": "Live Load",
         "es": "Live Load",
         "ar": "Live Load"
+      },
+      "businessContext_i18n": {
+        "en": "Design live load (e.g., 40 psf for residential)",
+        "tr": "Tasarım hareketli yükü (örneğin, konut için 40 psf)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Dead load including joist weight, ceiling, etc.",
       "label_i18n": {
         "en": "Dead Load",
-        "tr": "Dead Load",
+        "tr": "Sabit Yük",
         "de": "Dead Load",
         "fr": "Dead Load",
         "es": "Dead Load",
         "ar": "Dead Load"
+      },
+      "businessContext_i18n": {
+        "en": "Dead load including joist weight, ceiling, etc.",
+        "tr": "Kiriş ağırlığı, tavan vb. dahil sabit yük."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "E value for joist material (e.g., 1,600,000 psi for SPF)",
       "label_i18n": {
         "en": "Modulus of Elasticity",
-        "tr": "Modulus of Elasticity",
+        "tr": "Elastisite Modülü",
         "de": "Modulus of Elasticity",
         "fr": "Modulus of Elasticity",
         "es": "Modulus of Elasticity",
         "ar": "Modulus of Elasticity"
+      },
+      "businessContext_i18n": {
+        "en": "E value for joist material (e.g., 1,600,000 psi for SPF)",
+        "tr": "Kiriş malzemesi için E değeri (örneğin, SPF için 1.600.000 psi)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "I value for joist cross-section (e.g., 47.6 in^4 for a 2x10)",
       "label_i18n": {
         "en": "Moment of Inertia",
-        "tr": "Moment of Inertia",
+        "tr": "Eylemsizlik Momenti",
         "de": "Moment of Inertia",
         "fr": "Moment of Inertia",
         "es": "Moment of Inertia",
         "ar": "Moment of Inertia"
+      },
+      "businessContext_i18n": {
+        "en": "I value for joist cross-section (e.g., 47.6 in^4 for a 2x10)",
+        "tr": "Kiriş kesiti için I değeri (örneğin, 2x10 için 47,6 in^4)."
       }
     }
   ],

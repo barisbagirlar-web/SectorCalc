@@ -10,11 +10,15 @@
       "businessContext": "The initial speed of the projectile at launch",
       "label_i18n": {
         "en": "Initial Velocity",
-        "tr": "Initial Velocity",
+        "tr": "Başlangıç Hızı",
         "de": "Initial Velocity",
         "fr": "Initial Velocity",
         "es": "Initial Velocity",
         "ar": "Initial Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "The initial speed of the projectile at launch",
+        "tr": "Merminin fırlatma anındaki başlangıç hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The angle of launch relative to horizontal",
       "label_i18n": {
         "en": "Launch Angle",
-        "tr": "Launch Angle",
+        "tr": "Çıkış Açısı",
         "de": "Launch Angle",
         "fr": "Launch Angle",
         "es": "Launch Angle",
         "ar": "Launch Angle"
+      },
+      "businessContext_i18n": {
+        "en": "The angle of launch relative to horizontal",
+        "tr": "Yataya göre fırlatma açısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of the projectile, used for kinetic energy calculation",
       "label_i18n": {
         "en": "Projectile Mass",
-        "tr": "Projectile Mass",
+        "tr": "Mermi Kütlesi",
         "de": "Projectile Mass",
         "fr": "Projectile Mass",
         "es": "Projectile Mass",
         "ar": "Projectile Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the projectile, used for kinetic energy calculation",
+        "tr": "Merminin kütlesi, kinetik enerji hesaplaması için kullanılır"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard gravity, usually 9.81 m/s²",
       "label_i18n": {
         "en": "Gravitational Acceleration",
-        "tr": "Gravitational Acceleration",
+        "tr": "Yerçekimi İvmesi",
         "de": "Gravitational Acceleration",
         "fr": "Gravitational Acceleration",
         "es": "Gravitational Acceleration",
         "ar": "Gravitational Acceleration"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravity, usually 9.81 m/s²",
+        "tr": "Standart yerçekimi, genellikle 9,81 m/s²"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Height above ground from which projectile is launched. 0 for ground level.",
       "label_i18n": {
         "en": "Launch Height",
-        "tr": "Launch Height",
+        "tr": "Fırlatma Yüksekliği",
         "de": "Launch Height",
         "fr": "Launch Height",
         "es": "Launch Height",
         "ar": "Launch Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height above ground from which projectile is launched. 0 for ground level.",
+        "tr": "Merminin fırlatıldığı yerden yüksekliği. Zemin seviyesi için 0."
       }
     }
   ],

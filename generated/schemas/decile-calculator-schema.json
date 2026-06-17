@@ -10,11 +10,15 @@
       "businessContext": "The minimum value of the range to partition into deciles.",
       "label_i18n": {
         "en": "Minimum Value",
-        "tr": "Minimum Value",
+        "tr": "Minimum Değer",
         "de": "Minimum Value",
         "fr": "Minimum Value",
         "es": "Minimum Value",
         "ar": "Minimum Value"
+      },
+      "businessContext_i18n": {
+        "en": "The minimum value of the range to partition into deciles.",
+        "tr": "Ondalık dilimlere ayrılacak aralığın minimum değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The maximum value of the range to partition into deciles.",
       "label_i18n": {
         "en": "Maximum Value",
-        "tr": "Maximum Value",
+        "tr": "Maksimum Değer",
         "de": "Maximum Value",
         "fr": "Maximum Value",
         "es": "Maximum Value",
         "ar": "Maximum Value"
+      },
+      "businessContext_i18n": {
+        "en": "The maximum value of the range to partition into deciles.",
+        "tr": "Ondalık dilimlere ayrılacak aralığın maksimum değeri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The value for which to determine the decile.",
       "label_i18n": {
         "en": "Input Value",
-        "tr": "Input Value",
+        "tr": "Giriş Değeri",
         "de": "Input Value",
         "fr": "Input Value",
         "es": "Input Value",
         "ar": "Input Value"
+      },
+      "businessContext_i18n": {
+        "en": "The value for which to determine the decile.",
+        "tr": "Ondalık diliminin belirleneceği değer."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of decile groups (standard is 10).",
       "label_i18n": {
         "en": "Number of Deciles",
-        "tr": "Number of Deciles",
+        "tr": "Ondalık Dilim Sayısı",
         "de": "Number of Deciles",
         "fr": "Number of Deciles",
         "es": "Number of Deciles",
         "ar": "Number of Deciles"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of decile groups (standard is 10).",
+        "tr": "Toplam ondalık dilim grubu sayısı (standart 10)."
       }
     }
   ],

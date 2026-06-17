@@ -10,11 +10,15 @@
       "businessContext": "Cost of raw materials per unit of product",
       "label_i18n": {
         "en": "Raw Material Cost per Unit",
-        "tr": "Raw Material Cost per Unit",
+        "tr": "Birim Başına Hammadde Maliyeti",
         "de": "Raw Material Cost per Unit",
         "fr": "Raw Material Cost per Unit",
         "es": "Raw Material Cost per Unit",
         "ar": "Raw Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw materials per unit of product",
+        "tr": "Birim ürün başına hammadde maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Direct labor cost per unit",
       "label_i18n": {
         "en": "Labor Cost per Unit",
-        "tr": "Labor Cost per Unit",
+        "tr": "Birim başına işçilik maliyeti",
         "de": "Labor Cost per Unit",
         "fr": "Labor Cost per Unit",
         "es": "Labor Cost per Unit",
         "ar": "Labor Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor cost per unit",
+        "tr": "Birim başına direkt işçilik maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Manufacturing overhead per unit",
       "label_i18n": {
         "en": "Overhead Cost per Unit",
-        "tr": "Overhead Cost per Unit",
+        "tr": "Birim Başına Genel Gider Maliyeti",
         "de": "Overhead Cost per Unit",
         "fr": "Overhead Cost per Unit",
         "es": "Overhead Cost per Unit",
         "ar": "Overhead Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturing overhead per unit",
+        "tr": "Birim başına üretim genel gideri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Price at which product is sold",
       "label_i18n": {
         "en": "Selling Price per Unit",
-        "tr": "Selling Price per Unit",
+        "tr": "Birim Satış Fiyatı",
         "de": "Selling Price per Unit",
         "fr": "Selling Price per Unit",
         "es": "Selling Price per Unit",
         "ar": "Selling Price per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Price at which product is sold",
+        "tr": "Ürünün satıldığı fiyat"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of units produced per period",
       "label_i18n": {
         "en": "Production Volume",
-        "tr": "Production Volume",
+        "tr": "Üretim Hacmi",
         "de": "Production Volume",
         "fr": "Production Volume",
         "es": "Production Volume",
         "ar": "Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced per period",
+        "tr": "Dönem başına üretilen birim sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage of defective units",
       "label_i18n": {
         "en": "Defect Rate",
-        "tr": "Defect Rate",
+        "tr": "Fire Oranı",
         "de": "Defect Rate",
         "fr": "Defect Rate",
         "es": "Defect Rate",
         "ar": "Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of defective units",
+        "tr": "Hatalı birimlerin yüzdesi"
       }
     }
   ],

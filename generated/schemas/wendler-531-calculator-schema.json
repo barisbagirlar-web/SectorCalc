@@ -10,11 +10,15 @@
       "businessContext": "Maksimum tek tekrar kaldırabileceğiniz ağırlık",
       "label_i18n": {
         "en": "1RM (kg)",
-        "tr": "1RM (kg)",
+        "tr": "1TM (kg)",
         "de": "1RM (kg)",
         "fr": "1RM (kg)",
         "es": "1RM (kg)",
         "ar": "1RM (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Maksimum tek tekrar kaldırabileceğiniz ağırlık",
+        "tr": "Maksimum tek tekrar kaldırabileceğiniz ağırlık"
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Training Max Yüzdesi (%)",
         "es": "Training Max Yüzdesi (%)",
         "ar": "Training Max Yüzdesi (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Genellikle %90 kullanılır",
+        "tr": "Genellikle %90 kullanılır"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Hafta (1-4)",
         "es": "Hafta (1-4)",
         "ar": "Hafta (1-4)"
+      },
+      "businessContext_i18n": {
+        "en": "1: 65/75/85, 2: 70/80/90, 3: 75/85/95, 4: 40/50/60",
+        "tr": "1: 65/75/85, 2: 70/80/90, 3: 75/85/95, 4: 40/50/60"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "1. Set Yüzdesi (%)",
         "es": "1. Set Yüzdesi (%)",
         "ar": "1. Set Yüzdesi (%)"
+      },
+      "businessContext_i18n": {
+        "en": "İlk çalışma setinin training max'e göre yüzdesi",
+        "tr": "İlk çalışma setinin training max'e göre yüzdesi"
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "2. Set Yüzdesi (%)",
         "es": "2. Set Yüzdesi (%)",
         "ar": "2. Set Yüzdesi (%)"
+      },
+      "businessContext_i18n": {
+        "en": "İkinci çalışma setinin yüzdesi",
+        "tr": "İkinci çalışma setinin yüzdesi"
       }
     },
     {
@@ -95,6 +115,10 @@
         "fr": "3. Set Yüzdesi (%)",
         "es": "3. Set Yüzdesi (%)",
         "ar": "3. Set Yüzdesi (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Son çalışma setinin yüzdesi",
+        "tr": "Son çalışma setinin yüzdesi"
       }
     }
   ],

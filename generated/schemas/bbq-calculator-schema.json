@@ -10,11 +10,15 @@
       "businessContext": "Total number of people attending the BBQ",
       "label_i18n": {
         "en": "Number of Guests",
-        "tr": "Number of Guests",
+        "tr": "Misafir Sayısı",
         "de": "Number of Guests",
         "fr": "Number of Guests",
         "es": "Number of Guests",
         "ar": "Number of Guests"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of people attending the BBQ",
+        "tr": "Barbeküye katılan toplam kişi sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average cooked meat consumption per person in grams",
       "label_i18n": {
         "en": "Meat per Person",
-        "tr": "Meat per Person",
+        "tr": "Kişi Başına Et",
         "de": "Meat per Person",
         "fr": "Meat per Person",
         "es": "Meat per Person",
         "ar": "Meat per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Average cooked meat consumption per person in grams",
+        "tr": "Kişi başına ortalama pişmiş et tüketimi (gram cinsinden)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average side dish (salads, bread) consumption per person in grams",
       "label_i18n": {
         "en": "Sides per Person",
-        "tr": "Sides per Person",
+        "tr": "Kişi Başına Yan Yemek",
         "de": "Sides per Person",
         "fr": "Sides per Person",
         "es": "Sides per Person",
         "ar": "Sides per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Average side dish (salads, bread) consumption per person in grams",
+        "tr": "Kişi başına ortalama yan yemek (salatalar, ekmek) tüketimi (gram cinsinden)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of weight lost during cooking due to moisture and fat rendering",
       "label_i18n": {
         "en": "Cooking Loss Factor",
-        "tr": "Cooking Loss Factor",
+        "tr": "Pişirme Kaybı Faktörü",
         "de": "Cooking Loss Factor",
         "fr": "Cooking Loss Factor",
         "es": "Cooking Loss Factor",
         "ar": "Cooking Loss Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of weight lost during cooking due to moisture and fat rendering",
+        "tr": "Pişirme sırasında nem ve yağ salınımı nedeniyle kaybedilen ağırlık yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Edible meat yield from raw purchase weight after trimming bone and skin",
       "label_i18n": {
         "en": "Butcher Yield",
-        "tr": "Butcher Yield",
+        "tr": "Kasap Verimi",
         "de": "Butcher Yield",
         "fr": "Butcher Yield",
         "es": "Butcher Yield",
         "ar": "Butcher Yield"
+      },
+      "businessContext_i18n": {
+        "en": "Edible meat yield from raw purchase weight after trimming bone and skin",
+        "tr": "Kemik ve deri ayıklama sonrası çiğ satın alma ağırlığından elde edilen yenilebilir et verimi"
       }
     }
   ],

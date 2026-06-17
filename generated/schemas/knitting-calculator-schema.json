@@ -10,11 +10,15 @@
       "businessContext": "Enter the width of the fabric panel in centimeters.",
       "label_i18n": {
         "en": "Fabric Width",
-        "tr": "Fabric Width",
+        "tr": "Kumaş Genişliği",
         "de": "Fabric Width",
         "fr": "Fabric Width",
         "es": "Fabric Width",
         "ar": "Fabric Width"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the width of the fabric panel in centimeters.",
+        "tr": "Kumaş panelinin genişliğini santimetre cinsinden girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Enter the length of the fabric panel in centimeters.",
       "label_i18n": {
         "en": "Fabric Length",
-        "tr": "Fabric Length",
+        "tr": "Kumaş Uzunluğu",
         "de": "Fabric Length",
         "fr": "Fabric Length",
         "es": "Fabric Length",
         "ar": "Fabric Length"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the length of the fabric panel in centimeters.",
+        "tr": "Kumaş panelinin uzunluğunu santimetre cinsinden girin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Enter the number of stitches per centimeter in the width direction.",
       "label_i18n": {
         "en": "Stitch Gauge",
-        "tr": "Stitch Gauge",
+        "tr": "Dikiş Sıklığı",
         "de": "Stitch Gauge",
         "fr": "Stitch Gauge",
         "es": "Stitch Gauge",
         "ar": "Stitch Gauge"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the number of stitches per centimeter in the width direction.",
+        "tr": "Genişlik yönünde santimetre başına düşen dikiş sayısını girin."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Enter the number of rows per centimeter in the length direction.",
       "label_i18n": {
         "en": "Row Gauge",
-        "tr": "Row Gauge",
+        "tr": "Sıra Sıklığı",
         "de": "Row Gauge",
         "fr": "Row Gauge",
         "es": "Row Gauge",
         "ar": "Row Gauge"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the number of rows per centimeter in the length direction.",
+        "tr": "Uzunluk yönünde santimetre başına düşen sıra sayısını girin."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Enter the length of yarn consumed per stitch in centimeters.",
       "label_i18n": {
         "en": "Yarn per Stitch",
-        "tr": "Yarn per Stitch",
+        "tr": "Dikiş Başına İplik",
         "de": "Yarn per Stitch",
         "fr": "Yarn per Stitch",
         "es": "Yarn per Stitch",
         "ar": "Yarn per Stitch"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the length of yarn consumed per stitch in centimeters.",
+        "tr": "Dikiş başına tüketilen iplik uzunluğunu santimetre cinsinden girin."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Enter the yarn linear density in tex (grams per 1000 meters).",
       "label_i18n": {
         "en": "Yarn Linear Density",
-        "tr": "Yarn Linear Density",
+        "tr": "İplik Doğrusal Yoğunluğu",
         "de": "Yarn Linear Density",
         "fr": "Yarn Linear Density",
         "es": "Yarn Linear Density",
         "ar": "Yarn Linear Density"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the yarn linear density in tex (grams per 1000 meters).",
+        "tr": "İplik doğrusal yoğunluğunu tex cinsinden girin (1000 metre başına gram)."
       }
     }
   ],

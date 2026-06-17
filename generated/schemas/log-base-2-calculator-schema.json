@@ -10,11 +10,15 @@
       "businessContext": "Sign bit of the floating-point number (must be 0 for positive input as log2 is undefined for non-positive numbers)",
       "label_i18n": {
         "en": "Sign (0: positive, 1: negative)",
-        "tr": "Sign (0: positive, 1: negative)",
+        "tr": "İşaret (0: pozitif, 1: negatif)",
         "de": "Sign (0: positive, 1: negative)",
         "fr": "Sign (0: positive, 1: negative)",
         "es": "Sign (0: positive, 1: negative)",
         "ar": "Sign (0: positive, 1: negative)"
+      },
+      "businessContext_i18n": {
+        "en": "Sign bit of the floating-point number (must be 0 for positive input as log2 is undefined for non-positive numbers)",
+        "tr": "Kayan noktalı sayının işaret biti (log2 tanımsız olduğu için pozitif girdi için 0 olmalıdır)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Fractional part of the mantissa, in range [0, 1) for normalized numbers.",
       "label_i18n": {
         "en": "Fraction (mantissa)",
-        "tr": "Fraction (mantissa)",
+        "tr": "Kesir (mantis)",
         "de": "Fraction (mantissa)",
         "fr": "Fraction (mantissa)",
         "es": "Fraction (mantissa)",
         "ar": "Fraction (mantissa)"
+      },
+      "businessContext_i18n": {
+        "en": "Fractional part of the mantissa, in range [0, 1) for normalized numbers.",
+        "tr": "Normalize sayılar için [0, 1) aralığında mantisin kesirli kısmı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Exponent value before bias adjustment.",
       "label_i18n": {
         "en": "Exponent",
-        "tr": "Exponent",
+        "tr": "Üs",
         "de": "Exponent",
         "fr": "Exponent",
         "es": "Exponent",
         "ar": "Exponent"
+      },
+      "businessContext_i18n": {
+        "en": "Exponent value before bias adjustment.",
+        "tr": "Bias ayarı öncesi üs değeri."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Bias",
         "es": "Bias",
         "ar": "Bias"
+      },
+      "businessContext_i18n": {
+        "en": "Bias value (e.g., 127 for single-precision IEEE 754).",
+        "tr": "Bias değeri (örneğin, tek duyarlıklı IEEE 754 için 127)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places to round the result.",
       "label_i18n": {
         "en": "Output Precision (decimal places)",
-        "tr": "Output Precision (decimal places)",
+        "tr": "Çıktı Hassasiyeti (ondalık basamak)",
         "de": "Output Precision (decimal places)",
         "fr": "Output Precision (decimal places)",
         "es": "Output Precision (decimal places)",
         "ar": "Output Precision (decimal places)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the result.",
+        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı."
       }
     }
   ],

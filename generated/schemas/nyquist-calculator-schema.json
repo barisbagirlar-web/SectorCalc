@@ -10,11 +10,15 @@
       "businessContext": "The highest frequency component expected in the signal to be sampled or analyzed.",
       "label_i18n": {
         "en": "Maximum Signal Frequency",
-        "tr": "Maximum Signal Frequency",
+        "tr": "Maksimum Sinyal Frekansı",
         "de": "Maximum Signal Frequency",
         "fr": "Maximum Signal Frequency",
         "es": "Maximum Signal Frequency",
         "ar": "Maximum Signal Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "The highest frequency component expected in the signal to be sampled or analyzed.",
+        "tr": "Örneklenen veya analiz edilen sinyalde beklenen en yüksek frekans bileşeni."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The rate at which the data acquisition system samples the signal.",
       "label_i18n": {
         "en": "Sampling Frequency",
-        "tr": "Sampling Frequency",
+        "tr": "Örnekleme Frekansı",
         "de": "Sampling Frequency",
         "fr": "Sampling Frequency",
         "es": "Sampling Frequency",
         "ar": "Sampling Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "The rate at which the data acquisition system samples the signal.",
+        "tr": "Veri toplama sisteminin sinyali örnekleme hızı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Engineering safety factor to provide a margin against aliasing; typically 1.2 to 2.0.",
       "label_i18n": {
         "en": "Safety Margin Factor",
-        "tr": "Safety Margin Factor",
+        "tr": "Güvenlik Marjı Faktörü",
         "de": "Safety Margin Factor",
         "fr": "Safety Margin Factor",
         "es": "Safety Margin Factor",
         "ar": "Safety Margin Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Engineering safety factor to provide a margin against aliasing; typically 1.2 to 2.0.",
+        "tr": "Örtüşmeye karşı marj sağlayan mühendislik güvenlik faktörü; tipik olarak 1,2 ila 2,0."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The target percentage of the Nyquist frequency that the maximum signal frequency should occupy for optimal setup.",
       "label_i18n": {
         "en": "Desired Nyquist Utilization",
-        "tr": "Desired Nyquist Utilization",
+        "tr": "Hedef Nyquist Kullanımı",
         "de": "Desired Nyquist Utilization",
         "fr": "Desired Nyquist Utilization",
         "es": "Desired Nyquist Utilization",
         "ar": "Desired Nyquist Utilization"
+      },
+      "businessContext_i18n": {
+        "en": "The target percentage of the Nyquist frequency that the maximum signal frequency should occupy for optimal setup.",
+        "tr": "Optimum kurulum için maksimum sinyal frekansının Nyquist frekansının yüzde kaçını kaplaması gerektiğini gösteren hedef yüzde."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "User's body weight directly influences energy expenditure; heavier individuals burn more calories.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight directly influences energy expenditure; heavier individuals burn more calories.",
+        "tr": "Kullanıcının vücut ağırlığı enerji harcamasını doğrudan etkiler; daha ağır bireyler daha fazla kalori yakar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time spent actively snowboarding; longer duration increases total calorie burn.",
       "label_i18n": {
         "en": "Duration",
-        "tr": "Duration",
+        "tr": "Süre",
         "de": "Duration",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Time spent actively snowboarding; longer duration increases total calorie burn.",
+        "tr": "Aktif snowboard yapılan süre; daha uzun süre toplam kalori yakımını artırır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Perceived exertion from 1 (very light, like easy cruising) to 10 (extreme, like aggressive carving or backcountry); used to derive metabolic equivalent (MET).",
       "label_i18n": {
         "en": "Intensity Level",
-        "tr": "Intensity Level",
+        "tr": "Yoğunluk seviyesi",
         "de": "Intensity Level",
         "fr": "Intensity Level",
         "es": "Intensity Level",
         "ar": "Intensity Level"
+      },
+      "businessContext_i18n": {
+        "en": "Perceived exertion from 1 (very light, like easy cruising) to 10 (extreme, like aggressive carving or backcountry); used to derive metabolic equivalent (MET).",
+        "tr": "1 (çok hafif, kolay sürüş gibi) ile 10 (aşırı, agresif karvaj veya backcountry gibi) arasında algılanan efor; metabolik eşdeğer (MET) türetmek için kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Above sea level altitude of the snowboarding location; higher altitude increases metabolic rate due to reduced oxygen availability.",
       "label_i18n": {
         "en": "Altitude",
-        "tr": "Altitude",
+        "tr": "Rakım",
         "de": "Altitude",
         "fr": "Altitude",
         "es": "Altitude",
         "ar": "Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Above sea level altitude of the snowboarding location; higher altitude increases metabolic rate due to reduced oxygen availability.",
+        "tr": "Snowboard yapılan yerin deniz seviyesinden yüksekliği; daha yüksek irtifa, azalan oksijen mevcudiyeti nedeniyle metabolizma hızını artırır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Personal adjustment factor to account for individual metabolic variations (e.g., fitness level, genetics); typical range 0.8–1.2.",
       "label_i18n": {
         "en": "Correction Factor",
-        "tr": "Correction Factor",
+        "tr": "Düzeltme Faktörü",
         "de": "Correction Factor",
         "fr": "Correction Factor",
         "es": "Correction Factor",
         "ar": "Correction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Personal adjustment factor to account for individual metabolic variations (e.g., fitness level, genetics); typical range 0.8–1.2.",
+        "tr": "Bireysel metabolik farklılıkları (örneğin, fitness seviyesi, genetik) hesaba katmak için kişisel ayar faktörü; tipik aralık 0.8–1.2."
       }
     }
   ],

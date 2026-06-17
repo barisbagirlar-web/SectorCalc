@@ -10,11 +10,15 @@
       "businessContext": "Age of the individual, used for retirement planning context.",
       "label_i18n": {
         "en": "Current Age",
-        "tr": "Current Age",
+        "tr": "Mevcut Yaş",
         "de": "Current Age",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the individual, used for retirement planning context.",
+        "tr": "Bireyin yaşı, emeklilik planlaması bağlamında kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total current invested assets, the starting point for future growth.",
       "label_i18n": {
         "en": "Current Portfolio",
-        "tr": "Current Portfolio",
+        "tr": "Mevcut Portföy",
         "de": "Current Portfolio",
         "fr": "Current Portfolio",
         "es": "Current Portfolio",
         "ar": "Current Portfolio"
+      },
+      "businessContext_i18n": {
+        "en": "Total current invested assets, the starting point for future growth.",
+        "tr": "Toplam mevcut yatırım varlıkları, gelecekteki büyümenin başlangıç noktası."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Amount saved each month, assumed to be invested consistently.",
       "label_i18n": {
         "en": "Monthly Savings",
-        "tr": "Monthly Savings",
+        "tr": "Aylık Tasarruf",
         "de": "Monthly Savings",
         "fr": "Monthly Savings",
         "es": "Monthly Savings",
         "ar": "Monthly Savings"
+      },
+      "businessContext_i18n": {
+        "en": "Amount saved each month, assumed to be invested consistently.",
+        "tr": "Her ay biriktirilen miktar, tutarlı bir şekilde yatırıldığı varsayılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected annual living expenses after reaching financial independence.",
       "label_i18n": {
         "en": "Annual Expenses in Retirement",
-        "tr": "Annual Expenses in Retirement",
+        "tr": "Emeklilikte Yıllık Giderler",
         "de": "Annual Expenses in Retirement",
         "fr": "Annual Expenses in Retirement",
         "es": "Annual Expenses in Retirement",
         "ar": "Annual Expenses in Retirement"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual living expenses after reaching financial independence.",
+        "tr": "Finansal bağımsızlığa ulaştıktan sonra beklenen yıllık yaşam giderleri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected annual investment return rate (e.g., 7% for a diversified portfolio).",
       "label_i18n": {
         "en": "Annual Return",
-        "tr": "Annual Return",
+        "tr": "Yıllık Getiri",
         "de": "Annual Return",
         "fr": "Annual Return",
         "es": "Annual Return",
         "ar": "Annual Return"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual investment return rate (e.g., 7% for a diversified portfolio).",
+        "tr": "Beklenen yıllık yatırım getirisi oranı (örneğin, çeşitlendirilmiş bir portföy için %7)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "The percentage of the portfolio withdrawn annually to cover expenses without depleting principal (commonly 4%).",
       "label_i18n": {
         "en": "Safe Withdrawal Rate",
-        "tr": "Safe Withdrawal Rate",
+        "tr": "Güvenli Çekme Oranı",
         "de": "Safe Withdrawal Rate",
         "fr": "Safe Withdrawal Rate",
         "es": "Safe Withdrawal Rate",
         "ar": "Safe Withdrawal Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage of the portfolio withdrawn annually to cover expenses without depleting principal (commonly 4%).",
+        "tr": "Anaparayı tüketmeden giderleri karşılamak için portföyden yıllık olarak çekilen yüzde (genellikle %4)."
       }
     }
   ],

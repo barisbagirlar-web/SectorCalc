@@ -10,11 +10,15 @@
       "businessContext": "Focal length of the lens. Positive for converging, negative for diverging.",
       "label_i18n": {
         "en": "Focal Length (f)",
-        "tr": "Focal Length (f)",
+        "tr": "Odak Uzaklığı (f)",
         "de": "Focal Length (f)",
         "fr": "Focal Length (f)",
         "es": "Focal Length (f)",
         "ar": "Focal Length (f)"
+      },
+      "businessContext_i18n": {
+        "en": "Focal length of the lens. Positive for converging, negative for diverging.",
+        "tr": "Merceğin odak uzaklığı. Yakınsak için pozitif, ıraksak için negatif."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance from the object to the lens. Positive if on the incoming light side.",
       "label_i18n": {
         "en": "Object Distance (do)",
-        "tr": "Object Distance (do)",
+        "tr": "Nesne Mesafesi (do)",
         "de": "Object Distance (do)",
         "fr": "Object Distance (do)",
         "es": "Object Distance (do)",
         "ar": "Object Distance (do)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from the object to the lens. Positive if on the incoming light side.",
+        "tr": "Nesneden merceğe olan mesafe. Gelen ışık tarafında ise pozitif."
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

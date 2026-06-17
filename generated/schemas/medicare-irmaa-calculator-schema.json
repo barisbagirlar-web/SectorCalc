@@ -10,11 +10,15 @@
       "businessContext": "Your MAGI from 2 years ago",
       "label_i18n": {
         "en": "Modified Adjusted Gross Income (MAGI)",
-        "tr": "Modified Adjusted Gross Income (MAGI)",
+        "tr": "Düzeltilmiş Brüt Gelir (MAGI)",
         "de": "Modified Adjusted Gross Income (MAGI)",
         "fr": "Modified Adjusted Gross Income (MAGI)",
         "es": "Modified Adjusted Gross Income (MAGI)",
         "ar": "Modified Adjusted Gross Income (MAGI)"
+      },
+      "businessContext_i18n": {
+        "en": "Your MAGI from 2 years ago",
+        "tr": "2 yıl önceki MAGI'nız"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1=Single/HoH/QW, 2=Married Joint, 3=Married Separate",
       "label_i18n": {
         "en": "Filing Status",
-        "tr": "Filing Status",
+        "tr": "Dosyalama Durumu",
         "de": "Filing Status",
         "fr": "Filing Status",
         "es": "Filing Status",
         "ar": "Filing Status"
+      },
+      "businessContext_i18n": {
+        "en": "1=Single/HoH/QW, 2=Married Joint, 3=Married Separate",
+        "tr": "1=Bekar/HoH/QW, 2=Evli Ortak, 3=Evli Ayrı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard Part B premium (2024: $174.70)",
       "label_i18n": {
         "en": "Monthly Part B Base Premium",
-        "tr": "Monthly Part B Base Premium",
+        "tr": "Aylık Bölüm B Temel Primi",
         "de": "Monthly Part B Base Premium",
         "fr": "Monthly Part B Base Premium",
         "es": "Monthly Part B Base Premium",
         "ar": "Monthly Part B Base Premium"
+      },
+      "businessContext_i18n": {
+        "en": "Standard Part B premium (2024: $174.70)",
+        "tr": "Standart Bölüm B primi (2024: $174.70)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Your Part D plan premium before IRMAA",
       "label_i18n": {
         "en": "Monthly Part D Base Premium",
-        "tr": "Monthly Part D Base Premium",
+        "tr": "Aylık Bölüm D Temel Primi",
         "de": "Monthly Part D Base Premium",
         "fr": "Monthly Part D Base Premium",
         "es": "Monthly Part D Base Premium",
         "ar": "Monthly Part D Base Premium"
+      },
+      "businessContext_i18n": {
+        "en": "Your Part D plan premium before IRMAA",
+        "tr": "IRMAA öncesi Bölüm D plan priminiz"
       }
     }
   ],

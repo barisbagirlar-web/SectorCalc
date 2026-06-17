@@ -10,11 +10,15 @@
       "businessContext": "The amount paid each period (end of period).",
       "label_i18n": {
         "en": "Payment per Period",
-        "tr": "Payment per Period",
+        "tr": "Dönem Başına Ödeme",
         "de": "Payment per Period",
         "fr": "Payment per Period",
         "es": "Payment per Period",
         "ar": "Payment per Period"
+      },
+      "businessContext_i18n": {
+        "en": "The amount paid each period (end of period).",
+        "tr": "Her dönem sonunda ödenen tutar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual nominal interest rate in percent.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate in percent.",
+        "tr": "Yıllık nominal faiz oranı (yüzde)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of years.",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Number of Years",
+        "tr": "Yıl Sayısı",
         "de": "Number of Years",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of years.",
+        "tr": "Toplam yıl sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of times interest compounds per year (e.g., 12 for monthly).",
       "label_i18n": {
         "en": "Compounding Periods per Year",
-        "tr": "Compounding Periods per Year",
+        "tr": "Yıllık Bileşik Dönem Sayısı",
         "de": "Compounding Periods per Year",
         "fr": "Compounding Periods per Year",
         "es": "Compounding Periods per Year",
         "ar": "Compounding Periods per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times interest compounds per year (e.g., 12 for monthly).",
+        "tr": "Faizin yılda kaç kez bileşiklendiği (örneğin aylık için 12)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Volumetric flow rate of the fluid. Typical range for industrial pumps: 0.001 to 1 m³/s.",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of the fluid. Typical range for industrial pumps: 0.001 to 1 m³/s.",
+        "tr": "Akışkanın hacimsel debisi. Endüstriyel pompalar için tipik aralık: 0.001 - 1 m³/s."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total dynamic head (TDH) that the pump must overcome, including static lift and friction losses.",
       "label_i18n": {
         "en": "Total Head",
-        "tr": "Total Head",
+        "tr": "Toplam Basma Yüksekliği",
         "de": "Total Head",
         "fr": "Total Head",
         "es": "Total Head",
         "ar": "Total Head"
+      },
+      "businessContext_i18n": {
+        "en": "Total dynamic head (TDH) that the pump must overcome, including static lift and friction losses.",
+        "tr": "Pompanın aşması gereken toplam dinamik yük (TDH), statik kaldırma ve sürtünme kayıplarını içerir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of the pumped fluid. Water: 1000 kg/m³, oil: ~900 kg/m³, chemicals vary.",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the pumped fluid. Water: 1000 kg/m³, oil: ~900 kg/m³, chemicals vary.",
+        "tr": "Pompalanan akışkanın yoğunluğu. Su: 1000 kg/m³, yağ: ~900 kg/m³, kimyasallar değişkendir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Efficiency of the pump, typically 0.6-0.85 for centrifugal pumps.",
       "label_i18n": {
         "en": "Pump Efficiency",
-        "tr": "Pump Efficiency",
+        "tr": "Pompa Verimliliği",
         "de": "Pump Efficiency",
         "fr": "Pump Efficiency",
         "es": "Pump Efficiency",
         "ar": "Pump Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the pump, typically 0.6-0.85 for centrifugal pumps.",
+        "tr": "Pompa verimliliği, santrifüj pompalar için tipik olarak 0.6-0.85."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Efficiency of the electric motor driving the pump. Typical IE3 motor: 0.93-0.96.",
       "label_i18n": {
         "en": "Motor Efficiency",
-        "tr": "Motor Efficiency",
+        "tr": "Motor verimliliği",
         "de": "Motor Efficiency",
         "fr": "Motor Efficiency",
         "es": "Motor Efficiency",
         "ar": "Motor Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the electric motor driving the pump. Typical IE3 motor: 0.93-0.96.",
+        "tr": "Pompayı çalıştıran elektrik motorunun verimliliği. Tipik IE3 motor: 0.93-0.96."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Safety margin to account for uncertainties (e.g., 1.1 = 10% extra). Common range 1.1-1.2.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Safety margin to account for uncertainties (e.g., 1.1 = 10% extra). Common range 1.1-1.2.",
+        "tr": "Belirsizlikleri hesaba katmak için güvenlik marjı (ör. 1.1 = %10 ekstra). Yaygın aralık 1.1-1.2."
       }
     }
   ],

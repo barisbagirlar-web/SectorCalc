@@ -10,11 +10,15 @@
       "businessContext": "The total weight used in the exercise, including barbell if applicable",
       "label_i18n": {
         "en": "Weight Lifted",
-        "tr": "Weight Lifted",
+        "tr": "Kaldırılan Ağırlık",
         "de": "Weight Lifted",
         "fr": "Weight Lifted",
         "es": "Weight Lifted",
         "ar": "Weight Lifted"
+      },
+      "businessContext_i18n": {
+        "en": "The total weight used in the exercise, including barbell if applicable",
+        "tr": "Egzersizde kullanılan toplam ağırlık (varsa halter dahil)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of repetitions completed with the given weight",
       "label_i18n": {
         "en": "Repetitions",
-        "tr": "Repetitions",
+        "tr": "Tekrar Sayısı",
         "de": "Repetitions",
         "fr": "Repetitions",
         "es": "Repetitions",
         "ar": "Repetitions"
+      },
+      "businessContext_i18n": {
+        "en": "Number of repetitions completed with the given weight",
+        "tr": "Verilen ağırlıkla tamamlanan tekrar sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Lifter's body weight for relative strength calculation",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Lifter's body weight for relative strength calculation",
+        "tr": "Göreceli kuvvet hesaplaması için sporcunun vücut ağırlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Lifter's age (optional, for future age-adjusted standards)",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Lifter's age (optional, for future age-adjusted standards)",
+        "tr": "Sporcunun yaşı (isteğe bağlı, gelecekteki yaşa göre ayarlanmış standartlar için)"
       }
     }
   ],

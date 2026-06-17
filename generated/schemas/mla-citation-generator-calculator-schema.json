@@ -10,11 +10,15 @@
       "businessContext": "Total word count of the document",
       "label_i18n": {
         "en": "Word Count",
-        "tr": "Word Count",
+        "tr": "Kelime Sayısı",
         "de": "Word Count",
         "fr": "Word Count",
         "es": "Word Count",
         "ar": "Word Count"
+      },
+      "businessContext_i18n": {
+        "en": "Total word count of the document",
+        "tr": "Belgenin toplam kelime sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of pages",
       "label_i18n": {
         "en": "Number of Pages",
-        "tr": "Number of Pages",
+        "tr": "Sayfa Sayısı",
         "de": "Number of Pages",
         "fr": "Number of Pages",
         "es": "Number of Pages",
         "ar": "Number of Pages"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of pages",
+        "tr": "Toplam sayfa sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average number of authors per citation",
       "label_i18n": {
         "en": "Avg Authors per Citation",
-        "tr": "Avg Authors per Citation",
+        "tr": "Atıf Başına Ortalama Yazar Sayısı",
         "de": "Avg Authors per Citation",
         "fr": "Avg Authors per Citation",
         "es": "Avg Authors per Citation",
         "ar": "Avg Authors per Citation"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of authors per citation",
+        "tr": "Yazar başına ortalama atıf sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average number of distinct sources cited per page",
       "label_i18n": {
         "en": "Sources per Page",
-        "tr": "Sources per Page",
+        "tr": "Sayfa başına kaynak",
         "de": "Sources per Page",
         "fr": "Sources per Page",
         "es": "Sources per Page",
         "ar": "Sources per Page"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of distinct sources cited per page",
+        "tr": "Sayfa başına atıf yapılan farklı kaynakların ortalama sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "How many in-text citations appear per page",
       "label_i18n": {
         "en": "In-text Citation Frequency",
-        "tr": "In-text Citation Frequency",
+        "tr": "Metin içi atıf sıklığı",
         "de": "In-text Citation Frequency",
         "fr": "In-text Citation Frequency",
         "es": "In-text Citation Frequency",
         "ar": "In-text Citation Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "How many in-text citations appear per page",
+        "tr": "Sayfa başına kaç metin içi atıf görünüyor"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total number of bibliography entries",
       "label_i18n": {
         "en": "Bibliography Entries",
-        "tr": "Bibliography Entries",
+        "tr": "Kaynakça girişleri",
         "de": "Bibliography Entries",
         "fr": "Bibliography Entries",
         "es": "Bibliography Entries",
         "ar": "Bibliography Entries"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of bibliography entries",
+        "tr": "Toplam kaynakça girişi sayısı"
       }
     }
   ],

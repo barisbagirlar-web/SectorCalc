@@ -10,11 +10,15 @@
       "businessContext": "Input signal voltage.",
       "label_i18n": {
         "en": "Input Voltage",
-        "tr": "Input Voltage",
+        "tr": "Giriş Voltajı",
         "de": "Input Voltage",
         "fr": "Input Voltage",
         "es": "Input Voltage",
         "ar": "Input Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Input signal voltage.",
+        "tr": "Giriş sinyal voltajı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Resistor from inverting input to ground.",
       "label_i18n": {
         "en": "Resistor R1",
-        "tr": "Resistor R1",
+        "tr": "Direnç R1",
         "de": "Resistor R1",
         "fr": "Resistor R1",
         "es": "Resistor R1",
         "ar": "Resistor R1"
+      },
+      "businessContext_i18n": {
+        "en": "Resistor from inverting input to ground.",
+        "tr": "Tersleyen girişten toprağa direnç."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Feedback resistor from output to inverting input.",
       "label_i18n": {
         "en": "Feedback Resistor R2",
-        "tr": "Feedback Resistor R2",
+        "tr": "Geri Besleme Direnci R2",
         "de": "Feedback Resistor R2",
         "fr": "Feedback Resistor R2",
         "es": "Feedback Resistor R2",
         "ar": "Feedback Resistor R2"
+      },
+      "businessContext_i18n": {
+        "en": "Feedback resistor from output to inverting input.",
+        "tr": "Çıkıştan tersleyen girişe geri besleme direnci."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Positive power supply voltage.",
       "label_i18n": {
         "en": "Positive Supply Voltage",
-        "tr": "Positive Supply Voltage",
+        "tr": "Pozitif Besleme Voltajı",
         "de": "Positive Supply Voltage",
         "fr": "Positive Supply Voltage",
         "es": "Positive Supply Voltage",
         "ar": "Positive Supply Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Positive power supply voltage.",
+        "tr": "Pozitif güç kaynağı voltajı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Negative power supply voltage.",
       "label_i18n": {
         "en": "Negative Supply Voltage",
-        "tr": "Negative Supply Voltage",
+        "tr": "Negatif Besleme Voltajı",
         "de": "Negative Supply Voltage",
         "fr": "Negative Supply Voltage",
         "es": "Negative Supply Voltage",
         "ar": "Negative Supply Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Negative power supply voltage.",
+        "tr": "Negatif güç kaynağı voltajı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Voltage drop from supply rails to output swing limits.",
       "label_i18n": {
         "en": "Output Headroom",
-        "tr": "Output Headroom",
+        "tr": "Çıkış Başlık Payı",
         "de": "Output Headroom",
         "fr": "Output Headroom",
         "es": "Output Headroom",
         "ar": "Output Headroom"
+      },
+      "businessContext_i18n": {
+        "en": "Voltage drop from supply rails to output swing limits.",
+        "tr": "Besleme raylarından çıkış salınım sınırlarına voltaj düşüşü."
       }
     }
   ],

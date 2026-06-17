@@ -19,10 +19,12 @@
       "max": 1000000,
       "businessContext": "Current defects per million opportunities for the process under evaluation.",
       "label_i18n": {
-        "en": "Defect Rate (DPMO)"
+        "en": "Defect Rate (DPMO)",
+        "tr": "Hata Oranı (DPMO)"
       },
       "businessContext_i18n": {
-        "en": "Current defects per million opportunities for the process under evaluation."
+        "en": "Current defects per million opportunities for the process under evaluation.",
+        "tr": "Değerlendirilen süreç için milyon fırsat başına mevcut hata sayısı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 6,
       "businessContext": "Current sigma level of the process, typically derived from DPMO using standard conversion tables.",
       "label_i18n": {
-        "en": "Current Process Sigma Level"
+        "en": "Current Process Sigma Level",
+        "tr": "Mevcut Süreç Sigma Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Current sigma level of the process, typically derived from DPMO using standard conversion tables."
+        "en": "Current sigma level of the process, typically derived from DPMO using standard conversion tables.",
+        "tr": "Sürecin mevcut sigma seviyesi, genellikle standart dönüşüm tabloları kullanılarak DPMO'dan türetilir."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 1000000000,
       "businessContext": "Total number of units produced or transactions processed per year.",
       "label_i18n": {
-        "en": "Annual Unit Volume"
+        "en": "Annual Unit Volume",
+        "tr": "Yıllık Birim Hacmi"
       },
       "businessContext_i18n": {
-        "en": "Total number of units produced or transactions processed per year."
+        "en": "Total number of units produced or transactions processed per year.",
+        "tr": "Yılda üretilen toplam birim veya işlenen işlem sayısı."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 100000,
       "businessContext": "Average cost incurred per defect, including rework, scrap, warranty, and customer impact.",
       "label_i18n": {
-        "en": "Cost per Defect"
+        "en": "Cost per Defect",
+        "tr": "Hata Başına Maliyet"
       },
       "businessContext_i18n": {
-        "en": "Average cost incurred per defect, including rework, scrap, warranty, and customer impact."
+        "en": "Average cost incurred per defect, including rework, scrap, warranty, and customer impact.",
+        "tr": "Yeniden işleme, fire, garanti ve müşteri etkisi dahil olmak üzere hata başına ortalama maliyet."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 10000000,
       "businessContext": "Total cost to implement the Six Sigma improvement project (training, equipment, downtime, etc.).",
       "label_i18n": {
-        "en": "Estimated Implementation Cost"
+        "en": "Estimated Implementation Cost",
+        "tr": "Tahmini Uygulama Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total cost to implement the Six Sigma improvement project (training, equipment, downtime, etc.)."
+        "en": "Total cost to implement the Six Sigma improvement project (training, equipment, downtime, etc.).",
+        "tr": "Altı Sigma iyileştirme projesini uygulamanın toplam maliyeti (eğitim, ekipman, duruş süresi vb.)."
       }
     },
     {
@@ -104,10 +114,12 @@
       ],
       "businessContext": "Qualitative assessment of risk associated with the project (technical complexity, resource availability, stakeholder buy-in).",
       "label_i18n": {
-        "en": "Project Risk Level"
+        "en": "Project Risk Level",
+        "tr": "Proje Risk Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Qualitative assessment of risk associated with the project (technical complexity, resource availability, stakeholder buy-in)."
+        "en": "Qualitative assessment of risk associated with the project (technical complexity, resource availability, stakeholder buy-in).",
+        "tr": "Projeyle ilişkili riskin nitel değerlendirmesi (teknik karmaşıklık, kaynak mevcudiyeti, paydaş katılımı)."
       }
     },
     {
@@ -120,10 +132,12 @@
       "max": 10,
       "businessContext": "How well the project aligns with organizational strategic goals (1 = low, 10 = high).",
       "label_i18n": {
-        "en": "Strategic Alignment Score"
+        "en": "Strategic Alignment Score",
+        "tr": "Stratejik Uyum Puanı"
       },
       "businessContext_i18n": {
-        "en": "How well the project aligns with organizational strategic goals (1 = low, 10 = high)."
+        "en": "How well the project aligns with organizational strategic goals (1 = low, 10 = high).",
+        "tr": "Projenin kurumsal stratejik hedeflerle ne kadar uyumlu olduğu (1 = düşük, 10 = yüksek)."
       }
     },
     {
@@ -136,10 +150,12 @@
       "max": 10,
       "businessContext": "Degree of positive impact on customer satisfaction (1 = minimal, 10 = transformative).",
       "label_i18n": {
-        "en": "Customer Impact Score"
+        "en": "Customer Impact Score",
+        "tr": "Müşteri Etki Puanı"
       },
       "businessContext_i18n": {
-        "en": "Degree of positive impact on customer satisfaction (1 = minimal, 10 = transformative)."
+        "en": "Degree of positive impact on customer satisfaction (1 = minimal, 10 = transformative).",
+        "tr": "Müşteri memnuniyeti üzerindeki olumlu etki derecesi (1 = minimum, 10 = dönüştürücü)."
       }
     }
   ],

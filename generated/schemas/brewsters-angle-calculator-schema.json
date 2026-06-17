@@ -10,11 +10,15 @@
       "businessContext": "Incident medium refractive index (e.g., air = 1.0)",
       "label_i18n": {
         "en": "Refractive Index (n1)",
-        "tr": "Refractive Index (n1)",
+        "tr": "Kırılma İndisi (n1)",
         "de": "Refractive Index (n1)",
         "fr": "Refractive Index (n1)",
         "es": "Refractive Index (n1)",
         "ar": "Refractive Index (n1)"
+      },
+      "businessContext_i18n": {
+        "en": "Incident medium refractive index (e.g., air = 1.0)",
+        "tr": "Gelen ortamın kırılma indisi (ör. hava = 1.0)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Refracting medium refractive index (e.g., glass = 1.5)",
       "label_i18n": {
         "en": "Refractive Index (n2)",
-        "tr": "Refractive Index (n2)",
+        "tr": "Kırılma İndisi (n2)",
         "de": "Refractive Index (n2)",
         "fr": "Refractive Index (n2)",
         "es": "Refractive Index (n2)",
         "ar": "Refractive Index (n2)"
+      },
+      "businessContext_i18n": {
+        "en": "Refracting medium refractive index (e.g., glass = 1.5)",
+        "tr": "Kıran ortamın kırılma indisi (ör. cam = 1.5)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Operating temperature of the medium",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Operating temperature of the medium",
+        "tr": "Ortamın çalışma sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Linear temperature coefficient for n2",
       "label_i18n": {
         "en": "Temperature Coefficient of n2",
-        "tr": "Temperature Coefficient of n2",
+        "tr": "n2'nin sıcaklık katsayısı",
         "de": "Temperature Coefficient of n2",
         "fr": "Temperature Coefficient of n2",
         "es": "Temperature Coefficient of n2",
         "ar": "Temperature Coefficient of n2"
+      },
+      "businessContext_i18n": {
+        "en": "Linear temperature coefficient for n2",
+        "tr": "n2 için lineer sıcaklık katsayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Reference temperature at which n2 is defined",
       "label_i18n": {
         "en": "Reference Temperature",
-        "tr": "Reference Temperature",
+        "tr": "Referans Sıcaklık",
         "de": "Reference Temperature",
         "fr": "Reference Temperature",
         "es": "Reference Temperature",
         "ar": "Reference Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Reference temperature at which n2 is defined",
+        "tr": "n2'nin tanımlandığı referans sıcaklık"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Output angle unit: 0 for degrees, 1 for radians",
       "label_i18n": {
         "en": "Angle Unit",
-        "tr": "Angle Unit",
+        "tr": "Açı birimi",
         "de": "Angle Unit",
         "fr": "Angle Unit",
         "es": "Angle Unit",
         "ar": "Angle Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Output angle unit: 0 for degrees, 1 for radians",
+        "tr": "Çıktı açı birimi: 0 derece, 1 radyan"
       }
     }
   ],

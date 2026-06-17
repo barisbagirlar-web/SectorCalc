@@ -10,11 +10,15 @@
       "businessContext": "Total weeks to convert",
       "label_i18n": {
         "en": "Number of Weeks",
-        "tr": "Number of Weeks",
+        "tr": "Hafta Sayısı",
         "de": "Number of Weeks",
         "fr": "Number of Weeks",
         "es": "Number of Weeks",
         "ar": "Number of Weeks"
+      },
+      "businessContext_i18n": {
+        "en": "Total weeks to convert",
+        "tr": "Dönüştürülecek toplam hafta"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Calendar days per week (typically 7)",
       "label_i18n": {
         "en": "Days per Week",
-        "tr": "Days per Week",
+        "tr": "Gün/Hafta",
         "de": "Days per Week",
         "fr": "Days per Week",
         "es": "Days per Week",
         "ar": "Days per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Calendar days per week (typically 7)",
+        "tr": "Hafta başına takvim günü (genellikle 7)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average days per month for calendar conversion (e.g., 30.44 for average, 30 for financial)",
       "label_i18n": {
         "en": "Days per Month",
-        "tr": "Days per Month",
+        "tr": "Aylık Gün Sayısı",
         "de": "Days per Month",
         "fr": "Days per Month",
         "es": "Days per Month",
         "ar": "Days per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Average days per month for calendar conversion (e.g., 30.44 for average, 30 for financial)",
+        "tr": "Takvim dönüşümü için ay başına ortalama gün (ör. ortalama için 30,44, finansal için 30)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Working days per week (typically 5)",
       "label_i18n": {
         "en": "Work Days per Week",
-        "tr": "Work Days per Week",
+        "tr": "Haftalık Çalışma Günü",
         "de": "Work Days per Week",
         "fr": "Work Days per Week",
         "es": "Work Days per Week",
         "ar": "Work Days per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Working days per week (typically 5)",
+        "tr": "Haftalık çalışma günü (genellikle 5)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average working days per month for business conversion (e.g., 22)",
       "label_i18n": {
         "en": "Work Days per Month",
-        "tr": "Work Days per Month",
+        "tr": "Aylık Çalışma Günü",
         "de": "Work Days per Month",
         "fr": "Work Days per Month",
         "es": "Work Days per Month",
         "ar": "Work Days per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Average working days per month for business conversion (e.g., 22)",
+        "tr": "İş dönüşümü için aylık ortalama çalışma günü (ör. 22)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of decimal places for the primary output",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the primary output",
+        "tr": "Birincil çıktı için ondalık basamak sayısı"
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 1000000,
       "businessContext": "Total observed defects in the sample or process period.",
       "label_i18n": {
-        "en": "Number of Defects"
+        "en": "Number of Defects",
+        "tr": "Kusur Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total observed defects in the sample or process period."
+        "en": "Total observed defects in the sample or process period.",
+        "tr": "Numunede veya proses periyodunda gözlemlenen toplam kusur sayısı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000000,
       "businessContext": "Total number of units inspected or trials performed.",
       "label_i18n": {
-        "en": "Sample Size"
+        "en": "Sample Size",
+        "tr": "Örneklem büyüklüğü"
       },
       "businessContext_i18n": {
-        "en": "Total number of units inspected or trials performed."
+        "en": "Total number of units inspected or trials performed.",
+        "tr": "İncelenen toplam birim sayısı veya yapılan deneme sayısı."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 3,
       "businessContext": "Standard shift to convert short-term capability to long-term (commonly 1.5).",
       "label_i18n": {
-        "en": "Sigma Shift (1.5 for long-term)"
+        "en": "Sigma Shift (1.5 for long-term)",
+        "tr": "Sigma Kayması (Uzun dönem için 1.5)"
       },
       "businessContext_i18n": {
-        "en": "Standard shift to convert short-term capability to long-term (commonly 1.5)."
+        "en": "Standard shift to convert short-term capability to long-term (commonly 1.5).",
+        "tr": "Kısa dönem yeteneğini uzun döneme dönüştürmek için standart kayma (yaygın olarak 1.5)."
       }
     },
     {
@@ -74,10 +80,12 @@
         "normal"
       ],
       "label_i18n": {
-        "en": "Distribution Type"
+        "en": "Distribution Type",
+        "tr": "Dağılım Türü"
       },
       "businessContext_i18n": {
-        "en": "Underlying statistical distribution for probability calculation."
+        "en": "Underlying statistical distribution for probability calculation.",
+        "tr": "Olasılık hesaplaması için temel istatistiksel dağılım."
       }
     },
     {
@@ -95,10 +103,12 @@
         "99"
       ],
       "label_i18n": {
-        "en": "Confidence Level"
+        "en": "Confidence Level",
+        "tr": "Güven Düzeyi"
       },
       "businessContext_i18n": {
-        "en": "Desired confidence level for interval estimates."
+        "en": "Desired confidence level for interval estimates.",
+        "tr": "Aralık tahminleri için istenen güven düzeyi."
       }
     },
     {
@@ -111,10 +121,12 @@
       "max": null,
       "businessContext": "If true, applies a correction factor based on past process performance.",
       "label_i18n": {
-        "en": "Apply Historical Bias Correction"
+        "en": "Apply Historical Bias Correction",
+        "tr": "Geçmiş Yanlılık Düzeltmesi Uygula"
       },
       "businessContext_i18n": {
-        "en": "If true, applies a correction factor based on past process performance."
+        "en": "If true, applies a correction factor based on past process performance.",
+        "tr": "Doğruysa, geçmiş proses performansına dayalı bir düzeltme faktörü uygular."
       }
     }
   ],

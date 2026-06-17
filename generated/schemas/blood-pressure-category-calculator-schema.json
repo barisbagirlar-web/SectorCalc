@@ -10,11 +10,15 @@
       "businessContext": "Maximum arterial pressure during left ventricular contraction.",
       "label_i18n": {
         "en": "Systolic Pressure",
-        "tr": "Systolic Pressure",
+        "tr": "Sistolik Basınç",
         "de": "Systolic Pressure",
         "fr": "Systolic Pressure",
         "es": "Systolic Pressure",
         "ar": "Systolic Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum arterial pressure during left ventricular contraction.",
+        "tr": "Sol ventrikül kasılması sırasında maksimum arter basıncı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Minimum arterial pressure during ventricular relaxation.",
       "label_i18n": {
         "en": "Diastolic Pressure",
-        "tr": "Diastolic Pressure",
+        "tr": "Diyastolik Basınç",
         "de": "Diastolic Pressure",
         "fr": "Diastolic Pressure",
         "es": "Diastolic Pressure",
         "ar": "Diastolic Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum arterial pressure during ventricular relaxation.",
+        "tr": "Ventriküler gevşeme sırasında minimum arter basıncı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of heartbeats per minute.",
       "label_i18n": {
         "en": "Heart Rate",
-        "tr": "Heart Rate",
+        "tr": "Kalp Atış Hızı",
         "de": "Heart Rate",
         "fr": "Heart Rate",
         "es": "Heart Rate",
         "ar": "Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Number of heartbeats per minute.",
+        "tr": "Dakikadaki kalp atışı sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Minutes of rest before measurement to ensure accurate reading.",
       "label_i18n": {
         "en": "Rest Duration",
-        "tr": "Rest Duration",
+        "tr": "Dinlenme Süresi",
         "de": "Rest Duration",
         "fr": "Rest Duration",
         "es": "Rest Duration",
         "ar": "Rest Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes of rest before measurement to ensure accurate reading.",
+        "tr": "Doğru ölçüm için ölçüm öncesi dinlenme dakikası."
       }
     }
   ],

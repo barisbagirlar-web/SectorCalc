@@ -10,11 +10,15 @@
       "businessContext": "Coefficient for sin(x) term",
       "label_i18n": {
         "en": "Coefficient a",
-        "tr": "Coefficient a",
+        "tr": "Katsayı a",
         "de": "Coefficient a",
         "fr": "Coefficient a",
         "es": "Coefficient a",
         "ar": "Coefficient a"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for sin(x) term",
+        "tr": "sin(x) terimi için katsayı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Coefficient for cos(y) term",
       "label_i18n": {
         "en": "Coefficient b",
-        "tr": "Coefficient b",
+        "tr": "Katsayı b",
         "de": "Coefficient b",
         "fr": "Coefficient b",
         "es": "Coefficient b",
         "ar": "Coefficient b"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for cos(y) term",
+        "tr": "cos(y) terimi için katsayı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Coefficient for cross term x*y",
       "label_i18n": {
         "en": "Coefficient c",
-        "tr": "Coefficient c",
+        "tr": "Katsayı c",
         "de": "Coefficient c",
         "fr": "Coefficient c",
         "es": "Coefficient c",
         "ar": "Coefficient c"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient for cross term x*y",
+        "tr": "x*y çapraz terimi için katsayı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Point of evaluation (x coordinate)",
       "label_i18n": {
         "en": "X value",
-        "tr": "X value",
+        "tr": "X değeri",
         "de": "X value",
         "fr": "X value",
         "es": "X value",
         "ar": "X value"
+      },
+      "businessContext_i18n": {
+        "en": "Point of evaluation (x coordinate)",
+        "tr": "Değerlendirme noktası (x koordinatı)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Point of evaluation (y coordinate)",
       "label_i18n": {
         "en": "Y value",
-        "tr": "Y value",
+        "tr": "Y değeri",
         "de": "Y value",
         "fr": "Y value",
         "es": "Y value",
         "ar": "Y value"
+      },
+      "businessContext_i18n": {
+        "en": "Point of evaluation (y coordinate)",
+        "tr": "Değerlendirme noktası (y koordinatı)"
       }
     }
   ],

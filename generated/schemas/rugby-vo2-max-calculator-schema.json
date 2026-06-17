@@ -10,11 +10,15 @@
       "businessContext": "Subject's body weight in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Subject's body weight in kilograms",
+        "tr": "Deneğin kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Subject's age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Subject's age in years",
+        "tr": "Deneğin yıl cinsinden yaşı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Biological gender encoded as 0 for female, 1 for male",
       "label_i18n": {
         "en": "Gender (0=Female, 1=Male)",
-        "tr": "Gender (0=Female, 1=Male)",
+        "tr": "Cinsiyet (0=Kadın, 1=Erkek)",
         "de": "Gender (0=Female, 1=Male)",
         "fr": "Gender (0=Female, 1=Male)",
         "es": "Gender (0=Female, 1=Male)",
         "ar": "Gender (0=Female, 1=Male)"
+      },
+      "businessContext_i18n": {
+        "en": "Biological gender encoded as 0 for female, 1 for male",
+        "tr": "Biyolojik cinsiyet: 0 kadın, 1 erkek"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time taken to walk 1 mile in minutes",
       "label_i18n": {
         "en": "1-Mile Walk Time",
-        "tr": "1-Mile Walk Time",
+        "tr": "1 Mil Yürüme Süresi",
         "de": "1-Mile Walk Time",
         "fr": "1-Mile Walk Time",
         "es": "1-Mile Walk Time",
         "ar": "1-Mile Walk Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time taken to walk 1 mile in minutes",
+        "tr": "1 mil yürümek için geçen dakika cinsinden süre"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Heart rate immediately after completing the 1-mile walk in beats per minute",
       "label_i18n": {
         "en": "End Heart Rate",
-        "tr": "End Heart Rate",
+        "tr": "Bitiş Kalp Atış Hızı",
         "de": "End Heart Rate",
         "fr": "End Heart Rate",
         "es": "End Heart Rate",
         "ar": "End Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Heart rate immediately after completing the 1-mile walk in beats per minute",
+        "tr": "1 millik yürüyüşü tamamladıktan hemen sonra dakikadaki kalp atış sayısı"
       }
     }
   ],

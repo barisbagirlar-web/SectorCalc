@@ -10,11 +10,15 @@
       "businessContext": "The principal amount to be transferred in US dollars.",
       "label_i18n": {
         "en": "Transfer Amount",
-        "tr": "Transfer Amount",
+        "tr": "Transfer Tutarı",
         "de": "Transfer Amount",
         "fr": "Transfer Amount",
         "es": "Transfer Amount",
         "ar": "Transfer Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The principal amount to be transferred in US dollars.",
+        "tr": "ABD doları cinsinden transfer edilecek anapara tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Fixed fee charged by the sending bank.",
       "label_i18n": {
         "en": "Sender's Flat Fee",
-        "tr": "Sender's Flat Fee",
+        "tr": "Gönderen Banka Sabit Ücreti",
         "de": "Sender's Flat Fee",
         "fr": "Sender's Flat Fee",
         "es": "Sender's Flat Fee",
         "ar": "Sender's Flat Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed fee charged by the sending bank.",
+        "tr": "Gönderen banka tarafından alınan sabit ücret."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage fee charged by the sending bank on the transfer amount.",
       "label_i18n": {
         "en": "Sender's Percentage Fee",
-        "tr": "Sender's Percentage Fee",
+        "tr": "Gönderen Banka Yüzde Ücreti",
         "de": "Sender's Percentage Fee",
         "fr": "Sender's Percentage Fee",
         "es": "Sender's Percentage Fee",
         "ar": "Sender's Percentage Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage fee charged by the sending bank on the transfer amount.",
+        "tr": "Gönderen banka tarafından transfer tutarı üzerinden alınan yüzde ücret."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fixed fee charged by any intermediary bank, typically for international transfers.",
       "label_i18n": {
         "en": "Intermediary Bank Flat Fee",
-        "tr": "Intermediary Bank Flat Fee",
+        "tr": "Aracı Banka Sabit Ücreti",
         "de": "Intermediary Bank Flat Fee",
         "fr": "Intermediary Bank Flat Fee",
         "es": "Intermediary Bank Flat Fee",
         "ar": "Intermediary Bank Flat Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed fee charged by any intermediary bank, typically for international transfers.",
+        "tr": "Herhangi bir aracı banka tarafından alınan sabit ücret, genellikle uluslararası transferlerde."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fixed fee charged by the receiving bank.",
       "label_i18n": {
         "en": "Receiver's Flat Fee",
-        "tr": "Receiver's Flat Fee",
+        "tr": "Alıcı Banka Sabit Ücreti",
         "de": "Receiver's Flat Fee",
         "fr": "Receiver's Flat Fee",
         "es": "Receiver's Flat Fee",
         "ar": "Receiver's Flat Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed fee charged by the receiving bank.",
+        "tr": "Alıcı banka tarafından alınan sabit ücret."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Set to 1 if the transfer is international (involves intermediary/receiver fees), 0 for domestic.",
       "label_i18n": {
         "en": "International Transfer",
-        "tr": "International Transfer",
+        "tr": "Uluslararası Transfer",
         "de": "International Transfer",
         "fr": "International Transfer",
         "es": "International Transfer",
         "ar": "International Transfer"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 if the transfer is international (involves intermediary/receiver fees), 0 for domestic.",
+        "tr": "Transfer uluslararası ise (aracı/alıcı ücretleri içeriyorsa) 1, yurtiçi ise 0 olarak ayarlayın."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Annual net operating income from core business operations, before debt service and taxes.",
       "label_i18n": {
         "en": "Net Operating Income",
-        "tr": "Net Operating Income",
+        "tr": "Net Faaliyet Geliri",
         "de": "Net Operating Income",
         "fr": "Net Operating Income",
         "es": "Net Operating Income",
         "ar": "Net Operating Income"
+      },
+      "businessContext_i18n": {
+        "en": "Annual net operating income from core business operations, before debt service and taxes.",
+        "tr": "Temel iş faaliyetlerinden elde edilen yıllık net faaliyet geliri, borç servisi ve vergiler öncesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual principal repayments on all business debts (loans, mortgages, etc.).",
       "label_i18n": {
         "en": "Principal Repayments",
-        "tr": "Principal Repayments",
+        "tr": "Anapara Geri Ödemeleri",
         "de": "Principal Repayments",
         "fr": "Principal Repayments",
         "es": "Principal Repayments",
         "ar": "Principal Repayments"
+      },
+      "businessContext_i18n": {
+        "en": "Annual principal repayments on all business debts (loans, mortgages, etc.).",
+        "tr": "Tüm işletme borçlarına (krediler, ipotekler vb.) ilişkin yıllık anapara geri ödemeleri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Annual interest payments on all business debts.",
       "label_i18n": {
         "en": "Interest Payments",
-        "tr": "Interest Payments",
+        "tr": "Faiz Ödemeleri",
         "de": "Interest Payments",
         "fr": "Interest Payments",
         "es": "Interest Payments",
         "ar": "Interest Payments"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest payments on all business debts.",
+        "tr": "Tüm işletme borçlarına ilişkin yıllık faiz ödemeleri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual lease payments considered as debt obligations. Enter 0 if none.",
       "label_i18n": {
         "en": "Lease Payments",
-        "tr": "Lease Payments",
+        "tr": "Kira Ödemeleri",
         "de": "Lease Payments",
         "fr": "Lease Payments",
         "es": "Lease Payments",
         "ar": "Lease Payments"
+      },
+      "businessContext_i18n": {
+        "en": "Annual lease payments considered as debt obligations. Enter 0 if none.",
+        "tr": "Borç yükümlülüğü olarak kabul edilen yıllık kira ödemeleri. Yoksa 0 girin."
       }
     }
   ],

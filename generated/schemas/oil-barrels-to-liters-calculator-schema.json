@@ -10,11 +10,15 @@
       "businessContext": "The number of oil barrels to convert. Standard oil barrel is 42 US gallons.",
       "label_i18n": {
         "en": "Oil Barrels",
-        "tr": "Oil Barrels",
+        "tr": "Petrol Varili",
         "de": "Oil Barrels",
         "fr": "Oil Barrels",
         "es": "Oil Barrels",
         "ar": "Oil Barrels"
+      },
+      "businessContext_i18n": {
+        "en": "The number of oil barrels to convert. Standard oil barrel is 42 US gallons.",
+        "tr": "Dönüştürülecek petrol varili sayısı. Standart petrol varili 42 ABD galonudur."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Temperature at which the volume is measured.",
       "label_i18n": {
         "en": "Observed Temperature",
-        "tr": "Observed Temperature",
+        "tr": "Gözlemlenen Sıcaklık",
         "de": "Observed Temperature",
         "fr": "Observed Temperature",
         "es": "Observed Temperature",
         "ar": "Observed Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature at which the volume is measured.",
+        "tr": "Hacmin ölçüldüğü sıcaklık."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Reference temperature for standard volume (typically 15°C or 60°F).",
       "label_i18n": {
         "en": "Reference Temperature",
-        "tr": "Reference Temperature",
+        "tr": "Referans Sıcaklık",
         "de": "Reference Temperature",
         "fr": "Reference Temperature",
         "es": "Reference Temperature",
         "ar": "Reference Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Reference temperature for standard volume (typically 15°C or 60°F).",
+        "tr": "Standart hacim için referans sıcaklık (genellikle 15°C veya 60°F)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Coefficient of volumetric thermal expansion for the oil. Typical range for crude oil: 0.0006 to 0.0008 per °C.",
       "label_i18n": {
         "en": "Thermal Expansion Coefficient",
-        "tr": "Thermal Expansion Coefficient",
+        "tr": "Termal Genleşme Katsayısı",
         "de": "Thermal Expansion Coefficient",
         "fr": "Thermal Expansion Coefficient",
         "es": "Thermal Expansion Coefficient",
         "ar": "Thermal Expansion Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of volumetric thermal expansion for the oil. Typical range for crude oil: 0.0006 to 0.0008 per °C.",
+        "tr": "Petrol için hacimsel termal genleşme katsayısı. Ham petrol için tipik aralık: °C başına 0,0006 ila 0,0008."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     }
   ],

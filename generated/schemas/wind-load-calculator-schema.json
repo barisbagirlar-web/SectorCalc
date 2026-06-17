@@ -19,10 +19,12 @@
       "max": 100,
       "businessContext": "Design wind speed at 10m height for the location, typically from local building codes.",
       "label_i18n": {
-        "en": "Basic Wind Speed (V)"
+        "en": "Basic Wind Speed (V)",
+        "tr": "Temel Rüzgar Hızı (V)"
       },
       "businessContext_i18n": {
-        "en": "Design wind speed at 10m height for the location, typically from local building codes."
+        "en": "Design wind speed at 10m height for the location, typically from local building codes.",
+        "tr": "Bölge için 10m yükseklikteki tasarım rüzgar hızı, genellikle yerel bina yönetmeliklerinden alınır."
       }
     },
     {
@@ -41,10 +43,12 @@
       ],
       "businessContext": "Terrain roughness per ISO 4354: A=open sea, B=open country, C=suburban, D=urban.",
       "label_i18n": {
-        "en": "Terrain Category"
+        "en": "Terrain Category",
+        "tr": "Arazi Kategorisi"
       },
       "businessContext_i18n": {
-        "en": "Terrain roughness per ISO 4354: A=open sea, B=open country, C=suburban, D=urban."
+        "en": "Terrain roughness per ISO 4354: A=open sea, B=open country, C=suburban, D=urban.",
+        "tr": "ISO 4354'e göre arazi pürüzlülüğü: A=açık deniz, B=açık arazi, C=banliyö, D=kentsel."
       }
     },
     {
@@ -57,10 +61,12 @@
       "max": 500,
       "businessContext": "Height above ground to the top of the structure.",
       "label_i18n": {
-        "en": "Building Height (z)"
+        "en": "Building Height (z)",
+        "tr": "Bina Yüksekliği (z)"
       },
       "businessContext_i18n": {
-        "en": "Height above ground to the top of the structure."
+        "en": "Height above ground to the top of the structure.",
+        "tr": "Yapının tepesine kadar yerden yükseklik."
       }
     },
     {
@@ -73,10 +79,12 @@
       "max": 2,
       "businessContext": "Adjustment for local topography and shielding, per ASCE 7.",
       "label_i18n": {
-        "en": "Exposure Factor (Ce)"
+        "en": "Exposure Factor (Ce)",
+        "tr": "Maruziyet Faktörü (Ce)"
       },
       "businessContext_i18n": {
-        "en": "Adjustment for local topography and shielding, per ASCE 7."
+        "en": "Adjustment for local topography and shielding, per ASCE 7.",
+        "tr": "ASCE 7'ye göre yerel topografya ve korunma için ayarlama."
       }
     },
     {
@@ -89,10 +97,12 @@
       "max": 1.2,
       "businessContext": "Dynamic response factor for wind gusts, typically 0.85 for rigid structures.",
       "label_i18n": {
-        "en": "Gust Effect Factor (G)"
+        "en": "Gust Effect Factor (G)",
+        "tr": "Rüzgar Etkisi Faktörü (G)"
       },
       "businessContext_i18n": {
-        "en": "Dynamic response factor for wind gusts, typically 0.85 for rigid structures."
+        "en": "Dynamic response factor for wind gusts, typically 0.85 for rigid structures.",
+        "tr": "Rüzgar esintileri için dinamik tepki faktörü, rijit yapılar için tipik olarak 0.85."
       }
     },
     {
@@ -105,10 +115,12 @@
       "max": 1.5,
       "businessContext": "Aerodynamic shape factor for the building surface (positive for windward, negative for leeward).",
       "label_i18n": {
-        "en": "Pressure Coefficient (Cp)"
+        "en": "Pressure Coefficient (Cp)",
+        "tr": "Basınç Katsayısı (Cp)"
       },
       "businessContext_i18n": {
-        "en": "Aerodynamic shape factor for the building surface (positive for windward, negative for leeward)."
+        "en": "Aerodynamic shape factor for the building surface (positive for windward, negative for leeward).",
+        "tr": "Bina yüzeyi için aerodinamik şekil faktörü (rüzgar yönünde pozitif, rüzgar altında negatif)."
       }
     },
     {
@@ -121,10 +133,12 @@
       "max": 1.5,
       "businessContext": "Standard air density at sea level, adjust for altitude if needed.",
       "label_i18n": {
-        "en": "Air Density (ρ)"
+        "en": "Air Density (ρ)",
+        "tr": "Hava Yoğunluğu (ρ)"
       },
       "businessContext_i18n": {
-        "en": "Standard air density at sea level, adjust for altitude if needed."
+        "en": "Standard air density at sea level, adjust for altitude if needed.",
+        "tr": "Deniz seviyesinde standart hava yoğunluğu, gerekiyorsa irtifa için ayarlayın."
       }
     },
     {
@@ -137,10 +151,12 @@
       "max": null,
       "businessContext": "If true, applies fatigue reduction factor per ISO 4354 for dynamic wind events.",
       "label_i18n": {
-        "en": "Cyclic Loading Consideration"
+        "en": "Cyclic Loading Consideration",
+        "tr": "Döngüsel Yükleme Değerlendirmesi"
       },
       "businessContext_i18n": {
-        "en": "If true, applies fatigue reduction factor per ISO 4354 for dynamic wind events."
+        "en": "If true, applies fatigue reduction factor per ISO 4354 for dynamic wind events.",
+        "tr": "Doğruysa, dinamik rüzgar olayları için ISO 4354'e göre yorulma azaltma faktörü uygulanır."
       }
     }
   ],

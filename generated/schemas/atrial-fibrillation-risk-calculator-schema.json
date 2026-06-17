@@ -10,11 +10,15 @@
       "businessContext": "Presence of congestive heart failure (0=No, 1=Yes)",
       "label_i18n": {
         "en": "Congestive Heart Failure",
-        "tr": "Congestive Heart Failure",
+        "tr": "Konjestif Kalp Yetmezliği",
         "de": "Congestive Heart Failure",
         "fr": "Congestive Heart Failure",
         "es": "Congestive Heart Failure",
         "ar": "Congestive Heart Failure"
+      },
+      "businessContext_i18n": {
+        "en": "Presence of congestive heart failure (0=No, 1=Yes)",
+        "tr": "Konjestif kalp yetmezliği varlığı (0=Hayır, 1=Evet)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Diagnosed hypertension (0=No, 1=Yes)",
       "label_i18n": {
         "en": "Hypertension",
-        "tr": "Hypertension",
+        "tr": "Hipertansiyon",
         "de": "Hypertension",
         "fr": "Hypertension",
         "es": "Hypertension",
         "ar": "Hypertension"
+      },
+      "businessContext_i18n": {
+        "en": "Diagnosed hypertension (0=No, 1=Yes)",
+        "tr": "Tanı konmuş hipertansiyon (0=Hayır, 1=Evet)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Patient age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age in years",
+        "tr": "Hasta yaşı (yıl)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Diagnosed diabetes mellitus (0=No, 1=Yes)",
       "label_i18n": {
         "en": "Diabetes",
-        "tr": "Diabetes",
+        "tr": "Diyabet",
         "de": "Diabetes",
         "fr": "Diabetes",
         "es": "Diabetes",
         "ar": "Diabetes"
+      },
+      "businessContext_i18n": {
+        "en": "Diagnosed diabetes mellitus (0=No, 1=Yes)",
+        "tr": "Tanı konmuş diabetes mellitus (0=Hayır, 1=Evet)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "History of stroke or transient ischemic attack (0=No, 1=Yes)",
       "label_i18n": {
         "en": "Prior Stroke or TIA",
-        "tr": "Prior Stroke or TIA",
+        "tr": "Önceki İnme veya TİA",
         "de": "Prior Stroke or TIA",
         "fr": "Prior Stroke or TIA",
         "es": "Prior Stroke or TIA",
         "ar": "Prior Stroke or TIA"
+      },
+      "businessContext_i18n": {
+        "en": "History of stroke or transient ischemic attack (0=No, 1=Yes)",
+        "tr": "İnme veya geçici iskemik atak öyküsü (0=Hayır, 1=Evet)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Presence of vascular disease (0=No, 1=Yes)",
       "label_i18n": {
         "en": "Vascular Disease",
-        "tr": "Vascular Disease",
+        "tr": "Vasküler Hastalık",
         "de": "Vascular Disease",
         "fr": "Vascular Disease",
         "es": "Vascular Disease",
         "ar": "Vascular Disease"
+      },
+      "businessContext_i18n": {
+        "en": "Presence of vascular disease (0=No, 1=Yes)",
+        "tr": "Vasküler hastalık varlığı (0=Hayır, 1=Evet)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Patient sex (0=Male, 1=Female)",
       "label_i18n": {
         "en": "Sex (Female=1)",
-        "tr": "Sex (Female=1)",
+        "tr": "Cinsiyet (Kadın=1)",
         "de": "Sex (Female=1)",
         "fr": "Sex (Female=1)",
         "es": "Sex (Female=1)",
         "ar": "Sex (Female=1)"
+      },
+      "businessContext_i18n": {
+        "en": "Patient sex (0=Male, 1=Female)",
+        "tr": "Hasta cinsiyeti (0=Erkek, 1=Kadın)"
       }
     }
   ],

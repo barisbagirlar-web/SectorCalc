@@ -10,11 +10,15 @@
       "businessContext": "floor-to-floor height",
       "label_i18n": {
         "en": "Total Rise",
-        "tr": "Total Rise",
+        "tr": "Toplam Yükseklik",
         "de": "Total Rise",
         "fr": "Total Rise",
         "es": "Total Rise",
         "ar": "Total Rise"
+      },
+      "businessContext_i18n": {
+        "en": "floor-to-floor height",
+        "tr": "Katlar arası döşeme yüksekliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "desired number of steps (risers)",
       "label_i18n": {
         "en": "Number of Risers",
-        "tr": "Number of Risers",
+        "tr": "Rıht Sayısı",
         "de": "Number of Risers",
         "fr": "Number of Risers",
         "es": "Number of Risers",
         "ar": "Number of Risers"
+      },
+      "businessContext_i18n": {
+        "en": "desired number of steps (risers)",
+        "tr": "İstenen basamak (rıht) sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "horizontal depth of each tread",
       "label_i18n": {
         "en": "Tread Depth",
-        "tr": "Tread Depth",
+        "tr": "Basamak Derinliği",
         "de": "Tread Depth",
         "fr": "Tread Depth",
         "es": "Tread Depth",
         "ar": "Tread Depth"
+      },
+      "businessContext_i18n": {
+        "en": "horizontal depth of each tread",
+        "tr": "Her bir basamağın yatay derinliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "width of the staircase",
       "label_i18n": {
         "en": "Stair Width",
-        "tr": "Stair Width",
+        "tr": "Merdiven Genişliği",
         "de": "Stair Width",
         "fr": "Stair Width",
         "es": "Stair Width",
         "ar": "Stair Width"
+      },
+      "businessContext_i18n": {
+        "en": "width of the staircase",
+        "tr": "Merdiven kolunun genişliği"
       }
     }
   ],

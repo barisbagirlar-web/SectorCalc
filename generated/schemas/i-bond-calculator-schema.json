@@ -10,11 +10,15 @@
       "businessContext": "The amount you invest in I Bonds",
       "label_i18n": {
         "en": "Investment Amount",
-        "tr": "Investment Amount",
+        "tr": "Yatırım Tutarı",
         "de": "Investment Amount",
         "fr": "Investment Amount",
         "es": "Investment Amount",
         "ar": "Investment Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The amount you invest in I Bonds",
+        "tr": "I Bond'larına yatırdığınız miktar"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The fixed rate set by the Treasury for the bond",
       "label_i18n": {
         "en": "Fixed Rate (%)",
-        "tr": "Fixed Rate (%)",
+        "tr": "Sabit Oran (%)",
         "de": "Fixed Rate (%)",
         "fr": "Fixed Rate (%)",
         "es": "Fixed Rate (%)",
         "ar": "Fixed Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The fixed rate set by the Treasury for the bond",
+        "tr": "Hazine tarafından tahvil için belirlenen sabit oran"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The annual inflation rate based on CPI-U",
       "label_i18n": {
         "en": "Inflation Rate (%)",
-        "tr": "Inflation Rate (%)",
+        "tr": "Enflasyon Oranı (%)",
         "de": "Inflation Rate (%)",
         "fr": "Inflation Rate (%)",
         "es": "Inflation Rate (%)",
         "ar": "Inflation Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The annual inflation rate based on CPI-U",
+        "tr": "TÜFE-FE'ye dayalı yıllık enflasyon oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of years the bond is held (1-30)",
       "label_i18n": {
         "en": "Years Held",
-        "tr": "Years Held",
+        "tr": "Tutulan Yıl Sayısı",
         "de": "Years Held",
         "fr": "Years Held",
         "es": "Years Held",
         "ar": "Years Held"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the bond is held (1-30)",
+        "tr": "Tahvilin tutulduğu yıl sayısı (1-30)"
       }
     }
   ],

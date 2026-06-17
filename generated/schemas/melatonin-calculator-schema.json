@@ -10,11 +10,15 @@
       "businessContext": "User age for base dose adjustment",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "User age for base dose adjustment",
+        "tr": "Temel doz ayarlaması için kullanıcı yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Weight used to increase dose if over 90 kg",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight used to increase dose if over 90 kg",
+        "tr": "Dozu artırmak için kullanılan ağırlık (90 kg üzeri)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Indicates whether user works night shift",
       "label_i18n": {
         "en": "Night Shift",
-        "tr": "Night Shift",
+        "tr": "Gece Vardiyası",
         "de": "Night Shift",
         "fr": "Night Shift",
         "es": "Night Shift",
         "ar": "Night Shift"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether user works night shift",
+        "tr": "Kullanıcının gece vardiyasında çalışıp çalışmadığını belirtir"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Severity of jet lag; adds up to 0.5 mg",
       "label_i18n": {
         "en": "Jet Lag Severity",
-        "tr": "Jet Lag Severity",
+        "tr": "Jet Lag Şiddeti",
         "de": "Jet Lag Severity",
         "fr": "Jet Lag Severity",
         "es": "Jet Lag Severity",
         "ar": "Jet Lag Severity"
+      },
+      "businessContext_i18n": {
+        "en": "Severity of jet lag; adds up to 0.5 mg",
+        "tr": "Jet lag şiddeti; 0,5 mg'a kadar ekler"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Duration of backpacking trip",
       "label_i18n": {
         "en": "Trip Duration",
-        "tr": "Trip Duration",
+        "tr": "Seyahat Süresi",
         "de": "Trip Duration",
         "fr": "Trip Duration",
         "es": "Trip Duration",
         "ar": "Trip Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of backpacking trip",
+        "tr": "Sırt çantasıyla seyahat süresi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Planned hiking distance per day",
       "label_i18n": {
         "en": "Daily Distance",
-        "tr": "Daily Distance",
+        "tr": "Günlük Mesafe",
         "de": "Daily Distance",
         "fr": "Daily Distance",
         "es": "Daily Distance",
         "ar": "Daily Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Planned hiking distance per day",
+        "tr": "Günlük planlanan yürüyüş mesafesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average elevation gain per day",
       "label_i18n": {
         "en": "Daily Elevation Gain",
-        "tr": "Daily Elevation Gain",
+        "tr": "Günlük Yükseklik Kazancı",
         "de": "Daily Elevation Gain",
         "fr": "Daily Elevation Gain",
         "es": "Daily Elevation Gain",
         "ar": "Daily Elevation Gain"
+      },
+      "businessContext_i18n": {
+        "en": "Average elevation gain per day",
+        "tr": "Günlük ortalama yükseklik kazancı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Weight of all gear excluding food and water",
       "label_i18n": {
         "en": "Base Pack Weight",
-        "tr": "Base Pack Weight",
+        "tr": "Temel Sırt Çantası Ağırlığı",
         "de": "Base Pack Weight",
         "fr": "Base Pack Weight",
         "es": "Base Pack Weight",
         "ar": "Base Pack Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of all gear excluding food and water",
+        "tr": "Yiyecek ve su hariç tüm ekipmanın ağırlığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Weight of food carried per day",
       "label_i18n": {
         "en": "Daily Food Weight",
-        "tr": "Daily Food Weight",
+        "tr": "Günlük Yiyecek Ağırlığı",
         "de": "Daily Food Weight",
         "fr": "Daily Food Weight",
         "es": "Daily Food Weight",
         "ar": "Daily Food Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of food carried per day",
+        "tr": "Günlük taşınan yiyecek ağırlığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Weight of water carried per day (1 L ≈ 1 kg)",
       "label_i18n": {
         "en": "Daily Water Weight",
-        "tr": "Daily Water Weight",
+        "tr": "Günlük Su Ağırlığı",
         "de": "Daily Water Weight",
         "fr": "Daily Water Weight",
         "es": "Daily Water Weight",
         "ar": "Daily Water Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of water carried per day (1 L ≈ 1 kg)",
+        "tr": "Günlük taşınan su ağırlığı (1 L ≈ 1 kg)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Hiker's body weight used for calorie estimation",
       "label_i18n": {
         "en": "Hiker Body Weight",
-        "tr": "Hiker Body Weight",
+        "tr": "Yürüyüşçü Vücut Ağırlığı",
         "de": "Hiker Body Weight",
         "fr": "Hiker Body Weight",
         "es": "Hiker Body Weight",
         "ar": "Hiker Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Hiker's body weight used for calorie estimation",
+        "tr": "Kalori tahmini için kullanılan yürüyüşçünün vücut ağırlığı."
       }
     }
   ],

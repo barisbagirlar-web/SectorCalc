@@ -10,11 +10,15 @@
       "businessContext": "Base price of the luxury item before tax",
       "label_i18n": {
         "en": "Item Price",
-        "tr": "Item Price",
+        "tr": "Ürün Fiyatı",
         "de": "Item Price",
         "fr": "Item Price",
         "es": "Item Price",
         "ar": "Item Price"
+      },
+      "businessContext_i18n": {
+        "en": "Base price of the luxury item before tax",
+        "tr": "Vergi öncesi lüks ürünün taban fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Price threshold above which luxury tax applies",
       "label_i18n": {
         "en": "Tax Threshold",
-        "tr": "Tax Threshold",
+        "tr": "Vergi Eşiği",
         "de": "Tax Threshold",
         "fr": "Tax Threshold",
         "es": "Tax Threshold",
         "ar": "Tax Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Price threshold above which luxury tax applies",
+        "tr": "Lüks vergisinin uygulanacağı fiyat eşiği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Luxury tax rate as a percentage",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Luxury tax rate as a percentage",
+        "tr": "Yüzde olarak lüks vergi oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical luxury items",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical luxury items",
+        "tr": "Aynı lüks ürünlerin adedi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fixed deduction from taxable amount per item",
       "label_i18n": {
         "en": "Fixed Deduction",
-        "tr": "Fixed Deduction",
+        "tr": "Sabit İndirim",
         "de": "Fixed Deduction",
         "fr": "Fixed Deduction",
         "es": "Fixed Deduction",
         "ar": "Fixed Deduction"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed deduction from taxable amount per item",
+        "tr": "Ürün başına vergilendirilebilir tutardan düşülen sabit indirim"
       }
     }
   ],

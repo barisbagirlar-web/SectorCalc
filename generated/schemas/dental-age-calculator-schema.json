@@ -10,11 +10,15 @@
       "businessContext": "Width of the tooth measured from mesial to distal contact points, typically from dental X-ray or impression.",
       "label_i18n": {
         "en": "Mesiodistal Width",
-        "tr": "Mesiodistal Width",
+        "tr": "Meziyodistal Genişlik",
         "de": "Mesiodistal Width",
         "fr": "Mesiodistal Width",
         "es": "Mesiodistal Width",
         "ar": "Mesiodistal Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the tooth measured from mesial to distal contact points, typically from dental X-ray or impression.",
+        "tr": "Dişin meziyal ve distal temas noktaları arasında ölçülen genişlik, genellikle dental röntgen veya ölçüden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the tooth measured from buccal (cheek) to lingual (tongue) surface.",
       "label_i18n": {
         "en": "Buccolingual Width",
-        "tr": "Buccolingual Width",
+        "tr": "Bukkolingual Genişlik",
         "de": "Buccolingual Width",
         "fr": "Buccolingual Width",
         "es": "Buccolingual Width",
         "ar": "Buccolingual Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the tooth measured from buccal (cheek) to lingual (tongue) surface.",
+        "tr": "Dişin bukkal (yanak) ve lingual (dil) yüzeyleri arasında ölçülen genişlik."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance from the cementoenamel junction to the incisal edge or cusp tip.",
       "label_i18n": {
         "en": "Crown Length",
-        "tr": "Crown Length",
+        "tr": "Kuron Uzunluğu",
         "de": "Crown Length",
         "fr": "Crown Length",
         "es": "Crown Length",
         "ar": "Crown Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from the cementoenamel junction to the incisal edge or cusp tip.",
+        "tr": "Semento-mine birleşiminden kesici kenar veya tüberkül tepesine olan mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Length of the root from cementoenamel junction to apex, visible on radiograph.",
       "label_i18n": {
         "en": "Root Length",
-        "tr": "Root Length",
+        "tr": "Kök Uzunluğu",
         "de": "Root Length",
         "fr": "Root Length",
         "es": "Root Length",
         "ar": "Root Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the root from cementoenamel junction to apex, visible on radiograph.",
+        "tr": "Semento-mine birleşiminden apeks'e kadar olan kök uzunluğu, radyografide görünür."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Count of permanent teeth fully emerged through gingiva and in functional occlusion.",
       "label_i18n": {
         "en": "Number of Fully Erupted Permanent Teeth",
-        "tr": "Number of Fully Erupted Permanent Teeth",
+        "tr": "Tamamen Sürmüş Daimi Diş Sayısı",
         "de": "Number of Fully Erupted Permanent Teeth",
         "fr": "Number of Fully Erupted Permanent Teeth",
         "es": "Number of Fully Erupted Permanent Teeth",
         "ar": "Number of Fully Erupted Permanent Teeth"
+      },
+      "businessContext_i18n": {
+        "en": "Count of permanent teeth fully emerged through gingiva and in functional occlusion.",
+        "tr": "Diş etinden tamamen çıkmış ve fonksiyonel oklüzyonda olan daimi diş sayısı."
       }
     }
   ],

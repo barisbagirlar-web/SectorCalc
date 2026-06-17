@@ -10,11 +10,15 @@
       "businessContext": "Density of string material (e.g., steel: 7850 kg/m³)",
       "label_i18n": {
         "en": "Material Density",
-        "tr": "Material Density",
+        "tr": "Malzeme Yoğunluğu",
         "de": "Material Density",
         "fr": "Material Density",
         "es": "Material Density",
         "ar": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of string material (e.g., steel: 7850 kg/m³)",
+        "tr": "Tel malzemesinin yoğunluğu (örn., çelik: 7850 kg/m³)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Diameter of the string in millimeters",
       "label_i18n": {
         "en": "String Diameter",
-        "tr": "String Diameter",
+        "tr": "Tel Çapı",
         "de": "String Diameter",
         "fr": "String Diameter",
         "es": "String Diameter",
         "ar": "String Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the string in millimeters",
+        "tr": "Telin milimetre cinsinden çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Vibrating length of the string in centimeters",
       "label_i18n": {
         "en": "String Length",
-        "tr": "String Length",
+        "tr": "Tel Uzunluğu",
         "de": "String Length",
         "fr": "String Length",
         "es": "String Length",
         "ar": "String Length"
+      },
+      "businessContext_i18n": {
+        "en": "Vibrating length of the string in centimeters",
+        "tr": "Telin santimetre cinsinden titreşim uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fundamental frequency of vibration (e.g., A4 = 440 Hz)",
       "label_i18n": {
         "en": "Frequency",
-        "tr": "Frequency",
+        "tr": "Frekans",
         "de": "Frequency",
         "fr": "Frequency",
         "es": "Frequency",
         "ar": "Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Fundamental frequency of vibration (e.g., A4 = 440 Hz)",
+        "tr": "Temel titreşim frekansı (örn., A4 = 440 Hz)"
       }
     }
   ],

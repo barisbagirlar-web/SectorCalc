@@ -10,11 +10,15 @@
       "businessContext": "Total observed failures during monitoring period",
       "label_i18n": {
         "en": "Number of Failures",
-        "tr": "Number of Failures",
+        "tr": "Arıza Sayısı",
         "de": "Number of Failures",
         "fr": "Number of Failures",
         "es": "Number of Failures",
         "ar": "Number of Failures"
+      },
+      "businessContext_i18n": {
+        "en": "Total observed failures during monitoring period",
+        "tr": "İzleme periyodu boyunca toplam gözlemlenen arıza sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total elapsed time in hours (e.g., 8760 h/year)",
       "label_i18n": {
         "en": "Total Calendar Time",
-        "tr": "Total Calendar Time",
+        "tr": "Toplam Takvim Süresi",
         "de": "Total Calendar Time",
         "fr": "Total Calendar Time",
         "es": "Total Calendar Time",
         "ar": "Total Calendar Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total elapsed time in hours (e.g., 8760 h/year)",
+        "tr": "Saat cinsinden toplam geçen süre (ör. yılda 8760 saat)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of units under test or in operation",
       "label_i18n": {
         "en": "Number of Units",
-        "tr": "Number of Units",
+        "tr": "Birim Sayısı",
         "de": "Number of Units",
         "fr": "Number of Units",
         "es": "Number of Units",
         "ar": "Number of Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units under test or in operation",
+        "tr": "Test veya çalışma altındaki birim sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of time units are actually operating",
       "label_i18n": {
         "en": "Duty Cycle",
-        "tr": "Duty Cycle",
+        "tr": "Görev Çevrimi",
         "de": "Duty Cycle",
         "fr": "Duty Cycle",
         "es": "Duty Cycle",
         "ar": "Duty Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of time units are actually operating",
+        "tr": "Birimlerin fiilen çalıştığı zaman yüzdesi"
       }
     }
   ],

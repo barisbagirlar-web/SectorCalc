@@ -10,11 +10,15 @@
       "businessContext": "Significant wave height measured by buoy or wave radar.",
       "label_i18n": {
         "en": "Wave Height (H)",
-        "tr": "Wave Height (H)",
+        "tr": "Dalga Yüksekliği (H)",
         "de": "Wave Height (H)",
         "fr": "Wave Height (H)",
         "es": "Wave Height (H)",
         "ar": "Wave Height (H)"
+      },
+      "businessContext_i18n": {
+        "en": "Significant wave height measured by buoy or wave radar.",
+        "tr": "Şamandıra veya dalga radarı ile ölçülen belirgin dalga yüksekliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Peak wave period from spectral analysis.",
       "label_i18n": {
         "en": "Wave Period (T)",
-        "tr": "Wave Period (T)",
+        "tr": "Dalga Periyodu (T)",
         "de": "Wave Period (T)",
         "fr": "Wave Period (T)",
         "es": "Wave Period (T)",
         "ar": "Wave Period (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Peak wave period from spectral analysis.",
+        "tr": "Spektral analizden elde edilen tepe dalga periyodu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of seawater, typically 1025 kg/m³.",
       "label_i18n": {
         "en": "Water Density (ρ)",
-        "tr": "Water Density (ρ)",
+        "tr": "Su Yoğunluğu (ρ)",
         "de": "Water Density (ρ)",
         "fr": "Water Density (ρ)",
         "es": "Water Density (ρ)",
         "ar": "Water Density (ρ)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of seawater, typically 1025 kg/m³.",
+        "tr": "Deniz suyunun yoğunluğu, tipik olarak 1025 kg/m³."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard gravitational acceleration.",
       "label_i18n": {
         "en": "Gravity (g)",
-        "tr": "Gravity (g)",
+        "tr": "Yerçekimi (g)",
         "de": "Gravity (g)",
         "fr": "Gravity (g)",
         "es": "Gravity (g)",
         "ar": "Gravity (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravitational acceleration.",
+        "tr": "Standart yerçekimi ivmesi."
       }
     }
   ],

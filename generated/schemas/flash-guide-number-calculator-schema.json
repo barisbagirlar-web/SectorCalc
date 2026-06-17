@@ -10,11 +10,15 @@
       "businessContext": "Distance from flash to subject",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from flash to subject",
+        "tr": "Özneden flaşa mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Lens aperture f-number",
       "label_i18n": {
         "en": "Aperture",
-        "tr": "Aperture",
+        "tr": "Diyafram",
         "de": "Aperture",
         "fr": "Aperture",
         "es": "Aperture",
         "ar": "Aperture"
+      },
+      "businessContext_i18n": {
+        "en": "Lens aperture f-number",
+        "tr": "Lens diyafram f-sayısı"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "ISO",
         "es": "ISO",
         "ar": "ISO"
+      },
+      "businessContext_i18n": {
+        "en": "ISO sensitivity",
+        "tr": "ISO hassasiyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Flash power fraction (1 = full, 0.5 = half)",
       "label_i18n": {
         "en": "Flash Power Fraction",
-        "tr": "Flash Power Fraction",
+        "tr": "Flaş Güç Kesri",
         "de": "Flash Power Fraction",
         "fr": "Flash Power Fraction",
         "es": "Flash Power Fraction",
         "ar": "Flash Power Fraction"
+      },
+      "businessContext_i18n": {
+        "en": "Flash power fraction (1 = full, 0.5 = half)",
+        "tr": "Flaş güç kesri (1 = tam, 0.5 = yarım)"
       }
     }
   ],

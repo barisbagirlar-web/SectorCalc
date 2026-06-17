@@ -10,11 +10,15 @@
       "businessContext": "Total 24-hour rainfall depth in millimeters.",
       "label_i18n": {
         "en": "Rainfall Depth (P)",
-        "tr": "Rainfall Depth (P)",
+        "tr": "Yağış Derinliği (P)",
         "de": "Rainfall Depth (P)",
         "fr": "Rainfall Depth (P)",
         "es": "Rainfall Depth (P)",
         "ar": "Rainfall Depth (P)"
+      },
+      "businessContext_i18n": {
+        "en": "Total 24-hour rainfall depth in millimeters.",
+        "tr": "24 saatlik toplam yağış derinliği (mm)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "SCS Curve Number for normal (AMC II) conditions. Range 30-100.",
       "label_i18n": {
         "en": "Curve Number (CN2)",
-        "tr": "Curve Number (CN2)",
+        "tr": "Eğri Numarası (CN2)",
         "de": "Curve Number (CN2)",
         "fr": "Curve Number (CN2)",
         "es": "Curve Number (CN2)",
         "ar": "Curve Number (CN2)"
+      },
+      "businessContext_i18n": {
+        "en": "SCS Curve Number for normal (AMC II) conditions. Range 30-100.",
+        "tr": "Normal (AMC II) koşulları için SCS Eğri Numarası. Aralık 30-100."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 = Dry (AMC I), 2 = Normal (AMC II), 3 = Wet (AMC III).",
       "label_i18n": {
         "en": "Antecedent Moisture Condition",
-        "tr": "Antecedent Moisture Condition",
+        "tr": "Önceki Nem Koşulu",
         "de": "Antecedent Moisture Condition",
         "fr": "Antecedent Moisture Condition",
         "es": "Antecedent Moisture Condition",
         "ar": "Antecedent Moisture Condition"
+      },
+      "businessContext_i18n": {
+        "en": "1 = Dry (AMC I), 2 = Normal (AMC II), 3 = Wet (AMC III).",
+        "tr": "1 = Kuru (AMC I), 2 = Normal (AMC II), 3 = Islak (AMC III)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ratio of initial abstraction to potential maximum retention (commonly 0.2).",
       "label_i18n": {
         "en": "Initial Abstraction Ratio",
-        "tr": "Initial Abstraction Ratio",
+        "tr": "Başlangıç Soyutlama Oranı",
         "de": "Initial Abstraction Ratio",
         "fr": "Initial Abstraction Ratio",
         "es": "Initial Abstraction Ratio",
         "ar": "Initial Abstraction Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of initial abstraction to potential maximum retention (commonly 0.2).",
+        "tr": "Başlangıç soyutlamasının potansiyel maksimum tutulmaya oranı (genellikle 0.2)."
       }
     }
   ],

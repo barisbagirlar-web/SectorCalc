@@ -10,11 +10,15 @@
       "businessContext": "Input power in watts (e.g., electrical device rating).",
       "label_i18n": {
         "en": "Power (Watts)",
-        "tr": "Power (Watts)",
+        "tr": "Güç (Watt)",
         "de": "Power (Watts)",
         "fr": "Power (Watts)",
         "es": "Power (Watts)",
         "ar": "Power (Watts)"
+      },
+      "businessContext_i18n": {
+        "en": "Input power in watts (e.g., electrical device rating).",
+        "tr": "Watt cinsinden giriş gücü (örneğin, elektrikli cihaz değeri)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of power application in seconds.",
       "label_i18n": {
         "en": "Time (seconds)",
-        "tr": "Time (seconds)",
+        "tr": "Süre (saniye)",
         "de": "Time (seconds)",
         "fr": "Time (seconds)",
         "es": "Time (seconds)",
         "ar": "Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of power application in seconds.",
+        "tr": "Güç uygulama süresi saniye cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Energy equivalent: 4.184 J per small calorie, 4184 J per kilocalorie (dietary Calorie).",
       "label_i18n": {
         "en": "Joules per calorie",
-        "tr": "Joules per calorie",
+        "tr": "Kalori başına joule",
         "de": "Joules per calorie",
         "fr": "Joules per calorie",
         "es": "Joules per calorie",
         "ar": "Joules per calorie"
+      },
+      "businessContext_i18n": {
+        "en": "Energy equivalent: 4.184 J per small calorie, 4184 J per kilocalorie (dietary Calorie).",
+        "tr": "Enerji eşdeğeri: 1 küçük kalori için 4.184 J, 1 kilokalori (diyet Kalorisi) için 4184 J."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Conversion efficiency from electrical power to heat/calories. 100% means all watts converted.",
       "label_i18n": {
         "en": "Efficiency (%)",
-        "tr": "Efficiency (%)",
+        "tr": "Verimlilik (%)",
         "de": "Efficiency (%)",
         "fr": "Efficiency (%)",
         "es": "Efficiency (%)",
         "ar": "Efficiency (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion efficiency from electrical power to heat/calories. 100% means all watts converted.",
+        "tr": "Elektrik gücünden ısıya/kaloriye dönüşüm verimliliği. %100, tüm wattların dönüştürüldüğü anlamına gelir."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Altitude of the satellite above the central body's surface.",
       "label_i18n": {
         "en": "Altitude",
-        "tr": "Altitude",
+        "tr": "Rakım",
         "de": "Altitude",
         "fr": "Altitude",
         "es": "Altitude",
         "ar": "Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Altitude of the satellite above the central body's surface.",
+        "tr": "Uydunun merkezi cismin yüzeyinden yüksekliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Radius of the central body (planet or star).",
       "label_i18n": {
         "en": "Central Body Radius",
-        "tr": "Central Body Radius",
+        "tr": "Merkezi Cisim Yarıçapı",
         "de": "Central Body Radius",
         "fr": "Central Body Radius",
         "es": "Central Body Radius",
         "ar": "Central Body Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of the central body (planet or star).",
+        "tr": "Merkezi cismin yarıçapı (gezegen veya yıldız)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of the central body.",
       "label_i18n": {
         "en": "Central Body Mass",
-        "tr": "Central Body Mass",
+        "tr": "Merkezi Cisim Kütlesi",
         "de": "Central Body Mass",
         "fr": "Central Body Mass",
         "es": "Central Body Mass",
         "ar": "Central Body Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the central body.",
+        "tr": "Merkezi cismin kütlesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Universal gravitational constant. Default is SI value.",
       "label_i18n": {
         "en": "Gravitational Constant (G)",
-        "tr": "Gravitational Constant (G)",
+        "tr": "Yerçekimi Sabiti (G)",
         "de": "Gravitational Constant (G)",
         "fr": "Gravitational Constant (G)",
         "es": "Gravitational Constant (G)",
         "ar": "Gravitational Constant (G)"
+      },
+      "businessContext_i18n": {
+        "en": "Universal gravitational constant. Default is SI value.",
+        "tr": "Evrensel çekim sabiti. Varsayılan SI değeridir."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Absolute pressure before the restriction",
       "label_i18n": {
         "en": "Upstream Pressure",
-        "tr": "Upstream Pressure",
+        "tr": "Yukarı Akış Basıncı",
         "de": "Upstream Pressure",
         "fr": "Upstream Pressure",
         "es": "Upstream Pressure",
         "ar": "Upstream Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute pressure before the restriction",
+        "tr": "Kısıtlamadan önceki mutlak basınç"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Absolute pressure after the restriction",
       "label_i18n": {
         "en": "Downstream Pressure",
-        "tr": "Downstream Pressure",
+        "tr": "Aşağı Akış Basıncı",
         "de": "Downstream Pressure",
         "fr": "Downstream Pressure",
         "es": "Downstream Pressure",
         "ar": "Downstream Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute pressure after the restriction",
+        "tr": "Kısıtlamadan sonraki mutlak basınç"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Absolute temperature of the gas",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute temperature of the gas",
+        "tr": "Gazın mutlak sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Gas constant for the specific gas (e.g., air)",
       "label_i18n": {
         "en": "Specific Gas Constant",
-        "tr": "Specific Gas Constant",
+        "tr": "Özgül gaz sabiti",
         "de": "Specific Gas Constant",
         "fr": "Specific Gas Constant",
         "es": "Specific Gas Constant",
         "ar": "Specific Gas Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Gas constant for the specific gas (e.g., air)",
+        "tr": "Belirli bir gaz (örneğin hava) için gaz sabiti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Ratio of specific heats (Cp/Cv)",
       "label_i18n": {
         "en": "Specific Heat Ratio (γ)",
-        "tr": "Specific Heat Ratio (γ)",
+        "tr": "Özgül Isı Oranı (γ)",
         "de": "Specific Heat Ratio (γ)",
         "fr": "Specific Heat Ratio (γ)",
         "es": "Specific Heat Ratio (γ)",
         "ar": "Specific Heat Ratio (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of specific heats (Cp/Cv)",
+        "tr": "Özgül ısı oranı (Cp/Cv)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Diameter of the orifice or restriction",
       "label_i18n": {
         "en": "Orifice Diameter",
-        "tr": "Orifice Diameter",
+        "tr": "Orifis çapı",
         "de": "Orifice Diameter",
         "fr": "Orifice Diameter",
         "es": "Orifice Diameter",
         "ar": "Orifice Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the orifice or restriction",
+        "tr": "Orifis veya kısıtlamanın çapı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Empirical coefficient accounting for losses",
       "label_i18n": {
         "en": "Discharge Coefficient",
-        "tr": "Discharge Coefficient",
+        "tr": "Debi Katsayısı",
         "de": "Discharge Coefficient",
         "fr": "Discharge Coefficient",
         "es": "Discharge Coefficient",
         "ar": "Discharge Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical coefficient accounting for losses",
+        "tr": "Kayıpları hesaba katan ampirik katsayı"
       }
     }
   ],

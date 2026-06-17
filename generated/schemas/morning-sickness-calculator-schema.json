@@ -10,11 +10,15 @@
       "businessContext": "Age of the equipment in years.",
       "label_i18n": {
         "en": "Machine Age",
-        "tr": "Machine Age",
+        "tr": "Makine Yaşı",
         "de": "Machine Age",
         "fr": "Machine Age",
         "es": "Machine Age",
         "ar": "Machine Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the equipment in years.",
+        "tr": "Ekipmanın yıl cinsinden yaşı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of the last shutdown/downtime in hours.",
       "label_i18n": {
         "en": "Downtime Duration",
-        "tr": "Downtime Duration",
+        "tr": "Arıza Süresi",
         "de": "Downtime Duration",
         "fr": "Downtime Duration",
         "es": "Downtime Duration",
         "ar": "Downtime Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the last shutdown/downtime in hours.",
+        "tr": "Son kapatma/arıza süresinin saat cinsinden süresi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Ambient temperature at restart time in degrees Celsius.",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı",
         "de": "Ambient Temperature",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Ambient temperature at restart time in degrees Celsius.",
+        "tr": "Yeniden başlatma sırasındaki ortam sıcaklığı (Santigrat derece)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average number of cold starts per day.",
       "label_i18n": {
         "en": "Cold Starts per Day",
-        "tr": "Cold Starts per Day",
+        "tr": "Günlük Soğuk Çalıştırma Sayısı",
         "de": "Cold Starts per Day",
         "fr": "Cold Starts per Day",
         "es": "Cold Starts per Day",
         "ar": "Cold Starts per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of cold starts per day.",
+        "tr": "Günlük ortalama soğuk çalıştırma sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Company-specific multiplier to adjust severity (e.g., based on equipment criticality).",
       "label_i18n": {
         "en": "Severity Factor",
-        "tr": "Severity Factor",
+        "tr": "Şiddet Faktörü",
         "de": "Severity Factor",
         "fr": "Severity Factor",
         "es": "Severity Factor",
         "ar": "Severity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Company-specific multiplier to adjust severity (e.g., based on equipment criticality).",
+        "tr": "Şiddeti ayarlamak için şirkete özgü çarpan (ör. ekipman kritikliğine göre)."
       }
     }
   ],

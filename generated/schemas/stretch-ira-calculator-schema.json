@@ -10,11 +10,15 @@
       "businessContext": "Current total balance of the inherited IRA.",
       "label_i18n": {
         "en": "Initial IRA Balance",
-        "tr": "Initial IRA Balance",
+        "tr": "Başlangıç IRA Bakiyesi",
         "de": "Initial IRA Balance",
         "fr": "Initial IRA Balance",
         "es": "Initial IRA Balance",
         "ar": "Initial IRA Balance"
+      },
+      "businessContext_i18n": {
+        "en": "Current total balance of the inherited IRA.",
+        "tr": "Miras alınan IRA'nın mevcut toplam bakiyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected annual percentage return on investments.",
       "label_i18n": {
         "en": "Expected Annual Return Rate",
-        "tr": "Expected Annual Return Rate",
+        "tr": "Beklenen Yıllık Getiri Oranı",
         "de": "Expected Annual Return Rate",
         "fr": "Expected Annual Return Rate",
         "es": "Expected Annual Return Rate",
         "ar": "Expected Annual Return Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual percentage return on investments.",
+        "tr": "Yatırımlardan beklenen yıllık yüzde getiri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age of the beneficiary in the current year.",
       "label_i18n": {
         "en": "Beneficiary Age",
-        "tr": "Beneficiary Age",
+        "tr": "Yararlanıcı Yaşı",
         "de": "Beneficiary Age",
         "fr": "Beneficiary Age",
         "es": "Beneficiary Age",
         "ar": "Beneficiary Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the beneficiary in the current year.",
+        "tr": "Yararlanıcının içinde bulunulan yıldaki yaşı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "IRS Single Life Expectancy factor from Table I for the beneficiary's age. E.g., for age 50, factor is 36.2.",
       "label_i18n": {
         "en": "Life Expectancy Factor",
-        "tr": "Life Expectancy Factor",
+        "tr": "Yaşam Beklentisi Faktörü",
         "de": "Life Expectancy Factor",
         "fr": "Life Expectancy Factor",
         "es": "Life Expectancy Factor",
         "ar": "Life Expectancy Factor"
+      },
+      "businessContext_i18n": {
+        "en": "IRS Single Life Expectancy factor from Table I for the beneficiary's age. E.g., for age 50, factor is 36.2.",
+        "tr": "Yararlanıcının yaşına göre IRS Tablo I'den Beklenen Yaşam Süresi faktörü. Örn., 50 yaş için faktör 36,2'dir."
       }
     }
   ],

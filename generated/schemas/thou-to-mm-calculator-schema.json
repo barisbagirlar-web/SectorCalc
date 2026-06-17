@@ -10,11 +10,15 @@
       "businessContext": "Nominal dimension in thou (thousandths of an inch) to be converted",
       "label_i18n": {
         "en": "Nominal Dimension",
-        "tr": "Nominal Dimension",
+        "tr": "Nominal Boyut",
         "de": "Nominal Dimension",
         "fr": "Nominal Dimension",
         "es": "Nominal Dimension",
         "ar": "Nominal Dimension"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal dimension in thou (thousandths of an inch) to be converted",
+        "tr": "Dönüştürülecek binlik inç cinsinden nominal boyut"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Upper tolerance limit in thou",
       "label_i18n": {
         "en": "Upper Tolerance",
-        "tr": "Upper Tolerance",
+        "tr": "Üst Tolerans",
         "de": "Upper Tolerance",
         "fr": "Upper Tolerance",
         "es": "Upper Tolerance",
         "ar": "Upper Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Upper tolerance limit in thou",
+        "tr": "Üst tolerans limiti (binlik inç cinsinden)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Lower tolerance limit in thou (use negative value if below nominal)",
       "label_i18n": {
         "en": "Lower Tolerance",
-        "tr": "Lower Tolerance",
+        "tr": "Alt Tolerans",
         "de": "Lower Tolerance",
         "fr": "Lower Tolerance",
         "es": "Lower Tolerance",
         "ar": "Lower Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Lower tolerance limit in thou (use negative value if below nominal)",
+        "tr": "Alt tolerans limiti (nominalin altındaysa negatif değer kullanın)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fixed conversion factor from thou to millimeters (1 thou = 0.0254 mm)",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed conversion factor from thou to millimeters (1 thou = 0.0254 mm)",
+        "tr": "Binlik inçten milimetreye sabit dönüşüm faktörü (1 binlik inç = 0,0254 mm)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for rounding results",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding results",
+        "tr": "Sonuçların yuvarlanması için ondalık basamak sayısı"
       }
     }
   ],

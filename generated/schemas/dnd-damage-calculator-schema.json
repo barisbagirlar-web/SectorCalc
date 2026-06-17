@@ -10,11 +10,15 @@
       "businessContext": "Average damage from weapon dice (e.g., d8=4.5)",
       "label_i18n": {
         "en": "Weapon Damage Dice Average",
-        "tr": "Weapon Damage Dice Average",
+        "tr": "Silah Hasar Zarı Ortalaması",
         "de": "Weapon Damage Dice Average",
         "fr": "Weapon Damage Dice Average",
         "es": "Weapon Damage Dice Average",
         "ar": "Weapon Damage Dice Average"
+      },
+      "businessContext_i18n": {
+        "en": "Average damage from weapon dice (e.g., d8=4.5)",
+        "tr": "Silah zarlarından ortalama hasar (ör. d8=4.5)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Strength or Dexterity modifier applied to damage",
       "label_i18n": {
         "en": "Ability Modifier",
-        "tr": "Ability Modifier",
+        "tr": "Yetenek Değiştiricisi",
         "de": "Ability Modifier",
         "fr": "Ability Modifier",
         "es": "Ability Modifier",
         "ar": "Ability Modifier"
+      },
+      "businessContext_i18n": {
+        "en": "Strength or Dexterity modifier applied to damage",
+        "tr": "Hasara uygulanan Güç veya Çeviklik değiştiricisi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Bonus added to attack rolls, not damage, but used for certain features",
       "label_i18n": {
         "en": "Proficiency Bonus",
-        "tr": "Proficiency Bonus",
+        "tr": "Yetenek Bonusu",
         "de": "Proficiency Bonus",
         "fr": "Proficiency Bonus",
         "es": "Proficiency Bonus",
         "ar": "Proficiency Bonus"
+      },
+      "businessContext_i18n": {
+        "en": "Bonus added to attack rolls, not damage, but used for certain features",
+        "tr": "Saldırı zarlarına eklenen bonus, hasara değil, ancak bazı özellikler için kullanılır"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional damage from magical enhancement",
       "label_i18n": {
         "en": "Magic Weapon Bonus",
-        "tr": "Magic Weapon Bonus",
+        "tr": "Sihirli Silah Bonusu",
         "de": "Magic Weapon Bonus",
         "fr": "Magic Weapon Bonus",
         "es": "Magic Weapon Bonus",
         "ar": "Magic Weapon Bonus"
+      },
+      "businessContext_i18n": {
+        "en": "Additional damage from magical enhancement",
+        "tr": "Büyülü güçlendirmeden gelen ek hasar"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Probability of scoring a critical hit (normally 5%)",
       "label_i18n": {
         "en": "Critical Hit Chance (%)",
-        "tr": "Critical Hit Chance (%)",
+        "tr": "Kritik Vuruş Şansı (%)",
         "de": "Critical Hit Chance (%)",
         "fr": "Critical Hit Chance (%)",
         "es": "Critical Hit Chance (%)",
         "ar": "Critical Hit Chance (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Probability of scoring a critical hit (normally 5%)",
+        "tr": "Kritik vuruş yapma olasılığı (normalde %5)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average damage from extra dice (e.g., sneak attack, smite)",
       "label_i18n": {
         "en": "Extra Damage Dice Average",
-        "tr": "Extra Damage Dice Average",
+        "tr": "Ek Hasar Zarı Ortalaması",
         "de": "Extra Damage Dice Average",
         "fr": "Extra Damage Dice Average",
         "es": "Extra Damage Dice Average",
         "ar": "Extra Damage Dice Average"
+      },
+      "businessContext_i18n": {
+        "en": "Average damage from extra dice (e.g., sneak attack, smite)",
+        "tr": "Ek zarlardan gelen ortalama hasar (ör. gizli saldırı, smite)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Multiplier for vulnerabilities or resistances (e.g., 0.5 for resistance)",
       "label_i18n": {
         "en": "Damage Multiplier",
-        "tr": "Damage Multiplier",
+        "tr": "Hasar Çarpanı",
         "de": "Damage Multiplier",
         "fr": "Damage Multiplier",
         "es": "Damage Multiplier",
         "ar": "Damage Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for vulnerabilities or resistances (e.g., 0.5 for resistance)",
+        "tr": "Zayıflık veya dirençler için çarpan (ör. direnç için 0.5)"
       }
     }
   ],

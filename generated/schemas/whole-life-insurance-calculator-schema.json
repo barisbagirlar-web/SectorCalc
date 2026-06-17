@@ -10,11 +10,15 @@
       "businessContext": "The amount paid upon death of the insured.",
       "label_i18n": {
         "en": "Sum Assured (Death Benefit)",
-        "tr": "Sum Assured (Death Benefit)",
+        "tr": "Sigorta Tutarı (Ölüm Tazminatı)",
         "de": "Sum Assured (Death Benefit)",
         "fr": "Sum Assured (Death Benefit)",
         "es": "Sum Assured (Death Benefit)",
         "ar": "Sum Assured (Death Benefit)"
+      },
+      "businessContext_i18n": {
+        "en": "The amount paid upon death of the insured.",
+        "tr": "Sigortalının ölümü halinde ödenecek tutar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The probability that the insured will die within the next year.",
       "label_i18n": {
         "en": "Annual Mortality Rate",
-        "tr": "Annual Mortality Rate",
+        "tr": "Yıllık Ölüm Oranı",
         "de": "Annual Mortality Rate",
         "fr": "Annual Mortality Rate",
         "es": "Annual Mortality Rate",
         "ar": "Annual Mortality Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The probability that the insured will die within the next year.",
+        "tr": "Sigortalının önümüzdeki yıl içinde ölme olasılığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The interest rate used for discounting future benefits.",
       "label_i18n": {
         "en": "Annual Discount Rate (i)",
-        "tr": "Annual Discount Rate (i)",
+        "tr": "Yıllık İskonto Oranı (i)",
         "de": "Annual Discount Rate (i)",
         "fr": "Annual Discount Rate (i)",
         "es": "Annual Discount Rate (i)",
         "ar": "Annual Discount Rate (i)"
+      },
+      "businessContext_i18n": {
+        "en": "The interest rate used for discounting future benefits.",
+        "tr": "Gelecekteki faydaların iskonto edilmesinde kullanılan faiz oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Loading factor for expenses, as a decimal (e.g., 0.1 for 10%).",
       "label_i18n": {
         "en": "Expense Loading",
-        "tr": "Expense Loading",
+        "tr": "Gider Yüklemesi",
         "de": "Expense Loading",
         "fr": "Expense Loading",
         "es": "Expense Loading",
         "ar": "Expense Loading"
+      },
+      "businessContext_i18n": {
+        "en": "Loading factor for expenses, as a decimal (e.g., 0.1 for 10%).",
+        "tr": "Giderler için yükleme faktörü, ondalık olarak (ör. %10 için 0,1)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "0: Blue/pale all over; 1: Blue at extremities; 2: No blue",
       "label_i18n": {
         "en": "Appearance (Skin Color)",
-        "tr": "Appearance (Skin Color)",
+        "tr": "Görünüm (Cilt Rengi)",
         "de": "Appearance (Skin Color)",
         "fr": "Appearance (Skin Color)",
         "es": "Appearance (Skin Color)",
         "ar": "Appearance (Skin Color)"
+      },
+      "businessContext_i18n": {
+        "en": "0: Blue/pale all over; 1: Blue at extremities; 2: No blue",
+        "tr": "0: Her yerde mavi/soluk; 1: Ekstremitelerde mavi; 2: Mavi yok"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0: Absent; 1: Below 100 bpm; 2: Over 100 bpm",
       "label_i18n": {
         "en": "Pulse (Heart Rate)",
-        "tr": "Pulse (Heart Rate)",
+        "tr": "Nabız (Kalp Atış Hızı)",
         "de": "Pulse (Heart Rate)",
         "fr": "Pulse (Heart Rate)",
         "es": "Pulse (Heart Rate)",
         "ar": "Pulse (Heart Rate)"
+      },
+      "businessContext_i18n": {
+        "en": "0: Absent; 1: Below 100 bpm; 2: Over 100 bpm",
+        "tr": "0: Yok; 1: 100 bpm altı; 2: 100 bpm üstü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0: No response; 1: Grimace/feeble cry; 2: Vigorous cry/sneeze",
       "label_i18n": {
         "en": "Grimace (Reflex Irritability)",
-        "tr": "Grimace (Reflex Irritability)",
+        "tr": "Yüz Buruşturma (Refleks İrritabilite)",
         "de": "Grimace (Reflex Irritability)",
         "fr": "Grimace (Reflex Irritability)",
         "es": "Grimace (Reflex Irritability)",
         "ar": "Grimace (Reflex Irritability)"
+      },
+      "businessContext_i18n": {
+        "en": "0: No response; 1: Grimace/feeble cry; 2: Vigorous cry/sneeze",
+        "tr": "0: Yanıt yok; 1: Yüz buruşturma/zayıf ağlama; 2: Güçlü ağlama/hapşırma"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0: Limp; 1: Some flexion; 2: Active motion",
       "label_i18n": {
         "en": "Activity (Muscle Tone)",
-        "tr": "Activity (Muscle Tone)",
+        "tr": "Aktivite (Kas Tonusu)",
         "de": "Activity (Muscle Tone)",
         "fr": "Activity (Muscle Tone)",
         "es": "Activity (Muscle Tone)",
         "ar": "Activity (Muscle Tone)"
+      },
+      "businessContext_i18n": {
+        "en": "0: Limp; 1: Some flexion; 2: Active motion",
+        "tr": "0: Gevşek; 1: Biraz fleksiyon; 2: Aktif hareket"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "0: Absent; 1: Weak/irregular; 2: Good/crying",
       "label_i18n": {
         "en": "Respiration (Breathing)",
-        "tr": "Respiration (Breathing)",
+        "tr": "Solunum (Nefes Alma)",
         "de": "Respiration (Breathing)",
         "fr": "Respiration (Breathing)",
         "es": "Respiration (Breathing)",
         "ar": "Respiration (Breathing)"
+      },
+      "businessContext_i18n": {
+        "en": "0: Absent; 1: Weak/irregular; 2: Good/crying",
+        "tr": "0: Yok; 1: Zayıf/düzensiz; 2: İyi/ağlama"
       }
     }
   ],

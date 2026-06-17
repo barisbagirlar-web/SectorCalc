@@ -10,11 +10,15 @@
       "businessContext": "Number of correctly predicted negative outcomes (e.g., non-defective items correctly identified as non-defective in quality inspection).",
       "label_i18n": {
         "en": "True Negatives (TN)",
-        "tr": "True Negatives (TN)",
+        "tr": "Gerçek Negatif (TN)",
         "de": "True Negatives (TN)",
         "fr": "True Negatives (TN)",
         "es": "True Negatives (TN)",
         "ar": "True Negatives (TN)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of correctly predicted negative outcomes (e.g., non-defective items correctly identified as non-defective in quality inspection).",
+        "tr": "Doğru tahmin edilen negatif sonuç sayısı (örneğin, kalite denetiminde kusurlu olmayan ürünlerin doğru tanımlanması)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of negative outcomes incorrectly predicted as positive (e.g., defective items missed, false escapes).",
       "label_i18n": {
         "en": "False Negatives (FN)",
-        "tr": "False Negatives (FN)",
+        "tr": "Yanlış Negatif (FN)",
         "de": "False Negatives (FN)",
         "fr": "False Negatives (FN)",
         "es": "False Negatives (FN)",
         "ar": "False Negatives (FN)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of negative outcomes incorrectly predicted as positive (e.g., defective items missed, false escapes).",
+        "tr": "Yanlış pozitif tahmin edilen negatif sonuç sayısı (örneğin, kaçırılan kusurlu ürünler, yanlış kaçışlar)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of positive outcomes correctly predicted as positive (e.g., defective items correctly identified).",
       "label_i18n": {
         "en": "True Positives (TP)",
-        "tr": "True Positives (TP)",
+        "tr": "Gerçek Pozitif (TP)",
         "de": "True Positives (TP)",
         "fr": "True Positives (TP)",
         "es": "True Positives (TP)",
         "ar": "True Positives (TP)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of positive outcomes correctly predicted as positive (e.g., defective items correctly identified).",
+        "tr": "Doğru tahmin edilen pozitif sonuç sayısı (örneğin, kusurlu ürünlerin doğru tanımlanması)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of positive outcomes incorrectly predicted as negative (e.g., non-defective items incorrectly flagged as defective, false alarms).",
       "label_i18n": {
         "en": "False Positives (FP)",
-        "tr": "False Positives (FP)",
+        "tr": "Yanlış Pozitif (FP)",
         "de": "False Positives (FP)",
         "fr": "False Positives (FP)",
         "es": "False Positives (FP)",
         "ar": "False Positives (FP)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of positive outcomes incorrectly predicted as negative (e.g., non-defective items incorrectly flagged as defective, false alarms).",
+        "tr": "Yanlış negatif tahmin edilen pozitif sonuç sayısı (örneğin, kusurlu olmayan ürünlerin yanlışlıkla kusurlu olarak işaretlenmesi, yanlış alarmlar)."
       }
     }
   ],

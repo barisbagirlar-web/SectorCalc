@@ -10,11 +10,15 @@
       "businessContext": "The investor's current age",
       "label_i18n": {
         "en": "Current Age",
-        "tr": "Current Age",
+        "tr": "Mevcut Yaş",
         "de": "Current Age",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "The investor's current age",
+        "tr": "Yatırımcının mevcut yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age at which full retirement corpus is needed",
       "label_i18n": {
         "en": "Traditional Retirement Age",
-        "tr": "Traditional Retirement Age",
+        "tr": "Geleneksel Emeklilik Yaşı",
         "de": "Traditional Retirement Age",
         "fr": "Traditional Retirement Age",
         "es": "Traditional Retirement Age",
         "ar": "Traditional Retirement Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age at which full retirement corpus is needed",
+        "tr": "Tam emeklilik birikiminin gerekli olduğu yaş"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected annual nominal investment return before inflation",
       "label_i18n": {
         "en": "Annual Return Rate",
-        "tr": "Annual Return Rate",
+        "tr": "Yıllık Getiri Oranı",
         "de": "Annual Return Rate",
         "fr": "Annual Return Rate",
         "es": "Annual Return Rate",
         "ar": "Annual Return Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual nominal investment return before inflation",
+        "tr": "Enflasyon öncesi beklenen yıllık nominal yatırım getirisi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total retirement corpus required at retirement age",
       "label_i18n": {
         "en": "FIRE Target Amount",
-        "tr": "FIRE Target Amount",
+        "tr": "FIRE Hedef Tutarı",
         "de": "FIRE Target Amount",
         "fr": "FIRE Target Amount",
         "es": "FIRE Target Amount",
         "ar": "FIRE Target Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total retirement corpus required at retirement age",
+        "tr": "Emeklilik yaşında gerekli toplam emeklilik birikimi"
       }
     }
   ],

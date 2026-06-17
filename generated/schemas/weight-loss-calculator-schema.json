@@ -10,11 +10,15 @@
       "businessContext": "Weight of the material before the drying process.",
       "label_i18n": {
         "en": "Initial Weight",
-        "tr": "Initial Weight",
+        "tr": "Başlangıç Ağırlığı",
         "de": "Initial Weight",
         "fr": "Initial Weight",
         "es": "Initial Weight",
         "ar": "Initial Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the material before the drying process.",
+        "tr": "Kurutma işleminden önce malzemenin ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Moisture content of the material before drying as a percentage of total weight.",
       "label_i18n": {
         "en": "Initial Moisture Content",
-        "tr": "Initial Moisture Content",
+        "tr": "Başlangıç Nem İçeriği",
         "de": "Initial Moisture Content",
         "fr": "Initial Moisture Content",
         "es": "Initial Moisture Content",
         "ar": "Initial Moisture Content"
+      },
+      "businessContext_i18n": {
+        "en": "Moisture content of the material before drying as a percentage of total weight.",
+        "tr": "Kurutma öncesi malzemenin toplam ağırlığa göre nem içeriği yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired moisture content after drying as a percentage of total weight.",
       "label_i18n": {
         "en": "Final Moisture Content",
-        "tr": "Final Moisture Content",
+        "tr": "Son Nem İçeriği",
         "de": "Final Moisture Content",
         "fr": "Final Moisture Content",
         "es": "Final Moisture Content",
         "ar": "Final Moisture Content"
+      },
+      "businessContext_i18n": {
+        "en": "Desired moisture content after drying as a percentage of total weight.",
+        "tr": "Kurutma sonrası istenen nem içeriği, toplam ağırlığa göre yüzde."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected weight loss based on process specifications for comparison.",
       "label_i18n": {
         "en": "Target Weight Loss",
-        "tr": "Target Weight Loss",
+        "tr": "Hedef Ağırlık Kaybı",
         "de": "Target Weight Loss",
         "fr": "Target Weight Loss",
         "es": "Target Weight Loss",
         "ar": "Target Weight Loss"
+      },
+      "businessContext_i18n": {
+        "en": "Expected weight loss based on process specifications for comparison.",
+        "tr": "Karşılaştırma için proses spesifikasyonlarına göre beklenen ağırlık kaybı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total word count of the document",
       "label_i18n": {
         "en": "Total Words",
-        "tr": "Total Words",
+        "tr": "Toplam Kelime",
         "de": "Total Words",
         "fr": "Total Words",
         "es": "Total Words",
         "ar": "Total Words"
+      },
+      "businessContext_i18n": {
+        "en": "Total word count of the document",
+        "tr": "Belgenin toplam kelime sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average number of words in a paragraph",
       "label_i18n": {
         "en": "Average Words per Paragraph",
-        "tr": "Average Words per Paragraph",
+        "tr": "Paragraf Başına Ortalama Kelime Sayısı",
         "de": "Average Words per Paragraph",
         "fr": "Average Words per Paragraph",
         "es": "Average Words per Paragraph",
         "ar": "Average Words per Paragraph"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of words in a paragraph",
+        "tr": "Bir paragraftaki ortalama kelime sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total character count (including spaces) for verification",
       "label_i18n": {
         "en": "Total Characters",
-        "tr": "Total Characters",
+        "tr": "Toplam Karakter",
         "de": "Total Characters",
         "fr": "Total Characters",
         "es": "Total Characters",
         "ar": "Total Characters"
+      },
+      "businessContext_i18n": {
+        "en": "Total character count (including spaces) for verification",
+        "tr": "Doğrulama için toplam karakter sayısı (boşluklar dahil)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average length of words used to validate word count",
       "label_i18n": {
         "en": "Average Characters per Word",
-        "tr": "Average Characters per Word",
+        "tr": "Kelime Başına Ortalama Karakter",
         "de": "Average Characters per Word",
         "fr": "Average Characters per Word",
         "es": "Average Characters per Word",
         "ar": "Average Characters per Word"
+      },
+      "businessContext_i18n": {
+        "en": "Average length of words used to validate word count",
+        "tr": "Kelime sayısını doğrulamak için kullanılan ortalama kelime uzunluğu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of pages if known, for alternative calculation",
       "label_i18n": {
         "en": "Total Pages",
-        "tr": "Total Pages",
+        "tr": "Toplam Sayfa",
         "de": "Total Pages",
         "fr": "Total Pages",
         "es": "Total Pages",
         "ar": "Total Pages"
+      },
+      "businessContext_i18n": {
+        "en": "Number of pages if known, for alternative calculation",
+        "tr": "Biliniyorsa alternatif hesaplama için sayfa sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average number of lines on a page",
       "label_i18n": {
         "en": "Lines per Page",
-        "tr": "Lines per Page",
+        "tr": "Sayfa Başına Satır",
         "de": "Lines per Page",
         "fr": "Lines per Page",
         "es": "Lines per Page",
         "ar": "Lines per Page"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of lines on a page",
+        "tr": "Bir sayfadaki ortalama satır sayısı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Average words per line",
       "label_i18n": {
         "en": "Words per Line",
-        "tr": "Words per Line",
+        "tr": "Satır Başına Kelime",
         "de": "Words per Line",
         "fr": "Words per Line",
         "es": "Words per Line",
         "ar": "Words per Line"
+      },
+      "businessContext_i18n": {
+        "en": "Average words per line",
+        "tr": "Satır başına ortalama kelime sayısı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Typical paragraphs on a page, used for page-based estimate",
       "label_i18n": {
         "en": "Paragraphs per Page",
-        "tr": "Paragraphs per Page",
+        "tr": "Sayfa Başına Paragraf",
         "de": "Paragraphs per Page",
         "fr": "Paragraphs per Page",
         "es": "Paragraphs per Page",
         "ar": "Paragraphs per Page"
+      },
+      "businessContext_i18n": {
+        "en": "Typical paragraphs on a page, used for page-based estimate",
+        "tr": "Sayfa bazlı tahmin için kullanılan tipik paragraf sayısı"
       }
     }
   ],

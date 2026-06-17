@@ -10,11 +10,15 @@
       "businessContext": "0 for female, 1 for male",
       "label_i18n": {
         "en": "Sex",
-        "tr": "Sex",
+        "tr": "Cinsiyet",
         "de": "Sex",
         "fr": "Sex",
         "es": "Sex",
         "ar": "Sex"
+      },
+      "businessContext_i18n": {
+        "en": "0 for female, 1 for male",
+        "tr": "0 kadın, 1 erkek"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age in years (typically 20–65)",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age in years (typically 20–65)",
+        "tr": "Yaş (yıl olarak, tipik olarak 20–65)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms",
+        "tr": "Vücut ağırlığı (kilogram cinsinden)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Work rate in watts during steady-state cycling at 50 rpm",
       "label_i18n": {
         "en": "Work Rate",
-        "tr": "Work Rate",
+        "tr": "Çalışma Hızı",
         "de": "Work Rate",
         "fr": "Work Rate",
         "es": "Work Rate",
         "ar": "Work Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Work rate in watts during steady-state cycling at 50 rpm",
+        "tr": "50 rpm'de sabit bisiklet sürüşü sırasında watt cinsinden çalışma hızı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average heart rate during the last minute of the 6-minute test (range 125–170 bpm)",
       "label_i18n": {
         "en": "Steady-State Heart Rate",
-        "tr": "Steady-State Heart Rate",
+        "tr": "Kararlı Durum Kalp Atış Hızı",
         "de": "Steady-State Heart Rate",
         "fr": "Steady-State Heart Rate",
         "es": "Steady-State Heart Rate",
         "ar": "Steady-State Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average heart rate during the last minute of the 6-minute test (range 125–170 bpm)",
+        "tr": "6 dakikalık testin son dakikasındaki ortalama kalp atış hızı (aralık 125–170 bpm)"
       }
     }
   ],

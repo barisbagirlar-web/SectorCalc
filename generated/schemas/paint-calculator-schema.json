@@ -10,11 +10,15 @@
       "businessContext": "Total paintable surface area in square meters",
       "label_i18n": {
         "en": "Surface Area",
-        "tr": "Surface Area",
+        "tr": "Yüzey Alanı",
         "de": "Surface Area",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total paintable surface area in square meters",
+        "tr": "Toplam boyanabilir yüzey alanı (metrekare)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Paint coverage rate from manufacturer data sheet (m² per liter)",
       "label_i18n": {
         "en": "Coverage Rate",
-        "tr": "Coverage Rate",
+        "tr": "Kaplama Oranı",
         "de": "Coverage Rate",
         "fr": "Coverage Rate",
         "es": "Coverage Rate",
         "ar": "Coverage Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Paint coverage rate from manufacturer data sheet (m² per liter)",
+        "tr": "Üretici veri sayfasından boya kaplama oranı (m²/litre)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of paint coats to apply",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Number of Coats",
+        "tr": "Kat Sayısı",
         "de": "Number of Coats",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
+      },
+      "businessContext_i18n": {
+        "en": "Number of paint coats to apply",
+        "tr": "Uygulanacak boya kat sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of extra paint needed for spillage, uneven surfaces, etc.",
       "label_i18n": {
         "en": "Wastage Factor",
-        "tr": "Wastage Factor",
+        "tr": "İsraf faktörü",
         "de": "Wastage Factor",
         "fr": "Wastage Factor",
         "es": "Wastage Factor",
         "ar": "Wastage Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra paint needed for spillage, uneven surfaces, etc.",
+        "tr": "Dökülme, pürüzlü yüzeyler vb. için gereken ekstra boya yüzdesi"
       }
     }
   ],

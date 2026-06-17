@@ -10,11 +10,15 @@
       "businessContext": "Total count of devices with standby mode.",
       "label_i18n": {
         "en": "Number of Devices",
-        "tr": "Number of Devices",
+        "tr": "Cihaz Sayısı",
         "de": "Number of Devices",
         "fr": "Number of Devices",
         "es": "Number of Devices",
         "ar": "Number of Devices"
+      },
+      "businessContext_i18n": {
+        "en": "Total count of devices with standby mode.",
+        "tr": "Bekleme moduna sahip toplam cihaz sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Power consumed per device in standby mode (watts).",
       "label_i18n": {
         "en": "Standby Power per Device",
-        "tr": "Standby Power per Device",
+        "tr": "Cihaz Başına Bekleme Gücü",
         "de": "Standby Power per Device",
         "fr": "Standby Power per Device",
         "es": "Standby Power per Device",
         "ar": "Standby Power per Device"
+      },
+      "businessContext_i18n": {
+        "en": "Power consumed per device in standby mode (watts).",
+        "tr": "Cihazın bekleme modunda tükettiği güç (watt)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average hours per day the device is in standby (not active).",
       "label_i18n": {
         "en": "Hours in Standby per Day",
-        "tr": "Hours in Standby per Day",
+        "tr": "Günlük Bekleme Süresi",
         "de": "Hours in Standby per Day",
         "fr": "Hours in Standby per Day",
         "es": "Hours in Standby per Day",
         "ar": "Hours in Standby per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Average hours per day the device is in standby (not active).",
+        "tr": "Cihazın günde ortalama bekleme süresi (aktif değil) (saat)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of days in billing period (typically 30).",
       "label_i18n": {
         "en": "Days per Month",
-        "tr": "Days per Month",
+        "tr": "Aylık Gün Sayısı",
         "de": "Days per Month",
         "fr": "Days per Month",
         "es": "Days per Month",
         "ar": "Days per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days in billing period (typically 30).",
+        "tr": "Fatura dönemindeki gün sayısı (genellikle 30)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost per kilowatt-hour in local currency.",
       "label_i18n": {
         "en": "Electricity Cost",
-        "tr": "Electricity Cost",
+        "tr": "Elektrik Maliyeti",
         "de": "Electricity Cost",
         "fr": "Electricity Cost",
         "es": "Electricity Cost",
         "ar": "Electricity Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per kilowatt-hour in local currency.",
+        "tr": "Kilovatsaat başına yerel para birimi cinsinden maliyet."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Carbon intensity of grid electricity (kg CO2 per kWh).",
       "label_i18n": {
         "en": "CO2 Emission Factor",
-        "tr": "CO2 Emission Factor",
+        "tr": "CO2 Emisyon Faktörü",
         "de": "CO2 Emission Factor",
         "fr": "CO2 Emission Factor",
         "es": "CO2 Emission Factor",
         "ar": "CO2 Emission Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Carbon intensity of grid electricity (kg CO2 per kWh).",
+        "tr": "Şebeke elektriğinin karbon yoğunluğu (kg CO2/kWh)."
       }
     }
   ],

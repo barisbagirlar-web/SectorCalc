@@ -10,11 +10,15 @@
       "businessContext": "Measured actual wall thickness from ultrasonic testing (UT) gauge.",
       "label_i18n": {
         "en": "Current Thickness (mm)",
-        "tr": "Current Thickness (mm)",
+        "tr": "Mevcut Kalınlık (mm)",
         "de": "Current Thickness (mm)",
         "fr": "Current Thickness (mm)",
         "es": "Current Thickness (mm)",
         "ar": "Current Thickness (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured actual wall thickness from ultrasonic testing (UT) gauge.",
+        "tr": "Ultrasonik test (UT) cihazından ölçülen gerçek duvar kalınlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Minimum thickness required by design code (e.g., ASME B31.3) before replacement.",
       "label_i18n": {
         "en": "Minimum Allowable Thickness (mm)",
-        "tr": "Minimum Allowable Thickness (mm)",
+        "tr": "İzin Verilen Minimum Kalınlık (mm)",
         "de": "Minimum Allowable Thickness (mm)",
         "fr": "Minimum Allowable Thickness (mm)",
         "es": "Minimum Allowable Thickness (mm)",
         "ar": "Minimum Allowable Thickness (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum thickness required by design code (e.g., ASME B31.3) before replacement.",
+        "tr": "Değiştirme öncesi tasarım kodunun (ör. ASME B31.3) gerektirdiği minimum kalınlık."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Estimated uniform corrosion rate based on historical UT data or industry standards.",
       "label_i18n": {
         "en": "Corrosion Rate (mm/year)",
-        "tr": "Corrosion Rate (mm/year)",
+        "tr": "Korozyon Hızı (mm/yıl)",
         "de": "Corrosion Rate (mm/year)",
         "fr": "Corrosion Rate (mm/year)",
         "es": "Corrosion Rate (mm/year)",
         "ar": "Corrosion Rate (mm/year)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated uniform corrosion rate based on historical UT data or industry standards.",
+        "tr": "Geçmiş UT verileri veya endüstri standartlarına dayalı tahmini üniform korozyon hızı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Safety factor to account for UT measurement uncertainty (≥1.0).",
       "label_i18n": {
         "en": "Measurement Confidence Factor",
-        "tr": "Measurement Confidence Factor",
+        "tr": "Ölçüm Güven Faktörü",
         "de": "Measurement Confidence Factor",
         "fr": "Measurement Confidence Factor",
         "es": "Measurement Confidence Factor",
         "ar": "Measurement Confidence Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Safety factor to account for UT measurement uncertainty (≥1.0).",
+        "tr": "UT ölçüm belirsizliğini hesaba katmak için güvenlik faktörü (≥1.0)."
       }
     }
   ],

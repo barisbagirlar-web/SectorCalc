@@ -10,11 +10,15 @@
       "businessContext": "The tensile force applied to the bolt during tightening, typically achieved by torque or tension.",
       "label_i18n": {
         "en": "Preload Force",
-        "tr": "Preload Force",
+        "tr": "Ön Yükleme Kuvveti",
         "de": "Preload Force",
         "fr": "Preload Force",
         "es": "Preload Force",
         "ar": "Preload Force"
+      },
+      "businessContext_i18n": {
+        "en": "The tensile force applied to the bolt during tightening, typically achieved by torque or tension.",
+        "tr": "Sıkma sırasında cıvataya uygulanan çekme kuvveti, genellikle tork veya gerilim ile elde edilir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The length of the bolt between the nut and the bolt head, or the clamped length.",
       "label_i18n": {
         "en": "Grip Length",
-        "tr": "Grip Length",
+        "tr": "Kavrama Uzunluğu",
         "de": "Grip Length",
         "fr": "Grip Length",
         "es": "Grip Length",
         "ar": "Grip Length"
+      },
+      "businessContext_i18n": {
+        "en": "The length of the bolt between the nut and the bolt head, or the clamped length.",
+        "tr": "Somun ile cıvata başı arasındaki cıvata uzunluğu veya sıkıştırılan uzunluk."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The effective cross-sectional area of the bolt thread under tension.",
       "label_i18n": {
         "en": "Tensile Stress Area",
-        "tr": "Tensile Stress Area",
+        "tr": "Çekme Gerilme Alanı",
         "de": "Tensile Stress Area",
         "fr": "Tensile Stress Area",
         "es": "Tensile Stress Area",
         "ar": "Tensile Stress Area"
+      },
+      "businessContext_i18n": {
+        "en": "The effective cross-sectional area of the bolt thread under tension.",
+        "tr": "Cıvata dişinin çekme altındaki etkili kesit alanı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Young's modulus of the bolt material, e.g., 200,000 N/mm² for steel.",
       "label_i18n": {
         "en": "Modulus of Elasticity",
-        "tr": "Modulus of Elasticity",
+        "tr": "Elastisite Modülü",
         "de": "Modulus of Elasticity",
         "fr": "Modulus of Elasticity",
         "es": "Modulus of Elasticity",
         "ar": "Modulus of Elasticity"
+      },
+      "businessContext_i18n": {
+        "en": "Young's modulus of the bolt material, e.g., 200,000 N/mm² for steel.",
+        "tr": "Cıvata malzemesinin Young modülü, örn. çelik için 200.000 N/mm²."
       }
     }
   ],

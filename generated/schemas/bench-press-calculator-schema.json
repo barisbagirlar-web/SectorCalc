@@ -10,11 +10,15 @@
       "businessContext": "The total weight (including bar) you lifted.",
       "label_i18n": {
         "en": "Lifted Weight",
-        "tr": "Lifted Weight",
+        "tr": "Kaldırılan Ağırlık",
         "de": "Lifted Weight",
         "fr": "Lifted Weight",
         "es": "Lifted Weight",
         "ar": "Lifted Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The total weight (including bar) you lifted.",
+        "tr": "Kaldırdığınız toplam ağırlık (bar dahil)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of repetitions performed until failure.",
       "label_i18n": {
         "en": "Repetitions",
-        "tr": "Repetitions",
+        "tr": "Tekrar Sayısı",
         "de": "Repetitions",
         "fr": "Repetitions",
         "es": "Repetitions",
         "ar": "Repetitions"
+      },
+      "businessContext_i18n": {
+        "en": "Number of repetitions performed until failure.",
+        "tr": "Başarısızlığa kadar gerçekleştirilen tekrar sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Target number of repetitions for which you want to estimate the weight.",
       "label_i18n": {
         "en": "Desired Reps",
-        "tr": "Desired Reps",
+        "tr": "Hedef Tekrar",
         "de": "Desired Reps",
         "fr": "Desired Reps",
         "es": "Desired Reps",
         "ar": "Desired Reps"
+      },
+      "businessContext_i18n": {
+        "en": "Target number of repetitions for which you want to estimate the weight.",
+        "tr": "Ağırlığı tahmin etmek istediğiniz hedef tekrar sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of your estimated one-repetition maximum for programming working sets.",
       "label_i18n": {
         "en": "Percentage of 1RM",
-        "tr": "Percentage of 1RM",
+        "tr": "1TM Yüzdesi",
         "de": "Percentage of 1RM",
         "fr": "Percentage of 1RM",
         "es": "Percentage of 1RM",
         "ar": "Percentage of 1RM"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of your estimated one-repetition maximum for programming working sets.",
+        "tr": "Çalışma setlerini programlamak için tahmini bir tekrar maksimumunuzun yüzdesi."
       }
     }
   ],

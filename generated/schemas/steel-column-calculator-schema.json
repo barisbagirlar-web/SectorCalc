@@ -10,11 +10,15 @@
       "businessContext": "End condition factor: 1.0 for pinned-pinned, 0.5 for fixed-fixed, 0.7 for fixed-pinned, 2.0 for fixed-free.",
       "label_i18n": {
         "en": "Effective Length Factor (K)",
-        "tr": "Effective Length Factor (K)",
+        "tr": "Etkili Uzunluk Faktörü (K)",
         "de": "Effective Length Factor (K)",
         "fr": "Effective Length Factor (K)",
         "es": "Effective Length Factor (K)",
         "ar": "Effective Length Factor (K)"
+      },
+      "businessContext_i18n": {
+        "en": "End condition factor: 1.0 for pinned-pinned, 0.5 for fixed-fixed, 0.7 for fixed-pinned, 2.0 for fixed-free.",
+        "tr": "Uç durumu faktörü: 1.0 mafsallı-mafsallı, 0.5 ankastre-ankastre, 0.7 ankastre-mafsallı, 2.0 ankastre-serbest."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Actual length between lateral supports.",
       "label_i18n": {
         "en": "Unbraced Length (L)",
-        "tr": "Unbraced Length (L)",
+        "tr": "Desteklenmeyen Uzunluk (L)",
         "de": "Unbraced Length (L)",
         "fr": "Unbraced Length (L)",
         "es": "Unbraced Length (L)",
         "ar": "Unbraced Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Actual length between lateral supports.",
+        "tr": "Yanal destekler arasındaki gerçek uzunluk."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of rectangular solid section.",
       "label_i18n": {
         "en": "Cross-Section Width (b)",
-        "tr": "Cross-Section Width (b)",
+        "tr": "Kesit Genişliği (b)",
         "de": "Cross-Section Width (b)",
         "fr": "Cross-Section Width (b)",
         "es": "Cross-Section Width (b)",
         "ar": "Cross-Section Width (b)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of rectangular solid section.",
+        "tr": "Dikdörtgen katı kesitin genişliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Thickness of rectangular solid section.",
       "label_i18n": {
         "en": "Cross-Section Thickness (t)",
-        "tr": "Cross-Section Thickness (t)",
+        "tr": "Kesit Kalınlığı (t)",
         "de": "Cross-Section Thickness (t)",
         "fr": "Cross-Section Thickness (t)",
         "es": "Cross-Section Thickness (t)",
         "ar": "Cross-Section Thickness (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of rectangular solid section.",
+        "tr": "Dikdörtgen katı kesitin kalınlığı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Steel typically 200 GPa.",
       "label_i18n": {
         "en": "Modulus of Elasticity (E)",
-        "tr": "Modulus of Elasticity (E)",
+        "tr": "Elastisite Modülü (E)",
         "de": "Modulus of Elasticity (E)",
         "fr": "Modulus of Elasticity (E)",
         "es": "Modulus of Elasticity (E)",
         "ar": "Modulus of Elasticity (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Steel typically 200 GPa.",
+        "tr": "Çelik için tipik olarak 200 GPa."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Typical S235 steel yield strength.",
       "label_i18n": {
         "en": "Yield Strength (Fy)",
-        "tr": "Yield Strength (Fy)",
+        "tr": "Akma Dayanımı (Fy)",
         "de": "Yield Strength (Fy)",
         "fr": "Yield Strength (Fy)",
         "es": "Yield Strength (Fy)",
         "ar": "Yield Strength (Fy)"
+      },
+      "businessContext_i18n": {
+        "en": "Typical S235 steel yield strength.",
+        "tr": "Tipik S235 çeliği akma dayanımı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "AISC ASD typical factor of safety for compression.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "AISC ASD typical factor of safety for compression.",
+        "tr": "AISC ASD tipik basınç güvenlik faktörü."
       }
     }
   ],

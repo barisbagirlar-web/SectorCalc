@@ -10,11 +10,15 @@
       "businessContext": "Total number of features or variables in the original dataset.",
       "label_i18n": {
         "en": "Number of Original Dimensions",
-        "tr": "Number of Original Dimensions",
+        "tr": "Orijinal boyut sayısı",
         "de": "Number of Original Dimensions",
         "fr": "Number of Original Dimensions",
         "es": "Number of Original Dimensions",
         "ar": "Number of Original Dimensions"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of features or variables in the original dataset.",
+        "tr": "Orijinal veri kümesindeki toplam özellik veya değişken sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Rate at which eigenvalues decrease in a geometric progression model (0 < r < 1).",
       "label_i18n": {
         "en": "Eigenvalue Decay Rate",
-        "tr": "Eigenvalue Decay Rate",
+        "tr": "Özdeğer azalma oranı",
         "de": "Eigenvalue Decay Rate",
         "fr": "Eigenvalue Decay Rate",
         "es": "Eigenvalue Decay Rate",
         "ar": "Eigenvalue Decay Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Rate at which eigenvalues decrease in a geometric progression model (0 < r < 1).",
+        "tr": "Geometrik dizi modelinde özdeğerlerin azalma hızı (0 < r < 1)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Magnitude of the largest eigenvalue.",
       "label_i18n": {
         "en": "Initial Eigenvalue",
-        "tr": "Initial Eigenvalue",
+        "tr": "Başlangıç özdeğeri",
         "de": "Initial Eigenvalue",
         "fr": "Initial Eigenvalue",
         "es": "Initial Eigenvalue",
         "ar": "Initial Eigenvalue"
+      },
+      "businessContext_i18n": {
+        "en": "Magnitude of the largest eigenvalue.",
+        "tr": "En büyük özdeğerin büyüklüğü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Target proportion of total variance to be retained (0 to 1).",
       "label_i18n": {
         "en": "Cumulative Variance Threshold",
-        "tr": "Cumulative Variance Threshold",
+        "tr": "Kümülatif varyans eşiği",
         "de": "Cumulative Variance Threshold",
         "fr": "Cumulative Variance Threshold",
         "es": "Cumulative Variance Threshold",
         "ar": "Cumulative Variance Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Target proportion of total variance to be retained (0 to 1).",
+        "tr": "Korunacak toplam varyansın hedef oranı (0 ile 1 arasında)."
       }
     }
   ],

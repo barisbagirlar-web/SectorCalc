@@ -10,11 +10,15 @@
       "businessContext": "Total distance to be traveled",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Distance (km)",
+        "tr": "Mesafe (km)",
         "de": "Distance (km)",
         "fr": "Distance (km)",
         "es": "Distance (km)",
         "ar": "Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance to be traveled",
+        "tr": "Gidilecek toplam mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vehicle's fuel consumption rate per 100 km",
       "label_i18n": {
         "en": "Fuel Consumption (L/100km)",
-        "tr": "Fuel Consumption (L/100km)",
+        "tr": "Yakıt Tüketimi (L/100km)",
         "de": "Fuel Consumption (L/100km)",
         "fr": "Fuel Consumption (L/100km)",
         "es": "Fuel Consumption (L/100km)",
         "ar": "Fuel Consumption (L/100km)"
+      },
+      "businessContext_i18n": {
+        "en": "Vehicle's fuel consumption rate per 100 km",
+        "tr": "Aracın 100 km başına yakıt tüketim oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current fuel price per liter",
       "label_i18n": {
         "en": "Fuel Price (per L)",
-        "tr": "Fuel Price (per L)",
+        "tr": "Yakıt Fiyatı (Litre başına)",
         "de": "Fuel Price (per L)",
         "fr": "Fuel Price (per L)",
         "es": "Fuel Price (per L)",
         "ar": "Fuel Price (per L)"
+      },
+      "businessContext_i18n": {
+        "en": "Current fuel price per liter",
+        "tr": "Litre başına güncel yakıt fiyatı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiply by number of trips to obtain total cost",
       "label_i18n": {
         "en": "Number of Trips",
-        "tr": "Number of Trips",
+        "tr": "Seyir Sayısı",
         "de": "Number of Trips",
         "fr": "Number of Trips",
         "es": "Number of Trips",
         "ar": "Number of Trips"
+      },
+      "businessContext_i18n": {
+        "en": "Multiply by number of trips to obtain total cost",
+        "tr": "Toplam maliyeti elde etmek için seyir sayısıyla çarpın"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Any fixed additional cost per trip (e.g., tolls, maintenance)",
       "label_i18n": {
         "en": "Additional Cost per Trip",
-        "tr": "Additional Cost per Trip",
+        "tr": "Seyir Başına Ek Maliyet",
         "de": "Additional Cost per Trip",
         "fr": "Additional Cost per Trip",
         "es": "Additional Cost per Trip",
         "ar": "Additional Cost per Trip"
+      },
+      "businessContext_i18n": {
+        "en": "Any fixed additional cost per trip (e.g., tolls, maintenance)",
+        "tr": "Sefer başına herhangi bir sabit ek maliyet (örn. köprü geçiş ücreti, bakım)"
       }
     }
   ],

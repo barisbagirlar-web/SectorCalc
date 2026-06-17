@@ -10,11 +10,15 @@
       "businessContext": "Body weight in pounds for Rockport walking test estimation.",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in pounds for Rockport walking test estimation.",
+        "tr": "Rockport yürüme testi tahmini için vücut ağırlığı (pound)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age of the individual.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the individual.",
+        "tr": "Bireyin yaşı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Gender encoding: 1 for male, 0 for female.",
       "label_i18n": {
         "en": "Gender (1=Male, 0=Female)",
-        "tr": "Gender (1=Male, 0=Female)",
+        "tr": "Cinsiyet (1=Erkek, 0=Kadın)",
         "de": "Gender (1=Male, 0=Female)",
         "fr": "Gender (1=Male, 0=Female)",
         "es": "Gender (1=Male, 0=Female)",
         "ar": "Gender (1=Male, 0=Female)"
+      },
+      "businessContext_i18n": {
+        "en": "Gender encoding: 1 for male, 0 for female.",
+        "tr": "Cinsiyet kodlaması: 1 erkek, 0 kadın"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration to walk exactly 1 mile on a flat surface.",
       "label_i18n": {
         "en": "1-Mile Walk Time",
-        "tr": "1-Mile Walk Time",
+        "tr": "1 Mil Yürüme Süresi",
         "de": "1-Mile Walk Time",
         "fr": "1-Mile Walk Time",
         "es": "1-Mile Walk Time",
         "ar": "1-Mile Walk Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration to walk exactly 1 mile on a flat surface.",
+        "tr": "Düz bir yüzeyde tam olarak 1 mil yürümek için gereken süre."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Heart rate in beats per minute measured immediately upon completing the walk.",
       "label_i18n": {
         "en": "Heart Rate at End",
-        "tr": "Heart Rate at End",
+        "tr": "Bitişteki Kalp Atış Hızı",
         "de": "Heart Rate at End",
         "fr": "Heart Rate at End",
         "es": "Heart Rate at End",
         "ar": "Heart Rate at End"
+      },
+      "businessContext_i18n": {
+        "en": "Heart rate in beats per minute measured immediately upon completing the walk.",
+        "tr": "Yürüyüşü tamamladıktan hemen sonra ölçülen dakikadaki kalp atışı sayısı."
       }
     }
   ],

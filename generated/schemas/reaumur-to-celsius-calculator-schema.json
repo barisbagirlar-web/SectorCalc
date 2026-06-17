@@ -10,11 +10,15 @@
       "businessContext": "The temperature value measured in degrees Réaumur to be converted to Celsius.",
       "label_i18n": {
         "en": "Réaumur Temperature",
-        "tr": "Réaumur Temperature",
+        "tr": "Réaumur Sıcaklığı",
         "de": "Réaumur Temperature",
         "fr": "Réaumur Temperature",
         "es": "Réaumur Temperature",
         "ar": "Réaumur Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "The temperature value measured in degrees Réaumur to be converted to Celsius.",
+        "tr": "Celsius'a dönüştürülecek Réaumur derece cinsinden sıcaklık değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for the output result. Ensures compliance with reporting precision requirements.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output result. Ensures compliance with reporting precision requirements.",
+        "tr": "Çıktı sonucu için ondalık basamak sayısı. Raporlama hassasiyet gereksinimlerine uygunluğu sağlar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The estimated uncertainty of the Réaumur measurement, for quality assurance documentation.",
       "label_i18n": {
         "en": "Measurement Uncertainty (±)",
-        "tr": "Measurement Uncertainty (±)",
+        "tr": "Ölçüm belirsizliği (±)",
         "de": "Measurement Uncertainty (±)",
         "fr": "Measurement Uncertainty (±)",
         "es": "Measurement Uncertainty (±)",
         "ar": "Measurement Uncertainty (±)"
+      },
+      "businessContext_i18n": {
+        "en": "The estimated uncertainty of the Réaumur measurement, for quality assurance documentation.",
+        "tr": "Kalite güvence dokümantasyonu için Réaumur ölçümünün tahmini belirsizliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional offset to correct for systematic error in the measurement device, as per calibration certificate.",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Optional offset to correct for systematic error in the measurement device, as per calibration certificate.",
+        "tr": "Kalibrasyon sertifikasına göre ölçüm cihazındaki sistematik hatayı düzeltmek için isteğe bağlı ofset."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Internal cylinder diameter",
       "label_i18n": {
         "en": "Bore Diameter (mm)",
-        "tr": "Bore Diameter (mm)",
+        "tr": "Delik Çapı (mm)",
         "de": "Bore Diameter (mm)",
         "fr": "Bore Diameter (mm)",
         "es": "Bore Diameter (mm)",
         "ar": "Bore Diameter (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Internal cylinder diameter",
+        "tr": "Silindir iç çapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cylinder stroke length",
       "label_i18n": {
         "en": "Stroke Length (mm)",
-        "tr": "Stroke Length (mm)",
+        "tr": "Strok Uzunluğu (mm)",
         "de": "Stroke Length (mm)",
         "fr": "Stroke Length (mm)",
         "es": "Stroke Length (mm)",
         "ar": "Stroke Length (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Cylinder stroke length",
+        "tr": "Silindir strok uzunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Gauge working pressure",
       "label_i18n": {
         "en": "Operating Pressure (bar)",
-        "tr": "Operating Pressure (bar)",
+        "tr": "Çalışma Basıncı (bar)",
         "de": "Operating Pressure (bar)",
         "fr": "Operating Pressure (bar)",
         "es": "Operating Pressure (bar)",
         "ar": "Operating Pressure (bar)"
+      },
+      "businessContext_i18n": {
+        "en": "Gauge working pressure",
+        "tr": "Manometre çalışma basıncı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Complete extend-retract cycles per minute",
       "label_i18n": {
         "en": "Cycles per Minute",
-        "tr": "Cycles per Minute",
+        "tr": "Dakikadaki Çevrim Sayısı",
         "de": "Cycles per Minute",
         "fr": "Cycles per Minute",
         "es": "Cycles per Minute",
         "ar": "Cycles per Minute"
+      },
+      "businessContext_i18n": {
+        "en": "Complete extend-retract cycles per minute",
+        "tr": "Dakikadaki tam uzatma-geri çekme çevrimi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Local atmospheric pressure, default 1.013 bar at sea level",
       "label_i18n": {
         "en": "Atmospheric Pressure (bar)",
-        "tr": "Atmospheric Pressure (bar)",
+        "tr": "Atmosfer Basıncı (bar)",
         "de": "Atmospheric Pressure (bar)",
         "fr": "Atmospheric Pressure (bar)",
         "es": "Atmospheric Pressure (bar)",
         "ar": "Atmospheric Pressure (bar)"
+      },
+      "businessContext_i18n": {
+        "en": "Local atmospheric pressure, default 1.013 bar at sea level",
+        "tr": "Yerel atmosfer basıncı, deniz seviyesinde varsayılan 1,013 bar"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1 for single-acting, 2 for double-acting cylinder",
       "label_i18n": {
         "en": "Acting Factor",
-        "tr": "Acting Factor",
+        "tr": "Etki Faktörü",
         "de": "Acting Factor",
         "fr": "Acting Factor",
         "es": "Acting Factor",
         "ar": "Acting Factor"
+      },
+      "businessContext_i18n": {
+        "en": "1 for single-acting, 2 for double-acting cylinder",
+        "tr": "Tek etkili silindir için 1, çift etkili silindir için 2"
       }
     }
   ],

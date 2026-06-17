@@ -10,11 +10,15 @@
       "businessContext": "Production batch size in grams, typical lab scale is 1000g.",
       "label_i18n": {
         "en": "Batch Size (g)",
-        "tr": "Batch Size (g)",
+        "tr": "Parti büyüklüğü (g)",
         "de": "Batch Size (g)",
         "fr": "Batch Size (g)",
         "es": "Batch Size (g)",
         "ar": "Batch Size (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Production batch size in grams, typical lab scale is 1000g.",
+        "tr": "Gram cinsinden üretim parti büyüklüğü, tipik laboratuvar ölçeği 1000g'dir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Weight per finished product unit (e.g., a foundation is 30g, a lipstick 4g).",
       "label_i18n": {
         "en": "Unit Weight (g)",
-        "tr": "Unit Weight (g)",
+        "tr": "Birim ağırlık (g)",
         "de": "Unit Weight (g)",
         "fr": "Unit Weight (g)",
         "es": "Unit Weight (g)",
         "ar": "Unit Weight (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight per finished product unit (e.g., a foundation is 30g, a lipstick 4g).",
+        "tr": "Bitmiş ürün birimi başına ağırlık (örneğin, bir fondöten 30g, bir ruj 4g)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average bulk raw material cost per gram including all ingredients.",
       "label_i18n": {
         "en": "Material Cost per Gram",
-        "tr": "Material Cost per Gram",
+        "tr": "Gram başına malzeme maliyeti",
         "de": "Material Cost per Gram",
         "fr": "Material Cost per Gram",
         "es": "Material Cost per Gram",
         "ar": "Material Cost per Gram"
+      },
+      "businessContext_i18n": {
+        "en": "Average bulk raw material cost per gram including all ingredients.",
+        "tr": "Tüm bileşenler dahil gram başına ortalama toplu hammadde maliyeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Packaging and container cost per finished product unit.",
       "label_i18n": {
         "en": "Container Cost per Unit",
-        "tr": "Container Cost per Unit",
+        "tr": "Birim başına kap maliyeti",
         "de": "Container Cost per Unit",
         "fr": "Container Cost per Unit",
         "es": "Container Cost per Unit",
         "ar": "Container Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Packaging and container cost per finished product unit.",
+        "tr": "Bitmiş ürün birimi başına ambalaj ve kap maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Direct labor cost allocated per finished product unit.",
       "label_i18n": {
         "en": "Labor Cost per Unit",
-        "tr": "Labor Cost per Unit",
+        "tr": "Birim başına işçilik maliyeti",
         "de": "Labor Cost per Unit",
         "fr": "Labor Cost per Unit",
         "es": "Labor Cost per Unit",
         "ar": "Labor Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor cost allocated per finished product unit.",
+        "tr": "Bitmiş ürün birimi başına tahsis edilen doğrudan işçilik maliyeti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Manufacturing overhead as a percentage of total direct cost.",
       "label_i18n": {
         "en": "Overhead (%)",
-        "tr": "Overhead (%)",
+        "tr": "Genel Giderler (%)",
         "de": "Overhead (%)",
         "fr": "Overhead (%)",
         "es": "Overhead (%)",
         "ar": "Overhead (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturing overhead as a percentage of total direct cost.",
+        "tr": "Toplam doğrudan maliyetin yüzdesi olarak üretim genel gideri."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Profit margin markup on total cost per unit to determine selling price.",
       "label_i18n": {
         "en": "Desired Margin (%)",
-        "tr": "Desired Margin (%)",
+        "tr": "İstenen marj (%)",
         "de": "Desired Margin (%)",
         "fr": "Desired Margin (%)",
         "es": "Desired Margin (%)",
         "ar": "Desired Margin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Profit margin markup on total cost per unit to determine selling price.",
+        "tr": "Satış fiyatını belirlemek için birim başına toplam maliyet üzerine kâr marjı."
       }
     }
   ],

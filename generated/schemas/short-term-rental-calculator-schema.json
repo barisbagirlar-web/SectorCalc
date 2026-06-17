@@ -10,11 +10,15 @@
       "businessContext": "Daily rental price of the property",
       "label_i18n": {
         "en": "Nightly Rate",
-        "tr": "Nightly Rate",
+        "tr": "Gecelik Ücret",
         "de": "Nightly Rate",
         "fr": "Nightly Rate",
         "es": "Nightly Rate",
         "ar": "Nightly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Daily rental price of the property",
+        "tr": "Mülkün günlük kira fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of stay in nights",
       "label_i18n": {
         "en": "Number of Nights",
-        "tr": "Number of Nights",
+        "tr": "Gece Sayısı",
         "de": "Number of Nights",
         "fr": "Number of Nights",
         "es": "Number of Nights",
         "ar": "Number of Nights"
+      },
+      "businessContext_i18n": {
+        "en": "Length of stay in nights",
+        "tr": "Gece olarak kalış süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "One-time fee for cleaning services",
       "label_i18n": {
         "en": "Cleaning Fee",
-        "tr": "Cleaning Fee",
+        "tr": "Temizlik Ücreti",
         "de": "Cleaning Fee",
         "fr": "Cleaning Fee",
         "es": "Cleaning Fee",
         "ar": "Cleaning Fee"
+      },
+      "businessContext_i18n": {
+        "en": "One-time fee for cleaning services",
+        "tr": "Temizlik hizmetleri için tek seferlik ücret"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of base amount charged as service fee",
       "label_i18n": {
         "en": "Service Fee (%)",
-        "tr": "Service Fee (%)",
+        "tr": "Hizmet Ücreti (%)",
         "de": "Service Fee (%)",
         "fr": "Service Fee (%)",
         "es": "Service Fee (%)",
         "ar": "Service Fee (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of base amount charged as service fee",
+        "tr": "Temel tutar üzerinden alınan hizmet ücreti yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Local tax percentage on rental subtotal",
       "label_i18n": {
         "en": "Occupancy Tax (%)",
-        "tr": "Occupancy Tax (%)",
+        "tr": "Doluluk Vergisi (%)",
         "de": "Occupancy Tax (%)",
         "fr": "Occupancy Tax (%)",
         "es": "Occupancy Tax (%)",
         "ar": "Occupancy Tax (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Local tax percentage on rental subtotal",
+        "tr": "Kira alt toplamına uygulanan yerel vergi yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Discount percentage applied to base amount",
       "label_i18n": {
         "en": "Discount (%)",
-        "tr": "Discount (%)",
+        "tr": "İndirim (%)",
         "de": "Discount (%)",
         "fr": "Discount (%)",
         "es": "Discount (%)",
         "ar": "Discount (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Discount percentage applied to base amount",
+        "tr": "Temel tutara uygulanan indirim yüzdesi"
       }
     }
   ],

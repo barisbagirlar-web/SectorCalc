@@ -10,11 +10,15 @@
       "businessContext": "The significant digits of the number, typically between 1 and 10.",
       "label_i18n": {
         "en": "Coefficient (a)",
-        "tr": "Coefficient (a)",
+        "tr": "Katsayı (a)",
         "de": "Coefficient (a)",
         "fr": "Coefficient (a)",
         "es": "Coefficient (a)",
         "ar": "Coefficient (a)"
+      },
+      "businessContext_i18n": {
+        "en": "The significant digits of the number, typically between 1 and 10.",
+        "tr": "Sayının anlamlı basamakları, genellikle 1 ile 10 arasında."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The power of 10 multiplier.",
       "label_i18n": {
         "en": "Exponent (b)",
-        "tr": "Exponent (b)",
+        "tr": "Üs (b)",
         "de": "Exponent (b)",
         "fr": "Exponent (b)",
         "es": "Exponent (b)",
         "ar": "Exponent (b)"
+      },
+      "businessContext_i18n": {
+        "en": "The power of 10 multiplier.",
+        "tr": "10'un kuvveti çarpanı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "If provided, the calculator will convert this value to scientific notation.",
       "label_i18n": {
         "en": "Value (optional)",
-        "tr": "Value (optional)",
+        "tr": "Değer (isteğe bağlı)",
         "de": "Value (optional)",
         "fr": "Value (optional)",
         "es": "Value (optional)",
         "ar": "Value (optional)"
+      },
+      "businessContext_i18n": {
+        "en": "If provided, the calculator will convert this value to scientific notation.",
+        "tr": "Sağlanırsa, hesap aracı bu değeri bilimsel gösterime dönüştürür."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the coefficient.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the coefficient.",
+        "tr": "Katsayı için ondalık basamak sayısı."
       }
     }
   ],

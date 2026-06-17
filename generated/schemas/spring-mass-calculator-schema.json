@@ -10,11 +10,15 @@
       "businessContext": "Stiffness of the spring in Newtons per meter.",
       "label_i18n": {
         "en": "Spring Constant (k)",
-        "tr": "Spring Constant (k)",
+        "tr": "Yay Sabiti (k)",
         "de": "Spring Constant (k)",
         "fr": "Spring Constant (k)",
         "es": "Spring Constant (k)",
         "ar": "Spring Constant (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Stiffness of the spring in Newtons per meter.",
+        "tr": "Yayın metre başına Newton cinsinden sertliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass attached to the spring in kilograms.",
       "label_i18n": {
         "en": "Mass (m)",
-        "tr": "Mass (m)",
+        "tr": "Kütle (m)",
         "de": "Mass (m)",
         "fr": "Mass (m)",
         "es": "Mass (m)",
         "ar": "Mass (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass attached to the spring in kilograms.",
+        "tr": "Kütle (m)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Initial displacement from equilibrium position in meters.",
       "label_i18n": {
         "en": "Initial Displacement (x0)",
-        "tr": "Initial Displacement (x0)",
+        "tr": "Yaya bağlı kütle kilogram cinsinden.",
         "de": "Initial Displacement (x0)",
         "fr": "Initial Displacement (x0)",
         "es": "Initial Displacement (x0)",
         "ar": "Initial Displacement (x0)"
+      },
+      "businessContext_i18n": {
+        "en": "Initial displacement from equilibrium position in meters.",
+        "tr": "Başlangıç Yer Değiştirmesi (x0)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Initial velocity in meters per second.",
       "label_i18n": {
         "en": "Initial Velocity (v0)",
-        "tr": "Initial Velocity (v0)",
+        "tr": "Denge konumundan metre cinsinden başlangıç yer değiştirmesi.",
         "de": "Initial Velocity (v0)",
         "fr": "Initial Velocity (v0)",
         "es": "Initial Velocity (v0)",
         "ar": "Initial Velocity (v0)"
+      },
+      "businessContext_i18n": {
+        "en": "Initial velocity in meters per second.",
+        "tr": "Başlangıç Hızı (v0)"
       }
     }
   ],

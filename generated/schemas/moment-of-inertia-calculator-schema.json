@@ -10,11 +10,15 @@
       "businessContext": "Select shape: 1=Rectangle, 2=Circle, 3=Hollow Circle, 4=I-beam",
       "label_i18n": {
         "en": "Shape",
-        "tr": "Shape",
+        "tr": "Şekil",
         "de": "Shape",
         "fr": "Shape",
         "es": "Shape",
         "ar": "Shape"
+      },
+      "businessContext_i18n": {
+        "en": "Select shape: 1=Rectangle, 2=Circle, 3=Hollow Circle, 4=I-beam",
+        "tr": "Şekil seçin: 1=Dikdörtgen, 2=Daire, 3=İçi boş daire, 4=I-kiriş"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Base width for rectangle/I-beam, outer radius for circle/hollow circle",
       "label_i18n": {
         "en": "Width/Outer Radius (b or R)",
-        "tr": "Width/Outer Radius (b or R)",
+        "tr": "Genişlik/Dış yarıçap (b veya R)",
         "de": "Width/Outer Radius (b or R)",
         "fr": "Width/Outer Radius (b or R)",
         "es": "Width/Outer Radius (b or R)",
         "ar": "Width/Outer Radius (b or R)"
+      },
+      "businessContext_i18n": {
+        "en": "Base width for rectangle/I-beam, outer radius for circle/hollow circle",
+        "tr": "Dikdörtgen/I-kiriş için taban genişliği, daire/içi boş daire için dış yarıçap"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height for rectangle, overall height for I-beam (includes flanges); unused for circle",
       "label_i18n": {
         "en": "Height (h)",
-        "tr": "Height (h)",
+        "tr": "Yükseklik (h)",
         "de": "Height (h)",
         "fr": "Height (h)",
         "es": "Height (h)",
         "ar": "Height (h)"
+      },
+      "businessContext_i18n": {
+        "en": "Height for rectangle, overall height for I-beam (includes flanges); unused for circle",
+        "tr": "Dikdörtgen için yükseklik, I-kiriş için toplam yükseklik (flanşlar dahil); daire için kullanılmaz"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Flange thickness for I-beam, inner radius for hollow circle; unused for rectangle/circle",
       "label_i18n": {
         "en": "Flange Thickness/Inner Radius (tf or r)",
-        "tr": "Flange Thickness/Inner Radius (tf or r)",
+        "tr": "Flanş kalınlığı/İç yarıçap (tf veya r)",
         "de": "Flange Thickness/Inner Radius (tf or r)",
         "fr": "Flange Thickness/Inner Radius (tf or r)",
         "es": "Flange Thickness/Inner Radius (tf or r)",
         "ar": "Flange Thickness/Inner Radius (tf or r)"
+      },
+      "businessContext_i18n": {
+        "en": "Flange thickness for I-beam, inner radius for hollow circle; unused for rectangle/circle",
+        "tr": "I-kiriş için flanş kalınlığı, içi boş daire için iç yarıçap; dikdörtgen/daire için kullanılmaz"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Web thickness for I-beam; unused for other shapes",
       "label_i18n": {
         "en": "Web Thickness (tw)",
-        "tr": "Web Thickness (tw)",
+        "tr": "Gövde kalınlığı (tw)",
         "de": "Web Thickness (tw)",
         "fr": "Web Thickness (tw)",
         "es": "Web Thickness (tw)",
         "ar": "Web Thickness (tw)"
+      },
+      "businessContext_i18n": {
+        "en": "Web thickness for I-beam; unused for other shapes",
+        "tr": "I-kiriş için gövde kalınlığı; diğer şekiller için kullanılmaz"
       }
     }
   ],

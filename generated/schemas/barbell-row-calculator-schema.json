@@ -10,11 +10,15 @@
       "businessContext": "Diameter of the barbell shaft for section modulus calculation.",
       "label_i18n": {
         "en": "Barbell Diameter",
-        "tr": "Barbell Diameter",
+        "tr": "Halter Çapı",
         "de": "Barbell Diameter",
         "fr": "Barbell Diameter",
         "es": "Barbell Diameter",
         "ar": "Barbell Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the barbell shaft for section modulus calculation.",
+        "tr": "Kesit modülü hesaplaması için halter milinin çapı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of the barbell between supports for bending moment calculation.",
       "label_i18n": {
         "en": "Barbell Length",
-        "tr": "Barbell Length",
+        "tr": "Halter Uzunluğu",
         "de": "Barbell Length",
         "fr": "Barbell Length",
         "es": "Barbell Length",
         "ar": "Barbell Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the barbell between supports for bending moment calculation.",
+        "tr": "Eğilme momenti hesaplaması için destekler arasındaki halter uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight of the plates loaded on the barbell, including bar weight if not centered.",
       "label_i18n": {
         "en": "Load Weight",
-        "tr": "Load Weight",
+        "tr": "Yük Ağırlığı",
         "de": "Load Weight",
         "fr": "Load Weight",
         "es": "Load Weight",
         "ar": "Load Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the plates loaded on the barbell, including bar weight if not centered.",
+        "tr": "Halter üzerine yüklenen plakaların ağırlığı, merkezde değilse halter ağırlığı dahil."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Yield strength of the barbell material for allowable stress calculation.",
       "label_i18n": {
         "en": "Material Yield Strength",
-        "tr": "Material Yield Strength",
+        "tr": "Malzeme Akma Dayanımı",
         "de": "Material Yield Strength",
         "fr": "Material Yield Strength",
         "es": "Material Yield Strength",
         "ar": "Material Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Yield strength of the barbell material for allowable stress calculation.",
+        "tr": "İzin verilen gerilme hesaplaması için halter malzemesinin akma dayanımı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Design safety factor to ensure safe load capacity.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor to ensure safe load capacity.",
+        "tr": "Güvenli yük kapasitesini sağlamak için tasarım güvenlik faktörü."
       }
     }
   ],

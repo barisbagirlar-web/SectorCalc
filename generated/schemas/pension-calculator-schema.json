@@ -10,11 +10,15 @@
       "businessContext": "Your current age in years.",
       "label_i18n": {
         "en": "Current Age",
-        "tr": "Current Age",
+        "tr": "Mevcut Yaş",
         "de": "Current Age",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "Your current age in years.",
+        "tr": "Yıl cinsinden mevcut yaşınız."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age at which you plan to retire.",
       "label_i18n": {
         "en": "Retirement Age",
-        "tr": "Retirement Age",
+        "tr": "Emeklilik Yaşı",
         "de": "Retirement Age",
         "fr": "Retirement Age",
         "es": "Retirement Age",
         "ar": "Retirement Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age at which you plan to retire.",
+        "tr": "Emekli olmayı planladığınız yaş."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total amount already saved in your pension fund.",
       "label_i18n": {
         "en": "Current Pension Savings",
-        "tr": "Current Pension Savings",
+        "tr": "Mevcut Emeklilik Birikimi",
         "de": "Current Pension Savings",
         "fr": "Current Pension Savings",
         "es": "Current Pension Savings",
         "ar": "Current Pension Savings"
+      },
+      "businessContext_i18n": {
+        "en": "Total amount already saved in your pension fund.",
+        "tr": "Emeklilik fonunuzda halihazırda biriktirilmiş toplam tutar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Amount you contribute to your pension each month.",
       "label_i18n": {
         "en": "Monthly Contribution",
-        "tr": "Monthly Contribution",
+        "tr": "Aylık Katkı",
         "de": "Monthly Contribution",
         "fr": "Monthly Contribution",
         "es": "Monthly Contribution",
         "ar": "Monthly Contribution"
+      },
+      "businessContext_i18n": {
+        "en": "Amount you contribute to your pension each month.",
+        "tr": "Emekliliğinize her ay katkıda bulunduğunuz tutar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected annual return rate on your pension investments.",
       "label_i18n": {
         "en": "Expected Annual Return",
-        "tr": "Expected Annual Return",
+        "tr": "Beklenen Yıllık Getiri",
         "de": "Expected Annual Return",
         "fr": "Expected Annual Return",
         "es": "Expected Annual Return",
         "ar": "Expected Annual Return"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual return rate on your pension investments.",
+        "tr": "Emeklilik yatırımlarınızda beklenen yıllık getiri oranı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Expected annual inflation rate to adjust for real values.",
       "label_i18n": {
         "en": "Expected Inflation Rate",
-        "tr": "Expected Inflation Rate",
+        "tr": "Beklenen Enflasyon Oranı",
         "de": "Expected Inflation Rate",
         "fr": "Expected Inflation Rate",
         "es": "Expected Inflation Rate",
         "ar": "Expected Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual inflation rate to adjust for real values.",
+        "tr": "Reel değerleri ayarlamak için beklenen yıllık enflasyon oranı."
       }
     }
   ],

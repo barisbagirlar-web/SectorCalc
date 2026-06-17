@@ -10,11 +10,15 @@
       "businessContext": "Number of people traveling, affects per-person costs",
       "label_i18n": {
         "en": "Number of Travelers",
-        "tr": "Number of Travelers",
+        "tr": "Yolcu Sayısı",
         "de": "Number of Travelers",
         "fr": "Number of Travelers",
         "es": "Number of Travelers",
         "ar": "Number of Travelers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of people traveling, affects per-person costs",
+        "tr": "Seyahat eden kişi sayısı, kişi başı maliyetleri etkiler"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of days for the holiday",
       "label_i18n": {
         "en": "Trip Duration (Days)",
-        "tr": "Trip Duration (Days)",
+        "tr": "Seyahat Süresi (Gün)",
         "de": "Trip Duration (Days)",
         "fr": "Trip Duration (Days)",
         "es": "Trip Duration (Days)",
         "ar": "Trip Duration (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of days for the holiday",
+        "tr": "Tatil için toplam gün sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Round-trip airfare cost per traveler",
       "label_i18n": {
         "en": "Flight Cost per Person",
-        "tr": "Flight Cost per Person",
+        "tr": "Kişi Başı Uçuş Maliyeti",
         "de": "Flight Cost per Person",
         "fr": "Flight Cost per Person",
         "es": "Flight Cost per Person",
         "ar": "Flight Cost per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Round-trip airfare cost per traveler",
+        "tr": "Her yolcu için gidiş-dönüş uçak bileti ücreti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Accommodation cost per night for the group",
       "label_i18n": {
         "en": "Hotel Cost per Night",
-        "tr": "Hotel Cost per Night",
+        "tr": "Gece Başına Otel Maliyeti",
         "de": "Hotel Cost per Night",
         "fr": "Hotel Cost per Night",
         "es": "Hotel Cost per Night",
         "ar": "Hotel Cost per Night"
+      },
+      "businessContext_i18n": {
+        "en": "Accommodation cost per night for the group",
+        "tr": "Grup için gece başına konaklama maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Estimated daily food expense per traveler",
       "label_i18n": {
         "en": "Daily Food Budget per Person",
-        "tr": "Daily Food Budget per Person",
+        "tr": "Kişi Başı Günlük Yemek Bütçesi",
         "de": "Daily Food Budget per Person",
         "fr": "Daily Food Budget per Person",
         "es": "Daily Food Budget per Person",
         "ar": "Daily Food Budget per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated daily food expense per traveler",
+        "tr": "Her yolcu için tahmini günlük yemek masrafı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Estimated daily activity/entertainment cost per traveler",
       "label_i18n": {
         "en": "Daily Activity Budget per Person",
-        "tr": "Daily Activity Budget per Person",
+        "tr": "Kişi Başı Günlük Aktivite Bütçesi",
         "de": "Daily Activity Budget per Person",
         "fr": "Daily Activity Budget per Person",
         "es": "Daily Activity Budget per Person",
         "ar": "Daily Activity Budget per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated daily activity/entertainment cost per traveler",
+        "tr": "Her yolcu için tahmini günlük aktivite/eğlence masrafı"
       }
     }
   ],

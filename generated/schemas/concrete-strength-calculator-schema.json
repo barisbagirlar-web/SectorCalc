@@ -10,11 +10,15 @@
       "businessContext": "Amount of cement per cubic meter of concrete",
       "label_i18n": {
         "en": "Cement Content",
-        "tr": "Cement Content",
+        "tr": "Çimento Miktarı",
         "de": "Cement Content",
         "fr": "Cement Content",
         "es": "Cement Content",
         "ar": "Cement Content"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of cement per cubic meter of concrete",
+        "tr": "Beton metreküp başına çimento miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount of water per cubic meter of concrete",
       "label_i18n": {
         "en": "Water Content",
-        "tr": "Water Content",
+        "tr": "Su Miktarı",
         "de": "Water Content",
         "fr": "Water Content",
         "es": "Water Content",
         "ar": "Water Content"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of water per cubic meter of concrete",
+        "tr": "Beton metreküp başına su miktarı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time in days since casting",
       "label_i18n": {
         "en": "Age of Concrete",
-        "tr": "Age of Concrete",
+        "tr": "Beton Yaşı",
         "de": "Age of Concrete",
         "fr": "Age of Concrete",
         "es": "Age of Concrete",
         "ar": "Age of Concrete"
+      },
+      "businessContext_i18n": {
+        "en": "Time in days since casting",
+        "tr": "Dökümden bu yana geçen gün sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Empirical material constant A in Abrams' law (strength scale)",
       "label_i18n": {
         "en": "A coefficient (Abrams)",
-        "tr": "A coefficient (Abrams)",
+        "tr": "A katsayısı (Abrams)",
         "de": "A coefficient (Abrams)",
         "fr": "A coefficient (Abrams)",
         "es": "A coefficient (Abrams)",
         "ar": "A coefficient (Abrams)"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical material constant A in Abrams' law (strength scale)",
+        "tr": "Abrams yasasında ampirik malzeme sabiti A (dayanım ölçeği)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Empirical material constant B in Abrams' law (typically 10-20)",
       "label_i18n": {
         "en": "B coefficient (Abrams)",
-        "tr": "B coefficient (Abrams)",
+        "tr": "B katsayısı (Abrams)",
         "de": "B coefficient (Abrams)",
         "fr": "B coefficient (Abrams)",
         "es": "B coefficient (Abrams)",
         "ar": "B coefficient (Abrams)"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical material constant B in Abrams' law (typically 10-20)",
+        "tr": "Abrams yasasında ampirik malzeme sabiti B (tipik olarak 10-20)"
       }
     }
   ],

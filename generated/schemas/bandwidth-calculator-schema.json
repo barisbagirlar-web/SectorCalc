@@ -10,11 +10,15 @@
       "businessContext": "Total amount of data to transfer",
       "label_i18n": {
         "en": "Data Size",
-        "tr": "Data Size",
+        "tr": "Veri Boyutu",
         "de": "Data Size",
         "fr": "Data Size",
         "es": "Data Size",
         "ar": "Data Size"
+      },
+      "businessContext_i18n": {
+        "en": "Total amount of data to transfer",
+        "tr": "Aktarılacak toplam veri miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time available for transfer",
       "label_i18n": {
         "en": "Transfer Time",
-        "tr": "Transfer Time",
+        "tr": "Aktarım Süresi",
         "de": "Transfer Time",
         "fr": "Transfer Time",
         "es": "Transfer Time",
         "ar": "Transfer Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time available for transfer",
+        "tr": "Aktarım için mevcut süre"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage overhead added by protocol headers",
       "label_i18n": {
         "en": "Protocol Overhead",
-        "tr": "Protocol Overhead",
+        "tr": "Protokol Ek Yükü",
         "de": "Protocol Overhead",
         "fr": "Protocol Overhead",
         "es": "Protocol Overhead",
         "ar": "Protocol Overhead"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage overhead added by protocol headers",
+        "tr": "Protokol başlıkları tarafından eklenen yüzde ek yük"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of parallel communication channels",
       "label_i18n": {
         "en": "Number of Channels",
-        "tr": "Number of Channels",
+        "tr": "Kanal Sayısı",
         "de": "Number of Channels",
         "fr": "Number of Channels",
         "es": "Number of Channels",
         "ar": "Number of Channels"
+      },
+      "businessContext_i18n": {
+        "en": "Number of parallel communication channels",
+        "tr": "Paralel iletişim kanalı sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Efficiency of encoding scheme (e.g., 8b/10b is 80%)",
       "label_i18n": {
         "en": "Encoding Efficiency",
-        "tr": "Encoding Efficiency",
+        "tr": "Kodlama Verimliliği",
         "de": "Encoding Efficiency",
         "fr": "Encoding Efficiency",
         "es": "Encoding Efficiency",
         "ar": "Encoding Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of encoding scheme (e.g., 8b/10b is 80%)",
+        "tr": "Kodlama şemasının verimliliği (ör. 8b/10b için %80)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Multiplicative redundancy for error correction (e.g., FEC code rate inverse)",
       "label_i18n": {
         "en": "Redundancy Factor",
-        "tr": "Redundancy Factor",
+        "tr": "Yedeklilik Faktörü",
         "de": "Redundancy Factor",
         "fr": "Redundancy Factor",
         "es": "Redundancy Factor",
         "ar": "Redundancy Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplicative redundancy for error correction (e.g., FEC code rate inverse)",
+        "tr": "Hata düzeltme için çarpımsal yedeklilik (ör. FEC kod oranı tersi)"
       }
     }
   ],

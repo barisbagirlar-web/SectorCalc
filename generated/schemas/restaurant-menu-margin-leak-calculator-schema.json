@@ -21,10 +21,12 @@
       "max": 500,
       "businessContext": "Average price paid per guest for a main dish or complete meal as listed on the menu.",
       "label_i18n": {
-        "en": "Average Cover Price (Menu Price)"
+        "en": "Average Cover Price (Menu Price)",
+        "tr": "Ortalama Menü Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Average price paid per guest for a main dish or complete meal as listed on the menu."
+        "en": "Average price paid per guest for a main dish or complete meal as listed on the menu.",
+        "tr": "Menüde listelenen ana yemek veya tam öğün için misafir başına ödenen ortalama fiyat."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 200,
       "businessContext": "Direct ingredient cost allocated to each cover (plate cost).",
       "label_i18n": {
-        "en": "Food Cost per Cover"
+        "en": "Food Cost per Cover",
+        "tr": "Kapsama Başına Yiyecek Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct ingredient cost allocated to each cover (plate cost)."
+        "en": "Direct ingredient cost allocated to each cover (plate cost).",
+        "tr": "Her kapsam için ayrılan doğrudan içerik maliyeti (tabak maliyeti)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 100,
       "businessContext": "Direct labor (kitchen + service) cost per guest.",
       "label_i18n": {
-        "en": "Labor Cost per Cover"
+        "en": "Labor Cost per Cover",
+        "tr": "Kapsama Başına İşçilik Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct labor (kitchen + service) cost per guest."
+        "en": "Direct labor (kitchen + service) cost per guest.",
+        "tr": "Misafir başına doğrudan işçilik (mutfak + servis) maliyeti."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Rent, utilities, insurance, and other fixed costs allocated per cover.",
       "label_i18n": {
-        "en": "Overhead per Cover"
+        "en": "Overhead per Cover",
+        "tr": "Kapsama Başına Genel Gider"
       },
       "businessContext_i18n": {
-        "en": "Rent, utilities, insurance, and other fixed costs allocated per cover."
+        "en": "Rent, utilities, insurance, and other fixed costs allocated per cover.",
+        "tr": "Kapsam başına ayrılan kira, elektrik, sigorta ve diğer sabit maliyetler."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 50,
       "businessContext": "Percentage of food purchased that is discarded due to spoilage, overproduction, or plate waste.",
       "label_i18n": {
-        "en": "Food Waste Percentage"
+        "en": "Food Waste Percentage",
+        "tr": "Yiyecek İsrafı Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Percentage of food purchased that is discarded due to spoilage, overproduction, or plate waste."
+        "en": "Percentage of food purchased that is discarded due to spoilage, overproduction, or plate waste.",
+        "tr": "Bozulma, aşırı üretim veya tabak israfı nedeniyle atılan satın alınan yiyecek yüzdesi."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 20,
       "businessContext": "Estimated loss of inventory due to theft, misreporting, or unrecorded consumption.",
       "label_i18n": {
-        "en": "Theft & Shrinkage Percentage"
+        "en": "Theft & Shrinkage Percentage",
+        "tr": "Hırsızlık ve Fire Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Estimated loss of inventory due to theft, misreporting, or unrecorded consumption."
+        "en": "Estimated loss of inventory due to theft, misreporting, or unrecorded consumption.",
+        "tr": "Hırsızlık, yanlış raporlama veya kaydedilmemiş tüketim nedeniyle tahmini envanter kaybı."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 30,
       "businessContext": "Percentage of revenue lost due to employee meals, promotions, comps, and discounts.",
       "label_i18n": {
-        "en": "Discount & Comp Percentage"
+        "en": "Discount & Comp Percentage",
+        "tr": "İndirim ve İkram Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Percentage of revenue lost due to employee meals, promotions, comps, and discounts."
+        "en": "Percentage of revenue lost due to employee meals, promotions, comps, and discounts.",
+        "tr": "Personel yemekleri, promosyonlar, ikramlar ve indirimler nedeniyle kaybedilen gelir yüzdesi."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 100000,
       "businessContext": "Total number of guests served in the measurement period (month).",
       "label_i18n": {
-        "en": "Covers per Period (Monthly)"
+        "en": "Covers per Period (Monthly)",
+        "tr": "Dönem Başına Kapsam (Aylık)"
       },
       "businessContext_i18n": {
-        "en": "Total number of guests served in the measurement period (month)."
+        "en": "Total number of guests served in the measurement period (month).",
+        "tr": "Ölçüm döneminde (ay) hizmet verilen toplam misafir sayısı."
       }
     }
   ],

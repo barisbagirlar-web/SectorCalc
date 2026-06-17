@@ -23,10 +23,12 @@
       "max": 10000,
       "businessContext": "Total installed capacity of the renewable energy system (solar, wind, etc.)",
       "label_i18n": {
-        "en": "System Capacity (kW)"
+        "en": "System Capacity (kW)",
+        "tr": "Sistem Kapasitesi (kW)"
       },
       "businessContext_i18n": {
-        "en": "Total installed capacity of the renewable energy system (solar, wind, etc.)"
+        "en": "Total installed capacity of the renewable energy system (solar, wind, etc.)",
+        "tr": "Yenilenebilir enerji sisteminin (güneş, rüzgar vb.) toplam kurulu kapasitesi."
       }
     },
     {
@@ -39,10 +41,12 @@
       "max": 10000000,
       "businessContext": "Expected annual electricity generation based on location, technology, and degradation factors",
       "label_i18n": {
-        "en": "Annual Energy Output (kWh)"
+        "en": "Annual Energy Output (kWh)",
+        "tr": "Yıllık Enerji Üretimi (kWh)"
       },
       "businessContext_i18n": {
-        "en": "Expected annual electricity generation based on location, technology, and degradation factors"
+        "en": "Expected annual electricity generation based on location, technology, and degradation factors",
+        "tr": "Konum, teknoloji ve bozulma faktörlerine bağlı beklenen yıllık elektrik üretimi."
       }
     },
     {
@@ -55,10 +59,12 @@
       "max": 50000000,
       "businessContext": "Total upfront investment including equipment, installation, permits, and commissioning",
       "label_i18n": {
-        "en": "Total Capital Cost (USD)"
+        "en": "Total Capital Cost (USD)",
+        "tr": "Toplam Sermaye Maliyeti (USD)"
       },
       "businessContext_i18n": {
-        "en": "Total upfront investment including equipment, installation, permits, and commissioning"
+        "en": "Total upfront investment including equipment, installation, permits, and commissioning",
+        "tr": "Ekipman, kurulum, izinler ve devreye alma dahil toplam başlangıç yatırımı."
       }
     },
     {
@@ -71,10 +77,12 @@
       "max": 1000000,
       "businessContext": "Recurring costs for maintenance, insurance, monitoring, and repairs",
       "label_i18n": {
-        "en": "Annual Operating & Maintenance Cost (USD)"
+        "en": "Annual Operating & Maintenance Cost (USD)",
+        "tr": "Yıllık İşletme ve Bakım Maliyeti (USD)"
       },
       "businessContext_i18n": {
-        "en": "Recurring costs for maintenance, insurance, monitoring, and repairs"
+        "en": "Recurring costs for maintenance, insurance, monitoring, and repairs",
+        "tr": "Bakım, sigorta, izleme ve onarımlar için yinelenen maliyetler"
       }
     },
     {
@@ -87,10 +95,12 @@
       "max": 0.5,
       "businessContext": "Current or projected price of grid electricity, used to calculate savings",
       "label_i18n": {
-        "en": "Grid Electricity Price (USD/kWh)"
+        "en": "Grid Electricity Price (USD/kWh)",
+        "tr": "Şebeke Elektrik Fiyatı (USD/kWh)"
       },
       "businessContext_i18n": {
-        "en": "Current or projected price of grid electricity, used to calculate savings"
+        "en": "Current or projected price of grid electricity, used to calculate savings",
+        "tr": "Tasarrufları hesaplamak için kullanılan mevcut veya tahmini şebeke elektrik fiyatı"
       }
     },
     {
@@ -103,10 +113,12 @@
       "max": 20,
       "businessContext": "Expected annual inflation rate affecting future electricity prices and costs",
       "label_i18n": {
-        "en": "Annual Inflation Rate (%)"
+        "en": "Annual Inflation Rate (%)",
+        "tr": "Yıllık Enflasyon Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Expected annual inflation rate affecting future electricity prices and costs"
+        "en": "Expected annual inflation rate affecting future electricity prices and costs",
+        "tr": "Gelecekteki elektrik fiyatlarını ve maliyetleri etkileyen beklenen yıllık enflasyon oranı"
       }
     },
     {
@@ -119,10 +131,12 @@
       "max": 30,
       "businessContext": "Weighted average cost of capital (WACC) or required rate of return",
       "label_i18n": {
-        "en": "Discount Rate (%)"
+        "en": "Discount Rate (%)",
+        "tr": "İskonto Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Weighted average cost of capital (WACC) or required rate of return"
+        "en": "Weighted average cost of capital (WACC) or required rate of return",
+        "tr": "Ağırlıklı ortalama sermaye maliyeti (WACC) veya gerekli getiri oranı"
       }
     },
     {
@@ -135,10 +149,12 @@
       "max": 50,
       "businessContext": "Expected operational life of the renewable energy system",
       "label_i18n": {
-        "en": "System Lifetime (Years)"
+        "en": "System Lifetime (Years)",
+        "tr": "Sistem Ömrü (Yıl)"
       },
       "businessContext_i18n": {
-        "en": "Expected operational life of the renewable energy system"
+        "en": "Expected operational life of the renewable energy system",
+        "tr": "Yenilenebilir enerji sisteminin beklenen işletme ömrü"
       }
     }
   ],

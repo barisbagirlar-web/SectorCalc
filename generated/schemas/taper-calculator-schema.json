@@ -10,11 +10,15 @@
       "businessContext": "The larger diameter of the tapered section",
       "label_i18n": {
         "en": "Large Diameter (D)",
-        "tr": "Large Diameter (D)",
+        "tr": "Büyük Çap (D)",
         "de": "Large Diameter (D)",
         "fr": "Large Diameter (D)",
         "es": "Large Diameter (D)",
         "ar": "Large Diameter (D)"
+      },
+      "businessContext_i18n": {
+        "en": "The larger diameter of the tapered section",
+        "tr": "Konik bölümün büyük çapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The smaller diameter of the tapered section",
       "label_i18n": {
         "en": "Small Diameter (d)",
-        "tr": "Small Diameter (d)",
+        "tr": "Küçük Çap (d)",
         "de": "Small Diameter (d)",
         "fr": "Small Diameter (d)",
         "es": "Small Diameter (d)",
         "ar": "Small Diameter (d)"
+      },
+      "businessContext_i18n": {
+        "en": "The smaller diameter of the tapered section",
+        "tr": "Konik bölümün küçük çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The length over which the taper is measured",
       "label_i18n": {
         "en": "Length (L)",
-        "tr": "Length (L)",
+        "tr": "Uzunluk (L)",
         "de": "Length (L)",
         "fr": "Length (L)",
         "es": "Length (L)",
         "ar": "Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "The length over which the taper is measured",
+        "tr": "Konikliğin ölçüldüğü uzunluk"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "A standard length over which to compute the diameter reduction (e.g., 100 mm)",
       "label_i18n": {
         "en": "Reference Length",
-        "tr": "Reference Length",
+        "tr": "Referans Uzunluğu",
         "de": "Reference Length",
         "fr": "Reference Length",
         "es": "Reference Length",
         "ar": "Reference Length"
+      },
+      "businessContext_i18n": {
+        "en": "A standard length over which to compute the diameter reduction (e.g., 100 mm)",
+        "tr": "Çap azalmasının hesaplanacağı standart uzunluk (örneğin, 100 mm)"
       }
     }
   ],

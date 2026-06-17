@@ -10,11 +10,15 @@
       "businessContext": "Select US or Imperial peck standard.",
       "label_i18n": {
         "en": "Peck Type (0=US, 1=Imperial)",
-        "tr": "Peck Type (0=US, 1=Imperial)",
+        "tr": "Peck Türü (0=ABD, 1=İmparatorluk)",
         "de": "Peck Type (0=US, 1=Imperial)",
         "fr": "Peck Type (0=US, 1=Imperial)",
         "es": "Peck Type (0=US, 1=Imperial)",
         "ar": "Peck Type (0=US, 1=Imperial)"
+      },
+      "businessContext_i18n": {
+        "en": "Select US or Imperial peck standard.",
+        "tr": "ABD veya İmparatorluk peck standardını seçin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Quantity of pecks to convert.",
       "label_i18n": {
         "en": "Pecks",
-        "tr": "Pecks",
+        "tr": "Peck",
         "de": "Pecks",
         "fr": "Pecks",
         "es": "Pecks",
         "ar": "Pecks"
+      },
+      "businessContext_i18n": {
+        "en": "Quantity of pecks to convert.",
+        "tr": "Dönüştürülecek peck miktarı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Uncertainty margin for volume measurement (default 0%).",
       "label_i18n": {
         "en": "Uncertainty Margin (%)",
-        "tr": "Uncertainty Margin (%)",
+        "tr": "Belirsizlik Payı (%)",
         "de": "Uncertainty Margin (%)",
         "fr": "Uncertainty Margin (%)",
         "es": "Uncertainty Margin (%)",
         "ar": "Uncertainty Margin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Uncertainty margin for volume measurement (default 0%).",
+        "tr": "Hacim ölçümü için belirsizlik payı (varsayılan %0)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Rounding method for final output.",
       "label_i18n": {
         "en": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
-        "tr": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "tr": "Yuvarlama Modu (0=Yuvarla, 1=Taban, 2=Tavan)",
         "de": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
         "fr": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
         "es": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
         "ar": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)"
+      },
+      "businessContext_i18n": {
+        "en": "Rounding method for final output.",
+        "tr": "Nihai çıktı için yuvarlama yöntemi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Temperature for potential volume correction (if applicable).",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature for potential volume correction (if applicable).",
+        "tr": "Olası hacim düzeltmesi için sıcaklık (varsa)."
       }
     }
   ],

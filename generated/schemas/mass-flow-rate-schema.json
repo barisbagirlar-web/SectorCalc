@@ -10,11 +10,15 @@
       "businessContext": "Fluid density at operating conditions",
       "label_i18n": {
         "en": "Density (kg/m³)",
-        "tr": "Density (kg/m³)",
+        "tr": "Yoğunluk (kg/m³)",
         "de": "Density (kg/m³)",
         "fr": "Density (kg/m³)",
         "es": "Density (kg/m³)",
         "ar": "Density (kg/m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Fluid density at operating conditions",
+        "tr": "Çalışma koşullarındaki akışkan yoğunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average fluid velocity in pipe",
       "label_i18n": {
         "en": "Flow Velocity (m/s)",
-        "tr": "Flow Velocity (m/s)",
+        "tr": "Akış Hızı (m/s)",
         "de": "Flow Velocity (m/s)",
         "fr": "Flow Velocity (m/s)",
         "es": "Flow Velocity (m/s)",
         "ar": "Flow Velocity (m/s)"
+      },
+      "businessContext_i18n": {
+        "en": "Average fluid velocity in pipe",
+        "tr": "Borudaki ortalama akışkan hızı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Internal diameter of the pipe",
       "label_i18n": {
         "en": "Pipe Inner Diameter (m)",
-        "tr": "Pipe Inner Diameter (m)",
+        "tr": "Boru İç Çapı (m)",
         "de": "Pipe Inner Diameter (m)",
         "fr": "Pipe Inner Diameter (m)",
         "es": "Pipe Inner Diameter (m)",
         "ar": "Pipe Inner Diameter (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Internal diameter of the pipe",
+        "tr": "Boru iç çapı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fluid temperature for density correction if needed",
       "label_i18n": {
         "en": "Temperature (°C)",
-        "tr": "Temperature (°C)",
+        "tr": "Sıcaklık (°C)",
         "de": "Temperature (°C)",
         "fr": "Temperature (°C)",
         "es": "Temperature (°C)",
         "ar": "Temperature (°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Fluid temperature for density correction if needed",
+        "tr": "Gerekirse yoğunluk düzeltmesi için akışkan sıcaklığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Operating pressure for compressible fluids",
       "label_i18n": {
         "en": "Pressure (bar)",
-        "tr": "Pressure (bar)",
+        "tr": "Basınç (bar)",
         "de": "Pressure (bar)",
         "fr": "Pressure (bar)",
         "es": "Pressure (bar)",
         "ar": "Pressure (bar)"
+      },
+      "businessContext_i18n": {
+        "en": "Operating pressure for compressible fluids",
+        "tr": "Sıkıştırılabilir akışkanlar için çalışma basıncı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "For gases, typically 1 for ideal gas",
       "label_i18n": {
         "en": "Compressibility Factor (Z)",
-        "tr": "Compressibility Factor (Z)",
+        "tr": "Sıkıştırılabilirlik Faktörü (Z)",
         "de": "Compressibility Factor (Z)",
         "fr": "Compressibility Factor (Z)",
         "es": "Compressibility Factor (Z)",
         "ar": "Compressibility Factor (Z)"
+      },
+      "businessContext_i18n": {
+        "en": "For gases, typically 1 for ideal gas",
+        "tr": "Gazlar için tipik olarak 1, ideal gaz için"
       }
     }
   ],

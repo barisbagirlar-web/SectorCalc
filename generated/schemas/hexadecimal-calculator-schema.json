@@ -10,11 +10,15 @@
       "businessContext": "Enter the first decimal number for the arithmetic operation.",
       "label_i18n": {
         "en": "First Operand (Decimal)",
-        "tr": "First Operand (Decimal)",
+        "tr": "Birinci İşlenen (Ondalık)",
         "de": "First Operand (Decimal)",
         "fr": "First Operand (Decimal)",
         "es": "First Operand (Decimal)",
         "ar": "First Operand (Decimal)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the first decimal number for the arithmetic operation.",
+        "tr": "Aritmetik işlem için ilk ondalık sayıyı girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Enter the second decimal number for the arithmetic operation.",
       "label_i18n": {
         "en": "Second Operand (Decimal)",
-        "tr": "Second Operand (Decimal)",
+        "tr": "İkinci İşlenen (Ondalık)",
         "de": "Second Operand (Decimal)",
         "fr": "Second Operand (Decimal)",
         "es": "Second Operand (Decimal)",
         "ar": "Second Operand (Decimal)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the second decimal number for the arithmetic operation.",
+        "tr": "Aritmetik işlem için ikinci ondalık sayıyı girin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1: Addition (+), 2: Subtraction (-), 3: Multiplication (*), 4: Division (/).",
       "label_i18n": {
         "en": "Operation Code",
-        "tr": "Operation Code",
+        "tr": "İşlem Kodu",
         "de": "Operation Code",
         "fr": "Operation Code",
         "es": "Operation Code",
         "ar": "Operation Code"
+      },
+      "businessContext_i18n": {
+        "en": "1: Addition (+), 2: Subtraction (-), 3: Multiplication (*), 4: Division (/).",
+        "tr": "1: Toplama (+), 2: Çıkarma (-), 3: Çarpma (*), 4: Bölme (/)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the result (applies to division). 0 for integer.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the result (applies to division). 0 for integer.",
+        "tr": "Sonuç için ondalık basamak sayısı (bölme için geçerlidir). Tamsayı için 0."
       }
     }
   ],

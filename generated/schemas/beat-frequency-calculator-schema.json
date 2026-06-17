@@ -10,11 +10,15 @@
       "businessContext": "Base frequency of emitted sound wave",
       "label_i18n": {
         "en": "Transmitted Frequency",
-        "tr": "Transmitted Frequency",
+        "tr": "İletilen Frekans",
         "de": "Transmitted Frequency",
         "fr": "Transmitted Frequency",
         "es": "Transmitted Frequency",
         "ar": "Transmitted Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Base frequency of emitted sound wave",
+        "tr": "Yayılan ses dalgasının temel frekansı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Speed of the reflecting target. Positive for approaching, negative for receding.",
       "label_i18n": {
         "en": "Target Speed",
-        "tr": "Target Speed",
+        "tr": "Hedef Hız",
         "de": "Target Speed",
         "fr": "Target Speed",
         "es": "Target Speed",
         "ar": "Target Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of the reflecting target. Positive for approaching, negative for receding.",
+        "tr": "Yansıyan hedefin hızı. Yaklaşıyorsa pozitif, uzaklaşıyorsa negatif."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle between target velocity vector and the line connecting source and target. 0° for head-on approach.",
       "label_i18n": {
         "en": "Angle (θ)",
-        "tr": "Angle (θ)",
+        "tr": "Açı (θ)",
         "de": "Angle (θ)",
         "fr": "Angle (θ)",
         "es": "Angle (θ)",
         "ar": "Angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between target velocity vector and the line connecting source and target. 0° for head-on approach.",
+        "tr": "Hedef hız vektörü ile kaynak ve hedefi birleştiren doğru arasındaki açı. Kafa kafaya yaklaşma için 0°."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Speed of sound in the medium (e.g., air at 20°C)",
       "label_i18n": {
         "en": "Speed of Sound",
-        "tr": "Speed of Sound",
+        "tr": "Ses Hızı",
         "de": "Speed of Sound",
         "fr": "Speed of Sound",
         "es": "Speed of Sound",
         "ar": "Speed of Sound"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of sound in the medium (e.g., air at 20°C)",
+        "tr": "Ortamdaki ses hızı (örneğin, 20°C'de hava)"
       }
     }
   ],

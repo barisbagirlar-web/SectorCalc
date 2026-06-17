@@ -10,11 +10,15 @@
       "businessContext": "Total linear distance of the fence to be constructed",
       "label_i18n": {
         "en": "Fence Length",
-        "tr": "Fence Length",
+        "tr": "Çit Uzunluğu",
         "de": "Fence Length",
         "fr": "Fence Length",
         "es": "Fence Length",
         "ar": "Fence Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total linear distance of the fence to be constructed",
+        "tr": "İnşa edilecek çitin toplam doğrusal mesafesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Maximum distance between fence posts as per design specifications",
       "label_i18n": {
         "en": "Post Spacing",
-        "tr": "Post Spacing",
+        "tr": "Direk Aralığı",
         "de": "Post Spacing",
         "fr": "Post Spacing",
         "es": "Post Spacing",
         "ar": "Post Spacing"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum distance between fence posts as per design specifications",
+        "tr": "Tasarım şartnamesine göre çit direkleri arasındaki maksimum mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of directional changes in the fence line requiring additional corner posts",
       "label_i18n": {
         "en": "Number of Corners",
-        "tr": "Number of Corners",
+        "tr": "Köşe Sayısı",
         "de": "Number of Corners",
         "fr": "Number of Corners",
         "es": "Number of Corners",
         "ar": "Number of Corners"
+      },
+      "businessContext_i18n": {
+        "en": "Number of directional changes in the fence line requiring additional corner posts",
+        "tr": "Ek köşe direkleri gerektiren çit hattındaki yön değişikliği sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of gates planned in the fence line; each gate adds posts",
       "label_i18n": {
         "en": "Number of Gate Openings",
-        "tr": "Number of Gate Openings",
+        "tr": "Kapı Açıklığı Sayısı",
         "de": "Number of Gate Openings",
         "fr": "Number of Gate Openings",
         "es": "Number of Gate Openings",
         "ar": "Number of Gate Openings"
+      },
+      "businessContext_i18n": {
+        "en": "Number of gates planned in the fence line; each gate adds posts",
+        "tr": "Çit hattında planlanan kapı sayısı; her kapı direk ekler"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Diameter of the fence post for concrete volume calculation",
       "label_i18n": {
         "en": "Post Diameter",
-        "tr": "Post Diameter",
+        "tr": "Direk Çapı",
         "de": "Post Diameter",
         "fr": "Post Diameter",
         "es": "Post Diameter",
         "ar": "Post Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the fence post for concrete volume calculation",
+        "tr": "Beton hacmi hesaplaması için çit direğinin çapı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Depth of the post hole for concrete volume calculation",
       "label_i18n": {
         "en": "Post Depth",
-        "tr": "Post Depth",
+        "tr": "Direk Derinliği",
         "de": "Post Depth",
         "fr": "Post Depth",
         "es": "Post Depth",
         "ar": "Post Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Depth of the post hole for concrete volume calculation",
+        "tr": "Beton hacmi hesaplaması için direk deliğinin derinliği"
       }
     }
   ],

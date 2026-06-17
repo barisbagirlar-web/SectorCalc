@@ -22,10 +22,12 @@
       "max": 10000,
       "businessContext": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing.",
       "label_i18n": {
-        "en": "Cutting Length"
+        "en": "Cutting Length",
+        "tr": "Kesme Uzunluğu"
       },
       "businessContext_i18n": {
-        "en": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing."
+        "en": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing.",
+        "tr": "Takım yolunun iş parçasıyla temas halindeki toplam uzunluğu. CAM veya çizimden elde edilir."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 10000,
       "businessContext": "Linear feed speed of the cutting tool. Based on material and tool specifications.",
       "label_i18n": {
-        "en": "Feed Rate"
+        "en": "Feed Rate",
+        "tr": "İlerleme Hızı"
       },
       "businessContext_i18n": {
-        "en": "Linear feed speed of the cutting tool. Based on material and tool specifications."
+        "en": "Linear feed speed of the cutting tool. Based on material and tool specifications.",
+        "tr": "Kesici takımın doğrusal ilerleme hızı. Malzeme ve takım özelliklerine göre belirlenir."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 30000,
       "businessContext": "Rotational speed of the spindle. Affects cutting speed and surface finish.",
       "label_i18n": {
-        "en": "Spindle Speed"
+        "en": "Spindle Speed",
+        "tr": "İş Mili Hızı"
       },
       "businessContext_i18n": {
-        "en": "Rotational speed of the spindle. Affects cutting speed and surface finish."
+        "en": "Rotational speed of the spindle. Affects cutting speed and surface finish.",
+        "tr": "İş milinin dönüş hızı. Kesme hızını ve yüzey kalitesini etkiler."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 100,
       "businessContext": "Number of cutting passes required to achieve final geometry.",
       "label_i18n": {
-        "en": "Number of Passes"
+        "en": "Number of Passes",
+        "tr": "Pas Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Number of cutting passes required to achieve final geometry."
+        "en": "Number of cutting passes required to achieve final geometry.",
+        "tr": "Nihai geometriyi elde etmek için gereken kesme pası sayısı."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 5000,
       "businessContext": "Total distance traveled at rapid traverse (non-cutting moves).",
       "label_i18n": {
-        "en": "Rapid Traverse Distance"
+        "en": "Rapid Traverse Distance",
+        "tr": "Hızlı Hareket Mesafesi"
       },
       "businessContext_i18n": {
-        "en": "Total distance traveled at rapid traverse (non-cutting moves)."
+        "en": "Total distance traveled at rapid traverse (non-cutting moves).",
+        "tr": "Hızlı hareketle kat edilen toplam mesafe (kesme dışı hareketler)."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 60000,
       "businessContext": "Maximum speed of the machine during rapid moves.",
       "label_i18n": {
-        "en": "Rapid Traverse Rate"
+        "en": "Rapid Traverse Rate",
+        "tr": "Hızlı Hareket Hızı"
       },
       "businessContext_i18n": {
-        "en": "Maximum speed of the machine during rapid moves."
+        "en": "Maximum speed of the machine during rapid moves.",
+        "tr": "Makinenin hızlı hareketler sırasındaki maksimum hızı."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 120,
       "businessContext": "Average time to change a tool, including turret indexing.",
       "label_i18n": {
-        "en": "Tool Change Time"
+        "en": "Tool Change Time",
+        "tr": "Takım Değiştirme Süresi"
       },
       "businessContext_i18n": {
-        "en": "Average time to change a tool, including turret indexing."
+        "en": "Average time to change a tool, including turret indexing.",
+        "tr": "Bir takımı değiştirmek için geçen ortalama süre, taret indeksleme dahil."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 50,
       "businessContext": "Total tool changes required for the operation.",
       "label_i18n": {
-        "en": "Number of Tool Changes"
+        "en": "Number of Tool Changes",
+        "tr": "Takım Değiştirme Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total tool changes required for the operation."
+        "en": "Total tool changes required for the operation.",
+        "tr": "Operasyon için gereken toplam takım değiştirme sayısı."
       }
     }
   ],

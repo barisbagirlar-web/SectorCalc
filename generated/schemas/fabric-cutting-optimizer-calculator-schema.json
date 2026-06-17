@@ -19,10 +19,12 @@
       "max": 320,
       "businessContext": "Standard industrial fabric roll width, typically 150-320 cm for apparel and upholstery.",
       "label_i18n": {
-        "en": "Fabric Width (cm)"
+        "en": "Fabric Width (cm)",
+        "tr": "Kumaş Eni (cm)"
       },
       "businessContext_i18n": {
-        "en": "Standard industrial fabric roll width, typically 150-320 cm for apparel and upholstery."
+        "en": "Standard industrial fabric roll width, typically 150-320 cm for apparel and upholstery.",
+        "tr": "Standart endüstriyel kumaş rulo genişliği, giyim ve döşemelik için tipik olarak 150-320 cm."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 500,
       "businessContext": "Total length of fabric roll or batch, used to compute total area.",
       "label_i18n": {
-        "en": "Fabric Length (m)"
+        "en": "Fabric Length (m)",
+        "tr": "Kumaş Uzunluğu (m)"
       },
       "businessContext_i18n": {
-        "en": "Total length of fabric roll or batch, used to compute total area."
+        "en": "Total length of fabric roll or batch, used to compute total area.",
+        "tr": "Kumaş rulosu veya partisinin toplam uzunluğu, toplam alanı hesaplamak için kullanılır."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 200,
       "businessContext": "Length of one garment or component pattern piece along the grain.",
       "label_i18n": {
-        "en": "Pattern Length (cm)"
+        "en": "Pattern Length (cm)",
+        "tr": "Kalıp Uzunluğu (cm)"
       },
       "businessContext_i18n": {
-        "en": "Length of one garment or component pattern piece along the grain."
+        "en": "Length of one garment or component pattern piece along the grain.",
+        "tr": "Bir giysi veya bileşen kalıp parçasının damar yönü boyunca uzunluğu."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 150,
       "businessContext": "Width of one pattern piece perpendicular to the grain.",
       "label_i18n": {
-        "en": "Pattern Width (cm)"
+        "en": "Pattern Width (cm)",
+        "tr": "Kalıp Genişliği (cm)"
       },
       "businessContext_i18n": {
-        "en": "Width of one pattern piece perpendicular to the grain."
+        "en": "Width of one pattern piece perpendicular to the grain.",
+        "tr": "Bir kalıp parçasının damar yönüne dik genişliği."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 100000,
       "businessContext": "Number of identical pieces to be cut from the fabric.",
       "label_i18n": {
-        "en": "Quantity to Cut"
+        "en": "Quantity to Cut",
+        "tr": "Kesilecek Miktar"
       },
       "businessContext_i18n": {
-        "en": "Number of identical pieces to be cut from the fabric."
+        "en": "Number of identical pieces to be cut from the fabric.",
+        "tr": "Kumaştan kesilecek aynı parçaların sayısı."
       }
     },
     {
@@ -104,10 +114,12 @@
         "laser"
       ],
       "label_i18n": {
-        "en": "Cutting Method"
+        "en": "Cutting Method",
+        "tr": "Kesim Yöntemi"
       },
       "businessContext_i18n": {
-        "en": "Method affects material utilization and labor cost. Single-ply is manual; multi-ply is automated."
+        "en": "Method affects material utilization and labor cost. Single-ply is manual; multi-ply is automated.",
+        "tr": "Yöntem, malzeme kullanımını ve işçilik maliyetini etkiler. Tek kat manuel, çok kat otomatiktir."
       }
     },
     {
@@ -120,10 +132,12 @@
       "max": 200,
       "businessContext": "Cost of fabric per square meter, used for financial loss calculations.",
       "label_i18n": {
-        "en": "Material Cost per m²"
+        "en": "Material Cost per m²",
+        "tr": "m² Başına Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost of fabric per square meter, used for financial loss calculations."
+        "en": "Cost of fabric per square meter, used for financial loss calculations.",
+        "tr": "Metrekare başına kumaş maliyeti, finansal kayıp hesaplamaları için kullanılır."
       }
     },
     {
@@ -136,10 +150,12 @@
       "max": 100,
       "businessContext": "Hourly wage of cutting operator, used for labor cost estimation.",
       "label_i18n": {
-        "en": "Labor Rate per Hour"
+        "en": "Labor Rate per Hour",
+        "tr": "Saatlik İşçilik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Hourly wage of cutting operator, used for labor cost estimation."
+        "en": "Hourly wage of cutting operator, used for labor cost estimation.",
+        "tr": "Kesim operatörünün saatlik ücreti, işçilik maliyeti tahmini için kullanılır."
       }
     }
   ],

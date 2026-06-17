@@ -10,11 +10,15 @@
       "businessContext": "Vertical height from top of wall plate to ridge.",
       "label_i18n": {
         "en": "Rise",
-        "tr": "Rise",
+        "tr": "Yükselti",
         "de": "Rise",
         "fr": "Rise",
         "es": "Rise",
         "ar": "Rise"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical height from top of wall plate to ridge.",
+        "tr": "Duvar levhasının üstünden mahyaya kadar dikey yükseklik."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total horizontal width of the building (from outside of one wall to outside of opposite wall), equal to 2 × run.",
       "label_i18n": {
         "en": "Span (Building Width)",
-        "tr": "Span (Building Width)",
+        "tr": "Açıklık (Bina Genişliği)",
         "de": "Span (Building Width)",
         "fr": "Span (Building Width)",
         "es": "Span (Building Width)",
         "ar": "Span (Building Width)"
+      },
+      "businessContext_i18n": {
+        "en": "Total horizontal width of the building (from outside of one wall to outside of opposite wall), equal to 2 × run.",
+        "tr": "Binanın toplam yatay genişliği (bir duvarın dışından karşı duvarın dışına), 2 × koşuya eşit."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of the roof along the ridge (perpendicular to the span).",
       "label_i18n": {
         "en": "Roof Length",
-        "tr": "Roof Length",
+        "tr": "Çatı Uzunluğu",
         "de": "Roof Length",
         "fr": "Roof Length",
         "es": "Roof Length",
         "ar": "Roof Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the roof along the ridge (perpendicular to the span).",
+        "tr": "Mahya boyunca çatı uzunluğu (açıklığa dik)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional horizontal projection of the roof beyond the wall.",
       "label_i18n": {
         "en": "Eave Overhang",
-        "tr": "Eave Overhang",
+        "tr": "Saçak çıkıntısı",
         "de": "Eave Overhang",
         "fr": "Eave Overhang",
         "es": "Eave Overhang",
         "ar": "Eave Overhang"
+      },
+      "businessContext_i18n": {
+        "en": "Additional horizontal projection of the roof beyond the wall.",
+        "tr": "Çatının duvarın ötesindeki ek yatay çıkıntısı."
       }
     }
   ],

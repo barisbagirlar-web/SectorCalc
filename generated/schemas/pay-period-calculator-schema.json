@@ -10,11 +10,15 @@
       "businessContext": "Gross annual salary",
       "label_i18n": {
         "en": "Annual Salary",
-        "tr": "Annual Salary",
+        "tr": "Yıllık Maaş",
         "de": "Annual Salary",
         "fr": "Annual Salary",
         "es": "Annual Salary",
         "ar": "Annual Salary"
+      },
+      "businessContext_i18n": {
+        "en": "Gross annual salary",
+        "tr": "Brüt yıllık maaş"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Frequency of pay checks, e.g., 12 for monthly, 26 for bi-weekly, 52 for weekly",
       "label_i18n": {
         "en": "Number of Pay Periods per Year",
-        "tr": "Number of Pay Periods per Year",
+        "tr": "Yıllık Ödeme Dönemi Sayısı",
         "de": "Number of Pay Periods per Year",
         "fr": "Number of Pay Periods per Year",
         "es": "Number of Pay Periods per Year",
         "ar": "Number of Pay Periods per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency of pay checks, e.g., 12 for monthly, 26 for bi-weekly, 52 for weekly",
+        "tr": "Maaş çeklerinin sıklığı, örn. aylık için 12, iki haftada bir için 26, haftalık için 52"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total overtime hours worked in the pay period",
       "label_i18n": {
         "en": "Overtime Hours",
-        "tr": "Overtime Hours",
+        "tr": "Fazla Mesai Saatleri",
         "de": "Overtime Hours",
         "fr": "Overtime Hours",
         "es": "Overtime Hours",
         "ar": "Overtime Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total overtime hours worked in the pay period",
+        "tr": "Ödeme döneminde çalışılan toplam fazla mesai saati"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for overtime pay relative to regular hourly rate",
       "label_i18n": {
         "en": "Overtime Rate Multiplier",
-        "tr": "Overtime Rate Multiplier",
+        "tr": "Fazla Mesai Ücret Çarpanı",
         "de": "Overtime Rate Multiplier",
         "fr": "Overtime Rate Multiplier",
         "es": "Overtime Rate Multiplier",
         "ar": "Overtime Rate Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for overtime pay relative to regular hourly rate",
+        "tr": "Fazla mesai ücretinin normal saatlik ücrete göre çarpanı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Standard working hours in one pay period",
       "label_i18n": {
         "en": "Hours per Pay Period",
-        "tr": "Hours per Pay Period",
+        "tr": "Ödeme Dönemi Başına Saat",
         "de": "Hours per Pay Period",
         "fr": "Hours per Pay Period",
         "es": "Hours per Pay Period",
         "ar": "Hours per Pay Period"
+      },
+      "businessContext_i18n": {
+        "en": "Standard working hours in one pay period",
+        "tr": "Bir ödeme dönemindeki standart çalışma saatleri"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total pre-tax deductions per period",
       "label_i18n": {
         "en": "Deductions",
-        "tr": "Deductions",
+        "tr": "Kesintiler",
         "de": "Deductions",
         "fr": "Deductions",
         "es": "Deductions",
         "ar": "Deductions"
+      },
+      "businessContext_i18n": {
+        "en": "Total pre-tax deductions per period",
+        "tr": "Dönem başına toplam vergi öncesi kesinti"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Income tax rate applied after deductions",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Income tax rate applied after deductions",
+        "tr": "Kesintiler sonrası uygulanan gelir vergisi oranı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Additional withholdings like insurance, union dues",
       "label_i18n": {
         "en": "Other Withholdings",
-        "tr": "Other Withholdings",
+        "tr": "Diğer Kesintiler",
         "de": "Other Withholdings",
         "fr": "Other Withholdings",
         "es": "Other Withholdings",
         "ar": "Other Withholdings"
+      },
+      "businessContext_i18n": {
+        "en": "Additional withholdings like insurance, union dues",
+        "tr": "Sigorta, sendika aidatı gibi ek kesintiler"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total yearly pre-tax income of the household.",
       "label_i18n": {
         "en": "Annual Gross Income ($)",
-        "tr": "Annual Gross Income ($)",
+        "tr": "Yıllık Brüt Gelir ($)",
         "de": "Annual Gross Income ($)",
         "fr": "Annual Gross Income ($)",
         "es": "Annual Gross Income ($)",
         "ar": "Annual Gross Income ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Total yearly pre-tax income of the household.",
+        "tr": "Hanenin yıllık vergi öncesi toplam geliri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Monthly payments for existing debts (auto loan, student loans, credit cards, etc.).",
       "label_i18n": {
         "en": "Other Monthly Debts ($)",
-        "tr": "Other Monthly Debts ($)",
+        "tr": "Diğer Aylık Borçlar ($)",
         "de": "Other Monthly Debts ($)",
         "fr": "Other Monthly Debts ($)",
         "es": "Other Monthly Debts ($)",
         "ar": "Other Monthly Debts ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly payments for existing debts (auto loan, student loans, credit cards, etc.).",
+        "tr": "Mevcut borçlar (oto kredisi, öğrenci kredisi, kredi kartları vb.) için aylık ödemeler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Available cash for down payment.",
       "label_i18n": {
         "en": "Down Payment ($)",
-        "tr": "Down Payment ($)",
+        "tr": "Peşinat ($)",
         "de": "Down Payment ($)",
         "fr": "Down Payment ($)",
         "es": "Down Payment ($)",
         "ar": "Down Payment ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Available cash for down payment.",
+        "tr": "Peşinat için mevcut nakit."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual interest rate (APR) for the mortgage.",
       "label_i18n": {
         "en": "Mortgage Interest Rate (% APR)",
-        "tr": "Mortgage Interest Rate (% APR)",
+        "tr": "Mortgage Faiz Oranı (% Yıllık Faiz Oranı)",
         "de": "Mortgage Interest Rate (% APR)",
         "fr": "Mortgage Interest Rate (% APR)",
         "es": "Mortgage Interest Rate (% APR)",
         "ar": "Mortgage Interest Rate (% APR)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate (APR) for the mortgage.",
+        "tr": "Mortgage için yıllık faiz oranı (APR)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Length of the mortgage in years.",
       "label_i18n": {
         "en": "Loan Term (years)",
-        "tr": "Loan Term (years)",
+        "tr": "Kredi Vadesi (yıl)",
         "de": "Loan Term (years)",
         "fr": "Loan Term (years)",
         "es": "Loan Term (years)",
         "ar": "Loan Term (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the mortgage in years.",
+        "tr": "Mortgage'ın yıl cinsinden süresi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual property tax rate as percentage of the home's assessed value.",
       "label_i18n": {
         "en": "Property Tax Rate (% of home value)",
-        "tr": "Property Tax Rate (% of home value)",
+        "tr": "Emlak Vergisi Oranı (ev değerinin %'si)",
         "de": "Property Tax Rate (% of home value)",
         "fr": "Property Tax Rate (% of home value)",
         "es": "Property Tax Rate (% of home value)",
         "ar": "Property Tax Rate (% of home value)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual property tax rate as percentage of the home's assessed value.",
+        "tr": "Evin değerlendirilmiş değerinin yüzdesi olarak yıllık emlak vergisi oranı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Annual insurance premium rate as percentage of home value.",
       "label_i18n": {
         "en": "Homeowners Insurance Rate (% of home value)",
-        "tr": "Homeowners Insurance Rate (% of home value)",
+        "tr": "Ev Sahibi Sigorta Oranı (ev değerinin %'si)",
         "de": "Homeowners Insurance Rate (% of home value)",
         "fr": "Homeowners Insurance Rate (% of home value)",
         "es": "Homeowners Insurance Rate (% of home value)",
         "ar": "Homeowners Insurance Rate (% of home value)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual insurance premium rate as percentage of home value.",
+        "tr": "Yıllık sigorta primi oranı, ev değerinin yüzdesi olarak."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Monthly homeowners association fee.",
       "label_i18n": {
         "en": "Monthly HOA Fee ($)",
-        "tr": "Monthly HOA Fee ($)",
+        "tr": "Aylık Aidat ($)",
         "de": "Monthly HOA Fee ($)",
         "fr": "Monthly HOA Fee ($)",
         "es": "Monthly HOA Fee ($)",
         "ar": "Monthly HOA Fee ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly homeowners association fee.",
+        "tr": "Aylık ev sahipleri derneği aidatı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total energy consumption in the baseline period (e.g., monthly).",
       "label_i18n": {
         "en": "Current Energy Usage (kWh)",
-        "tr": "Current Energy Usage (kWh)",
+        "tr": "Mevcut Enerji Kullanımı (kWh)",
         "de": "Current Energy Usage (kWh)",
         "fr": "Current Energy Usage (kWh)",
         "es": "Current Energy Usage (kWh)",
         "ar": "Current Energy Usage (kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy consumption in the baseline period (e.g., monthly).",
+        "tr": "Baz dönemdeki (örneğin aylık) toplam enerji tüketimi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost per kilowatt-hour from the utility bill or energy contract.",
       "label_i18n": {
         "en": "Energy Cost per kWh ($)",
-        "tr": "Energy Cost per kWh ($)",
+        "tr": "kWh Başına Enerji Maliyeti ($)",
         "de": "Energy Cost per kWh ($)",
         "fr": "Energy Cost per kWh ($)",
         "es": "Energy Cost per kWh ($)",
         "ar": "Energy Cost per kWh ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per kilowatt-hour from the utility bill or energy contract.",
+        "tr": "Fatura veya enerji sözleşmesinden kilovat-saat başına maliyet."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected percentage reduction in energy usage due to conservation measures.",
       "label_i18n": {
         "en": "Efficiency Improvement (%)",
-        "tr": "Efficiency Improvement (%)",
+        "tr": "Verimlilik İyileştirmesi (%)",
         "de": "Efficiency Improvement (%)",
         "fr": "Efficiency Improvement (%)",
         "es": "Efficiency Improvement (%)",
         "ar": "Efficiency Improvement (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage reduction in energy usage due to conservation measures.",
+        "tr": "Tasarruf önlemleri nedeniyle enerji kullanımında beklenen yüzde azalma."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total operating hours in the analysis period (e.g., 720 hours per month).",
       "label_i18n": {
         "en": "Operating Hours per Period",
-        "tr": "Operating Hours per Period",
+        "tr": "Dönem Başına Çalışma Saati",
         "de": "Operating Hours per Period",
         "fr": "Operating Hours per Period",
         "es": "Operating Hours per Period",
         "ar": "Operating Hours per Period"
+      },
+      "businessContext_i18n": {
+        "en": "Total operating hours in the analysis period (e.g., 720 hours per month).",
+        "tr": "Analiz dönemindeki toplam çalışma saati (örneğin ayda 720 saat)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Carbon dioxide emission per kWh for the energy source (e.g., grid average).",
       "label_i18n": {
         "en": "CO₂ Emission Factor (kg/kWh)",
-        "tr": "CO₂ Emission Factor (kg/kWh)",
+        "tr": "CO₂ Emisyon Faktörü (kg/kWh)",
         "de": "CO₂ Emission Factor (kg/kWh)",
         "fr": "CO₂ Emission Factor (kg/kWh)",
         "es": "CO₂ Emission Factor (kg/kWh)",
         "ar": "CO₂ Emission Factor (kg/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Carbon dioxide emission per kWh for the energy source (e.g., grid average).",
+        "tr": "Enerji kaynağı için kilovat-saat başına karbondioksit emisyonu (örneğin şebeke ortalaması)."
       }
     }
   ],

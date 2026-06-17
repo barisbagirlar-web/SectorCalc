@@ -10,11 +10,15 @@
       "businessContext": "The amount of money already saved.",
       "label_i18n": {
         "en": "Current Savings",
-        "tr": "Current Savings",
+        "tr": "Mevcut Birikimler",
         "de": "Current Savings",
         "fr": "Current Savings",
         "es": "Current Savings",
         "ar": "Current Savings"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of money already saved.",
+        "tr": "Halihazırda birikmiş para miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount added to savings each month.",
       "label_i18n": {
         "en": "Monthly Contribution",
-        "tr": "Monthly Contribution",
+        "tr": "Aylık Katkı",
         "de": "Monthly Contribution",
         "fr": "Monthly Contribution",
         "es": "Monthly Contribution",
         "ar": "Monthly Contribution"
+      },
+      "businessContext_i18n": {
+        "en": "Amount added to savings each month.",
+        "tr": "Her ay tasarrufa eklenen miktar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected annual rate of return on savings.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual rate of return on savings.",
+        "tr": "Tasarruflar için beklenen yıllık getiri oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time horizon for savings goal.",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Number of Years",
+        "tr": "Yıl Sayısı",
         "de": "Number of Years",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
+      },
+      "businessContext_i18n": {
+        "en": "Time horizon for savings goal.",
+        "tr": "Tasarruf hedefi için zaman ufku."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The target amount you want to save.",
       "label_i18n": {
         "en": "Goal Amount",
-        "tr": "Goal Amount",
+        "tr": "Hedef Miktar",
         "de": "Goal Amount",
         "fr": "Goal Amount",
         "es": "Goal Amount",
         "ar": "Goal Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The target amount you want to save.",
+        "tr": "Biriktirmek istediğiniz hedef tutar."
       }
     }
   ],

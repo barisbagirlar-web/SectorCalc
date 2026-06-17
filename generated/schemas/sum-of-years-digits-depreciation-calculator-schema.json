@@ -10,11 +10,15 @@
       "businessContext": "Initial purchase price of the asset",
       "label_i18n": {
         "en": "Asset Cost",
-        "tr": "Asset Cost",
+        "tr": "Varlık Maliyeti",
         "de": "Asset Cost",
         "fr": "Asset Cost",
         "es": "Asset Cost",
         "ar": "Asset Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Initial purchase price of the asset",
+        "tr": "Varlığın ilk satın alma fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated residual value at end of useful life",
       "label_i18n": {
         "en": "Salvage Value",
-        "tr": "Salvage Value",
+        "tr": "Hurda Değeri",
         "de": "Salvage Value",
         "fr": "Salvage Value",
         "es": "Salvage Value",
         "ar": "Salvage Value"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated residual value at end of useful life",
+        "tr": "Faydalı ömür sonunda tahmini kalıntı değer"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total expected lifespan of the asset in years",
       "label_i18n": {
         "en": "Useful Life",
-        "tr": "Useful Life",
+        "tr": "Faydalı Ömür",
         "de": "Useful Life",
         "fr": "Useful Life",
         "es": "Useful Life",
         "ar": "Useful Life"
+      },
+      "businessContext_i18n": {
+        "en": "Total expected lifespan of the asset in years",
+        "tr": "Varlığın toplam beklenen ömrü yıl olarak"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The specific year for which depreciation expense is calculated (1-indexed)",
       "label_i18n": {
         "en": "Year of Depreciation",
-        "tr": "Year of Depreciation",
+        "tr": "Amortisman Yılı",
         "de": "Year of Depreciation",
         "fr": "Year of Depreciation",
         "es": "Year of Depreciation",
         "ar": "Year of Depreciation"
+      },
+      "businessContext_i18n": {
+        "en": "The specific year for which depreciation expense is calculated (1-indexed)",
+        "tr": "Amortisman giderinin hesaplandığı belirli yıl (1'den başlayarak)"
       }
     }
   ],

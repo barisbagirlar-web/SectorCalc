@@ -10,11 +10,15 @@
       "businessContext": "Length of the first diagonal of the rhombus",
       "label_i18n": {
         "en": "Diagonal 1 (d1)",
-        "tr": "Diagonal 1 (d1)",
+        "tr": "Köşegen 1 (d1)",
         "de": "Diagonal 1 (d1)",
         "fr": "Diagonal 1 (d1)",
         "es": "Diagonal 1 (d1)",
         "ar": "Diagonal 1 (d1)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the first diagonal of the rhombus",
+        "tr": "Eşkenar dörtgenin birinci köşegen uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of the second diagonal of the rhombus",
       "label_i18n": {
         "en": "Diagonal 2 (d2)",
-        "tr": "Diagonal 2 (d2)",
+        "tr": "Köşegen 2 (d2)",
         "de": "Diagonal 2 (d2)",
         "fr": "Diagonal 2 (d2)",
         "es": "Diagonal 2 (d2)",
         "ar": "Diagonal 2 (d2)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the second diagonal of the rhombus",
+        "tr": "Eşkenar dörtgenin ikinci köşegen uzunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of one side of the rhombus",
       "label_i18n": {
         "en": "Side Length (a)",
-        "tr": "Side Length (a)",
+        "tr": "Kenar Uzunluğu (a)",
         "de": "Side Length (a)",
         "fr": "Side Length (a)",
         "es": "Side Length (a)",
         "ar": "Side Length (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of one side of the rhombus",
+        "tr": "Eşkenar dörtgenin bir kenarının uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Perpendicular height between two sides",
       "label_i18n": {
         "en": "Height (h)",
-        "tr": "Height (h)",
+        "tr": "Yükseklik (h)",
         "de": "Height (h)",
         "fr": "Height (h)",
         "es": "Height (h)",
         "ar": "Height (h)"
+      },
+      "businessContext_i18n": {
+        "en": "Perpendicular height between two sides",
+        "tr": "İki kenar arasındaki dik yükseklik"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Angle between two adjacent sides (in degrees)",
       "label_i18n": {
         "en": "Angle (θ)",
-        "tr": "Angle (θ)",
+        "tr": "Açı (θ)",
         "de": "Angle (θ)",
         "fr": "Angle (θ)",
         "es": "Angle (θ)",
         "ar": "Angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between two adjacent sides (in degrees)",
+        "tr": "İki bitişik kenar arasındaki açı (derece cinsinden)"
       }
     }
   ],

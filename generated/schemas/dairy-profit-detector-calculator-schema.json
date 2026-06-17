@@ -19,10 +19,12 @@
       "max": 1000000,
       "businessContext": "Total raw milk received daily from suppliers or own herd.",
       "label_i18n": {
-        "en": "Milk Volume (Liters per day)"
+        "en": "Milk Volume (Liters per day)",
+        "tr": "Süt Hacmi (Litre/gün)"
       },
       "businessContext_i18n": {
-        "en": "Total raw milk received daily from suppliers or own herd."
+        "en": "Total raw milk received daily from suppliers or own herd.",
+        "tr": "Tedarikçilerden veya kendi sürüden günlük alınan toplam çiğ süt."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 10,
       "businessContext": "Average butterfat content of incoming milk, critical for yield calculations.",
       "label_i18n": {
-        "en": "Fat Content (%)"
+        "en": "Fat Content (%)",
+        "tr": "Yağ Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Average butterfat content of incoming milk, critical for yield calculations."
+        "en": "Average butterfat content of incoming milk, critical for yield calculations.",
+        "tr": "Gelen sütün ortalama tereyağı içeriği, verim hesaplamaları için kritiktir."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 6,
       "businessContext": "Average protein content, affects cheese and powder yields.",
       "label_i18n": {
-        "en": "Protein Content (%)"
+        "en": "Protein Content (%)",
+        "tr": "Protein Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Average protein content, affects cheese and powder yields."
+        "en": "Average protein content, affects cheese and powder yields.",
+        "tr": "Ortalama protein içeriği, peynir ve toz verimini etkiler."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 10,
       "businessContext": "Average revenue per liter of raw milk sold to processor or retail.",
       "label_i18n": {
-        "en": "Selling Price (per Liter)"
+        "en": "Selling Price (per Liter)",
+        "tr": "Satış Fiyatı (Litre başına)"
       },
       "businessContext_i18n": {
-        "en": "Average revenue per liter of raw milk sold to processor or retail."
+        "en": "Average revenue per liter of raw milk sold to processor or retail.",
+        "tr": "İşlenmiş veya perakende satılan çiğ sütün litre başına ortalama geliri."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 10,
       "businessContext": "Includes feed, labor, utilities, veterinary, and overhead per liter.",
       "label_i18n": {
-        "en": "Production Cost (per Liter)"
+        "en": "Production Cost (per Liter)",
+        "tr": "Üretim Maliyeti (Litre başına)"
       },
       "businessContext_i18n": {
-        "en": "Includes feed, labor, utilities, veterinary, and overhead per liter."
+        "en": "Includes feed, labor, utilities, veterinary, and overhead per liter.",
+        "tr": "Litre başına yem, işçilik, enerji, veteriner ve genel giderleri içerir."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": 20,
       "businessContext": "Milk lost due to spoilage, spillage, or quality rejection.",
       "label_i18n": {
-        "en": "Waste / Shrinkage (%)"
+        "en": "Waste / Shrinkage (%)",
+        "tr": "Fire / Kayıp (%)"
       },
       "businessContext_i18n": {
-        "en": "Milk lost due to spoilage, spillage, or quality rejection."
+        "en": "Milk lost due to spoilage, spillage, or quality rejection.",
+        "tr": "Bozulma, dökülme veya kalite reddi nedeniyle kaybedilen süt."
       }
     },
     {
@@ -115,10 +127,12 @@
       "max": 500,
       "businessContext": "Total direct labor hours used in milk production and handling.",
       "label_i18n": {
-        "en": "Labor Hours per Day"
+        "en": "Labor Hours per Day",
+        "tr": "Günlük İşçilik Saati"
       },
       "businessContext_i18n": {
-        "en": "Total direct labor hours used in milk production and handling."
+        "en": "Total direct labor hours used in milk production and handling.",
+        "tr": "Süt üretimi ve işlemede kullanılan toplam doğrudan işçilik saati."
       }
     },
     {
@@ -131,10 +145,12 @@
       "max": 100,
       "businessContext": "Average hourly wage including benefits.",
       "label_i18n": {
-        "en": "Labor Rate (per Hour)"
+        "en": "Labor Rate (per Hour)",
+        "tr": "İşçilik Ücreti (Saat başına)"
       },
       "businessContext_i18n": {
-        "en": "Average hourly wage including benefits."
+        "en": "Average hourly wage including benefits.",
+        "tr": "Yan haklar dahil ortalama saatlik ücret."
       }
     }
   ],

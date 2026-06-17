@@ -10,11 +10,15 @@
       "businessContext": "Total revenue including VAT charged to customers.",
       "label_i18n": {
         "en": "Gross Turnover (incl. VAT)",
-        "tr": "Gross Turnover (incl. VAT)",
+        "tr": "Brüt Ciro (KDV dahil)",
         "de": "Gross Turnover (incl. VAT)",
         "fr": "Gross Turnover (incl. VAT)",
         "es": "Gross Turnover (incl. VAT)",
         "ar": "Gross Turnover (incl. VAT)"
+      },
+      "businessContext_i18n": {
+        "en": "Total revenue including VAT charged to customers.",
+        "tr": "Müşterilere yansıtılan KDV dahil toplam gelir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The flat rate percentage applied to your business category.",
       "label_i18n": {
         "en": "Flat Rate Percentage",
-        "tr": "Flat Rate Percentage",
+        "tr": "Sabit Oran Yüzdesi",
         "de": "Flat Rate Percentage",
         "fr": "Flat Rate Percentage",
         "es": "Flat Rate Percentage",
         "ar": "Flat Rate Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "The flat rate percentage applied to your business category.",
+        "tr": "İşletme kategorinize uygulanan sabit oran yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The standard VAT rate you charge on sales.",
       "label_i18n": {
         "en": "Standard VAT Rate",
-        "tr": "Standard VAT Rate",
+        "tr": "Standart KDV Oranı",
         "de": "Standard VAT Rate",
         "fr": "Standard VAT Rate",
         "es": "Standard VAT Rate",
         "ar": "Standard VAT Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The standard VAT rate you charge on sales.",
+        "tr": "Satışlarda uyguladığınız standart KDV oranı."
       }
     }
   ],

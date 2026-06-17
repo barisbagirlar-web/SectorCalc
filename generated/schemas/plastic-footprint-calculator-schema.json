@@ -10,11 +10,15 @@
       "businessContext": "Total number of units produced",
       "label_i18n": {
         "en": "Production Volume",
-        "tr": "Production Volume",
+        "tr": "Üretim Hacmi",
         "de": "Production Volume",
         "fr": "Production Volume",
         "es": "Production Volume",
         "ar": "Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced",
+        "tr": "Üretilen toplam birim sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Weight of plastic used per unit product",
       "label_i18n": {
         "en": "Plastic per Unit",
-        "tr": "Plastic per Unit",
+        "tr": "Birim Başına Plastik",
         "de": "Plastic per Unit",
         "fr": "Plastic per Unit",
         "es": "Plastic per Unit",
         "ar": "Plastic per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of plastic used per unit product",
+        "tr": "Birim ürün başına kullanılan plastik ağırlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of plastic that is recycled content",
       "label_i18n": {
         "en": "Recycling Rate",
-        "tr": "Recycling Rate",
+        "tr": "Geri Dönüşüm Oranı",
         "de": "Recycling Rate",
         "fr": "Recycling Rate",
         "es": "Recycling Rate",
         "ar": "Recycling Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of plastic that is recycled content",
+        "tr": "Geri dönüştürülmüş içerik yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of plastic wasted during manufacturing",
       "label_i18n": {
         "en": "Production Waste",
-        "tr": "Production Waste",
+        "tr": "Üretim Firesi",
         "de": "Production Waste",
         "fr": "Production Waste",
         "es": "Production Waste",
         "ar": "Production Waste"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of plastic wasted during manufacturing",
+        "tr": "Üretim sırasında israf edilen plastik yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Carbon footprint of virgin plastic per kg",
       "label_i18n": {
         "en": "Carbon Factor (Virgin)",
-        "tr": "Carbon Factor (Virgin)",
+        "tr": "Karbon Faktörü (Saf)",
         "de": "Carbon Factor (Virgin)",
         "fr": "Carbon Factor (Virgin)",
         "es": "Carbon Factor (Virgin)",
         "ar": "Carbon Factor (Virgin)"
+      },
+      "businessContext_i18n": {
+        "en": "Carbon footprint of virgin plastic per kg",
+        "tr": "Saf plastiğin kg başına karbon ayak izi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage reduction in carbon footprint for recycled plastic",
       "label_i18n": {
         "en": "Emission Reduction (Recycled)",
-        "tr": "Emission Reduction (Recycled)",
+        "tr": "Emisyon Azaltımı (Geri Dönüştürülmüş)",
         "de": "Emission Reduction (Recycled)",
         "fr": "Emission Reduction (Recycled)",
         "es": "Emission Reduction (Recycled)",
         "ar": "Emission Reduction (Recycled)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage reduction in carbon footprint for recycled plastic",
+        "tr": "Geri dönüştürülmüş plastik için karbon ayak izindeki azalma yüzdesi"
       }
     }
   ],

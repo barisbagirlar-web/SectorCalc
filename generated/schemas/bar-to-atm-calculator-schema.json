@@ -10,11 +10,15 @@
       "businessContext": "Measured pressure value in bars.",
       "label_i18n": {
         "en": "Pressure (bar)",
-        "tr": "Pressure (bar)",
+        "tr": "Basınç (bar)",
         "de": "Pressure (bar)",
         "fr": "Pressure (bar)",
         "es": "Pressure (bar)",
         "ar": "Pressure (bar)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured pressure value in bars.",
+        "tr": "Bar cinsinden ölçülen basınç değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Instrument calibration offset to apply to the measured pressure.",
       "label_i18n": {
         "en": "Calibration Offset (bar)",
-        "tr": "Calibration Offset (bar)",
+        "tr": "Kalibrasyon Ofseti (bar)",
         "de": "Calibration Offset (bar)",
         "fr": "Calibration Offset (bar)",
         "es": "Calibration Offset (bar)",
         "ar": "Calibration Offset (bar)"
+      },
+      "businessContext_i18n": {
+        "en": "Instrument calibration offset to apply to the measured pressure.",
+        "tr": "Ölçülen basınca uygulanacak enstrüman kalibrasyon ofseti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expanded measurement uncertainty as a percentage of the reading (k=2).",
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
-        "tr": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)",
         "de": "Measurement Uncertainty (%)",
         "fr": "Measurement Uncertainty (%)",
         "es": "Measurement Uncertainty (%)",
         "ar": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expanded measurement uncertainty as a percentage of the reading (k=2).",
+        "tr": "Okumanın yüzdesi olarak genişletilmiş ölçüm belirsizliği (k=2)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the output value.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output value.",
+        "tr": "Çıktı değeri için ondalık basamak sayısı."
       }
     }
   ],

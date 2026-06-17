@@ -10,11 +10,15 @@
       "businessContext": "Parts of component A in the mixing ratio",
       "label_i18n": {
         "en": "Part A",
-        "tr": "Part A",
+        "tr": "A Bileşeni",
         "de": "Part A",
         "fr": "Part A",
         "es": "Part A",
         "ar": "Part A"
+      },
+      "businessContext_i18n": {
+        "en": "Parts of component A in the mixing ratio",
+        "tr": "Karışım oranındaki A bileşeninin parçaları"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Parts of component B in the mixing ratio",
       "label_i18n": {
         "en": "Part B",
-        "tr": "Part B",
+        "tr": "B Bileşeni",
         "de": "Part B",
         "fr": "Part B",
         "es": "Part B",
         "ar": "Part B"
+      },
+      "businessContext_i18n": {
+        "en": "Parts of component B in the mixing ratio",
+        "tr": "Karışım oranındaki B bileşeninin parçaları"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired total quantity of the mixture (e.g., in kg or L)",
       "label_i18n": {
         "en": "Total Mixture Quantity",
-        "tr": "Total Mixture Quantity",
+        "tr": "Toplam Karışım Miktarı",
         "de": "Total Mixture Quantity",
         "fr": "Total Mixture Quantity",
         "es": "Total Mixture Quantity",
         "ar": "Total Mixture Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Desired total quantity of the mixture (e.g., in kg or L)",
+        "tr": "İstenen toplam karışım miktarı (örn. kg veya L cinsinden)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional waste or overage percentage (0-100)",
       "label_i18n": {
         "en": "Waste Percentage",
-        "tr": "Waste Percentage",
+        "tr": "Fire Yüzdesi",
         "de": "Waste Percentage",
         "fr": "Waste Percentage",
         "es": "Waste Percentage",
         "ar": "Waste Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Additional waste or overage percentage (0-100)",
+        "tr": "Ek atık veya fazlalık yüzdesi (0-100)"
       }
     }
   ],

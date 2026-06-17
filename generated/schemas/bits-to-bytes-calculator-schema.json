@@ -10,11 +10,15 @@
       "businessContext": "Number of bits to convert into bytes",
       "label_i18n": {
         "en": "Bits",
-        "tr": "Bits",
+        "tr": "Bit",
         "de": "Bits",
         "fr": "Bits",
         "es": "Bits",
         "ar": "Bits"
+      },
+      "businessContext_i18n": {
+        "en": "Number of bits to convert into bytes",
+        "tr": "Byte'a dönüştürülecek bit sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of kilobits (1 Kbit = 1000 bits)",
       "label_i18n": {
         "en": "Kilobits",
-        "tr": "Kilobits",
+        "tr": "Kilobit",
         "de": "Kilobits",
         "fr": "Kilobits",
         "es": "Kilobits",
         "ar": "Kilobits"
+      },
+      "businessContext_i18n": {
+        "en": "Number of kilobits (1 Kbit = 1000 bits)",
+        "tr": "Kilobit sayısı (1 Kbit = 1000 bit)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of megabits (1 Mbit = 1,000,000 bits)",
       "label_i18n": {
         "en": "Megabits",
-        "tr": "Megabits",
+        "tr": "Megabit",
         "de": "Megabits",
         "fr": "Megabits",
         "es": "Megabits",
         "ar": "Megabits"
+      },
+      "businessContext_i18n": {
+        "en": "Number of megabits (1 Mbit = 1,000,000 bits)",
+        "tr": "Megabit sayısı (1 Mbit = 1.000.000 bit)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of gigabits (1 Gbit = 1,000,000,000 bits)",
       "label_i18n": {
         "en": "Gigabits",
-        "tr": "Gigabits",
+        "tr": "Gigabit",
         "de": "Gigabits",
         "fr": "Gigabits",
         "es": "Gigabits",
         "ar": "Gigabits"
+      },
+      "businessContext_i18n": {
+        "en": "Number of gigabits (1 Gbit = 1,000,000,000 bits)",
+        "tr": "Gigabit sayısı (1 Gbit = 1.000.000.000 bit)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of terabits (1 Tbit = 1,000,000,000,000 bits)",
       "label_i18n": {
         "en": "Terabits",
-        "tr": "Terabits",
+        "tr": "Terabit",
         "de": "Terabits",
         "fr": "Terabits",
         "es": "Terabits",
         "ar": "Terabits"
+      },
+      "businessContext_i18n": {
+        "en": "Number of terabits (1 Tbit = 1,000,000,000,000 bits)",
+        "tr": "Terabit sayısı (1 Tbit = 1.000.000.000.000 bit)"
       }
     }
   ],

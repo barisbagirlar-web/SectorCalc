@@ -10,11 +10,15 @@
       "businessContext": "First measurement value for comparison",
       "label_i18n": {
         "en": "First Value",
-        "tr": "First Value",
+        "tr": "Birinci Değer",
         "de": "First Value",
         "fr": "First Value",
         "es": "First Value",
         "ar": "First Value"
+      },
+      "businessContext_i18n": {
+        "en": "First measurement value for comparison",
+        "tr": "Karşılaştırma için ilk ölçüm değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Second measurement value for comparison",
       "label_i18n": {
         "en": "Second Value",
-        "tr": "Second Value",
+        "tr": "İkinci Değer",
         "de": "Second Value",
         "fr": "Second Value",
         "es": "Second Value",
         "ar": "Second Value"
+      },
+      "businessContext_i18n": {
+        "en": "Second measurement value for comparison",
+        "tr": "Karşılaştırma için ikinci ölçüm değeri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Optimal theoretical value; if >0, percent error is calculated instead of percent difference",
       "label_i18n": {
         "en": "Reference Value",
-        "tr": "Reference Value",
+        "tr": "Referans Değer",
         "de": "Reference Value",
         "fr": "Reference Value",
         "es": "Reference Value",
         "ar": "Reference Value"
+      },
+      "businessContext_i18n": {
+        "en": "Optimal theoretical value; if >0, percent error is calculated instead of percent difference",
+        "tr": "Optimal teorik değer; >0 ise yüzde fark yerine yüzde hata hesaplanır"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum acceptable percent deviation before flagging a quality issue",
       "label_i18n": {
         "en": "Tolerance Threshold",
-        "tr": "Tolerance Threshold",
+        "tr": "Tolerans Eşiği",
         "de": "Tolerance Threshold",
         "fr": "Tolerance Threshold",
         "es": "Tolerance Threshold",
         "ar": "Tolerance Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum acceptable percent deviation before flagging a quality issue",
+        "tr": "Kalite sorununu işaretlemeden önce izin verilen maksimum yüzde sapma"
       }
     }
   ],

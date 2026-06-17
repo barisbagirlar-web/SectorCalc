@@ -10,11 +10,15 @@
       "businessContext": "User body weight in kilograms for personalized calorie calculation based on metabolic energy expenditure.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User body weight in kilograms for personalized calorie calculation based on metabolic energy expenditure.",
+        "tr": "Metabolik enerji harcamasına dayalı kişiselleştirilmiş kalori hesaplaması için kullanıcının kilogram cinsinden vücut ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total time spent dancing in minutes, used to compute total calorie burn.",
       "label_i18n": {
         "en": "Dance Duration",
-        "tr": "Dance Duration",
+        "tr": "Dans Süresi",
         "de": "Dance Duration",
         "fr": "Dance Duration",
         "es": "Dance Duration",
         "ar": "Dance Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Total time spent dancing in minutes, used to compute total calorie burn.",
+        "tr": "Dakika cinsinden toplam dans süresi, toplam yakılan kaloriyi hesaplamak için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Metabolic Equivalent of Task representing intensity of dancing; typical values: 3-10 where 1 MET = 3.5 ml O2/kg/min.",
       "label_i18n": {
         "en": "MET Value",
-        "tr": "MET Value",
+        "tr": "MET Değeri",
         "de": "MET Value",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
+      },
+      "businessContext_i18n": {
+        "en": "Metabolic Equivalent of Task representing intensity of dancing; typical values: 3-10 where 1 MET = 3.5 ml O2/kg/min.",
+        "tr": "Dans yoğunluğunu temsil eden metabolik eşdeğer; tipik değerler: 3-10, 1 MET = 3.5 ml O2/kg/dk."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to adjust calculated calories for perceived effort (0.5 = half effort, 2.0 = twice effort).",
       "label_i18n": {
         "en": "Intensity Adjustment Factor",
-        "tr": "Intensity Adjustment Factor",
+        "tr": "Yoğunluk Ayarlama Faktörü",
         "de": "Intensity Adjustment Factor",
         "fr": "Intensity Adjustment Factor",
         "es": "Intensity Adjustment Factor",
         "ar": "Intensity Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to adjust calculated calories for perceived effort (0.5 = half effort, 2.0 = twice effort).",
+        "tr": "Algılanan efor için hesaplanan kalorileri ayarlayan çarpan (0.5 = yarım efor, 2.0 = iki kat efor)."
       }
     }
   ],

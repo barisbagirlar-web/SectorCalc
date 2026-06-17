@@ -10,11 +10,15 @@
       "businessContext": "The starting value before the decrease (e.g., previous period's revenue, original cost).",
       "label_i18n": {
         "en": "Initial Value",
-        "tr": "Initial Value",
+        "tr": "Başlangıç Değeri",
         "de": "Initial Value",
         "fr": "Initial Value",
         "es": "Initial Value",
         "ar": "Initial Value"
+      },
+      "businessContext_i18n": {
+        "en": "The starting value before the decrease (e.g., previous period's revenue, original cost).",
+        "tr": "Azalmadan önceki başlangıç değeri (örneğin, önceki dönem geliri, orijinal maliyet)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The resulting value after the decrease (e.g., current period's revenue, reduced cost).",
       "label_i18n": {
         "en": "Final Value",
-        "tr": "Final Value",
+        "tr": "Nihai Değer",
         "de": "Final Value",
         "fr": "Final Value",
         "es": "Final Value",
         "ar": "Final Value"
+      },
+      "businessContext_i18n": {
+        "en": "The resulting value after the decrease (e.g., current period's revenue, reduced cost).",
+        "tr": "Azalmadan sonraki sonuç değeri (örneğin, cari dönem geliri, azaltılmış maliyet)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output percentage values.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output percentage values.",
+        "tr": "Çıktı yüzde değerleri için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to adjust the initial value for factors like inflation or normalization. Typically 1 if no adjustment needed.",
       "label_i18n": {
         "en": "Adjustment Factor",
-        "tr": "Adjustment Factor",
+        "tr": "Düzeltme Faktörü",
         "de": "Adjustment Factor",
         "fr": "Adjustment Factor",
         "es": "Adjustment Factor",
         "ar": "Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to adjust the initial value for factors like inflation or normalization. Typically 1 if no adjustment needed.",
+        "tr": "Enflasyon veya normalizasyon gibi faktörler için başlangıç değerini ayarlayan çarpan. Ayarlama gerekmiyorsa tipik olarak 1."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional business goal percentage decrease to compare against the actual decrease.",
       "label_i18n": {
         "en": "Target Decrease (%)",
-        "tr": "Target Decrease (%)",
+        "tr": "Hedef Azalma (%)",
         "de": "Target Decrease (%)",
         "fr": "Target Decrease (%)",
         "es": "Target Decrease (%)",
         "ar": "Target Decrease (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional business goal percentage decrease to compare against the actual decrease.",
+        "tr": "Gerçek azalmayla karşılaştırmak için isteğe bağlı iş hedefi yüzde azalması."
       }
     }
   ],

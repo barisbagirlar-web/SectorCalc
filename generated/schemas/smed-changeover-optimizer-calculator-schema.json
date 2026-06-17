@@ -21,10 +21,12 @@
       "max": 480,
       "businessContext": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard.",
       "label_i18n": {
-        "en": "Current Changeover Time (minutes)"
+        "en": "Current Changeover Time (minutes)",
+        "tr": "Mevcut Değişim Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard."
+        "en": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard.",
+        "tr": "Önceki partinin son iyi parçasından sonraki partinin ilk iyi parçasına kadar geçen toplam süre. SMED standardına göre ölçülür."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100,
       "businessContext": "Percentage of changeover time where machine is stopped. Target is to convert internal to external.",
       "label_i18n": {
-        "en": "Internal Operations (% of total time)"
+        "en": "Internal Operations (% of total time)",
+        "tr": "Dahili Operasyonlar (toplam sürenin %'si)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of changeover time where machine is stopped. Target is to convert internal to external."
+        "en": "Percentage of changeover time where machine is stopped. Target is to convert internal to external.",
+        "tr": "Makinenin durduğu değişim süresinin yüzdesi. Hedef, dahiliyi hariciye dönüştürmektir."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10,
       "businessContext": "Number of operators directly involved in the changeover process.",
       "label_i18n": {
-        "en": "Setup Team Size (operators)"
+        "en": "Setup Team Size (operators)",
+        "tr": "Kurulum Ekibi Büyüklüğü (operatör)"
       },
       "businessContext_i18n": {
-        "en": "Number of operators directly involved in the changeover process."
+        "en": "Number of operators directly involved in the changeover process.",
+        "tr": "Değişim sürecine doğrudan dahil olan operatör sayısı."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": null,
       "businessContext": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle).",
       "label_i18n": {
-        "en": "Parallel Work Possible"
+        "en": "Parallel Work Possible",
+        "tr": "Paralel Çalışma Mümkün"
       },
       "businessContext_i18n": {
-        "en": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle)."
+        "en": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle).",
+        "tr": "Görevlerin birden fazla operatör tarafından eşzamanlı olarak gerçekleştirilip gerçekleştirilemeyeceğini belirtir (SMED prensibi)."
       }
     },
     {
@@ -90,10 +98,12 @@
       ],
       "businessContext": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments.",
       "label_i18n": {
-        "en": "Standardization Level"
+        "en": "Standardization Level",
+        "tr": "Standardizasyon Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments."
+        "en": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments.",
+        "tr": "Standartlaştırılmış iş talimatları, takım ve kalıp tasarımı derecesi. Yüksek = minimum ayar."
       }
     },
     {
@@ -106,10 +116,12 @@
       "max": 10,
       "businessContext": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste.",
       "label_i18n": {
-        "en": "Waste Motion Score (1-10)"
+        "en": "Waste Motion Score (1-10)",
+        "tr": "Atık Hareket Puanı (1-10)"
       },
       "businessContext_i18n": {
-        "en": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste."
+        "en": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste.",
+        "tr": "Değişim sırasında gereksiz hareket, arama ve yürümenin subjektif değerlendirmesi. 1 = optimal, 10 = aşırı atık."
       }
     }
   ],

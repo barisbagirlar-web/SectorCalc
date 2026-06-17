@@ -10,11 +10,15 @@
       "businessContext": "Mass of the oscillating body.",
       "label_i18n": {
         "en": "Mass (m)",
-        "tr": "Mass (m)",
+        "tr": "Kütle (m)",
         "de": "Mass (m)",
         "fr": "Mass (m)",
         "es": "Mass (m)",
         "ar": "Mass (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the oscillating body.",
+        "tr": "Salınım yapan cismin kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Viscous damping coefficient.",
       "label_i18n": {
         "en": "Damping Coefficient (c)",
-        "tr": "Damping Coefficient (c)",
+        "tr": "Sönüm Katsayısı (c)",
         "de": "Damping Coefficient (c)",
         "fr": "Damping Coefficient (c)",
         "es": "Damping Coefficient (c)",
         "ar": "Damping Coefficient (c)"
+      },
+      "businessContext_i18n": {
+        "en": "Viscous damping coefficient.",
+        "tr": "Viskoz sönüm katsayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Stiffness of the spring.",
       "label_i18n": {
         "en": "Spring Constant (k)",
-        "tr": "Spring Constant (k)",
+        "tr": "Yay Sabiti (k)",
         "de": "Spring Constant (k)",
         "fr": "Spring Constant (k)",
         "es": "Spring Constant (k)",
         "ar": "Spring Constant (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Stiffness of the spring.",
+        "tr": "Yayın sertliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Displacement at t=0.",
       "label_i18n": {
         "en": "Initial Displacement (x₀)",
-        "tr": "Initial Displacement (x₀)",
+        "tr": "Başlangıç Yer Değiştirmesi (x₀)",
         "de": "Initial Displacement (x₀)",
         "fr": "Initial Displacement (x₀)",
         "es": "Initial Displacement (x₀)",
         "ar": "Initial Displacement (x₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Displacement at t=0.",
+        "tr": "t=0 anındaki yer değiştirme."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Velocity at t=0.",
       "label_i18n": {
         "en": "Initial Velocity (v₀)",
-        "tr": "Initial Velocity (v₀)",
+        "tr": "Başlangıç Hızı (v₀)",
         "de": "Initial Velocity (v₀)",
         "fr": "Initial Velocity (v₀)",
         "es": "Initial Velocity (v₀)",
         "ar": "Initial Velocity (v₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Velocity at t=0.",
+        "tr": "t=0 anındaki hız."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Time instant to evaluate displacement.",
       "label_i18n": {
         "en": "Time (t)",
-        "tr": "Time (t)",
+        "tr": "Zaman (t)",
         "de": "Time (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Time instant to evaluate displacement.",
+        "tr": "Yer değiştirmenin değerlendirileceği zaman anı."
       }
     }
   ],

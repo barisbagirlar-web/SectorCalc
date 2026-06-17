@@ -10,11 +10,15 @@
       "businessContext": "Measurements before intervention (comma-separated)",
       "label_i18n": {
         "en": "Before Measurements",
-        "tr": "Before Measurements",
+        "tr": "Ölçüm Öncesi",
         "de": "Before Measurements",
         "fr": "Before Measurements",
         "es": "Before Measurements",
         "ar": "Before Measurements"
+      },
+      "businessContext_i18n": {
+        "en": "Measurements before intervention (comma-separated)",
+        "tr": "Müdahale öncesi ölçümler (virgülle ayrılmış)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measurements after intervention (comma-separated)",
       "label_i18n": {
         "en": "After Measurements",
-        "tr": "After Measurements",
+        "tr": "Ölçüm Sonrası",
         "de": "After Measurements",
         "fr": "After Measurements",
         "es": "After Measurements",
         "ar": "After Measurements"
+      },
+      "businessContext_i18n": {
+        "en": "Measurements after intervention (comma-separated)",
+        "tr": "Müdahale sonrası ölçümler (virgülle ayrılmış)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Type I error rate for hypothesis test",
       "label_i18n": {
         "en": "Significance Level (α)",
-        "tr": "Significance Level (α)",
+        "tr": "Anlamlılık Düzeyi (α)",
         "de": "Significance Level (α)",
         "fr": "Significance Level (α)",
         "es": "Significance Level (α)",
         "ar": "Significance Level (α)"
+      },
+      "businessContext_i18n": {
+        "en": "Type I error rate for hypothesis test",
+        "tr": "Hipotez testi için Tip I hata oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0=two-sided, 1=one-sided greater, -1=one-sided less",
       "label_i18n": {
         "en": "Hypothesis Direction",
-        "tr": "Hypothesis Direction",
+        "tr": "Hipotez Yönü",
         "de": "Hypothesis Direction",
         "fr": "Hypothesis Direction",
         "es": "Hypothesis Direction",
         "ar": "Hypothesis Direction"
+      },
+      "businessContext_i18n": {
+        "en": "0=two-sided, 1=one-sided greater, -1=one-sided less",
+        "tr": "0=iki yönlü, 1=tek yönlü büyük, -1=tek yönlü küçük"
       }
     }
   ],

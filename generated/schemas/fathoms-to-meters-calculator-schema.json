@@ -10,11 +10,15 @@
       "businessContext": "The length value in fathoms to convert.",
       "label_i18n": {
         "en": "Fathoms",
-        "tr": "Fathoms",
+        "tr": "Kulaç",
         "de": "Fathoms",
         "fr": "Fathoms",
         "es": "Fathoms",
         "ar": "Fathoms"
+      },
+      "businessContext_i18n": {
+        "en": "The length value in fathoms to convert.",
+        "tr": "Dönüştürülecek kulaç cinsinden uzunluk değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The exact conversion factor from fathoms to meters, as defined by international standards.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The exact conversion factor from fathoms to meters, as defined by international standards.",
+        "tr": "Uluslararası standartlara göre tanımlanan kulaçtan metreye tam dönüşüm faktörü."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output, based on precision requirements.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output, based on precision requirements.",
+        "tr": "Hassasiyet gereksinimlerine bağlı olarak çıktıdaki ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Acceptable measurement tolerance for quality assurance.",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Acceptable measurement tolerance for quality assurance.",
+        "tr": "Kalite güvencesi için kabul edilebilir ölçüm toleransı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Relative measurement uncertainty in the input fathom value (percentage).",
       "label_i18n": {
         "en": "Measurement Uncertainty",
-        "tr": "Measurement Uncertainty",
+        "tr": "Ölçüm Belirsizliği",
         "de": "Measurement Uncertainty",
         "fr": "Measurement Uncertainty",
         "es": "Measurement Uncertainty",
         "ar": "Measurement Uncertainty"
+      },
+      "businessContext_i18n": {
+        "en": "Relative measurement uncertainty in the input fathom value (percentage).",
+        "tr": "Giriş kulaç değerindeki bağıl ölçüm belirsizliği (yüzde)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Safety factor applied to the converted value for engineering design, if applicable.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Safety factor applied to the converted value for engineering design, if applicable.",
+        "tr": "Mühendislik tasarımı için dönüştürülen değere uygulanan güvenlik faktörü (varsa)."
       }
     }
   ],

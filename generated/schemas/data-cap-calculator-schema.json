@@ -10,11 +10,15 @@
       "businessContext": "The total data allowance in gigabytes for the billing period.",
       "label_i18n": {
         "en": "Monthly Data Cap",
-        "tr": "Monthly Data Cap",
+        "tr": "Aylık Veri Limiti",
         "de": "Monthly Data Cap",
         "fr": "Monthly Data Cap",
         "es": "Monthly Data Cap",
         "ar": "Monthly Data Cap"
+      },
+      "businessContext_i18n": {
+        "en": "The total data allowance in gigabytes for the billing period.",
+        "tr": "Fatura dönemi için toplam veri izni (gigabayt cinsinden)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount of data consumed so far in the current billing period.",
       "label_i18n": {
         "en": "Data Used So Far",
-        "tr": "Data Used So Far",
+        "tr": "Şu Ana Kadar Kullanılan Veri",
         "de": "Data Used So Far",
         "fr": "Data Used So Far",
         "es": "Data Used So Far",
         "ar": "Data Used So Far"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of data consumed so far in the current billing period.",
+        "tr": "Mevcut fatura döneminde şu ana kadar tüketilen veri miktarı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total days in the billing cycle.",
       "label_i18n": {
         "en": "Billing Cycle Days",
-        "tr": "Billing Cycle Days",
+        "tr": "Fatura Döngüsü Günleri",
         "de": "Billing Cycle Days",
         "fr": "Billing Cycle Days",
         "es": "Billing Cycle Days",
         "ar": "Billing Cycle Days"
+      },
+      "businessContext_i18n": {
+        "en": "Total days in the billing cycle.",
+        "tr": "Fatura döngüsündeki toplam gün sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of days that have passed in the current billing cycle.",
       "label_i18n": {
         "en": "Days Elapsed",
-        "tr": "Days Elapsed",
+        "tr": "Geçen Günler",
         "de": "Days Elapsed",
         "fr": "Days Elapsed",
         "es": "Days Elapsed",
         "ar": "Days Elapsed"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days that have passed in the current billing cycle.",
+        "tr": "Mevcut fatura döngüsünde geçen gün sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost charged per gigabyte when exceeding the data cap.",
       "label_i18n": {
         "en": "Overage Fee per GB",
-        "tr": "Overage Fee per GB",
+        "tr": "GB Başına Aşım Ücreti",
         "de": "Overage Fee per GB",
         "fr": "Overage Fee per GB",
         "es": "Overage Fee per GB",
         "ar": "Overage Fee per GB"
+      },
+      "businessContext_i18n": {
+        "en": "Cost charged per gigabyte when exceeding the data cap.",
+        "tr": "Veri limitini aştığınızda gigabayt başına uygulanan ücret."
       }
     }
   ],

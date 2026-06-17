@@ -10,11 +10,15 @@
       "businessContext": "Total distance traveled by the vehicle.",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Distance (km)",
+        "tr": "Mesafe (km)",
         "de": "Distance (km)",
         "fr": "Distance (km)",
         "es": "Distance (km)",
         "ar": "Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance traveled by the vehicle.",
+        "tr": "Aracın kat ettiği toplam mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average fuel consumption per 100 km (e.g., 8 L/100km for a mid-size car).",
       "label_i18n": {
         "en": "Fuel Consumption Rate",
-        "tr": "Fuel Consumption Rate",
+        "tr": "Yakıt Tüketim Oranı",
         "de": "Fuel Consumption Rate",
         "fr": "Fuel Consumption Rate",
         "es": "Fuel Consumption Rate",
         "ar": "Fuel Consumption Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average fuel consumption per 100 km (e.g., 8 L/100km for a mid-size car).",
+        "tr": "100 km başına ortalama yakıt tüketimi (örneğin, orta boy bir araba için 8 L/100 km)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "CO₂ emissions per liter of fuel burned. For diesel ~2.68 kg/L, gasoline ~2.31 kg/L.",
       "label_i18n": {
         "en": "Fuel Emission Factor",
-        "tr": "Fuel Emission Factor",
+        "tr": "Yakıt emisyon faktörü",
         "de": "Fuel Emission Factor",
         "fr": "Fuel Emission Factor",
         "es": "Fuel Emission Factor",
         "ar": "Fuel Emission Factor"
+      },
+      "businessContext_i18n": {
+        "en": "CO₂ emissions per liter of fuel burned. For diesel ~2.68 kg/L, gasoline ~2.31 kg/L.",
+        "tr": "Yakılan litre başına CO₂ emisyonu. Dizel için ~2,68 kg/L, benzin için ~2,31 kg/L."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical trips or vehicles to scale total emissions.",
       "label_i18n": {
         "en": "Number of Trips or Vehicles",
-        "tr": "Number of Trips or Vehicles",
+        "tr": "Sefer veya Araç Sayısı",
         "de": "Number of Trips or Vehicles",
         "fr": "Number of Trips or Vehicles",
         "es": "Number of Trips or Vehicles",
         "ar": "Number of Trips or Vehicles"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical trips or vehicles to scale total emissions.",
+        "tr": "Toplam emisyonları ölçeklendirmek için aynı sefer veya araç sayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Quantity of beer in barrels",
       "label_i18n": {
         "en": "Beer Barrels",
-        "tr": "Beer Barrels",
+        "tr": "Bira Fıçıları",
         "de": "Beer Barrels",
         "fr": "Beer Barrels",
         "es": "Beer Barrels",
         "ar": "Beer Barrels"
+      },
+      "businessContext_i18n": {
+        "en": "Quantity of beer in barrels",
+        "tr": "Fıçı cinsinden bira miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor. Standard US beer barrel: 117.3478 L",
       "label_i18n": {
         "en": "Liters per Barrel",
-        "tr": "Liters per Barrel",
+        "tr": "Fıçı Başına Litre",
         "de": "Liters per Barrel",
         "fr": "Liters per Barrel",
         "es": "Liters per Barrel",
         "ar": "Liters per Barrel"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor. Standard US beer barrel: 117.3478 L",
+        "tr": "Dönüşüm faktörü. Standart ABD bira fıçısı: 117.3478 L"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Actual temperature of the beer",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Actual temperature of the beer",
+        "tr": "Biranın gerçek sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Reference temperature (standard 20°C)",
       "label_i18n": {
         "en": "Reference Temperature",
-        "tr": "Reference Temperature",
+        "tr": "Referans Sıcaklık",
         "de": "Reference Temperature",
         "fr": "Reference Temperature",
         "es": "Reference Temperature",
         "ar": "Reference Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Reference temperature (standard 20°C)",
+        "tr": "Referans sıcaklık (standart 20°C)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Volumetric thermal expansion coefficient for beer (approx. 0.0003 per °C)",
       "label_i18n": {
         "en": "Thermal Expansion Coefficient",
-        "tr": "Thermal Expansion Coefficient",
+        "tr": "Termal Genleşme Katsayısı",
         "de": "Thermal Expansion Coefficient",
         "fr": "Thermal Expansion Coefficient",
         "es": "Thermal Expansion Coefficient",
         "ar": "Thermal Expansion Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric thermal expansion coefficient for beer (approx. 0.0003 per °C)",
+        "tr": "Bira için hacimsel termal genleşme katsayısı (yaklaşık 0.0003 /°C)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Manual correction factor (e.g., for foam, ullage, etc.)",
       "label_i18n": {
         "en": "Correction Factor",
-        "tr": "Correction Factor",
+        "tr": "Düzeltme Faktörü",
         "de": "Correction Factor",
         "fr": "Correction Factor",
         "es": "Correction Factor",
         "ar": "Correction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Manual correction factor (e.g., for foam, ullage, etc.)",
+        "tr": "Manuel düzeltme faktörü (örneğin köpük, boşluk vb. için)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The steady-state average daily usage rate derived from historical demand data.",
       "label_i18n": {
         "en": "Average Daily Demand",
-        "tr": "Average Daily Demand",
+        "tr": "Ortalama Günlük Talep",
         "de": "Average Daily Demand",
         "fr": "Average Daily Demand",
         "es": "Average Daily Demand",
         "ar": "Average Daily Demand"
+      },
+      "businessContext_i18n": {
+        "en": "The steady-state average daily usage rate derived from historical demand data.",
+        "tr": "Geçmiş talep verilerinden elde edilen kararlı durum ortalama günlük kullanım oranı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Variability of daily demand, measured as standard deviation, reflecting forecast error.",
       "label_i18n": {
         "en": "Demand Standard Deviation",
-        "tr": "Demand Standard Deviation",
+        "tr": "Talep Standart Sapması",
         "de": "Demand Standard Deviation",
         "fr": "Demand Standard Deviation",
         "es": "Demand Standard Deviation",
         "ar": "Demand Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Variability of daily demand, measured as standard deviation, reflecting forecast error.",
+        "tr": "Günlük talebin standart sapma olarak ölçülen değişkenliği, tahmin hatasını yansıtır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mean replenishment lead time from supplier, in days.",
       "label_i18n": {
         "en": "Average Lead Time",
-        "tr": "Average Lead Time",
+        "tr": "Ortalama Tedarik Süresi",
         "de": "Average Lead Time",
         "fr": "Average Lead Time",
         "es": "Average Lead Time",
         "ar": "Average Lead Time"
+      },
+      "businessContext_i18n": {
+        "en": "Mean replenishment lead time from supplier, in days.",
+        "tr": "Tedarikçiden ortalama yenileme süresi, gün cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Variability of lead time, measured as standard deviation, reflecting supply uncertainty.",
       "label_i18n": {
         "en": "Lead Time Standard Deviation",
-        "tr": "Lead Time Standard Deviation",
+        "tr": "Tedarik Süresi Standart Sapması",
         "de": "Lead Time Standard Deviation",
         "fr": "Lead Time Standard Deviation",
         "es": "Lead Time Standard Deviation",
         "ar": "Lead Time Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Variability of lead time, measured as standard deviation, reflecting supply uncertainty.",
+        "tr": "Tedarik süresinin standart sapma olarak ölçülen değişkenliği, tedarik belirsizliğini yansıtır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Z-score corresponding to desired service level (e.g., 1.65 for 95% fill rate). Must be positive.",
       "label_i18n": {
         "en": "Service Level (Z-score)",
-        "tr": "Service Level (Z-score)",
+        "tr": "Hizmet Seviyesi (Z-skoru)",
         "de": "Service Level (Z-score)",
         "fr": "Service Level (Z-score)",
         "es": "Service Level (Z-score)",
         "ar": "Service Level (Z-score)"
+      },
+      "businessContext_i18n": {
+        "en": "Z-score corresponding to desired service level (e.g., 1.65 for 95% fill rate). Must be positive.",
+        "tr": "İstenen hizmet seviyesine karşılık gelen Z-skoru (örneğin, %95 doluluk oranı için 1,65). Pozitif olmalıdır."
       }
     }
   ],

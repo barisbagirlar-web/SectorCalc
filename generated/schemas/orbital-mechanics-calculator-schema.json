@@ -10,11 +10,15 @@
       "businessContext": "Satellite height above planet surface",
       "label_i18n": {
         "en": "Altitude",
-        "tr": "Altitude",
+        "tr": "Rakım",
         "de": "Altitude",
         "fr": "Altitude",
         "es": "Altitude",
         "ar": "Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Satellite height above planet surface",
+        "tr": "Uydunun gezegen yüzeyinden yüksekliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Radius of the central body (e.g., Earth)",
       "label_i18n": {
         "en": "Planet Radius",
-        "tr": "Planet Radius",
+        "tr": "Gezegen Yarıçapı",
         "de": "Planet Radius",
         "fr": "Planet Radius",
         "es": "Planet Radius",
         "ar": "Planet Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of the central body (e.g., Earth)",
+        "tr": "Merkezi cismin yarıçapı (ör. Dünya)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Orbit eccentricity (0 for circular orbit)",
       "label_i18n": {
         "en": "Eccentricity",
-        "tr": "Eccentricity",
+        "tr": "Dışmerkezlik",
         "de": "Eccentricity",
         "fr": "Eccentricity",
         "es": "Eccentricity",
         "ar": "Eccentricity"
+      },
+      "businessContext_i18n": {
+        "en": "Orbit eccentricity (0 for circular orbit)",
+        "tr": "Yörünge dışmerkezliği (dairesel yörünge için 0)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard gravitational parameter (G × M)",
       "label_i18n": {
         "en": "Gravitational Parameter",
-        "tr": "Gravitational Parameter",
+        "tr": "Yerçekim Parametresi",
         "de": "Gravitational Parameter",
         "fr": "Gravitational Parameter",
         "es": "Gravitational Parameter",
         "ar": "Gravitational Parameter"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravitational parameter (G × M)",
+        "tr": "Standart çekim parametresi (G × M)"
       }
     }
   ],

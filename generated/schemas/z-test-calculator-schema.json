@@ -10,11 +10,15 @@
       "businessContext": "Measured average of the sample.",
       "label_i18n": {
         "en": "Sample Mean",
-        "tr": "Sample Mean",
+        "tr": "Örneklem ortalaması",
         "de": "Sample Mean",
         "fr": "Sample Mean",
         "es": "Sample Mean",
         "ar": "Sample Mean"
+      },
+      "businessContext_i18n": {
+        "en": "Measured average of the sample.",
+        "tr": "Örneklemin ölçülen ortalaması."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Hypothesized population mean under null hypothesis.",
       "label_i18n": {
         "en": "Population Mean (H₀)",
-        "tr": "Population Mean (H₀)",
+        "tr": "Popülasyon Ortalaması (H₀)",
         "de": "Population Mean (H₀)",
         "fr": "Population Mean (H₀)",
         "es": "Population Mean (H₀)",
         "ar": "Population Mean (H₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Hypothesized population mean under null hypothesis.",
+        "tr": "Sıfır hipotezi altında varsayılan popülasyon ortalaması."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Known population standard deviation.",
       "label_i18n": {
         "en": "Standard Deviation",
-        "tr": "Standard Deviation",
+        "tr": "Standart Sapma",
         "de": "Standard Deviation",
         "fr": "Standard Deviation",
         "es": "Standard Deviation",
         "ar": "Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Known population standard deviation.",
+        "tr": "Bilinen popülasyon standart sapması."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of observations in the sample.",
       "label_i18n": {
         "en": "Sample Size",
-        "tr": "Sample Size",
+        "tr": "Örneklem büyüklüğü",
         "de": "Sample Size",
         "fr": "Sample Size",
         "es": "Sample Size",
         "ar": "Sample Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of observations in the sample.",
+        "tr": "Örneklemdeki gözlem sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Probability of Type I error (0–1).",
       "label_i18n": {
         "en": "Significance Level",
-        "tr": "Significance Level",
+        "tr": "Anlamlılık Düzeyi",
         "de": "Significance Level",
         "fr": "Significance Level",
         "es": "Significance Level",
         "ar": "Significance Level"
+      },
+      "businessContext_i18n": {
+        "en": "Probability of Type I error (0–1).",
+        "tr": "Tip I hata olasılığı (0–1)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1 for one‑tailed test, 2 for two‑tailed test.",
       "label_i18n": {
         "en": "Tails",
-        "tr": "Tails",
+        "tr": "Kuyruk sayısı",
         "de": "Tails",
         "fr": "Tails",
         "es": "Tails",
         "ar": "Tails"
+      },
+      "businessContext_i18n": {
+        "en": "1 for one‑tailed test, 2 for two‑tailed test.",
+        "tr": "Tek kuyruklu test için 1, çift kuyruklu test için 2."
       }
     }
   ],

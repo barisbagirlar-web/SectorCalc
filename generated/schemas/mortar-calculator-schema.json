@@ -10,11 +10,15 @@
       "businessContext": "Total length of the wall in meters.",
       "label_i18n": {
         "en": "Wall Length",
-        "tr": "Wall Length",
+        "tr": "Duvar Uzunluğu (m)",
         "de": "Wall Length",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the wall in meters.",
+        "tr": "Duvarın metre cinsinden toplam uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total height of the wall in meters.",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Total height of the wall in meters.",
+        "tr": "Duvarın metre cinsinden toplam yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of a single brick in millimeters (e.g., 190).",
       "label_i18n": {
         "en": "Brick Length",
-        "tr": "Brick Length",
+        "tr": "Tuğla uzunluğu",
         "de": "Brick Length",
         "fr": "Brick Length",
         "es": "Brick Length",
         "ar": "Brick Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single brick in millimeters (e.g., 190).",
+        "tr": "Tek bir tuğlanın milimetre cinsinden uzunluğu (ör. 190)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width or thickness of the brick, which determines wall thickness in mm.",
       "label_i18n": {
         "en": "Brick Width (Thickness)",
-        "tr": "Brick Width (Thickness)",
+        "tr": "Tuğla Genişliği (Kalınlık)",
         "de": "Brick Width (Thickness)",
         "fr": "Brick Width (Thickness)",
         "es": "Brick Width (Thickness)",
         "ar": "Brick Width (Thickness)"
+      },
+      "businessContext_i18n": {
+        "en": "Width or thickness of the brick, which determines wall thickness in mm.",
+        "tr": "Duvar kalınlığını belirleyen tuğla genişliği veya kalınlığı (mm)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Height of the brick in millimeters.",
       "label_i18n": {
         "en": "Brick Height",
-        "tr": "Brick Height",
+        "tr": "Tuğla yüksekliği",
         "de": "Brick Height",
         "fr": "Brick Height",
         "es": "Brick Height",
         "ar": "Brick Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the brick in millimeters.",
+        "tr": "Tuğlanın milimetre cinsinden yüksekliği."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Thickness of mortar joints (bed and head joints) in millimeters.",
       "label_i18n": {
         "en": "Mortar Joint Thickness",
-        "tr": "Mortar Joint Thickness",
+        "tr": "Harç Derz Kalınlığı",
         "de": "Mortar Joint Thickness",
         "fr": "Mortar Joint Thickness",
         "es": "Mortar Joint Thickness",
         "ar": "Mortar Joint Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of mortar joints (bed and head joints) in millimeters.",
+        "tr": "Harç derzlerinin (yatay ve düşey derzler) milimetre cinsinden kalınlığı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Percentage of extra mortar to account for spillage, overfill, and waste.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra mortar to account for spillage, overfill, and waste.",
+        "tr": "Dökülme, taşma ve atık için ek harç yüzdesi."
       }
     }
   ],

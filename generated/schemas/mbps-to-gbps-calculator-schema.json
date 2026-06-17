@@ -10,11 +10,15 @@
       "businessContext": "Measured or nominal data rate in megabits per second.",
       "label_i18n": {
         "en": "Speed in Mbps",
-        "tr": "Speed in Mbps",
+        "tr": "Hız (Mbps)",
         "de": "Speed in Mbps",
         "fr": "Speed in Mbps",
         "es": "Speed in Mbps",
         "ar": "Speed in Mbps"
+      },
+      "businessContext_i18n": {
+        "en": "Measured or nominal data rate in megabits per second.",
+        "tr": "Megabit/saniye cinsinden ölçülen veya nominal veri hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion: 1 Gbps = 1000 Mbps. Adjust for non-standard units.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion: 1 Gbps = 1000 Mbps. Adjust for non-standard units.",
+        "tr": "Standart dönüşüm: 1 Gbps = 1000 Mbps. Standart olmayan birimler için ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Output precision in decimal places for reporting consistency.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Output precision in decimal places for reporting consistency.",
+        "tr": "Raporlama tutarlılığı için ondalık basamak cinsinden çıktı hassasiyeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Calibration correction value added to the input. Typically 0 for uncalibrated readings.",
       "label_i18n": {
         "en": "Calibration Offset (Mbps)",
-        "tr": "Calibration Offset (Mbps)",
+        "tr": "Kalibrasyon Ofseti (Mbps)",
         "de": "Calibration Offset (Mbps)",
         "fr": "Calibration Offset (Mbps)",
         "es": "Calibration Offset (Mbps)",
         "ar": "Calibration Offset (Mbps)"
+      },
+      "businessContext_i18n": {
+        "en": "Calibration correction value added to the input. Typically 0 for uncalibrated readings.",
+        "tr": "Girişe eklenen kalibrasyon düzeltme değeri. Kalibre edilmemiş okumalar için genellikle 0."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "For traceability to measurement records, set to 0 if not applicable.",
       "label_i18n": {
         "en": "Measurement ID",
-        "tr": "Measurement ID",
+        "tr": "Ölçüm Kimliği",
         "de": "Measurement ID",
         "fr": "Measurement ID",
         "es": "Measurement ID",
         "ar": "Measurement ID"
+      },
+      "businessContext_i18n": {
+        "en": "For traceability to measurement records, set to 0 if not applicable.",
+        "tr": "Ölçüm kayıtlarına izlenebilirlik için, uygun değilse 0 olarak ayarlayın."
       }
     }
   ],

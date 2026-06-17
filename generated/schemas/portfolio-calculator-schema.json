@@ -10,11 +10,15 @@
       "businessContext": "The initial lump sum investment amount.",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "The initial lump sum investment amount.",
+        "tr": "İlk toplu yatırım tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The amount added to the portfolio each month.",
       "label_i18n": {
         "en": "Monthly Contribution",
-        "tr": "Monthly Contribution",
+        "tr": "Aylık Katkı",
         "de": "Monthly Contribution",
         "fr": "Monthly Contribution",
         "es": "Monthly Contribution",
         "ar": "Monthly Contribution"
+      },
+      "businessContext_i18n": {
+        "en": "The amount added to the portfolio each month.",
+        "tr": "Portföye her ay eklenen miktar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected average annual return rate of the portfolio.",
       "label_i18n": {
         "en": "Annual Return Rate",
-        "tr": "Annual Return Rate",
+        "tr": "Yıllık Getiri Oranı",
         "de": "Annual Return Rate",
         "fr": "Annual Return Rate",
         "es": "Annual Return Rate",
         "ar": "Annual Return Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected average annual return rate of the portfolio.",
+        "tr": "Portföyün beklenen ortalama yıllık getiri oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of years the investment will grow.",
       "label_i18n": {
         "en": "Investment Horizon",
-        "tr": "Investment Horizon",
+        "tr": "Yatırım Süresi",
         "de": "Investment Horizon",
         "fr": "Investment Horizon",
         "es": "Investment Horizon",
         "ar": "Investment Horizon"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of years the investment will grow.",
+        "tr": "Yatırımın büyüyeceği toplam yıl sayısı."
       }
     }
   ],

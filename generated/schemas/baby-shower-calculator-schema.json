@@ -10,11 +10,15 @@
       "businessContext": "Number of small parts to be cleaned in one batch",
       "label_i18n": {
         "en": "Number of Parts per Batch",
-        "tr": "Number of Parts per Batch",
+        "tr": "Parti Başına Parça Sayısı",
         "de": "Number of Parts per Batch",
         "fr": "Number of Parts per Batch",
         "es": "Number of Parts per Batch",
         "ar": "Number of Parts per Batch"
+      },
+      "businessContext_i18n": {
+        "en": "Number of small parts to be cleaned in one batch",
+        "tr": "Bir partide temizlenecek küçük parça sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Flow rate of the cleaning shower",
       "label_i18n": {
         "en": "Water Flow Rate",
-        "tr": "Water Flow Rate",
+        "tr": "Su Akış Hızı",
         "de": "Water Flow Rate",
         "fr": "Water Flow Rate",
         "es": "Water Flow Rate",
         "ar": "Water Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Flow rate of the cleaning shower",
+        "tr": "Temizleme duşunun akış hızı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of the cleaning cycle",
       "label_i18n": {
         "en": "Cycle Time",
-        "tr": "Cycle Time",
+        "tr": "Çevrim Süresi",
         "de": "Cycle Time",
         "fr": "Cycle Time",
         "es": "Cycle Time",
         "ar": "Cycle Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the cleaning cycle",
+        "tr": "Temizleme çevriminin süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of chemical agent per liter",
       "label_i18n": {
         "en": "Chemical Cost per Liter",
-        "tr": "Chemical Cost per Liter",
+        "tr": "Kimyasal Maliyeti (Litre başına)",
         "de": "Chemical Cost per Liter",
         "fr": "Chemical Cost per Liter",
         "es": "Chemical Cost per Liter",
         "ar": "Chemical Cost per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of chemical agent per liter",
+        "tr": "Litre başına kimyasal madde maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of water per liter",
       "label_i18n": {
         "en": "Water Cost per Liter",
-        "tr": "Water Cost per Liter",
+        "tr": "Su Maliyeti (Litre başına)",
         "de": "Water Cost per Liter",
         "fr": "Water Cost per Liter",
         "es": "Water Cost per Liter",
         "ar": "Water Cost per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of water per liter",
+        "tr": "Litre başına su maliyeti"
       }
     }
   ],

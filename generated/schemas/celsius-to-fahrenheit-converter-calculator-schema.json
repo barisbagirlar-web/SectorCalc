@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Process temperature reading from sensor or manual measurement. Must be above absolute zero.",
       "label_i18n": {
-        "en": "Temperature in Celsius"
+        "en": "Temperature in Celsius",
+        "tr": "Santigrat cinsinden sıcaklık"
       },
       "businessContext_i18n": {
-        "en": "Process temperature reading from sensor or manual measurement. Must be above absolute zero."
+        "en": "Process temperature reading from sensor or manual measurement. Must be above absolute zero.",
+        "tr": "Sensörden veya manuel ölçümden alınan proses sıcaklığı okuması. Mutlak sıfırın üzerinde olmalıdır."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10,
       "businessContext": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard).",
       "label_i18n": {
-        "en": "Sensor Accuracy (±°C)"
+        "en": "Sensor Accuracy (±°C)",
+        "tr": "Sensör Doğruluğu (±°C)"
       },
       "businessContext_i18n": {
-        "en": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard)."
+        "en": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard).",
+        "tr": "Sıcaklık sensörünün üretici tarafından belirtilen doğruluğu (ISO 17025 kalibrasyon standardı)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 5,
       "businessContext": "Field calibration adjustment to align sensor with reference standard (NIST traceable).",
       "label_i18n": {
-        "en": "Calibration Offset"
+        "en": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti"
       },
       "businessContext_i18n": {
-        "en": "Field calibration adjustment to align sensor with reference standard (NIST traceable)."
+        "en": "Field calibration adjustment to align sensor with reference standard (NIST traceable).",
+        "tr": "Sensörü referans standarda (NIST izlenebilir) hizalamak için saha kalibrasyon ayarı."
       }
     },
     {
@@ -72,10 +78,12 @@
       ],
       "businessContext": "Select output temperature scale for downstream process or reporting (ISO 80000-5).",
       "label_i18n": {
-        "en": "Target Unit System"
+        "en": "Target Unit System",
+        "tr": "Hedef Birim Sistemi"
       },
       "businessContext_i18n": {
-        "en": "Select output temperature scale for downstream process or reporting (ISO 80000-5)."
+        "en": "Select output temperature scale for downstream process or reporting (ISO 80000-5).",
+        "tr": "Alt süreç veya raporlama için çıktı sıcaklık ölçeğini seçin (ISO 80000-5)."
       }
     },
     {
@@ -86,10 +94,12 @@
       "default": true,
       "businessContext": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits).",
       "label_i18n": {
-        "en": "Enable Process Alerts"
+        "en": "Enable Process Alerts",
+        "tr": "Proses Uyarılarını Etkinleştir"
       },
       "businessContext_i18n": {
-        "en": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits)."
+        "en": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits).",
+        "tr": "Spesifikasyon dışı sıcaklık koşulları için eşik tabanlı uyarıları aç/kapat (Altı Sigma kontrol limitleri)."
       }
     }
   ],

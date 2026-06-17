@@ -10,11 +10,15 @@
       "businessContext": "Manufacturer's IBO rated speed (30\" draw, 70# draw weight, 350 gr arrow)",
       "label_i18n": {
         "en": "Bow IBO Speed",
-        "tr": "Bow IBO Speed",
+        "tr": "Yay IBO Hızı",
         "de": "Bow IBO Speed",
         "fr": "Bow IBO Speed",
         "es": "Bow IBO Speed",
         "ar": "Bow IBO Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturer's IBO rated speed (30\" draw, 70# draw weight, 350 gr arrow)",
+        "tr": "Üreticinin IBO dereceli hızı (30\" çekiş, 70# çekiş ağırlığı, 350 gr ok)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Actual bow draw weight at user's draw length",
       "label_i18n": {
         "en": "Draw Weight",
-        "tr": "Draw Weight",
+        "tr": "Çekiş Ağırlığı",
         "de": "Draw Weight",
         "fr": "Draw Weight",
         "es": "Draw Weight",
         "ar": "Draw Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Actual bow draw weight at user's draw length",
+        "tr": "Kullanıcının çekiş uzunluğundaki gerçek yay çekiş ağırlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "User's actual draw length",
       "label_i18n": {
         "en": "Draw Length",
-        "tr": "Draw Length",
+        "tr": "Çekiş Uzunluğu",
         "de": "Draw Length",
         "fr": "Draw Length",
         "es": "Draw Length",
         "ar": "Draw Length"
+      },
+      "businessContext_i18n": {
+        "en": "User's actual draw length",
+        "tr": "Kullanıcının gerçek çekiş uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total arrow weight including broadhead, in grains",
       "label_i18n": {
         "en": "Arrow Weight",
-        "tr": "Arrow Weight",
+        "tr": "Ok Ağırlığı",
         "de": "Arrow Weight",
         "fr": "Arrow Weight",
         "es": "Arrow Weight",
         "ar": "Arrow Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total arrow weight including broadhead, in grains",
+        "tr": "Temren dahil toplam ok ağırlığı, grain cinsinden"
       }
     }
   ],

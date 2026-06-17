@@ -10,11 +10,15 @@
       "businessContext": "Volume of one cup in milliliters.",
       "label_i18n": {
         "en": "Cup Volume",
-        "tr": "Cup Volume",
+        "tr": "Fincan Hacmi",
         "de": "Cup Volume",
         "fr": "Cup Volume",
         "es": "Cup Volume",
         "ar": "Cup Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of one cup in milliliters.",
+        "tr": "Bir fincanın mililitre cinsinden hacmi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Caffeine content per 100ml for the coffee type (e.g., drip: 40-60, espresso: 212 per 100ml).",
       "label_i18n": {
         "en": "Caffeine per 100ml",
-        "tr": "Caffeine per 100ml",
+        "tr": "100ml'de Kafein",
         "de": "Caffeine per 100ml",
         "fr": "Caffeine per 100ml",
         "es": "Caffeine per 100ml",
         "ar": "Caffeine per 100ml"
+      },
+      "businessContext_i18n": {
+        "en": "Caffeine content per 100ml for the coffee type (e.g., drip: 40-60, espresso: 212 per 100ml).",
+        "tr": "Kahve türü için 100ml başına kafein miktarı (örneğin, filtre: 40-60, espresso: 212/100ml)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of cups consumed.",
       "label_i18n": {
         "en": "Number of Cups",
-        "tr": "Number of Cups",
+        "tr": "Fincan Sayısı",
         "de": "Number of Cups",
         "fr": "Number of Cups",
         "es": "Number of Cups",
         "ar": "Number of Cups"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of cups consumed.",
+        "tr": "Tüketilen toplam fincan sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for brew strength (1 = standard, >1 stronger, <1 weaker).",
       "label_i18n": {
         "en": "Brew Strength Factor",
-        "tr": "Brew Strength Factor",
+        "tr": "Demleme Gücü Faktörü",
         "de": "Brew Strength Factor",
         "fr": "Brew Strength Factor",
         "es": "Brew Strength Factor",
         "ar": "Brew Strength Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for brew strength (1 = standard, >1 stronger, <1 weaker).",
+        "tr": "Demleme gücü çarpanı (1 = standart, >1 daha güçlü, <1 daha zayıf)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "0 = regular coffee, 1 = decaf (removes 97% caffeine).",
       "label_i18n": {
         "en": "Decaf",
-        "tr": "Decaf",
+        "tr": "Kafeinsiz",
         "de": "Decaf",
         "fr": "Decaf",
         "es": "Decaf",
         "ar": "Decaf"
+      },
+      "businessContext_i18n": {
+        "en": "0 = regular coffee, 1 = decaf (removes 97% caffeine).",
+        "tr": "0 = normal kahve, 1 = kafeinsiz (kafeinin %97'sini giderir)."
       }
     }
   ],

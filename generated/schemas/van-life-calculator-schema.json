@@ -10,11 +10,15 @@
       "businessContext": "Total watt-hours used per day by all devices",
       "label_i18n": {
         "en": "Daily Energy Consumption",
-        "tr": "Daily Energy Consumption",
+        "tr": "Günlük Enerji Tüketimi",
         "de": "Daily Energy Consumption",
         "fr": "Daily Energy Consumption",
         "es": "Daily Energy Consumption",
         "ar": "Daily Energy Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Total watt-hours used per day by all devices",
+        "tr": "Tüm cihazların günlük toplam watt-saat tüketimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of peak sun hours per day at the location",
       "label_i18n": {
         "en": "Average Sun Peak Hours",
-        "tr": "Average Sun Peak Hours",
+        "tr": "Ortalama Güneş Zirve Saati",
         "de": "Average Sun Peak Hours",
         "fr": "Average Sun Peak Hours",
         "es": "Average Sun Peak Hours",
         "ar": "Average Sun Peak Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Number of peak sun hours per day at the location",
+        "tr": "Konumdaki günlük zirve güneş saati sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Rated power output of a single solar panel",
       "label_i18n": {
         "en": "Solar Panel Wattage",
-        "tr": "Solar Panel Wattage",
+        "tr": "Güneş Paneli Watt Değeri",
         "de": "Solar Panel Wattage",
         "fr": "Solar Panel Wattage",
         "es": "Solar Panel Wattage",
         "ar": "Solar Panel Wattage"
+      },
+      "businessContext_i18n": {
+        "en": "Rated power output of a single solar panel",
+        "tr": "Tek bir güneş panelinin nominal güç çıkışı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Angular deviation from optimal sun alignment (0° = perpendicular)",
       "label_i18n": {
         "en": "Tilt Angle Deviation",
-        "tr": "Tilt Angle Deviation",
+        "tr": "Eğim Açısı Sapması",
         "de": "Tilt Angle Deviation",
         "fr": "Tilt Angle Deviation",
         "es": "Tilt Angle Deviation",
         "ar": "Tilt Angle Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Angular deviation from optimal sun alignment (0° = perpendicular)",
+        "tr": "Optimum güneş hizasından açısal sapma (0° = dik)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Overall system efficiency including charge controller, inverter, and wiring losses",
       "label_i18n": {
         "en": "System Efficiency",
-        "tr": "System Efficiency",
+        "tr": "Sistem Verimliliği",
         "de": "System Efficiency",
         "fr": "System Efficiency",
         "es": "System Efficiency",
         "ar": "System Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Overall system efficiency including charge controller, inverter, and wiring losses",
+        "tr": "Şarj kontrol cihazı, invertör ve kablo kayıplarını içeren genel sistem verimliliği"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of consecutive days the battery must supply energy without sun",
       "label_i18n": {
         "en": "Days of Autonomy",
-        "tr": "Days of Autonomy",
+        "tr": "Otonomi Günü Sayısı",
         "de": "Days of Autonomy",
         "fr": "Days of Autonomy",
         "es": "Days of Autonomy",
         "ar": "Days of Autonomy"
+      },
+      "businessContext_i18n": {
+        "en": "Number of consecutive days the battery must supply energy without sun",
+        "tr": "Pilin güneş olmadan enerji sağlaması gereken ardışık gün sayısı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Nominal voltage of the battery bank",
       "label_i18n": {
         "en": "Battery Voltage",
-        "tr": "Battery Voltage",
+        "tr": "Akü Gerilimi",
         "de": "Battery Voltage",
         "fr": "Battery Voltage",
         "es": "Battery Voltage",
         "ar": "Battery Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal voltage of the battery bank",
+        "tr": "Akü bankasının nominal voltajı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Maximum permissible discharge depth to preserve battery life (e.g., 50 for 50%)",
       "label_i18n": {
         "en": "Depth of Discharge",
-        "tr": "Depth of Discharge",
+        "tr": "Deşarj Derinliği",
         "de": "Depth of Discharge",
         "fr": "Depth of Discharge",
         "es": "Depth of Discharge",
         "ar": "Depth of Discharge"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum permissible discharge depth to preserve battery life (e.g., 50 for 50%)",
+        "tr": "Pil ömrünü korumak için izin verilen maksimum deşarj derinliği (ör. %50 için 50)"
       }
     }
   ],

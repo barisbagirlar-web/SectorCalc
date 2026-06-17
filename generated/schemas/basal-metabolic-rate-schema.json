@@ -10,11 +10,15 @@
       "businessContext": "Body weight in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms",
+        "tr": "Vücut ağırlığı (kilogram cinsinden)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height in centimeters",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height in centimeters",
+        "tr": "Santimetre cinsinden boy"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age in years",
+        "tr": "Yıl cinsinden yaş"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 for Male, 0 for Female",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "1 for Male, 0 for Female",
+        "tr": "1 Erkek, 0 Kadın"
       }
     }
   ],

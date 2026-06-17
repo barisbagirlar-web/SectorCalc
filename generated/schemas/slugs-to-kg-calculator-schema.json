@@ -10,11 +10,15 @@
       "businessContext": "Mass in slugs to convert",
       "label_i18n": {
         "en": "Slug Value",
-        "tr": "Slug Value",
+        "tr": "Slug Değeri",
         "de": "Slug Value",
         "fr": "Slug Value",
         "es": "Slug Value",
         "ar": "Slug Value"
+      },
+      "businessContext_i18n": {
+        "en": "Mass in slugs to convert",
+        "tr": "Dönüştürülecek slug cinsinden kütle"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard slug to kg conversion factor",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard slug to kg conversion factor",
+        "tr": "Standart slug - kg dönüşüm faktörü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiplier for safety margin (1 = no safety)",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for safety margin (1 = no safety)",
+        "tr": "Güvenlik marjı çarpanı (1 = güvenlik yok)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of units or batches",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units or batches",
+        "tr": "Birim veya parti sayısı"
       }
     }
   ],

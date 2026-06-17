@@ -10,11 +10,15 @@
       "businessContext": "The energy or torque value in foot-pounds to convert.",
       "label_i18n": {
         "en": "Foot-Pounds (ft·lb)",
-        "tr": "Foot-Pounds (ft·lb)",
+        "tr": "Foot-Pound (ft·lb)",
         "de": "Foot-Pounds (ft·lb)",
         "fr": "Foot-Pounds (ft·lb)",
         "es": "Foot-Pounds (ft·lb)",
         "ar": "Foot-Pounds (ft·lb)"
+      },
+      "businessContext_i18n": {
+        "en": "The energy or torque value in foot-pounds to convert.",
+        "tr": "Dönüştürülecek foot-pound cinsinden enerji veya tork değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor. Modify only if using a different calibration.",
       "label_i18n": {
         "en": "Conversion Factor (J/ft·lb)",
-        "tr": "Conversion Factor (J/ft·lb)",
+        "tr": "Dönüşüm Faktörü (J/ft·lb)",
         "de": "Conversion Factor (J/ft·lb)",
         "fr": "Conversion Factor (J/ft·lb)",
         "es": "Conversion Factor (J/ft·lb)",
         "ar": "Conversion Factor (J/ft·lb)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor. Modify only if using a different calibration.",
+        "tr": "Standart dönüşüm faktörü. Yalnızca farklı bir kalibrasyon kullanıyorsanız değiştirin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output value.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output value.",
+        "tr": "Çıktı değeri için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated measurement uncertainty as a percentage of the converted value.",
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
-        "tr": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)",
         "de": "Measurement Uncertainty (%)",
         "fr": "Measurement Uncertainty (%)",
         "es": "Measurement Uncertainty (%)",
         "ar": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated measurement uncertainty as a percentage of the converted value.",
+        "tr": "Dönüştürülen değerin yüzdesi olarak tahmini ölçüm belirsizliği."
       }
     }
   ],

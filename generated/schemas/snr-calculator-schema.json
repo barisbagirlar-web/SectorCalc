@@ -10,11 +10,15 @@
       "businessContext": "RMS voltage of the desired signal",
       "label_i18n": {
         "en": "Signal Voltage",
-        "tr": "Signal Voltage",
+        "tr": "Sinyal voltajı",
         "de": "Signal Voltage",
         "fr": "Signal Voltage",
         "es": "Signal Voltage",
         "ar": "Signal Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "RMS voltage of the desired signal",
+        "tr": "İstenen sinyalin RMS voltajı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "System impedance",
       "label_i18n": {
         "en": "Load Resistance",
-        "tr": "Load Resistance",
+        "tr": "Yük direnci",
         "de": "Load Resistance",
         "fr": "Load Resistance",
         "es": "Load Resistance",
         "ar": "Load Resistance"
+      },
+      "businessContext_i18n": {
+        "en": "System impedance",
+        "tr": "Sistem empedansı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Noise bandwidth of the system",
       "label_i18n": {
         "en": "Bandwidth",
-        "tr": "Bandwidth",
+        "tr": "Bant Genişliği",
         "de": "Bandwidth",
         "fr": "Bandwidth",
         "es": "Bandwidth",
         "ar": "Bandwidth"
+      },
+      "businessContext_i18n": {
+        "en": "Noise bandwidth of the system",
+        "tr": "Sistemin gürültü bant genişliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Absolute temperature in Kelvin (290K ≈ 17°C)",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute temperature in Kelvin (290K ≈ 17°C)",
+        "tr": "Kelvin cinsinden mutlak sıcaklık (290K ≈ 17°C)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "System noise figure, 0 dB for ideal noiseless",
       "label_i18n": {
         "en": "Noise Figure",
-        "tr": "Noise Figure",
+        "tr": "Gürültü faktörü",
         "de": "Noise Figure",
         "fr": "Noise Figure",
         "es": "Noise Figure",
         "ar": "Noise Figure"
+      },
+      "businessContext_i18n": {
+        "en": "System noise figure, 0 dB for ideal noiseless",
+        "tr": "Sistem gürültü faktörü, ideal gürültüsüz için 0 dB"
       }
     }
   ],

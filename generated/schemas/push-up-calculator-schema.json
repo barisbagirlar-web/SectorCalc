@@ -10,11 +10,15 @@
       "businessContext": "Mass of the object being pushed up",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the object being pushed up",
+        "tr": "Yukarı itilen nesnenin kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Angle of incline relative to horizontal",
       "label_i18n": {
         "en": "Incline Angle",
-        "tr": "Incline Angle",
+        "tr": "Eğim Açısı",
         "de": "Incline Angle",
         "fr": "Incline Angle",
         "es": "Incline Angle",
         "ar": "Incline Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of incline relative to horizontal",
+        "tr": "Yataya göre eğim açısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Friction coefficient between object and surface",
       "label_i18n": {
         "en": "Coefficient of Friction",
-        "tr": "Coefficient of Friction",
+        "tr": "Sürtünme Katsayısı",
         "de": "Coefficient of Friction",
         "fr": "Coefficient of Friction",
         "es": "Coefficient of Friction",
         "ar": "Coefficient of Friction"
+      },
+      "businessContext_i18n": {
+        "en": "Friction coefficient between object and surface",
+        "tr": "Nesne ile yüzey arasındaki sürtünme katsayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance the object is pushed along the incline",
       "label_i18n": {
         "en": "Push Distance",
-        "tr": "Push Distance",
+        "tr": "İtme Mesafesi",
         "de": "Push Distance",
         "fr": "Push Distance",
         "es": "Push Distance",
         "ar": "Push Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance the object is pushed along the incline",
+        "tr": "Nesnenin eğim boyunca itildiği mesafe"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Time taken to push the object over the distance, used for power calculation",
       "label_i18n": {
         "en": "Time to Push",
-        "tr": "Time to Push",
+        "tr": "İtme Süresi",
         "de": "Time to Push",
         "fr": "Time to Push",
         "es": "Time to Push",
         "ar": "Time to Push"
+      },
+      "businessContext_i18n": {
+        "en": "Time taken to push the object over the distance, used for power calculation",
+        "tr": "Nesnenin mesafe boyunca itilmesi için geçen süre, güç hesaplaması için kullanılır"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Gravitational acceleration constant, default Earth gravity",
       "label_i18n": {
         "en": "Gravitational Acceleration",
-        "tr": "Gravitational Acceleration",
+        "tr": "Yerçekimi İvmesi",
         "de": "Gravitational Acceleration",
         "fr": "Gravitational Acceleration",
         "es": "Gravitational Acceleration",
         "ar": "Gravitational Acceleration"
+      },
+      "businessContext_i18n": {
+        "en": "Gravitational acceleration constant, default Earth gravity",
+        "tr": "Yerçekimi ivmesi sabiti, varsayılan Dünya yerçekimi"
       }
     }
   ],

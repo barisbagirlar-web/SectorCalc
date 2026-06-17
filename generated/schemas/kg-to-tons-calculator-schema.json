@@ -10,11 +10,15 @@
       "businessContext": "Total weight of goods including packaging",
       "label_i18n": {
         "en": "Gross Weight",
-        "tr": "Gross Weight",
+        "tr": "Brüt Ağırlık",
         "de": "Gross Weight",
         "fr": "Gross Weight",
         "es": "Gross Weight",
         "ar": "Gross Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of goods including packaging",
+        "tr": "Ambalaj dahil toplam mal ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Weight of empty packaging or container",
       "label_i18n": {
         "en": "Tare Weight",
-        "tr": "Tare Weight",
+        "tr": "Dara Ağırlığı",
         "de": "Tare Weight",
         "fr": "Tare Weight",
         "es": "Tare Weight",
         "ar": "Tare Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of empty packaging or container",
+        "tr": "Boş ambalaj veya konteyner ağırlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of identical containers in the shipment",
       "label_i18n": {
         "en": "Number of Containers",
-        "tr": "Number of Containers",
+        "tr": "Kap Sayısı",
         "de": "Number of Containers",
         "fr": "Number of Containers",
         "es": "Number of Containers",
         "ar": "Number of Containers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical containers in the shipment",
+        "tr": "Sevkiyattaki özdeş konteyner sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Precision of the output value in tons (0-6 recommended)",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Precision of the output value in tons (0-6 recommended)",
+        "tr": "Ton cinsinden çıktı değerinin hassasiyeti (0-6 önerilir)"
       }
     }
   ],

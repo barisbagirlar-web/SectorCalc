@@ -10,11 +10,15 @@
       "businessContext": "Patient age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age in years",
+        "tr": "Hasta yaşı (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured systolic blood pressure",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Measured systolic blood pressure",
+        "tr": "Ölçülen sistolik kan basıncı"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Diabetes Mellitus",
         "es": "Diabetes Mellitus",
         "ar": "Diabetes Mellitus"
+      },
+      "businessContext_i18n": {
+        "en": "Presence of diabetes (1 = Yes, 0 = No)",
+        "tr": "Diyabet varlığı (1 = Evet, 0 = Hayır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current cigarette smoker (1 = Yes, 0 = No)",
       "label_i18n": {
         "en": "Current Smoker",
-        "tr": "Current Smoker",
+        "tr": "Sigara İçiyor",
         "de": "Current Smoker",
         "fr": "Current Smoker",
         "es": "Current Smoker",
         "ar": "Current Smoker"
+      },
+      "businessContext_i18n": {
+        "en": "Current cigarette smoker (1 = Yes, 0 = No)",
+        "tr": "Mevcut sigara içicisi (1 = Evet, 0 = Hayır)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "History of atrial fibrillation (1 = Yes, 0 = No)",
       "label_i18n": {
         "en": "Atrial Fibrillation",
-        "tr": "Atrial Fibrillation",
+        "tr": "Atriyal Fibrilasyon",
         "de": "Atrial Fibrillation",
         "fr": "Atrial Fibrillation",
         "es": "Atrial Fibrillation",
         "ar": "Atrial Fibrillation"
+      },
+      "businessContext_i18n": {
+        "en": "History of atrial fibrillation (1 = Yes, 0 = No)",
+        "tr": "Atriyal fibrilasyon öyküsü (1 = Evet, 0 = Hayır)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "ECG evidence of LVH (1 = Yes, 0 = No)",
       "label_i18n": {
         "en": "Left Ventricular Hypertrophy",
-        "tr": "Left Ventricular Hypertrophy",
+        "tr": "Sol Ventrikül Hipertrofisi",
         "de": "Left Ventricular Hypertrophy",
         "fr": "Left Ventricular Hypertrophy",
         "es": "Left Ventricular Hypertrophy",
         "ar": "Left Ventricular Hypertrophy"
+      },
+      "businessContext_i18n": {
+        "en": "ECG evidence of LVH (1 = Yes, 0 = No)",
+        "tr": "EKG'de LVH kanıtı (1 = Evet, 0 = Hayır)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Currently using blood pressure medication (1 = Yes, 0 = No)",
       "label_i18n": {
         "en": "Antihypertensive Medication",
-        "tr": "Antihypertensive Medication",
+        "tr": "Antihipertansif İlaç",
         "de": "Antihypertensive Medication",
         "fr": "Antihypertensive Medication",
         "es": "Antihypertensive Medication",
         "ar": "Antihypertensive Medication"
+      },
+      "businessContext_i18n": {
+        "en": "Currently using blood pressure medication (1 = Yes, 0 = No)",
+        "tr": "Şu anda kan basıncı ilacı kullanıyor (1 = Evet, 0 = Hayır)"
       }
     }
   ],

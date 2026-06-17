@@ -10,11 +10,15 @@
       "businessContext": "Cost of raw ingredients for one serving.",
       "label_i18n": {
         "en": "Ingredient Cost (per item)",
-        "tr": "Ingredient Cost (per item)",
+        "tr": "İçerik Maliyeti (birim başına)",
         "de": "Ingredient Cost (per item)",
         "fr": "Ingredient Cost (per item)",
         "es": "Ingredient Cost (per item)",
         "ar": "Ingredient Cost (per item)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw ingredients for one serving.",
+        "tr": "Bir porsiyon için hammadde maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Direct labor cost attributed to one serving.",
       "label_i18n": {
         "en": "Labor Cost (per item)",
-        "tr": "Labor Cost (per item)",
+        "tr": "İşçilik Maliyeti (birim başına)",
         "de": "Labor Cost (per item)",
         "fr": "Labor Cost (per item)",
         "es": "Labor Cost (per item)",
         "ar": "Labor Cost (per item)"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor cost attributed to one serving.",
+        "tr": "Bir porsiyona atfedilen doğrudan işçilik maliyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Indirect costs (rent, utilities, etc.) per serving.",
       "label_i18n": {
         "en": "Overhead Cost (per item)",
-        "tr": "Overhead Cost (per item)",
+        "tr": "Genel Gider Maliyeti (birim başına)",
         "de": "Overhead Cost (per item)",
         "fr": "Overhead Cost (per item)",
         "es": "Overhead Cost (per item)",
         "ar": "Overhead Cost (per item)"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect costs (rent, utilities, etc.) per serving.",
+        "tr": "Porsiyon başına dolaylı maliyetler (kira, elektrik vb.)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of ingredient lost to waste (trimming, spoilage).",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of ingredient lost to waste (trimming, spoilage).",
+        "tr": "Atık (kesim, bozulma) nedeniyle kaybedilen içerik yüzdesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Markup percentage on total cost to set selling price.",
       "label_i18n": {
         "en": "Desired Markup",
-        "tr": "Desired Markup",
+        "tr": "İstenen Kar Marjı",
         "de": "Desired Markup",
         "fr": "Desired Markup",
         "es": "Desired Markup",
         "ar": "Desired Markup"
+      },
+      "businessContext_i18n": {
+        "en": "Markup percentage on total cost to set selling price.",
+        "tr": "Satış fiyatını belirlemek için toplam maliyet üzerine kar marjı yüzdesi."
       }
     }
   ],

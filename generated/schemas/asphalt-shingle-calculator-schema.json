@@ -10,11 +10,15 @@
       "businessContext": "Length of a single roof plane along the eave (horizontal).",
       "label_i18n": {
         "en": "Roof Length",
-        "tr": "Roof Length",
+        "tr": "Çatı Uzunluğu",
         "de": "Roof Length",
         "fr": "Roof Length",
         "es": "Roof Length",
         "ar": "Roof Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single roof plane along the eave (horizontal).",
+        "tr": "Bir çatı yüzeyinin saçak boyunca yatay uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Horizontal span from eave to ridge of one roof plane.",
       "label_i18n": {
         "en": "Roof Width",
-        "tr": "Roof Width",
+        "tr": "Çatı Genişliği",
         "de": "Roof Width",
         "fr": "Roof Width",
         "es": "Roof Width",
         "ar": "Roof Width"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal span from eave to ridge of one roof plane.",
+        "tr": "Bir çatı yüzeyinin saçaktan mahyaya yatay açıklığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Roof pitch expressed as rise in inches per 12 inches of run (e.g., 4 for a 4/12 pitch).",
       "label_i18n": {
         "en": "Pitch (rise per 12'')",
-        "tr": "Pitch (rise per 12'')",
+        "tr": "Eğim (12''de yükselme)",
         "de": "Pitch (rise per 12'')",
         "fr": "Pitch (rise per 12'')",
         "es": "Pitch (rise per 12'')",
         "ar": "Pitch (rise per 12'')"
+      },
+      "businessContext_i18n": {
+        "en": "Roof pitch expressed as rise in inches per 12 inches of run (e.g., 4 for a 4/12 pitch).",
+        "tr": "12 inç yatay mesafede yükselme miktarı (örneğin 4/12 eğim için 4)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical roof planes (e.g., 2 for a standard gable roof).",
       "label_i18n": {
         "en": "Number of Planes",
-        "tr": "Number of Planes",
+        "tr": "Yüzey Sayısı",
         "de": "Number of Planes",
         "fr": "Number of Planes",
         "es": "Number of Planes",
         "ar": "Number of Planes"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical roof planes (e.g., 2 for a standard gable roof).",
+        "tr": "Özdeş çatı yüzeylerinin sayısı (örneğin standart beşik çatı için 2)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of extra material to account for cutting waste and errors.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra material to account for cutting waste and errors.",
+        "tr": "Kesim ve hata payı için ek malzeme yüzdesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Area covered by one bundle of shingles (sq ft); typically 33.33 sq ft for 3-bundle squares.",
       "label_i18n": {
         "en": "Bundle Coverage",
-        "tr": "Bundle Coverage",
+        "tr": "Paket Kaplama Alanı",
         "de": "Bundle Coverage",
         "fr": "Bundle Coverage",
         "es": "Bundle Coverage",
         "ar": "Bundle Coverage"
+      },
+      "businessContext_i18n": {
+        "en": "Area covered by one bundle of shingles (sq ft); typically 33.33 sq ft for 3-bundle squares.",
+        "tr": "Bir paket shingle'ın kapladığı alan (ft²); tipik olarak 3 paketlik kare için 33.33 ft²."
       }
     }
   ],

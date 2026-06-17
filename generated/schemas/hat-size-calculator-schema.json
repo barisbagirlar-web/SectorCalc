@@ -10,11 +10,15 @@
       "businessContext": "Measured circumference around widest part of head.",
       "label_i18n": {
         "en": "Head Circumference",
-        "tr": "Head Circumference",
+        "tr": "Baş Çevresi",
         "de": "Head Circumference",
         "fr": "Head Circumference",
         "es": "Head Circumference",
         "ar": "Head Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Measured circumference around widest part of head.",
+        "tr": "Başın en geniş kısmı etrafında ölçülen çevre."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0 for metric input in cm, 1 for imperial input in inches.",
       "label_i18n": {
         "en": "Measurement System",
-        "tr": "Measurement System",
+        "tr": "Ölçüm Sistemi",
         "de": "Measurement System",
         "fr": "Measurement System",
         "es": "Measurement System",
         "ar": "Measurement System"
+      },
+      "businessContext_i18n": {
+        "en": "0 for metric input in cm, 1 for imperial input in inches.",
+        "tr": "Metrik giriş için 0 (cm), emperyal giriş için 1 (inç)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Extra centimeters to add for thick hair (0 for none).",
       "label_i18n": {
         "en": "Hair Thickness Allowance",
-        "tr": "Hair Thickness Allowance",
+        "tr": "Saç Kalınlığı Payı",
         "de": "Hair Thickness Allowance",
         "fr": "Hair Thickness Allowance",
         "es": "Hair Thickness Allowance",
         "ar": "Hair Thickness Allowance"
+      },
+      "businessContext_i18n": {
+        "en": "Extra centimeters to add for thick hair (0 for none).",
+        "tr": "Kalın saç için eklenecek ekstra santimetre (yoksa 0)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 for tight fit (subtract 0.5 cm), 1 for standard, 2 for loose fit (add 0.5 cm).",
       "label_i18n": {
         "en": "Fit Preference",
-        "tr": "Fit Preference",
+        "tr": "Uyum Tercihi",
         "de": "Fit Preference",
         "fr": "Fit Preference",
         "es": "Fit Preference",
         "ar": "Fit Preference"
+      },
+      "businessContext_i18n": {
+        "en": "0 for tight fit (subtract 0.5 cm), 1 for standard, 2 for loose fit (add 0.5 cm).",
+        "tr": "Sıkı uyum için 0 (0,5 cm çıkar), standart için 1, gevşek uyum için 2 (0,5 cm ekle)."
       }
     }
   ],

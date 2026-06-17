@@ -10,11 +10,15 @@
       "businessContext": "The total weighted sum of squared differences between observed and predicted values.",
       "label_i18n": {
         "en": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
-        "tr": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
+        "tr": "Ağırlıklı Kareli Artıkların Toplamı (Σ w_i (y_i - ŷ_i)²)",
         "de": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
         "fr": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
         "es": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
         "ar": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)"
+      },
+      "businessContext_i18n": {
+        "en": "The total weighted sum of squared differences between observed and predicted values.",
+        "tr": "Gözlemlenen ve tahmin edilen değerler arasındaki ağırlıklı kareli farkların toplamı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The number of measurements in the regression.",
       "label_i18n": {
         "en": "Number of Data Points (n)",
-        "tr": "Number of Data Points (n)",
+        "tr": "Veri Noktası Sayısı (n)",
         "de": "Number of Data Points (n)",
         "fr": "Number of Data Points (n)",
         "es": "Number of Data Points (n)",
         "ar": "Number of Data Points (n)"
+      },
+      "businessContext_i18n": {
+        "en": "The number of measurements in the regression.",
+        "tr": "Regresyondaki ölçüm sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The number of fitted parameters in the regression model (e.g., slope and intercept).",
       "label_i18n": {
         "en": "Number of Parameters (p)",
-        "tr": "Number of Parameters (p)",
+        "tr": "Parametre Sayısı (p)",
         "de": "Number of Parameters (p)",
         "fr": "Number of Parameters (p)",
         "es": "Number of Parameters (p)",
         "ar": "Number of Parameters (p)"
+      },
+      "businessContext_i18n": {
+        "en": "The number of fitted parameters in the regression model (e.g., slope and intercept).",
+        "tr": "Regresyon modelindeki uydurulmuş parametre sayısı (örneğin, eğim ve kesişim)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The probability of rejecting a valid model when MSWD exceeds the critical value; used for testing if MSWD indicates overdispersion.",
       "label_i18n": {
         "en": "Significance Level (α)",
-        "tr": "Significance Level (α)",
+        "tr": "Anlamlılık Düzeyi (α)",
         "de": "Significance Level (α)",
         "fr": "Significance Level (α)",
         "es": "Significance Level (α)",
         "ar": "Significance Level (α)"
+      },
+      "businessContext_i18n": {
+        "en": "The probability of rejecting a valid model when MSWD exceeds the critical value; used for testing if MSWD indicates overdispersion.",
+        "tr": "MSWD kritik değeri aştığında geçerli bir modeli reddetme olasılığı; MSWD'nin aşırı dağılım gösterip göstermediğini test etmek için kullanılır."
       }
     }
   ],

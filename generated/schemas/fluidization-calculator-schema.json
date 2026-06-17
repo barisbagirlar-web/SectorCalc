@@ -10,11 +10,15 @@
       "businessContext": "Average diameter of particles in the bed.",
       "label_i18n": {
         "en": "Particle Diameter (dp)",
-        "tr": "Particle Diameter (dp)",
+        "tr": "Partikül Çapı (dp)",
         "de": "Particle Diameter (dp)",
         "fr": "Particle Diameter (dp)",
         "es": "Particle Diameter (dp)",
         "ar": "Particle Diameter (dp)"
+      },
+      "businessContext_i18n": {
+        "en": "Average diameter of particles in the bed.",
+        "tr": "Yataktaki partiküllerin ortalama çapı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Density of the solid particles.",
       "label_i18n": {
         "en": "Particle Density (ρp)",
-        "tr": "Particle Density (ρp)",
+        "tr": "Partikül Yoğunluğu (ρp)",
         "de": "Particle Density (ρp)",
         "fr": "Particle Density (ρp)",
         "es": "Particle Density (ρp)",
         "ar": "Particle Density (ρp)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the solid particles.",
+        "tr": "Katı partiküllerin yoğunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of the fluidizing medium.",
       "label_i18n": {
         "en": "Fluid Density (ρf)",
-        "tr": "Fluid Density (ρf)",
+        "tr": "Akışkan Yoğunluğu (ρf)",
         "de": "Fluid Density (ρf)",
         "fr": "Fluid Density (ρf)",
         "es": "Fluid Density (ρf)",
         "ar": "Fluid Density (ρf)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluidizing medium.",
+        "tr": "Akışkanlaştırma ortamının yoğunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Dynamic viscosity of the fluid.",
       "label_i18n": {
         "en": "Fluid Viscosity (μ)",
-        "tr": "Fluid Viscosity (μ)",
+        "tr": "Akışkan Viskozitesi (μ)",
         "de": "Fluid Viscosity (μ)",
         "fr": "Fluid Viscosity (μ)",
         "es": "Fluid Viscosity (μ)",
         "ar": "Fluid Viscosity (μ)"
+      },
+      "businessContext_i18n": {
+        "en": "Dynamic viscosity of the fluid.",
+        "tr": "Akışkanın dinamik viskozitesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Void fraction (porosity) of the bed at minimum fluidization.",
       "label_i18n": {
         "en": "Void Fraction at Min. Fluidization (εmf)",
-        "tr": "Void Fraction at Min. Fluidization (εmf)",
+        "tr": "Minimum Akışkanda Boşluk Oranı (εmf)",
         "de": "Void Fraction at Min. Fluidization (εmf)",
         "fr": "Void Fraction at Min. Fluidization (εmf)",
         "es": "Void Fraction at Min. Fluidization (εmf)",
         "ar": "Void Fraction at Min. Fluidization (εmf)"
+      },
+      "businessContext_i18n": {
+        "en": "Void fraction (porosity) of the bed at minimum fluidization.",
+        "tr": "Minimum akışkanlaştırmada yatağın boşluk oranı (gözeneklilik)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Sphericity factor of particles, ranging from 0 to 1.",
       "label_i18n": {
         "en": "Sphericity (φ)",
-        "tr": "Sphericity (φ)",
+        "tr": "Küresellik (φ)",
         "de": "Sphericity (φ)",
         "fr": "Sphericity (φ)",
         "es": "Sphericity (φ)",
         "ar": "Sphericity (φ)"
+      },
+      "businessContext_i18n": {
+        "en": "Sphericity factor of particles, ranging from 0 to 1.",
+        "tr": "Partiküllerin küresellik faktörü, 0 ile 1 arasında."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Gravitational acceleration.",
       "label_i18n": {
         "en": "Gravity (g)",
-        "tr": "Gravity (g)",
+        "tr": "Yerçekimi (g)",
         "de": "Gravity (g)",
         "fr": "Gravity (g)",
         "es": "Gravity (g)",
         "ar": "Gravity (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Gravitational acceleration.",
+        "tr": "Yerçekimi ivmesi."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Height of the fixed bed.",
       "label_i18n": {
         "en": "Bed Height (L)",
-        "tr": "Bed Height (L)",
+        "tr": "Yatak Yüksekliği (L)",
         "de": "Bed Height (L)",
         "fr": "Bed Height (L)",
         "es": "Bed Height (L)",
         "ar": "Bed Height (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the fixed bed.",
+        "tr": "Sabit yatağın yüksekliği."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Time to run/jog one mile in decimal minutes (e.g., 8.5 for 8 minutes 30 seconds).",
       "label_i18n": {
         "en": "Mile Time (min)",
-        "tr": "Mile Time (min)",
+        "tr": "Mil Süresi (dakika)",
         "de": "Mile Time (min)",
         "fr": "Mile Time (min)",
         "es": "Mile Time (min)",
         "ar": "Mile Time (min)"
+      },
+      "businessContext_i18n": {
+        "en": "Time to run/jog one mile in decimal minutes (e.g., 8.5 for 8 minutes 30 seconds).",
+        "tr": "Bir mili koşma/jogging süresi, ondalık dakika cinsinden (örneğin, 8 dakika 30 saniye için 8.5)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Heart rate at the end of the mile (beats per minute).",
       "label_i18n": {
         "en": "Heart Rate (bpm)",
-        "tr": "Heart Rate (bpm)",
+        "tr": "Kalp Atış Hızı (bpm)",
         "de": "Heart Rate (bpm)",
         "fr": "Heart Rate (bpm)",
         "es": "Heart Rate (bpm)",
         "ar": "Heart Rate (bpm)"
+      },
+      "businessContext_i18n": {
+        "en": "Heart rate at the end of the mile (beats per minute).",
+        "tr": "Mil sonundaki kalp atış hızı (dakikadaki atış)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body weight in kilograms.",
       "label_i18n": {
         "en": "Body Weight (kg)",
-        "tr": "Body Weight (kg)",
+        "tr": "Vücut Ağırlığı (kg)",
         "de": "Body Weight (kg)",
         "fr": "Body Weight (kg)",
         "es": "Body Weight (kg)",
         "ar": "Body Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms.",
+        "tr": "Vücut ağırlığı (kg)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Gender: 0 for female, 1 for male.",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Gender: 0 for female, 1 for male.",
+        "tr": "Cinsiyet: 0 kadın, 1 erkek."
       }
     }
   ],

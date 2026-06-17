@@ -10,11 +10,15 @@
       "businessContext": "Bearing dynamic load rating from manufacturer catalog",
       "label_i18n": {
         "en": "Basic Dynamic Load Rating (C)",
-        "tr": "Basic Dynamic Load Rating (C)",
+        "tr": "Temel Dinamik Yük Değeri (C)",
         "de": "Basic Dynamic Load Rating (C)",
         "fr": "Basic Dynamic Load Rating (C)",
         "es": "Basic Dynamic Load Rating (C)",
         "ar": "Basic Dynamic Load Rating (C)"
+      },
+      "businessContext_i18n": {
+        "en": "Bearing dynamic load rating from manufacturer catalog",
+        "tr": "Üretici kataloğundan rulman dinamik yük değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Calculated equivalent radial/axial load on bearing",
       "label_i18n": {
         "en": "Equivalent Dynamic Load (P)",
-        "tr": "Equivalent Dynamic Load (P)",
+        "tr": "Eşdeğer Dinamik Yük (P)",
         "de": "Equivalent Dynamic Load (P)",
         "fr": "Equivalent Dynamic Load (P)",
         "es": "Equivalent Dynamic Load (P)",
         "ar": "Equivalent Dynamic Load (P)"
+      },
+      "businessContext_i18n": {
+        "en": "Calculated equivalent radial/axial load on bearing",
+        "tr": "Rulman üzerinde hesaplanan eşdeğer radyal/eksenel yük"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "p=3 for ball bearings, p=10/3 (≈3.333) for roller bearings",
       "label_i18n": {
         "en": "Life Exponent",
-        "tr": "Life Exponent",
+        "tr": "Ömür Üssü",
         "de": "Life Exponent",
         "fr": "Life Exponent",
         "es": "Life Exponent",
         "ar": "Life Exponent"
+      },
+      "businessContext_i18n": {
+        "en": "p=3 for ball bearings, p=10/3 (≈3.333) for roller bearings",
+        "tr": "Bilyalı rulmanlar için p=3, makaralı rulmanlar için p=10/3 (≈3.333)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 for 90% reliability; e.g., 0.62 for 95%, 0.53 for 96% per ISO 281",
       "label_i18n": {
         "en": "Reliability Factor (a₁)",
-        "tr": "Reliability Factor (a₁)",
+        "tr": "Güvenilirlik Faktörü (a₁)",
         "de": "Reliability Factor (a₁)",
         "fr": "Reliability Factor (a₁)",
         "es": "Reliability Factor (a₁)",
         "ar": "Reliability Factor (a₁)"
+      },
+      "businessContext_i18n": {
+        "en": "1 for 90% reliability; e.g., 0.62 for 95%, 0.53 for 96% per ISO 281",
+        "tr": "%90 güvenilirlik için 1; ISO 281'e göre %95 için 0.62, %96 için 0.53"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Shaft speed; used to convert revolutions to hours",
       "label_i18n": {
         "en": "Rotational Speed",
-        "tr": "Rotational Speed",
+        "tr": "Dönüş Hızı",
         "de": "Rotational Speed",
         "fr": "Rotational Speed",
         "es": "Rotational Speed",
         "ar": "Rotational Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Shaft speed; used to convert revolutions to hours",
+        "tr": "Mil hızı; devirleri saate dönüştürmek için kullanılır"
       }
     }
   ],

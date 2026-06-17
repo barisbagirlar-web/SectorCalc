@@ -10,11 +10,15 @@
       "businessContext": "Current stock price in market currency",
       "label_i18n": {
         "en": "Market Price per Share",
-        "tr": "Market Price per Share",
+        "tr": "Hisse Başına Piyasa Fiyatı",
         "de": "Market Price per Share",
         "fr": "Market Price per Share",
         "es": "Market Price per Share",
         "ar": "Market Price per Share"
+      },
+      "businessContext_i18n": {
+        "en": "Current stock price in market currency",
+        "tr": "Piyasa para birimi cinsinden güncel hisse senedi fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Trailing twelve months (TTM) diluted EPS",
       "label_i18n": {
         "en": "Earnings per Share (EPS)",
-        "tr": "Earnings per Share (EPS)",
+        "tr": "Hisse Başına Kâr (EPS)",
         "de": "Earnings per Share (EPS)",
         "fr": "Earnings per Share (EPS)",
         "es": "Earnings per Share (EPS)",
         "ar": "Earnings per Share (EPS)"
+      },
+      "businessContext_i18n": {
+        "en": "Trailing twelve months (TTM) diluted EPS",
+        "tr": "Son on iki ay (TTM) seyreltilmiş EPS"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Projected annual EPS growth rate",
       "label_i18n": {
         "en": "Expected Growth Rate",
-        "tr": "Expected Growth Rate",
+        "tr": "Beklenen Büyüme Oranı",
         "de": "Expected Growth Rate",
         "fr": "Expected Growth Rate",
         "es": "Expected Growth Rate",
         "ar": "Expected Growth Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Projected annual EPS growth rate",
+        "tr": "Projeksiyonlu yıllık EPS büyüme oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Dividends paid per share per year",
       "label_i18n": {
         "en": "Annual Dividend per Share",
-        "tr": "Annual Dividend per Share",
+        "tr": "Hisse Başına Yıllık Temettü",
         "de": "Annual Dividend per Share",
         "fr": "Annual Dividend per Share",
         "es": "Annual Dividend per Share",
         "ar": "Annual Dividend per Share"
+      },
+      "businessContext_i18n": {
+        "en": "Dividends paid per share per year",
+        "tr": "Yıllık ödenen temettü (hisse başına)"
       }
     }
   ],

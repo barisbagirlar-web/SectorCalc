@@ -10,11 +10,15 @@
       "businessContext": "Şu anki saat (0-24 arası ondalıklı)",
       "label_i18n": {
         "en": "Current Time (hours from midnight)",
-        "tr": "Current Time (hours from midnight)",
+        "tr": "Geçerli Saat (gece yarısından itibaren saat)",
         "de": "Current Time (hours from midnight)",
         "fr": "Current Time (hours from midnight)",
         "es": "Current Time (hours from midnight)",
         "ar": "Current Time (hours from midnight)"
+      },
+      "businessContext_i18n": {
+        "en": "Şu anki saat (0-24 arası ondalıklı)",
+        "tr": "Şu anki saat (0-24 arası ondalıklı)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Uyanmak istenilen saat (0-24 arası ondalıklı)",
       "label_i18n": {
         "en": "Desired Wake-Up Time (hours from midnight)",
-        "tr": "Desired Wake-Up Time (hours from midnight)",
+        "tr": "İstenen Uyanma Saati (gece yarısından itibaren saat)",
         "de": "Desired Wake-Up Time (hours from midnight)",
         "fr": "Desired Wake-Up Time (hours from midnight)",
         "es": "Desired Wake-Up Time (hours from midnight)",
         "ar": "Desired Wake-Up Time (hours from midnight)"
+      },
+      "businessContext_i18n": {
+        "en": "Uyanmak istenilen saat (0-24 arası ondalıklı)",
+        "tr": "Uyanmak istenilen saat (0-24 arası ondalıklı)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Bir tam uyku döngüsünün ortalama süresi (varsayılan 90 dk)",
       "label_i18n": {
         "en": "Sleep Cycle Length (minutes)",
-        "tr": "Sleep Cycle Length (minutes)",
+        "tr": "Uyku Döngüsü Uzunluğu (dakika)",
         "de": "Sleep Cycle Length (minutes)",
         "fr": "Sleep Cycle Length (minutes)",
         "es": "Sleep Cycle Length (minutes)",
         "ar": "Sleep Cycle Length (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Bir tam uyku döngüsünün ortalama süresi (varsayılan 90 dk)",
+        "tr": "Bir tam uyku döngüsünün ortalama süresi (varsayılan 90 dk)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sersemlik yapmadan dinçlik sağlayan en kısa şekerleme süresi",
       "label_i18n": {
         "en": "Minimum Effective Nap (minutes)",
-        "tr": "Minimum Effective Nap (minutes)",
+        "tr": "Minimum Etkili Şekerleme (dakika)",
         "de": "Minimum Effective Nap (minutes)",
         "fr": "Minimum Effective Nap (minutes)",
         "es": "Minimum Effective Nap (minutes)",
         "ar": "Minimum Effective Nap (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Sersemlik yapmadan dinçlik sağlayan en kısa şekerleme süresi",
+        "tr": "Sersemlik yapmadan dinçlik sağlayan en kısa şekerleme süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Sersemlik riski oluşmayan en uzun kısa şekerleme süresi",
       "label_i18n": {
         "en": "Maximum Short Nap (minutes)",
-        "tr": "Maximum Short Nap (minutes)",
+        "tr": "Maksimum Kısa Şekerleme (dakika)",
         "de": "Maximum Short Nap (minutes)",
         "fr": "Maximum Short Nap (minutes)",
         "es": "Maximum Short Nap (minutes)",
         "ar": "Maximum Short Nap (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Sersemlik riski oluşmayan en uzun kısa şekerleme süresi",
+        "tr": "Sersemlik riski oluşmayan en uzun kısa şekerleme süresi"
       }
     }
   ],

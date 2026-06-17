@@ -10,11 +10,15 @@
       "businessContext": "Weight of the whole turkey before cooking",
       "label_i18n": {
         "en": "Turkey Weight (kg)",
-        "tr": "Turkey Weight (kg)",
+        "tr": "Hindi Ağırlığı (kg)",
         "de": "Turkey Weight (kg)",
         "fr": "Turkey Weight (kg)",
         "es": "Turkey Weight (kg)",
         "ar": "Turkey Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the whole turkey before cooking",
+        "tr": "Pişirmeden önce bütün hindinin ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Oven temperature setting",
       "label_i18n": {
         "en": "Cooking Temperature (°C)",
-        "tr": "Cooking Temperature (°C)",
+        "tr": "Pişirme Sıcaklığı (°C)",
         "de": "Cooking Temperature (°C)",
         "fr": "Cooking Temperature (°C)",
         "es": "Cooking Temperature (°C)",
         "ar": "Cooking Temperature (°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Oven temperature setting",
+        "tr": "Fırın sıcaklık ayarı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight of stuffing inside the turkey",
       "label_i18n": {
         "en": "Stuffing Weight (kg)",
-        "tr": "Stuffing Weight (kg)",
+        "tr": "İç Harç Ağırlığı (kg)",
         "de": "Stuffing Weight (kg)",
         "fr": "Stuffing Weight (kg)",
         "es": "Stuffing Weight (kg)",
         "ar": "Stuffing Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of stuffing inside the turkey",
+        "tr": "Hindinin içindeki iç harcın ağırlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Whether the turkey is fully thawed",
       "label_i18n": {
         "en": "Thawed? (1=yes, 0=no)",
-        "tr": "Thawed? (1=yes, 0=no)",
+        "tr": "Çözülmüş mü? (1=evet, 0=hayır)",
         "de": "Thawed? (1=yes, 0=no)",
         "fr": "Thawed? (1=yes, 0=no)",
         "es": "Thawed? (1=yes, 0=no)",
         "ar": "Thawed? (1=yes, 0=no)"
+      },
+      "businessContext_i18n": {
+        "en": "Whether the turkey is fully thawed",
+        "tr": "Hindinin tamamen çözülüp çözülmediği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Elevation above sea level",
       "label_i18n": {
         "en": "Altitude (m)",
-        "tr": "Altitude (m)",
+        "tr": "Rakım (m)",
         "de": "Altitude (m)",
         "fr": "Altitude (m)",
         "es": "Altitude (m)",
         "ar": "Altitude (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Elevation above sea level",
+        "tr": "Deniz seviyesinden yükseklik"
       }
     }
   ],

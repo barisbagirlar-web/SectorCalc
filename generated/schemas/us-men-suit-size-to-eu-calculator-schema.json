@@ -10,11 +10,15 @@
       "businessContext": "Enter the US men's suit jacket size (chest measurement in inches). Standard sizes: 36, 38, 40, 42, etc.",
       "label_i18n": {
         "en": "US Jacket Size",
-        "tr": "US Jacket Size",
+        "tr": "ABD Ceket Bedeni",
         "de": "US Jacket Size",
         "fr": "US Jacket Size",
         "es": "US Jacket Size",
         "ar": "US Jacket Size"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the US men's suit jacket size (chest measurement in inches). Standard sizes: 36, 38, 40, 42, etc.",
+        "tr": "ABD erkek takım elbise ceket bedenini (göğüs ölçüsü inç cinsinden) girin. Standart bedenler: 36, 38, 40, 42 vb."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Optional: Enter the US pants waist size in inches for conversion.",
       "label_i18n": {
         "en": "US Pants Waist (inches)",
-        "tr": "US Pants Waist (inches)",
+        "tr": "ABD Pantolon Beli (inç)",
         "de": "US Pants Waist (inches)",
         "fr": "US Pants Waist (inches)",
         "es": "US Pants Waist (inches)",
         "ar": "US Pants Waist (inches)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: Enter the US pants waist size in inches for conversion.",
+        "tr": "İsteğe bağlı: Dönüşüm için ABD pantolon bel ölçüsünü inç cinsinden girin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Optional: Enter the US pants inseam length in inches.",
       "label_i18n": {
         "en": "US Pants Inseam (inches)",
-        "tr": "US Pants Inseam (inches)",
+        "tr": "ABD Pantolon İç Dikişi (inç)",
         "de": "US Pants Inseam (inches)",
         "fr": "US Pants Inseam (inches)",
         "es": "US Pants Inseam (inches)",
         "ar": "US Pants Inseam (inches)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: Enter the US pants inseam length in inches.",
+        "tr": "İsteğe bağlı: ABD pantolon iç dikiş uzunluğunu inç cinsinden girin."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The conversion offset from US to EU jacket size (EU = US + offset). Standard is 10. Adjust if needed.",
       "label_i18n": {
         "en": "Jacket Size Offset",
-        "tr": "Jacket Size Offset",
+        "tr": "Ceket Bedeni Farkı",
         "de": "Jacket Size Offset",
         "fr": "Jacket Size Offset",
         "es": "Jacket Size Offset",
         "ar": "Jacket Size Offset"
+      },
+      "businessContext_i18n": {
+        "en": "The conversion offset from US to EU jacket size (EU = US + offset). Standard is 10. Adjust if needed.",
+        "tr": "ABD'den AB ceket bedenine dönüşüm farkı (AB = ABD + fark). Standart 10'dur. Gerekirse ayarlayın."
       }
     }
   ],

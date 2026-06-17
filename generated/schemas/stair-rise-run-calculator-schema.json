@@ -10,11 +10,15 @@
       "businessContext": "The total vertical height between finished floor levels.",
       "label_i18n": {
         "en": "Total Rise (Floor-to-Floor Height)",
-        "tr": "Total Rise (Floor-to-Floor Height)",
+        "tr": "Toplam Yükseklik (Katlar Arası Döşeme Yüksekliği)",
         "de": "Total Rise (Floor-to-Floor Height)",
         "fr": "Total Rise (Floor-to-Floor Height)",
         "es": "Total Rise (Floor-to-Floor Height)",
         "ar": "Total Rise (Floor-to-Floor Height)"
+      },
+      "businessContext_i18n": {
+        "en": "The total vertical height between finished floor levels.",
+        "tr": "Bitmiş döşeme seviyeleri arasındaki toplam dikey yükseklik."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The total horizontal distance available for the staircase.",
       "label_i18n": {
         "en": "Total Run Available",
-        "tr": "Total Run Available",
+        "tr": "Mevcut Toplam Yatay Uzunluk",
         "de": "Total Run Available",
         "fr": "Total Run Available",
         "es": "Total Run Available",
         "ar": "Total Run Available"
+      },
+      "businessContext_i18n": {
+        "en": "The total horizontal distance available for the staircase.",
+        "tr": "Merdiven için mevcut toplam yatay mesafe."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The maximum allowed riser height as per local building regulations.",
       "label_i18n": {
         "en": "Maximum Riser Height (Code)",
-        "tr": "Maximum Riser Height (Code)",
+        "tr": "Maksimum Rıht Yüksekliği (Yönetmelik)",
         "de": "Maximum Riser Height (Code)",
         "fr": "Maximum Riser Height (Code)",
         "es": "Maximum Riser Height (Code)",
         "ar": "Maximum Riser Height (Code)"
+      },
+      "businessContext_i18n": {
+        "en": "The maximum allowed riser height as per local building regulations.",
+        "tr": "Yerel bina yönetmeliklerine göre izin verilen maksimum rıht yüksekliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The minimum required tread depth (going) as per local building regulations.",
       "label_i18n": {
         "en": "Minimum Tread Depth (Code)",
-        "tr": "Minimum Tread Depth (Code)",
+        "tr": "Minimum Basamak Derinliği (Yönetmelik)",
         "de": "Minimum Tread Depth (Code)",
         "fr": "Minimum Tread Depth (Code)",
         "es": "Minimum Tread Depth (Code)",
         "ar": "Minimum Tread Depth (Code)"
+      },
+      "businessContext_i18n": {
+        "en": "The minimum required tread depth (going) as per local building regulations.",
+        "tr": "Yerel bina yönetmeliklerine göre gereken minimum basamak derinliği (genişlik)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The preferred riser height for comfort, typically between 150-190 mm.",
       "label_i18n": {
         "en": "Desired Riser Height",
-        "tr": "Desired Riser Height",
+        "tr": "İstenen Rıht Yüksekliği",
         "de": "Desired Riser Height",
         "fr": "Desired Riser Height",
         "es": "Desired Riser Height",
         "ar": "Desired Riser Height"
+      },
+      "businessContext_i18n": {
+        "en": "The preferred riser height for comfort, typically between 150-190 mm.",
+        "tr": "Konfor için tercih edilen rıht yüksekliği, tipik olarak 150-190 mm arası."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "The distance the tread extends beyond the riser face. Used for precise tread dimensioning.",
       "label_i18n": {
         "en": "Nosing Overhang",
-        "tr": "Nosing Overhang",
+        "tr": "Basamak Taşması",
         "de": "Nosing Overhang",
         "fr": "Nosing Overhang",
         "es": "Nosing Overhang",
         "ar": "Nosing Overhang"
+      },
+      "businessContext_i18n": {
+        "en": "The distance the tread extends beyond the riser face. Used for precise tread dimensioning.",
+        "tr": "Basamağın rıht yüzeyinin ötesine uzandığı mesafe. Hassas basamak boyutlandırması için kullanılır."
       }
     }
   ],

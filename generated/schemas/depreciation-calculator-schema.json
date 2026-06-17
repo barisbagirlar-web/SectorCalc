@@ -10,11 +10,15 @@
       "businessContext": "The initial purchase price of the asset.",
       "label_i18n": {
         "en": "Initial Cost",
-        "tr": "Initial Cost",
+        "tr": "Başlangıç Maliyeti",
         "de": "Initial Cost",
         "fr": "Initial Cost",
         "es": "Initial Cost",
         "ar": "Initial Cost"
+      },
+      "businessContext_i18n": {
+        "en": "The initial purchase price of the asset.",
+        "tr": "Varlığın ilk satın alma fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The estimated residual value at the end of useful life.",
       "label_i18n": {
         "en": "Salvage Value",
-        "tr": "Salvage Value",
+        "tr": "Hurda Değeri",
         "de": "Salvage Value",
         "fr": "Salvage Value",
         "es": "Salvage Value",
         "ar": "Salvage Value"
+      },
+      "businessContext_i18n": {
+        "en": "The estimated residual value at the end of useful life.",
+        "tr": "Faydalı ömür sonunda tahmini hurda değeri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The expected useful life of the asset in years.",
       "label_i18n": {
         "en": "Useful Life (Years)",
-        "tr": "Useful Life (Years)",
+        "tr": "Faydalı Ömür (Yıl)",
         "de": "Useful Life (Years)",
         "fr": "Useful Life (Years)",
         "es": "Useful Life (Years)",
         "ar": "Useful Life (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "The expected useful life of the asset in years.",
+        "tr": "Varlığın beklenen faydalı ömrü (yıl)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of years the asset has been in use.",
       "label_i18n": {
         "en": "Years Elapsed",
-        "tr": "Years Elapsed",
+        "tr": "Geçen Yıllar",
         "de": "Years Elapsed",
         "fr": "Years Elapsed",
         "es": "Years Elapsed",
         "ar": "Years Elapsed"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the asset has been in use.",
+        "tr": "Varlığın kullanımda olduğu yıl sayısı."
       }
     }
   ],

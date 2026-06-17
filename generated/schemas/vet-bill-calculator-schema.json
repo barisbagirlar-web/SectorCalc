@@ -10,11 +10,15 @@
       "businessContext": "Standard veterinary consultation charge",
       "label_i18n": {
         "en": "Consultation Fee",
-        "tr": "Consultation Fee",
+        "tr": "Danışmanlık Ücreti",
         "de": "Consultation Fee",
         "fr": "Consultation Fee",
         "es": "Consultation Fee",
         "ar": "Consultation Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Standard veterinary consultation charge",
+        "tr": "Standart veteriner muayene ücreti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost of prescribed medications",
       "label_i18n": {
         "en": "Medication Cost",
-        "tr": "Medication Cost",
+        "tr": "İlaç Maliyeti",
         "de": "Medication Cost",
         "fr": "Medication Cost",
         "es": "Medication Cost",
         "ar": "Medication Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of prescribed medications",
+        "tr": "Reçeteli ilaçların maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of any surgical or medical procedure",
       "label_i18n": {
         "en": "Procedure Cost",
-        "tr": "Procedure Cost",
+        "tr": "Prosedür Maliyeti",
         "de": "Procedure Cost",
         "fr": "Procedure Cost",
         "es": "Procedure Cost",
         "ar": "Procedure Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of any surgical or medical procedure",
+        "tr": "Herhangi bir cerrahi veya tıbbi prosedürün maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of laboratory tests and diagnostics",
       "label_i18n": {
         "en": "Lab Tests Cost",
-        "tr": "Lab Tests Cost",
+        "tr": "Laboratuvar Test Maliyeti",
         "de": "Lab Tests Cost",
         "fr": "Lab Tests Cost",
         "es": "Lab Tests Cost",
         "ar": "Lab Tests Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of laboratory tests and diagnostics",
+        "tr": "Laboratuvar testleri ve teşhis maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Applied discount percentage",
       "label_i18n": {
         "en": "Discount (%)",
-        "tr": "Discount (%)",
+        "tr": "İndirim (%)",
         "de": "Discount (%)",
         "fr": "Discount (%)",
         "es": "Discount (%)",
         "ar": "Discount (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Applied discount percentage",
+        "tr": "Uygulanan indirim yüzdesi"
       }
     }
   ],

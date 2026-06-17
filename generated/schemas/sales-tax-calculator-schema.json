@@ -17,10 +17,12 @@
       "max": 100000000,
       "businessContext": "Total revenue from taxable sales before any tax or discounts.",
       "label_i18n": {
-        "en": "Net Sales Amount"
+        "en": "Net Sales Amount",
+        "tr": "Net Satış Tutarı"
       },
       "businessContext_i18n": {
-        "en": "Total revenue from taxable sales before any tax or discounts."
+        "en": "Total revenue from taxable sales before any tax or discounts.",
+        "tr": "Herhangi bir vergi veya indirim öncesi vergiye tabi satışlardan elde edilen toplam gelir."
       }
     },
     {
@@ -33,10 +35,12 @@
       "max": 50,
       "businessContext": "Combined state and local sales tax rate as a percentage.",
       "label_i18n": {
-        "en": "Sales Tax Rate"
+        "en": "Sales Tax Rate",
+        "tr": "Satış Vergisi Oranı"
       },
       "businessContext_i18n": {
-        "en": "Combined state and local sales tax rate as a percentage."
+        "en": "Combined state and local sales tax rate as a percentage.",
+        "tr": "Yüzde olarak birleşik eyalet ve yerel satış vergisi oranı."
       }
     },
     {
@@ -49,10 +53,12 @@
       "max": 100,
       "businessContext": "Percentage of net sales that are tax-exempt (e.g., resale, non-profit).",
       "label_i18n": {
-        "en": "Exempt Sales Ratio"
+        "en": "Exempt Sales Ratio",
+        "tr": "Muaf Satış Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of net sales that are tax-exempt (e.g., resale, non-profit)."
+        "en": "Percentage of net sales that are tax-exempt (e.g., resale, non-profit).",
+        "tr": "Vergiden muaf olan net satışların yüzdesi (örneğin, yeniden satış, kar amacı gütmeyen)."
       }
     },
     {
@@ -70,10 +76,12 @@
         "state_county_city"
       ],
       "label_i18n": {
-        "en": "Tax Jurisdiction"
+        "en": "Tax Jurisdiction",
+        "tr": "Vergi Yargı Yetkisi"
       },
       "businessContext_i18n": {
-        "en": "Level of tax authority: state only, state+county, or state+county+city."
+        "en": "Level of tax authority: state only, state+county, or state+county+city.",
+        "tr": "Vergi otoritesi seviyesi: yalnızca eyalet, eyalet+ilçe veya eyalet+ilçe+şehir."
       }
     },
     {
@@ -90,10 +98,12 @@
         "destination"
       ],
       "label_i18n": {
-        "en": "Sourcing Method"
+        "en": "Sourcing Method",
+        "tr": "Kaynak Belirleme Yöntemi"
       },
       "businessContext_i18n": {
-        "en": "Origin-based (seller's location) or destination-based (buyer's location) tax sourcing."
+        "en": "Origin-based (seller's location) or destination-based (buyer's location) tax sourcing.",
+        "tr": "Menşe bazlı (satıcının konumu) veya varış bazlı (alıcının konumu) vergi kaynağı belirleme."
       }
     },
     {
@@ -106,10 +116,12 @@
       "max": null,
       "businessContext": "Whether shipping and handling charges are subject to sales tax.",
       "label_i18n": {
-        "en": "Include Shipping in Taxable Base"
+        "en": "Include Shipping in Taxable Base",
+        "tr": "Vergi Matrahına Nakliyeyi Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "Whether shipping and handling charges are subject to sales tax."
+        "en": "Whether shipping and handling charges are subject to sales tax.",
+        "tr": "Nakliye ve elleçleme ücretlerinin satış vergisine tabi olup olmadığı."
       }
     },
     {
@@ -122,10 +134,12 @@
       "max": 100000,
       "businessContext": "Total shipping and handling fees charged to customers.",
       "label_i18n": {
-        "en": "Shipping & Handling Charge"
+        "en": "Shipping & Handling Charge",
+        "tr": "Nakliye ve Elleçleme Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Total shipping and handling fees charged to customers."
+        "en": "Total shipping and handling fees charged to customers.",
+        "tr": "Müşterilere yansıtılan toplam nakliye ve elleçleme ücretleri."
       }
     }
   ],

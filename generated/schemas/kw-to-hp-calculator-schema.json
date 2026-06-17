@@ -15,6 +15,10 @@
         "fr": "Power (kW)",
         "es": "Power (kW)",
         "ar": "Power (kW)"
+      },
+      "businessContext_i18n": {
+        "en": "Electrical input power measured in kilowatts",
+        "tr": "Electrical input power measured in kilowatts"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Motor efficiency as percentage (0-100)",
       "label_i18n": {
         "en": "Motor Efficiency (%)",
-        "tr": "Motor Efficiency (%)",
+        "tr": "Motor Verimliliği (%)",
         "de": "Motor Efficiency (%)",
         "fr": "Motor Efficiency (%)",
         "es": "Motor Efficiency (%)",
         "ar": "Motor Efficiency (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Motor efficiency as percentage (0-100)",
+        "tr": "Motor efficiency as percentage (0-100)"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Load Factor (%)",
         "es": "Load Factor (%)",
         "ar": "Load Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Load factor as percentage of full capacity (0-100)",
+        "tr": "Tam kapasiteye göre yük faktörü yüzdesi (0-100)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Conversion factor from kW to horsepower (default: mechanical hp)",
       "label_i18n": {
         "en": "Conversion Factor (hp/kW)",
-        "tr": "Conversion Factor (hp/kW)",
+        "tr": "Dönüşüm Faktörü (hp/kW)",
         "de": "Conversion Factor (hp/kW)",
         "fr": "Conversion Factor (hp/kW)",
         "es": "Conversion Factor (hp/kW)",
         "ar": "Conversion Factor (hp/kW)"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from kW to horsepower (default: mechanical hp)",
+        "tr": "kW'tan beygir gücüne dönüşüm faktörü (varsayılan: mekanik hp)"
       }
     }
   ],

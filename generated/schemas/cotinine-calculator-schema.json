@@ -10,11 +10,15 @@
       "businessContext": "Measured concentration of cotinine in plasma.",
       "label_i18n": {
         "en": "Plasma Cotinine",
-        "tr": "Plasma Cotinine",
+        "tr": "Plazma Kotinin",
         "de": "Plasma Cotinine",
         "fr": "Plasma Cotinine",
         "es": "Plasma Cotinine",
         "ar": "Plasma Cotinine"
+      },
+      "businessContext_i18n": {
+        "en": "Measured concentration of cotinine in plasma.",
+        "tr": "Plazmada ölçülen kotinin konsantrasyonu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Slope of the cotinine vs cigarettes per day linear model.",
       "label_i18n": {
         "en": "Calibration Slope",
-        "tr": "Calibration Slope",
+        "tr": "Kalibrasyon Eğimi",
         "de": "Calibration Slope",
         "fr": "Calibration Slope",
         "es": "Calibration Slope",
         "ar": "Calibration Slope"
+      },
+      "businessContext_i18n": {
+        "en": "Slope of the cotinine vs cigarettes per day linear model.",
+        "tr": "Kotinin vs günlük sigara sayısı doğrusal modelinin eğimi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Intercept of the linear model.",
       "label_i18n": {
         "en": "Calibration Intercept",
-        "tr": "Calibration Intercept",
+        "tr": "Kalibrasyon Kesişimi",
         "de": "Calibration Intercept",
         "fr": "Calibration Intercept",
         "es": "Calibration Intercept",
         "ar": "Calibration Intercept"
+      },
+      "businessContext_i18n": {
+        "en": "Intercept of the linear model.",
+        "tr": "Doğrusal modelin kesişimi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Subject's body weight for dose normalization.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Subject's body weight for dose normalization.",
+        "tr": "Doz normalizasyonu için deneğin vücut ağırlığı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average nicotine delivered per cigarette.",
       "label_i18n": {
         "en": "Nicotine per Cigarette",
-        "tr": "Nicotine per Cigarette",
+        "tr": "Sigara Başına Nikotin",
         "de": "Nicotine per Cigarette",
         "fr": "Nicotine per Cigarette",
         "es": "Nicotine per Cigarette",
         "ar": "Nicotine per Cigarette"
+      },
+      "businessContext_i18n": {
+        "en": "Average nicotine delivered per cigarette.",
+        "tr": "Sigara başına ortalama nikotin miktarı."
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 2,
       "businessContext": "Nominal pipe diameter per ISO 6708. Affects cross-sectional area and velocity.",
       "label_i18n": {
-        "en": "Pipe Inner Diameter"
+        "en": "Pipe Inner Diameter",
+        "tr": "Boru İç Çapı"
       },
       "businessContext_i18n": {
-        "en": "Nominal pipe diameter per ISO 6708. Affects cross-sectional area and velocity."
+        "en": "Nominal pipe diameter per ISO 6708. Affects cross-sectional area and velocity.",
+        "tr": "ISO 6708'e göre nominal boru çapı. Kesit alanını ve hızı etkiler."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000,
       "businessContext": "Total straight pipe length. Used for friction loss calculation.",
       "label_i18n": {
-        "en": "Pipe Length"
+        "en": "Pipe Length",
+        "tr": "Boru Uzunluğu"
       },
       "businessContext_i18n": {
-        "en": "Total straight pipe length. Used for friction loss calculation."
+        "en": "Total straight pipe length. Used for friction loss calculation.",
+        "tr": "Toplam düz boru uzunluğu. Sürtünme kaybı hesaplamasında kullanılır."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10,
       "businessContext": "Design flow rate. Must be within pump capacity and pipe rating.",
       "label_i18n": {
-        "en": "Volumetric Flow Rate"
+        "en": "Volumetric Flow Rate",
+        "tr": "Hacimsel Akış Hızı"
       },
       "businessContext_i18n": {
-        "en": "Design flow rate. Must be within pump capacity and pipe rating."
+        "en": "Design flow rate. Must be within pump capacity and pipe rating.",
+        "tr": "Tasarım debisi. Pompa kapasitesi ve boru değeri dahilinde olmalıdır."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 2000,
       "businessContext": "Density at operating temperature. Water = 1000, oil ≈ 850.",
       "label_i18n": {
-        "en": "Fluid Density"
+        "en": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu"
       },
       "businessContext_i18n": {
-        "en": "Density at operating temperature. Water = 1000, oil ≈ 850."
+        "en": "Density at operating temperature. Water = 1000, oil ≈ 850.",
+        "tr": "İşletme sıcaklığındaki yoğunluk. Su = 1000, yağ ≈ 850."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 10,
       "businessContext": "Dynamic viscosity at operating temperature. Water = 0.001, heavy oil up to 1.",
       "label_i18n": {
-        "en": "Dynamic Viscosity"
+        "en": "Dynamic Viscosity",
+        "tr": "Dinamik viskozite"
       },
       "businessContext_i18n": {
-        "en": "Dynamic viscosity at operating temperature. Water = 0.001, heavy oil up to 1."
+        "en": "Dynamic viscosity at operating temperature. Water = 0.001, heavy oil up to 1.",
+        "tr": "İşletme sıcaklığındaki dinamik viskozite. Su = 0.001, ağır yağ 1'e kadar."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 0.01,
       "businessContext": "Absolute roughness height. Steel = 0.000045, concrete = 0.001. Per ISO 9906.",
       "label_i18n": {
-        "en": "Pipe Roughness"
+        "en": "Pipe Roughness",
+        "tr": "Boru Pürüzlülüğü"
       },
       "businessContext_i18n": {
-        "en": "Absolute roughness height. Steel = 0.000045, concrete = 0.001. Per ISO 9906."
+        "en": "Absolute roughness height. Steel = 0.000045, concrete = 0.001. Per ISO 9906.",
+        "tr": "Mutlak pürüzlülük yüksekliği. Çelik = 0.000045, beton = 0.001. ISO 9906'ya göre."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100,
       "businessContext": "Positive if outlet is higher than inlet. Affects gravitational head.",
       "label_i18n": {
-        "en": "Elevation Change"
+        "en": "Elevation Change",
+        "tr": "Kot Farkı"
       },
       "businessContext_i18n": {
-        "en": "Positive if outlet is higher than inlet. Affects gravitational head."
+        "en": "Positive if outlet is higher than inlet. Affects gravitational head.",
+        "tr": "Çıkış girişten yüksekse pozitif. Yerçekimi yükünü etkiler."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 100,
       "businessContext": "Sum of K factors for fittings, valves, bends. Per Crane Technical Paper No. 410.",
       "label_i18n": {
-        "en": "Minor Loss Coefficient (K)"
+        "en": "Minor Loss Coefficient (K)",
+        "tr": "Yerel Kayıp Katsayısı (K)"
       },
       "businessContext_i18n": {
-        "en": "Sum of K factors for fittings, valves, bends. Per Crane Technical Paper No. 410."
+        "en": "Sum of K factors for fittings, valves, bends. Per Crane Technical Paper No. 410.",
+        "tr": "Bağlantı parçaları, vanalar, dirsekler için K faktörlerinin toplamı. Crane Teknik Rapor No. 410'a göre."
       }
     }
   ],

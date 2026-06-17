@@ -10,11 +10,15 @@
       "businessContext": "Weight of the person in kilograms.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the person in kilograms.",
+        "tr": "Kişinin kilogram cinsinden ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of walking activity in minutes.",
       "label_i18n": {
         "en": "Walking Duration",
-        "tr": "Walking Duration",
+        "tr": "Yürüme Süresi",
         "de": "Walking Duration",
         "fr": "Walking Duration",
         "es": "Walking Duration",
         "ar": "Walking Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of walking activity in minutes.",
+        "tr": "Yürüme aktivitesinin dakika cinsinden süresi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average walking speed in kilometers per hour.",
       "label_i18n": {
         "en": "Walking Speed",
-        "tr": "Walking Speed",
+        "tr": "Yürüme Hızı",
         "de": "Walking Speed",
         "fr": "Walking Speed",
         "es": "Walking Speed",
         "ar": "Walking Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Average walking speed in kilometers per hour.",
+        "tr": "Kilometre/saat cinsinden ortalama yürüme hızı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Incline grade of the walking surface as a percentage (0% for flat).",
       "label_i18n": {
         "en": "Incline Grade",
-        "tr": "Incline Grade",
+        "tr": "Eğim Derecesi",
         "de": "Incline Grade",
         "fr": "Incline Grade",
         "es": "Incline Grade",
         "ar": "Incline Grade"
+      },
+      "businessContext_i18n": {
+        "en": "Incline grade of the walking surface as a percentage (0% for flat).",
+        "tr": "Yürüme yüzeyinin yüzde cinsinden eğim derecesi (%0 düz)."
       }
     }
   ],

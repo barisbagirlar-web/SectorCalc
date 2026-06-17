@@ -21,10 +21,12 @@
       "max": 20000,
       "businessContext": "Theoretical maximum yield based on seed genetics and local potential.",
       "label_i18n": {
-        "en": "Expected Yield (kg/ha)"
+        "en": "Expected Yield (kg/ha)",
+        "tr": "Beklenen Verim (kg/ha)"
       },
       "businessContext_i18n": {
-        "en": "Theoretical maximum yield based on seed genetics and local potential."
+        "en": "Theoretical maximum yield based on seed genetics and local potential.",
+        "tr": "Tohum genetiği ve yerel potansiyele dayalı teorik maksimum verim."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 20000,
       "businessContext": "Measured yield at harvest, used as baseline for loss calculation.",
       "label_i18n": {
-        "en": "Actual Yield (kg/ha)"
+        "en": "Actual Yield (kg/ha)",
+        "tr": "Gerçek Verim (kg/ha)"
       },
       "businessContext_i18n": {
-        "en": "Measured yield at harvest, used as baseline for loss calculation."
+        "en": "Measured yield at harvest, used as baseline for loss calculation.",
+        "tr": "Hasatta ölçülen verim, kayıp hesaplaması için temel olarak kullanılır."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 30,
       "businessContext": "Percentage of crop lost during harvesting operations (shattering, header loss, etc.).",
       "label_i18n": {
-        "en": "Harvest Loss (%)"
+        "en": "Harvest Loss (%)",
+        "tr": "Hasat Kaybı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of crop lost during harvesting operations (shattering, header loss, etc.)."
+        "en": "Percentage of crop lost during harvesting operations (shattering, header loss, etc.).",
+        "tr": "Hasat işlemleri sırasında kaybedilen ürün yüzdesi (dökülme, başlık kaybı vb.)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 20,
       "businessContext": "Losses during handling, storage, and transport after harvest.",
       "label_i18n": {
-        "en": "Post-Harvest Loss (%)"
+        "en": "Post-Harvest Loss (%)",
+        "tr": "Hasat Sonrası Kayıp (%)"
       },
       "businessContext_i18n": {
-        "en": "Losses during handling, storage, and transport after harvest."
+        "en": "Losses during handling, storage, and transport after harvest.",
+        "tr": "Hasat sonrası elleçleme, depolama ve nakliye sırasındaki kayıplar."
       }
     },
     {
@@ -91,10 +99,12 @@
       ],
       "businessContext": "Overall field condition affecting crop uniformity and loss potential.",
       "label_i18n": {
-        "en": "Field Condition"
+        "en": "Field Condition",
+        "tr": "Tarla Durumu"
       },
       "businessContext_i18n": {
-        "en": "Overall field condition affecting crop uniformity and loss potential."
+        "en": "Overall field condition affecting crop uniformity and loss potential.",
+        "tr": "Ürün tekdüzeliğini ve kayıp potansiyelini etkileyen genel tarla durumu."
       }
     },
     {
@@ -113,10 +123,12 @@
       ],
       "businessContext": "Irrigation method influences water stress and yield consistency.",
       "label_i18n": {
-        "en": "Irrigation Type"
+        "en": "Irrigation Type",
+        "tr": "Sulama Türü"
       },
       "businessContext_i18n": {
-        "en": "Irrigation method influences water stress and yield consistency."
+        "en": "Irrigation method influences water stress and yield consistency.",
+        "tr": "Sulama yöntemi su stresini ve verim tutarlılığını etkiler."
       }
     },
     {
@@ -129,10 +141,12 @@
       "max": 10,
       "businessContext": "Subjective rating of pest infestation level (0 = none, 10 = severe).",
       "label_i18n": {
-        "en": "Pest Pressure (0-10)"
+        "en": "Pest Pressure (0-10)",
+        "tr": "Zararlı Baskısı (0-10)"
       },
       "businessContext_i18n": {
-        "en": "Subjective rating of pest infestation level (0 = none, 10 = severe)."
+        "en": "Subjective rating of pest infestation level (0 = none, 10 = severe).",
+        "tr": "Zararlı istilası seviyesinin subjektif derecelendirmesi (0 = yok, 10 = şiddetli)."
       }
     },
     {
@@ -145,10 +159,12 @@
       "max": 10,
       "businessContext": "Subjective rating of disease severity (0 = none, 10 = total loss).",
       "label_i18n": {
-        "en": "Disease Index (0-10)"
+        "en": "Disease Index (0-10)",
+        "tr": "Hastalık İndeksi (0-10)"
       },
       "businessContext_i18n": {
-        "en": "Subjective rating of disease severity (0 = none, 10 = total loss)."
+        "en": "Subjective rating of disease severity (0 = none, 10 = total loss).",
+        "tr": "Hastalık şiddetinin subjektif derecelendirmesi (0 = yok, 10 = tam kayıp)."
       }
     }
   ],

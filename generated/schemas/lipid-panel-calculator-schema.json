@@ -10,11 +10,15 @@
       "businessContext": "Total cholesterol level measured in mg/dL.",
       "label_i18n": {
         "en": "Total Cholesterol",
-        "tr": "Total Cholesterol",
+        "tr": "Toplam Kolesterol",
         "de": "Total Cholesterol",
         "fr": "Total Cholesterol",
         "es": "Total Cholesterol",
         "ar": "Total Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "Total cholesterol level measured in mg/dL.",
+        "tr": "mg/dL cinsinden ölçülen toplam kolesterol seviyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "High-density lipoprotein cholesterol.",
       "label_i18n": {
         "en": "HDL Cholesterol",
-        "tr": "HDL Cholesterol",
+        "tr": "HDL Kolesterol",
         "de": "HDL Cholesterol",
         "fr": "HDL Cholesterol",
         "es": "HDL Cholesterol",
         "ar": "HDL Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "High-density lipoprotein cholesterol.",
+        "tr": "Yüksek yoğunluklu lipoprotein kolesterol."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Triglyceride level; Friedewald formula valid if <400 mg/dL.",
       "label_i18n": {
         "en": "Triglycerides",
-        "tr": "Triglycerides",
+        "tr": "Trigliserit",
         "de": "Triglycerides",
         "fr": "Triglycerides",
         "es": "Triglycerides",
         "ar": "Triglycerides"
+      },
+      "businessContext_i18n": {
+        "en": "Triglyceride level; Friedewald formula valid if <400 mg/dL.",
+        "tr": "Trigliserit seviyesi; Friedewald formülü <400 mg/dL ise geçerlidir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Patient age in years (used for reference, not in calculation).",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age in years (used for reference, not in calculation).",
+        "tr": "Yıl cinsinden hasta yaşı (hesaplamada değil, referans için kullanılır)."
       }
     }
   ],

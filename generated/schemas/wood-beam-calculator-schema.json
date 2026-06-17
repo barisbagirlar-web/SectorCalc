@@ -10,11 +10,15 @@
       "businessContext": "Clear span of the beam between supports",
       "label_i18n": {
         "en": "Span Length",
-        "tr": "Span Length",
+        "tr": "Açıklık Uzunluğu",
         "de": "Span Length",
         "fr": "Span Length",
         "es": "Span Length",
         "ar": "Span Length"
+      },
+      "businessContext_i18n": {
+        "en": "Clear span of the beam between supports",
+        "tr": "Destekler arasındaki kirişin açıklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total uniformly distributed load (dead + live)",
       "label_i18n": {
         "en": "Uniform Load",
-        "tr": "Uniform Load",
+        "tr": "Düzgün yayılı yük",
         "de": "Uniform Load",
         "fr": "Uniform Load",
         "es": "Uniform Load",
         "ar": "Uniform Load"
+      },
+      "businessContext_i18n": {
+        "en": "Total uniformly distributed load (dead + live)",
+        "tr": "Toplam düzgün yayılı yük (ölü + hareketli)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cross-sectional width of the beam",
       "label_i18n": {
         "en": "Beam Width",
-        "tr": "Beam Width",
+        "tr": "Kiriş Genişliği",
         "de": "Beam Width",
         "fr": "Beam Width",
         "es": "Beam Width",
         "ar": "Beam Width"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional width of the beam",
+        "tr": "Kirişin enine kesit genişliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cross-sectional depth of the beam",
       "label_i18n": {
         "en": "Beam Depth",
-        "tr": "Beam Depth",
+        "tr": "Kiriş yüksekliği",
         "de": "Beam Depth",
         "fr": "Beam Depth",
         "es": "Beam Depth",
         "ar": "Beam Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional depth of the beam",
+        "tr": "Kirişin enine kesit derinliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Modulus of elasticity of the wood species",
       "label_i18n": {
         "en": "Modulus of Elasticity (E)",
-        "tr": "Modulus of Elasticity (E)",
+        "tr": "Elastisite Modülü (E)",
         "de": "Modulus of Elasticity (E)",
         "fr": "Modulus of Elasticity (E)",
         "es": "Modulus of Elasticity (E)",
         "ar": "Modulus of Elasticity (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Modulus of elasticity of the wood species",
+        "tr": "Ahşap türünün elastisite modülü"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Allowable bending stress for the wood beam",
       "label_i18n": {
         "en": "Allowable Bending Stress (Fb)",
-        "tr": "Allowable Bending Stress (Fb)",
+        "tr": "İzin Verilen Eğilme Gerilmesi (Fb)",
         "de": "Allowable Bending Stress (Fb)",
         "fr": "Allowable Bending Stress (Fb)",
         "es": "Allowable Bending Stress (Fb)",
         "ar": "Allowable Bending Stress (Fb)"
+      },
+      "businessContext_i18n": {
+        "en": "Allowable bending stress for the wood beam",
+        "tr": "Ahşap kiriş için izin verilen eğilme gerilmesi"
       }
     }
   ],

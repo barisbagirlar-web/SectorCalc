@@ -10,11 +10,15 @@
       "businessContext": "Lens aperture setting.",
       "label_i18n": {
         "en": "Aperture (f-stop)",
-        "tr": "Aperture (f-stop)",
+        "tr": "Diyafram (f-stop)",
         "de": "Aperture (f-stop)",
         "fr": "Aperture (f-stop)",
         "es": "Aperture (f-stop)",
         "ar": "Aperture (f-stop)"
+      },
+      "businessContext_i18n": {
+        "en": "Lens aperture setting.",
+        "tr": "Lens diyafram ayarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Exposure time in seconds.",
       "label_i18n": {
         "en": "Shutter Speed",
-        "tr": "Shutter Speed",
+        "tr": "Enstantane Hızı",
         "de": "Shutter Speed",
         "fr": "Shutter Speed",
         "es": "Shutter Speed",
         "ar": "Shutter Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Exposure time in seconds.",
+        "tr": "Saniye cinsinden pozlama süresi."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "ISO",
         "es": "ISO",
         "ar": "ISO"
+      },
+      "businessContext_i18n": {
+        "en": "Sensor sensitivity rating.",
+        "tr": "Sensör hassasiyet derecesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Exposure value from light meter.",
       "label_i18n": {
         "en": "Measured EV",
-        "tr": "Measured EV",
+        "tr": "Ölçülen EV",
         "de": "Measured EV",
         "fr": "Measured EV",
         "es": "Measured EV",
         "ar": "Measured EV"
+      },
+      "businessContext_i18n": {
+        "en": "Exposure value from light meter.",
+        "tr": "Işık ölçerden pozlama değeri."
       }
     }
   ],

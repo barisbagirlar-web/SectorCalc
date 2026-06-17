@@ -10,11 +10,15 @@
       "businessContext": "The payment amount at the end of the first period.",
       "label_i18n": {
         "en": "Initial Payment (P)",
-        "tr": "Initial Payment (P)",
+        "tr": "İlk Ödeme (P)",
         "de": "Initial Payment (P)",
         "fr": "Initial Payment (P)",
         "es": "Initial Payment (P)",
         "ar": "Initial Payment (P)"
+      },
+      "businessContext_i18n": {
+        "en": "The payment amount at the end of the first period.",
+        "tr": "İlk dönem sonundaki ödeme tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The rate at which the payment grows each period. Enter as decimal (e.g., 0.03 for 3%).",
       "label_i18n": {
         "en": "Growth Rate (g)",
-        "tr": "Growth Rate (g)",
+        "tr": "Büyüme Oranı (g)",
         "de": "Growth Rate (g)",
         "fr": "Growth Rate (g)",
         "es": "Growth Rate (g)",
         "ar": "Growth Rate (g)"
+      },
+      "businessContext_i18n": {
+        "en": "The rate at which the payment grows each period. Enter as decimal (e.g., 0.03 for 3%).",
+        "tr": "Ödemenin her dönem büyüdüğü oran. Ondalık olarak girin (örneğin, %3 için 0,03)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The interest rate per period used for discounting. Enter as decimal.",
       "label_i18n": {
         "en": "Discount Rate (r)",
-        "tr": "Discount Rate (r)",
+        "tr": "İskonto Oranı (r)",
         "de": "Discount Rate (r)",
         "fr": "Discount Rate (r)",
         "es": "Discount Rate (r)",
         "ar": "Discount Rate (r)"
+      },
+      "businessContext_i18n": {
+        "en": "The interest rate per period used for discounting. Enter as decimal.",
+        "tr": "İskonto için kullanılan dönem başına faiz oranı. Ondalık olarak girin."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of payment periods.",
       "label_i18n": {
         "en": "Number of Periods (n)",
-        "tr": "Number of Periods (n)",
+        "tr": "Dönem Sayısı (n)",
         "de": "Number of Periods (n)",
         "fr": "Number of Periods (n)",
         "es": "Number of Periods (n)",
         "ar": "Number of Periods (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of payment periods.",
+        "tr": "Toplam ödeme dönemi sayısı."
       }
     }
   ],

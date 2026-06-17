@@ -10,11 +10,15 @@
       "businessContext": "Cost of raw materials per unit of insulin produced",
       "label_i18n": {
         "en": "Raw Material Cost",
-        "tr": "Raw Material Cost",
+        "tr": "Hammadde Maliyeti",
         "de": "Raw Material Cost",
         "fr": "Raw Material Cost",
         "es": "Raw Material Cost",
         "ar": "Raw Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw materials per unit of insulin produced",
+        "tr": "Üretilen birim insülin başına hammadde maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Labor cost per unit of insulin produced",
       "label_i18n": {
         "en": "Labor Cost",
-        "tr": "Labor Cost",
+        "tr": "İşçilik Maliyeti",
         "de": "Labor Cost",
         "fr": "Labor Cost",
         "es": "Labor Cost",
         "ar": "Labor Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Labor cost per unit of insulin produced",
+        "tr": "Üretilen birim insülin başına işçilik maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Energy cost per unit of insulin produced",
       "label_i18n": {
         "en": "Energy Cost",
-        "tr": "Energy Cost",
+        "tr": "Enerji Maliyeti",
         "de": "Energy Cost",
         "fr": "Energy Cost",
         "es": "Energy Cost",
         "ar": "Energy Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Energy cost per unit of insulin produced",
+        "tr": "Üretilen birim insülin başına enerji maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Overhead cost per unit of insulin produced",
       "label_i18n": {
         "en": "Overhead Cost",
-        "tr": "Overhead Cost",
+        "tr": "Genel Gider Maliyeti",
         "de": "Overhead Cost",
         "fr": "Overhead Cost",
         "es": "Overhead Cost",
         "ar": "Overhead Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Overhead cost per unit of insulin produced",
+        "tr": "Üretilen birim insülin başına genel gider maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Elasticity of total cost with respect to raw material cost (decimal)",
       "label_i18n": {
         "en": "Sensitivity to Raw Material",
-        "tr": "Sensitivity to Raw Material",
+        "tr": "Hammaddeye Duyarlılık",
         "de": "Sensitivity to Raw Material",
         "fr": "Sensitivity to Raw Material",
         "es": "Sensitivity to Raw Material",
         "ar": "Sensitivity to Raw Material"
+      },
+      "businessContext_i18n": {
+        "en": "Elasticity of total cost with respect to raw material cost (decimal)",
+        "tr": "Toplam maliyetin hammadde maliyetine göre esnekliği (ondalık)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Elasticity of total cost with respect to labor cost (decimal)",
       "label_i18n": {
         "en": "Sensitivity to Labor",
-        "tr": "Sensitivity to Labor",
+        "tr": "İşçiliğe Duyarlılık",
         "de": "Sensitivity to Labor",
         "fr": "Sensitivity to Labor",
         "es": "Sensitivity to Labor",
         "ar": "Sensitivity to Labor"
+      },
+      "businessContext_i18n": {
+        "en": "Elasticity of total cost with respect to labor cost (decimal)",
+        "tr": "Toplam maliyetin işçilik maliyetine göre esnekliği (ondalık)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Elasticity of total cost with respect to energy cost (decimal)",
       "label_i18n": {
         "en": "Sensitivity to Energy",
-        "tr": "Sensitivity to Energy",
+        "tr": "Enerjiye Duyarlılık",
         "de": "Sensitivity to Energy",
         "fr": "Sensitivity to Energy",
         "es": "Sensitivity to Energy",
         "ar": "Sensitivity to Energy"
+      },
+      "businessContext_i18n": {
+        "en": "Elasticity of total cost with respect to energy cost (decimal)",
+        "tr": "Toplam maliyetin enerji maliyetine göre esnekliği (ondalık)"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Elasticity of total cost with respect to overhead cost (decimal)",
       "label_i18n": {
         "en": "Sensitivity to Overhead",
-        "tr": "Sensitivity to Overhead",
+        "tr": "Genel giderlere duyarlılık",
         "de": "Sensitivity to Overhead",
         "fr": "Sensitivity to Overhead",
         "es": "Sensitivity to Overhead",
         "ar": "Sensitivity to Overhead"
+      },
+      "businessContext_i18n": {
+        "en": "Elasticity of total cost with respect to overhead cost (decimal)",
+        "tr": "Toplam maliyetin genel gider maliyetine göre esnekliği (ondalık)"
       }
     }
   ],

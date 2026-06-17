@@ -10,11 +10,15 @@
       "businessContext": "Breathing rate in breaths per minute (typical resonance is 6 bpm)",
       "label_i18n": {
         "en": "Breathing Rate",
-        "tr": "Breathing Rate",
+        "tr": "Solunum hızı",
         "de": "Breathing Rate",
         "fr": "Breathing Rate",
         "es": "Breathing Rate",
         "ar": "Breathing Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Breathing rate in breaths per minute (typical resonance is 6 bpm)",
+        "tr": "Dakikadaki solunum sayısı (tipik rezonans 6 nefes/dk)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Resting heart rate",
       "label_i18n": {
         "en": "Heart Rate",
-        "tr": "Heart Rate",
+        "tr": "Kalp Atış Hızı",
         "de": "Heart Rate",
         "fr": "Heart Rate",
         "es": "Heart Rate",
         "ar": "Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Resting heart rate",
+        "tr": "Dinlenme kalp atış hızı"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "HRV RMSSD",
         "es": "HRV RMSSD",
         "ar": "HRV RMSSD"
+      },
+      "businessContext_i18n": {
+        "en": "Root mean square of successive differences",
+        "tr": "Ardışık farkların karekök ortalaması"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "HRV SDNN",
         "es": "HRV SDNN",
         "ar": "HRV SDNN"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of NN intervals",
+        "tr": "NN aralıklarının standart sapması"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Duration of biofeedback session in minutes",
       "label_i18n": {
         "en": "Session Duration",
-        "tr": "Session Duration",
+        "tr": "Seans Süresi",
         "de": "Session Duration",
         "fr": "Session Duration",
         "es": "Session Duration",
         "ar": "Session Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of biofeedback session in minutes",
+        "tr": "Biyogeribildirim seansının dakika cinsinden süresi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "User age for heart rate max calculation",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "User age for heart rate max calculation",
+        "tr": "Maksimum kalp atış hızı hesaplaması için kullanıcı yaşı"
       }
     }
   ],

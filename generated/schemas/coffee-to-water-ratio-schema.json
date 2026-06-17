@@ -10,11 +10,15 @@
       "businessContext": "Weight of ground coffee used for brewing",
       "label_i18n": {
         "en": "Coffee Weight",
-        "tr": "Coffee Weight",
+        "tr": "Kahve Ağırlığı",
         "de": "Coffee Weight",
         "fr": "Coffee Weight",
         "es": "Coffee Weight",
         "ar": "Coffee Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of ground coffee used for brewing",
+        "tr": "Demleme için kullanılan öğütülmüş kahve ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Volume of water used for brewing",
       "label_i18n": {
         "en": "Water Volume",
-        "tr": "Water Volume",
+        "tr": "Su Hacmi",
         "de": "Water Volume",
         "fr": "Water Volume",
         "es": "Water Volume",
         "ar": "Water Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of water used for brewing",
+        "tr": "Demleme için kullanılan su hacmi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Water retained by coffee grounds per gram of coffee; typical range 1.5–2.5",
       "label_i18n": {
         "en": "Absorption Factor",
-        "tr": "Absorption Factor",
+        "tr": "Emme Faktörü",
         "de": "Absorption Factor",
         "fr": "Absorption Factor",
         "es": "Absorption Factor",
         "ar": "Absorption Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Water retained by coffee grounds per gram of coffee; typical range 1.5–2.5",
+        "tr": "Gram kahve başına kahve telvesi tarafından tutulan su; tipik aralık 1,5–2,5"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired ratio of water to coffee, e.g., 15 for a 1:15 brew",
       "label_i18n": {
         "en": "Target Brew Ratio",
-        "tr": "Target Brew Ratio",
+        "tr": "Hedef Demleme Oranı",
         "de": "Target Brew Ratio",
         "fr": "Target Brew Ratio",
         "es": "Target Brew Ratio",
         "ar": "Target Brew Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Desired ratio of water to coffee, e.g., 15 for a 1:15 brew",
+        "tr": "Su/kahve oranı, örn. 1:15 demleme için 15"
       }
     }
   ],

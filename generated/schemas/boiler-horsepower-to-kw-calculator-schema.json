@@ -10,11 +10,15 @@
       "businessContext": "Rated boiler horsepower of a single boiler unit, as per manufacturer specifications.",
       "label_i18n": {
         "en": "Boiler Horsepower (per unit)",
-        "tr": "Boiler Horsepower (per unit)",
+        "tr": "Kazan Beygir Gücü (birim başına)",
         "de": "Boiler Horsepower (per unit)",
         "fr": "Boiler Horsepower (per unit)",
         "es": "Boiler Horsepower (per unit)",
         "ar": "Boiler Horsepower (per unit)"
+      },
+      "businessContext_i18n": {
+        "en": "Rated boiler horsepower of a single boiler unit, as per manufacturer specifications.",
+        "tr": "Tek bir kazan ünitesinin üretici spesifikasyonlarına göre anma beygir gücü."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of identical boiler units operating in parallel.",
       "label_i18n": {
         "en": "Number of Boilers",
-        "tr": "Number of Boilers",
+        "tr": "Kazan Sayısı",
         "de": "Number of Boilers",
         "fr": "Number of Boilers",
         "es": "Number of Boilers",
         "ar": "Number of Boilers"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of identical boiler units operating in parallel.",
+        "tr": "Paralel çalışan özdeş kazan ünitelerinin toplam sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average operating load as a percentage of full rated capacity.",
       "label_i18n": {
         "en": "Load Factor",
-        "tr": "Load Factor",
+        "tr": "Yük Faktörü",
         "de": "Load Factor",
         "fr": "Load Factor",
         "es": "Load Factor",
         "ar": "Load Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Average operating load as a percentage of full rated capacity.",
+        "tr": "Tam anma kapasitesinin yüzdesi olarak ortalama işletme yükü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Overall thermal efficiency of the boiler system, based on fuel input to steam output.",
       "label_i18n": {
         "en": "Boiler Efficiency",
-        "tr": "Boiler Efficiency",
+        "tr": "Kazan Verimliliği",
         "de": "Boiler Efficiency",
         "fr": "Boiler Efficiency",
         "es": "Boiler Efficiency",
         "ar": "Boiler Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Overall thermal efficiency of the boiler system, based on fuel input to steam output.",
+        "tr": "Yakıt girişinden buhar çıkışına kadar kazan sisteminin genel termal verimliliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total number of hours per year the boilers are in operation.",
       "label_i18n": {
         "en": "Annual Operating Hours",
-        "tr": "Annual Operating Hours",
+        "tr": "Yıllık Çalışma Saati",
         "de": "Annual Operating Hours",
         "fr": "Annual Operating Hours",
         "es": "Annual Operating Hours",
         "ar": "Annual Operating Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of hours per year the boilers are in operation.",
+        "tr": "Kazanların yılda toplam çalışma saati sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Standard conversion factor: 1 boiler horsepower = 9.8095 kilowatts (thermal output).",
       "label_i18n": {
         "en": "Conversion Factor (kW per BHP)",
-        "tr": "Conversion Factor (kW per BHP)",
+        "tr": "Dönüşüm Faktörü (kW/BHP)",
         "de": "Conversion Factor (kW per BHP)",
         "fr": "Conversion Factor (kW per BHP)",
         "es": "Conversion Factor (kW per BHP)",
         "ar": "Conversion Factor (kW per BHP)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor: 1 boiler horsepower = 9.8095 kilowatts (thermal output).",
+        "tr": "Standart dönüşüm faktörü: 1 kazan beygir gücü = 9,8095 kilovat (termal çıkış)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Time from going to bed until final awakening.",
       "label_i18n": {
         "en": "Total Time in Bed (minutes)",
-        "tr": "Total Time in Bed (minutes)",
+        "tr": "Yatakta Toplam Süre (dakika)",
         "de": "Total Time in Bed (minutes)",
         "fr": "Total Time in Bed (minutes)",
         "es": "Total Time in Bed (minutes)",
         "ar": "Total Time in Bed (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Time from going to bed until final awakening.",
+        "tr": "Yatmadan son uyanışa kadar geçen süre."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time taken to fall asleep initially.",
       "label_i18n": {
         "en": "Sleep Latency (minutes)",
-        "tr": "Sleep Latency (minutes)",
+        "tr": "Uykuya Dalma Süresi (dakika)",
         "de": "Sleep Latency (minutes)",
         "fr": "Sleep Latency (minutes)",
         "es": "Sleep Latency (minutes)",
         "ar": "Sleep Latency (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Time taken to fall asleep initially.",
+        "tr": "Başlangıçta uykuya dalmak için geçen süre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total time spent awake during the night after initially falling asleep.",
       "label_i18n": {
         "en": "Wake After Sleep Onset (minutes)",
-        "tr": "Wake After Sleep Onset (minutes)",
+        "tr": "Uyku Başlangıcından Sonra Uyanıklık (dakika)",
         "de": "Wake After Sleep Onset (minutes)",
         "fr": "Wake After Sleep Onset (minutes)",
         "es": "Wake After Sleep Onset (minutes)",
         "ar": "Wake After Sleep Onset (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total time spent awake during the night after initially falling asleep.",
+        "tr": "İlk uykuya daldıktan sonra gece boyunca uyanık geçen toplam süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Count of distinct awakenings during the night.",
       "label_i18n": {
         "en": "Number of Awakenings",
-        "tr": "Number of Awakenings",
+        "tr": "Uyanma Sayısı",
         "de": "Number of Awakenings",
         "fr": "Number of Awakenings",
         "es": "Number of Awakenings",
         "ar": "Number of Awakenings"
+      },
+      "businessContext_i18n": {
+        "en": "Count of distinct awakenings during the night.",
+        "tr": "Gece boyunca belirgin uyanmaların sayısı."
       }
     }
   ],

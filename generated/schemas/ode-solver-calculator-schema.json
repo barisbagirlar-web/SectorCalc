@@ -10,11 +10,15 @@
       "businessContext": "Rate constant in first-order linear ODE",
       "label_i18n": {
         "en": "Coefficient a (dy/dt = a·y + b)",
-        "tr": "Coefficient a (dy/dt = a·y + b)",
+        "tr": "Katsayı a (dy/dt = a·y + b)",
         "de": "Coefficient a (dy/dt = a·y + b)",
         "fr": "Coefficient a (dy/dt = a·y + b)",
         "es": "Coefficient a (dy/dt = a·y + b)",
         "ar": "Coefficient a (dy/dt = a·y + b)"
+      },
+      "businessContext_i18n": {
+        "en": "Rate constant in first-order linear ODE",
+        "tr": "Birinci dereceden lineer adi diferansiyel denklemde hız sabiti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Forcing term in the ODE",
       "label_i18n": {
         "en": "Constant term b",
-        "tr": "Constant term b",
+        "tr": "Sabit terim b",
         "de": "Constant term b",
         "fr": "Constant term b",
         "es": "Constant term b",
         "ar": "Constant term b"
+      },
+      "businessContext_i18n": {
+        "en": "Forcing term in the ODE",
+        "tr": "Adi diferansiyel denklemde zorlama terimi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Start time for the integration",
       "label_i18n": {
         "en": "Initial time",
-        "tr": "Initial time",
+        "tr": "Başlangıç zamanı",
         "de": "Initial time",
         "fr": "Initial time",
         "es": "Initial time",
         "ar": "Initial time"
+      },
+      "businessContext_i18n": {
+        "en": "Start time for the integration",
+        "tr": "İntegrasyon için başlangıç zamanı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Initial condition at t0",
       "label_i18n": {
         "en": "Initial value y(t0)",
-        "tr": "Initial value y(t0)",
+        "tr": "Başlangıç değeri y(t0)",
         "de": "Initial value y(t0)",
         "fr": "Initial value y(t0)",
         "es": "Initial value y(t0)",
         "ar": "Initial value y(t0)"
+      },
+      "businessContext_i18n": {
+        "en": "Initial condition at t0",
+        "tr": "t0'daki başlangıç koşulu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Time increment for numerical approximation",
       "label_i18n": {
         "en": "Step size",
-        "tr": "Step size",
+        "tr": "Adım boyutu",
         "de": "Step size",
         "fr": "Step size",
         "es": "Step size",
         "ar": "Step size"
+      },
+      "businessContext_i18n": {
+        "en": "Time increment for numerical approximation",
+        "tr": "Sayısal yaklaşım için zaman artışı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total integration steps to reach final time",
       "label_i18n": {
         "en": "Number of steps",
-        "tr": "Number of steps",
+        "tr": "Adım sayısı",
         "de": "Number of steps",
         "fr": "Number of steps",
         "es": "Number of steps",
         "ar": "Number of steps"
+      },
+      "businessContext_i18n": {
+        "en": "Total integration steps to reach final time",
+        "tr": "Son süreye ulaşmak için toplam entegrasyon adımı"
       }
     }
   ],

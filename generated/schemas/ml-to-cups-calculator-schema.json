@@ -10,11 +10,15 @@
       "businessContext": "The volume of liquid to convert, in milliliters.",
       "label_i18n": {
         "en": "Volume in Milliliters",
-        "tr": "Volume in Milliliters",
+        "tr": "Mililitre Cinsinden Hacim",
         "de": "Volume in Milliliters",
         "fr": "Volume in Milliliters",
         "es": "Volume in Milliliters",
         "ar": "Volume in Milliliters"
+      },
+      "businessContext_i18n": {
+        "en": "The volume of liquid to convert, in milliliters.",
+        "tr": "Dönüştürülecek sıvının mililitre cinsinden hacmi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard cup size in milliliters. Defaults to US customary cup.",
       "label_i18n": {
         "en": "Cup Size",
-        "tr": "Cup Size",
+        "tr": "Bardak Boyutu",
         "de": "Cup Size",
         "fr": "Cup Size",
         "es": "Cup Size",
         "ar": "Cup Size"
+      },
+      "businessContext_i18n": {
+        "en": "Standard cup size in milliliters. Defaults to US customary cup.",
+        "tr": "Mililitre cinsinden standart bardak boyutu. Varsayılan ABD geleneksel bardağıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output. Must be an integer between 0 and 10.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output. Must be an integer between 0 and 10.",
+        "tr": "Çıktı için ondalık basamak sayısı. 0 ile 10 arasında bir tam sayı olmalıdır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical volumes to convert (e.g., bottles, batches).",
       "label_i18n": {
         "en": "Number of Items",
-        "tr": "Number of Items",
+        "tr": "Öğe Sayısı",
         "de": "Number of Items",
         "fr": "Number of Items",
         "es": "Number of Items",
         "ar": "Number of Items"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical volumes to convert (e.g., bottles, batches).",
+        "tr": "Dönüştürülecek özdeş hacim sayısı (örn. şişe, parti)."
       }
     }
   ],

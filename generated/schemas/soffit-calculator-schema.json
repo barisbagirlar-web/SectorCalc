@@ -10,11 +10,15 @@
       "businessContext": "Total linear length of eaves where soffit will be installed",
       "label_i18n": {
         "en": "Length of Eaves",
-        "tr": "Length of Eaves",
+        "tr": "Saçak Uzunluğu",
         "de": "Length of Eaves",
         "fr": "Length of Eaves",
         "es": "Length of Eaves",
         "ar": "Length of Eaves"
+      },
+      "businessContext_i18n": {
+        "en": "Total linear length of eaves where soffit will be installed",
+        "tr": "Saçak altına tavan kaplaması yapılacak toplam doğrusal saçak uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Depth from fascia to wall (soffit width)",
       "label_i18n": {
         "en": "Overhang Width",
-        "tr": "Overhang Width",
+        "tr": "Saçak genişliği",
         "de": "Overhang Width",
         "fr": "Overhang Width",
         "es": "Overhang Width",
         "ar": "Overhang Width"
+      },
+      "businessContext_i18n": {
+        "en": "Depth from fascia to wall (soffit width)",
+        "tr": "Fasaddan duvara derinlik (tavan kaplaması genişliği)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of a single soffit panel",
       "label_i18n": {
         "en": "Panel Length",
-        "tr": "Panel Length",
+        "tr": "Panel uzunluğu",
         "de": "Panel Length",
         "fr": "Panel Length",
         "es": "Panel Length",
         "ar": "Panel Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single soffit panel",
+        "tr": "Tek bir tavan kaplama panelinin uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of a single soffit panel (visible face)",
       "label_i18n": {
         "en": "Panel Width",
-        "tr": "Panel Width",
+        "tr": "Panel Genişliği",
         "de": "Panel Width",
         "fr": "Panel Width",
         "es": "Panel Width",
         "ar": "Panel Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single soffit panel (visible face)",
+        "tr": "Tek bir tavan kaplama panelinin genişliği (görünen yüz)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional percentage for cuts and material waste",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage for cuts and material waste",
+        "tr": "Kesim ve malzeme fireleri için ek yüzde"
       }
     }
   ],

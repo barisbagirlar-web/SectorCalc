@@ -10,11 +10,15 @@
       "businessContext": "Net price of the vehicle",
       "label_i18n": {
         "en": "Car Price",
-        "tr": "Car Price",
+        "tr": "Araba Fiyatı",
         "de": "Car Price",
         "fr": "Car Price",
         "es": "Car Price",
         "ar": "Car Price"
+      },
+      "businessContext_i18n": {
+        "en": "Net price of the vehicle",
+        "tr": "Aracın net fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated value at lease end",
       "label_i18n": {
         "en": "Residual Value",
-        "tr": "Residual Value",
+        "tr": "Kalıntı Değer",
         "de": "Residual Value",
         "fr": "Residual Value",
         "es": "Residual Value",
         "ar": "Residual Value"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated value at lease end",
+        "tr": "Kira sonunda tahmini değer"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Interest rate factor (money factor = APR / 2400)",
       "label_i18n": {
         "en": "Money Factor",
-        "tr": "Money Factor",
+        "tr": "Para Faktörü",
         "de": "Money Factor",
         "fr": "Money Factor",
         "es": "Money Factor",
         "ar": "Money Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Interest rate factor (money factor = APR / 2400)",
+        "tr": "Faiz oranı faktörü (para faktörü = APR / 2400)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration of the lease",
       "label_i18n": {
         "en": "Lease Term",
-        "tr": "Lease Term",
+        "tr": "Kira Süresi",
         "de": "Lease Term",
         "fr": "Lease Term",
         "es": "Lease Term",
         "ar": "Lease Term"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the lease",
+        "tr": "Kira süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Initial payment",
       "label_i18n": {
         "en": "Down Payment",
-        "tr": "Down Payment",
+        "tr": "Peşinat",
         "de": "Down Payment",
         "fr": "Down Payment",
         "es": "Down Payment",
         "ar": "Down Payment"
+      },
+      "businessContext_i18n": {
+        "en": "Initial payment",
+        "tr": "İlk ödeme"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Tax rate applied to monthly payment",
       "label_i18n": {
         "en": "Sales Tax Rate",
-        "tr": "Sales Tax Rate",
+        "tr": "Satış Vergisi Oranı",
         "de": "Sales Tax Rate",
         "fr": "Sales Tax Rate",
         "es": "Sales Tax Rate",
         "ar": "Sales Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate applied to monthly payment",
+        "tr": "Aylık ödemeye uygulanan vergi oranı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "One-time fee at lease start",
       "label_i18n": {
         "en": "Acquisition Fee",
-        "tr": "Acquisition Fee",
+        "tr": "Edinim Ücreti",
         "de": "Acquisition Fee",
         "fr": "Acquisition Fee",
         "es": "Acquisition Fee",
         "ar": "Acquisition Fee"
+      },
+      "businessContext_i18n": {
+        "en": "One-time fee at lease start",
+        "tr": "Kira başlangıcında tek seferlik ücret"
       }
     }
   ],

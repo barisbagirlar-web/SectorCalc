@@ -10,11 +10,15 @@
       "businessContext": "The real component of the complex parameter c.",
       "label_i18n": {
         "en": "Real part (cx)",
-        "tr": "Real part (cx)",
+        "tr": "Gerçek kısım (cx)",
         "de": "Real part (cx)",
         "fr": "Real part (cx)",
         "es": "Real part (cx)",
         "ar": "Real part (cx)"
+      },
+      "businessContext_i18n": {
+        "en": "The real component of the complex parameter c.",
+        "tr": "Karmaşık parametre c'nin gerçek bileşeni."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The imaginary component of the complex parameter c.",
       "label_i18n": {
         "en": "Imaginary part (cy)",
-        "tr": "Imaginary part (cy)",
+        "tr": "Sanal kısım (cy)",
         "de": "Imaginary part (cy)",
         "fr": "Imaginary part (cy)",
         "es": "Imaginary part (cy)",
         "ar": "Imaginary part (cy)"
+      },
+      "businessContext_i18n": {
+        "en": "The imaginary component of the complex parameter c.",
+        "tr": "Karmaşık parametre c'nin sanal bileşeni."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum number of iterations before considering the point as part of the Mandelbrot set.",
       "label_i18n": {
         "en": "Maximum Iterations",
-        "tr": "Maximum Iterations",
+        "tr": "Maksimum Yineleme",
         "de": "Maximum Iterations",
         "fr": "Maximum Iterations",
         "es": "Maximum Iterations",
         "ar": "Maximum Iterations"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum number of iterations before considering the point as part of the Mandelbrot set.",
+        "tr": "Noktanın Mandelbrot kümesinin parçası olarak kabul edilmeden önceki maksimum yineleme sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Radius threshold for escape condition; typically 2.",
       "label_i18n": {
         "en": "Escape Radius",
-        "tr": "Escape Radius",
+        "tr": "Kaçış Yarıçapı",
         "de": "Escape Radius",
         "fr": "Escape Radius",
         "es": "Escape Radius",
         "ar": "Escape Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Radius threshold for escape condition; typically 2.",
+        "tr": "Kaçış koşulu için yarıçap eşiği; genellikle 2."
       }
     }
   ],

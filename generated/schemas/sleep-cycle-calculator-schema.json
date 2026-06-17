@@ -19,10 +19,12 @@
       "max": 24,
       "businessContext": "Target end of sleep cycle; used to back-calculate optimal bedtimes.",
       "label_i18n": {
-        "en": "Desired wake-up time (24h)"
+        "en": "Desired wake-up time (24h)",
+        "tr": "İstenen uyanma saati (24s)"
       },
       "businessContext_i18n": {
-        "en": "Target end of sleep cycle; used to back-calculate optimal bedtimes."
+        "en": "Target end of sleep cycle; used to back-calculate optimal bedtimes.",
+        "tr": "Uyku döngüsünün bitiş hedefi; optimal yatma zamanlarını hesaplamak için kullanılır."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 24,
       "businessContext": "Cumulative deficit from prior nights; drives recovery need per sleep science.",
       "label_i18n": {
-        "en": "Accumulated sleep debt (hours)"
+        "en": "Accumulated sleep debt (hours)",
+        "tr": "Birikmiş uyku borcu (saat)"
       },
       "businessContext_i18n": {
-        "en": "Cumulative deficit from prior nights; drives recovery need per sleep science."
+        "en": "Cumulative deficit from prior nights; drives recovery need per sleep science.",
+        "tr": "Önceki gecelerden kümülatif açık; uyku bilimine göre iyileşme ihtiyacını belirler."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 120,
       "businessContext": "Typical NREM/REM cycle duration; 90 min is standard, adjustable per individual.",
       "label_i18n": {
-        "en": "Average sleep cycle length"
+        "en": "Average sleep cycle length",
+        "tr": "Ortalama uyku döngüsü uzunluğu"
       },
       "businessContext_i18n": {
-        "en": "Typical NREM/REM cycle duration; 90 min is standard, adjustable per individual."
+        "en": "Typical NREM/REM cycle duration; 90 min is standard, adjustable per individual.",
+        "tr": "Tipik NREM/REM döngü süresi; 90 dk standarttır, kişiye göre ayarlanabilir."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 60,
       "businessContext": "Sleep onset latency; affects actual sleep start time.",
       "label_i18n": {
-        "en": "Estimated time to fall asleep"
+        "en": "Estimated time to fall asleep",
+        "tr": "Tahmini uykuya dalma süresi"
       },
       "businessContext_i18n": {
-        "en": "Sleep onset latency; affects actual sleep start time."
+        "en": "Sleep onset latency; affects actual sleep start time.",
+        "tr": "Uyku başlangıç gecikmesi; gerçek uyku başlangıç zamanını etkiler."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 1.5,
       "businessContext": "Adjusts sleep debt repayment rate (1.0 = normal, <1.0 = impaired recovery, >1.0 = enhanced).",
       "label_i18n": {
-        "en": "Recovery efficiency factor"
+        "en": "Recovery efficiency factor",
+        "tr": "İyileşme verimlilik faktörü"
       },
       "businessContext_i18n": {
-        "en": "Adjusts sleep debt repayment rate (1.0 = normal, <1.0 = impaired recovery, >1.0 = enhanced)."
+        "en": "Adjusts sleep debt repayment rate (1.0 = normal, <1.0 = impaired recovery, >1.0 = enhanced).",
+        "tr": "Uyku borcu geri ödeme oranını ayarlar (1.0 = normal, <1.0 = bozulmuş iyileşme, >1.0 = iyileştirilmiş)."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": null,
       "businessContext": "Flag to apply circadian disruption penalty per ISO 10075-2.",
       "label_i18n": {
-        "en": "Shift worker?"
+        "en": "Shift worker?",
+        "tr": "Vardiyalı çalışan mı?"
       },
       "businessContext_i18n": {
-        "en": "Flag to apply circadian disruption penalty per ISO 10075-2."
+        "en": "Flag to apply circadian disruption penalty per ISO 10075-2.",
+        "tr": "ISO 10075-2'ye göre sirkadiyen bozulma cezasını uygulamak için işaret."
       }
     }
   ],

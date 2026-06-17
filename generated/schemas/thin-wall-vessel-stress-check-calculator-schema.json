@@ -10,11 +10,15 @@
       "businessContext": "Internal design pressure of the vessel",
       "label_i18n": {
         "en": "Internal Pressure (P)",
-        "tr": "Internal Pressure (P)",
+        "tr": "İç Basınç (P)",
         "de": "Internal Pressure (P)",
         "fr": "Internal Pressure (P)",
         "es": "Internal Pressure (P)",
         "ar": "Internal Pressure (P)"
+      },
+      "businessContext_i18n": {
+        "en": "Internal design pressure of the vessel",
+        "tr": "Kabın iç tasarım basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal inner diameter of the shell",
       "label_i18n": {
         "en": "Inside Diameter (D)",
-        "tr": "Inside Diameter (D)",
+        "tr": "İç Çap (D)",
         "de": "Inside Diameter (D)",
         "fr": "Inside Diameter (D)",
         "es": "Inside Diameter (D)",
         "ar": "Inside Diameter (D)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal inner diameter of the shell",
+        "tr": "Gövdenin nominal iç çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minimum required wall thickness after corrosion allowance",
       "label_i18n": {
         "en": "Wall Thickness (t)",
-        "tr": "Wall Thickness (t)",
+        "tr": "Duvar Kalınlığı (t)",
         "de": "Wall Thickness (t)",
         "fr": "Wall Thickness (t)",
         "es": "Wall Thickness (t)",
         "ar": "Wall Thickness (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum required wall thickness after corrosion allowance",
+        "tr": "Korozyon payı sonrası minimum gerekli duvar kalınlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum allowable stress of material at design temperature",
       "label_i18n": {
         "en": "Allowable Stress (S)",
-        "tr": "Allowable Stress (S)",
+        "tr": "İzin Verilen Gerilme (S)",
         "de": "Allowable Stress (S)",
         "fr": "Allowable Stress (S)",
         "es": "Allowable Stress (S)",
         "ar": "Allowable Stress (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable stress of material at design temperature",
+        "tr": "Tasarım sıcaklığında malzemenin maksimum izin verilen gerilimi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Joint efficiency factor per design code (e.g., ASME UW-12)",
       "label_i18n": {
         "en": "Weld Joint Efficiency (E)",
-        "tr": "Weld Joint Efficiency (E)",
+        "tr": "Kaynak Bağlantı Verimliliği (E)",
         "de": "Weld Joint Efficiency (E)",
         "fr": "Weld Joint Efficiency (E)",
         "es": "Weld Joint Efficiency (E)",
         "ar": "Weld Joint Efficiency (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Joint efficiency factor per design code (e.g., ASME UW-12)",
+        "tr": "Tasarım koduna göre bağlantı verimlilik faktörü (örn. ASME UW-12)"
       }
     }
   ],

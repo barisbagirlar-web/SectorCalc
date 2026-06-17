@@ -10,11 +10,15 @@
       "businessContext": "Measured power in watts.",
       "label_i18n": {
         "en": "Power 1 (P1)",
-        "tr": "Power 1 (P1)",
+        "tr": "Güç 1 (P1)",
         "de": "Power 1 (P1)",
         "fr": "Power 1 (P1)",
         "es": "Power 1 (P1)",
         "ar": "Power 1 (P1)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured power in watts.",
+        "tr": "Watt cinsinden ölçülen güç."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Reference power in watts.",
       "label_i18n": {
         "en": "Power 2 (P0)",
-        "tr": "Power 2 (P0)",
+        "tr": "Güç 2 (P0)",
         "de": "Power 2 (P0)",
         "fr": "Power 2 (P0)",
         "es": "Power 2 (P0)",
         "ar": "Power 2 (P0)"
+      },
+      "businessContext_i18n": {
+        "en": "Reference power in watts.",
+        "tr": "Watt cinsinden referans güç."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Adjustment factor for environmental conditions (default 1 for standard conditions).",
       "label_i18n": {
         "en": "Environmental Factor",
-        "tr": "Environmental Factor",
+        "tr": "Çevresel Faktör",
         "de": "Environmental Factor",
         "fr": "Environmental Factor",
         "es": "Environmental Factor",
         "ar": "Environmental Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjustment factor for environmental conditions (default 1 for standard conditions).",
+        "tr": "Çevresel koşullar için ayar faktörü (standart koşullar için varsayılan 1)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Systematic offset in Bels from calibration.",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Systematic offset in Bels from calibration.",
+        "tr": "Kalibrasyondan kaynaklanan Bel cinsinden sistematik sapma."
       }
     }
   ],

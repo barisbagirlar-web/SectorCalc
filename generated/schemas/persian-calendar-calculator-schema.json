@@ -10,11 +10,15 @@
       "businessContext": "The year in the Persian/Jalali calendar (e.g., 1402).",
       "label_i18n": {
         "en": "Persian Year",
-        "tr": "Persian Year",
+        "tr": "Farsça Yıl",
         "de": "Persian Year",
         "fr": "Persian Year",
         "es": "Persian Year",
         "ar": "Persian Year"
+      },
+      "businessContext_i18n": {
+        "en": "The year in the Persian/Jalali calendar (e.g., 1402).",
+        "tr": "Farsça/Jalali takviminde yıl (ör. 1402)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Month number (1-12) in the Persian calendar.",
       "label_i18n": {
         "en": "Persian Month",
-        "tr": "Persian Month",
+        "tr": "Farsça Ay",
         "de": "Persian Month",
         "fr": "Persian Month",
         "es": "Persian Month",
         "ar": "Persian Month"
+      },
+      "businessContext_i18n": {
+        "en": "Month number (1-12) in the Persian calendar.",
+        "tr": "Farsça takviminde ay numarası (1-12)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Day of the month (1-31) in the Persian calendar.",
       "label_i18n": {
         "en": "Persian Day",
-        "tr": "Persian Day",
+        "tr": "Farsça Gün",
         "de": "Persian Day",
         "fr": "Persian Day",
         "es": "Persian Day",
         "ar": "Persian Day"
+      },
+      "businessContext_i18n": {
+        "en": "Day of the month (1-31) in the Persian calendar.",
+        "tr": "Farsça takviminde ayın günü (1-31)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Decimal fraction of a day (0-1) for precise Julian Day Number.",
       "label_i18n": {
         "en": "Day Fraction",
-        "tr": "Day Fraction",
+        "tr": "Gün Kesri",
         "de": "Day Fraction",
         "fr": "Day Fraction",
         "es": "Day Fraction",
         "ar": "Day Fraction"
+      },
+      "businessContext_i18n": {
+        "en": "Decimal fraction of a day (0-1) for precise Julian Day Number.",
+        "tr": "Jülyen gün numarası için günün ondalık kesri (0-1)"
       }
     }
   ],

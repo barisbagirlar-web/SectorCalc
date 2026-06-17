@@ -10,11 +10,15 @@
       "businessContext": "The speed of the kayak relative to water.",
       "label_i18n": {
         "en": "Kayak Speed",
-        "tr": "Kayak Speed",
+        "tr": "Kano Hızı",
         "de": "Kayak Speed",
         "fr": "Kayak Speed",
         "es": "Kayak Speed",
         "ar": "Kayak Speed"
+      },
+      "businessContext_i18n": {
+        "en": "The speed of the kayak relative to water.",
+        "tr": "Kanonun suya göre hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Typical drag coefficient for the kayak hull shape.",
       "label_i18n": {
         "en": "Drag Coefficient",
-        "tr": "Drag Coefficient",
+        "tr": "Sürükleme Katsayısı",
         "de": "Drag Coefficient",
         "fr": "Drag Coefficient",
         "es": "Drag Coefficient",
         "ar": "Drag Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Typical drag coefficient for the kayak hull shape.",
+        "tr": "Kano gövde şekli için tipik sürükleme katsayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Frontal area of the kayak and paddler.",
       "label_i18n": {
         "en": "Cross-sectional Area",
-        "tr": "Cross-sectional Area",
+        "tr": "Kesit Alanı",
         "de": "Cross-sectional Area",
         "fr": "Cross-sectional Area",
         "es": "Cross-sectional Area",
         "ar": "Cross-sectional Area"
+      },
+      "businessContext_i18n": {
+        "en": "Frontal area of the kayak and paddler.",
+        "tr": "Kano ve kürekçinin ön alanı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Density of water (fresh water ~1000, salt water ~1025).",
       "label_i18n": {
         "en": "Water Density",
-        "tr": "Water Density",
+        "tr": "Su Yoğunluğu",
         "de": "Water Density",
         "fr": "Water Density",
         "es": "Water Density",
         "ar": "Water Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of water (fresh water ~1000, salt water ~1025).",
+        "tr": "Su yoğunluğu (tatlı su ~1000, tuzlu su ~1025)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Mechanical efficiency of converting human power to propulsion.",
       "label_i18n": {
         "en": "Paddling Efficiency",
-        "tr": "Paddling Efficiency",
+        "tr": "Kürek Çekme Verimliliği",
         "de": "Paddling Efficiency",
         "fr": "Paddling Efficiency",
         "es": "Paddling Efficiency",
         "ar": "Paddling Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Mechanical efficiency of converting human power to propulsion.",
+        "tr": "İnsan gücünü itişe dönüştüren mekanik verimlilik."
       }
     }
   ],

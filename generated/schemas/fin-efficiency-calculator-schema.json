@@ -10,11 +10,15 @@
       "businessContext": "Length of the fin from base to tip",
       "label_i18n": {
         "en": "Fin Length",
-        "tr": "Fin Length",
+        "tr": "Kanat uzunluğu",
         "de": "Fin Length",
         "fr": "Fin Length",
         "es": "Fin Length",
         "ar": "Fin Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the fin from base to tip",
+        "tr": "Kanadın tabandan uca uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Thickness of the fin cross-section",
       "label_i18n": {
         "en": "Fin Thickness",
-        "tr": "Fin Thickness",
+        "tr": "Kanat kalınlığı",
         "de": "Fin Thickness",
         "fr": "Fin Thickness",
         "es": "Fin Thickness",
         "ar": "Fin Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the fin cross-section",
+        "tr": "Kanat kesit kalınlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of the fin (perpendicular to flow, typically larger than thickness)",
       "label_i18n": {
         "en": "Fin Width",
-        "tr": "Fin Width",
+        "tr": "Kanat genişliği",
         "de": "Fin Width",
         "fr": "Fin Width",
         "es": "Fin Width",
         "ar": "Fin Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the fin (perpendicular to flow, typically larger than thickness)",
+        "tr": "Kanadın genişliği (akışa dik, genellikle kalınlıktan büyük)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Convective heat transfer coefficient on fin surface",
       "label_i18n": {
         "en": "Heat Transfer Coefficient",
-        "tr": "Heat Transfer Coefficient",
+        "tr": "Isı Transfer Katsayısı",
         "de": "Heat Transfer Coefficient",
         "fr": "Heat Transfer Coefficient",
         "es": "Heat Transfer Coefficient",
         "ar": "Heat Transfer Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Convective heat transfer coefficient on fin surface",
+        "tr": "Kanat yüzeyindeki konvektif ısı transfer katsayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Thermal conductivity of fin material",
       "label_i18n": {
         "en": "Thermal Conductivity",
-        "tr": "Thermal Conductivity",
+        "tr": "Isıl İletkenlik",
         "de": "Thermal Conductivity",
         "fr": "Thermal Conductivity",
         "es": "Thermal Conductivity",
         "ar": "Thermal Conductivity"
+      },
+      "businessContext_i18n": {
+        "en": "Thermal conductivity of fin material",
+        "tr": "Kanat malzemesinin termal iletkenliği"
       }
     }
   ],

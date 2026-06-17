@@ -10,11 +10,15 @@
       "businessContext": "Inductance of the circuit coil or inductor in Henries.",
       "label_i18n": {
         "en": "Inductance (L)",
-        "tr": "Inductance (L)",
+        "tr": "Endüktans (L)",
         "de": "Inductance (L)",
         "fr": "Inductance (L)",
         "es": "Inductance (L)",
         "ar": "Inductance (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Inductance of the circuit coil or inductor in Henries.",
+        "tr": "Devre bobini veya indüktörünün Henry cinsinden endüktansı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Capacitance of the circuit capacitor in Farads.",
       "label_i18n": {
         "en": "Capacitance (C)",
-        "tr": "Capacitance (C)",
+        "tr": "Kapasitans (C)",
         "de": "Capacitance (C)",
         "fr": "Capacitance (C)",
         "es": "Capacitance (C)",
         "ar": "Capacitance (C)"
+      },
+      "businessContext_i18n": {
+        "en": "Capacitance of the circuit capacitor in Farads.",
+        "tr": "Devre kondansatörünün Farad cinsinden kapasitansı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Series resistance in Ohms (for series RLC circuit). For parallel, use appropriate conversion.",
       "label_i18n": {
         "en": "Resistance (R)",
-        "tr": "Resistance (R)",
+        "tr": "Direnç (R)",
         "de": "Resistance (R)",
         "fr": "Resistance (R)",
         "es": "Resistance (R)",
         "ar": "Resistance (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Series resistance in Ohms (for series RLC circuit). For parallel, use appropriate conversion.",
+        "tr": "Ohm cinsinden seri direnç (seri RLC devresi için). Paralel için uygun dönüşümü kullanın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Measured or known resonant frequency in Hertz.",
       "label_i18n": {
         "en": "Resonant Frequency (f₀)",
-        "tr": "Resonant Frequency (f₀)",
+        "tr": "Rezonans Frekansı (f₀)",
         "de": "Resonant Frequency (f₀)",
         "fr": "Resonant Frequency (f₀)",
         "es": "Resonant Frequency (f₀)",
         "ar": "Resonant Frequency (f₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured or known resonant frequency in Hertz.",
+        "tr": "Hertz cinsinden ölçülen veya bilinen rezonans frekansı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Half-power bandwidth of the resonance in Hertz.",
       "label_i18n": {
         "en": "Bandwidth (BW)",
-        "tr": "Bandwidth (BW)",
+        "tr": "Bant Genişliği (BW)",
         "de": "Bandwidth (BW)",
         "fr": "Bandwidth (BW)",
         "es": "Bandwidth (BW)",
         "ar": "Bandwidth (BW)"
+      },
+      "businessContext_i18n": {
+        "en": "Half-power bandwidth of the resonance in Hertz.",
+        "tr": "Rezonansın yarı güç bant genişliği, Hertz cinsinden."
       }
     }
   ],

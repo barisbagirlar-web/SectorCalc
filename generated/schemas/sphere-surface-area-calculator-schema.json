@@ -10,11 +10,15 @@
       "businessContext": "The radius of the sphere in meters",
       "label_i18n": {
         "en": "Radius",
-        "tr": "Radius",
+        "tr": "Yarıçap",
         "de": "Radius",
         "fr": "Radius",
         "es": "Radius",
         "ar": "Radius"
+      },
+      "businessContext_i18n": {
+        "en": "The radius of the sphere in meters",
+        "tr": "Kürenin metre cinsinden yarıçapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The diameter of the sphere in meters, used if Input Type is 1",
       "label_i18n": {
         "en": "Diameter",
-        "tr": "Diameter",
+        "tr": "Çap",
         "de": "Diameter",
         "fr": "Diameter",
         "es": "Diameter",
         "ar": "Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "The diameter of the sphere in meters, used if Input Type is 1",
+        "tr": "Kürenin metre cinsinden çapı, Giriş Türü 1 ise kullanılır"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0 = Use Radius, 1 = Use Diameter",
       "label_i18n": {
         "en": "Input Type",
-        "tr": "Input Type",
+        "tr": "Giriş Türü",
         "de": "Input Type",
         "fr": "Input Type",
         "es": "Input Type",
         "ar": "Input Type"
+      },
+      "businessContext_i18n": {
+        "en": "0 = Use Radius, 1 = Use Diameter",
+        "tr": "0 = Yarıçap Kullan, 1 = Çap Kullan"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = m², 1 = cm², 2 = mm², 3 = ft²",
       "label_i18n": {
         "en": "Output Unit",
-        "tr": "Output Unit",
+        "tr": "Çıktı Birimi",
         "de": "Output Unit",
         "fr": "Output Unit",
         "es": "Output Unit",
         "ar": "Output Unit"
+      },
+      "businessContext_i18n": {
+        "en": "0 = m², 1 = cm², 2 = mm², 3 = ft²",
+        "tr": "0 = m², 1 = cm², 2 = mm², 3 = ft²"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of material per square meter for coating or painting",
       "label_i18n": {
         "en": "Cost per m²",
-        "tr": "Cost per m²",
+        "tr": "m² başına maliyet",
         "de": "Cost per m²",
         "fr": "Cost per m²",
         "es": "Cost per m²",
         "ar": "Cost per m²"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of material per square meter for coating or painting",
+        "tr": "Kaplama veya boyama için metrekare başına malzeme maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional percentage for material waste",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage for material waste",
+        "tr": "Malzeme fire yüzdesi"
       }
     }
   ],

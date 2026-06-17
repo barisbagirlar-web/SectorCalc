@@ -10,11 +10,15 @@
       "businessContext": "Total number of people on the camping trip",
       "label_i18n": {
         "en": "Number of Campers",
-        "tr": "Number of Campers",
+        "tr": "Kampçı Sayısı",
         "de": "Number of Campers",
         "fr": "Number of Campers",
         "es": "Number of Campers",
         "ar": "Number of Campers"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of people on the camping trip",
+        "tr": "Kamp gezisindeki toplam kişi sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of the camping trip in nights",
       "label_i18n": {
         "en": "Number of Nights",
-        "tr": "Number of Nights",
+        "tr": "Gece Sayısı",
         "de": "Number of Nights",
         "fr": "Number of Nights",
         "es": "Number of Nights",
         "ar": "Number of Nights"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the camping trip in nights",
+        "tr": "Kamp gezisinin gece olarak süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Recommended water per person per day for drinking, cooking, and hygiene",
       "label_i18n": {
         "en": "Daily Water per Person",
-        "tr": "Daily Water per Person",
+        "tr": "Kişi Başı Günlük Su",
         "de": "Daily Water per Person",
         "fr": "Daily Water per Person",
         "es": "Daily Water per Person",
         "ar": "Daily Water per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Recommended water per person per day for drinking, cooking, and hygiene",
+        "tr": "İçme, yemek pişirme ve hijyen için kişi başı günlük önerilen su"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average daily calorie intake per person",
       "label_i18n": {
         "en": "Daily Food Energy per Person",
-        "tr": "Daily Food Energy per Person",
+        "tr": "Kişi Başı Günlük Gıda Enerjisi",
         "de": "Daily Food Energy per Person",
         "fr": "Daily Food Energy per Person",
         "es": "Daily Food Energy per Person",
         "ar": "Daily Food Energy per Person"
+      },
+      "businessContext_i18n": {
+        "en": "Average daily calorie intake per person",
+        "tr": "Kişi başı ortalama günlük kalori alımı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Estimated firewood needed per evening campfire",
       "label_i18n": {
         "en": "Firewood per Night",
-        "tr": "Firewood per Night",
+        "tr": "Gece Başına Odun",
         "de": "Firewood per Night",
         "fr": "Firewood per Night",
         "es": "Firewood per Night",
         "ar": "Firewood per Night"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated firewood needed per evening campfire",
+        "tr": "Akşam kamp ateşi için tahmini odun ihtiyacı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Adjust water needs: 0 for normal, positive for hot (e.g., 0.2 for >30°C), negative for cold",
       "label_i18n": {
         "en": "Temperature Adjustment Factor",
-        "tr": "Temperature Adjustment Factor",
+        "tr": "Sıcaklık Ayarlama Faktörü",
         "de": "Temperature Adjustment Factor",
         "fr": "Temperature Adjustment Factor",
         "es": "Temperature Adjustment Factor",
         "ar": "Temperature Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjust water needs: 0 for normal, positive for hot (e.g., 0.2 for >30°C), negative for cold",
+        "tr": "Su ihtiyacını ayarlayın: normal için 0, sıcak için pozitif (örn. >30°C için 0.2), soğuk için negatif"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Percentage of extra supplies for unforeseen circumstances",
       "label_i18n": {
         "en": "Safety Margin",
-        "tr": "Safety Margin",
+        "tr": "Güvenlik Marjı",
         "de": "Safety Margin",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra supplies for unforeseen circumstances",
+        "tr": "Öngörülemeyen durumlar için ekstra malzeme yüzdesi"
       }
     }
   ],

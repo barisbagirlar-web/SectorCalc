@@ -10,11 +10,15 @@
       "businessContext": "Net loan amount requested before SBA guarantee fee",
       "label_i18n": {
         "en": "Loan Amount",
-        "tr": "Loan Amount",
+        "tr": "Kredi Tutarı",
         "de": "Loan Amount",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Net loan amount requested before SBA guarantee fee",
+        "tr": "SBA garanti ücreti öncesi talep edilen net kredi tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual interest rate",
       "label_i18n": {
         "en": "Interest Rate",
-        "tr": "Interest Rate",
+        "tr": "Faiz Oranı",
         "de": "Interest Rate",
         "fr": "Interest Rate",
         "es": "Interest Rate",
         "ar": "Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate",
+        "tr": "Yıllık faiz oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Repayment period in years",
       "label_i18n": {
         "en": "Loan Term",
-        "tr": "Loan Term",
+        "tr": "Kredi Vadesi",
         "de": "Loan Term",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Repayment period in years",
+        "tr": "Yıl cinsinden geri ödeme süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "SBA guarantee fee percentage (added to total financed amount)",
       "label_i18n": {
         "en": "SBA Guarantee Fee",
-        "tr": "SBA Guarantee Fee",
+        "tr": "SBA Garanti Ücreti",
         "de": "SBA Guarantee Fee",
         "fr": "SBA Guarantee Fee",
         "es": "SBA Guarantee Fee",
         "ar": "SBA Guarantee Fee"
+      },
+      "businessContext_i18n": {
+        "en": "SBA guarantee fee percentage (added to total financed amount)",
+        "tr": "SBA garanti ücreti yüzdesi (toplam finanse edilen tutara eklenir)"
       }
     }
   ],

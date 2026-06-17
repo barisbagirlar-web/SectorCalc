@@ -10,11 +10,15 @@
       "businessContext": "The average value from the sample data.",
       "label_i18n": {
         "en": "Sample Mean",
-        "tr": "Sample Mean",
+        "tr": "Örneklem ortalaması",
         "de": "Sample Mean",
         "fr": "Sample Mean",
         "es": "Sample Mean",
         "ar": "Sample Mean"
+      },
+      "businessContext_i18n": {
+        "en": "The average value from the sample data.",
+        "tr": "Örneklem verilerinden elde edilen ortalama değer."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The standard deviation of the sample.",
       "label_i18n": {
         "en": "Sample Standard Deviation",
-        "tr": "Sample Standard Deviation",
+        "tr": "Örneklem standart sapması",
         "de": "Sample Standard Deviation",
         "fr": "Sample Standard Deviation",
         "es": "Sample Standard Deviation",
         "ar": "Sample Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "The standard deviation of the sample.",
+        "tr": "Örneklemin standart sapması."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of observations in the sample.",
       "label_i18n": {
         "en": "Sample Size",
-        "tr": "Sample Size",
+        "tr": "Örneklem büyüklüğü",
         "de": "Sample Size",
         "fr": "Sample Size",
         "es": "Sample Size",
         "ar": "Sample Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of observations in the sample.",
+        "tr": "Örneklemdeki gözlem sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired confidence level (e.g., 0.95 for 95%).",
       "label_i18n": {
         "en": "Confidence Level",
-        "tr": "Confidence Level",
+        "tr": "Güven Düzeyi",
         "de": "Confidence Level",
         "fr": "Confidence Level",
         "es": "Confidence Level",
         "ar": "Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Desired confidence level (e.g., 0.95 for 95%).",
+        "tr": "İstenen güven düzeyi (ör. %95 için 0,95)."
       }
     }
   ],

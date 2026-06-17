@@ -10,11 +10,15 @@
       "businessContext": "Probability that the bet wins (between 0 and 1).",
       "label_i18n": {
         "en": "Winning Probability (p)",
-        "tr": "Winning Probability (p)",
+        "tr": "Kazanma Olasılığı (p)",
         "de": "Winning Probability (p)",
         "fr": "Winning Probability (p)",
         "es": "Winning Probability (p)",
         "ar": "Winning Probability (p)"
+      },
+      "businessContext_i18n": {
+        "en": "Probability that the bet wins (between 0 and 1).",
+        "tr": "Bahsin kazanma olasılığı (0 ile 1 arasında)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Net odds received per unit bet; if you bet 1 and win, you get back your stake plus b (i.e., total return = 1 + b).",
       "label_i18n": {
         "en": "Net Odds (b)",
-        "tr": "Net Odds (b)",
+        "tr": "Net Oran (b)",
         "de": "Net Odds (b)",
         "fr": "Net Odds (b)",
         "es": "Net Odds (b)",
         "ar": "Net Odds (b)"
+      },
+      "businessContext_i18n": {
+        "en": "Net odds received per unit bet; if you bet 1 and win, you get back your stake plus b (i.e., total return = 1 + b).",
+        "tr": "Birim bahis başına alınan net oran; 1 bahis yapıp kazanırsanız, bahisinizi artı b alırsınız (yani toplam getiri = 1 + b)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total capital available for betting.",
       "label_i18n": {
         "en": "Total Bankroll",
-        "tr": "Total Bankroll",
+        "tr": "Toplam Bakiye",
         "de": "Total Bankroll",
         "fr": "Total Bankroll",
         "es": "Total Bankroll",
         "ar": "Total Bankroll"
+      },
+      "businessContext_i18n": {
+        "en": "Total capital available for betting.",
+        "tr": "Bahis için mevcut toplam sermaye."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier on the full Kelly bet size (1 = full Kelly, 0.5 = half Kelly, etc.).",
       "label_i18n": {
         "en": "Kelly Fraction",
-        "tr": "Kelly Fraction",
+        "tr": "Kelly Kesri",
         "de": "Kelly Fraction",
         "fr": "Kelly Fraction",
         "es": "Kelly Fraction",
         "ar": "Kelly Fraction"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier on the full Kelly bet size (1 = full Kelly, 0.5 = half Kelly, etc.).",
+        "tr": "Tam Kelly bahis büyüklüğü üzerindeki çarpan (1 = tam Kelly, 0,5 = yarım Kelly, vb.)."
       }
     }
   ],

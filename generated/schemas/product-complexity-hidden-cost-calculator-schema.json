@@ -19,10 +19,12 @@
       "max": 100000,
       "businessContext": "Total distinct product variants offered.",
       "label_i18n": {
-        "en": "Number of SKUs"
+        "en": "Number of SKUs",
+        "tr": "SKU Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total distinct product variants offered."
+        "en": "Total distinct product variants offered.",
+        "tr": "Sunulan toplam farklı ürün çeşidi."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 10000000,
       "businessContext": "Average annual production quantity per SKU.",
       "label_i18n": {
-        "en": "Average Volume per SKU"
+        "en": "Average Volume per SKU",
+        "tr": "SKU Başına Ortalama Hacim"
       },
       "businessContext_i18n": {
-        "en": "Average annual production quantity per SKU."
+        "en": "Average annual production quantity per SKU.",
+        "tr": "SKU başına ortalama yıllık üretim miktarı."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 50000,
       "businessContext": "Total distinct raw materials or parts used across all SKUs.",
       "label_i18n": {
-        "en": "Number of Unique Components"
+        "en": "Number of Unique Components",
+        "tr": "Benzersiz Bileşen Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total distinct raw materials or parts used across all SKUs."
+        "en": "Total distinct raw materials or parts used across all SKUs.",
+        "tr": "Tüm SKU'larda kullanılan toplam farklı hammadde veya parça."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 20,
       "businessContext": "Average depth of the bill of materials (number of subassembly tiers).",
       "label_i18n": {
-        "en": "Average BOM Levels"
+        "en": "Average BOM Levels",
+        "tr": "Ortalama Ürün Ağacı Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Average depth of the bill of materials (number of subassembly tiers)."
+        "en": "Average depth of the bill of materials (number of subassembly tiers).",
+        "tr": "Ürün ağacının ortalama derinliği (alt montaj kademe sayısı)."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 480,
       "businessContext": "Average time to change a production line from one SKU to another.",
       "label_i18n": {
-        "en": "Average Setup Time per Changeover"
+        "en": "Average Setup Time per Changeover",
+        "tr": "Değişim Başına Ortalama Kurulum Süresi"
       },
       "businessContext_i18n": {
-        "en": "Average time to change a production line from one SKU to another."
+        "en": "Average time to change a production line from one SKU to another.",
+        "tr": "Bir üretim hattını bir SKU'dan diğerine değiştirmek için ortalama süre."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": 150,
       "businessContext": "Fully burdened hourly labor cost.",
       "label_i18n": {
-        "en": "Labor Rate"
+        "en": "Labor Rate",
+        "tr": "İşçilik ücreti"
       },
       "businessContext_i18n": {
-        "en": "Fully burdened hourly labor cost."
+        "en": "Fully burdened hourly labor cost.",
+        "tr": "Tam yüklü saatlik işçilik maliyeti."
       }
     },
     {
@@ -115,10 +127,12 @@
       "max": 500,
       "businessContext": "Manufacturing overhead as percentage of direct labor and material.",
       "label_i18n": {
-        "en": "Overhead Rate"
+        "en": "Overhead Rate",
+        "tr": "Genel gider oranı"
       },
       "businessContext_i18n": {
-        "en": "Manufacturing overhead as percentage of direct labor and material."
+        "en": "Manufacturing overhead as percentage of direct labor and material.",
+        "tr": "Direkt işçilik ve malzemenin yüzdesi olarak üretim genel gideri."
       }
     },
     {
@@ -136,10 +150,12 @@
         "mixed"
       ],
       "label_i18n": {
-        "en": "Complexity Type"
+        "en": "Complexity Type",
+        "tr": "Karmaşıklık Türü"
       },
       "businessContext_i18n": {
-        "en": "Category of complexity: 'product' (high SKU count), 'process' (high setup time), 'mixed' (both)."
+        "en": "Category of complexity: 'product' (high SKU count), 'process' (high setup time), 'mixed' (both).",
+        "tr": "Karmaşıklık kategorisi: 'ürün' (yüksek SKU sayısı), 'süreç' (yüksek kurulum süresi), 'karma' (her ikisi)."
       }
     }
   ],

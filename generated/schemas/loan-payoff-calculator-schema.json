@@ -10,11 +10,15 @@
       "businessContext": "The total principal amount of the loan.",
       "label_i18n": {
         "en": "Loan Amount",
-        "tr": "Loan Amount",
+        "tr": "Kredi Tutarı",
         "de": "Loan Amount",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The total principal amount of the loan.",
+        "tr": "Kredinin toplam anapara tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The nominal annual interest rate as a percentage.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The nominal annual interest rate as a percentage.",
+        "tr": "Yüzde olarak nominal yıllık faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The regular monthly payment amount.",
       "label_i18n": {
         "en": "Monthly Payment",
-        "tr": "Monthly Payment",
+        "tr": "Aylık Ödeme",
         "de": "Monthly Payment",
         "fr": "Monthly Payment",
         "es": "Monthly Payment",
         "ar": "Monthly Payment"
+      },
+      "businessContext_i18n": {
+        "en": "The regular monthly payment amount.",
+        "tr": "Düzenli aylık ödeme tutarı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional amount paid each month to accelerate payoff.",
       "label_i18n": {
         "en": "Extra Monthly Payment",
-        "tr": "Extra Monthly Payment",
+        "tr": "Ek Aylık Ödeme",
         "de": "Extra Monthly Payment",
         "fr": "Extra Monthly Payment",
         "es": "Extra Monthly Payment",
         "ar": "Extra Monthly Payment"
+      },
+      "businessContext_i18n": {
+        "en": "Additional amount paid each month to accelerate payoff.",
+        "tr": "Ödemeyi hızlandırmak için her ay ödenen ek tutar."
       }
     }
   ],

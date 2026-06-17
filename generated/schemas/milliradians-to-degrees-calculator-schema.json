@@ -10,11 +10,15 @@
       "businessContext": "Input angular measurement in milliradians.",
       "label_i18n": {
         "en": "Milliradians",
-        "tr": "Milliradians",
+        "tr": "Miliradyan",
         "de": "Milliradians",
         "fr": "Milliradians",
         "es": "Milliradians",
         "ar": "Milliradians"
+      },
+      "businessContext_i18n": {
+        "en": "Input angular measurement in milliradians.",
+        "tr": "Miliradyan cinsinden açısal ölçüm girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired number of decimal places for output (not applied in formula due to operation constraints, for display).",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Desired number of decimal places for output (not applied in formula due to operation constraints, for display).",
+        "tr": "Çıktı için istenen ondalık basamak sayısı (işlem kısıtlamaları nedeniyle formülde uygulanmaz, görüntüleme içindir)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Conversion factor from milliradians to degrees. Default: 180/(π×1000).",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from milliradians to degrees. Default: 180/(π×1000).",
+        "tr": "Miliradyandan dereceye dönüşüm faktörü. Varsayılan: 180/(π×1000)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Constant offset added to the converted angle (e.g., for calibration).",
       "label_i18n": {
         "en": "Angle Offset",
-        "tr": "Angle Offset",
+        "tr": "Açı Ofseti",
         "de": "Angle Offset",
         "fr": "Angle Offset",
         "es": "Angle Offset",
         "ar": "Angle Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Constant offset added to the converted angle (e.g., for calibration).",
+        "tr": "Dönüştürülen açıya eklenen sabit ofset (örneğin kalibrasyon için)."
       }
     }
   ],

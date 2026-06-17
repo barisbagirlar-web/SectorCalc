@@ -19,10 +19,12 @@
       "max": 100000,
       "businessContext": "Total floor area to be renovated, including all rooms and corridors.",
       "label_i18n": {
-        "en": "Total Renovation Area (sq ft)"
+        "en": "Total Renovation Area (sq ft)",
+        "tr": "Toplam Yenileme Alanı (ft²)"
       },
       "businessContext_i18n": {
-        "en": "Total floor area to be renovated, including all rooms and corridors."
+        "en": "Total floor area to be renovated, including all rooms and corridors.",
+        "tr": "Tüm odalar ve koridorlar dahil olmak üzere yenilenecek toplam taban alanı"
       }
     },
     {
@@ -40,10 +42,12 @@
       ],
       "businessContext": "Low: cosmetic only; Medium: structural and MEP changes; High: full gut renovation with new systems.",
       "label_i18n": {
-        "en": "Scope Complexity"
+        "en": "Scope Complexity",
+        "tr": "Kapsam Karmaşıklığı"
       },
       "businessContext_i18n": {
-        "en": "Low: cosmetic only; Medium: structural and MEP changes; High: full gut renovation with new systems."
+        "en": "Low: cosmetic only; Medium: structural and MEP changes; High: full gut renovation with new systems.",
+        "tr": "Düşük: sadece kozmetik; Orta: yapısal ve MEP değişiklikleri; Yüksek: yeni sistemlerle tamamen boşaltma yenilemesi"
       }
     },
     {
@@ -61,10 +65,12 @@
       ],
       "businessContext": "Economy: budget finishes; Standard: mid-range; Premium: high-end, sustainable materials.",
       "label_i18n": {
-        "en": "Material Quality Tier"
+        "en": "Material Quality Tier",
+        "tr": "Malzeme Kalite Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Economy: budget finishes; Standard: mid-range; Premium: high-end, sustainable materials."
+        "en": "Economy: budget finishes; Standard: mid-range; Premium: high-end, sustainable materials.",
+        "tr": "Ekonomi: bütçe kaplamaları; Standart: orta sınıf; Premium: yüksek kaliteli, sürdürülebilir malzemeler"
       }
     },
     {
@@ -77,10 +83,12 @@
       "max": 0.5,
       "businessContext": "Average labor hours per square foot based on historical data and crew productivity.",
       "label_i18n": {
-        "en": "Labor Efficiency Factor"
+        "en": "Labor Efficiency Factor",
+        "tr": "İşçilik Verimlilik Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Average labor hours per square foot based on historical data and crew productivity."
+        "en": "Average labor hours per square foot based on historical data and crew productivity.",
+        "tr": "Geçmiş verilere ve ekip verimliliğine dayalı olarak metrekare başına ortalama işçilik saati"
       }
     },
     {
@@ -93,10 +101,12 @@
       "max": 30,
       "businessContext": "Expected material waste percentage due to cutting, errors, and over-ordering.",
       "label_i18n": {
-        "en": "Waste Factor (%)"
+        "en": "Waste Factor (%)",
+        "tr": "Fire Faktörü (%)"
       },
       "businessContext_i18n": {
-        "en": "Expected material waste percentage due to cutting, errors, and over-ordering."
+        "en": "Expected material waste percentage due to cutting, errors, and over-ordering.",
+        "tr": "Kesim, hatalar ve fazla sipariş nedeniyle beklenen malzeme fire yüzdesi"
       }
     },
     {
@@ -109,10 +119,12 @@
       "max": 30,
       "businessContext": "Budget reserve for unforeseen issues (e.g., hidden damage, code upgrades).",
       "label_i18n": {
-        "en": "Contingency (%)"
+        "en": "Contingency (%)",
+        "tr": "Beklenmeyen Gider Payı (%)"
       },
       "businessContext_i18n": {
-        "en": "Budget reserve for unforeseen issues (e.g., hidden damage, code upgrades)."
+        "en": "Budget reserve for unforeseen issues (e.g., hidden damage, code upgrades).",
+        "tr": "Öngörülemeyen sorunlar (ör. gizli hasar, yönetmelik yükseltmeleri) için bütçe rezervi"
       }
     },
     {
@@ -125,10 +137,12 @@
       "max": 1.5,
       "businessContext": "Multiplier for local labor and material cost variations (1.0 = national average).",
       "label_i18n": {
-        "en": "Regional Cost Index"
+        "en": "Regional Cost Index",
+        "tr": "Bölgesel Maliyet Endeksi"
       },
       "businessContext_i18n": {
-        "en": "Multiplier for local labor and material cost variations (1.0 = national average)."
+        "en": "Multiplier for local labor and material cost variations (1.0 = national average).",
+        "tr": "Yerel işçilik ve malzeme maliyeti farklılıkları için çarpan (1,0 = ulusal ortalama)"
       }
     },
     {
@@ -147,10 +161,12 @@
       ],
       "businessContext": "If pursuing certification, additional costs for documentation, commissioning, and materials.",
       "label_i18n": {
-        "en": "Sustainability Target"
+        "en": "Sustainability Target",
+        "tr": "Sürdürülebilirlik Hedefi"
       },
       "businessContext_i18n": {
-        "en": "If pursuing certification, additional costs for documentation, commissioning, and materials."
+        "en": "If pursuing certification, additional costs for documentation, commissioning, and materials.",
+        "tr": "Sertifikasyon hedefleniyorsa, dokümantasyon, devreye alma ve malzemeler için ek maliyetler"
       }
     }
   ],

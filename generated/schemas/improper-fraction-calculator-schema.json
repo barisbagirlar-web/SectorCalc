@@ -10,11 +10,15 @@
       "businessContext": "The whole number part of the mixed fraction",
       "label_i18n": {
         "en": "Whole Number",
-        "tr": "Whole Number",
+        "tr": "Tam sayı",
         "de": "Whole Number",
         "fr": "Whole Number",
         "es": "Whole Number",
         "ar": "Whole Number"
+      },
+      "businessContext_i18n": {
+        "en": "The whole number part of the mixed fraction",
+        "tr": "Tam sayı kısmı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The numerator of the fractional part",
       "label_i18n": {
         "en": "Numerator",
-        "tr": "Numerator",
+        "tr": "Pay",
         "de": "Numerator",
         "fr": "Numerator",
         "es": "Numerator",
         "ar": "Numerator"
+      },
+      "businessContext_i18n": {
+        "en": "The numerator of the fractional part",
+        "tr": "Kesirli kısmın payı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The denominator of the fractional part",
       "label_i18n": {
         "en": "Denominator",
-        "tr": "Denominator",
+        "tr": "Payda",
         "de": "Denominator",
         "fr": "Denominator",
         "es": "Denominator",
         "ar": "Denominator"
+      },
+      "businessContext_i18n": {
+        "en": "The denominator of the fractional part",
+        "tr": "Kesirli kısmın paydası"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the decimal representation",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the decimal representation",
+        "tr": "Ondalık gösterim için basamak sayısı"
       }
     }
   ],

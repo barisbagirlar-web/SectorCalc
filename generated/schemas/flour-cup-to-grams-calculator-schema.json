@@ -10,11 +10,15 @@
       "businessContext": "Number of cups of flour to convert.",
       "label_i18n": {
         "en": "Cups of Flour",
-        "tr": "Cups of Flour",
+        "tr": "Un Bardak Sayısı",
         "de": "Cups of Flour",
         "fr": "Cups of Flour",
         "es": "Cups of Flour",
         "ar": "Cups of Flour"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cups of flour to convert.",
+        "tr": "Dönüştürülecek un miktarı (bardak cinsinden)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Baseline weight of 1 cup of flour (all-purpose: 125g, bread: 130g, cake: 115g).",
       "label_i18n": {
         "en": "Standard Grams per Cup",
-        "tr": "Standard Grams per Cup",
+        "tr": "Standart Gram/Bardak",
         "de": "Standard Grams per Cup",
         "fr": "Standard Grams per Cup",
         "es": "Standard Grams per Cup",
         "ar": "Standard Grams per Cup"
+      },
+      "businessContext_i18n": {
+        "en": "Baseline weight of 1 cup of flour (all-purpose: 125g, bread: 130g, cake: 115g).",
+        "tr": "1 bardak unun temel ağırlığı (çok amaçlı: 125g, ekmek: 130g, kek: 115g)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Adjustment for measuring method (sifted: 1.0, spooned: 1.1, scooped: 1.2).",
       "label_i18n": {
         "en": "Packing Density Factor",
-        "tr": "Packing Density Factor",
+        "tr": "Paketleme Yoğunluğu Faktörü",
         "de": "Packing Density Factor",
         "fr": "Packing Density Factor",
         "es": "Packing Density Factor",
         "ar": "Packing Density Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjustment for measuring method (sifted: 1.0, spooned: 1.1, scooped: 1.2).",
+        "tr": "Ölçüm yöntemine göre ayarlama (elenmiş: 1.0, kaşıkla alınmış: 1.1, kepçeyle alınmış: 1.2)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Adjusts for moisture content (normal: 1.0, humid: >1).",
       "label_i18n": {
         "en": "Humidity Factor",
-        "tr": "Humidity Factor",
+        "tr": "Nem Faktörü",
         "de": "Humidity Factor",
         "fr": "Humidity Factor",
         "es": "Humidity Factor",
         "ar": "Humidity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjusts for moisture content (normal: 1.0, humid: >1).",
+        "tr": "Nem içeriğine göre ayarlama (normal: 1.0, nemli: >1)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Correction if your scale is not perfectly calibrated (e.g., 1.05 means scale reads 5% high).",
       "label_i18n": {
         "en": "Scale Calibration Factor",
-        "tr": "Scale Calibration Factor",
+        "tr": "Terazi Kalibrasyon Faktörü",
         "de": "Scale Calibration Factor",
         "fr": "Scale Calibration Factor",
         "es": "Scale Calibration Factor",
         "ar": "Scale Calibration Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Correction if your scale is not perfectly calibrated (e.g., 1.05 means scale reads 5% high).",
+        "tr": "Teraziniz tam olarak kalibre edilmemişse düzeltme (örneğin, 1.05 terazinin %5 yüksek okuduğu anlamına gelir)."
       }
     }
   ],

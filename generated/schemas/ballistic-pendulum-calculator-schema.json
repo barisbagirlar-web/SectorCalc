@@ -10,11 +10,15 @@
       "businessContext": "Mass of the projectile (e.g., bullet) in kilograms",
       "label_i18n": {
         "en": "Projectile Mass (m)",
-        "tr": "Projectile Mass (m)",
+        "tr": "Mermi Kütlesi (m)",
         "de": "Projectile Mass (m)",
         "fr": "Projectile Mass (m)",
         "es": "Projectile Mass (m)",
         "ar": "Projectile Mass (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the projectile (e.g., bullet) in kilograms",
+        "tr": "Merminin kütlesi (örneğin kurşun) kilogram cinsinden"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass of the pendulum bob in kilograms",
       "label_i18n": {
         "en": "Pendulum Mass (M)",
-        "tr": "Pendulum Mass (M)",
+        "tr": "Sarkaç Kütlesi (M)",
         "de": "Pendulum Mass (M)",
         "fr": "Pendulum Mass (M)",
         "es": "Pendulum Mass (M)",
         "ar": "Pendulum Mass (M)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the pendulum bob in kilograms",
+        "tr": "Sarkaç topuzunun kütlesi kilogram cinsinden"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of the pendulum arm from pivot to center of mass in meters",
       "label_i18n": {
         "en": "Pendulum Length (L)",
-        "tr": "Pendulum Length (L)",
+        "tr": "Sarkaç Uzunluğu (L)",
         "de": "Pendulum Length (L)",
         "fr": "Pendulum Length (L)",
         "es": "Pendulum Length (L)",
         "ar": "Pendulum Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the pendulum arm from pivot to center of mass in meters",
+        "tr": "Sarkaç kolunun pivot noktasından kütle merkezine kadar olan uzunluğu metre cinsinden"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum angle of swing from the vertical, in degrees",
       "label_i18n": {
         "en": "Maximum Swing Angle (θ)",
-        "tr": "Maximum Swing Angle (θ)",
+        "tr": "Maksimum Salınım Açısı (θ)",
         "de": "Maximum Swing Angle (θ)",
         "fr": "Maximum Swing Angle (θ)",
         "es": "Maximum Swing Angle (θ)",
         "ar": "Maximum Swing Angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum angle of swing from the vertical, in degrees",
+        "tr": "Dikeyden itibaren maksimum salınım açısı, derece cinsinden"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Acceleration due to gravity, typically 9.81 m/s²",
       "label_i18n": {
         "en": "Gravity (g)",
-        "tr": "Gravity (g)",
+        "tr": "Yerçekimi (g)",
         "de": "Gravity (g)",
         "fr": "Gravity (g)",
         "es": "Gravity (g)",
         "ar": "Gravity (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity, typically 9.81 m/s²",
+        "tr": "Yerçekimi ivmesi, tipik olarak 9.81 m/s²"
       }
     }
   ],

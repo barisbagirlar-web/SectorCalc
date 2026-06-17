@@ -10,11 +10,15 @@
       "businessContext": "Weight of the object to be lifted.",
       "label_i18n": {
         "en": "Load Weight (kg)",
-        "tr": "Load Weight (kg)",
+        "tr": "Yük Ağırlığı (kg)",
         "de": "Load Weight (kg)",
         "fr": "Load Weight (kg)",
         "es": "Load Weight (kg)",
         "ar": "Load Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the object to be lifted.",
+        "tr": "Kaldırılacak nesnenin ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mechanical advantage from pulley or lever system.",
       "label_i18n": {
         "en": "Mechanical Advantage",
-        "tr": "Mechanical Advantage",
+        "tr": "Mekanik Avantaj",
         "de": "Mechanical Advantage",
         "fr": "Mechanical Advantage",
         "es": "Mechanical Advantage",
         "ar": "Mechanical Advantage"
+      },
+      "businessContext_i18n": {
+        "en": "Mechanical advantage from pulley or lever system.",
+        "tr": "Makara veya kaldıraç sisteminden kaynaklanan mekanik avantaj."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Friction in the system (0-1).",
       "label_i18n": {
         "en": "Friction Coefficient",
-        "tr": "Friction Coefficient",
+        "tr": "Sürtünme Katsayısı",
         "de": "Friction Coefficient",
         "fr": "Friction Coefficient",
         "es": "Friction Coefficient",
         "ar": "Friction Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Friction in the system (0-1).",
+        "tr": "Sistemdeki sürtünme (0-1)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Angle at which the force is applied relative to vertical.",
       "label_i18n": {
         "en": "Pull Angle from Vertical",
-        "tr": "Pull Angle from Vertical",
+        "tr": "Dikeyden Çekme Açısı",
         "de": "Pull Angle from Vertical",
         "fr": "Pull Angle from Vertical",
         "es": "Pull Angle from Vertical",
         "ar": "Pull Angle from Vertical"
+      },
+      "businessContext_i18n": {
+        "en": "Angle at which the force is applied relative to vertical.",
+        "tr": "Kuvvetin dikeye göre uygulandığı açı."
       }
     }
   ],

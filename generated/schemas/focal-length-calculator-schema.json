@@ -10,11 +10,15 @@
       "businessContext": "Refractive index of the lens material (e.g., 1.5 for typical glass)",
       "label_i18n": {
         "en": "Refractive Index (n)",
-        "tr": "Refractive Index (n)",
+        "tr": "Kırılma İndisi (n)",
         "de": "Refractive Index (n)",
         "fr": "Refractive Index (n)",
         "es": "Refractive Index (n)",
         "ar": "Refractive Index (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Refractive index of the lens material (e.g., 1.5 for typical glass)",
+        "tr": "Lens malzemesinin kırılma indisi (örneğin, tipik cam için 1.5)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Radius of curvature of the first lens surface; positive if center of curvature is to the right",
       "label_i18n": {
         "en": "Radius of Curvature 1 (R1)",
-        "tr": "Radius of Curvature 1 (R1)",
+        "tr": "Eğrilik Yarıçapı 1 (R1)",
         "de": "Radius of Curvature 1 (R1)",
         "fr": "Radius of Curvature 1 (R1)",
         "es": "Radius of Curvature 1 (R1)",
         "ar": "Radius of Curvature 1 (R1)"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of curvature of the first lens surface; positive if center of curvature is to the right",
+        "tr": "Birinci lens yüzeyinin eğrilik yarıçapı; eğrilik merkezi sağdaysa pozitif"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Radius of curvature of the second lens surface; positive if center of curvature is to the right",
       "label_i18n": {
         "en": "Radius of Curvature 2 (R2)",
-        "tr": "Radius of Curvature 2 (R2)",
+        "tr": "Eğrilik Yarıçapı 2 (R2)",
         "de": "Radius of Curvature 2 (R2)",
         "fr": "Radius of Curvature 2 (R2)",
         "es": "Radius of Curvature 2 (R2)",
         "ar": "Radius of Curvature 2 (R2)"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of curvature of the second lens surface; positive if center of curvature is to the right",
+        "tr": "İkinci lens yüzeyinin eğrilik yarıçapı; eğrilik merkezi sağdaysa pozitif"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Thickness of the lens at its optical center",
       "label_i18n": {
         "en": "Center Thickness (d)",
-        "tr": "Center Thickness (d)",
+        "tr": "Merkez Kalınlığı (d)",
         "de": "Center Thickness (d)",
         "fr": "Center Thickness (d)",
         "es": "Center Thickness (d)",
         "ar": "Center Thickness (d)"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the lens at its optical center",
+        "tr": "Lensin optik merkezindeki kalınlığı"
       }
     }
   ],

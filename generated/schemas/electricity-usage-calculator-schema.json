@@ -10,11 +10,15 @@
       "businessContext": "Average power consumption of the device or system in kilowatts.",
       "label_i18n": {
         "en": "Power Consumption",
-        "tr": "Power Consumption",
+        "tr": "Güç Tüketimi",
         "de": "Power Consumption",
         "fr": "Power Consumption",
         "es": "Power Consumption",
         "ar": "Power Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Average power consumption of the device or system in kilowatts.",
+        "tr": "Cihazın veya sistemin kilovat cinsinden ortalama güç tüketimi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of hours the device is used per day, on average.",
       "label_i18n": {
         "en": "Usage per Day",
-        "tr": "Usage per Day",
+        "tr": "Günlük Kullanım",
         "de": "Usage per Day",
         "fr": "Usage per Day",
         "es": "Usage per Day",
         "ar": "Usage per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of hours the device is used per day, on average.",
+        "tr": "Cihazın günde ortalama kullanıldığı saat sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of days per month the device is operated.",
       "label_i18n": {
         "en": "Days per Month",
-        "tr": "Days per Month",
+        "tr": "Aylık Gün Sayısı",
         "de": "Days per Month",
         "fr": "Days per Month",
         "es": "Days per Month",
         "ar": "Days per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days per month the device is operated.",
+        "tr": "Cihazın ayda çalıştırıldığı gün sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical devices operating under the same conditions.",
       "label_i18n": {
         "en": "Number of Devices",
-        "tr": "Number of Devices",
+        "tr": "Cihaz Sayısı",
         "de": "Number of Devices",
         "fr": "Number of Devices",
         "es": "Number of Devices",
         "ar": "Number of Devices"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical devices operating under the same conditions.",
+        "tr": "Aynı koşullar altında çalışan özdeş cihaz sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Electricity tariff rate per kilowatt-hour (in the local currency).",
       "label_i18n": {
         "en": "Cost per kWh",
-        "tr": "Cost per kWh",
+        "tr": "kWh Başına Maliyet",
         "de": "Cost per kWh",
         "fr": "Cost per kWh",
         "es": "Cost per kWh",
         "ar": "Cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Electricity tariff rate per kilowatt-hour (in the local currency).",
+        "tr": "Kilovat-saat başına elektrik tarifesi (yerel para birimi cinsinden)."
       }
     }
   ],

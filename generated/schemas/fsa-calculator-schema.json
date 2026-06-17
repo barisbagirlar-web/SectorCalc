@@ -10,11 +10,15 @@
       "businessContext": "Average fuel consumption per 100 km under typical load conditions.",
       "label_i18n": {
         "en": "Current Fuel Consumption",
-        "tr": "Current Fuel Consumption",
+        "tr": "Mevcut Yakıt Tüketimi",
         "de": "Current Fuel Consumption",
         "fr": "Current Fuel Consumption",
         "es": "Current Fuel Consumption",
         "ar": "Current Fuel Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Average fuel consumption per 100 km under typical load conditions.",
+        "tr": "Tipik yük koşullarında 100 km başına ortalama yakıt tüketimi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total kilometers traveled by the vehicle per year.",
       "label_i18n": {
         "en": "Annual Distance Traveled",
-        "tr": "Annual Distance Traveled",
+        "tr": "Yıllık Kat Edilen Mesafe",
         "de": "Annual Distance Traveled",
         "fr": "Annual Distance Traveled",
         "es": "Annual Distance Traveled",
         "ar": "Annual Distance Traveled"
+      },
+      "businessContext_i18n": {
+        "en": "Total kilometers traveled by the vehicle per year.",
+        "tr": "Aracın yılda kat ettiği toplam kilometre."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Unit price of fuel (e.g., diesel, gasoline).",
       "label_i18n": {
         "en": "Fuel Price",
-        "tr": "Fuel Price",
+        "tr": "Yakıt Fiyatı",
         "de": "Fuel Price",
         "fr": "Fuel Price",
         "es": "Fuel Price",
         "ar": "Fuel Price"
+      },
+      "businessContext_i18n": {
+        "en": "Unit price of fuel (e.g., diesel, gasoline).",
+        "tr": "Yakıt birim fiyatı (ör. dizel, benzin)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected percentage reduction in fuel consumption due to improvements.",
       "label_i18n": {
         "en": "Efficiency Improvement",
-        "tr": "Efficiency Improvement",
+        "tr": "Verimlilik İyileştirmesi",
         "de": "Efficiency Improvement",
         "fr": "Efficiency Improvement",
         "es": "Efficiency Improvement",
         "ar": "Efficiency Improvement"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage reduction in fuel consumption due to improvements.",
+        "tr": "İyileştirmeler nedeniyle beklenen yakıt tüketimi yüzde azalması."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average engine load as a percentage, adjusting real-world consumption.",
       "label_i18n": {
         "en": "Engine Load Factor",
-        "tr": "Engine Load Factor",
+        "tr": "Motor Yük Faktörü",
         "de": "Engine Load Factor",
         "fr": "Engine Load Factor",
         "es": "Engine Load Factor",
         "ar": "Engine Load Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Average engine load as a percentage, adjusting real-world consumption.",
+        "tr": "Gerçek dünya tüketimini ayarlayan ortalama motor yükü yüzdesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of years over which savings accumulate.",
       "label_i18n": {
         "en": "Operating Years",
-        "tr": "Operating Years",
+        "tr": "Çalışma Yılları",
         "de": "Operating Years",
         "fr": "Operating Years",
         "es": "Operating Years",
         "ar": "Operating Years"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years over which savings accumulate.",
+        "tr": "Tasarrufların biriktiği yıl sayısı."
       }
     }
   ],

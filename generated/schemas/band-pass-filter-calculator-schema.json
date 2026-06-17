@@ -10,11 +10,15 @@
       "businessContext": "The central frequency of the passband, critical for tuning to desired signal in RF and audio applications.",
       "label_i18n": {
         "en": "Center Frequency",
-        "tr": "Center Frequency",
+        "tr": "Merkez Frekansı",
         "de": "Center Frequency",
         "fr": "Center Frequency",
         "es": "Center Frequency",
         "ar": "Center Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "The central frequency of the passband, critical for tuning to desired signal in RF and audio applications.",
+        "tr": "Geçiş bandının merkez frekansı; RF ve ses uygulamalarında istenen sinyale ayarlama için kritiktir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of frequency range where signal passes with minimal attenuation; determines filter selectivity.",
       "label_i18n": {
         "en": "Bandwidth",
-        "tr": "Bandwidth",
+        "tr": "Bant Genişliği",
         "de": "Bandwidth",
         "fr": "Bandwidth",
         "es": "Bandwidth",
         "ar": "Bandwidth"
+      },
+      "businessContext_i18n": {
+        "en": "Width of frequency range where signal passes with minimal attenuation; determines filter selectivity.",
+        "tr": "Sinyalin minimum zayıflama ile geçtiği frekans aralığının genişliği; filtre seçiciliğini belirler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Amplification in decibels within the passband; 0 dB means unity gain.",
       "label_i18n": {
         "en": "Passband Gain",
-        "tr": "Passband Gain",
+        "tr": "Geçiş Bandı Kazancı",
         "de": "Passband Gain",
         "fr": "Passband Gain",
         "es": "Passband Gain",
         "ar": "Passband Gain"
+      },
+      "businessContext_i18n": {
+        "en": "Amplification in decibels within the passband; 0 dB means unity gain.",
+        "tr": "Geçiş bandı içinde desibel cinsinden amplifikasyon; 0 dB birim kazanç anlamına gelir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The order of the filter, influencing the roll-off rate and complexity; not used in basic calculation but provided for context.",
       "label_i18n": {
         "en": "Filter Order",
-        "tr": "Filter Order",
+        "tr": "Filtre Derecesi",
         "de": "Filter Order",
         "fr": "Filter Order",
         "es": "Filter Order",
         "ar": "Filter Order"
+      },
+      "businessContext_i18n": {
+        "en": "The order of the filter, influencing the roll-off rate and complexity; not used in basic calculation but provided for context.",
+        "tr": "Filtrenin derecesi, roll-off hızını ve karmaşıklığını etkiler; temel hesaplamada kullanılmaz ancak bağlam için sağlanmıştır."
       }
     }
   ],

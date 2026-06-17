@@ -15,6 +15,10 @@
         "fr": "ASCII Karakter Sayısı (1 bayt)",
         "es": "ASCII Karakter Sayısı (1 bayt)",
         "ar": "ASCII Karakter Sayısı (1 bayt)"
+      },
+      "businessContext_i18n": {
+        "en": "1 bayt ile kodlanan karakterler (U+0000–U+007F)",
+        "tr": "1 bayt ile kodlanan karakterler (U+0000–U+007F)"
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "2 Baytlık Karakter Sayısı",
         "es": "2 Baytlık Karakter Sayısı",
         "ar": "2 Baytlık Karakter Sayısı"
+      },
+      "businessContext_i18n": {
+        "en": "2 bayt ile kodlanan karakterler (U+0080–U+07FF)",
+        "tr": "2 bayt ile kodlanan karakterler (U+0080–U+07FF)"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "3 Baytlık Karakter Sayısı",
         "es": "3 Baytlık Karakter Sayısı",
         "ar": "3 Baytlık Karakter Sayısı"
+      },
+      "businessContext_i18n": {
+        "en": "3 bayt ile kodlanan karakterler (U+0800–U+FFFF)",
+        "tr": "3 bayt ile kodlanan karakterler (U+0800–U+FFFF)"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "4 Baytlık Karakter Sayısı",
         "es": "4 Baytlık Karakter Sayısı",
         "ar": "4 Baytlık Karakter Sayısı"
+      },
+      "businessContext_i18n": {
+        "en": "4 bayt ile kodlanan karakterler (U+10000–U+10FFFF)",
+        "tr": "4 bayt ile kodlanan karakterler (U+10000–U+10FFFF)"
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "BOM Dahil mi? (0=Hayır, 1=Evet)",
         "es": "BOM Dahil mi? (0=Hayır, 1=Evet)",
         "ar": "BOM Dahil mi? (0=Hayır, 1=Evet)"
+      },
+      "businessContext_i18n": {
+        "en": "UTF-8 BOM (EF BB BF) 3 bayt ekler",
+        "tr": "UTF-8 BOM (EF BB BF) 3 bayt ekler"
       }
     }
   ],

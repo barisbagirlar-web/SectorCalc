@@ -10,11 +10,15 @@
       "businessContext": "Vertical height of the retaining wall from base to top.",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical height of the retaining wall from base to top.",
+        "tr": "İstinat duvarının tabandan tepeye dikey yüksekliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Unit weight of the backfill soil.",
       "label_i18n": {
         "en": "Soil Unit Weight",
-        "tr": "Soil Unit Weight",
+        "tr": "Zemin Birim Hacim Ağırlığı",
         "de": "Soil Unit Weight",
         "fr": "Soil Unit Weight",
         "es": "Soil Unit Weight",
         "ar": "Soil Unit Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Unit weight of the backfill soil.",
+        "tr": "Dolgu zeminin birim hacim ağırlığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Internal friction angle of the soil.",
       "label_i18n": {
         "en": "Friction Angle",
-        "tr": "Friction Angle",
+        "tr": "Sürtünme Açısı",
         "de": "Friction Angle",
         "fr": "Friction Angle",
         "es": "Friction Angle",
         "ar": "Friction Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Internal friction angle of the soil.",
+        "tr": "Zeminin içsel sürtünme açısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cohesion of the soil. Enter 0 for granular soils.",
       "label_i18n": {
         "en": "Cohesion",
-        "tr": "Cohesion",
+        "tr": "Kohezyon",
         "de": "Cohesion",
         "fr": "Cohesion",
         "es": "Cohesion",
         "ar": "Cohesion"
+      },
+      "businessContext_i18n": {
+        "en": "Cohesion of the soil. Enter 0 for granular soils.",
+        "tr": "Zeminin kohezyonu. Granüler zeminler için 0 girin."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Uniform surcharge load applied on the backfill surface.",
       "label_i18n": {
         "en": "Surcharge Load",
-        "tr": "Surcharge Load",
+        "tr": "Sürşarj Yükü",
         "de": "Surcharge Load",
         "fr": "Surcharge Load",
         "es": "Surcharge Load",
         "ar": "Surcharge Load"
+      },
+      "businessContext_i18n": {
+        "en": "Uniform surcharge load applied on the backfill surface.",
+        "tr": "Dolgu yüzeyine uygulanan düzgün yayılı sürşarj yükü."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Your target net annual income after taxes and expenses.",
       "label_i18n": {
         "en": "Desired Annual Income",
-        "tr": "Desired Annual Income",
+        "tr": "Hedef Yıllık Gelir",
         "de": "Desired Annual Income",
         "fr": "Desired Annual Income",
         "es": "Desired Annual Income",
         "ar": "Desired Annual Income"
+      },
+      "businessContext_i18n": {
+        "en": "Your target net annual income after taxes and expenses.",
+        "tr": "Vergi ve giderler sonrası hedef net yıllık geliriniz."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total yearly business expenses (software, office, insurance, etc.).",
       "label_i18n": {
         "en": "Annual Overhead Costs",
-        "tr": "Annual Overhead Costs",
+        "tr": "Yıllık Genel Giderler",
         "de": "Annual Overhead Costs",
         "fr": "Annual Overhead Costs",
         "es": "Annual Overhead Costs",
         "ar": "Annual Overhead Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Total yearly business expenses (software, office, insurance, etc.).",
+        "tr": "Yıllık toplam işletme giderleri (yazılım, ofis, sigorta vb.)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected number of hours you can invoice clients annually, excluding non-billable time.",
       "label_i18n": {
         "en": "Billable Hours per Year",
-        "tr": "Billable Hours per Year",
+        "tr": "Yıllık Faturalanabilir Saatler",
         "de": "Billable Hours per Year",
         "fr": "Billable Hours per Year",
         "es": "Billable Hours per Year",
         "ar": "Billable Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Expected number of hours you can invoice clients annually, excluding non-billable time.",
+        "tr": "Müşterilere yıllık olarak faturalayabileceğiniz beklenen saat sayısı, faturalanmayan zaman hariç."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional percentage added to cover business growth, reinvestment, and buffer.",
       "label_i18n": {
         "en": "Profit Margin",
-        "tr": "Profit Margin",
+        "tr": "Kâr Marjı",
         "de": "Profit Margin",
         "fr": "Profit Margin",
         "es": "Profit Margin",
         "ar": "Profit Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage added to cover business growth, reinvestment, and buffer.",
+        "tr": "İş büyümesi, yeniden yatırım ve tampon için eklenen ek yüzde."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Estimated percentage of income paid as taxes, used to gross-up the target income.",
       "label_i18n": {
         "en": "Effective Tax Rate",
-        "tr": "Effective Tax Rate",
+        "tr": "Efektif Vergi Oranı",
         "de": "Effective Tax Rate",
         "fr": "Effective Tax Rate",
         "es": "Effective Tax Rate",
         "ar": "Effective Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of income paid as taxes, used to gross-up the target income.",
+        "tr": "Gelirin vergi olarak ödenen tahmini yüzdesi, hedef geliri brütleştirmek için kullanılır."
       }
     }
   ],

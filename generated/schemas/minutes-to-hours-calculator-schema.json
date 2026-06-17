@@ -10,11 +10,15 @@
       "businessContext": "Total duration in minutes to convert to hours",
       "label_i18n": {
         "en": "Minutes",
-        "tr": "Minutes",
+        "tr": "Dakika",
         "de": "Minutes",
         "fr": "Minutes",
         "es": "Minutes",
         "ar": "Minutes"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration in minutes to convert to hours",
+        "tr": "Saate çevrilecek toplam süre (dakika cinsinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for the primary decimal hour output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the primary decimal hour output",
+        "tr": "Birincil ondalık saat çıktısı için ondalık basamak sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Indicates if output should be decimal hours (0) or hours and minutes (1)",
       "label_i18n": {
         "en": "Output Format (0=Decimal, 1=HH:MM)",
-        "tr": "Output Format (0=Decimal, 1=HH:MM)",
+        "tr": "Çıktı Formatı (0=Ondalık, 1=SS:DD)",
         "de": "Output Format (0=Decimal, 1=HH:MM)",
         "fr": "Output Format (0=Decimal, 1=HH:MM)",
         "es": "Output Format (0=Decimal, 1=HH:MM)",
         "ar": "Output Format (0=Decimal, 1=HH:MM)"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if output should be decimal hours (0) or hours and minutes (1)",
+        "tr": "Çıktının ondalık saat (0) veya saat ve dakika (1) olması gerektiğini belirtir"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rounding method applied to the decimal hour output",
       "label_i18n": {
         "en": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
-        "tr": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "tr": "Yuvarlama Modu (0=Yuvarla, 1=Taban, 2=Tavan)",
         "de": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
         "fr": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
         "es": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
         "ar": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)"
+      },
+      "businessContext_i18n": {
+        "en": "Rounding method applied to the decimal hour output",
+        "tr": "Ondalık saat çıktısına uygulanan yuvarlama yöntemi"
       }
     }
   ],

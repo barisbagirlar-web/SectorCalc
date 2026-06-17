@@ -10,11 +10,15 @@
       "businessContext": "Measured pressure in pounds per square inch",
       "label_i18n": {
         "en": "Pressure (psi)",
-        "tr": "Pressure (psi)",
+        "tr": "Basınç (psi)",
         "de": "Pressure (psi)",
         "fr": "Pressure (psi)",
         "es": "Pressure (psi)",
         "ar": "Pressure (psi)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured pressure in pounds per square inch",
+        "tr": "Pound bölü inçkare cinsinden ölçülen basınç"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor from psi to atm; standard value based on 1 atm = 14.695948775 psi",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from psi to atm; standard value based on 1 atm = 14.695948775 psi",
+        "tr": "psi'den atm'ye dönüşüm faktörü; 1 atm = 14.695948775 psi standart değerine dayanır"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Systematic offset to correct zero error in measurement",
       "label_i18n": {
         "en": "Zero Offset",
-        "tr": "Zero Offset",
+        "tr": "Sıfır Ofseti",
         "de": "Zero Offset",
         "fr": "Zero Offset",
         "es": "Zero Offset",
         "ar": "Zero Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Systematic offset to correct zero error in measurement",
+        "tr": "Ölçümdeki sıfır hatasını düzeltmek için sistematik ofset"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounding the final result",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the final result",
+        "tr": "Nihai sonucu yuvarlamak için ondalık basamak sayısı"
       }
     }
   ],

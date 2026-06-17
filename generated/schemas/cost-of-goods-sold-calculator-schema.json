@@ -10,11 +10,15 @@
       "businessContext": "Value of inventory at the start of the accounting period",
       "label_i18n": {
         "en": "Beginning Inventory",
-        "tr": "Beginning Inventory",
+        "tr": "Başlangıç Envanteri",
         "de": "Beginning Inventory",
         "fr": "Beginning Inventory",
         "es": "Beginning Inventory",
         "ar": "Beginning Inventory"
+      },
+      "businessContext_i18n": {
+        "en": "Value of inventory at the start of the accounting period",
+        "tr": "Muhasebe dönemi başında envanterin değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost of direct materials purchased during the period",
       "label_i18n": {
         "en": "Material Purchases",
-        "tr": "Material Purchases",
+        "tr": "Malzeme Alımları",
         "de": "Material Purchases",
         "fr": "Material Purchases",
         "es": "Material Purchases",
         "ar": "Material Purchases"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of direct materials purchased during the period",
+        "tr": "Dönem içinde satın alınan doğrudan malzemelerin maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of labor directly involved in production",
       "label_i18n": {
         "en": "Direct Labor",
-        "tr": "Direct Labor",
+        "tr": "Doğrudan İşçilik",
         "de": "Direct Labor",
         "fr": "Direct Labor",
         "es": "Direct Labor",
         "ar": "Direct Labor"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of labor directly involved in production",
+        "tr": "Üretimde doğrudan yer alan işçilik maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Indirect production costs such as utilities, rent, and depreciation",
       "label_i18n": {
         "en": "Manufacturing Overhead",
-        "tr": "Manufacturing Overhead",
+        "tr": "Üretim Genel Gideri",
         "de": "Manufacturing Overhead",
         "fr": "Manufacturing Overhead",
         "es": "Manufacturing Overhead",
         "ar": "Manufacturing Overhead"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect production costs such as utilities, rent, and depreciation",
+        "tr": "Elektrik, kira ve amortisman gibi dolaylı üretim maliyetleri"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Value of inventory at the end of the accounting period",
       "label_i18n": {
         "en": "Ending Inventory",
-        "tr": "Ending Inventory",
+        "tr": "Bitiş Envanteri",
         "de": "Ending Inventory",
         "fr": "Ending Inventory",
         "es": "Ending Inventory",
         "ar": "Ending Inventory"
+      },
+      "businessContext_i18n": {
+        "en": "Value of inventory at the end of the accounting period",
+        "tr": "Muhasebe dönemi sonunda envanterin değeri"
       }
     }
   ],

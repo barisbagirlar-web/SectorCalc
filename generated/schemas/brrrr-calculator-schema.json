@@ -10,11 +10,15 @@
       "businessContext": "The acquisition cost of the property before any rehabilitation.",
       "label_i18n": {
         "en": "Purchase Price",
-        "tr": "Purchase Price",
+        "tr": "Satın Alma Fiyatı",
         "de": "Purchase Price",
         "fr": "Purchase Price",
         "es": "Purchase Price",
         "ar": "Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "The acquisition cost of the property before any rehabilitation.",
+        "tr": "Herhangi bir rehabilitasyon öncesi mülkün edinme maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total budget for renovating the property to increase its value and rentability.",
       "label_i18n": {
         "en": "Rehab Cost",
-        "tr": "Rehab Cost",
+        "tr": "Rehab Maliyeti",
         "de": "Rehab Cost",
         "fr": "Rehab Cost",
         "es": "Rehab Cost",
         "ar": "Rehab Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total budget for renovating the property to increase its value and rentability.",
+        "tr": "Mülkün değerini ve kiralanabilirliğini artırmak için yenileme bütçesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Estimated market value of the property after rehabilitation is complete.",
       "label_i18n": {
         "en": "After Repair Value (ARV)",
-        "tr": "After Repair Value (ARV)",
+        "tr": "Onarım Sonrası Değer (OSD)",
         "de": "After Repair Value (ARV)",
         "fr": "After Repair Value (ARV)",
         "es": "After Repair Value (ARV)",
         "ar": "After Repair Value (ARV)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated market value of the property after rehabilitation is complete.",
+        "tr": "Rehabilitasyon tamamlandıktan sonra mülkün tahmini piyasa değeri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Gross monthly rental income expected from the property after rehab.",
       "label_i18n": {
         "en": "Monthly Rent",
-        "tr": "Monthly Rent",
+        "tr": "Aylık Kira",
         "de": "Monthly Rent",
         "fr": "Monthly Rent",
         "es": "Monthly Rent",
         "ar": "Monthly Rent"
+      },
+      "businessContext_i18n": {
+        "en": "Gross monthly rental income expected from the property after rehab.",
+        "tr": "Rehabilitasyon sonrası mülkten beklenen brüt aylık kira geliri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of purchase price paid upfront as down payment.",
       "label_i18n": {
         "en": "Down Payment (%)",
-        "tr": "Down Payment (%)",
+        "tr": "Peşinat (%)",
         "de": "Down Payment (%)",
         "fr": "Down Payment (%)",
         "es": "Down Payment (%)",
         "ar": "Down Payment (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of purchase price paid upfront as down payment.",
+        "tr": "Peşinat olarak ödenen satın alma fiyatı yüzdesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual interest rate on the mortgage used for purchase.",
       "label_i18n": {
         "en": "Interest Rate (%)",
-        "tr": "Interest Rate (%)",
+        "tr": "Faiz Oranı (%)",
         "de": "Interest Rate (%)",
         "fr": "Interest Rate (%)",
         "es": "Interest Rate (%)",
         "ar": "Interest Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate on the mortgage used for purchase.",
+        "tr": "Satın alma için kullanılan ipotek üzerindeki yıllık faiz oranı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Duration of the mortgage loan in years.",
       "label_i18n": {
         "en": "Loan Term (Years)",
-        "tr": "Loan Term (Years)",
+        "tr": "Kredi Vadesi (Yıl)",
         "de": "Loan Term (Years)",
         "fr": "Loan Term (Years)",
         "es": "Loan Term (Years)",
         "ar": "Loan Term (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the mortgage loan in years.",
+        "tr": "İpotek kredisinin yıl cinsinden süresi."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Total monthly operating expenses including taxes, insurance, management, maintenance, and vacancy allowance.",
       "label_i18n": {
         "en": "Monthly Expenses",
-        "tr": "Monthly Expenses",
+        "tr": "Aylık Giderler",
         "de": "Monthly Expenses",
         "fr": "Monthly Expenses",
         "es": "Monthly Expenses",
         "ar": "Monthly Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Total monthly operating expenses including taxes, insurance, management, maintenance, and vacancy allowance.",
+        "tr": "Vergiler, sigorta, yönetim, bakım ve boşluk payı dahil toplam aylık işletme giderleri."
       }
     }
   ],

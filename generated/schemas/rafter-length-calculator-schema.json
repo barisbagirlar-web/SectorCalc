@@ -10,11 +10,15 @@
       "businessContext": "Total width of the building from outer wall to outer wall (center to center of wall plates)",
       "label_i18n": {
         "en": "Building Width",
-        "tr": "Building Width",
+        "tr": "Bina Genişliği",
         "de": "Building Width",
         "fr": "Building Width",
         "es": "Building Width",
         "ar": "Building Width"
+      },
+      "businessContext_i18n": {
+        "en": "Total width of the building from outer wall to outer wall (center to center of wall plates)",
+        "tr": "Binanın dış duvardan dış duvara toplam genişliği (duvar levhalarının merkezleri arası)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Thickness of the ridge board at the apex",
       "label_i18n": {
         "en": "Ridge Board Thickness",
-        "tr": "Ridge Board Thickness",
+        "tr": "Mahya Levhası Kalınlığı",
         "de": "Ridge Board Thickness",
         "fr": "Ridge Board Thickness",
         "es": "Ridge Board Thickness",
         "ar": "Ridge Board Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the ridge board at the apex",
+        "tr": "Tepedeki mahya levhasının kalınlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Horizontal projection of the rafter tail beyond the outer wall",
       "label_i18n": {
         "en": "Eaves Overhang",
-        "tr": "Eaves Overhang",
+        "tr": "Saçak Çıkıntısı",
         "de": "Eaves Overhang",
         "fr": "Eaves Overhang",
         "es": "Eaves Overhang",
         "ar": "Eaves Overhang"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal projection of the rafter tail beyond the outer wall",
+        "tr": "Mertek kuyruğunun dış duvarın ötesindeki yatay izdüşümü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Angle of the roof slope from horizontal, in degrees",
       "label_i18n": {
         "en": "Roof Pitch Angle",
-        "tr": "Roof Pitch Angle",
+        "tr": "Çatı Eğim Açısı",
         "de": "Roof Pitch Angle",
         "fr": "Roof Pitch Angle",
         "es": "Roof Pitch Angle",
         "ar": "Roof Pitch Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of the roof slope from horizontal, in degrees",
+        "tr": "Çatı eğiminin yatayla yaptığı açı (derece cinsinden)"
       }
     }
   ],

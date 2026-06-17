@@ -10,11 +10,15 @@
       "businessContext": "Total volume of the cube or material.",
       "label_i18n": {
         "en": "Volume",
-        "tr": "Volume",
+        "tr": "Hacim",
         "de": "Volume",
         "fr": "Volume",
         "es": "Volume",
         "ar": "Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of the cube or material.",
+        "tr": "Küpün veya malzemenin toplam hacmi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Manufacturing tolerance for rounding the side length.",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturing tolerance for rounding the side length.",
+        "tr": "Kenar uzunluğunu yuvarlamak için üretim toleransı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Extra material allowance to add to side.",
       "label_i18n": {
         "en": "Oversize Allowance",
-        "tr": "Oversize Allowance",
+        "tr": "Büyük Boy Payı",
         "de": "Oversize Allowance",
         "fr": "Oversize Allowance",
         "es": "Oversize Allowance",
         "ar": "Oversize Allowance"
+      },
+      "businessContext_i18n": {
+        "en": "Extra material allowance to add to side.",
+        "tr": "Kenara eklenecek ekstra malzeme payı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Instrument calibration offset to apply.",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Instrument calibration offset to apply.",
+        "tr": "Uygulanacak enstrüman kalibrasyon ofseti."
       }
     }
   ],

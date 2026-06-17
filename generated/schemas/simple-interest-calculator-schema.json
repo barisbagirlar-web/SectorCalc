@@ -10,11 +10,15 @@
       "businessContext": "The initial amount of money invested or borrowed",
       "label_i18n": {
         "en": "Principal",
-        "tr": "Principal",
+        "tr": "Anapara",
         "de": "Principal",
         "fr": "Principal",
         "es": "Principal",
         "ar": "Principal"
+      },
+      "businessContext_i18n": {
+        "en": "The initial amount of money invested or borrowed",
+        "tr": "Yatırılan veya borç alınan ilk para miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The annual interest rate as a percentage",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The annual interest rate as a percentage",
+        "tr": "Yıllık faiz oranı yüzde olarak"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The starting year for the interest calculation",
       "label_i18n": {
         "en": "Start Year",
-        "tr": "Start Year",
+        "tr": "Başlangıç Yılı",
         "de": "Start Year",
         "fr": "Start Year",
         "es": "Start Year",
         "ar": "Start Year"
+      },
+      "businessContext_i18n": {
+        "en": "The starting year for the interest calculation",
+        "tr": "Faiz hesaplamasının başlangıç yılı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The ending year for the interest calculation",
       "label_i18n": {
         "en": "End Year",
-        "tr": "End Year",
+        "tr": "Bitiş Yılı",
         "de": "End Year",
         "fr": "End Year",
         "es": "End Year",
         "ar": "End Year"
+      },
+      "businessContext_i18n": {
+        "en": "The ending year for the interest calculation",
+        "tr": "Faiz hesaplamasının bitiş yılı"
       }
     }
   ],

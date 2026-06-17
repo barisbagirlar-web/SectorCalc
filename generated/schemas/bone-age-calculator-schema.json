@@ -10,11 +10,15 @@
       "businessContext": "Patient's chronological age in years",
       "label_i18n": {
         "en": "Chronological Age (years)",
-        "tr": "Chronological Age (years)",
+        "tr": "Kronolojik Yaş (yıl)",
         "de": "Chronological Age (years)",
         "fr": "Chronological Age (years)",
         "es": "Chronological Age (years)",
         "ar": "Chronological Age (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's chronological age in years",
+        "tr": "Hastanın yıl cinsinden kronolojik yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Biological sex code for bone age estimation",
       "label_i18n": {
         "en": "Sex (0=Male, 1=Female)",
-        "tr": "Sex (0=Male, 1=Female)",
+        "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
         "de": "Sex (0=Male, 1=Female)",
         "fr": "Sex (0=Male, 1=Female)",
         "es": "Sex (0=Male, 1=Female)",
         "ar": "Sex (0=Male, 1=Female)"
+      },
+      "businessContext_i18n": {
+        "en": "Biological sex code for bone age estimation",
+        "tr": "Kemik yaşı tahmini için biyolojik cinsiyet kodu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Patient's height in centimeters",
       "label_i18n": {
         "en": "Height (cm)",
-        "tr": "Height (cm)",
+        "tr": "Boy (cm)",
         "de": "Height (cm)",
         "fr": "Height (cm)",
         "es": "Height (cm)",
         "ar": "Height (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's height in centimeters",
+        "tr": "Hastanın santimetre cinsinden boyu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Patient's weight in kilograms",
       "label_i18n": {
         "en": "Weight (kg)",
-        "tr": "Weight (kg)",
+        "tr": "Ağırlık (kg)",
         "de": "Weight (kg)",
         "fr": "Weight (kg)",
         "es": "Weight (kg)",
         "ar": "Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's weight in kilograms",
+        "tr": "Hastanın kilogram cinsinden ağırlığı"
       }
     }
   ],

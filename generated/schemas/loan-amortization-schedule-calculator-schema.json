@@ -10,11 +10,15 @@
       "businessContext": "Principal amount borrowed",
       "label_i18n": {
         "en": "Loan Amount",
-        "tr": "Loan Amount",
+        "tr": "Kredi Tutarı",
         "de": "Loan Amount",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Principal amount borrowed",
+        "tr": "Borç alınan anapara tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal annual interest rate",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal annual interest rate",
+        "tr": "Nominal yıllık faiz oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total duration of the loan in years",
       "label_i18n": {
         "en": "Loan Term (Years)",
-        "tr": "Loan Term (Years)",
+        "tr": "Kredi Vadesi (Yıl)",
         "de": "Loan Term (Years)",
         "fr": "Loan Term (Years)",
         "es": "Loan Term (Years)",
         "ar": "Loan Term (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration of the loan in years",
+        "tr": "Kredinin toplam süresi (yıl olarak)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of payment periods per year (e.g., 12 for monthly, 4 for quarterly)",
       "label_i18n": {
         "en": "Payments Per Year",
-        "tr": "Payments Per Year",
+        "tr": "Yıllık Ödeme Sayısı",
         "de": "Payments Per Year",
         "fr": "Payments Per Year",
         "es": "Payments Per Year",
         "ar": "Payments Per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of payment periods per year (e.g., 12 for monthly, 4 for quarterly)",
+        "tr": "Yıllık ödeme dönemi sayısı (örneğin, aylık için 12, üç aylık için 4)"
       }
     }
   ],

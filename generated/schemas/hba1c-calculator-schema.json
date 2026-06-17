@@ -10,11 +10,15 @@
       "businessContext": "Average blood glucose level over the past 2-3 months.",
       "label_i18n": {
         "en": "Average Blood Glucose",
-        "tr": "Average Blood Glucose",
+        "tr": "Ortalama Kan Şekeri",
         "de": "Average Blood Glucose",
         "fr": "Average Blood Glucose",
         "es": "Average Blood Glucose",
         "ar": "Average Blood Glucose"
+      },
+      "businessContext_i18n": {
+        "en": "Average blood glucose level over the past 2-3 months.",
+        "tr": "Son 2-3 aydaki ortalama kan şekeri seviyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Select the unit: 0 for mg/dL, 1 for mmol/L.",
       "label_i18n": {
         "en": "Glucose Unit",
-        "tr": "Glucose Unit",
+        "tr": "Glikoz Birimi",
         "de": "Glucose Unit",
         "fr": "Glucose Unit",
         "es": "Glucose Unit",
         "ar": "Glucose Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Select the unit: 0 for mg/dL, 1 for mmol/L.",
+        "tr": "Birimi seçin: mg/dL için 0, mmol/L için 1."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Confidence level for uncertainty range calculation.",
       "label_i18n": {
         "en": "Confidence Level",
-        "tr": "Confidence Level",
+        "tr": "Güven Düzeyi",
         "de": "Confidence Level",
         "fr": "Confidence Level",
         "es": "Confidence Level",
         "ar": "Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Confidence level for uncertainty range calculation.",
+        "tr": "Belirsizlik aralığı hesaplaması için güven düzeyi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Typical measurement uncertainty of HbA1c assay method.",
       "label_i18n": {
         "en": "Measurement Uncertainty",
-        "tr": "Measurement Uncertainty",
+        "tr": "Ölçüm Belirsizliği",
         "de": "Measurement Uncertainty",
         "fr": "Measurement Uncertainty",
         "es": "Measurement Uncertainty",
         "ar": "Measurement Uncertainty"
+      },
+      "businessContext_i18n": {
+        "en": "Typical measurement uncertainty of HbA1c assay method.",
+        "tr": "HbA1c test yönteminin tipik ölçüm belirsizliği."
       }
     }
   ],

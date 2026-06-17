@@ -10,11 +10,15 @@
       "businessContext": "Refractive index of the lens material (dimensionless).",
       "label_i18n": {
         "en": "Refractive Index n",
-        "tr": "Refractive Index n",
+        "tr": "Kırılma İndisi n",
         "de": "Refractive Index n",
         "fr": "Refractive Index n",
         "es": "Refractive Index n",
         "ar": "Refractive Index n"
+      },
+      "businessContext_i18n": {
+        "en": "Refractive index of the lens material (dimensionless).",
+        "tr": "Mercek malzemesinin kırılma indisi (boyutsuz)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Radius of curvature of the first lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
       "label_i18n": {
         "en": "Radius of Curvature R1",
-        "tr": "Radius of Curvature R1",
+        "tr": "Eğrilik Yarıçapı R1",
         "de": "Radius of Curvature R1",
         "fr": "Radius of Curvature R1",
         "es": "Radius of Curvature R1",
         "ar": "Radius of Curvature R1"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of curvature of the first lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
+        "tr": "Birinci mercek yüzeyinin eğrilik yarıçapı. İşaret kuralı: eğrilik merkezi tepe noktasının sağında ise pozitif."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Radius of curvature of the second lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
       "label_i18n": {
         "en": "Radius of Curvature R2",
-        "tr": "Radius of Curvature R2",
+        "tr": "Eğrilik Yarıçapı R2",
         "de": "Radius of Curvature R2",
         "fr": "Radius of Curvature R2",
         "es": "Radius of Curvature R2",
         "ar": "Radius of Curvature R2"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of curvature of the second lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
+        "tr": "İkinci mercek yüzeyinin eğrilik yarıçapı. İşaret kuralı: eğrilik merkezi tepe noktasının sağında ise pozitif."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance from the object to the lens, measured along the optical axis. Sign convention: positive if object is on the incident light side (real object).",
       "label_i18n": {
         "en": "Object Distance u",
-        "tr": "Object Distance u",
+        "tr": "Nesne Mesafesi u",
         "de": "Object Distance u",
         "fr": "Object Distance u",
         "es": "Object Distance u",
         "ar": "Object Distance u"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from the object to the lens, measured along the optical axis. Sign convention: positive if object is on the incident light side (real object).",
+        "tr": "Nesneden merceğe optik eksen boyunca mesafe. İşaret kuralı: nesne gelen ışık tarafında ise (gerçek nesne) pozitif."
       }
     }
   ],

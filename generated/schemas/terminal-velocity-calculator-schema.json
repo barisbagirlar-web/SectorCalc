@@ -10,11 +10,15 @@
       "businessContext": "Mass of the falling object",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the falling object",
+        "tr": "Düşen cismin kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Effective cross-sectional area perpendicular to the direction of fall",
       "label_i18n": {
         "en": "Cross-sectional Area",
-        "tr": "Cross-sectional Area",
+        "tr": "Kesit Alanı",
         "de": "Cross-sectional Area",
         "fr": "Cross-sectional Area",
         "es": "Cross-sectional Area",
         "ar": "Cross-sectional Area"
+      },
+      "businessContext_i18n": {
+        "en": "Effective cross-sectional area perpendicular to the direction of fall",
+        "tr": "Düşüş yönüne dik etkili kesit alanı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Aerodynamic drag coefficient of the object's shape",
       "label_i18n": {
         "en": "Drag Coefficient",
-        "tr": "Drag Coefficient",
+        "tr": "Sürükleme Katsayısı",
         "de": "Drag Coefficient",
         "fr": "Drag Coefficient",
         "es": "Drag Coefficient",
         "ar": "Drag Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Aerodynamic drag coefficient of the object's shape",
+        "tr": "Cismin şekline bağlı aerodinamik sürükleme katsayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Density of the fluid through which the object falls (e.g., air at sea level ≈ 1.225 kg/m³)",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluid through which the object falls (e.g., air at sea level ≈ 1.225 kg/m³)",
+        "tr": "Cismin içinden düştüğü akışkanın yoğunluğu (örneğin deniz seviyesinde hava ≈ 1,225 kg/m³)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Acceleration due to gravity (standard Earth gravity = 9.81 m/s²)",
       "label_i18n": {
         "en": "Gravity",
-        "tr": "Gravity",
+        "tr": "Yerçekimi",
         "de": "Gravity",
         "fr": "Gravity",
         "es": "Gravity",
         "ar": "Gravity"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity (standard Earth gravity = 9.81 m/s²)",
+        "tr": "Yerçekimi ivmesi (standart Dünya yerçekimi = 9,81 m/s²)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The value to be divided (the top of the fraction).",
       "label_i18n": {
         "en": "Numerator",
-        "tr": "Numerator",
+        "tr": "Pay",
         "de": "Numerator",
         "fr": "Numerator",
         "es": "Numerator",
         "ar": "Numerator"
+      },
+      "businessContext_i18n": {
+        "en": "The value to be divided (the top of the fraction).",
+        "tr": "Bölünecek değer (kesrin üst kısmı)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The value to divide by (the bottom of the fraction). Must not be zero.",
       "label_i18n": {
         "en": "Denominator",
-        "tr": "Denominator",
+        "tr": "Payda",
         "de": "Denominator",
         "fr": "Denominator",
         "es": "Denominator",
         "ar": "Denominator"
+      },
+      "businessContext_i18n": {
+        "en": "The value to divide by (the bottom of the fraction). Must not be zero.",
+        "tr": "Bölen değer (kesrin alt kısmı). Sıfır olamaz."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiplier to apply to the ratio, e.g., 100 for percentage, 1 for raw ratio.",
       "label_i18n": {
         "en": "Multiplier",
-        "tr": "Multiplier",
+        "tr": "Çarpan",
         "de": "Multiplier",
         "fr": "Multiplier",
         "es": "Multiplier",
         "ar": "Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to apply to the ratio, e.g., 100 for percentage, 1 for raw ratio.",
+        "tr": "Orana uygulanacak çarpan, örn. yüzde için 100, ham oran için 1."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounding the final output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the final output.",
+        "tr": "Nihai çıktının yuvarlanacağı ondalık basamak sayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The orbital speed of the planet relative to the Sun.",
       "label_i18n": {
         "en": "Planet Orbital Speed",
-        "tr": "Planet Orbital Speed",
+        "tr": "Gezegen Yörünge Hızı",
         "de": "Planet Orbital Speed",
         "fr": "Planet Orbital Speed",
         "es": "Planet Orbital Speed",
         "ar": "Planet Orbital Speed"
+      },
+      "businessContext_i18n": {
+        "en": "The orbital speed of the planet relative to the Sun.",
+        "tr": "Gezegenin Güneş'e göre yörünge hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The spacecraft's speed relative to the planet at an infinite distance (approach velocity).",
       "label_i18n": {
         "en": "Hyperbolic Excess Speed",
-        "tr": "Hyperbolic Excess Speed",
+        "tr": "Hiperbolik Kaçış Hızı",
         "de": "Hyperbolic Excess Speed",
         "fr": "Hyperbolic Excess Speed",
         "es": "Hyperbolic Excess Speed",
         "ar": "Hyperbolic Excess Speed"
+      },
+      "businessContext_i18n": {
+        "en": "The spacecraft's speed relative to the planet at an infinite distance (approach velocity).",
+        "tr": "Uzay aracının gezegene sonsuz uzaklıktaki hızı (yaklaşma hızı)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance from planet center at closest approach.",
       "label_i18n": {
         "en": "Periapsis Distance",
-        "tr": "Periapsis Distance",
+        "tr": "Periapsis Mesafesi",
         "de": "Periapsis Distance",
         "fr": "Periapsis Distance",
         "es": "Periapsis Distance",
         "ar": "Periapsis Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from planet center at closest approach.",
+        "tr": "En yakın yaklaşmada gezegen merkezine uzaklık."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard gravitational parameter (GM) of the planet.",
       "label_i18n": {
         "en": "Gravitational Parameter",
-        "tr": "Gravitational Parameter",
+        "tr": "Yerçekim Parametresi",
         "de": "Gravitational Parameter",
         "fr": "Gravitational Parameter",
         "es": "Gravitational Parameter",
         "ar": "Gravitational Parameter"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravitational parameter (GM) of the planet.",
+        "tr": "Gezegenin standart yerçekim parametresi (GM)."
       }
     }
   ],

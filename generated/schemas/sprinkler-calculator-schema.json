@@ -10,11 +10,15 @@
       "businessContext": "The design area of sprinkler operation per NFPA 13.",
       "label_i18n": {
         "en": "Design Area",
-        "tr": "Design Area",
+        "tr": "Kayma modülü (çelik için tipik)",
         "de": "Design Area",
         "fr": "Design Area",
         "es": "Design Area",
         "ar": "Design Area"
+      },
+      "businessContext_i18n": {
+        "en": "The design area of sprinkler operation per NFPA 13.",
+        "tr": "Tasarım Alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Water density required per square foot per minute.",
       "label_i18n": {
         "en": "Discharge Density",
-        "tr": "Discharge Density",
+        "tr": "NFPA 13'e göre sprinkler işletim tasarım alanı.",
         "de": "Discharge Density",
         "fr": "Discharge Density",
         "es": "Discharge Density",
         "ar": "Discharge Density"
+      },
+      "businessContext_i18n": {
+        "en": "Water density required per square foot per minute.",
+        "tr": "Boşaltma Yoğunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Discharge coefficient of the sprinkler head.",
       "label_i18n": {
         "en": "Sprinkler K-Factor",
-        "tr": "Sprinkler K-Factor",
+        "tr": "Metrekare başına dakikada gerekli su yoğunluğu.",
         "de": "Sprinkler K-Factor",
         "fr": "Sprinkler K-Factor",
         "es": "Sprinkler K-Factor",
         "ar": "Sprinkler K-Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Discharge coefficient of the sprinkler head.",
+        "tr": "Sprinkler K-Faktörü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of sprinklers expected to operate in the design area.",
       "label_i18n": {
         "en": "Number of Sprinklers",
-        "tr": "Number of Sprinklers",
+        "tr": "Sprinkler başlığının boşaltma katsayısı.",
         "de": "Number of Sprinklers",
         "fr": "Number of Sprinklers",
         "es": "Number of Sprinklers",
         "ar": "Number of Sprinklers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of sprinklers expected to operate in the design area.",
+        "tr": "Sprinkler Sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Factor to account for system inefficiencies.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to account for system inefficiencies.",
+        "tr": "Sistem verimsizliklerini hesaba katan faktör."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Estimated friction loss in piping.",
       "label_i18n": {
         "en": "Pipe Friction Loss",
-        "tr": "Pipe Friction Loss",
+        "tr": "Boru Sürtünme Kaybı",
         "de": "Pipe Friction Loss",
         "fr": "Pipe Friction Loss",
         "es": "Pipe Friction Loss",
         "ar": "Pipe Friction Loss"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated friction loss in piping.",
+        "tr": "Boru hattında tahmini sürtünme kaybı."
       }
     }
   ],

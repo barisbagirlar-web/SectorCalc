@@ -10,11 +10,15 @@
       "businessContext": "The full load current drawn by the equipment.",
       "label_i18n": {
         "en": "Load Current",
-        "tr": "Load Current",
+        "tr": "Yük Akımı",
         "de": "Load Current",
         "fr": "Load Current",
         "es": "Load Current",
         "ar": "Load Current"
+      },
+      "businessContext_i18n": {
+        "en": "The full load current drawn by the equipment.",
+        "tr": "Ekipmanın çektiği tam yük akımı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "One-way distance between power source and load.",
       "label_i18n": {
         "en": "Cable Length (one-way)",
-        "tr": "Cable Length (one-way)",
+        "tr": "Kablo Uzunluğu (tek yön)",
         "de": "Cable Length (one-way)",
         "fr": "Cable Length (one-way)",
         "es": "Cable Length (one-way)",
         "ar": "Cable Length (one-way)"
+      },
+      "businessContext_i18n": {
+        "en": "One-way distance between power source and load.",
+        "tr": "Güç kaynağı ile yük arasındaki tek yön mesafe."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Nominal voltage of the supply.",
       "label_i18n": {
         "en": "Supply Voltage",
-        "tr": "Supply Voltage",
+        "tr": "Besleme Gerilimi",
         "de": "Supply Voltage",
         "fr": "Supply Voltage",
         "es": "Supply Voltage",
         "ar": "Supply Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal voltage of the supply.",
+        "tr": "Beslemenin nominal voltajı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum allowable voltage drop as percentage of supply voltage.",
       "label_i18n": {
         "en": "Max Voltage Drop",
-        "tr": "Max Voltage Drop",
+        "tr": "Maksimum Gerilim Düşümü",
         "de": "Max Voltage Drop",
         "fr": "Max Voltage Drop",
         "es": "Max Voltage Drop",
         "ar": "Max Voltage Drop"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable voltage drop as percentage of supply voltage.",
+        "tr": "Besleme geriliminin yüzdesi olarak izin verilen maksimum gerilim düşümü."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Resistivity of conductor material at operating temperature (e.g., copper: 0.0172, aluminum: 0.0282).",
       "label_i18n": {
         "en": "Conductor Resistivity",
-        "tr": "Conductor Resistivity",
+        "tr": "İletken Direnci",
         "de": "Conductor Resistivity",
         "fr": "Conductor Resistivity",
         "es": "Conductor Resistivity",
         "ar": "Conductor Resistivity"
+      },
+      "businessContext_i18n": {
+        "en": "Resistivity of conductor material at operating temperature (e.g., copper: 0.0172, aluminum: 0.0282).",
+        "tr": "İletken malzemesinin çalışma sıcaklığındaki direnci (örneğin bakır: 0,0172, alüminyum: 0,0282)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Design margin to account for future load increases or uncertainties.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design margin to account for future load increases or uncertainties.",
+        "tr": "Gelecekteki yük artışları veya belirsizlikleri hesaba katmak için tasarım marjı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Correction factor for ambient temperature (1.0 for standard conditions).",
       "label_i18n": {
         "en": "Temperature Factor",
-        "tr": "Temperature Factor",
+        "tr": "Sıcaklık Faktörü",
         "de": "Temperature Factor",
         "fr": "Temperature Factor",
         "es": "Temperature Factor",
         "ar": "Temperature Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Correction factor for ambient temperature (1.0 for standard conditions).",
+        "tr": "Ortam sıcaklığı için düzeltme faktörü (standart koşullar için 1,0)."
       }
     }
   ],

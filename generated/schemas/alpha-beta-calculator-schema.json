@@ -10,11 +10,15 @@
       "businessContext": "Expected or historical average annual return of the stock or portfolio being analyzed, expressed as a percentage.",
       "label_i18n": {
         "en": "Stock/Portfolio Average Return",
-        "tr": "Stock/Portfolio Average Return",
+        "tr": "Hisse/Portföy Ortalama Getirisi",
         "de": "Stock/Portfolio Average Return",
         "fr": "Stock/Portfolio Average Return",
         "es": "Stock/Portfolio Average Return",
         "ar": "Stock/Portfolio Average Return"
+      },
+      "businessContext_i18n": {
+        "en": "Expected or historical average annual return of the stock or portfolio being analyzed, expressed as a percentage.",
+        "tr": "Analiz edilen hisse senedi veya portföyün beklenen veya geçmiş ortalama yıllık getirisi (yüzde olarak ifade edilir)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average annual return of the benchmark market index (e.g., S&P 500), expressed as a percentage.",
       "label_i18n": {
         "en": "Market Average Return",
-        "tr": "Market Average Return",
+        "tr": "Piyasa Ortalama Getirisi",
         "de": "Market Average Return",
         "fr": "Market Average Return",
         "es": "Market Average Return",
         "ar": "Market Average Return"
+      },
+      "businessContext_i18n": {
+        "en": "Average annual return of the benchmark market index (e.g., S&P 500), expressed as a percentage.",
+        "tr": "Referans piyasa endeksinin (ör. S&P 500) ortalama yıllık getirisi (yüzde olarak ifade edilir)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Annual return of a risk-free asset (e.g., government bond yield), expressed as a percentage.",
       "label_i18n": {
         "en": "Risk-Free Rate",
-        "tr": "Risk-Free Rate",
+        "tr": "Risksiz Faiz Oranı",
         "de": "Risk-Free Rate",
         "fr": "Risk-Free Rate",
         "es": "Risk-Free Rate",
         "ar": "Risk-Free Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual return of a risk-free asset (e.g., government bond yield), expressed as a percentage.",
+        "tr": "Risksiz bir varlığın yıllık getirisi (ör. devlet tahvili faizi), yüzde olarak ifade edilir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Covariance between the stock/portfolio returns and market returns, typically computed from historical data.",
       "label_i18n": {
         "en": "Covariance (Stock, Market)",
-        "tr": "Covariance (Stock, Market)",
+        "tr": "Kovaryans (Hisse, Piyasa)",
         "de": "Covariance (Stock, Market)",
         "fr": "Covariance (Stock, Market)",
         "es": "Covariance (Stock, Market)",
         "ar": "Covariance (Stock, Market)"
+      },
+      "businessContext_i18n": {
+        "en": "Covariance between the stock/portfolio returns and market returns, typically computed from historical data.",
+        "tr": "Hisse senedi/portföy getirileri ile piyasa getirileri arasındaki kovaryans, genellikle geçmiş verilerden hesaplanır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Variance of the benchmark market index returns, measuring total risk of the market.",
       "label_i18n": {
         "en": "Variance of Market Returns",
-        "tr": "Variance of Market Returns",
+        "tr": "Piyasa Getirilerinin Varyansı",
         "de": "Variance of Market Returns",
         "fr": "Variance of Market Returns",
         "es": "Variance of Market Returns",
         "ar": "Variance of Market Returns"
+      },
+      "businessContext_i18n": {
+        "en": "Variance of the benchmark market index returns, measuring total risk of the market.",
+        "tr": "Piyasanın toplam riskini ölçen kıyaslama piyasa endeksi getirilerinin varyansı."
       }
     }
   ],

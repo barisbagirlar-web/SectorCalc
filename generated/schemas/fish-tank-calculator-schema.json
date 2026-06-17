@@ -10,11 +10,15 @@
       "businessContext": "Length of the fish tank in meters.",
       "label_i18n": {
         "en": "Tank Length",
-        "tr": "Tank Length",
+        "tr": "Tank Uzunluğu",
         "de": "Tank Length",
         "fr": "Tank Length",
         "es": "Tank Length",
         "ar": "Tank Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the fish tank in meters.",
+        "tr": "Balık tankının metre cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the fish tank in meters.",
       "label_i18n": {
         "en": "Tank Width",
-        "tr": "Tank Width",
+        "tr": "Tank Genişliği",
         "de": "Tank Width",
         "fr": "Tank Width",
         "es": "Tank Width",
         "ar": "Tank Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the fish tank in meters.",
+        "tr": "Balık tankının metre cinsinden genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Depth of water in the tank in meters.",
       "label_i18n": {
         "en": "Water Depth",
-        "tr": "Water Depth",
+        "tr": "Su Derinliği",
         "de": "Water Depth",
         "fr": "Water Depth",
         "es": "Water Depth",
         "ar": "Water Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Depth of water in the tank in meters.",
+        "tr": "Tanktaki suyun metre cinsinden derinliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average length of fish in centimeters.",
       "label_i18n": {
         "en": "Average Fish Length",
-        "tr": "Average Fish Length",
+        "tr": "Ortalama Balık Boyu",
         "de": "Average Fish Length",
         "fr": "Average Fish Length",
         "es": "Average Fish Length",
         "ar": "Average Fish Length"
+      },
+      "businessContext_i18n": {
+        "en": "Average length of fish in centimeters.",
+        "tr": "Balıkların santimetre cinsinden ortalama boyu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Condition factor for weight-length relationship. Typical range 0.01-0.03.",
       "label_i18n": {
         "en": "Condition Factor (K)",
-        "tr": "Condition Factor (K)",
+        "tr": "Kondisyon Faktörü (K)",
         "de": "Condition Factor (K)",
         "fr": "Condition Factor (K)",
         "es": "Condition Factor (K)",
         "ar": "Condition Factor (K)"
+      },
+      "businessContext_i18n": {
+        "en": "Condition factor for weight-length relationship. Typical range 0.01-0.03.",
+        "tr": "Ağırlık-boy ilişkisi için kondisyon faktörü. Tipik aralık 0.01-0.03."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Desired stocking density in kg per cubic meter.",
       "label_i18n": {
         "en": "Stocking Density",
-        "tr": "Stocking Density",
+        "tr": "Stok Yoğunluğu",
         "de": "Stocking Density",
         "fr": "Stocking Density",
         "es": "Stocking Density",
         "ar": "Stocking Density"
+      },
+      "businessContext_i18n": {
+        "en": "Desired stocking density in kg per cubic meter.",
+        "tr": "Metreküp başına kilogram cinsinden istenen stok yoğunluğu."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Safety factor to reduce stocking from theoretical maximum (0-1).",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Safety factor to reduce stocking from theoretical maximum (0-1).",
+        "tr": "Teorik maksimumdan stoklamayı azaltmak için güvenlik faktörü (0-1)."
       }
     }
   ],

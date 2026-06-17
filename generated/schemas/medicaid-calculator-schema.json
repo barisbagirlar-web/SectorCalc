@@ -10,11 +10,15 @@
       "businessContext": "Total household income before taxes",
       "label_i18n": {
         "en": "Annual Gross Income",
-        "tr": "Annual Gross Income",
+        "tr": "Yıllık Brüt Gelir",
         "de": "Annual Gross Income",
         "fr": "Annual Gross Income",
         "es": "Annual Gross Income",
         "ar": "Annual Gross Income"
+      },
+      "businessContext_i18n": {
+        "en": "Total household income before taxes",
+        "tr": "Vergi öncesi toplam hane geliri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional non-taxable income",
       "label_i18n": {
         "en": "Other Income",
-        "tr": "Other Income",
+        "tr": "Diğer Gelir",
         "de": "Other Income",
         "fr": "Other Income",
         "es": "Other Income",
         "ar": "Other Income"
+      },
+      "businessContext_i18n": {
+        "en": "Additional non-taxable income",
+        "tr": "Ek vergiye tabi olmayan gelir"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total deductions (e.g., child care, alimony paid)",
       "label_i18n": {
         "en": "Allowable Deductions",
-        "tr": "Allowable Deductions",
+        "tr": "İzin Verilen Kesintiler",
         "de": "Allowable Deductions",
         "fr": "Allowable Deductions",
         "es": "Allowable Deductions",
         "ar": "Allowable Deductions"
+      },
+      "businessContext_i18n": {
+        "en": "Total deductions (e.g., child care, alimony paid)",
+        "tr": "Toplam kesintiler (örneğin, çocuk bakımı, ödenen nafaka)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of people in household, including applicant",
       "label_i18n": {
         "en": "Household Size",
-        "tr": "Household Size",
+        "tr": "Hanehalkı Büyüklüğü",
         "de": "Household Size",
         "fr": "Household Size",
         "es": "Household Size",
         "ar": "Household Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of people in household, including applicant",
+        "tr": "Başvuru sahibi dahil hanedeki kişi sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum MAGI as percentage of Federal Poverty Level for eligibility (e.g., 138% for Medicaid expansion)",
       "label_i18n": {
         "en": "Income Eligibility Threshold",
-        "tr": "Income Eligibility Threshold",
+        "tr": "Gelir Uygunluk Eşiği",
         "de": "Income Eligibility Threshold",
         "fr": "Income Eligibility Threshold",
         "es": "Income Eligibility Threshold",
         "ar": "Income Eligibility Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum MAGI as percentage of Federal Poverty Level for eligibility (e.g., 138% for Medicaid expansion)",
+        "tr": "Uygunluk için Federal Yoksulluk Sınırı yüzdesi olarak maksimum MAGI (Medicaid genişlemesi için %138)"
       }
     }
   ],

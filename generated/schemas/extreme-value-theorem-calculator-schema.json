@@ -10,11 +10,15 @@
       "businessContext": "Location parameter of the GEV distribution (center).",
       "label_i18n": {
         "en": "Location (μ)",
-        "tr": "Location (μ)",
+        "tr": "Konum (μ)",
         "de": "Location (μ)",
         "fr": "Location (μ)",
         "es": "Location (μ)",
         "ar": "Location (μ)"
+      },
+      "businessContext_i18n": {
+        "en": "Location parameter of the GEV distribution (center).",
+        "tr": "GEV dağılımının konum parametresi (merkez)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Scale parameter, must be > 0. Controls spread.",
       "label_i18n": {
         "en": "Scale (σ)",
-        "tr": "Scale (σ)",
+        "tr": "Ölçek (σ)",
         "de": "Scale (σ)",
         "fr": "Scale (σ)",
         "es": "Scale (σ)",
         "ar": "Scale (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "Scale parameter, must be > 0. Controls spread.",
+        "tr": "Ölçek parametresi, > 0 olmalıdır. Yayılımı kontrol eder."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Shape parameter. ξ>0 heavy-tailed, ξ=0 Gumbel, ξ<0 bounded.",
       "label_i18n": {
         "en": "Shape (ξ)",
-        "tr": "Shape (ξ)",
+        "tr": "Şekil (ξ)",
         "de": "Shape (ξ)",
         "fr": "Shape (ξ)",
         "es": "Shape (ξ)",
         "ar": "Shape (ξ)"
+      },
+      "businessContext_i18n": {
+        "en": "Shape parameter. ξ>0 heavy-tailed, ξ=0 Gumbel, ξ<0 bounded.",
+        "tr": "Şekil parametresi. ξ>0 ağır kuyruklu, ξ=0 Gumbel, ξ<0 sınırlı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average recurrence interval in years (e.g., 100 for 100-year event).",
       "label_i18n": {
         "en": "Return Period",
-        "tr": "Return Period",
+        "tr": "Dönüş Periyodu",
         "de": "Return Period",
         "fr": "Return Period",
         "es": "Return Period",
         "ar": "Return Period"
+      },
+      "businessContext_i18n": {
+        "en": "Average recurrence interval in years (e.g., 100 for 100-year event).",
+        "tr": "Yıl cinsinden ortalama yinelenme aralığı (ör. 100 yıllık olay için 100)."
       }
     }
   ],

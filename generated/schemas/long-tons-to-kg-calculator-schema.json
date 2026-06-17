@@ -10,11 +10,15 @@
       "businessContext": "Weight per item in long tons (UK, 2240 lbs)",
       "label_i18n": {
         "en": "Long Tons",
-        "tr": "Long Tons",
+        "tr": "Uzun Ton",
         "de": "Long Tons",
         "fr": "Long Tons",
         "es": "Long Tons",
         "ar": "Long Tons"
+      },
+      "businessContext_i18n": {
+        "en": "Weight per item in long tons (UK, 2240 lbs)",
+        "tr": "Öğe başına ağırlık (uzun ton, 2240 lb)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of identical items",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical items",
+        "tr": "Özdeş öğe sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Exact conversion factor: 1 long ton = 1016.0469088 kg (based on 1 lb = 0.45359237 kg). Editable for traceability.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Exact conversion factor: 1 long ton = 1016.0469088 kg (based on 1 lb = 0.45359237 kg). Editable for traceability.",
+        "tr": "Kesin dönüşüm faktörü: 1 uzun ton = 1016,0469088 kg (1 lb = 0,45359237 kg esas alınır). İzlenebilirlik için düzenlenebilir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional safety margin percentage (e.g., 10 for 10% extra)",
       "label_i18n": {
         "en": "Safety Margin",
-        "tr": "Safety Margin",
+        "tr": "Güvenlik Marjı",
         "de": "Safety Margin",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Additional safety margin percentage (e.g., 10 for 10% extra)",
+        "tr": "Ek güvenlik marjı yüzdesi (örn. %10 ek için 10)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for final result",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for final result",
+        "tr": "Nihai sonuç için ondalık basamak sayısı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Length of the first parallel side of the trapezoid",
       "label_i18n": {
         "en": "Base 1",
-        "tr": "Base 1",
+        "tr": "Taban 1",
         "de": "Base 1",
         "fr": "Base 1",
         "es": "Base 1",
         "ar": "Base 1"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the first parallel side of the trapezoid",
+        "tr": "Yamuğun birinci paralel kenarının uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of the second parallel side of the trapezoid",
       "label_i18n": {
         "en": "Base 2",
-        "tr": "Base 2",
+        "tr": "Taban 2",
         "de": "Base 2",
         "fr": "Base 2",
         "es": "Base 2",
         "ar": "Base 2"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the second parallel side of the trapezoid",
+        "tr": "Yamuğun ikinci paralel kenarının uzunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Perpendicular distance between the two bases",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Perpendicular distance between the two bases",
+        "tr": "İki taban arasındaki dik mesafe"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 for mm², 2 for cm², 3 for m²",
       "label_i18n": {
         "en": "Output Unit",
-        "tr": "Output Unit",
+        "tr": "Çıktı Birimi",
         "de": "Output Unit",
         "fr": "Output Unit",
         "es": "Output Unit",
         "ar": "Output Unit"
+      },
+      "businessContext_i18n": {
+        "en": "1 for mm², 2 for cm², 3 for m²",
+        "tr": "1 mm², 2 cm², 3 m² için"
       }
     }
   ],

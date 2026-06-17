@@ -10,11 +10,15 @@
       "businessContext": "Left endpoint of the interval [a,b]",
       "label_i18n": {
         "en": "Lower bound a",
-        "tr": "Lower bound a",
+        "tr": "Alt sınır a",
         "de": "Lower bound a",
         "fr": "Lower bound a",
         "es": "Lower bound a",
         "ar": "Lower bound a"
+      },
+      "businessContext_i18n": {
+        "en": "Left endpoint of the interval [a,b]",
+        "tr": "[a,b] aralığının sol uç noktası"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Right endpoint of the interval [a,b]",
       "label_i18n": {
         "en": "Upper bound b",
-        "tr": "Upper bound b",
+        "tr": "Üst sınır b",
         "de": "Upper bound b",
         "fr": "Upper bound b",
         "es": "Upper bound b",
         "ar": "Upper bound b"
+      },
+      "businessContext_i18n": {
+        "en": "Right endpoint of the interval [a,b]",
+        "tr": "[a,b] aralığının sağ uç noktası"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "f(a)",
         "es": "f(a)",
         "ar": "f(a)"
+      },
+      "businessContext_i18n": {
+        "en": "Function value at a",
+        "tr": "a'daki fonksiyon değeri"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "f(b)",
         "es": "f(b)",
         "ar": "f(b)"
+      },
+      "businessContext_i18n": {
+        "en": "Function value at b",
+        "tr": "b'deki fonksiyon değeri"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Coefficient of x in derivative (e.g., for f(x)=x^2, derivative=2x, coefficient=2)",
       "label_i18n": {
         "en": "Derivative coefficient",
-        "tr": "Derivative coefficient",
+        "tr": "Türev katsayısı",
         "de": "Derivative coefficient",
         "fr": "Derivative coefficient",
         "es": "Derivative coefficient",
         "ar": "Derivative coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of x in derivative (e.g., for f(x)=x^2, derivative=2x, coefficient=2)",
+        "tr": "Türevde x'in katsayısı (örneğin f(x)=x^2 için türev=2x, katsayı=2)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Constant term in derivative (e.g., for f'(x)=2x+1, constant=1)",
       "label_i18n": {
         "en": "Derivative constant term",
-        "tr": "Derivative constant term",
+        "tr": "Türev sabit terimi",
         "de": "Derivative constant term",
         "fr": "Derivative constant term",
         "es": "Derivative constant term",
         "ar": "Derivative constant term"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term in derivative (e.g., for f'(x)=2x+1, constant=1)",
+        "tr": "Türevdeki sabit terim (örneğin f'(x)=2x+1 için sabit=1)"
       }
     }
   ],

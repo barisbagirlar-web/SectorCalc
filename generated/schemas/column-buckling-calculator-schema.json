@@ -10,11 +10,15 @@
       "businessContext": "Material's modulus of elasticity, e.g., 200 GPa = 200,000 MPa for steel.",
       "label_i18n": {
         "en": "Elastic Modulus (E)",
-        "tr": "Elastic Modulus (E)",
+        "tr": "Elastisite Modülü (E)",
         "de": "Elastic Modulus (E)",
         "fr": "Elastic Modulus (E)",
         "es": "Elastic Modulus (E)",
         "ar": "Elastic Modulus (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Material's modulus of elasticity, e.g., 200 GPa = 200,000 MPa for steel.",
+        "tr": "Malzemenin elastisite modülü, örn. çelik için 200 GPa = 200.000 MPa."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Second moment of area of column cross-section.",
       "label_i18n": {
         "en": "Moment of Inertia (I)",
-        "tr": "Moment of Inertia (I)",
+        "tr": "Atalet Momenti (I)",
         "de": "Moment of Inertia (I)",
         "fr": "Moment of Inertia (I)",
         "es": "Moment of Inertia (I)",
         "ar": "Moment of Inertia (I)"
+      },
+      "businessContext_i18n": {
+        "en": "Second moment of area of column cross-section.",
+        "tr": "Kolon kesitinin alan atalet momenti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cross-sectional area of the column.",
       "label_i18n": {
         "en": "Cross-Sectional Area (A)",
-        "tr": "Cross-Sectional Area (A)",
+        "tr": "Kesit Alanı (A)",
         "de": "Cross-Sectional Area (A)",
         "fr": "Cross-Sectional Area (A)",
         "es": "Cross-Sectional Area (A)",
         "ar": "Cross-Sectional Area (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional area of the column.",
+        "tr": "Kolon kesitinin alanı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Length of column between lateral supports.",
       "label_i18n": {
         "en": "Unbraced Length (L)",
-        "tr": "Unbraced Length (L)",
+        "tr": "Desteklenmeyen Uzunluk (L)",
         "de": "Unbraced Length (L)",
         "fr": "Unbraced Length (L)",
         "es": "Unbraced Length (L)",
         "ar": "Unbraced Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of column between lateral supports.",
+        "tr": "Yanal destekler arasındaki kolon boyu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "K=0.5 fixed-fixed, 1 pinned-pinned, 2 fixed-free.",
       "label_i18n": {
         "en": "Effective Length Factor (K)",
-        "tr": "Effective Length Factor (K)",
+        "tr": "Etkili Uzunluk Faktörü (K)",
         "de": "Effective Length Factor (K)",
         "fr": "Effective Length Factor (K)",
         "es": "Effective Length Factor (K)",
         "ar": "Effective Length Factor (K)"
+      },
+      "businessContext_i18n": {
+        "en": "K=0.5 fixed-fixed, 1 pinned-pinned, 2 fixed-free.",
+        "tr": "K=0,5 ankastre-ankastre, 1 mafsallı-mafsallı, 2 ankastre-serbest."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Compressive load applied to the column.",
       "label_i18n": {
         "en": "Applied Axial Load (P)",
-        "tr": "Applied Axial Load (P)",
+        "tr": "Uygulanan Eksenel Yük (P)",
         "de": "Applied Axial Load (P)",
         "fr": "Applied Axial Load (P)",
         "es": "Applied Axial Load (P)",
         "ar": "Applied Axial Load (P)"
+      },
+      "businessContext_i18n": {
+        "en": "Compressive load applied to the column.",
+        "tr": "Kolona uygulanan basınç yükü."
       }
     }
   ],

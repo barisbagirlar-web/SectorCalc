@@ -10,11 +10,15 @@
       "businessContext": "Number of folds used in k-fold cross-validation.",
       "label_i18n": {
         "en": "Number of Folds (k)",
-        "tr": "Number of Folds (k)",
+        "tr": "Kat Sayısı (k)",
         "de": "Number of Folds (k)",
         "fr": "Number of Folds (k)",
         "es": "Number of Folds (k)",
         "ar": "Number of Folds (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of folds used in k-fold cross-validation.",
+        "tr": "k-katlı çapraz doğrulamada kullanılan kat sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average of the performance metric (e.g., accuracy, F1) across all folds.",
       "label_i18n": {
         "en": "Mean Performance Score",
-        "tr": "Mean Performance Score",
+        "tr": "Ortalama Performans Puanı",
         "de": "Mean Performance Score",
         "fr": "Mean Performance Score",
         "es": "Mean Performance Score",
         "ar": "Mean Performance Score"
+      },
+      "businessContext_i18n": {
+        "en": "Average of the performance metric (e.g., accuracy, F1) across all folds.",
+        "tr": "Tüm katlar arasında performans metriğinin (örn. doğruluk, F1) ortalaması."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard deviation of the performance metric across folds.",
       "label_i18n": {
         "en": "Standard Deviation of Performance Scores",
-        "tr": "Standard Deviation of Performance Scores",
+        "tr": "Performans Puanlarının Standart Sapması",
         "de": "Standard Deviation of Performance Scores",
         "fr": "Standard Deviation of Performance Scores",
         "es": "Standard Deviation of Performance Scores",
         "ar": "Standard Deviation of Performance Scores"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of the performance metric across folds.",
+        "tr": "Katlar arasında performans metriğinin standart sapması."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of samples in the dataset (for context, not used in formulas).",
       "label_i18n": {
         "en": "Total Sample Size",
-        "tr": "Total Sample Size",
+        "tr": "Toplam Örneklem Büyüklüğü",
         "de": "Total Sample Size",
         "fr": "Total Sample Size",
         "es": "Total Sample Size",
         "ar": "Total Sample Size"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of samples in the dataset (for context, not used in formulas).",
+        "tr": "Veri setindeki toplam örnek sayısı (bağlam için, formüllerde kullanılmaz)."
       }
     }
   ],

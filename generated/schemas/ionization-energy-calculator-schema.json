@@ -10,11 +10,15 @@
       "businessContext": "Number of protons in the nucleus.",
       "label_i18n": {
         "en": "Atomic Number (Z)",
-        "tr": "Atomic Number (Z)",
+        "tr": "Atom Numarası (Z)",
         "de": "Atomic Number (Z)",
         "fr": "Atomic Number (Z)",
         "es": "Atomic Number (Z)",
         "ar": "Atomic Number (Z)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of protons in the nucleus.",
+        "tr": "Çekirdekteki proton sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Principal quantum number of the electron being removed (1 for ground state).",
       "label_i18n": {
         "en": "Principal Quantum Number (n)",
-        "tr": "Principal Quantum Number (n)",
+        "tr": "Baş Kuantum Sayısı (n)",
         "de": "Principal Quantum Number (n)",
         "fr": "Principal Quantum Number (n)",
         "es": "Principal Quantum Number (n)",
         "ar": "Principal Quantum Number (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Principal quantum number of the electron being removed (1 for ground state).",
+        "tr": "Çıkarılan elektronun baş kuantum sayısı (temel hal için 1)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Shielding constant from inner electrons (0 for hydrogen-like atoms).",
       "label_i18n": {
         "en": "Screening Constant (S)",
-        "tr": "Screening Constant (S)",
+        "tr": "Perdeleme Sabiti (S)",
         "de": "Screening Constant (S)",
         "fr": "Screening Constant (S)",
         "es": "Screening Constant (S)",
         "ar": "Screening Constant (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Shielding constant from inner electrons (0 for hydrogen-like atoms).",
+        "tr": "İç elektronlardan gelen perdeleme sabiti (hidrojen benzeri atomlar için 0)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rydberg energy constant (energy required to ionize a hydrogen atom from ground state).",
       "label_i18n": {
         "en": "Rydberg Energy",
-        "tr": "Rydberg Energy",
+        "tr": "Rydberg Enerjisi",
         "de": "Rydberg Energy",
         "fr": "Rydberg Energy",
         "es": "Rydberg Energy",
         "ar": "Rydberg Energy"
+      },
+      "businessContext_i18n": {
+        "en": "Rydberg energy constant (energy required to ionize a hydrogen atom from ground state).",
+        "tr": "Rydberg enerji sabiti (bir hidrojen atomunu temel halden iyonize etmek için gereken enerji)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Factor to convert electronvolts to kilojoules per mole (1 eV = 96.485 kJ/mol).",
       "label_i18n": {
         "en": "Conversion Factor (eV to kJ/mol)",
-        "tr": "Conversion Factor (eV to kJ/mol)",
+        "tr": "Dönüşüm Faktörü (eV'den kJ/mol'e)",
         "de": "Conversion Factor (eV to kJ/mol)",
         "fr": "Conversion Factor (eV to kJ/mol)",
         "es": "Conversion Factor (eV to kJ/mol)",
         "ar": "Conversion Factor (eV to kJ/mol)"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to convert electronvolts to kilojoules per mole (1 eV = 96.485 kJ/mol).",
+        "tr": "Elektronvolt'u kilojoule/mol'e dönüştüren faktör (1 eV = 96,485 kJ/mol)."
       }
     }
   ],

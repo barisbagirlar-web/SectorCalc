@@ -10,11 +10,15 @@
       "businessContext": "Current market price per share at purchase date",
       "label_i18n": {
         "en": "Fair Market Value per Share",
-        "tr": "Fair Market Value per Share",
+        "tr": "Adil Piyasa Değeri (Hisse Başına)",
         "de": "Fair Market Value per Share",
         "fr": "Fair Market Value per Share",
         "es": "Fair Market Value per Share",
         "ar": "Fair Market Value per Share"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price per share at purchase date",
+        "tr": "Satın alma tarihindeki güncel piyasa fiyatı (hisse başına)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Discount percentage offered by the plan (e.g., 15 means 15% off FMV)",
       "label_i18n": {
         "en": "ESPP Discount",
-        "tr": "ESPP Discount",
+        "tr": "ESPP İndirimi",
         "de": "ESPP Discount",
         "fr": "ESPP Discount",
         "es": "ESPP Discount",
         "ar": "ESPP Discount"
+      },
+      "businessContext_i18n": {
+        "en": "Discount percentage offered by the plan (e.g., 15 means 15% off FMV)",
+        "tr": "Plan tarafından sunulan indirim yüzdesi (örneğin, 15, FMV'nin %15'i anlamına gelir)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of shares bought through the ESPP",
       "label_i18n": {
         "en": "Number of Shares Purchased",
-        "tr": "Number of Shares Purchased",
+        "tr": "Satın Alınan Hisse Sayısı",
         "de": "Number of Shares Purchased",
         "fr": "Number of Shares Purchased",
         "es": "Number of Shares Purchased",
         "ar": "Number of Shares Purchased"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of shares bought through the ESPP",
+        "tr": "ESPP aracılığıyla satın alınan toplam hisse sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of months held before selling; 0 for immediate sale",
       "label_i18n": {
         "en": "Holding Period in Months",
-        "tr": "Holding Period in Months",
+        "tr": "Tutma Süresi (Ay)",
         "de": "Holding Period in Months",
         "fr": "Holding Period in Months",
         "es": "Holding Period in Months",
         "ar": "Holding Period in Months"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months held before selling; 0 for immediate sale",
+        "tr": "Satmadan önce elde tutulan ay sayısı; anında satış için 0"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Applicable marginal tax rate for ordinary income",
       "label_i18n": {
         "en": "Ordinary Income Tax Rate",
-        "tr": "Ordinary Income Tax Rate",
+        "tr": "Olağan Gelir Vergisi Oranı",
         "de": "Ordinary Income Tax Rate",
         "fr": "Ordinary Income Tax Rate",
         "es": "Ordinary Income Tax Rate",
         "ar": "Ordinary Income Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable marginal tax rate for ordinary income",
+        "tr": "Olağan gelir için geçerli marjinal vergi oranı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Tax rate for long-term capital gains (if holding period > 12 months)",
       "label_i18n": {
         "en": "Long-Term Capital Gains Tax Rate",
-        "tr": "Long-Term Capital Gains Tax Rate",
+        "tr": "Uzun Vadeli Sermaye Kazançları Vergi Oranı",
         "de": "Long-Term Capital Gains Tax Rate",
         "fr": "Long-Term Capital Gains Tax Rate",
         "es": "Long-Term Capital Gains Tax Rate",
         "ar": "Long-Term Capital Gains Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate for long-term capital gains (if holding period > 12 months)",
+        "tr": "Uzun vadeli sermaye kazançları için vergi oranı (tutma süresi > 12 ay ise)"
       }
     }
   ],

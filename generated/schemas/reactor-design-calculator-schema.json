@@ -10,11 +10,15 @@
       "businessContext": "Inlet volumetric flow rate of the reactant stream.",
       "label_i18n": {
         "en": "Volumetric Flow Rate",
-        "tr": "Volumetric Flow Rate",
+        "tr": "Hacimsel Akış Hızı",
         "de": "Volumetric Flow Rate",
         "fr": "Volumetric Flow Rate",
         "es": "Volumetric Flow Rate",
         "ar": "Volumetric Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Inlet volumetric flow rate of the reactant stream.",
+        "tr": "Reaktan akışının giriş hacimsel debisi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Concentration of reactant A at reactor inlet.",
       "label_i18n": {
         "en": "Inlet Concentration",
-        "tr": "Inlet Concentration",
+        "tr": "Giriş Konsantrasyonu",
         "de": "Inlet Concentration",
         "fr": "Inlet Concentration",
         "es": "Inlet Concentration",
         "ar": "Inlet Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Concentration of reactant A at reactor inlet.",
+        "tr": "Reaktör girişinde A reaktantının konsantrasyonu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fraction of reactant A to be converted to products.",
       "label_i18n": {
         "en": "Desired Conversion",
-        "tr": "Desired Conversion",
+        "tr": "İstenen Dönüşüm",
         "de": "Desired Conversion",
         "fr": "Desired Conversion",
         "es": "Desired Conversion",
         "ar": "Desired Conversion"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of reactant A to be converted to products.",
+        "tr": "A reaktantının ürünlere dönüştürülecek kesri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Reaction rate constant. For first-order, units are s⁻¹; for second-order, m³/(mol·s).",
       "label_i18n": {
         "en": "Rate Constant",
-        "tr": "Rate Constant",
+        "tr": "Hız Sabiti",
         "de": "Rate Constant",
         "fr": "Rate Constant",
         "es": "Rate Constant",
         "ar": "Rate Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Reaction rate constant. For first-order, units are s⁻¹; for second-order, m³/(mol·s).",
+        "tr": "Reaksiyon hız sabiti. Birinci derece için birim s⁻¹; ikinci derece için m³/(mol·s)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Order of reaction with respect to reactant A.",
       "label_i18n": {
         "en": "Reaction Order",
-        "tr": "Reaction Order",
+        "tr": "Reaksiyon Mertebesi",
         "de": "Reaction Order",
         "fr": "Reaction Order",
         "es": "Reaction Order",
         "ar": "Reaction Order"
+      },
+      "businessContext_i18n": {
+        "en": "Order of reaction with respect to reactant A.",
+        "tr": "A reaktantına göre reaksiyon derecesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Safety factor to account for uncertainties in kinetics and operation.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Safety factor to account for uncertainties in kinetics and operation.",
+        "tr": "Kinetik ve operasyondaki belirsizlikleri hesaba katmak için güvenlik faktörü."
       }
     }
   ],

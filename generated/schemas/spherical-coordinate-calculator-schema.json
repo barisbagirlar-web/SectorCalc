@@ -10,11 +10,15 @@
       "businessContext": "Radial distance from the origin (spherical coordinate).",
       "label_i18n": {
         "en": "Radius (r)",
-        "tr": "Radius (r)",
+        "tr": "Yarıçap (r)",
         "de": "Radius (r)",
         "fr": "Radius (r)",
         "es": "Radius (r)",
         "ar": "Radius (r)"
+      },
+      "businessContext_i18n": {
+        "en": "Radial distance from the origin (spherical coordinate).",
+        "tr": "Orijinden radyal uzaklık (küresel koordinat)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Angle from the positive z‑axis, 0° to 180°.",
       "label_i18n": {
         "en": "Polar Angle (θ)",
-        "tr": "Polar Angle (θ)",
+        "tr": "Kutup Açısı (θ)",
         "de": "Polar Angle (θ)",
         "fr": "Polar Angle (θ)",
         "es": "Polar Angle (θ)",
         "ar": "Polar Angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle from the positive z‑axis, 0° to 180°.",
+        "tr": "Pozitif z ekseninden açı, 0° ila 180°"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle in the xy‑plane from the positive x‑axis, 0° to 360°.",
       "label_i18n": {
         "en": "Azimuthal Angle (φ)",
-        "tr": "Azimuthal Angle (φ)",
+        "tr": "Azimut Açısı (φ)",
         "de": "Azimuthal Angle (φ)",
         "fr": "Azimuthal Angle (φ)",
         "es": "Azimuthal Angle (φ)",
         "ar": "Azimuthal Angle (φ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle in the xy‑plane from the positive x‑axis, 0° to 360°.",
+        "tr": "Pozitif x ekseninden xy düzlemindeki açı, 0° ila 360°"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "x‑coordinate of the point (Cartesian input for reverse conversion).",
       "label_i18n": {
         "en": "Cartesian x",
-        "tr": "Cartesian x",
+        "tr": "Kartezyen x",
         "de": "Cartesian x",
         "fr": "Cartesian x",
         "es": "Cartesian x",
         "ar": "Cartesian x"
+      },
+      "businessContext_i18n": {
+        "en": "x‑coordinate of the point (Cartesian input for reverse conversion).",
+        "tr": "Noktanın x koordinatı (ters dönüşüm için Kartezyen giriş)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "y‑coordinate of the point (Cartesian input for reverse conversion).",
       "label_i18n": {
         "en": "Cartesian y",
-        "tr": "Cartesian y",
+        "tr": "Kartezyen y",
         "de": "Cartesian y",
         "fr": "Cartesian y",
         "es": "Cartesian y",
         "ar": "Cartesian y"
+      },
+      "businessContext_i18n": {
+        "en": "y‑coordinate of the point (Cartesian input for reverse conversion).",
+        "tr": "Noktanın y koordinatı (ters dönüşüm için Kartezyen giriş)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "z‑coordinate of the point (Cartesian input for reverse conversion).",
       "label_i18n": {
         "en": "Cartesian z",
-        "tr": "Cartesian z",
+        "tr": "Kartezyen z",
         "de": "Cartesian z",
         "fr": "Cartesian z",
         "es": "Cartesian z",
         "ar": "Cartesian z"
+      },
+      "businessContext_i18n": {
+        "en": "z‑coordinate of the point (Cartesian input for reverse conversion).",
+        "tr": "Noktanın z koordinatı (ters dönüşüm için Kartezyen giriş)"
       }
     }
   ],

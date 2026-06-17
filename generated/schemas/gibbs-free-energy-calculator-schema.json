@@ -10,11 +10,15 @@
       "businessContext": "Temperature in Kelvin",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature in Kelvin",
+        "tr": "Kelvin cinsinden sıcaklık"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ideal gas constant (default 0.008314 kJ/(mol·K))",
       "label_i18n": {
         "en": "Gas Constant",
-        "tr": "Gas Constant",
+        "tr": "Gaz Sabiti",
         "de": "Gas Constant",
         "fr": "Gas Constant",
         "es": "Gas Constant",
         "ar": "Gas Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Ideal gas constant (default 0.008314 kJ/(mol·K))",
+        "tr": "İdeal gaz sabiti (varsayılan 0.008314 kJ/(mol·K))"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard Gibbs free energy change of reaction (ΔG°) in kJ/mol",
       "label_i18n": {
         "en": "Standard ΔG°",
-        "tr": "Standard ΔG°",
+        "tr": "Standart ΔG°",
         "de": "Standard ΔG°",
         "fr": "Standard ΔG°",
         "es": "Standard ΔG°",
         "ar": "Standard ΔG°"
+      },
+      "businessContext_i18n": {
+        "en": "Standard Gibbs free energy change of reaction (ΔG°) in kJ/mol",
+        "tr": "Reaksiyonun standart Gibbs serbest enerji değişimi (ΔG°) kJ/mol cinsinden"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Reaction quotient Q (dimensionless)",
       "label_i18n": {
         "en": "Reaction Quotient",
-        "tr": "Reaction Quotient",
+        "tr": "Reaksiyon bölümü",
         "de": "Reaction Quotient",
         "fr": "Reaction Quotient",
         "es": "Reaction Quotient",
         "ar": "Reaction Quotient"
+      },
+      "businessContext_i18n": {
+        "en": "Reaction quotient Q (dimensionless)",
+        "tr": "Reaksiyon bölümü Q (boyutsuz)"
       }
     }
   ],

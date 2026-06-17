@@ -10,11 +10,15 @@
       "businessContext": "Mass of the baseball in ounces. MLB regulations: 5 to 5.25 ounces.",
       "label_i18n": {
         "en": "Ball Mass",
-        "tr": "Ball Mass",
+        "tr": "Top Kütlesi",
         "de": "Ball Mass",
         "fr": "Ball Mass",
         "es": "Ball Mass",
         "ar": "Ball Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the baseball in ounces. MLB regulations: 5 to 5.25 ounces.",
+        "tr": "Beyzbol topunun ons cinsinden kütlesi. MLB kuralları: 5 ila 5,25 ons."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Effective mass of the bat at the impact point, typically less than total bat weight. Default is for a standard wood bat.",
       "label_i18n": {
         "en": "Effective Bat Mass",
-        "tr": "Effective Bat Mass",
+        "tr": "Etkin Sopa Kütlesi",
         "de": "Effective Bat Mass",
         "fr": "Effective Bat Mass",
         "es": "Effective Bat Mass",
         "ar": "Effective Bat Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Effective mass of the bat at the impact point, typically less than total bat weight. Default is for a standard wood bat.",
+        "tr": "Çarpma noktasında sopanın etkin kütlesi, genellikle toplam sopa ağırlığından azdır. Varsayılan standart bir tahta sopa içindir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Speed of the pitched ball as it crosses the plate, in miles per hour.",
       "label_i18n": {
         "en": "Pitch Speed",
-        "tr": "Pitch Speed",
+        "tr": "Atış Hızı",
         "de": "Pitch Speed",
         "fr": "Pitch Speed",
         "es": "Pitch Speed",
         "ar": "Pitch Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of the pitched ball as it crosses the plate, in miles per hour.",
+        "tr": "Atılan topun plakayı geçerkenki hızı, mil/saat cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Speed of the bat's sweet spot at the moment of impact, in miles per hour.",
       "label_i18n": {
         "en": "Bat Speed",
-        "tr": "Bat Speed",
+        "tr": "Sopa Hızı",
         "de": "Bat Speed",
         "fr": "Bat Speed",
         "es": "Bat Speed",
         "ar": "Bat Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of the bat's sweet spot at the moment of impact, in miles per hour.",
+        "tr": "Çarpma anında sopanın tatlı noktasının hızı, mil/saat cinsinden."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Coefficient of restitution between ball and bat, typically 0.5 to 0.55 for wood bats.",
       "label_i18n": {
         "en": "Coefficient of Restitution",
-        "tr": "Coefficient of Restitution",
+        "tr": "Restitüsyon Katsayısı",
         "de": "Coefficient of Restitution",
         "fr": "Coefficient of Restitution",
         "es": "Coefficient of Restitution",
         "ar": "Coefficient of Restitution"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of restitution between ball and bat, typically 0.5 to 0.55 for wood bats.",
+        "tr": "Top ve sopa arasındaki restitüsyon katsayısı, tahta sopalar için tipik olarak 0.5 ila 0.55."
       }
     }
   ],

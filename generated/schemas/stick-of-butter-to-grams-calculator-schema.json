@@ -10,11 +10,15 @@
       "businessContext": "Quantity of US butter sticks",
       "label_i18n": {
         "en": "Number of Sticks",
-        "tr": "Number of Sticks",
+        "tr": "Çubuk Sayısı",
         "de": "Number of Sticks",
         "fr": "Number of Sticks",
         "es": "Number of Sticks",
         "ar": "Number of Sticks"
+      },
+      "businessContext_i18n": {
+        "en": "Quantity of US butter sticks",
+        "tr": "ABD tereyağı çubuklarının miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard weight of one stick (4 oz)",
       "label_i18n": {
         "en": "Stick Weight",
-        "tr": "Stick Weight",
+        "tr": "Çubuk Ağırlığı",
         "de": "Stick Weight",
         "fr": "Stick Weight",
         "es": "Stick Weight",
         "ar": "Stick Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Standard weight of one stick (4 oz)",
+        "tr": "Bir çubuğun standart ağırlığı (4 oz)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional weight e.g. paper wrap",
       "label_i18n": {
         "en": "Packaging Weight",
-        "tr": "Packaging Weight",
+        "tr": "Ambalaj Ağırlığı",
         "de": "Packaging Weight",
         "fr": "Packaging Weight",
         "es": "Packaging Weight",
         "ar": "Packaging Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Additional weight e.g. paper wrap",
+        "tr": "Örn. kağıt ambalaj gibi ek ağırlık"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Approximate density of butter at room temperature",
       "label_i18n": {
         "en": "Butter Density",
-        "tr": "Butter Density",
+        "tr": "Tereyağı Yoğunluğu",
         "de": "Butter Density",
         "fr": "Butter Density",
         "es": "Butter Density",
         "ar": "Butter Density"
+      },
+      "businessContext_i18n": {
+        "en": "Approximate density of butter at room temperature",
+        "tr": "Oda sıcaklığında tereyağının yaklaşık yoğunluğu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimals for outputs",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimals for outputs",
+        "tr": "Çıktılar için ondalık basamak sayısı"
       }
     }
   ],

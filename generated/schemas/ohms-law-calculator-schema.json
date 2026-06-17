@@ -19,10 +19,12 @@
       "max": 1000000,
       "businessContext": "Nominal voltage per IEC 60038. Typical industrial values: 230V single-phase, 400V three-phase.",
       "label_i18n": {
-        "en": "Voltage (V)"
+        "en": "Voltage (V)",
+        "tr": "Gerilim (V)"
       },
       "businessContext_i18n": {
-        "en": "Nominal voltage per IEC 60038. Typical industrial values: 230V single-phase, 400V three-phase."
+        "en": "Nominal voltage per IEC 60038. Typical industrial values: 230V single-phase, 400V three-phase.",
+        "tr": "IEC 60038'e göre nominal voltaj. Tipik endüstriyel değerler: 230V tek fazlı, 400V üç fazlı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 100000,
       "businessContext": "Load current in amperes. Used for conductor sizing and protection coordination.",
       "label_i18n": {
-        "en": "Current (I)"
+        "en": "Current (I)",
+        "tr": "Akım (I)"
       },
       "businessContext_i18n": {
-        "en": "Load current in amperes. Used for conductor sizing and protection coordination."
+        "en": "Load current in amperes. Used for conductor sizing and protection coordination.",
+        "tr": "Amper cinsinden yük akımı. İletken boyutlandırma ve koruma koordinasyonu için kullanılır."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 1000000000,
       "businessContext": "DC resistance or AC impedance at power frequency. Includes conductor, contact, and load resistance.",
       "label_i18n": {
-        "en": "Resistance (R)"
+        "en": "Resistance (R)",
+        "tr": "Direnç (R)"
       },
       "businessContext_i18n": {
-        "en": "DC resistance or AC impedance at power frequency. Includes conductor, contact, and load resistance."
+        "en": "DC resistance or AC impedance at power frequency. Includes conductor, contact, and load resistance.",
+        "tr": "Güç frekansında DC direnç veya AC empedans. İletken, temas ve yük direncini içerir."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 1,
       "businessContext": "Ratio of real power to apparent power. Typical industrial loads: 0.8-1.0. Used for AC power calculations.",
       "label_i18n": {
-        "en": "Power Factor (cos φ)"
+        "en": "Power Factor (cos φ)",
+        "tr": "Güç Faktörü (cos φ)"
       },
       "businessContext_i18n": {
-        "en": "Ratio of real power to apparent power. Typical industrial loads: 0.8-1.0. Used for AC power calculations."
+        "en": "Ratio of real power to apparent power. Typical industrial loads: 0.8-1.0. Used for AC power calculations.",
+        "tr": "Gerçek gücün görünür güce oranı. Tipik endüstriyel yükler: 0,8-1,0. AC güç hesaplamaları için kullanılır."
       }
     },
     {
@@ -87,10 +95,12 @@
         "three"
       ],
       "label_i18n": {
-        "en": "Phase Type"
+        "en": "Phase Type",
+        "tr": "Faz Türü"
       },
       "businessContext_i18n": {
-        "en": "Single-phase or three-phase system. Affects power calculation formulas per IEC 60364."
+        "en": "Single-phase or three-phase system. Affects power calculation formulas per IEC 60364.",
+        "tr": "Tek fazlı veya üç fazlı sistem. IEC 60364'e göre güç hesaplama formüllerini etkiler."
       }
     },
     {
@@ -103,10 +113,12 @@
       "max": 85,
       "businessContext": "Ambient temperature for resistance temperature correction. Copper conductor TCR = 0.00393 /°C.",
       "label_i18n": {
-        "en": "Ambient Temperature"
+        "en": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı"
       },
       "businessContext_i18n": {
-        "en": "Ambient temperature for resistance temperature correction. Copper conductor TCR = 0.00393 /°C."
+        "en": "Ambient temperature for resistance temperature correction. Copper conductor TCR = 0.00393 /°C.",
+        "tr": "Direnç sıcaklık düzeltmesi için ortam sıcaklığı. Bakır iletken TCR = 0,00393 /°C."
       }
     }
   ],

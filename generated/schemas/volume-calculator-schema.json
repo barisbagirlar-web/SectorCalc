@@ -10,11 +10,15 @@
       "businessContext": "Length of the object in meters",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the object in meters",
+        "tr": "Nesnenin metre cinsinden uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the object in meters",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the object in meters",
+        "tr": "Nesnenin metre cinsinden genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height of the object in meters",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the object in meters",
+        "tr": "Nesnenin metre cinsinden yüksekliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 for rectangular, 0.5236 for spherical (4/3*pi/8), etc.",
       "label_i18n": {
         "en": "Shape Factor",
-        "tr": "Shape Factor",
+        "tr": "Şekil Faktörü",
         "de": "Shape Factor",
         "fr": "Shape Factor",
         "es": "Shape Factor",
         "ar": "Shape Factor"
+      },
+      "businessContext_i18n": {
+        "en": "1 for rectangular, 0.5236 for spherical (4/3*pi/8), etc.",
+        "tr": "Dikdörtgen için 1, küresel için 0,5236 (4/3*pi/8), vb."
       }
     }
   ],

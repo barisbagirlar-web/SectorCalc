@@ -10,11 +10,15 @@
       "businessContext": "Serum total cholesterol level",
       "label_i18n": {
         "en": "Total Cholesterol",
-        "tr": "Total Cholesterol",
+        "tr": "Toplam Kolesterol",
         "de": "Total Cholesterol",
         "fr": "Total Cholesterol",
         "es": "Total Cholesterol",
         "ar": "Total Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "Serum total cholesterol level",
+        "tr": "Serum toplam kolesterol seviyesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Serum HDL cholesterol level",
       "label_i18n": {
         "en": "HDL Cholesterol",
-        "tr": "HDL Cholesterol",
+        "tr": "HDL Kolesterol",
         "de": "HDL Cholesterol",
         "fr": "HDL Cholesterol",
         "es": "HDL Cholesterol",
         "ar": "HDL Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "Serum HDL cholesterol level",
+        "tr": "Serum HDL kolesterol seviyesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Serum triglycerides level, used for LDL calculation when flag enabled",
       "label_i18n": {
         "en": "Triglycerides",
-        "tr": "Triglycerides",
+        "tr": "Trigliserit",
         "de": "Triglycerides",
         "fr": "Triglycerides",
         "es": "Triglycerides",
         "ar": "Triglycerides"
+      },
+      "businessContext_i18n": {
+        "en": "Serum triglycerides level, used for LDL calculation when flag enabled",
+        "tr": "Serum trigliserit seviyesi, işaret etkinleştirildiğinde LDL hesaplaması için kullanılır"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Set to 1 to compute LDL cholesterol using Friedewald formula (valid for triglycerides <400 mg/dL)",
       "label_i18n": {
         "en": "Calculate LDL",
-        "tr": "Calculate LDL",
+        "tr": "LDL hesapla",
         "de": "Calculate LDL",
         "fr": "Calculate LDL",
         "es": "Calculate LDL",
         "ar": "Calculate LDL"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to compute LDL cholesterol using Friedewald formula (valid for triglycerides <400 mg/dL)",
+        "tr": "Friedewald formülü ile LDL kolesterolü hesaplamak için 1 olarak ayarlayın (trigliserit <400 mg/dL için geçerlidir)"
       }
     }
   ],

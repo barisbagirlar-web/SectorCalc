@@ -10,11 +10,15 @@
       "businessContext": "Total pre-tax balance in traditional IRA account before conversion.",
       "label_i18n": {
         "en": "Current Traditional IRA Balance",
-        "tr": "Current Traditional IRA Balance",
+        "tr": "Mevcut Geleneksel IRA Bakiyesi",
         "de": "Current Traditional IRA Balance",
         "fr": "Current Traditional IRA Balance",
         "es": "Current Traditional IRA Balance",
         "ar": "Current Traditional IRA Balance"
+      },
+      "businessContext_i18n": {
+        "en": "Total pre-tax balance in traditional IRA account before conversion.",
+        "tr": "Dönüşüm öncesi geleneksel IRA hesabındaki toplam vergi öncesi bakiye."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Portion of the traditional IRA balance to convert to a Roth IRA; cannot exceed currentBalance.",
       "label_i18n": {
         "en": "Amount to Convert",
-        "tr": "Amount to Convert",
+        "tr": "Dönüştürülecek Tutar",
         "de": "Amount to Convert",
         "fr": "Amount to Convert",
         "es": "Amount to Convert",
         "ar": "Amount to Convert"
+      },
+      "businessContext_i18n": {
+        "en": "Portion of the traditional IRA balance to convert to a Roth IRA; cannot exceed currentBalance.",
+        "tr": "Roth IRA'ya dönüştürülecek geleneksel IRA bakiyesinin kısmı; currentBalance değerini aşamaz."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected income tax rate in the year of conversion, expressed as a percentage.",
       "label_i18n": {
         "en": "Current Marginal Tax Rate",
-        "tr": "Current Marginal Tax Rate",
+        "tr": "Mevcut Marjinal Vergi Oranı",
         "de": "Current Marginal Tax Rate",
         "fr": "Current Marginal Tax Rate",
         "es": "Current Marginal Tax Rate",
         "ar": "Current Marginal Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected income tax rate in the year of conversion, expressed as a percentage.",
+        "tr": "Dönüşüm yılında beklenen gelir vergisi oranı, yüzde olarak ifade edilir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated marginal tax rate during retirement when traditional IRA withdrawals will be taxed.",
       "label_i18n": {
         "en": "Expected Retirement Tax Rate",
-        "tr": "Expected Retirement Tax Rate",
+        "tr": "Beklenen Emeklilik Vergi Oranı",
         "de": "Expected Retirement Tax Rate",
         "fr": "Expected Retirement Tax Rate",
         "es": "Expected Retirement Tax Rate",
         "ar": "Expected Retirement Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated marginal tax rate during retirement when traditional IRA withdrawals will be taxed.",
+        "tr": "Geleneksel IRA'dan çekimlerin vergilendirileceği emeklilik döneminde tahmini marjinal vergi oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of years until retirement, during which converted funds grow tax-free.",
       "label_i18n": {
         "en": "Years to Retirement",
-        "tr": "Years to Retirement",
+        "tr": "Emekliliğe Kalan Yıl",
         "de": "Years to Retirement",
         "fr": "Years to Retirement",
         "es": "Years to Retirement",
         "ar": "Years to Retirement"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years until retirement, during which converted funds grow tax-free.",
+        "tr": "Emekliliğe kalan yıl sayısı, bu süre boyunca dönüştürülen fonlar vergisiz büyür."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Assumed average annual investment return before inflation.",
       "label_i18n": {
         "en": "Expected Annual Return",
-        "tr": "Expected Annual Return",
+        "tr": "Beklenen Yıllık Getiri",
         "de": "Expected Annual Return",
         "fr": "Expected Annual Return",
         "es": "Expected Annual Return",
         "ar": "Expected Annual Return"
+      },
+      "businessContext_i18n": {
+        "en": "Assumed average annual investment return before inflation.",
+        "tr": "Enflasyon öncesi varsayılan ortalama yıllık yatırım getirisi."
       }
     }
   ],

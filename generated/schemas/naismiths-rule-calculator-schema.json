@@ -10,11 +10,15 @@
       "businessContext": "Total horizontal distance of the hike",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Distance (km)",
+        "tr": "Mesafe (km)",
         "de": "Distance (km)",
         "fr": "Distance (km)",
         "es": "Distance (km)",
         "ar": "Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Total horizontal distance of the hike",
+        "tr": "Yürüyüşün toplam yatay mesafesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total elevation gain during the hike",
       "label_i18n": {
         "en": "Total Ascent (m)",
-        "tr": "Total Ascent (m)",
+        "tr": "Toplam Yükseliş (m)",
         "de": "Total Ascent (m)",
         "fr": "Total Ascent (m)",
         "es": "Total Ascent (m)",
         "ar": "Total Ascent (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Total elevation gain during the hike",
+        "tr": "Yürüyüş sırasında toplam yükseklik kazanımı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total elevation loss during the hike",
       "label_i18n": {
         "en": "Total Descent (m)",
-        "tr": "Total Descent (m)",
+        "tr": "Toplam İniş (m)",
         "de": "Total Descent (m)",
         "fr": "Total Descent (m)",
         "es": "Total Descent (m)",
         "ar": "Total Descent (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Total elevation loss during the hike",
+        "tr": "Yürüyüş sırasında toplam yükseklik kaybı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average walking pace on flat terrain",
       "label_i18n": {
         "en": "Pace (min/km)",
-        "tr": "Pace (min/km)",
+        "tr": "Tempo (dak/km)",
         "de": "Pace (min/km)",
         "fr": "Pace (min/km)",
         "es": "Pace (min/km)",
         "ar": "Pace (min/km)"
+      },
+      "businessContext_i18n": {
+        "en": "Average walking pace on flat terrain",
+        "tr": "Düz arazide ortalama yürüme hızı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional time per 100m of ascent",
       "label_i18n": {
         "en": "Ascent Time per 100m (min)",
-        "tr": "Ascent Time per 100m (min)",
+        "tr": "100m Başına Çıkış Süresi (dak)",
         "de": "Ascent Time per 100m (min)",
         "fr": "Ascent Time per 100m (min)",
         "es": "Ascent Time per 100m (min)",
         "ar": "Ascent Time per 100m (min)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional time per 100m of ascent",
+        "tr": "100m çıkış başına ek süre"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional time per 100m of descent",
       "label_i18n": {
         "en": "Descent Time per 100m (min)",
-        "tr": "Descent Time per 100m (min)",
+        "tr": "100m Başına İniş Süresi (dak)",
         "de": "Descent Time per 100m (min)",
         "fr": "Descent Time per 100m (min)",
         "es": "Descent Time per 100m (min)",
         "ar": "Descent Time per 100m (min)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional time per 100m of descent",
+        "tr": "100m iniş başına ek süre"
       }
     }
   ],

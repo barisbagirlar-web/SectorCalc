@@ -24,10 +24,12 @@
       "max": 50000,
       "businessContext": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations.",
       "label_i18n": {
-        "en": "Shipment Weight (kg)"
+        "en": "Shipment Weight (kg)",
+        "tr": "Gönderi Ağırlığı (kg)"
       },
       "businessContext_i18n": {
-        "en": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations."
+        "en": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations.",
+        "tr": "Ambalaj dahil gönderinin toplam ağırlığı. Oran tabanı ve hacimsel ağırlık hesaplamaları için kullanılır."
       }
     },
     {
@@ -40,10 +42,12 @@
       "max": 200,
       "businessContext": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis.",
       "label_i18n": {
-        "en": "Shipment Volume (cbm)"
+        "en": "Shipment Volume (cbm)",
+        "tr": "Gönderi Hacmi (m³)"
       },
       "businessContext_i18n": {
-        "en": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis."
+        "en": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis.",
+        "tr": "Gönderinin toplam metreküpü. Hacimsel ağırlık faktörü ve alan kullanım analizi için kullanılır."
       }
     },
     {
@@ -56,10 +60,12 @@
       "max": 20000,
       "businessContext": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs.",
       "label_i18n": {
-        "en": "Distance (km)"
+        "en": "Distance (km)",
+        "tr": "Mesafe (km)"
       },
       "businessContext_i18n": {
-        "en": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs."
+        "en": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs.",
+        "tr": "Menşeiden varış noktasına toplam taşıma mesafesi. Yakıt ek ücretini ve zamana dayalı maliyetleri etkiler."
       }
     },
     {
@@ -77,10 +83,12 @@
       ],
       "businessContext": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact.",
       "label_i18n": {
-        "en": "Transport Mode"
+        "en": "Transport Mode",
+        "tr": "Taşıma Modu"
       },
       "businessContext_i18n": {
-        "en": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact."
+        "en": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact.",
+        "tr": "Taşıma modu. Her modun farklı maliyet yapıları, risk profilleri ve karbon etkisi vardır."
       }
     },
     {
@@ -93,10 +101,12 @@
       "max": 50,
       "businessContext": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA.",
       "label_i18n": {
-        "en": "Fuel Surcharge (%)"
+        "en": "Fuel Surcharge (%)",
+        "tr": "Yakıt Ek Ücreti (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA."
+        "en": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA.",
+        "tr": "Yakıt fiyatı değişkenliğini hesaba katmak için temel navlun oranına uygulanan yüzde. Genellikle DOE veya IATA'ya endekslenir."
       }
     },
     {
@@ -109,10 +119,12 @@
       "max": 5000,
       "businessContext": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc.",
       "label_i18n": {
-        "en": "Accessorial Charges (USD)"
+        "en": "Accessorial Charges (USD)",
+        "tr": "Ek Hizmet Ücretleri (USD)"
       },
       "businessContext_i18n": {
-        "en": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc."
+        "en": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc.",
+        "tr": "Arka kapı asansörü, konut teslimatı, iç teslimat, alıkoyma vb. için ek ücretler."
       }
     },
     {
@@ -125,10 +137,12 @@
       "max": 5000,
       "businessContext": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight.",
       "label_i18n": {
-        "en": "Density Factor (kg/cbm)"
+        "en": "Density Factor (kg/cbm)",
+        "tr": "Yoğunluk Faktörü (kg/m³)"
       },
       "businessContext_i18n": {
-        "en": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight."
+        "en": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight.",
+        "tr": "Gönderinin gerçek yoğunluğu. LTL sınıfı veya hava kargo ücrete tabi ağırlığı için kırılma noktalarına karşı karşılaştırmada kullanılır."
       }
     },
     {
@@ -139,10 +153,12 @@
       "default": false,
       "businessContext": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees.",
       "label_i18n": {
-        "en": "Hazardous Material"
+        "en": "Hazardous Material",
+        "tr": "Tehlikeli Madde"
       },
       "businessContext_i18n": {
-        "en": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees."
+        "en": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees.",
+        "tr": "Gönderinin tehlikeli madde içerdiğini belirtir. Ek uyumluluk ve elleçleme ücretlerini tetikler."
       }
     }
   ],

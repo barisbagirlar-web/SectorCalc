@@ -10,11 +10,15 @@
       "businessContext": "Depth from ground surface to water level when not pumping.",
       "label_i18n": {
         "en": "Static Water Level",
-        "tr": "Static Water Level",
+        "tr": "Statik Su Seviyesi",
         "de": "Static Water Level",
         "fr": "Static Water Level",
         "es": "Static Water Level",
         "ar": "Static Water Level"
+      },
+      "businessContext_i18n": {
+        "en": "Depth from ground surface to water level when not pumping.",
+        "tr": "Pompalama yapılmadığında zemin yüzeyinden su seviyesine kadar olan derinlik."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional drop in water level during pumping.",
       "label_i18n": {
         "en": "Drawdown",
-        "tr": "Drawdown",
+        "tr": "Düşüm",
         "de": "Drawdown",
         "fr": "Drawdown",
         "es": "Drawdown",
         "ar": "Drawdown"
+      },
+      "businessContext_i18n": {
+        "en": "Additional drop in water level during pumping.",
+        "tr": "Pompalama sırasında su seviyesindeki ek düşüş."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Pressure head required at discharge point (1 bar ≈ 10.2 m).",
       "label_i18n": {
         "en": "Discharge Head",
-        "tr": "Discharge Head",
+        "tr": "Basma Yüksekliği",
         "de": "Discharge Head",
         "fr": "Discharge Head",
         "es": "Discharge Head",
         "ar": "Discharge Head"
+      },
+      "businessContext_i18n": {
+        "en": "Pressure head required at discharge point (1 bar ≈ 10.2 m).",
+        "tr": "Deşarj noktasında gereken basınç yüksekliği (1 bar ≈ 10.2 m)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated friction loss in piping and fittings.",
       "label_i18n": {
         "en": "Friction Loss",
-        "tr": "Friction Loss",
+        "tr": "Sürtünme Kaybı",
         "de": "Friction Loss",
         "fr": "Friction Loss",
         "es": "Friction Loss",
         "ar": "Friction Loss"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated friction loss in piping and fittings.",
+        "tr": "Boru ve bağlantı elemanlarında tahmini sürtünme kaybı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Desired volumetric flow rate.",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Desired volumetric flow rate.",
+        "tr": "İstenen hacimsel debi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Pump efficiency (typically 50–85%).",
       "label_i18n": {
         "en": "Pump Efficiency",
-        "tr": "Pump Efficiency",
+        "tr": "Pompa Verimliliği",
         "de": "Pump Efficiency",
         "fr": "Pump Efficiency",
         "es": "Pump Efficiency",
         "ar": "Pump Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Pump efficiency (typically 50–85%).",
+        "tr": "Pompa verimliliği (tipik olarak %50–85)."
       }
     }
   ],

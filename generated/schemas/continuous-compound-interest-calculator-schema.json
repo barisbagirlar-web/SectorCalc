@@ -10,11 +10,15 @@
       "businessContext": "The initial amount of money invested or borrowed.",
       "label_i18n": {
         "en": "Principal",
-        "tr": "Principal",
+        "tr": "Anapara",
         "de": "Principal",
         "fr": "Principal",
         "es": "Principal",
         "ar": "Principal"
+      },
+      "businessContext_i18n": {
+        "en": "The initial amount of money invested or borrowed.",
+        "tr": "Yatırılan veya borç alınan başlangıç para miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The annual nominal interest rate as a percentage (e.g., 5 means 5%).",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The annual nominal interest rate as a percentage (e.g., 5 means 5%).",
+        "tr": "Yıllık nominal faiz oranı yüzde olarak (örneğin 5, %5 anlamına gelir)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The length of time the money is invested or borrowed for, in years.",
       "label_i18n": {
         "en": "Time",
-        "tr": "Time",
+        "tr": "Zaman",
         "de": "Time",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
+      },
+      "businessContext_i18n": {
+        "en": "The length of time the money is invested or borrowed for, in years.",
+        "tr": "Paranın yatırıldığı veya borç alındığı süre, yıl cinsinden."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The number of decimal places to display in the results.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "The number of decimal places to display in the results.",
+        "tr": "Sonuçlarda görüntülenecek ondalık basamak sayısı."
       }
     }
   ],

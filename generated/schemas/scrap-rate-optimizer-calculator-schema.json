@@ -22,10 +22,12 @@
       "max": 10000000,
       "businessContext": "Total number of units produced in the reporting period (e.g., shift, day, week).",
       "label_i18n": {
-        "en": "Total Units Produced"
+        "en": "Total Units Produced",
+        "tr": "Toplam Üretilen Birim"
       },
       "businessContext_i18n": {
-        "en": "Total number of units produced in the reporting period (e.g., shift, day, week)."
+        "en": "Total number of units produced in the reporting period (e.g., shift, day, week).",
+        "tr": "Raporlama döneminde üretilen toplam birim sayısı (örneğin, vardiya, gün, hafta)."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 10000000,
       "businessContext": "Number of units that failed quality inspection or are non-conforming.",
       "label_i18n": {
-        "en": "Defective Units"
+        "en": "Defective Units",
+        "tr": "Hatalı Birimler"
       },
       "businessContext_i18n": {
-        "en": "Number of units that failed quality inspection or are non-conforming."
+        "en": "Number of units that failed quality inspection or are non-conforming.",
+        "tr": "Kalite kontrolünden geçemeyen veya uygunsuz olan birim sayısı."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 10000000,
       "businessContext": "Units that were reworked to meet specifications (counted separately from scrap).",
       "label_i18n": {
-        "en": "Rework Units"
+        "en": "Rework Units",
+        "tr": "Yeniden İşleme Birimleri"
       },
       "businessContext_i18n": {
-        "en": "Units that were reworked to meet specifications (counted separately from scrap)."
+        "en": "Units that were reworked to meet specifications (counted separately from scrap).",
+        "tr": "Şartnameye uygun hale getirilmek üzere yeniden işlenen birimler (fireden ayrı olarak sayılır)."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 10000,
       "businessContext": "Direct material cost per unit in USD.",
       "label_i18n": {
-        "en": "Material Cost per Unit"
+        "en": "Material Cost per Unit",
+        "tr": "Birim Başına Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct material cost per unit in USD."
+        "en": "Direct material cost per unit in USD.",
+        "tr": "Birim başına doğrudan malzeme maliyeti (USD)."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 10000,
       "businessContext": "Direct labor cost per unit in USD.",
       "label_i18n": {
-        "en": "Labor Cost per Unit"
+        "en": "Labor Cost per Unit",
+        "tr": "Birim başına işçilik maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct labor cost per unit in USD."
+        "en": "Direct labor cost per unit in USD.",
+        "tr": "Birim başına doğrudan işçilik maliyeti (USD)."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 10000,
       "businessContext": "Allocated overhead cost per unit in USD.",
       "label_i18n": {
-        "en": "Overhead Cost per Unit"
+        "en": "Overhead Cost per Unit",
+        "tr": "Birim Başına Genel Gider Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Allocated overhead cost per unit in USD."
+        "en": "Allocated overhead cost per unit in USD.",
+        "tr": "Birim başına dağıtılan genel gider maliyeti (USD)."
       }
     },
     {
@@ -125,10 +137,12 @@
       ],
       "businessContext": "Stage in the production process where scrap is measured.",
       "label_i18n": {
-        "en": "Process Stage"
+        "en": "Process Stage",
+        "tr": "Proses Aşaması"
       },
       "businessContext_i18n": {
-        "en": "Stage in the production process where scrap is measured."
+        "en": "Stage in the production process where scrap is measured.",
+        "tr": "Firenin ölçüldüğü üretim sürecindeki aşama."
       }
     },
     {
@@ -149,10 +163,12 @@
       ],
       "businessContext": "Most common defect category observed.",
       "label_i18n": {
-        "en": "Primary Defect Type"
+        "en": "Primary Defect Type",
+        "tr": "Birincil Kusur Türü"
       },
       "businessContext_i18n": {
-        "en": "Most common defect category observed."
+        "en": "Most common defect category observed.",
+        "tr": "Gözlemlenen en yaygın kusur kategorisi."
       }
     }
   ],

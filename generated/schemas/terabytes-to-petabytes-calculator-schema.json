@@ -15,6 +15,10 @@
         "fr": "Toplam Ham Kapasite (TB)",
         "es": "Toplam Ham Kapasite (TB)",
         "ar": "Toplam Ham Kapasite (TB)"
+      },
+      "businessContext_i18n": {
+        "en": "Tüm disklerin toplam ham depolama kapasitesi.",
+        "tr": "Tüm disklerin toplam ham depolama kapasitesi."
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "RAID Kullanılabilirlik Oranı",
         "es": "RAID Kullanılabilirlik Oranı",
         "ar": "RAID Kullanılabilirlik Oranı"
+      },
+      "businessContext_i18n": {
+        "en": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0.5.",
+        "tr": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0,5."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Formatlama Kaybı (%)",
         "es": "Formatlama Kaybı (%)",
         "ar": "Formatlama Kaybı (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi.",
+        "tr": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "PB Dönüşüm Katsayısı",
         "es": "PB Dönüşüm Katsayısı",
         "ar": "PB Dönüşüm Katsayısı"
+      },
+      "businessContext_i18n": {
+        "en": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024.",
+        "tr": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024."
       }
     }
   ],

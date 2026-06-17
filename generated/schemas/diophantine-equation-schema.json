@@ -10,11 +10,15 @@
       "businessContext": "Coefficient of x in the linear Diophantine equation ax + by = c",
       "label_i18n": {
         "en": "Coefficient a",
-        "tr": "Coefficient a",
+        "tr": "Katsayı a",
         "de": "Coefficient a",
         "fr": "Coefficient a",
         "es": "Coefficient a",
         "ar": "Coefficient a"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of x in the linear Diophantine equation ax + by = c",
+        "tr": "ax + by = c lineer Diophantine denkleminde x'in katsayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Coefficient of y in the linear Diophantine equation ax + by = c",
       "label_i18n": {
         "en": "Coefficient b",
-        "tr": "Coefficient b",
+        "tr": "Katsayı b",
         "de": "Coefficient b",
         "fr": "Coefficient b",
         "es": "Coefficient b",
         "ar": "Coefficient b"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of y in the linear Diophantine equation ax + by = c",
+        "tr": "ax + by = c lineer Diophantine denkleminde y'nin katsayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Right-hand side constant of the equation ax + by = c",
       "label_i18n": {
         "en": "Constant c",
-        "tr": "Constant c",
+        "tr": "Sabit c",
         "de": "Constant c",
         "fr": "Constant c",
         "es": "Constant c",
         "ar": "Constant c"
+      },
+      "businessContext_i18n": {
+        "en": "Right-hand side constant of the equation ax + by = c",
+        "tr": "ax + by = c denkleminin sağ taraf sabiti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "A particular integer solution for x, used to generate general solution",
       "label_i18n": {
         "en": "Initial x (particular solution)",
-        "tr": "Initial x (particular solution)",
+        "tr": "Başlangıç x (özel çözüm)",
         "de": "Initial x (particular solution)",
         "fr": "Initial x (particular solution)",
         "es": "Initial x (particular solution)",
         "ar": "Initial x (particular solution)"
+      },
+      "businessContext_i18n": {
+        "en": "A particular integer solution for x, used to generate general solution",
+        "tr": "Genel çözümü oluşturmak için kullanılan x için belirli bir tamsayı çözümü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "A particular integer solution for y, used to generate general solution",
       "label_i18n": {
         "en": "Initial y (particular solution)",
-        "tr": "Initial y (particular solution)",
+        "tr": "Başlangıç y (özel çözüm)",
         "de": "Initial y (particular solution)",
         "fr": "Initial y (particular solution)",
         "es": "Initial y (particular solution)",
         "ar": "Initial y (particular solution)"
+      },
+      "businessContext_i18n": {
+        "en": "A particular integer solution for y, used to generate general solution",
+        "tr": "Genel çözümü oluşturmak için kullanılan y için belirli bir tamsayı çözümü"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Integer parameter to generate infinite family of solutions",
       "label_i18n": {
         "en": "Parameter k",
-        "tr": "Parameter k",
+        "tr": "Parametre k",
         "de": "Parameter k",
         "fr": "Parameter k",
         "es": "Parameter k",
         "ar": "Parameter k"
+      },
+      "businessContext_i18n": {
+        "en": "Integer parameter to generate infinite family of solutions",
+        "tr": "Sonsuz çözüm ailesi oluşturmak için tamsayı parametre"
       }
     }
   ],

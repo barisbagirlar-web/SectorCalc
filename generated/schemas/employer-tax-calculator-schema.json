@@ -10,11 +10,15 @@
       "businessContext": "The gross monthly salary of the employee before any deductions.",
       "label_i18n": {
         "en": "Employee Gross Salary",
-        "tr": "Employee Gross Salary",
+        "tr": "Çalışan Brüt Maaşı",
         "de": "Employee Gross Salary",
         "fr": "Employee Gross Salary",
         "es": "Employee Gross Salary",
         "ar": "Employee Gross Salary"
+      },
+      "businessContext_i18n": {
+        "en": "The gross monthly salary of the employee before any deductions.",
+        "tr": "Herhangi bir kesinti öncesi çalışanın brüt aylık maaşı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Employer's contribution rate for social security (including disability, old age, etc.).",
       "label_i18n": {
         "en": "Employer Social Security Rate (%)",
-        "tr": "Employer Social Security Rate (%)",
+        "tr": "İşveren Sosyal Güvenlik Oranı (%)",
         "de": "Employer Social Security Rate (%)",
         "fr": "Employer Social Security Rate (%)",
         "es": "Employer Social Security Rate (%)",
         "ar": "Employer Social Security Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Employer's contribution rate for social security (including disability, old age, etc.).",
+        "tr": "İşverenin sosyal güvenlik katkı oranı (engellilik, yaşlılık vb. dahil)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Employer's contribution rate for health insurance.",
       "label_i18n": {
         "en": "Employer Health Insurance Rate (%)",
-        "tr": "Employer Health Insurance Rate (%)",
+        "tr": "İşveren Sağlık Sigortası Oranı (%)",
         "de": "Employer Health Insurance Rate (%)",
         "fr": "Employer Health Insurance Rate (%)",
         "es": "Employer Health Insurance Rate (%)",
         "ar": "Employer Health Insurance Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Employer's contribution rate for health insurance.",
+        "tr": "İşverenin sağlık sigortası katkı oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Employer's contribution rate for unemployment insurance.",
       "label_i18n": {
         "en": "Employer Unemployment Insurance Rate (%)",
-        "tr": "Employer Unemployment Insurance Rate (%)",
+        "tr": "İşveren İşsizlik Sigortası Oranı (%)",
         "de": "Employer Unemployment Insurance Rate (%)",
         "fr": "Employer Unemployment Insurance Rate (%)",
         "es": "Employer Unemployment Insurance Rate (%)",
         "ar": "Employer Unemployment Insurance Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Employer's contribution rate for unemployment insurance.",
+        "tr": "İşverenin işsizlik sigortası katkı oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Any other employer-specific costs like worker compensation, insurance, etc.",
       "label_i18n": {
         "en": "Additional Employer Cost Rate (%)",
-        "tr": "Additional Employer Cost Rate (%)",
+        "tr": "Ek İşveren Maliyet Oranı (%)",
         "de": "Additional Employer Cost Rate (%)",
         "fr": "Additional Employer Cost Rate (%)",
         "es": "Additional Employer Cost Rate (%)",
         "ar": "Additional Employer Cost Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Any other employer-specific costs like worker compensation, insurance, etc.",
+        "tr": "İşçi tazminatı, sigorta vb. diğer işverene özgü maliyetler."
       }
     }
   ],

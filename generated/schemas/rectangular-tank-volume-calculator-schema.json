@@ -10,11 +10,15 @@
       "businessContext": "External length of the tank including wall thickness",
       "label_i18n": {
         "en": "Outer Length",
-        "tr": "Outer Length",
+        "tr": "Dış uzunluk",
         "de": "Outer Length",
         "fr": "Outer Length",
         "es": "Outer Length",
         "ar": "Outer Length"
+      },
+      "businessContext_i18n": {
+        "en": "External length of the tank including wall thickness",
+        "tr": "Duvar kalınlığı dahil tankın dış uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "External width of the tank including wall thickness",
       "label_i18n": {
         "en": "Outer Width",
-        "tr": "Outer Width",
+        "tr": "Dış genişlik",
         "de": "Outer Width",
         "fr": "Outer Width",
         "es": "Outer Width",
         "ar": "Outer Width"
+      },
+      "businessContext_i18n": {
+        "en": "External width of the tank including wall thickness",
+        "tr": "Duvar kalınlığı dahil tankın dış genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "External height of the tank including top and bottom",
       "label_i18n": {
         "en": "Outer Height",
-        "tr": "Outer Height",
+        "tr": "Dış yükseklik",
         "de": "Outer Height",
         "fr": "Outer Height",
         "es": "Outer Height",
         "ar": "Outer Height"
+      },
+      "businessContext_i18n": {
+        "en": "External height of the tank including top and bottom",
+        "tr": "Üst ve alt dahil tankın dış yüksekliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Uniform thickness of walls, roof, and floor",
       "label_i18n": {
         "en": "Wall Thickness",
-        "tr": "Wall Thickness",
+        "tr": "Duvar Kalınlığı (cm)",
         "de": "Wall Thickness",
         "fr": "Wall Thickness",
         "es": "Wall Thickness",
         "ar": "Wall Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Uniform thickness of walls, roof, and floor",
+        "tr": "Duvarlar, çatı ve tabanın tek tip kalınlığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Liquid height measured from inside bottom, must not exceed inner height",
       "label_i18n": {
         "en": "Fill Level",
-        "tr": "Fill Level",
+        "tr": "Dolum seviyesi",
         "de": "Fill Level",
         "fr": "Fill Level",
         "es": "Fill Level",
         "ar": "Fill Level"
+      },
+      "businessContext_i18n": {
+        "en": "Liquid height measured from inside bottom, must not exceed inner height",
+        "tr": "İç tabandan ölçülen sıvı yüksekliği, iç yüksekliği aşmamalıdır"
       }
     }
   ],

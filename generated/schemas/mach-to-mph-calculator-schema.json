@@ -10,11 +10,15 @@
       "businessContext": "The ratio of true airspeed to the speed of sound.",
       "label_i18n": {
         "en": "Mach Number",
-        "tr": "Mach Number",
+        "tr": "Mach sayısı",
         "de": "Mach Number",
         "fr": "Mach Number",
         "es": "Mach Number",
         "ar": "Mach Number"
+      },
+      "businessContext_i18n": {
+        "en": "The ratio of true airspeed to the speed of sound.",
+        "tr": "Gerçek hava hızının ses hızına oranı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Outside air temperature in Celsius. Used if 'Use ISA' is 0.",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı",
         "de": "Ambient Temperature",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Outside air temperature in Celsius. Used if 'Use ISA' is 0.",
+        "tr": "Santigrat cinsinden dış hava sıcaklığı. 'ISA Kullan' 0 ise kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Altitude above sea level. Required for ISA temperature calculation.",
       "label_i18n": {
         "en": "Altitude",
-        "tr": "Altitude",
+        "tr": "Rakım",
         "de": "Altitude",
         "fr": "Altitude",
         "es": "Altitude",
         "ar": "Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Altitude above sea level. Required for ISA temperature calculation.",
+        "tr": "Deniz seviyesinden yükseklik. ISA sıcaklık hesaplaması için gereklidir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Set to 1 to calculate standard temperature from altitude. Otherwise, use the input temperature.",
       "label_i18n": {
         "en": "Use ISA Temperature",
-        "tr": "Use ISA Temperature",
+        "tr": "ISA Sıcaklığını Kullan",
         "de": "Use ISA Temperature",
         "fr": "Use ISA Temperature",
         "es": "Use ISA Temperature",
         "ar": "Use ISA Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to calculate standard temperature from altitude. Otherwise, use the input temperature.",
+        "tr": "Standart sıcaklığı yükseklikten hesaplamak için 1 olarak ayarlayın. Aksi takdirde, girdi sıcaklığını kullanın."
       }
     }
   ],

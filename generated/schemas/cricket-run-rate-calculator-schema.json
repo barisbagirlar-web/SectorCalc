@@ -10,11 +10,15 @@
       "businessContext": "Total runs scored so far in the innings",
       "label_i18n": {
         "en": "Runs Scored",
-        "tr": "Runs Scored",
+        "tr": "Atılan Koşu",
         "de": "Runs Scored",
         "fr": "Runs Scored",
         "es": "Runs Scored",
         "ar": "Runs Scored"
+      },
+      "businessContext_i18n": {
+        "en": "Total runs scored so far in the innings",
+        "tr": "Innings'te şu ana kadar atılan toplam koşu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Overs bowled so far, as decimal (e.g., 15.4 = 15 overs, 4 balls)",
       "label_i18n": {
         "en": "Overs Faced",
-        "tr": "Overs Faced",
+        "tr": "Karşılaşılan Over Sayısı",
         "de": "Overs Faced",
         "fr": "Overs Faced",
         "es": "Overs Faced",
         "ar": "Overs Faced"
+      },
+      "businessContext_i18n": {
+        "en": "Overs bowled so far, as decimal (e.g., 15.4 = 15 overs, 4 balls)",
+        "tr": "Şu ana kadar atılan over, ondalık olarak (ör. 15.4 = 15 over, 4 top)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Target runs to achieve",
       "label_i18n": {
         "en": "Target Runs",
-        "tr": "Target Runs",
+        "tr": "Hedef Koşu",
         "de": "Target Runs",
         "fr": "Target Runs",
         "es": "Target Runs",
         "ar": "Target Runs"
+      },
+      "businessContext_i18n": {
+        "en": "Target runs to achieve",
+        "tr": "Ulaşılması gereken hedef koşu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total overs available for the innings",
       "label_i18n": {
         "en": "Total Overs",
-        "tr": "Total Overs",
+        "tr": "Toplam Over",
         "de": "Total Overs",
         "fr": "Total Overs",
         "es": "Total Overs",
         "ar": "Total Overs"
+      },
+      "businessContext_i18n": {
+        "en": "Total overs available for the innings",
+        "tr": "Innings için mevcut toplam over"
       }
     }
   ],

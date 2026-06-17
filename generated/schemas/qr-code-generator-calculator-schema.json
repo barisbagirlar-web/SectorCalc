@@ -10,11 +10,15 @@
       "businessContext": "QR code version from 1 to 40, determines data capacity and physical size.",
       "label_i18n": {
         "en": "QR Code Version",
-        "tr": "QR Code Version",
+        "tr": "QR Kod Versiyonu",
         "de": "QR Code Version",
         "fr": "QR Code Version",
         "es": "QR Code Version",
         "ar": "QR Code Version"
+      },
+      "businessContext_i18n": {
+        "en": "QR code version from 1 to 40, determines data capacity and physical size.",
+        "tr": "1'den 40'a kadar QR kod versiyonu, veri kapasitesini ve fiziksel boyutu belirler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Edge length of one module (black or white square) in millimeters.",
       "label_i18n": {
         "en": "Module Size",
-        "tr": "Module Size",
+        "tr": "Modül Boyutu",
         "de": "Module Size",
         "fr": "Module Size",
         "es": "Module Size",
         "ar": "Module Size"
+      },
+      "businessContext_i18n": {
+        "en": "Edge length of one module (black or white square) in millimeters.",
+        "tr": "Bir modülün (siyah veya beyaz kare) milimetre cinsinden kenar uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Required clear margin around the QR code, measured in modules (standard is 4).",
       "label_i18n": {
         "en": "Quiet Zone Width",
-        "tr": "Quiet Zone Width",
+        "tr": "Sessiz Bölge Genişliği",
         "de": "Quiet Zone Width",
         "fr": "Quiet Zone Width",
         "es": "Quiet Zone Width",
         "ar": "Quiet Zone Width"
+      },
+      "businessContext_i18n": {
+        "en": "Required clear margin around the QR code, measured in modules (standard is 4).",
+        "tr": "QR kodu etrafında gerekli boş kenar boşluğu, modül cinsinden ölçülür (standart 4'tür)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Printer or display resolution in dots per inch, used for pixel dimension output.",
       "label_i18n": {
         "en": "Print Resolution",
-        "tr": "Print Resolution",
+        "tr": "Baskı Çözünürlüğü",
         "de": "Print Resolution",
         "fr": "Print Resolution",
         "es": "Print Resolution",
         "ar": "Print Resolution"
+      },
+      "businessContext_i18n": {
+        "en": "Printer or display resolution in dots per inch, used for pixel dimension output.",
+        "tr": "İnç başına nokta cinsinden yazıcı veya ekran çözünürlüğü, piksel boyut çıktısı için kullanılır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Cooling capacity in tons of refrigeration (1 ton = 12000 BTU/hr)",
       "label_i18n": {
         "en": "Tons of Refrigeration",
-        "tr": "Tons of Refrigeration",
+        "tr": "Soğutma tonu",
         "de": "Tons of Refrigeration",
         "fr": "Tons of Refrigeration",
         "es": "Tons of Refrigeration",
         "ar": "Tons of Refrigeration"
+      },
+      "businessContext_i18n": {
+        "en": "Cooling capacity in tons of refrigeration (1 ton = 12000 BTU/hr)",
+        "tr": "Soğutma kapasitesi (soğutma tonu cinsinden; 1 ton = 12000 BTU/saat)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from tons to kilowatts (1 ton ≈ 3.51685 kW). Adjust for regional standards if needed.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from tons to kilowatts (1 ton ≈ 3.51685 kW). Adjust for regional standards if needed.",
+        "tr": "Tondan kilovata standart dönüşüm faktörü (1 ton ≈ 3,51685 kW). Gerekirse bölgesel standartlara göre ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Design safety margin multiplier, typically 1.0–1.2",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety margin multiplier, typically 1.0–1.2",
+        "tr": "Tasarım güvenlik marjı çarpanı, tipik olarak 1,0–1,2"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounding output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding output",
+        "tr": "Yuvarlama için ondalık basamak sayısı"
       }
     }
   ],

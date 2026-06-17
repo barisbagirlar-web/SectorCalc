@@ -10,11 +10,15 @@
       "businessContext": "The outstanding principal balance of the existing student loan.",
       "label_i18n": {
         "en": "Current Loan Balance",
-        "tr": "Current Loan Balance",
+        "tr": "Mevcut Kredi Bakiyesi",
         "de": "Current Loan Balance",
         "fr": "Current Loan Balance",
         "es": "Current Loan Balance",
         "ar": "Current Loan Balance"
+      },
+      "businessContext_i18n": {
+        "en": "The outstanding principal balance of the existing student loan.",
+        "tr": "Mevcut öğrenci kredisinin ödenmemiş anapara bakiyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual Percentage Rate of the current loan.",
       "label_i18n": {
         "en": "Current Interest Rate (APR)",
-        "tr": "Current Interest Rate (APR)",
+        "tr": "Mevcut Faiz Oranı (APR)",
         "de": "Current Interest Rate (APR)",
         "fr": "Current Interest Rate (APR)",
         "es": "Current Interest Rate (APR)",
         "ar": "Current Interest Rate (APR)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual Percentage Rate of the current loan.",
+        "tr": "Mevcut kredinin Yıllık Yüzde Oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of months left on the current loan.",
       "label_i18n": {
         "en": "Remaining Term",
-        "tr": "Remaining Term",
+        "tr": "Kalan Vade",
         "de": "Remaining Term",
         "fr": "Remaining Term",
         "es": "Remaining Term",
         "ar": "Remaining Term"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months left on the current loan.",
+        "tr": "Mevcut kredide kalan ay sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Offered APR for the refinanced loan.",
       "label_i18n": {
         "en": "New Interest Rate (APR)",
-        "tr": "New Interest Rate (APR)",
+        "tr": "Yeni Faiz Oranı (APR)",
         "de": "New Interest Rate (APR)",
         "fr": "New Interest Rate (APR)",
         "es": "New Interest Rate (APR)",
         "ar": "New Interest Rate (APR)"
+      },
+      "businessContext_i18n": {
+        "en": "Offered APR for the refinanced loan.",
+        "tr": "Yeniden finansman kredisi için sunulan APR."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Repayment period for the refinanced loan in months.",
       "label_i18n": {
         "en": "New Loan Term",
-        "tr": "New Loan Term",
+        "tr": "Yeni Kredi Vadesi",
         "de": "New Loan Term",
         "fr": "New Loan Term",
         "es": "New Loan Term",
         "ar": "New Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Repayment period for the refinanced loan in months.",
+        "tr": "Yeniden finanse edilen kredinin ay cinsinden geri ödeme süresi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "One-time fee charged by the lender, expressed as a percentage of the loan balance.",
       "label_i18n": {
         "en": "Origination Fee",
-        "tr": "Origination Fee",
+        "tr": "Başlangıç Ücreti",
         "de": "Origination Fee",
         "fr": "Origination Fee",
         "es": "Origination Fee",
         "ar": "Origination Fee"
+      },
+      "businessContext_i18n": {
+        "en": "One-time fee charged by the lender, expressed as a percentage of the loan balance.",
+        "tr": "Borç veren tarafından alınan, kredi bakiyesinin yüzdesi olarak ifade edilen tek seferlik ücret."
       }
     }
   ],

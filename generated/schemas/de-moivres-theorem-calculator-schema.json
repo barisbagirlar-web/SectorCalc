@@ -10,11 +10,15 @@
       "businessContext": "Polar form magnitude of complex number",
       "label_i18n": {
         "en": "Magnitude (r)",
-        "tr": "Magnitude (r)",
+        "tr": "Büyüklük (r)",
         "de": "Magnitude (r)",
         "fr": "Magnitude (r)",
         "es": "Magnitude (r)",
         "ar": "Magnitude (r)"
+      },
+      "businessContext_i18n": {
+        "en": "Polar form magnitude of complex number",
+        "tr": "Karmaşık sayının kutupsal form büyüklüğü"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Angle from positive real axis",
       "label_i18n": {
         "en": "Angle (θ)",
-        "tr": "Angle (θ)",
+        "tr": "Açı (θ)",
         "de": "Angle (θ)",
         "fr": "Angle (θ)",
         "es": "Angle (θ)",
         "ar": "Angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle from positive real axis",
+        "tr": "Pozitif reel eksenden açı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Select 0 for radians or 1 for degrees",
       "label_i18n": {
         "en": "Angle unit (0=rad, 1=deg)",
-        "tr": "Angle unit (0=rad, 1=deg)",
+        "tr": "Açı birimi (0=radyan, 1=derece)",
         "de": "Angle unit (0=rad, 1=deg)",
         "fr": "Angle unit (0=rad, 1=deg)",
         "es": "Angle unit (0=rad, 1=deg)",
         "ar": "Angle unit (0=rad, 1=deg)"
+      },
+      "businessContext_i18n": {
+        "en": "Select 0 for radians or 1 for degrees",
+        "tr": "Radyan için 0, derece için 1 seçin"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Power to which the complex number is raised",
       "label_i18n": {
         "en": "Exponent (n)",
-        "tr": "Exponent (n)",
+        "tr": "Üs (n)",
         "de": "Exponent (n)",
         "fr": "Exponent (n)",
         "es": "Exponent (n)",
         "ar": "Exponent (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Power to which the complex number is raised",
+        "tr": "Karmaşık sayının yükseltildiği kuvvet"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for output",
       "label_i18n": {
         "en": "Decimal places",
-        "tr": "Decimal places",
+        "tr": "Ondalık basamaklar",
         "de": "Decimal places",
         "fr": "Decimal places",
         "es": "Decimal places",
         "ar": "Decimal places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output",
+        "tr": "Çıktı için ondalık basamak sayısı"
       }
     }
   ],

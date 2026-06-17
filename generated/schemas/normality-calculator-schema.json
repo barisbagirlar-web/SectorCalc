@@ -10,11 +10,15 @@
       "businessContext": "Mass of solute used in the solution, measured in grams.",
       "label_i18n": {
         "en": "Solute Weight",
-        "tr": "Solute Weight",
+        "tr": "Çözünen Ağırlığı",
         "de": "Solute Weight",
         "fr": "Solute Weight",
         "es": "Solute Weight",
         "ar": "Solute Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of solute used in the solution, measured in grams.",
+        "tr": "Çözeltide kullanılan çözünen kütlesi, gram cinsinden ölçülür."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Molecular weight of the solute substance, in grams per mole.",
       "label_i18n": {
         "en": "Molecular Weight",
-        "tr": "Molecular Weight",
+        "tr": "Molekül Ağırlığı",
         "de": "Molecular Weight",
         "fr": "Molecular Weight",
         "es": "Molecular Weight",
         "ar": "Molecular Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Molecular weight of the solute substance, in grams per mole.",
+        "tr": "Çözünen maddenin moleküler ağırlığı, gram/mol cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of reactive units (equivalents) per mole; for acids, it is the number of H⁺ ions; for bases, OH⁻ ions; for redox reactions, electrons transferred.",
       "label_i18n": {
         "en": "Valency (n-factor)",
-        "tr": "Valency (n-factor)",
+        "tr": "Değerlik (n-faktörü)",
         "de": "Valency (n-factor)",
         "fr": "Valency (n-factor)",
         "es": "Valency (n-factor)",
         "ar": "Valency (n-factor)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of reactive units (equivalents) per mole; for acids, it is the number of H⁺ ions; for bases, OH⁻ ions; for redox reactions, electrons transferred.",
+        "tr": "Mol başına reaktif birim (eşdeğer) sayısı; asitler için H⁺ iyonu sayısı, bazlar için OH⁻ iyonu sayısı, redoks reaksiyonları için transfer edilen elektron sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total volume of the prepared solution, in liters.",
       "label_i18n": {
         "en": "Solution Volume",
-        "tr": "Solution Volume",
+        "tr": "Çözelti Hacmi",
         "de": "Solution Volume",
         "fr": "Solution Volume",
         "es": "Solution Volume",
         "ar": "Solution Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of the prepared solution, in liters.",
+        "tr": "Hazırlanan çözeltinin toplam hacmi, litre cinsinden."
       }
     }
   ],

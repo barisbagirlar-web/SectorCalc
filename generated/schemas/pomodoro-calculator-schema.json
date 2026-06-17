@@ -10,11 +10,15 @@
       "businessContext": "How many pomodoro sessions you want to complete.",
       "label_i18n": {
         "en": "Number of Pomodoros",
-        "tr": "Number of Pomodoros",
+        "tr": "Pomodoro Sayısı",
         "de": "Number of Pomodoros",
         "fr": "Number of Pomodoros",
         "es": "Number of Pomodoros",
         "ar": "Number of Pomodoros"
+      },
+      "businessContext_i18n": {
+        "en": "How many pomodoro sessions you want to complete.",
+        "tr": "Tamamlamak istediğiniz pomodoro oturumu sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of one pomodoro work session.",
       "label_i18n": {
         "en": "Work Duration",
-        "tr": "Work Duration",
+        "tr": "Çalışma Süresi",
         "de": "Work Duration",
         "fr": "Work Duration",
         "es": "Work Duration",
         "ar": "Work Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Length of one pomodoro work session.",
+        "tr": "Bir pomodoro çalışma oturumunun uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of short break after each pomodoro, except before a long break.",
       "label_i18n": {
         "en": "Short Break Duration",
-        "tr": "Short Break Duration",
+        "tr": "Kısa Mola Süresi",
         "de": "Short Break Duration",
         "fr": "Short Break Duration",
         "es": "Short Break Duration",
         "ar": "Short Break Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Length of short break after each pomodoro, except before a long break.",
+        "tr": "Her pomodorodan sonraki kısa mola süresi, uzun moladan önceki hariç."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Length of long break after completing a set of pomodoros.",
       "label_i18n": {
         "en": "Long Break Duration",
-        "tr": "Long Break Duration",
+        "tr": "Uzun Mola Süresi",
         "de": "Long Break Duration",
         "fr": "Long Break Duration",
         "es": "Long Break Duration",
         "ar": "Long Break Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Length of long break after completing a set of pomodoros.",
+        "tr": "Bir dizi pomodoro tamamlandıktan sonraki uzun mola süresi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of pomodoro sessions before a long break is taken.",
       "label_i18n": {
         "en": "Pomodoros Before Long Break",
-        "tr": "Pomodoros Before Long Break",
+        "tr": "Uzun Mola Öncesi Pomodoro Sayısı",
         "de": "Pomodoros Before Long Break",
         "fr": "Pomodoros Before Long Break",
         "es": "Pomodoros Before Long Break",
         "ar": "Pomodoros Before Long Break"
+      },
+      "businessContext_i18n": {
+        "en": "Number of pomodoro sessions before a long break is taken.",
+        "tr": "Uzun mola öncesinde yapılan pomodoro oturumu sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Time of day when you start the first pomodoro, in minutes from midnight (e.g., 8:00 AM = 480).",
       "label_i18n": {
         "en": "Start Time (minutes from midnight)",
-        "tr": "Start Time (minutes from midnight)",
+        "tr": "Başlangıç Zamanı (gece yarısından itibaren dakika)",
         "de": "Start Time (minutes from midnight)",
         "fr": "Start Time (minutes from midnight)",
         "es": "Start Time (minutes from midnight)",
         "ar": "Start Time (minutes from midnight)"
+      },
+      "businessContext_i18n": {
+        "en": "Time of day when you start the first pomodoro, in minutes from midnight (e.g., 8:00 AM = 480).",
+        "tr": "İlk pomodoroya başlama zamanı, gece yarısından itibaren dakika cinsinden (örneğin, 08:00 = 480)."
       }
     }
   ],

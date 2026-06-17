@@ -10,11 +10,15 @@
       "businessContext": "Shape parameter of the Weibull distribution. Must be > 0. Determines failure rate behavior (β<1: decreasing, β=1: exponential, β>1: increasing).",
       "label_i18n": {
         "en": "Shape Parameter (β)",
-        "tr": "Shape Parameter (β)",
+        "tr": "Şekil Parametresi (β)",
         "de": "Shape Parameter (β)",
         "fr": "Shape Parameter (β)",
         "es": "Shape Parameter (β)",
         "ar": "Shape Parameter (β)"
+      },
+      "businessContext_i18n": {
+        "en": "Shape parameter of the Weibull distribution. Must be > 0. Determines failure rate behavior (β<1: decreasing, β=1: exponential, β>1: increasing).",
+        "tr": "Weibull dağılımının şekil parametresi. > 0 olmalıdır. Arıza oranı davranışını belirler (β<1: azalan, β=1: üstel, β>1: artan)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Characteristic life or scale parameter. Time at which 63.2% of items have failed when location=0. Must be > 0.",
       "label_i18n": {
         "en": "Scale Parameter (η)",
-        "tr": "Scale Parameter (η)",
+        "tr": "Ölçek Parametresi (η)",
         "de": "Scale Parameter (η)",
         "fr": "Scale Parameter (η)",
         "es": "Scale Parameter (η)",
         "ar": "Scale Parameter (η)"
+      },
+      "businessContext_i18n": {
+        "en": "Characteristic life or scale parameter. Time at which 63.2% of items have failed when location=0. Must be > 0.",
+        "tr": "Karakteristik ömür veya ölçek parametresi. Konum=0 olduğunda öğelerin %63,2'sinin arızalandığı süre. > 0 olmalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time at which to compute reliability and failure metrics.",
       "label_i18n": {
         "en": "Time (t)",
-        "tr": "Time (t)",
+        "tr": "Zaman (t)",
         "de": "Time (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Time at which to compute reliability and failure metrics.",
+        "tr": "Güvenilirlik ve arıza metriklerinin hesaplanacağı süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Shift parameter for failure-free period. Reliable before this time. Typically 0.",
       "label_i18n": {
         "en": "Location Parameter (γ)",
-        "tr": "Location Parameter (γ)",
+        "tr": "Konum Parametresi (γ)",
         "de": "Location Parameter (γ)",
         "fr": "Location Parameter (γ)",
         "es": "Location Parameter (γ)",
         "ar": "Location Parameter (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Shift parameter for failure-free period. Reliable before this time. Typically 0.",
+        "tr": "Hataya kadar geçen süresiz dönem için kaydırma parametresi. Bu saatten önce güvenilirdir. Tipik olarak 0."
       }
     }
   ],

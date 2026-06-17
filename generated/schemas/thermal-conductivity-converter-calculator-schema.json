@@ -10,11 +10,15 @@
       "businessContext": "Numeric value to convert",
       "label_i18n": {
         "en": "Thermal Conductivity Value",
-        "tr": "Thermal Conductivity Value",
+        "tr": "Termal İletkenlik Değeri",
         "de": "Thermal Conductivity Value",
         "fr": "Thermal Conductivity Value",
         "es": "Thermal Conductivity Value",
         "ar": "Thermal Conductivity Value"
+      },
+      "businessContext_i18n": {
+        "en": "Numeric value to convert",
+        "tr": "Dönüştürülecek sayısal değer"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Source unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
       "label_i18n": {
         "en": "From Unit Code",
-        "tr": "From Unit Code",
+        "tr": "Kaynak Birim Kodu",
         "de": "From Unit Code",
         "fr": "From Unit Code",
         "es": "From Unit Code",
         "ar": "From Unit Code"
+      },
+      "businessContext_i18n": {
+        "en": "Source unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "tr": "Kaynak birim: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Target unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
       "label_i18n": {
         "en": "To Unit Code",
-        "tr": "To Unit Code",
+        "tr": "Hedef Birim Kodu",
         "de": "To Unit Code",
         "fr": "To Unit Code",
         "es": "To Unit Code",
         "ar": "To Unit Code"
+      },
+      "businessContext_i18n": {
+        "en": "Target unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "tr": "Hedef birim: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for result",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for result",
+        "tr": "Sonuç için ondalık basamak sayısı"
       }
     }
   ],

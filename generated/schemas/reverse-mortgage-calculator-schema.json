@@ -10,11 +10,15 @@
       "businessContext": "Current appraised value of the home.",
       "label_i18n": {
         "en": "Home Value",
-        "tr": "Home Value",
+        "tr": "Ev değeri",
         "de": "Home Value",
         "fr": "Home Value",
         "es": "Home Value",
         "ar": "Home Value"
+      },
+      "businessContext_i18n": {
+        "en": "Current appraised value of the home.",
+        "tr": "Evin güncel değerleme fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age of the youngest borrower.",
       "label_i18n": {
         "en": "Borrower Age",
-        "tr": "Borrower Age",
+        "tr": "Borçlu Yaşı",
         "de": "Borrower Age",
         "fr": "Borrower Age",
         "es": "Borrower Age",
         "ar": "Borrower Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the youngest borrower.",
+        "tr": "En genç borçlunun yaşı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected interest rate (annual).",
       "label_i18n": {
         "en": "Interest Rate",
-        "tr": "Interest Rate",
+        "tr": "Faiz Oranı",
         "de": "Interest Rate",
         "fr": "Interest Rate",
         "es": "Interest Rate",
         "ar": "Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected interest rate (annual).",
+        "tr": "Beklenen faiz oranı (yıllık)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Margin added to reference rate.",
       "label_i18n": {
         "en": "Lender Margin",
-        "tr": "Lender Margin",
+        "tr": "Borç Veren Marjı",
         "de": "Lender Margin",
         "fr": "Lender Margin",
         "es": "Lender Margin",
         "ar": "Lender Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Margin added to reference rate.",
+        "tr": "Referans orana eklenen marj."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Projected lifespan for cost calculation.",
       "label_i18n": {
         "en": "Life Expectancy",
-        "tr": "Life Expectancy",
+        "tr": "Yaşam Beklentisi",
         "de": "Life Expectancy",
         "fr": "Life Expectancy",
         "es": "Life Expectancy",
         "ar": "Life Expectancy"
+      },
+      "businessContext_i18n": {
+        "en": "Projected lifespan for cost calculation.",
+        "tr": "Maliyet hesaplaması için öngörülen kullanım ömrü."
       }
     }
   ],

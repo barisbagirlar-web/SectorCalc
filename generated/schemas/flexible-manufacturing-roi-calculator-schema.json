@@ -22,10 +22,12 @@
       "max": 10000000,
       "businessContext": "Total number of units produced per year across all product variants.",
       "label_i18n": {
-        "en": "Annual Production Volume"
+        "en": "Annual Production Volume",
+        "tr": "Yıllık Üretim Hacmi"
       },
       "businessContext_i18n": {
-        "en": "Total number of units produced per year across all product variants."
+        "en": "Total number of units produced per year across all product variants.",
+        "tr": "Tüm ürün varyantlarında yılda üretilen toplam birim sayısı."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 100000,
       "businessContext": "Average number of units produced per production run before changeover.",
       "label_i18n": {
-        "en": "Average Batch Size"
+        "en": "Average Batch Size",
+        "tr": "Ortalama Toplu İşlem Boyutu"
       },
       "businessContext_i18n": {
-        "en": "Average number of units produced per production run before changeover."
+        "en": "Average number of units produced per production run before changeover.",
+        "tr": "Değişim öncesi üretim partisi başına üretilen ortalama birim sayısı."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 1440,
       "businessContext": "Time required to change from one product to another in the current system.",
       "label_i18n": {
-        "en": "Current Setup Time per Changeover"
+        "en": "Current Setup Time per Changeover",
+        "tr": "Mevcut Değişim Süresi (her değişim için)"
       },
       "businessContext_i18n": {
-        "en": "Time required to change from one product to another in the current system."
+        "en": "Time required to change from one product to another in the current system.",
+        "tr": "Mevcut sistemde bir üründen diğerine geçiş için gereken süre."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 1440,
       "businessContext": "Expected setup time after implementing flexible manufacturing system (e.g., SMED).",
       "label_i18n": {
-        "en": "Target Setup Time per Changeover (after FMS)"
+        "en": "Target Setup Time per Changeover (after FMS)",
+        "tr": "Hedef Değişim Süresi (FMS sonrası)"
       },
       "businessContext_i18n": {
-        "en": "Expected setup time after implementing flexible manufacturing system (e.g., SMED)."
+        "en": "Expected setup time after implementing flexible manufacturing system (e.g., SMED).",
+        "tr": "Esnek üretim sistemi (örneğin SMED) uygulandıktan sonra beklenen değişim süresi."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 500,
       "businessContext": "Fully burdened hourly cost of production labor and overhead.",
       "label_i18n": {
-        "en": "Hourly Operating Cost (labor + overhead)"
+        "en": "Hourly Operating Cost (labor + overhead)",
+        "tr": "Saatlik İşletme Maliyeti (işçilik + genel giderler)"
       },
       "businessContext_i18n": {
-        "en": "Fully burdened hourly cost of production labor and overhead."
+        "en": "Fully burdened hourly cost of production labor and overhead.",
+        "tr": "Tam yüklü saatlik üretim işçiliği ve genel gider maliyeti."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 1000,
       "businessContext": "Total cost incurred per hour of changeover, including lost production and labor.",
       "label_i18n": {
-        "en": "Changeover Cost per Hour (downtime + labor)"
+        "en": "Changeover Cost per Hour (downtime + labor)",
+        "tr": "Değişim Başına Saatlik Maliyet (duruş + işçilik)"
       },
       "businessContext_i18n": {
-        "en": "Total cost incurred per hour of changeover, including lost production and labor."
+        "en": "Total cost incurred per hour of changeover, including lost production and labor.",
+        "tr": "Kayıp üretim ve işçilik dahil olmak üzere değişim saati başına toplam maliyet."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 50,
       "businessContext": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence).",
       "label_i18n": {
-        "en": "Inventory Holding Cost Rate"
+        "en": "Inventory Holding Cost Rate",
+        "tr": "Envanter Bulundurma Maliyet Oranı"
       },
       "businessContext_i18n": {
-        "en": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence)."
+        "en": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence).",
+        "tr": "Envanter değerinin yüzdesi olarak yıllık envanter bulundurma maliyeti (depolama, sigorta, eskime dahil)."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 100000000,
       "businessContext": "Current average value of raw materials, WIP, and finished goods inventory.",
       "label_i18n": {
-        "en": "Average Inventory Value (current)"
+        "en": "Average Inventory Value (current)",
+        "tr": "Ortalama Envanter Değeri (mevcut)"
       },
       "businessContext_i18n": {
-        "en": "Current average value of raw materials, WIP, and finished goods inventory."
+        "en": "Current average value of raw materials, WIP, and finished goods inventory.",
+        "tr": "Hammadde, YDİ ve mamul envanterinin mevcut ortalama değeri."
       }
     }
   ],

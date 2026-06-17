@@ -10,11 +10,15 @@
       "businessContext": "Patient age",
       "label_i18n": {
         "en": "Age (years)",
-        "tr": "Age (years)",
+        "tr": "Yaş (yıl)",
         "de": "Age (years)",
         "fr": "Age (years)",
         "es": "Age (years)",
         "ar": "Age (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age",
+        "tr": "Hasta yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Systolic blood pressure reading",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Systolic blood pressure reading",
+        "tr": "Sistolik kan basıncı değeri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total cholesterol level",
       "label_i18n": {
         "en": "Total Cholesterol",
-        "tr": "Total Cholesterol",
+        "tr": "Toplam Kolesterol",
         "de": "Total Cholesterol",
         "fr": "Total Cholesterol",
         "es": "Total Cholesterol",
         "ar": "Total Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "Total cholesterol level",
+        "tr": "Toplam kolesterol seviyesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "High-density lipoprotein cholesterol",
       "label_i18n": {
         "en": "HDL Cholesterol",
-        "tr": "HDL Cholesterol",
+        "tr": "HDL Kolesterol",
         "de": "HDL Cholesterol",
         "fr": "HDL Cholesterol",
         "es": "HDL Cholesterol",
         "ar": "HDL Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "High-density lipoprotein cholesterol",
+        "tr": "Yüksek yoğunluklu lipoprotein kolesterol"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Current smoker (yes=1, no=0)",
       "label_i18n": {
         "en": "Smoking Status (0/1)",
-        "tr": "Smoking Status (0/1)",
+        "tr": "Sigara İçme Durumu (0/1)",
         "de": "Smoking Status (0/1)",
         "fr": "Smoking Status (0/1)",
         "es": "Smoking Status (0/1)",
         "ar": "Smoking Status (0/1)"
+      },
+      "businessContext_i18n": {
+        "en": "Current smoker (yes=1, no=0)",
+        "tr": "Mevcut sigara içicisi (evet=1, hayır=0)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Diabetes diagnosis (yes=1, no=0)",
       "label_i18n": {
         "en": "Diabetes Status (0/1)",
-        "tr": "Diabetes Status (0/1)",
+        "tr": "Diyabet Durumu (0/1)",
         "de": "Diabetes Status (0/1)",
         "fr": "Diabetes Status (0/1)",
         "es": "Diabetes Status (0/1)",
         "ar": "Diabetes Status (0/1)"
+      },
+      "businessContext_i18n": {
+        "en": "Diabetes diagnosis (yes=1, no=0)",
+        "tr": "Diyabet teşhisi (evet=1, hayır=0)"
       }
     }
   ],

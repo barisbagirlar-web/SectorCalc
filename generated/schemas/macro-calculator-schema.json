@@ -10,11 +10,15 @@
       "businessContext": "Total daily energy intake target in kilocalories.",
       "label_i18n": {
         "en": "Daily Calorie Intake",
-        "tr": "Daily Calorie Intake",
+        "tr": "Günlük Kalori Alımı",
         "de": "Daily Calorie Intake",
         "fr": "Daily Calorie Intake",
         "es": "Daily Calorie Intake",
         "ar": "Daily Calorie Intake"
+      },
+      "businessContext_i18n": {
+        "en": "Total daily energy intake target in kilocalories.",
+        "tr": "Günlük toplam enerji alımı hedefi (kilokalori)."
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Protein %",
         "es": "Protein %",
         "ar": "Protein %"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of calories from protein. Must sum to 100 with other macros.",
+        "tr": "Proteinden gelen kalori yüzdesi. Diğer makrolarla toplamı 100 olmalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of calories from carbohydrates. Must sum to 100 with other macros.",
       "label_i18n": {
         "en": "Carbohydrates %",
-        "tr": "Carbohydrates %",
+        "tr": "Karbonhidrat %",
         "de": "Carbohydrates %",
         "fr": "Carbohydrates %",
         "es": "Carbohydrates %",
         "ar": "Carbohydrates %"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of calories from carbohydrates. Must sum to 100 with other macros.",
+        "tr": "Karbonhidratlardan gelen kalori yüzdesi. Diğer makrolarla toplamı 100 olmalıdır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of calories from fat. Must sum to 100 with other macros.",
       "label_i18n": {
         "en": "Fat %",
-        "tr": "Fat %",
+        "tr": "Yağ %",
         "de": "Fat %",
         "fr": "Fat %",
         "es": "Fat %",
         "ar": "Fat %"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of calories from fat. Must sum to 100 with other macros.",
+        "tr": "Yağ %"
       }
     }
   ],

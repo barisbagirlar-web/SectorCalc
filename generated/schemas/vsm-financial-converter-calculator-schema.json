@@ -21,10 +21,12 @@
       "max": 10000000,
       "businessContext": "Total customer demand per year for the product family under analysis.",
       "label_i18n": {
-        "en": "Annual Demand (units)"
+        "en": "Annual Demand (units)",
+        "tr": "Yıllık Talep (birim)"
       },
       "businessContext_i18n": {
-        "en": "Total customer demand per year for the product family under analysis."
+        "en": "Total customer demand per year for the product family under analysis.",
+        "tr": "Analiz edilen ürün ailesi için yıllık toplam müşteri talebi."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000,
       "businessContext": "Average selling price per unit to the customer.",
       "label_i18n": {
-        "en": "Selling Price per unit"
+        "en": "Selling Price per unit",
+        "tr": "Birim Satış Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Average selling price per unit to the customer."
+        "en": "Average selling price per unit to the customer.",
+        "tr": "Müşteriye birim başına ortalama satış fiyatı."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 5000,
       "businessContext": "Direct material cost per unit.",
       "label_i18n": {
-        "en": "Material Cost per unit"
+        "en": "Material Cost per unit",
+        "tr": "Birim Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct material cost per unit."
+        "en": "Direct material cost per unit.",
+        "tr": "Birim başına direkt malzeme maliyeti."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 200,
       "businessContext": "Fully loaded labor cost per operator hour.",
       "label_i18n": {
-        "en": "Labor Cost per hour"
+        "en": "Labor Cost per hour",
+        "tr": "Saatlik İşçilik Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Fully loaded labor cost per operator hour."
+        "en": "Fully loaded labor cost per operator hour.",
+        "tr": "Operatör saati başına tam yüklü işçilik maliyeti."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 1000,
       "businessContext": "Sum of all process cycle times for one unit through the value stream.",
       "label_i18n": {
-        "en": "Total Cycle Time (minutes)"
+        "en": "Total Cycle Time (minutes)",
+        "tr": "Toplam Çevrim Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Sum of all process cycle times for one unit through the value stream."
+        "en": "Sum of all process cycle times for one unit through the value stream.",
+        "tr": "Değer akışı boyunca bir birim için tüm proses çevrim sürelerinin toplamı."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 1000,
       "businessContext": "Sum of only value-added process times (ISO 22400, Lean definition).",
       "label_i18n": {
-        "en": "Total Value-Added Time (minutes)"
+        "en": "Total Value-Added Time (minutes)",
+        "tr": "Toplam Katma Değer Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Sum of only value-added process times (ISO 22400, Lean definition)."
+        "en": "Sum of only value-added process times (ISO 22400, Lean definition).",
+        "tr": "Yalnızca katma değerli proses sürelerinin toplamı (ISO 22400, Yalın tanımı)."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100,
       "businessContext": "Percentage of units that require rework or are scrapped (First Pass Yield).",
       "label_i18n": {
-        "en": "Defect Rate (%)"
+        "en": "Defect Rate (%)",
+        "tr": "Hata Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of units that require rework or are scrapped (First Pass Yield)."
+        "en": "Percentage of units that require rework or are scrapped (First Pass Yield).",
+        "tr": "Yeniden işlem veya fire olan birimlerin yüzdesi (İlk Geçiş Verimi)."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 1000,
       "businessContext": "Additional cost to rework one defective unit (labor + material).",
       "label_i18n": {
-        "en": "Rework Cost per defective unit"
+        "en": "Rework Cost per defective unit",
+        "tr": "Hatalı Birim Başına Yeniden İşlem Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Additional cost to rework one defective unit (labor + material)."
+        "en": "Additional cost to rework one defective unit (labor + material).",
+        "tr": "Bir hatalı birimi yeniden işlemek için ek maliyet (işçilik + malzeme)."
       }
     }
   ],

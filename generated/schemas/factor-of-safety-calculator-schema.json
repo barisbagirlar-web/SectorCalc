@@ -10,11 +10,15 @@
       "businessContext": "The external force acting on the component, e.g., tension, compression, or shear.",
       "label_i18n": {
         "en": "Applied Force",
-        "tr": "Applied Force",
+        "tr": "Uygulanan Kuvvet",
         "de": "Applied Force",
         "fr": "Applied Force",
         "es": "Applied Force",
         "ar": "Applied Force"
+      },
+      "businessContext_i18n": {
+        "en": "The external force acting on the component, e.g., tension, compression, or shear.",
+        "tr": "Bileşene etki eden dış kuvvet, örn. çekme, basma veya kesme."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The effective cross-sectional area resisting the force.",
       "label_i18n": {
         "en": "Cross-Sectional Area",
-        "tr": "Cross-Sectional Area",
+        "tr": "Kesit Alanı",
         "de": "Cross-Sectional Area",
         "fr": "Cross-Sectional Area",
         "es": "Cross-Sectional Area",
         "ar": "Cross-Sectional Area"
+      },
+      "businessContext_i18n": {
+        "en": "The effective cross-sectional area resisting the force.",
+        "tr": "Kuvvete direnen etkili kesit alanı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Stress at which material begins to deform plastically, typically from material datasheet.",
       "label_i18n": {
         "en": "Material Yield Strength",
-        "tr": "Material Yield Strength",
+        "tr": "Malzeme Akma Dayanımı",
         "de": "Material Yield Strength",
         "fr": "Material Yield Strength",
         "es": "Material Yield Strength",
         "ar": "Material Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Stress at which material begins to deform plastically, typically from material datasheet.",
+        "tr": "Malzemenin plastik olarak deforme olmaya başladığı gerilim, genellikle malzeme veri sayfasından alınır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum stress material can withstand while being stretched or pulled before breaking.",
       "label_i18n": {
         "en": "Ultimate Tensile Strength",
-        "tr": "Ultimate Tensile Strength",
+        "tr": "Çekme Dayanımı",
         "de": "Ultimate Tensile Strength",
         "fr": "Ultimate Tensile Strength",
         "es": "Ultimate Tensile Strength",
         "ar": "Ultimate Tensile Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum stress material can withstand while being stretched or pulled before breaking.",
+        "tr": "Malzemenin kırılmadan önce çekme veya germe sırasında dayanabileceği maksimum gerilim."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The minimum allowable factor of safety as per design standards, used for pass/fail check.",
       "label_i18n": {
         "en": "Required Safety Factor",
-        "tr": "Required Safety Factor",
+        "tr": "Gerekli Emniyet Faktörü",
         "de": "Required Safety Factor",
         "fr": "Required Safety Factor",
         "es": "Required Safety Factor",
         "ar": "Required Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The minimum allowable factor of safety as per design standards, used for pass/fail check.",
+        "tr": "Tasarım standartlarına göre izin verilen minimum emniyet faktörü, geçer/kalır kontrolü için kullanılır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Factor accounting for geometric discontinuities. For basic analysis, set to 1.",
       "label_i18n": {
         "en": "Stress Concentration Factor (Kt)",
-        "tr": "Stress Concentration Factor (Kt)",
+        "tr": "Gerilim Yığılma Faktörü (Kt)",
         "de": "Stress Concentration Factor (Kt)",
         "fr": "Stress Concentration Factor (Kt)",
         "es": "Stress Concentration Factor (Kt)",
         "ar": "Stress Concentration Factor (Kt)"
+      },
+      "businessContext_i18n": {
+        "en": "Factor accounting for geometric discontinuities. For basic analysis, set to 1.",
+        "tr": "Geometrik süreksizlikleri hesaba katan faktör. Temel analiz için 1 olarak ayarlayın."
       }
     }
   ],

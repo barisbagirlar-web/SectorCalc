@@ -10,11 +10,15 @@
       "businessContext": "The initial cost to acquire the NFT, including any minting or purchase expenses.",
       "label_i18n": {
         "en": "Purchase Price",
-        "tr": "Purchase Price",
+        "tr": "Satın Alma Fiyatı",
         "de": "Purchase Price",
         "fr": "Purchase Price",
         "es": "Purchase Price",
         "ar": "Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "The initial cost to acquire the NFT, including any minting or purchase expenses.",
+        "tr": "NFT'yi edinme maliyeti, basma veya satın alma giderleri dahil."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Transaction fee paid for minting or transferring the NFT on the blockchain.",
       "label_i18n": {
         "en": "Gas Fee",
-        "tr": "Gas Fee",
+        "tr": "Gaz ücreti",
         "de": "Gas Fee",
         "fr": "Gas Fee",
         "es": "Gas Fee",
         "ar": "Gas Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Transaction fee paid for minting or transferring the NFT on the blockchain.",
+        "tr": "NFT'yi blok zincirinde basma veya transfer etme için ödenen işlem ücreti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fee charged by the marketplace for listing the NFT for sale.",
       "label_i18n": {
         "en": "Listing Fee",
-        "tr": "Listing Fee",
+        "tr": "Listeleme ücreti",
         "de": "Listing Fee",
         "fr": "Listing Fee",
         "es": "Listing Fee",
         "ar": "Listing Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fee charged by the marketplace for listing the NFT for sale.",
+        "tr": "NFT'yi satışa sunmak için pazar yeri tarafından alınan ücret."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The expected price at which the NFT will be sold on the secondary market.",
       "label_i18n": {
         "en": "Estimated Sale Price",
-        "tr": "Estimated Sale Price",
+        "tr": "Tahmini satış fiyatı",
         "de": "Estimated Sale Price",
         "fr": "Estimated Sale Price",
         "es": "Estimated Sale Price",
         "ar": "Estimated Sale Price"
+      },
+      "businessContext_i18n": {
+        "en": "The expected price at which the NFT will be sold on the secondary market.",
+        "tr": "NFT'nin ikincil piyasada satılması beklenen fiyat."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of the sale price paid to the original creator as a royalty.",
       "label_i18n": {
         "en": "Royalty Percentage",
-        "tr": "Royalty Percentage",
+        "tr": "Telif yüzdesi",
         "de": "Royalty Percentage",
         "fr": "Royalty Percentage",
         "es": "Royalty Percentage",
         "ar": "Royalty Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of the sale price paid to the original creator as a royalty.",
+        "tr": "Orijinal yaratıcıya telif olarak ödenen satış fiyatının yüzdesi."
       }
     }
   ],

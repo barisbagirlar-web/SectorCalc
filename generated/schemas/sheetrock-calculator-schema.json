@@ -10,11 +10,15 @@
       "businessContext": "Length of the room in feet.",
       "label_i18n": {
         "en": "Room Length",
-        "tr": "Room Length",
+        "tr": "Oda Uzunluğu",
         "de": "Room Length",
         "fr": "Room Length",
         "es": "Room Length",
         "ar": "Room Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the room in feet.",
+        "tr": "Odanın fit cinsinden uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the room in feet.",
       "label_i18n": {
         "en": "Room Width",
-        "tr": "Room Width",
+        "tr": "Oda Genişliği",
         "de": "Room Width",
         "fr": "Room Width",
         "es": "Room Width",
         "ar": "Room Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the room in feet.",
+        "tr": "Odanın fit cinsinden genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height of the walls in feet.",
       "label_i18n": {
         "en": "Room Height",
-        "tr": "Room Height",
+        "tr": "Oda Yüksekliği",
         "de": "Room Height",
         "fr": "Room Height",
         "es": "Room Height",
         "ar": "Room Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the walls in feet.",
+        "tr": "Duvarların fit cinsinden yüksekliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Length of a single sheetrock panel (commonly 8, 10, or 12 ft).",
       "label_i18n": {
         "en": "Sheet Length",
-        "tr": "Sheet Length",
+        "tr": "Levha uzunluğu",
         "de": "Sheet Length",
         "fr": "Sheet Length",
         "es": "Sheet Length",
         "ar": "Sheet Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single sheetrock panel (commonly 8, 10, or 12 ft).",
+        "tr": "Tek bir alçıpan panelin uzunluğu (genellikle 8, 10 veya 12 ft)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Width of a single sheetrock panel (typically 4 ft).",
       "label_i18n": {
         "en": "Sheet Width",
-        "tr": "Sheet Width",
+        "tr": "Levha genişliği",
         "de": "Sheet Width",
         "fr": "Sheet Width",
         "es": "Sheet Width",
         "ar": "Sheet Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single sheetrock panel (typically 4 ft).",
+        "tr": "Tek bir alçıpan panelin genişliği (genellikle 4 ft)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional material percentage to account for offcuts and damage.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional material percentage to account for offcuts and damage.",
+        "tr": "Kesim artıkları ve hasarı hesaba katmak için ek malzeme yüzdesi."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Total area of openings (doors, windows) to be subtracted from wall area.",
       "label_i18n": {
         "en": "Deduction Area",
-        "tr": "Deduction Area",
+        "tr": "Kesinti alanı",
         "de": "Deduction Area",
         "fr": "Deduction Area",
         "es": "Deduction Area",
         "ar": "Deduction Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total area of openings (doors, windows) to be subtracted from wall area.",
+        "tr": "Duvar alanından çıkarılacak toplam açıklık alanı (kapılar, pencereler)."
       }
     }
   ],

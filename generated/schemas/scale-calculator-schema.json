@@ -10,11 +10,15 @@
       "businessContext": "Length of the real object in the same units as other dimensions.",
       "label_i18n": {
         "en": "Real Length",
-        "tr": "Real Length",
+        "tr": "Gerçek Uzunluk",
         "de": "Real Length",
         "fr": "Real Length",
         "es": "Real Length",
         "ar": "Real Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the real object in the same units as other dimensions.",
+        "tr": "Gerçek nesnenin diğer boyutlarla aynı birimdeki uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the real object.",
       "label_i18n": {
         "en": "Real Width",
-        "tr": "Real Width",
+        "tr": "Gerçek Genişlik",
         "de": "Real Width",
         "fr": "Real Width",
         "es": "Real Width",
         "ar": "Real Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the real object.",
+        "tr": "Gerçek nesnenin genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height of the real object.",
       "label_i18n": {
         "en": "Real Height",
-        "tr": "Real Height",
+        "tr": "Gerçek Yükseklik",
         "de": "Real Height",
         "fr": "Real Height",
         "es": "Real Height",
         "ar": "Real Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the real object.",
+        "tr": "Gerçek nesnenin yüksekliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Numerator of the scale ratio (usually 1 for standard scales like 1:100).",
       "label_i18n": {
         "en": "Scale Numerator",
-        "tr": "Scale Numerator",
+        "tr": "Ölçek Payı",
         "de": "Scale Numerator",
         "fr": "Scale Numerator",
         "es": "Scale Numerator",
         "ar": "Scale Numerator"
+      },
+      "businessContext_i18n": {
+        "en": "Numerator of the scale ratio (usually 1 for standard scales like 1:100).",
+        "tr": "Ölçek oranının payı (standart 1:100 gibi ölçeklerde genellikle 1)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Denominator of the scale ratio (e.g., 100 for 1:100).",
       "label_i18n": {
         "en": "Scale Denominator",
-        "tr": "Scale Denominator",
+        "tr": "Ölçek Paydası",
         "de": "Scale Denominator",
         "fr": "Scale Denominator",
         "es": "Scale Denominator",
         "ar": "Scale Denominator"
+      },
+      "businessContext_i18n": {
+        "en": "Denominator of the scale ratio (e.g., 100 for 1:100).",
+        "tr": "Ölçek oranının paydası (örneğin 1:100 için 100)."
       }
     }
   ],

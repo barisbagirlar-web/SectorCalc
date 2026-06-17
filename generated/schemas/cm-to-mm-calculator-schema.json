@@ -10,11 +10,15 @@
       "businessContext": "Measured length at reference temperature (20°C) in centimeters.",
       "label_i18n": {
         "en": "Length (cm)",
-        "tr": "Length (cm)",
+        "tr": "Boy (cm)",
         "de": "Length (cm)",
         "fr": "Length (cm)",
         "es": "Length (cm)",
         "ar": "Length (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured length at reference temperature (20°C) in centimeters.",
+        "tr": "Referans sıcaklıkta (20°C) santimetre cinsinden ölçülen uzunluk."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Systematic measurement correction factor (dimensionless).",
       "label_i18n": {
         "en": "Correction Factor",
-        "tr": "Correction Factor",
+        "tr": "Düzeltme Faktörü",
         "de": "Correction Factor",
         "fr": "Correction Factor",
         "es": "Correction Factor",
         "ar": "Correction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Systematic measurement correction factor (dimensionless).",
+        "tr": "Sistematik ölçüm düzeltme faktörü (boyutsuz)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Ambient temperature in degrees Celsius.",
       "label_i18n": {
         "en": "Temperature (°C)",
-        "tr": "Temperature (°C)",
+        "tr": "Sıcaklık (°C)",
         "de": "Temperature (°C)",
         "fr": "Temperature (°C)",
         "es": "Temperature (°C)",
         "ar": "Temperature (°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Ambient temperature in degrees Celsius.",
+        "tr": "Santigrat derece cinsinden ortam sıcaklığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Linear thermal expansion coefficient of material in per degree Celsius.",
       "label_i18n": {
         "en": "Expansion Coefficient",
-        "tr": "Expansion Coefficient",
+        "tr": "Genleşme Katsayısı",
         "de": "Expansion Coefficient",
         "fr": "Expansion Coefficient",
         "es": "Expansion Coefficient",
         "ar": "Expansion Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Linear thermal expansion coefficient of material in per degree Celsius.",
+        "tr": "Malzemenin santigrat derece başına doğrusal termal genleşme katsayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Manufacturing tolerance limit in centimeters.",
       "label_i18n": {
         "en": "Tolerance (cm)",
-        "tr": "Tolerance (cm)",
+        "tr": "Tolerans (cm)",
         "de": "Tolerance (cm)",
         "fr": "Tolerance (cm)",
         "es": "Tolerance (cm)",
         "ar": "Tolerance (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturing tolerance limit in centimeters.",
+        "tr": "Santimetre cinsinden üretim tolerans sınırı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of identical pieces.",
       "label_i18n": {
         "en": "Batch Quantity",
-        "tr": "Batch Quantity",
+        "tr": "Parti Miktarı",
         "de": "Batch Quantity",
         "fr": "Batch Quantity",
         "es": "Batch Quantity",
         "ar": "Batch Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical pieces.",
+        "tr": "Özdeş parça sayısı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of decimal places for output formatting.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output formatting.",
+        "tr": "Çıktı biçimlendirmesi için ondalık basamak sayısı."
       }
     }
   ],

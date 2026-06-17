@@ -10,11 +10,15 @@
       "businessContext": "The total bill amount before tax and tip.",
       "label_i18n": {
         "en": "Total Bill",
-        "tr": "Total Bill",
+        "tr": "Toplam Fatura",
         "de": "Total Bill",
         "fr": "Total Bill",
         "es": "Total Bill",
         "ar": "Total Bill"
+      },
+      "businessContext_i18n": {
+        "en": "The total bill amount before tax and tip.",
+        "tr": "Vergi ve bahşiş öncesi toplam fatura tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of individuals sharing the bill.",
       "label_i18n": {
         "en": "Number of People",
-        "tr": "Number of People",
+        "tr": "Kişi Sayısı",
         "de": "Number of People",
         "fr": "Number of People",
         "es": "Number of People",
         "ar": "Number of People"
+      },
+      "businessContext_i18n": {
+        "en": "Number of individuals sharing the bill.",
+        "tr": "Faturayı paylaşan kişi sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Tax rate applied to the bill.",
       "label_i18n": {
         "en": "Tax Percentage",
-        "tr": "Tax Percentage",
+        "tr": "Vergi Yüzdesi",
         "de": "Tax Percentage",
         "fr": "Tax Percentage",
         "es": "Tax Percentage",
         "ar": "Tax Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate applied to the bill.",
+        "tr": "Faturaya uygulanan vergi oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Tip percentage on the bill.",
       "label_i18n": {
         "en": "Tip Percentage",
-        "tr": "Tip Percentage",
+        "tr": "Bahşiş Yüzdesi",
         "de": "Tip Percentage",
         "fr": "Tip Percentage",
         "es": "Tip Percentage",
         "ar": "Tip Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Tip percentage on the bill.",
+        "tr": "Faturaya eklenecek bahşiş yüzdesi."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Measured temperature in the Rømer scale, typically from a calibrated thermometer.",
       "label_i18n": {
         "en": "Temperature in Rømer",
-        "tr": "Temperature in Rømer",
+        "tr": "Rømer cinsinden sıcaklık",
         "de": "Temperature in Rømer",
         "fr": "Temperature in Rømer",
         "es": "Temperature in Rømer",
         "ar": "Temperature in Rømer"
+      },
+      "businessContext_i18n": {
+        "en": "Measured temperature in the Rømer scale, typically from a calibrated thermometer.",
+        "tr": "Genellikle kalibre edilmiş bir termometreden alınan Rømer ölçeğinde ölçülen sıcaklık."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for the displayed Celsius result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the displayed Celsius result.",
+        "tr": "Görüntülenen Celsius sonucu için ondalık basamak sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Offset to compensate for known systematic error of the measuring instrument.",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Offset to compensate for known systematic error of the measuring instrument.",
+        "tr": "Ölçüm cihazının bilinen sistematik hatasını telafi etmek için ofset."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard uncertainty (k=1) of the Rømer measurement, per ISO/IEC 17025.",
       "label_i18n": {
         "en": "Measurement Uncertainty",
-        "tr": "Measurement Uncertainty",
+        "tr": "Ölçüm Belirsizliği",
         "de": "Measurement Uncertainty",
         "fr": "Measurement Uncertainty",
         "es": "Measurement Uncertainty",
         "ar": "Measurement Uncertainty"
+      },
+      "businessContext_i18n": {
+        "en": "Standard uncertainty (k=1) of the Rømer measurement, per ISO/IEC 17025.",
+        "tr": "ISO/IEC 17025'e göre Rømer ölçümünün standart belirsizliği (k=1)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Confidence level for expanded uncertainty (typically 95% for coverage factor k=2).",
       "label_i18n": {
         "en": "Confidence Level",
-        "tr": "Confidence Level",
+        "tr": "Güven Düzeyi",
         "de": "Confidence Level",
         "fr": "Confidence Level",
         "es": "Confidence Level",
         "ar": "Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Confidence level for expanded uncertainty (typically 95% for coverage factor k=2).",
+        "tr": "Genişletilmiş belirsizlik için güven düzeyi (kapsam faktörü k=2 için tipik olarak %95)."
       }
     }
   ],

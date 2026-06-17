@@ -21,10 +21,12 @@
       "max": 100,
       "businessContext": "Primary input: miles per gallon (US gallon). Typical range for passenger vehicles: 10–60 mpg. Used in North American fleet reporting.",
       "label_i18n": {
-        "en": "Fuel Economy (MPG)"
+        "en": "Fuel Economy (MPG)",
+        "tr": "Yakıt Ekonomisi (MPG)"
       },
       "businessContext_i18n": {
-        "en": "Primary input: miles per gallon (US gallon). Typical range for passenger vehicles: 10–60 mpg. Used in North American fleet reporting."
+        "en": "Primary input: miles per gallon (US gallon). Typical range for passenger vehicles: 10–60 mpg. Used in North American fleet reporting.",
+        "tr": "Birincil girdi: mil/galon (ABD galonu). Binek araçlar için tipik aralık: 10–60 mpg. Kuzey Amerika filo raporlamasında kullanılır."
       }
     },
     {
@@ -43,10 +45,12 @@
       ],
       "businessContext": "Determines carbon intensity and energy content. Required for environmental loss calculations per ISO 14067.",
       "label_i18n": {
-        "en": "Fuel Type"
+        "en": "Fuel Type",
+        "tr": "Yakıt Türü"
       },
       "businessContext_i18n": {
-        "en": "Determines carbon intensity and energy content. Required for environmental loss calculations per ISO 14067."
+        "en": "Determines carbon intensity and energy content. Required for environmental loss calculations per ISO 14067.",
+        "tr": "Karbon yoğunluğunu ve enerji içeriğini belirler. ISO 14067'ye göre çevresel kayıp hesaplamaları için gereklidir."
       }
     },
     {
@@ -64,10 +68,12 @@
       ],
       "businessContext": "Affects real-world efficiency deviation. Used in Six Sigma process capability analysis for fleet variance.",
       "label_i18n": {
-        "en": "Driving Cycle"
+        "en": "Driving Cycle",
+        "tr": "Sürüş Döngüsü"
       },
       "businessContext_i18n": {
-        "en": "Affects real-world efficiency deviation. Used in Six Sigma process capability analysis for fleet variance."
+        "en": "Affects real-world efficiency deviation. Used in Six Sigma process capability analysis for fleet variance.",
+        "tr": "Gerçek dünya verimlilik sapmasını etkiler. Filo varyansı için Altı Sigma proses yetenek analizinde kullanılır."
       }
     },
     {
@@ -80,10 +86,12 @@
       "max": 200000,
       "businessContext": "Used to compute total fuel consumption, cost, and emissions. Typical fleet vehicle: 10k–30k miles/year.",
       "label_i18n": {
-        "en": "Annual Mileage"
+        "en": "Annual Mileage",
+        "tr": "Yıllık Kilometre"
       },
       "businessContext_i18n": {
-        "en": "Used to compute total fuel consumption, cost, and emissions. Typical fleet vehicle: 10k–30k miles/year."
+        "en": "Used to compute total fuel consumption, cost, and emissions. Typical fleet vehicle: 10k–30k miles/year.",
+        "tr": "Toplam yakıt tüketimi, maliyet ve emisyonları hesaplamak için kullanılır. Tipik filo aracı: yılda 10k–30k mil."
       }
     },
     {
@@ -96,10 +104,12 @@
       "max": 10,
       "businessContext": "Local fuel cost for total cost of ownership (TCO) analysis. Input for Lean cost reduction projects.",
       "label_i18n": {
-        "en": "Fuel Price per Gallon"
+        "en": "Fuel Price per Gallon",
+        "tr": "Galon Başına Yakıt Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Local fuel cost for total cost of ownership (TCO) analysis. Input for Lean cost reduction projects."
+        "en": "Local fuel cost for total cost of ownership (TCO) analysis. Input for Lean cost reduction projects.",
+        "tr": "Toplam sahip olma maliyeti (TCO) analizi için yerel yakıt maliyeti. Yalın maliyet azaltma projelerinde girdi."
       }
     },
     {
@@ -112,10 +122,12 @@
       "max": 15,
       "businessContext": "Default for gasoline: 8.887 kg CO₂/gallon (EPA). Used for environmental impact assessment per ISO 14064.",
       "label_i18n": {
-        "en": "CO₂ per Gallon"
+        "en": "CO₂ per Gallon",
+        "tr": "Galon Başına CO₂"
       },
       "businessContext_i18n": {
-        "en": "Default for gasoline: 8.887 kg CO₂/gallon (EPA). Used for environmental impact assessment per ISO 14064."
+        "en": "Default for gasoline: 8.887 kg CO₂/gallon (EPA). Used for environmental impact assessment per ISO 14064.",
+        "tr": "Benzin için varsayılan: 8,887 kg CO₂/galon (EPA). ISO 14064'e göre çevresel etki değerlendirmesi için kullanılır."
       }
     }
   ],

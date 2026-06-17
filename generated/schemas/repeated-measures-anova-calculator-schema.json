@@ -10,11 +10,15 @@
       "businessContext": "Number of repeated measurement levels or conditions.",
       "label_i18n": {
         "en": "Number of Conditions (k)",
-        "tr": "Number of Conditions (k)",
+        "tr": "Koşul Sayısı (k)",
         "de": "Number of Conditions (k)",
         "fr": "Number of Conditions (k)",
         "es": "Number of Conditions (k)",
         "ar": "Number of Conditions (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of repeated measurement levels or conditions.",
+        "tr": "Tekrarlanan ölçüm seviyelerinin veya koşullarının sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of subjects (participants).",
       "label_i18n": {
         "en": "Number of Subjects (n)",
-        "tr": "Number of Subjects (n)",
+        "tr": "Denek Sayısı (n)",
         "de": "Number of Subjects (n)",
         "fr": "Number of Subjects (n)",
         "es": "Number of Subjects (n)",
         "ar": "Number of Subjects (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of subjects (participants).",
+        "tr": "Toplam denek (katılımcı) sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sum of squares due to the within-subjects factor (condition).",
       "label_i18n": {
         "en": "SS Condition",
-        "tr": "SS Condition",
+        "tr": "Koşul KT",
         "de": "SS Condition",
         "fr": "SS Condition",
         "es": "SS Condition",
         "ar": "SS Condition"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of squares due to the within-subjects factor (condition).",
+        "tr": "Denek içi faktörden (koşul) kaynaklanan kareler toplamı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sum of squares error (residual) for the within-subjects factor.",
       "label_i18n": {
         "en": "SS Error",
-        "tr": "SS Error",
+        "tr": "SS Hatası",
         "de": "SS Error",
         "fr": "SS Error",
         "es": "SS Error",
         "ar": "SS Error"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of squares error (residual) for the within-subjects factor.",
+        "tr": "Denek içi faktör için kareler toplamı hatası (artık)."
       }
     }
   ],

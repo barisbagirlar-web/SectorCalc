@@ -10,11 +10,15 @@
       "businessContext": "Desired nicotine concentration in the final e-liquid",
       "label_i18n": {
         "en": "Target Nicotine Strength",
-        "tr": "Target Nicotine Strength",
+        "tr": "Hedef nikotin gücü",
         "de": "Target Nicotine Strength",
         "fr": "Target Nicotine Strength",
         "es": "Target Nicotine Strength",
         "ar": "Target Nicotine Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Desired nicotine concentration in the final e-liquid",
+        "tr": "Nihai e-sıvıda istenen nikotin konsantrasyonu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total volume of e-liquid to prepare",
       "label_i18n": {
         "en": "Final Volume",
-        "tr": "Final Volume",
+        "tr": "Son Hacim",
         "de": "Final Volume",
         "fr": "Final Volume",
         "es": "Final Volume",
         "ar": "Final Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of e-liquid to prepare",
+        "tr": "Hazırlanacak toplam e-sıvı hacmi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Nicotine concentration of the base liquid",
       "label_i18n": {
         "en": "Nicotine Base Concentration",
-        "tr": "Nicotine Base Concentration",
+        "tr": "Nikotin baz konsantrasyonu",
         "de": "Nicotine Base Concentration",
         "fr": "Nicotine Base Concentration",
         "es": "Nicotine Base Concentration",
         "ar": "Nicotine Base Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Nicotine concentration of the base liquid",
+        "tr": "Baz sıvının nikotin konsantrasyonu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "VG percentage in nicotine base (rest is PG)",
       "label_i18n": {
         "en": "Base VG%",
-        "tr": "Base VG%",
+        "tr": "Baz VG%",
         "de": "Base VG%",
         "fr": "Base VG%",
         "es": "Base VG%",
         "ar": "Base VG%"
+      },
+      "businessContext_i18n": {
+        "en": "VG percentage in nicotine base (rest is PG)",
+        "tr": "Nikotin bazındaki VG yüzdesi (geri kalanı PG'dir)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Target VG percentage in the final mix",
       "label_i18n": {
         "en": "Desired VG%",
-        "tr": "Desired VG%",
+        "tr": "İstenen VG%",
         "de": "Desired VG%",
         "fr": "Desired VG%",
         "es": "Desired VG%",
         "ar": "Desired VG%"
+      },
+      "businessContext_i18n": {
+        "en": "Target VG percentage in the final mix",
+        "tr": "Nihai karışımdaki hedef VG yüzdesi"
       }
     }
   ],

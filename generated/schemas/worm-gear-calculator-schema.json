@@ -10,11 +10,15 @@
       "businessContext": "Module defining tooth size per ISO 54",
       "label_i18n": {
         "en": "Module (m)",
-        "tr": "Module (m)",
+        "tr": "Modül (m)",
         "de": "Module (m)",
         "fr": "Module (m)",
         "es": "Module (m)",
         "ar": "Module (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Module defining tooth size per ISO 54",
+        "tr": "ISO 54'e göre diş boyutunu tanımlayan modül"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of threads on the worm",
       "label_i18n": {
         "en": "Number of Starts (Z₁)",
-        "tr": "Number of Starts (Z₁)",
+        "tr": "Ağız Sayısı (Z₁)",
         "de": "Number of Starts (Z₁)",
         "fr": "Number of Starts (Z₁)",
         "es": "Number of Starts (Z₁)",
         "ar": "Number of Starts (Z₁)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of threads on the worm",
+        "tr": "Sonsuz vida üzerindeki ağız sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of teeth on the worm wheel",
       "label_i18n": {
         "en": "Number of Teeth on Gear (Z₂)",
-        "tr": "Number of Teeth on Gear (Z₂)",
+        "tr": "Dişli Çark Diş Sayısı (Z₂)",
         "de": "Number of Teeth on Gear (Z₂)",
         "fr": "Number of Teeth on Gear (Z₂)",
         "es": "Number of Teeth on Gear (Z₂)",
         "ar": "Number of Teeth on Gear (Z₂)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of teeth on the worm wheel",
+        "tr": "Sonsuz dişli çark üzerindeki diş sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance between worm and gear axes",
       "label_i18n": {
         "en": "Center Distance (a)",
-        "tr": "Center Distance (a)",
+        "tr": "Eksen Mesafesi (a)",
         "de": "Center Distance (a)",
         "fr": "Center Distance (a)",
         "es": "Center Distance (a)",
         "ar": "Center Distance (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between worm and gear axes",
+        "tr": "Sonsuz vida ve dişli çark eksenleri arasındaki mesafe"
       }
     }
   ],

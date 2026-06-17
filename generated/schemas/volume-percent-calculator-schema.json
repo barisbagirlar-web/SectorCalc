@@ -10,11 +10,15 @@
       "businessContext": "Volume of the solute (substance being dissolved).",
       "label_i18n": {
         "en": "Solute Volume",
-        "tr": "Solute Volume",
+        "tr": "Çözünen Hacmi",
         "de": "Solute Volume",
         "fr": "Solute Volume",
         "es": "Solute Volume",
         "ar": "Solute Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of the solute (substance being dissolved).",
+        "tr": "Çözünen maddenin (çözünen) hacmi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total volume of the solution (solute + solvent).",
       "label_i18n": {
         "en": "Solution Volume",
-        "tr": "Solution Volume",
+        "tr": "Çözelti Hacmi",
         "de": "Solution Volume",
         "fr": "Solution Volume",
         "es": "Solution Volume",
         "ar": "Solution Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of the solution (solute + solvent).",
+        "tr": "Çözeltinin toplam hacmi (çözünen + çözücü)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Temperature at which volumes are measured. Not used in calculation; ensure volumes are at same temperature.",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature at which volumes are measured. Not used in calculation; ensure volumes are at same temperature.",
+        "tr": "Hacimlerin ölçüldüğü sıcaklık. Hesaplamada kullanılmaz; hacimlerin aynı sıcaklıkta olduğundan emin olun."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ambient pressure. Not used for incompressible liquids.",
       "label_i18n": {
         "en": "Pressure",
-        "tr": "Pressure",
+        "tr": "Basınç",
         "de": "Pressure",
         "fr": "Pressure",
         "es": "Pressure",
         "ar": "Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Ambient pressure. Not used for incompressible liquids.",
+        "tr": "Ortam basıncı. Sıkıştırılamaz sıvılar için kullanılmaz."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Distance between supports of the simply supported beam.",
       "label_i18n": {
         "en": "Span Length (mm)",
-        "tr": "Span Length (mm)",
+        "tr": "Açıklık Uzunluğu (mm)",
         "de": "Span Length (mm)",
         "fr": "Span Length (mm)",
         "es": "Span Length (mm)",
         "ar": "Span Length (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between supports of the simply supported beam.",
+        "tr": "Basit mesnetli kirişin destekleri arasındaki mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Constant load per unit length along the beam.",
       "label_i18n": {
         "en": "Uniformly Distributed Load (N/mm)",
-        "tr": "Uniformly Distributed Load (N/mm)",
+        "tr": "Düzgün Yayılı Yük (N/mm)",
         "de": "Uniformly Distributed Load (N/mm)",
         "fr": "Uniformly Distributed Load (N/mm)",
         "es": "Uniformly Distributed Load (N/mm)",
         "ar": "Uniformly Distributed Load (N/mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant load per unit length along the beam.",
+        "tr": "Kiriş boyunca birim uzunluk başına sabit yük."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Material's stiffness (Young's modulus).",
       "label_i18n": {
         "en": "Modulus of Elasticity (MPa)",
-        "tr": "Modulus of Elasticity (MPa)",
+        "tr": "Elastisite Modülü (MPa)",
         "de": "Modulus of Elasticity (MPa)",
         "fr": "Modulus of Elasticity (MPa)",
         "es": "Modulus of Elasticity (MPa)",
         "ar": "Modulus of Elasticity (MPa)"
+      },
+      "businessContext_i18n": {
+        "en": "Material's stiffness (Young's modulus).",
+        "tr": "Malzemenin sertliği (Young modülü)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Second moment of area of the beam cross-section.",
       "label_i18n": {
         "en": "Moment of Inertia (mm⁴)",
-        "tr": "Moment of Inertia (mm⁴)",
+        "tr": "Atalet Momenti (mm⁴)",
         "de": "Moment of Inertia (mm⁴)",
         "fr": "Moment of Inertia (mm⁴)",
         "es": "Moment of Inertia (mm⁴)",
         "ar": "Moment of Inertia (mm⁴)"
+      },
+      "businessContext_i18n": {
+        "en": "Second moment of area of the beam cross-section.",
+        "tr": "Kiriş kesitinin ikinci alan momenti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Material yield stress, used for safety factor.",
       "label_i18n": {
         "en": "Yield Strength (MPa)",
-        "tr": "Yield Strength (MPa)",
+        "tr": "Akma Dayanımı (MPa)",
         "de": "Yield Strength (MPa)",
         "fr": "Yield Strength (MPa)",
         "es": "Yield Strength (MPa)",
         "ar": "Yield Strength (MPa)"
+      },
+      "businessContext_i18n": {
+        "en": "Material yield stress, used for safety factor.",
+        "tr": "Malzeme akma gerilimi, güvenlik faktörü için kullanılır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Elastic section modulus of the beam.",
       "label_i18n": {
         "en": "Section Modulus (mm³)",
-        "tr": "Section Modulus (mm³)",
+        "tr": "Kesit Modülü (mm³)",
         "de": "Section Modulus (mm³)",
         "fr": "Section Modulus (mm³)",
         "es": "Section Modulus (mm³)",
         "ar": "Section Modulus (mm³)"
+      },
+      "businessContext_i18n": {
+        "en": "Elastic section modulus of the beam.",
+        "tr": "Kirişin elastik kesit modülü."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The measured cortisol level from a laboratory test in micrograms per deciliter.",
       "label_i18n": {
         "en": "Raw Cortisol Level",
-        "tr": "Raw Cortisol Level",
+        "tr": "Ham Kortizol Seviyesi",
         "de": "Raw Cortisol Level",
         "fr": "Raw Cortisol Level",
         "es": "Raw Cortisol Level",
         "ar": "Raw Cortisol Level"
+      },
+      "businessContext_i18n": {
+        "en": "The measured cortisol level from a laboratory test in micrograms per deciliter.",
+        "tr": "Laboratuvar testinden desilitre başına mikrogram cinsinden ölçülen kortizol seviyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor from mcg/dL to nmol/L (1 mcg/dL = 27.59 nmol/L). Set to 1 if no conversion needed.",
       "label_i18n": {
         "en": "Unit Conversion Factor",
-        "tr": "Unit Conversion Factor",
+        "tr": "Birim Dönüşüm Faktörü",
         "de": "Unit Conversion Factor",
         "fr": "Unit Conversion Factor",
         "es": "Unit Conversion Factor",
         "ar": "Unit Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from mcg/dL to nmol/L (1 mcg/dL = 27.59 nmol/L). Set to 1 if no conversion needed.",
+        "tr": "mcg/dL'den nmol/L'ye dönüşüm faktörü (1 mcg/dL = 27.59 nmol/L). Dönüşüm gerekmiyorsa 1 olarak ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Diurnal variation multiplier (e.g., morning peak ≈ 1.0, evening trough ≈ 0.4). Default 1 for standard morning measurement.",
       "label_i18n": {
         "en": "Time-of-Day Factor",
-        "tr": "Time-of-Day Factor",
+        "tr": "Gün İçi Saat Faktörü",
         "de": "Time-of-Day Factor",
         "fr": "Time-of-Day Factor",
         "es": "Time-of-Day Factor",
         "ar": "Time-of-Day Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Diurnal variation multiplier (e.g., morning peak ≈ 1.0, evening trough ≈ 0.4). Default 1 for standard morning measurement.",
+        "tr": "Günlük değişim çarpanı (örneğin, sabah zirvesi ≈ 1.0, akşam düşüşü ≈ 0.4). Standart sabah ölçümü için varsayılan 1."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Adjustment for acute physiological or psychological stress (normal = 1, elevated stress > 1).",
       "label_i18n": {
         "en": "Acute Stress Multiplier",
-        "tr": "Acute Stress Multiplier",
+        "tr": "Akut Stres Çarpanı",
         "de": "Acute Stress Multiplier",
         "fr": "Acute Stress Multiplier",
         "es": "Acute Stress Multiplier",
         "ar": "Acute Stress Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Adjustment for acute physiological or psychological stress (normal = 1, elevated stress > 1).",
+        "tr": "Akut fizyolojik veya psikolojik stres için ayarlama (normal = 1, yüksek stres > 1)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier for age-related cortisol changes (e.g., elderly may have lower baseline). Default 1 for standard adult.",
       "label_i18n": {
         "en": "Age Correction Factor",
-        "tr": "Age Correction Factor",
+        "tr": "Yaş Düzeltme Faktörü",
         "de": "Age Correction Factor",
         "fr": "Age Correction Factor",
         "es": "Age Correction Factor",
         "ar": "Age Correction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for age-related cortisol changes (e.g., elderly may have lower baseline). Default 1 for standard adult.",
+        "tr": "Yaşa bağlı kortizol değişiklikleri için çarpan (örneğin, yaşlılarda düşük bazal seviye olabilir). Standart yetişkin için varsayılan 1."
       }
     }
   ],

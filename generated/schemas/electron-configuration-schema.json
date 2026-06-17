@@ -10,11 +10,15 @@
       "businessContext": "Number of protons in the nucleus",
       "label_i18n": {
         "en": "Atomic Number (Z)",
-        "tr": "Atomic Number (Z)",
+        "tr": "Atom Numarası (Z)",
         "de": "Atomic Number (Z)",
         "fr": "Atomic Number (Z)",
         "es": "Atomic Number (Z)",
         "ar": "Atomic Number (Z)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of protons in the nucleus",
+        "tr": "Çekirdekteki proton sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Principal quantum number of lower orbit",
       "label_i18n": {
         "en": "Lower Energy Level (n1)",
-        "tr": "Lower Energy Level (n1)",
+        "tr": "Alt Enerji Seviyesi (n1)",
         "de": "Lower Energy Level (n1)",
         "fr": "Lower Energy Level (n1)",
         "es": "Lower Energy Level (n1)",
         "ar": "Lower Energy Level (n1)"
+      },
+      "businessContext_i18n": {
+        "en": "Principal quantum number of lower orbit",
+        "tr": "Alt yörüngenin baş kuantum sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Principal quantum number of upper orbit",
       "label_i18n": {
         "en": "Upper Energy Level (n2)",
-        "tr": "Upper Energy Level (n2)",
+        "tr": "Üst Enerji Seviyesi (n2)",
         "de": "Upper Energy Level (n2)",
         "fr": "Upper Energy Level (n2)",
         "es": "Upper Energy Level (n2)",
         "ar": "Upper Energy Level (n2)"
+      },
+      "businessContext_i18n": {
+        "en": "Principal quantum number of upper orbit",
+        "tr": "Üst yörüngenin baş kuantum sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Shielding effect from inner electrons",
       "label_i18n": {
         "en": "Screening Constant (σ)",
-        "tr": "Screening Constant (σ)",
+        "tr": "Perdeleme Sabiti (σ)",
         "de": "Screening Constant (σ)",
         "fr": "Screening Constant (σ)",
         "es": "Screening Constant (σ)",
         "ar": "Screening Constant (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "Shielding effect from inner electrons",
+        "tr": "İç elektronlardan kaynaklanan koruyucu etki"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Ionization energy of hydrogen",
       "label_i18n": {
         "en": "Rydberg Energy (R)",
-        "tr": "Rydberg Energy (R)",
+        "tr": "Rydberg Enerjisi (R)",
         "de": "Rydberg Energy (R)",
         "fr": "Rydberg Energy (R)",
         "es": "Rydberg Energy (R)",
         "ar": "Rydberg Energy (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Ionization energy of hydrogen",
+        "tr": "Hidrojenin iyonlaşma enerjisi"
       }
     }
   ],

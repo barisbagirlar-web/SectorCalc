@@ -10,11 +10,15 @@
       "businessContext": "Number of days of the trip",
       "label_i18n": {
         "en": "Trip Duration (Days)",
-        "tr": "Trip Duration (Days)",
+        "tr": "Seyahat Süresi (Gün)",
         "de": "Trip Duration (Days)",
         "fr": "Trip Duration (Days)",
         "es": "Trip Duration (Days)",
         "ar": "Trip Duration (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days of the trip",
+        "tr": "Seyahat gün sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age of the primary traveler",
       "label_i18n": {
         "en": "Traveler Age",
-        "tr": "Traveler Age",
+        "tr": "Gezgin Yaşı",
         "de": "Traveler Age",
         "fr": "Traveler Age",
         "es": "Traveler Age",
         "ar": "Traveler Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the primary traveler",
+        "tr": "Ana gezginin yaşı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum medical expense coverage",
       "label_i18n": {
         "en": "Medical Coverage Amount",
-        "tr": "Medical Coverage Amount",
+        "tr": "Tıbbi Teminat Tutarı",
         "de": "Medical Coverage Amount",
         "fr": "Medical Coverage Amount",
         "es": "Medical Coverage Amount",
         "ar": "Medical Coverage Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum medical expense coverage",
+        "tr": "Azami tıbbi masraf teminatı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Risk factor based on destination (1.0 = standard)",
       "label_i18n": {
         "en": "Destination Risk Factor",
-        "tr": "Destination Risk Factor",
+        "tr": "Varış Yeri Risk Faktörü",
         "de": "Destination Risk Factor",
         "fr": "Destination Risk Factor",
         "es": "Destination Risk Factor",
         "ar": "Destination Risk Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Risk factor based on destination (1.0 = standard)",
+        "tr": "Varış yerine göre risk faktörü (1.0 = standart)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Amount the traveler pays before insurance covers",
       "label_i18n": {
         "en": "Deductible",
-        "tr": "Deductible",
+        "tr": "Muafiyet",
         "de": "Deductible",
         "fr": "Deductible",
         "es": "Deductible",
         "ar": "Deductible"
+      },
+      "businessContext_i18n": {
+        "en": "Amount the traveler pays before insurance covers",
+        "tr": "Sigorta kapsamına girmeden önce gezginin ödediği tutar"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total number of insured travelers",
       "label_i18n": {
         "en": "Number of Travelers",
-        "tr": "Number of Travelers",
+        "tr": "Yolcu Sayısı",
         "de": "Number of Travelers",
         "fr": "Number of Travelers",
         "es": "Number of Travelers",
         "ar": "Number of Travelers"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of insured travelers",
+        "tr": "Toplam sigortalı gezgin sayısı"
       }
     }
   ],

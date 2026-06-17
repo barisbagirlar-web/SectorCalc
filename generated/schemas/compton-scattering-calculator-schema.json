@@ -10,11 +10,15 @@
       "businessContext": "Energy of incoming photon before scattering",
       "label_i18n": {
         "en": "Incident Photon Energy",
-        "tr": "Incident Photon Energy",
+        "tr": "Gelen Foton Enerjisi",
         "de": "Incident Photon Energy",
         "fr": "Incident Photon Energy",
         "es": "Incident Photon Energy",
         "ar": "Incident Photon Energy"
+      },
+      "businessContext_i18n": {
+        "en": "Energy of incoming photon before scattering",
+        "tr": "Saçılmadan önce gelen fotonun enerjisi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Wavelength of incoming photon (if known); overrides energy when provided",
       "label_i18n": {
         "en": "Incident Photon Wavelength",
-        "tr": "Incident Photon Wavelength",
+        "tr": "Gelen Foton Dalga Boyu",
         "de": "Incident Photon Wavelength",
         "fr": "Incident Photon Wavelength",
         "es": "Incident Photon Wavelength",
         "ar": "Incident Photon Wavelength"
+      },
+      "businessContext_i18n": {
+        "en": "Wavelength of incoming photon (if known); overrides energy when provided",
+        "tr": "Gelen fotonun dalga boyu (biliniyorsa); sağlandığında enerjiyi geçersiz kılar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle between incident and scattered photon directions",
       "label_i18n": {
         "en": "Scattering Angle",
-        "tr": "Scattering Angle",
+        "tr": "Saçılma Açısı",
         "de": "Scattering Angle",
         "fr": "Scattering Angle",
         "es": "Scattering Angle",
         "ar": "Scattering Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between incident and scattered photon directions",
+        "tr": "Gelen ve saçılan foton yönleri arasındaki açı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rest mass energy of the scattering particle (electron: 511 keV)",
       "label_i18n": {
         "en": "Electron Rest Energy",
-        "tr": "Electron Rest Energy",
+        "tr": "Elektron Durgun Enerjisi",
         "de": "Electron Rest Energy",
         "fr": "Electron Rest Energy",
         "es": "Electron Rest Energy",
         "ar": "Electron Rest Energy"
+      },
+      "businessContext_i18n": {
+        "en": "Rest mass energy of the scattering particle (electron: 511 keV)",
+        "tr": "Saçılan parçacığın durgun kütle enerjisi (elektron: 511 keV)."
       }
     }
   ],

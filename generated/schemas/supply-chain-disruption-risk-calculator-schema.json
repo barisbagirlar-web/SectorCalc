@@ -22,10 +22,12 @@
       "max": 100,
       "businessContext": "Historical on-time delivery and quality performance of key suppliers. Higher score indicates better reliability.",
       "label_i18n": {
-        "en": "Supplier Reliability Score (0-100)"
+        "en": "Supplier Reliability Score (0-100)",
+        "tr": "Tedarikçi Güvenilirlik Puanı (0-100)"
       },
       "businessContext_i18n": {
-        "en": "Historical on-time delivery and quality performance of key suppliers. Higher score indicates better reliability."
+        "en": "Historical on-time delivery and quality performance of key suppliers. Higher score indicates better reliability.",
+        "tr": "Kilit tedarikçilerin geçmişteki zamanında teslimat ve kalite performansı. Yüksek puan daha iyi güvenilirliği gösterir."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 365,
       "businessContext": "Average days of inventory held to absorb demand or supply shocks. Based on lean inventory principles.",
       "label_i18n": {
-        "en": "Inventory Buffer (Days of Cover)"
+        "en": "Inventory Buffer (Days of Cover)",
+        "tr": "Stok Tamponu (Günlük Kapsama)"
       },
       "businessContext_i18n": {
-        "en": "Average days of inventory held to absorb demand or supply shocks. Based on lean inventory principles."
+        "en": "Average days of inventory held to absorb demand or supply shocks. Based on lean inventory principles.",
+        "tr": "Talep veya arz şoklarını absorbe etmek için tutulan ortalama stok günü. Yalın stok prensiplerine dayanır."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 2,
       "businessContext": "Standard deviation of lead time divided by mean lead time. Higher values indicate unpredictable supply.",
       "label_i18n": {
-        "en": "Lead Time Variability (Coefficient of Variation)"
+        "en": "Lead Time Variability (Coefficient of Variation)",
+        "tr": "Teslim Süresi Değişkenliği (Değişim Katsayısı)"
       },
       "businessContext_i18n": {
-        "en": "Standard deviation of lead time divided by mean lead time. Higher values indicate unpredictable supply."
+        "en": "Standard deviation of lead time divided by mean lead time. Higher values indicate unpredictable supply.",
+        "tr": "Teslim süresinin standart sapmasının ortalamaya bölümü. Yüksek değerler öngörülemeyen tedariki gösterir."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 100,
       "businessContext": "Percentage of critical components sourced from a single supplier. High dependency increases risk.",
       "label_i18n": {
-        "en": "Single Source Dependency (0-100%)"
+        "en": "Single Source Dependency (0-100%)",
+        "tr": "Tek Kaynağa Bağımlılık (%0-100)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of critical components sourced from a single supplier. High dependency increases risk."
+        "en": "Percentage of critical components sourced from a single supplier. High dependency increases risk.",
+        "tr": "Tek bir tedarikçiden tedarik edilen kritik bileşenlerin yüzdesi. Yüksek bağımlılık riski artırır."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 100,
       "businessContext": "Composite index of political instability, trade restrictions, and regional conflicts affecting supply chain.",
       "label_i18n": {
-        "en": "Geopolitical Risk Index (0-100)"
+        "en": "Geopolitical Risk Index (0-100)",
+        "tr": "Jeopolitik Risk Endeksi (0-100)"
       },
       "businessContext_i18n": {
-        "en": "Composite index of political instability, trade restrictions, and regional conflicts affecting supply chain."
+        "en": "Composite index of political instability, trade restrictions, and regional conflicts affecting supply chain.",
+        "tr": "Tedarik zincirini etkileyen siyasi istikrarsızlık, ticaret kısıtlamaları ve bölgesel çatışmaların bileşik endeksi."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 3,
       "businessContext": "Variability in customer demand over time. High volatility strains capacity and inventory.",
       "label_i18n": {
-        "en": "Demand Volatility (Coefficient of Variation)"
+        "en": "Demand Volatility (Coefficient of Variation)",
+        "tr": "Talep Değişkenliği (Değişim Katsayısı)"
       },
       "businessContext_i18n": {
-        "en": "Variability in customer demand over time. High volatility strains capacity and inventory."
+        "en": "Variability in customer demand over time. High volatility strains capacity and inventory.",
+        "tr": "Müşteri talebinin zaman içindeki değişkenliği. Yüksek değişkenlik kapasiteyi ve stoğu zorlar."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 1,
       "businessContext": "Estimated likelihood of a major transportation disruption (port closure, strike, etc.) in the next quarter.",
       "label_i18n": {
-        "en": "Transportation Disruption Probability (0-1)"
+        "en": "Transportation Disruption Probability (0-1)",
+        "tr": "Nakliye Kesintisi Olasılığı (0-1)"
       },
       "businessContext_i18n": {
-        "en": "Estimated likelihood of a major transportation disruption (port closure, strike, etc.) in the next quarter."
+        "en": "Estimated likelihood of a major transportation disruption (port closure, strike, etc.) in the next quarter.",
+        "tr": "Önümüzdeki çeyrekte büyük bir nakliye kesintisi (liman kapanması, grev vb.) olma olasılığı tahmini."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 100000,
       "businessContext": "Parts per million defective from incoming inspection. Six Sigma target is < 3.4 ppm.",
       "label_i18n": {
-        "en": "Quality Defect Rate (ppm)"
+        "en": "Quality Defect Rate (ppm)",
+        "tr": "Kalite Kusur Oranı (ppm)"
       },
       "businessContext_i18n": {
-        "en": "Parts per million defective from incoming inspection. Six Sigma target is < 3.4 ppm."
+        "en": "Parts per million defective from incoming inspection. Six Sigma target is < 3.4 ppm.",
+        "tr": "Gelen muayenede milyonda kusurlu parça sayısı. Altı Sigma hedefi < 3,4 ppm'dir."
       }
     }
   ],

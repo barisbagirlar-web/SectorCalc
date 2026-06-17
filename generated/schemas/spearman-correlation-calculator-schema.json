@@ -10,11 +10,15 @@
       "businessContext": "Number of paired observations",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)",
         "de": "Sample Size (n)",
         "fr": "Sample Size (n)",
         "es": "Sample Size (n)",
         "ar": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of paired observations",
+        "tr": "Eşleştirilmiş gözlem sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sum of squared differences between paired ranks",
       "label_i18n": {
         "en": "Sum of Squared Rank Differences (Σd²)",
-        "tr": "Sum of Squared Rank Differences (Σd²)",
+        "tr": "Sıra Farklarının Kareleri Toplamı (Σd²)",
         "de": "Sum of Squared Rank Differences (Σd²)",
         "fr": "Sum of Squared Rank Differences (Σd²)",
         "es": "Sum of Squared Rank Differences (Σd²)",
         "ar": "Sum of Squared Rank Differences (Σd²)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of squared differences between paired ranks",
+        "tr": "Eşleştirilmiş sıralar arasındaki farkların kareleri toplamı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sum of (t³ - t) for each tied group in variable X",
       "label_i18n": {
         "en": "Tie Correction for X (Σ(t³-t))",
-        "tr": "Tie Correction for X (Σ(t³-t))",
+        "tr": "X için Beraberlik Düzeltmesi (Σ(t³-t))",
         "de": "Tie Correction for X (Σ(t³-t))",
         "fr": "Tie Correction for X (Σ(t³-t))",
         "es": "Tie Correction for X (Σ(t³-t))",
         "ar": "Tie Correction for X (Σ(t³-t))"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of (t³ - t) for each tied group in variable X",
+        "tr": "X değişkenindeki her bağlı grup için (t³ - t) toplamı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sum of (t³ - t) for each tied group in variable Y",
       "label_i18n": {
         "en": "Tie Correction for Y (Σ(t³-t))",
-        "tr": "Tie Correction for Y (Σ(t³-t))",
+        "tr": "Y için Beraberlik Düzeltmesi (Σ(t³-t))",
         "de": "Tie Correction for Y (Σ(t³-t))",
         "fr": "Tie Correction for Y (Σ(t³-t))",
         "es": "Tie Correction for Y (Σ(t³-t))",
         "ar": "Tie Correction for Y (Σ(t³-t))"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of (t³ - t) for each tied group in variable Y",
+        "tr": "Y değişkenindeki her bağlı grup için (t³ - t) toplamı"
       }
     }
   ],

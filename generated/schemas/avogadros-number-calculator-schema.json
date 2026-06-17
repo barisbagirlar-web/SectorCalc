@@ -10,11 +10,15 @@
       "businessContext": "Mass of the sample in grams",
       "label_i18n": {
         "en": "Mass of Substance (g)",
-        "tr": "Mass of Substance (g)",
+        "tr": "Madde Kütlesi (g)",
         "de": "Mass of Substance (g)",
         "fr": "Mass of Substance (g)",
         "es": "Mass of Substance (g)",
         "ar": "Mass of Substance (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the sample in grams",
+        "tr": "Numunenin gram cinsinden kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Molar mass of the substance (e.g., water = 18.015 g/mol)",
       "label_i18n": {
         "en": "Molar Mass (g/mol)",
-        "tr": "Molar Mass (g/mol)",
+        "tr": "Molar Kütle (g/mol)",
         "de": "Molar Mass (g/mol)",
         "fr": "Molar Mass (g/mol)",
         "es": "Molar Mass (g/mol)",
         "ar": "Molar Mass (g/mol)"
+      },
+      "businessContext_i18n": {
+        "en": "Molar mass of the substance (e.g., water = 18.015 g/mol)",
+        "tr": "Maddenin molar kütlesi (örneğin, su = 18,015 g/mol)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Avogadro's number (6.02214076×10²³ mol⁻¹)",
       "label_i18n": {
         "en": "Avogadro's Constant (mol⁻¹)",
-        "tr": "Avogadro's Constant (mol⁻¹)",
+        "tr": "Avogadro Sabiti (mol⁻¹)",
         "de": "Avogadro's Constant (mol⁻¹)",
         "fr": "Avogadro's Constant (mol⁻¹)",
         "es": "Avogadro's Constant (mol⁻¹)",
         "ar": "Avogadro's Constant (mol⁻¹)"
+      },
+      "businessContext_i18n": {
+        "en": "Avogadro's number (6.02214076×10²³ mol⁻¹)",
+        "tr": "Avogadro sayısı (6,02214076×10²³ mol⁻¹)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of molecules per unit cell in a crystal (optional, default 1)",
       "label_i18n": {
         "en": "Molecules per Unit Cell",
-        "tr": "Molecules per Unit Cell",
+        "tr": "Birim Hücre Başına Molekül Sayısı",
         "de": "Molecules per Unit Cell",
         "fr": "Molecules per Unit Cell",
         "es": "Molecules per Unit Cell",
         "ar": "Molecules per Unit Cell"
+      },
+      "businessContext_i18n": {
+        "en": "Number of molecules per unit cell in a crystal (optional, default 1)",
+        "tr": "Bir kristalde birim hücre başına molekül sayısı (isteğe bağlı, varsayılan 1)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Volume of a unit cell in cubic nanometers (optional, default 1)",
       "label_i18n": {
         "en": "Unit Cell Volume (nm³)",
-        "tr": "Unit Cell Volume (nm³)",
+        "tr": "Birim Hücre Hacmi (nm³)",
         "de": "Unit Cell Volume (nm³)",
         "fr": "Unit Cell Volume (nm³)",
         "es": "Unit Cell Volume (nm³)",
         "ar": "Unit Cell Volume (nm³)"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of a unit cell in cubic nanometers (optional, default 1)",
+        "tr": "Birim hücrenin nanometreküp cinsinden hacmi (isteğe bağlı, varsayılan 1)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Density of the substance (optional, default 1)",
       "label_i18n": {
         "en": "Density (g/cm³)",
-        "tr": "Density (g/cm³)",
+        "tr": "Yoğunluk (g/cm³)",
         "de": "Density (g/cm³)",
         "fr": "Density (g/cm³)",
         "es": "Density (g/cm³)",
         "ar": "Density (g/cm³)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the substance (optional, default 1)",
+        "tr": "Maddenin yoğunluğu (isteğe bağlı, varsayılan 1)"
       }
     }
   ],

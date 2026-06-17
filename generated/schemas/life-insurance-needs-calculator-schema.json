@@ -10,11 +10,15 @@
       "businessContext": "The policyholder's current annual after-tax income that needs replacement.",
       "label_i18n": {
         "en": "Annual Income",
-        "tr": "Annual Income",
+        "tr": "Yıllık Gelir",
         "de": "Annual Income",
         "fr": "Annual Income",
         "es": "Annual Income",
         "ar": "Annual Income"
+      },
+      "businessContext_i18n": {
+        "en": "The policyholder's current annual after-tax income that needs replacement.",
+        "tr": "Poliçe sahibinin değiştirilmesi gereken mevcut yıllık net geliri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of years the dependents will require income replacement.",
       "label_i18n": {
         "en": "Years of Need",
-        "tr": "Years of Need",
+        "tr": "İhtiyaç Yılları",
         "de": "Years of Need",
         "fr": "Years of Need",
         "es": "Years of Need",
         "ar": "Years of Need"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the dependents will require income replacement.",
+        "tr": "Bağımlıların gelir ikamesine ihtiyaç duyacağı yıl sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total liquid assets that can be used toward future needs.",
       "label_i18n": {
         "en": "Current Savings & Investments",
-        "tr": "Current Savings & Investments",
+        "tr": "Mevcut Tasarruflar ve Yatırımlar",
         "de": "Current Savings & Investments",
         "fr": "Current Savings & Investments",
         "es": "Current Savings & Investments",
         "ar": "Current Savings & Investments"
+      },
+      "businessContext_i18n": {
+        "en": "Total liquid assets that can be used toward future needs.",
+        "tr": "Gelecekteki ihtiyaçlar için kullanılabilecek toplam likit varlıklar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total debts that must be paid off upon death.",
       "label_i18n": {
         "en": "Outstanding Debts (e.g., mortgage, loans)",
-        "tr": "Outstanding Debts (e.g., mortgage, loans)",
+        "tr": "Ödenmemiş Borçlar (ör. ipotek, krediler)",
         "de": "Outstanding Debts (e.g., mortgage, loans)",
         "fr": "Outstanding Debts (e.g., mortgage, loans)",
         "es": "Outstanding Debts (e.g., mortgage, loans)",
         "ar": "Outstanding Debts (e.g., mortgage, loans)"
+      },
+      "businessContext_i18n": {
+        "en": "Total debts that must be paid off upon death.",
+        "tr": "Ölüm halinde ödenmesi gereken toplam borçlar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Estimated total cost for children's education.",
       "label_i18n": {
         "en": "Future Education Expenses",
-        "tr": "Future Education Expenses",
+        "tr": "Gelecekteki Eğitim Masrafları",
         "de": "Future Education Expenses",
         "fr": "Future Education Expenses",
         "es": "Future Education Expenses",
         "ar": "Future Education Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated total cost for children's education.",
+        "tr": "Çocukların eğitimi için tahmini toplam maliyet."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Estimated cost for funeral and estate settlement.",
       "label_i18n": {
         "en": "Final Expenses (funeral, estate settlement)",
-        "tr": "Final Expenses (funeral, estate settlement)",
+        "tr": "Son Masraflar (cenaze, miras tasfiyesi)",
         "de": "Final Expenses (funeral, estate settlement)",
         "fr": "Final Expenses (funeral, estate settlement)",
         "es": "Final Expenses (funeral, estate settlement)",
         "ar": "Final Expenses (funeral, estate settlement)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated cost for funeral and estate settlement.",
+        "tr": "Cenaze ve miras tasfiyesi için tahmini maliyet."
       }
     }
   ],

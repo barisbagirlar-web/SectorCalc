@@ -10,11 +10,15 @@
       "businessContext": "The amount initially invested, used to calculate loss from the start.",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "The amount initially invested, used to calculate loss from the start.",
+        "tr": "Başlangıçta yatırılan tutar, kaybı başlangıçtan itibaren hesaplamak için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The highest portfolio value reached before the drawdown begins.",
       "label_i18n": {
         "en": "Peak Portfolio Value",
-        "tr": "Peak Portfolio Value",
+        "tr": "Portföy Zirve Değeri",
         "de": "Peak Portfolio Value",
         "fr": "Peak Portfolio Value",
         "es": "Peak Portfolio Value",
         "ar": "Peak Portfolio Value"
+      },
+      "businessContext_i18n": {
+        "en": "The highest portfolio value reached before the drawdown begins.",
+        "tr": "Düşüş başlamadan önce ulaşılan en yüksek portföy değeri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The lowest value after the peak, marking the maximum drawdown.",
       "label_i18n": {
         "en": "Trough Portfolio Value",
-        "tr": "Trough Portfolio Value",
+        "tr": "Portföy Dip Değeri",
         "de": "Trough Portfolio Value",
         "fr": "Trough Portfolio Value",
         "es": "Trough Portfolio Value",
         "ar": "Trough Portfolio Value"
+      },
+      "businessContext_i18n": {
+        "en": "The lowest value after the peak, marking the maximum drawdown.",
+        "tr": "Zirveden sonraki en düşük değer, maksimum düşüşü işaret eder."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of months taken from the peak to the trough, indicating drawdown speed.",
       "label_i18n": {
         "en": "Time to Trough",
-        "tr": "Time to Trough",
+        "tr": "Dibe Ulaşma Süresi",
         "de": "Time to Trough",
         "fr": "Time to Trough",
         "es": "Time to Trough",
         "ar": "Time to Trough"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months taken from the peak to the trough, indicating drawdown speed.",
+        "tr": "Zirveden dibe geçen ay sayısı, düşüş hızını gösterir."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Portfolio value at eventual recovery; set to peak if fully recovered, 0 if not.",
       "label_i18n": {
         "en": "Recovery Value (if any)",
-        "tr": "Recovery Value (if any)",
+        "tr": "Toparlanma Değeri (varsa)",
         "de": "Recovery Value (if any)",
         "fr": "Recovery Value (if any)",
         "es": "Recovery Value (if any)",
         "ar": "Recovery Value (if any)"
+      },
+      "businessContext_i18n": {
+        "en": "Portfolio value at eventual recovery; set to peak if fully recovered, 0 if not.",
+        "tr": "Nihai toparlanmadaki portföy değeri; tamamen toparlanmışsa zirve değerine, toparlanmamışsa 0'a ayarlayın."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Months from trough to recovery; 0 if recovery not yet achieved.",
       "label_i18n": {
         "en": "Recovery Time",
-        "tr": "Recovery Time",
+        "tr": "İyileşme Süresi",
         "de": "Recovery Time",
         "fr": "Recovery Time",
         "es": "Recovery Time",
         "ar": "Recovery Time"
+      },
+      "businessContext_i18n": {
+        "en": "Months from trough to recovery; 0 if recovery not yet achieved.",
+        "tr": "Dipten toparlanmaya kadar geçen ay sayısı; henüz toparlanma sağlanmadıysa 0."
       }
     }
   ],

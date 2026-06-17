@@ -10,11 +10,15 @@
       "businessContext": "Target dimension",
       "label_i18n": {
         "en": "Nominal Value",
-        "tr": "Nominal Value",
+        "tr": "Nominal Değer",
         "de": "Nominal Value",
         "fr": "Nominal Value",
         "es": "Nominal Value",
         "ar": "Nominal Value"
+      },
+      "businessContext_i18n": {
+        "en": "Target dimension",
+        "tr": "Hedef boyut"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Plus tolerance from engineering drawing",
       "label_i18n": {
         "en": "Upper Tolerance",
-        "tr": "Upper Tolerance",
+        "tr": "Üst Tolerans",
         "de": "Upper Tolerance",
         "fr": "Upper Tolerance",
         "es": "Upper Tolerance",
         "ar": "Upper Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Plus tolerance from engineering drawing",
+        "tr": "Mühendislik çiziminden artı tolerans"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minus tolerance, entered as positive value",
       "label_i18n": {
         "en": "Lower Tolerance",
-        "tr": "Lower Tolerance",
+        "tr": "Alt Tolerans",
         "de": "Lower Tolerance",
         "fr": "Lower Tolerance",
         "es": "Lower Tolerance",
         "ar": "Lower Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Minus tolerance, entered as positive value",
+        "tr": "Eksi tolerans, pozitif değer olarak girilir"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 = mm; 0.03937 = inch; 0.1 = cm",
       "label_i18n": {
         "en": "Unit Conversion Factor",
-        "tr": "Unit Conversion Factor",
+        "tr": "Birim Dönüşüm Faktörü",
         "de": "Unit Conversion Factor",
         "fr": "Unit Conversion Factor",
         "es": "Unit Conversion Factor",
         "ar": "Unit Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "1 = mm; 0.03937 = inch; 0.1 = cm",
+        "tr": "1 = mm; 0.03937 = inç; 0.1 = cm"
       }
     }
   ],

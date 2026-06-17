@@ -10,11 +10,15 @@
       "businessContext": "Material thickness to be welded",
       "label_i18n": {
         "en": "Plate Thickness",
-        "tr": "Plate Thickness",
+        "tr": "Plaka Kalınlığı",
         "de": "Plate Thickness",
         "fr": "Plate Thickness",
         "es": "Plate Thickness",
         "ar": "Plate Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Material thickness to be welded",
+        "tr": "Kaynak yapılacak malzeme kalınlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Gap between plate edges",
       "label_i18n": {
         "en": "Root Gap",
-        "tr": "Root Gap",
+        "tr": "Kök Aralığı",
         "de": "Root Gap",
         "fr": "Root Gap",
         "es": "Root Gap",
         "ar": "Root Gap"
+      },
+      "businessContext_i18n": {
+        "en": "Gap between plate edges",
+        "tr": "Plaka kenarları arasındaki boşluk"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total groove angle (V-groove)",
       "label_i18n": {
         "en": "Included Angle",
-        "tr": "Included Angle",
+        "tr": "Dahil Açı",
         "de": "Included Angle",
         "fr": "Included Angle",
         "es": "Included Angle",
         "ar": "Included Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Total groove angle (V-groove)",
+        "tr": "Toplam oluk açısı (V-oluk)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total length of weld",
       "label_i18n": {
         "en": "Weld Length",
-        "tr": "Weld Length",
+        "tr": "Kaynak Uzunluğu",
         "de": "Weld Length",
         "fr": "Weld Length",
         "es": "Weld Length",
         "ar": "Weld Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of weld",
+        "tr": "Toplam kaynak uzunluğu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Density of filler material (e.g., steel 7850)",
       "label_i18n": {
         "en": "Filler Metal Density",
-        "tr": "Filler Metal Density",
+        "tr": "Dolgu Metal Yoğunluğu",
         "de": "Filler Metal Density",
         "fr": "Filler Metal Density",
         "es": "Filler Metal Density",
         "ar": "Filler Metal Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of filler material (e.g., steel 7850)",
+        "tr": "Dolgu malzemesinin yoğunluğu (örneğin çelik 7850)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Monthly basic salary component",
       "label_i18n": {
         "en": "Basic Salary (Monthly)",
-        "tr": "Basic Salary (Monthly)",
+        "tr": "Temel Maaş (Aylık)",
         "de": "Basic Salary (Monthly)",
         "fr": "Basic Salary (Monthly)",
         "es": "Basic Salary (Monthly)",
         "ar": "Basic Salary (Monthly)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly basic salary component",
+        "tr": "Aylık temel maaş bileşeni"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Monthly dearness allowance, if applicable",
       "label_i18n": {
         "en": "Dearness Allowance (Monthly)",
-        "tr": "Dearness Allowance (Monthly)",
+        "tr": "Yardım Ödeneği (Aylık)",
         "de": "Dearness Allowance (Monthly)",
         "fr": "Dearness Allowance (Monthly)",
         "es": "Dearness Allowance (Monthly)",
         "ar": "Dearness Allowance (Monthly)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly dearness allowance, if applicable",
+        "tr": "Varsa aylık yardım ödeneği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Actual House Rent Allowance received per month",
       "label_i18n": {
         "en": "HRA Received (Monthly)",
-        "tr": "HRA Received (Monthly)",
+        "tr": "Alınan Kira Yardımı (Aylık)",
         "de": "HRA Received (Monthly)",
         "fr": "HRA Received (Monthly)",
         "es": "HRA Received (Monthly)",
         "ar": "HRA Received (Monthly)"
+      },
+      "businessContext_i18n": {
+        "en": "Actual House Rent Allowance received per month",
+        "tr": "Aylık alınan fiili kira yardımı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Monthly rent actually paid",
       "label_i18n": {
         "en": "Rent Paid (Monthly)",
-        "tr": "Rent Paid (Monthly)",
+        "tr": "Ödenen Kira (Aylık)",
         "de": "Rent Paid (Monthly)",
         "fr": "Rent Paid (Monthly)",
         "es": "Rent Paid (Monthly)",
         "ar": "Rent Paid (Monthly)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly rent actually paid",
+        "tr": "Gerçekte ödenen aylık kira"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Indicates whether the city of residence is a metro (1) or non-metro (0)",
       "label_i18n": {
         "en": "City Type",
-        "tr": "City Type",
+        "tr": "Şehir Türü",
         "de": "City Type",
         "fr": "City Type",
         "es": "City Type",
         "ar": "City Type"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether the city of residence is a metro (1) or non-metro (0)",
+        "tr": "İkamet edilen şehrin büyükşehir (1) veya büyükşehir olmayan (0) olduğunu belirtir"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The internal diameter of the circular culvert.",
       "label_i18n": {
         "en": "Culvert Diameter",
-        "tr": "Culvert Diameter",
+        "tr": "Menfez Çapı",
         "de": "Culvert Diameter",
         "fr": "Culvert Diameter",
         "es": "Culvert Diameter",
         "ar": "Culvert Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "The internal diameter of the circular culvert.",
+        "tr": "Dairesel menfezin iç çapı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Coefficient of discharge for the culvert inlet, typically 0.6-0.8.",
       "label_i18n": {
         "en": "Discharge Coefficient",
-        "tr": "Discharge Coefficient",
+        "tr": "Debi Katsayısı",
         "de": "Discharge Coefficient",
         "fr": "Discharge Coefficient",
         "es": "Discharge Coefficient",
         "ar": "Discharge Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of discharge for the culvert inlet, typically 0.6-0.8.",
+        "tr": "Menfez girişi için debi katsayısı, tipik olarak 0,6-0,8."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Difference between upstream water surface elevation and the center of the culvert outlet (for outlet control) or inlet (for inlet control). For submerged inlet control, H = HW - D/2.",
       "label_i18n": {
         "en": "Effective Head",
-        "tr": "Effective Head",
+        "tr": "Efektif Yük",
         "de": "Effective Head",
         "fr": "Effective Head",
         "es": "Effective Head",
         "ar": "Effective Head"
+      },
+      "businessContext_i18n": {
+        "en": "Difference between upstream water surface elevation and the center of the culvert outlet (for outlet control) or inlet (for inlet control). For submerged inlet control, H = HW - D/2.",
+        "tr": "Memba su yüzeyi kotu ile menfez çıkışının (çıkış kontrolü için) veya girişinin (giriş kontrolü için) merkezi arasındaki fark. Batık giriş kontrolü için H = HW - D/2."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard gravity, can be adjusted if needed.",
       "label_i18n": {
         "en": "Gravitational Acceleration",
-        "tr": "Gravitational Acceleration",
+        "tr": "Yerçekimi İvmesi",
         "de": "Gravitational Acceleration",
         "fr": "Gravitational Acceleration",
         "es": "Gravitational Acceleration",
         "ar": "Gravitational Acceleration"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravity, can be adjusted if needed.",
+        "tr": "Standart yerçekimi, gerektiğinde ayarlanabilir."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of identical culvert barrels in parallel.",
       "label_i18n": {
         "en": "Number of Barrels",
-        "tr": "Number of Barrels",
+        "tr": "Varil Sayısı",
         "de": "Number of Barrels",
         "fr": "Number of Barrels",
         "es": "Number of Barrels",
         "ar": "Number of Barrels"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical culvert barrels in parallel.",
+        "tr": "Paralel olarak aynı menfez varil sayısı."
       }
     }
   ],

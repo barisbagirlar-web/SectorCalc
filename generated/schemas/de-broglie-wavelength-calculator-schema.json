@@ -10,11 +10,15 @@
       "businessContext": "Mass of the particle (default is electron mass)",
       "label_i18n": {
         "en": "Electron Mass",
-        "tr": "Electron Mass",
+        "tr": "Elektron kütlesi",
         "de": "Electron Mass",
         "fr": "Electron Mass",
         "es": "Electron Mass",
         "ar": "Electron Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the particle (default is electron mass)",
+        "tr": "Parçacığın kütlesi (varsayılan elektron kütlesi)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Elementary electric charge (default is electron charge)",
       "label_i18n": {
         "en": "Elementary Charge",
-        "tr": "Elementary Charge",
+        "tr": "Temel yük",
         "de": "Elementary Charge",
         "fr": "Elementary Charge",
         "es": "Elementary Charge",
         "ar": "Elementary Charge"
+      },
+      "businessContext_i18n": {
+        "en": "Elementary electric charge (default is electron charge)",
+        "tr": "Temel elektrik yükü (varsayılan elektron yükü)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Potential difference used to accelerate the particle",
       "label_i18n": {
         "en": "Accelerating Voltage",
-        "tr": "Accelerating Voltage",
+        "tr": "Hızlandırma voltajı",
         "de": "Accelerating Voltage",
         "fr": "Accelerating Voltage",
         "es": "Accelerating Voltage",
         "ar": "Accelerating Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Potential difference used to accelerate the particle",
+        "tr": "Parçacığı hızlandırmak için kullanılan potansiyel farkı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Planck's constant (value in J·s)",
       "label_i18n": {
         "en": "Planck Constant",
-        "tr": "Planck Constant",
+        "tr": "Planck sabiti",
         "de": "Planck Constant",
         "fr": "Planck Constant",
         "es": "Planck Constant",
         "ar": "Planck Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Planck's constant (value in J·s)",
+        "tr": "Planck sabiti (J·s cinsinden değer)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Factor to convert output wavelength to desired unit (e.g., 1e9 for nm)",
       "label_i18n": {
         "en": "Wavelength Unit Multiplier",
-        "tr": "Wavelength Unit Multiplier",
+        "tr": "Dalga boyu birim çarpanı",
         "de": "Wavelength Unit Multiplier",
         "fr": "Wavelength Unit Multiplier",
         "es": "Wavelength Unit Multiplier",
         "ar": "Wavelength Unit Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to convert output wavelength to desired unit (e.g., 1e9 for nm)",
+        "tr": "Çıktı dalga boyunu istenen birime dönüştürme faktörü (örn. nm için 1e9)"
       }
     }
   ],

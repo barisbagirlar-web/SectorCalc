@@ -10,11 +10,15 @@
       "businessContext": "Professional grading score per CGC scale (10 = Gem Mint)",
       "label_i18n": {
         "en": "Condition Score (0-10)",
-        "tr": "Condition Score (0-10)",
+        "tr": "Durum Puanı (0-10)",
         "de": "Condition Score (0-10)",
         "fr": "Condition Score (0-10)",
         "es": "Condition Score (0-10)",
         "ar": "Condition Score (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Professional grading score per CGC scale (10 = Gem Mint)",
+        "tr": "CGC ölçeğine göre profesyonel derecelendirme puanı (10 = Mücevher Gibi)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Years since publication",
       "label_i18n": {
         "en": "Age (Years)",
-        "tr": "Age (Years)",
+        "tr": "Yaş (Yıl)",
         "de": "Age (Years)",
         "fr": "Age (Years)",
         "es": "Age (Years)",
         "ar": "Age (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Years since publication",
+        "tr": "Yayınlanma üzerinden geçen yıl"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Original cover price in US dollars",
       "label_i18n": {
         "en": "Initial Cover Price",
-        "tr": "Initial Cover Price",
+        "tr": "İlk Kapak Fiyatı",
         "de": "Initial Cover Price",
         "fr": "Initial Cover Price",
         "es": "Initial Cover Price",
         "ar": "Initial Cover Price"
+      },
+      "businessContext_i18n": {
+        "en": "Original cover price in US dollars",
+        "tr": "ABD doları cinsinden orijinal kapak fiyatı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Rarity score: 1 for common, 100 for extremely rare",
       "label_i18n": {
         "en": "Rarity Index (1-100)",
-        "tr": "Rarity Index (1-100)",
+        "tr": "Nadirlik Endeksi (1-100)",
         "de": "Rarity Index (1-100)",
         "fr": "Rarity Index (1-100)",
         "es": "Rarity Index (1-100)",
         "ar": "Rarity Index (1-100)"
+      },
+      "businessContext_i18n": {
+        "en": "Rarity score: 1 for common, 100 for extremely rare",
+        "tr": "Nadirlik puanı: 1 yaygın, 100 son derece nadir"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Market demand score: 1 low, 100 high",
       "label_i18n": {
         "en": "Demand Index (1-100)",
-        "tr": "Demand Index (1-100)",
+        "tr": "Talep Endeksi (1-100)",
         "de": "Demand Index (1-100)",
         "fr": "Demand Index (1-100)",
         "es": "Demand Index (1-100)",
         "ar": "Demand Index (1-100)"
+      },
+      "businessContext_i18n": {
+        "en": "Market demand score: 1 low, 100 high",
+        "tr": "Pazar talep puanı: 1 düşük, 100 yüksek"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total weight of raw material fed into the process",
       "label_i18n": {
         "en": "Raw Material Input",
-        "tr": "Raw Material Input",
+        "tr": "Hammadde Girdisi",
         "de": "Raw Material Input",
         "fr": "Raw Material Input",
         "es": "Raw Material Input",
         "ar": "Raw Material Input"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of raw material fed into the process",
+        "tr": "Proseese beslenen toplam hammadde ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Net weight of finished good product obtained",
       "label_i18n": {
         "en": "Product Output",
-        "tr": "Product Output",
+        "tr": "Ürün Çıktısı",
         "de": "Product Output",
         "fr": "Product Output",
         "es": "Product Output",
         "ar": "Product Output"
+      },
+      "businessContext_i18n": {
+        "en": "Net weight of finished good product obtained",
+        "tr": "Elde edilen net mamul ürün ağırlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard or budgeted yield percentage for the process",
       "label_i18n": {
         "en": "Expected Yield (%)",
-        "tr": "Expected Yield (%)",
+        "tr": "Beklenen Verim (%)",
         "de": "Expected Yield (%)",
         "fr": "Expected Yield (%)",
         "es": "Expected Yield (%)",
         "ar": "Expected Yield (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard or budgeted yield percentage for the process",
+        "tr": "Proses için standart veya bütçelenmiş verim yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Weight of waste or scrap produced during production",
       "label_i18n": {
         "en": "Waste Material",
-        "tr": "Waste Material",
+        "tr": "Atık Malzeme",
         "de": "Waste Material",
         "fr": "Waste Material",
         "es": "Waste Material",
         "ar": "Waste Material"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of waste or scrap produced during production",
+        "tr": "Üretim sırasında oluşan atık veya fire ağırlığı"
       }
     }
   ],

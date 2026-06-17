@@ -10,11 +10,15 @@
       "businessContext": "Change in magnetic flux through the coil",
       "label_i18n": {
         "en": "Magnetic Flux Change",
-        "tr": "Magnetic Flux Change",
+        "tr": "Manyetik Akı Değişimi",
         "de": "Magnetic Flux Change",
         "fr": "Magnetic Flux Change",
         "es": "Magnetic Flux Change",
         "ar": "Magnetic Flux Change"
+      },
+      "businessContext_i18n": {
+        "en": "Change in magnetic flux through the coil",
+        "tr": "Bobinden geçen manyetik akıdaki değişim"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time over which the flux change occurs",
       "label_i18n": {
         "en": "Time Interval",
-        "tr": "Time Interval",
+        "tr": "Zaman Aralığı",
         "de": "Time Interval",
         "fr": "Time Interval",
         "es": "Time Interval",
         "ar": "Time Interval"
+      },
+      "businessContext_i18n": {
+        "en": "Time over which the flux change occurs",
+        "tr": "Akı değişiminin gerçekleştiği süre"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of turns in the coil",
       "label_i18n": {
         "en": "Number of Turns",
-        "tr": "Number of Turns",
+        "tr": "Sarım Sayısı",
         "de": "Number of Turns",
         "fr": "Number of Turns",
         "es": "Number of Turns",
         "ar": "Number of Turns"
+      },
+      "businessContext_i18n": {
+        "en": "Number of turns in the coil",
+        "tr": "Bobindeki sarım sayısı"
       }
     }
   ],

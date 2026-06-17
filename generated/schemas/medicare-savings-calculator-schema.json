@@ -10,11 +10,15 @@
       "businessContext": "The individual's current age in years.",
       "label_i18n": {
         "en": "Current Age",
-        "tr": "Current Age",
+        "tr": "Mevcut Yaş",
         "de": "Current Age",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "The individual's current age in years.",
+        "tr": "Bireyin yıl cinsinden mevcut yaşı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age at which individual plans to retire and become eligible for Medicare.",
       "label_i18n": {
         "en": "Retirement Age",
-        "tr": "Retirement Age",
+        "tr": "Emeklilik Yaşı",
         "de": "Retirement Age",
         "fr": "Retirement Age",
         "es": "Retirement Age",
         "ar": "Retirement Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age at which individual plans to retire and become eligible for Medicare.",
+        "tr": "Bireyin emekli olmayı ve Medicare'e hak kazanmayı planladığı yaş."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current annual out-of-pocket medical expenses in US dollars.",
       "label_i18n": {
         "en": "Current Annual Medical Expenses",
-        "tr": "Current Annual Medical Expenses",
+        "tr": "Mevcut Yıllık Tıbbi Giderler",
         "de": "Current Annual Medical Expenses",
         "fr": "Current Annual Medical Expenses",
         "es": "Current Annual Medical Expenses",
         "ar": "Current Annual Medical Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Current annual out-of-pocket medical expenses in US dollars.",
+        "tr": "ABD doları cinsinden mevcut yıllık cepten yapılan tıbbi harcamalar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual expected growth rate of medical costs in percent.",
       "label_i18n": {
         "en": "Expected Healthcare Inflation Rate",
-        "tr": "Expected Healthcare Inflation Rate",
+        "tr": "Beklenen Sağlık Enflasyon Oranı",
         "de": "Expected Healthcare Inflation Rate",
         "fr": "Expected Healthcare Inflation Rate",
         "es": "Expected Healthcare Inflation Rate",
         "ar": "Expected Healthcare Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual expected growth rate of medical costs in percent.",
+        "tr": "Tıbbi maliyetlerin yıllık beklenen büyüme oranı (yüzde)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected number of years in retirement during which medical expenses will be incurred.",
       "label_i18n": {
         "en": "Years in Retirement",
-        "tr": "Years in Retirement",
+        "tr": "Emeklilik Yılları",
         "de": "Years in Retirement",
         "fr": "Years in Retirement",
         "es": "Years in Retirement",
         "ar": "Years in Retirement"
+      },
+      "businessContext_i18n": {
+        "en": "Expected number of years in retirement during which medical expenses will be incurred.",
+        "tr": "Tıbbi giderlerin oluşacağı beklenen emeklilik yılı sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual expected rate of return on savings in percent, used to discount future expenses.",
       "label_i18n": {
         "en": "Expected Investment Return Rate",
-        "tr": "Expected Investment Return Rate",
+        "tr": "Beklenen Yatırım Getiri Oranı",
         "de": "Expected Investment Return Rate",
         "fr": "Expected Investment Return Rate",
         "es": "Expected Investment Return Rate",
         "ar": "Expected Investment Return Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual expected rate of return on savings in percent, used to discount future expenses.",
+        "tr": "Gelecekteki giderleri iskonto etmek için kullanılan yıllık beklenen tasarruf getiri oranı (yüzde)."
       }
     }
   ],

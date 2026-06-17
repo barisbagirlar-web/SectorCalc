@@ -10,11 +10,15 @@
       "businessContext": "Arithmetic mean of the sample data.",
       "label_i18n": {
         "en": "Sample Mean",
-        "tr": "Sample Mean",
+        "tr": "Örneklem ortalaması",
         "de": "Sample Mean",
         "fr": "Sample Mean",
         "es": "Sample Mean",
         "ar": "Sample Mean"
+      },
+      "businessContext_i18n": {
+        "en": "Arithmetic mean of the sample data.",
+        "tr": "Örneklem verilerinin aritmetik ortalaması."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Population standard deviation if known; otherwise sample standard deviation.",
       "label_i18n": {
         "en": "Standard Deviation (σ or s)",
-        "tr": "Standard Deviation (σ or s)",
+        "tr": "Standart sapma (σ veya s)",
         "de": "Standard Deviation (σ or s)",
         "fr": "Standard Deviation (σ or s)",
         "es": "Standard Deviation (σ or s)",
         "ar": "Standard Deviation (σ or s)"
+      },
+      "businessContext_i18n": {
+        "en": "Population standard deviation if known; otherwise sample standard deviation.",
+        "tr": "Popülasyon standart sapması biliniyorsa; aksi halde örneklem standart sapması."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of independent observations. Must be > 1.",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)",
         "de": "Sample Size (n)",
         "fr": "Sample Size (n)",
         "es": "Sample Size (n)",
         "ar": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of independent observations. Must be > 1.",
+        "tr": "Bağımsız gözlem sayısı. 1'den büyük olmalıdır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Z-score for normal distribution (e.g., 1.96 for 95% CI) or t-score from t-distribution table.",
       "label_i18n": {
         "en": "Critical Value (z or t)",
-        "tr": "Critical Value (z or t)",
+        "tr": "Kritik değer (z veya t)",
         "de": "Critical Value (z or t)",
         "fr": "Critical Value (z or t)",
         "es": "Critical Value (z or t)",
         "ar": "Critical Value (z or t)"
+      },
+      "businessContext_i18n": {
+        "en": "Z-score for normal distribution (e.g., 1.96 for 95% CI) or t-score from t-distribution table.",
+        "tr": "Normal dağılım için Z-skoru (ör. %95 GA için 1,96) veya t-dağılım tablosundan t-skoru."
       }
     }
   ],

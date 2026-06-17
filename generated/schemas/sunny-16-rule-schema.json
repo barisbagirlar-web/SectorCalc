@@ -10,11 +10,15 @@
       "businessContext": "Lens aperture setting",
       "label_i18n": {
         "en": "Aperture (f-stop)",
-        "tr": "Aperture (f-stop)",
+        "tr": "Diyafram (f-stop)",
         "de": "Aperture (f-stop)",
         "fr": "Aperture (f-stop)",
         "es": "Aperture (f-stop)",
         "ar": "Aperture (f-stop)"
+      },
+      "businessContext_i18n": {
+        "en": "Lens aperture setting",
+        "tr": "Lens diyafram ayarı"
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "ISO",
         "es": "ISO",
         "ar": "ISO"
+      },
+      "businessContext_i18n": {
+        "en": "Film or sensor sensitivity",
+        "tr": "Film veya sensör hassasiyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Adjustment for sunny 16 baseline: 0 for bright sun, +1 for slight overcast, -1 for open shade, etc.",
       "label_i18n": {
         "en": "Light Condition (EV offset)",
-        "tr": "Light Condition (EV offset)",
+        "tr": "Işık Durumu (EV düzeltmesi)",
         "de": "Light Condition (EV offset)",
         "fr": "Light Condition (EV offset)",
         "es": "Light Condition (EV offset)",
         "ar": "Light Condition (EV offset)"
+      },
+      "businessContext_i18n": {
+        "en": "Adjustment for sunny 16 baseline: 0 for bright sun, +1 for slight overcast, -1 for open shade, etc.",
+        "tr": "Güneşli 16 kuralına göre düzeltme: 0 parlak güneş, +1 hafif bulutlu, -1 açık gölge vb."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Neutral density filter reduction in stops",
       "label_i18n": {
         "en": "ND Filter (stops)",
-        "tr": "ND Filter (stops)",
+        "tr": "ND Filtre (durak)",
         "de": "ND Filter (stops)",
         "fr": "ND Filter (stops)",
         "es": "ND Filter (stops)",
         "ar": "ND Filter (stops)"
+      },
+      "businessContext_i18n": {
+        "en": "Neutral density filter reduction in stops",
+        "tr": "Nötr yoğunluk filtresinin durak cinsinden azaltması"
       }
     }
   ],

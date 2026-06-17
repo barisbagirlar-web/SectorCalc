@@ -10,11 +10,15 @@
       "businessContext": "Length of the room in feet",
       "label_i18n": {
         "en": "Room Length",
-        "tr": "Room Length",
+        "tr": "Oda Uzunluğu",
         "de": "Room Length",
         "fr": "Room Length",
         "es": "Room Length",
         "ar": "Room Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the room in feet",
+        "tr": "Odanın fit cinsinden uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the room in feet",
       "label_i18n": {
         "en": "Room Width",
-        "tr": "Room Width",
+        "tr": "Oda Genişliği",
         "de": "Room Width",
         "fr": "Room Width",
         "es": "Room Width",
         "ar": "Room Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the room in feet",
+        "tr": "Odanın fit cinsinden genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of a single hardwood plank in inches",
       "label_i18n": {
         "en": "Plank Length",
-        "tr": "Plank Length",
+        "tr": "Plank Uzunluğu",
         "de": "Plank Length",
         "fr": "Plank Length",
         "es": "Plank Length",
         "ar": "Plank Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single hardwood plank in inches",
+        "tr": "Tek bir parke tahtasının inç cinsinden uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of a single hardwood plank in inches",
       "label_i18n": {
         "en": "Plank Width",
-        "tr": "Plank Width",
+        "tr": "Plank Genişliği",
         "de": "Plank Width",
         "fr": "Plank Width",
         "es": "Plank Width",
         "ar": "Plank Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single hardwood plank in inches",
+        "tr": "Tek bir parke tahtasının inç cinsinden genişliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of hardwood flooring per square foot in USD",
       "label_i18n": {
         "en": "Price per Square Foot",
-        "tr": "Price per Square Foot",
+        "tr": "Metrekare Fiyatı",
         "de": "Price per Square Foot",
         "fr": "Price per Square Foot",
         "es": "Price per Square Foot",
         "ar": "Price per Square Foot"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of hardwood flooring per square foot in USD",
+        "tr": "Parke döşemenin metrekare başına USD cinsinden maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage of extra material to account for cuts and waste",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra material to account for cuts and waste",
+        "tr": "Kesim ve fire için ek malzeme yüzdesi"
       }
     }
   ],

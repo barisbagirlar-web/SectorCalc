@@ -10,11 +10,15 @@
       "businessContext": "Number of mandolins to be produced",
       "label_i18n": {
         "en": "Mandolin Count",
-        "tr": "Mandolin Count",
+        "tr": "Mandolin Sayısı",
         "de": "Mandolin Count",
         "fr": "Mandolin Count",
         "es": "Mandolin Count",
         "ar": "Mandolin Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of mandolins to be produced",
+        "tr": "Üretilecek mandolin sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost of wood for one mandolin body",
       "label_i18n": {
         "en": "Body Wood Cost",
-        "tr": "Body Wood Cost",
+        "tr": "Gövde Ahşap Maliyeti",
         "de": "Body Wood Cost",
         "fr": "Body Wood Cost",
         "es": "Body Wood Cost",
         "ar": "Body Wood Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of wood for one mandolin body",
+        "tr": "Bir mandolin gövdesi için ahşap maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of wood for one mandolin neck",
       "label_i18n": {
         "en": "Neck Wood Cost",
-        "tr": "Neck Wood Cost",
+        "tr": "Sap Ahşap Maliyeti",
         "de": "Neck Wood Cost",
         "fr": "Neck Wood Cost",
         "es": "Neck Wood Cost",
         "ar": "Neck Wood Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of wood for one mandolin neck",
+        "tr": "Bir mandolin sapı için ahşap maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of hardware (tuners, bridge, tailpiece) per mandolin",
       "label_i18n": {
         "en": "Hardware Cost",
-        "tr": "Hardware Cost",
+        "tr": "Donanım Maliyeti",
         "de": "Hardware Cost",
         "fr": "Hardware Cost",
         "es": "Hardware Cost",
         "ar": "Hardware Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of hardware (tuners, bridge, tailpiece) per mandolin",
+        "tr": "Mandolin başına donanım maliyeti (burgular, köprü, kuyruk parçası)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Labor hours required to build one mandolin",
       "label_i18n": {
         "en": "Labor Hours",
-        "tr": "Labor Hours",
+        "tr": "İşçilik Saati",
         "de": "Labor Hours",
         "fr": "Labor Hours",
         "es": "Labor Hours",
         "ar": "Labor Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Labor hours required to build one mandolin",
+        "tr": "Bir mandolin yapmak için gereken işçilik saati"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Hourly wage for luthier",
       "label_i18n": {
         "en": "Labor Rate",
-        "tr": "Labor Rate",
+        "tr": "İşçilik ücreti",
         "de": "Labor Rate",
         "fr": "Labor Rate",
         "es": "Labor Rate",
         "ar": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage for luthier",
+        "tr": "Luthier için saatlik ücret"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Overhead cost as percentage of direct costs",
       "label_i18n": {
         "en": "Overhead Percent",
-        "tr": "Overhead Percent",
+        "tr": "Genel Gider Yüzdesi",
         "de": "Overhead Percent",
         "fr": "Overhead Percent",
         "es": "Overhead Percent",
         "ar": "Overhead Percent"
+      },
+      "businessContext_i18n": {
+        "en": "Overhead cost as percentage of direct costs",
+        "tr": "Doğrudan maliyetlerin yüzdesi olarak genel gider maliyeti"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Desired profit margin on total cost",
       "label_i18n": {
         "en": "Profit Margin",
-        "tr": "Profit Margin",
+        "tr": "Kâr Marjı",
         "de": "Profit Margin",
         "fr": "Profit Margin",
         "es": "Profit Margin",
         "ar": "Profit Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Desired profit margin on total cost",
+        "tr": "Toplam maliyet üzerinden istenen kar marjı"
       }
     }
   ],

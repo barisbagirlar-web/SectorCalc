@@ -10,11 +10,15 @@
       "businessContext": "Enter the numerator of the first fraction.",
       "label_i18n": {
         "en": "Numerator 1",
-        "tr": "Numerator 1",
+        "tr": "Pay 1",
         "de": "Numerator 1",
         "fr": "Numerator 1",
         "es": "Numerator 1",
         "ar": "Numerator 1"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the numerator of the first fraction.",
+        "tr": "Birinci kesrin payını girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Enter the denominator of the first fraction. Must not be zero.",
       "label_i18n": {
         "en": "Denominator 1",
-        "tr": "Denominator 1",
+        "tr": "Payda 1",
         "de": "Denominator 1",
         "fr": "Denominator 1",
         "es": "Denominator 1",
         "ar": "Denominator 1"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the denominator of the first fraction. Must not be zero.",
+        "tr": "Birinci kesrin paydasını girin. Sıfır olmamalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Enter the numerator of the second fraction.",
       "label_i18n": {
         "en": "Numerator 2",
-        "tr": "Numerator 2",
+        "tr": "Pay 2",
         "de": "Numerator 2",
         "fr": "Numerator 2",
         "es": "Numerator 2",
         "ar": "Numerator 2"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the numerator of the second fraction.",
+        "tr": "İkinci kesrin payını girin."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Enter the denominator of the second fraction. Must not be zero.",
       "label_i18n": {
         "en": "Denominator 2",
-        "tr": "Denominator 2",
+        "tr": "Payda 2",
         "de": "Denominator 2",
         "fr": "Denominator 2",
         "es": "Denominator 2",
         "ar": "Denominator 2"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the denominator of the second fraction. Must not be zero.",
+        "tr": "İkinci kesrin paydasını girin. Sıfır olmamalıdır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Set to 1 to simplify the fraction to lowest terms, 0 to leave unsimplified.",
       "label_i18n": {
         "en": "Simplify Result",
-        "tr": "Simplify Result",
+        "tr": "Sonucu Sadeleştir",
         "de": "Simplify Result",
         "fr": "Simplify Result",
         "es": "Simplify Result",
         "ar": "Simplify Result"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to simplify the fraction to lowest terms, 0 to leave unsimplified.",
+        "tr": "Kesri en düşük terimlere sadeleştirmek için 1, sadeleştirmeden bırakmak için 0."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of decimal places for decimal representation (0 for integer).",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for decimal representation (0 for integer).",
+        "tr": "Ondalık gösterim için ondalık basamak sayısı (tamsayı için 0)."
       }
     }
   ],

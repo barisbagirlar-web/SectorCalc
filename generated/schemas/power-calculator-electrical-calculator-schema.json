@@ -10,11 +10,15 @@
       "businessContext": "Supply voltage",
       "label_i18n": {
         "en": "Voltage (V)",
-        "tr": "Voltage (V)",
+        "tr": "Gerilim (V)",
         "de": "Voltage (V)",
         "fr": "Voltage (V)",
         "es": "Voltage (V)",
         "ar": "Voltage (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Supply voltage",
+        "tr": "Besleme gerilimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Load current",
       "label_i18n": {
         "en": "Current (A)",
-        "tr": "Current (A)",
+        "tr": "Akım (A)",
         "de": "Current (A)",
         "fr": "Current (A)",
         "es": "Current (A)",
         "ar": "Current (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Load current",
+        "tr": "Yük akımı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "cos φ (0.8 inductive typically)",
       "label_i18n": {
         "en": "Power Factor",
-        "tr": "Power Factor",
+        "tr": "Güç Faktörü",
         "de": "Power Factor",
         "fr": "Power Factor",
         "es": "Power Factor",
         "ar": "Power Factor"
+      },
+      "businessContext_i18n": {
+        "en": "cos φ (0.8 inductive typically)",
+        "tr": "cos φ (genellikle endüktif 0,8)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 for single-phase, 3 for three-phase",
       "label_i18n": {
         "en": "Phase Count",
-        "tr": "Phase Count",
+        "tr": "Faz Sayısı",
         "de": "Phase Count",
         "fr": "Phase Count",
         "es": "Phase Count",
         "ar": "Phase Count"
+      },
+      "businessContext_i18n": {
+        "en": "1 for single-phase, 3 for three-phase",
+        "tr": "1 tek fazlı, 3 üç fazlı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "0 to 1",
       "label_i18n": {
         "en": "Efficiency",
-        "tr": "Efficiency",
+        "tr": "Verim",
         "de": "Efficiency",
         "fr": "Efficiency",
         "es": "Efficiency",
         "ar": "Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "0 to 1",
+        "tr": "0 ile 1 arası"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "0 for DC, 1 for AC",
       "label_i18n": {
         "en": "AC (1) or DC (0)",
-        "tr": "AC (1) or DC (0)",
+        "tr": "AC (1) veya DC (0)",
         "de": "AC (1) or DC (0)",
         "fr": "AC (1) or DC (0)",
         "es": "AC (1) or DC (0)",
         "ar": "AC (1) or DC (0)"
+      },
+      "businessContext_i18n": {
+        "en": "0 for DC, 1 for AC",
+        "tr": "0 DC, 1 AC"
       }
     }
   ],

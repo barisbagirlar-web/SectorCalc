@@ -10,11 +10,15 @@
       "businessContext": "Clear span between supports of the ridge beam.",
       "label_i18n": {
         "en": "Span",
-        "tr": "Span",
+        "tr": "Açıklık",
         "de": "Span",
         "fr": "Span",
         "es": "Span",
         "ar": "Span"
+      },
+      "businessContext_i18n": {
+        "en": "Clear span between supports of the ridge beam.",
+        "tr": "Mahya kirişinin destekleri arasındaki açık açıklık."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total uniform load (dead + live) acting on the ridge beam per meter length.",
       "label_i18n": {
         "en": "Uniform Load",
-        "tr": "Uniform Load",
+        "tr": "Düzgün yayılı yük",
         "de": "Uniform Load",
         "fr": "Uniform Load",
         "es": "Uniform Load",
         "ar": "Uniform Load"
+      },
+      "businessContext_i18n": {
+        "en": "Total uniform load (dead + live) acting on the ridge beam per meter length.",
+        "tr": "Mahya kirişine metre başına etki eden toplam düzgün yayılı yük (ölü + hareketli)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Allowable bending stress for the selected wood species, adjusted for conditions.",
       "label_i18n": {
         "en": "Allowable Bending Stress",
-        "tr": "Allowable Bending Stress",
+        "tr": "İzin Verilen Eğilme Gerilmesi",
         "de": "Allowable Bending Stress",
         "fr": "Allowable Bending Stress",
         "es": "Allowable Bending Stress",
         "ar": "Allowable Bending Stress"
+      },
+      "businessContext_i18n": {
+        "en": "Allowable bending stress for the selected wood species, adjusted for conditions.",
+        "tr": "Seçilen ahşap türü için koşullara göre ayarlanmış izin verilen eğilme gerilmesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Nominal width of the ridge beam cross-section.",
       "label_i18n": {
         "en": "Beam Width",
-        "tr": "Beam Width",
+        "tr": "Kiriş Genişliği",
         "de": "Beam Width",
         "fr": "Beam Width",
         "es": "Beam Width",
         "ar": "Beam Width"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal width of the ridge beam cross-section.",
+        "tr": "Mahya kirişi kesitinin nominal genişliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Nominal depth of the ridge beam cross-section.",
       "label_i18n": {
         "en": "Beam Depth",
-        "tr": "Beam Depth",
+        "tr": "Kiriş yüksekliği",
         "de": "Beam Depth",
         "fr": "Beam Depth",
         "es": "Beam Depth",
         "ar": "Beam Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal depth of the ridge beam cross-section.",
+        "tr": "Mahya kirişi kesitinin nominal derinliği."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional safety factor to account for uncertainties (≥1.0).",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional safety factor to account for uncertainties (≥1.0).",
+        "tr": "Belirsizlikleri hesaba katmak için ek güvenlik faktörü (≥1.0)."
       }
     }
   ],

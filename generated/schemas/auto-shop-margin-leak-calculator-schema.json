@@ -21,10 +21,12 @@
       "max": 250,
       "businessContext": "Standard hourly labor rate billed to customer. Typical range for auto shops.",
       "label_i18n": {
-        "en": "Labor Rate Charged to Customer"
+        "en": "Labor Rate Charged to Customer",
+        "tr": "Müşteriye Yansıtılan İşçilik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Standard hourly labor rate billed to customer. Typical range for auto shops."
+        "en": "Standard hourly labor rate billed to customer. Typical range for auto shops.",
+        "tr": "Müşteriye faturalanan standart saatlik işçilik ücreti. Oto atölyeleri için tipik aralık."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 200,
       "businessContext": "Actual average labor rate realized after discounts, warranty adjustments, or internal write-offs.",
       "label_i18n": {
-        "en": "Effective Labor Rate (After Discounts/Write-offs)"
+        "en": "Effective Labor Rate (After Discounts/Write-offs)",
+        "tr": "Efektif İşçilik Ücreti (İndirimler/İptaller Sonrası)"
       },
       "businessContext_i18n": {
-        "en": "Actual average labor rate realized after discounts, warranty adjustments, or internal write-offs."
+        "en": "Actual average labor rate realized after discounts, warranty adjustments, or internal write-offs.",
+        "tr": "İndirimler, garanti ayarlamaları veya iç iptaller sonrası elde edilen gerçek ortalama işçilik ücreti."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10000,
       "businessContext": "Total billable labor hours sold in the period (monthly or annually).",
       "label_i18n": {
-        "en": "Total Labor Hours Sold"
+        "en": "Total Labor Hours Sold",
+        "tr": "Satılan Toplam İşçilik Saati"
       },
       "businessContext_i18n": {
-        "en": "Total billable labor hours sold in the period (monthly or annually)."
+        "en": "Total billable labor hours sold in the period (monthly or annually).",
+        "tr": "Dönemde (aylık veya yıllık) satılan toplam faturalanabilir işçilik saati."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 200,
       "businessContext": "Standard markup on parts cost before any discounts.",
       "label_i18n": {
-        "en": "Parts Markup Percentage"
+        "en": "Parts Markup Percentage",
+        "tr": "Parça Kâr Marjı Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Standard markup on parts cost before any discounts."
+        "en": "Standard markup on parts cost before any discounts.",
+        "tr": "Herhangi bir indirim öncesi parça maliyetine uygulanan standart kâr marjı."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 200,
       "businessContext": "Actual markup realized after discounts, promotions, or supplier constraints.",
       "label_i18n": {
-        "en": "Realized Parts Markup Percentage"
+        "en": "Realized Parts Markup Percentage",
+        "tr": "Gerçekleşen Parça Kâr Marjı Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Actual markup realized after discounts, promotions, or supplier constraints."
+        "en": "Actual markup realized after discounts, promotions, or supplier constraints.",
+        "tr": "İndirimler, promosyonlar veya tedarikçi kısıtlamaları sonrası elde edilen gerçek kâr marjı."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 5000000,
       "businessContext": "Total cost of parts sold in the period.",
       "label_i18n": {
-        "en": "Total Parts Cost (COGS)"
+        "en": "Total Parts Cost (COGS)",
+        "tr": "Toplam Parça Maliyeti (COGS)"
       },
       "businessContext_i18n": {
-        "en": "Total cost of parts sold in the period."
+        "en": "Total cost of parts sold in the period.",
+        "tr": "Dönemde satılan parçaların toplam maliyeti."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100,
       "businessContext": "Standard shop supply fee charged per repair order.",
       "label_i18n": {
-        "en": "Shop Supply Charge per Repair Order"
+        "en": "Shop Supply Charge per Repair Order",
+        "tr": "Tamir Emri Başına Atölye Sarf Malzemesi Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Standard shop supply fee charged per repair order."
+        "en": "Standard shop supply fee charged per repair order.",
+        "tr": "Tamir emri başına alınan standart atölye sarf malzemesi ücreti."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 150,
       "businessContext": "Actual cost incurred for shop supplies per repair order.",
       "label_i18n": {
-        "en": "Actual Shop Supply Cost per Repair Order"
+        "en": "Actual Shop Supply Cost per Repair Order",
+        "tr": "Tamir Emri Başına Gerçek Atölye Sarf Malzemesi Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Actual cost incurred for shop supplies per repair order."
+        "en": "Actual cost incurred for shop supplies per repair order.",
+        "tr": "Tamir emri başına atölye sarf malzemeleri için oluşan gerçek maliyet."
       }
     }
   ],

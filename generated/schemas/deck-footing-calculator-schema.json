@@ -10,11 +10,15 @@
       "businessContext": "Distance from ledger to beam",
       "label_i18n": {
         "en": "Joist Span",
-        "tr": "Joist Span",
+        "tr": "Kiriş Açıklığı",
         "de": "Joist Span",
         "fr": "Joist Span",
         "es": "Joist Span",
         "ar": "Joist Span"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from ledger to beam",
+        "tr": "Kirişten ana taşıyıcıya mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Center-to-center spacing of joists",
       "label_i18n": {
         "en": "Joist Spacing",
-        "tr": "Joist Spacing",
+        "tr": "Kiriş Aralığı",
         "de": "Joist Spacing",
         "fr": "Joist Spacing",
         "es": "Joist Spacing",
         "ar": "Joist Spacing"
+      },
+      "businessContext_i18n": {
+        "en": "Center-to-center spacing of joists",
+        "tr": "Döşeme kirişlerinin merkezden merkeze aralığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance between support posts",
       "label_i18n": {
         "en": "Beam Span between Posts",
-        "tr": "Beam Span between Posts",
+        "tr": "Direkler Arası Kiriş Açıklığı",
         "de": "Beam Span between Posts",
         "fr": "Beam Span between Posts",
         "es": "Beam Span between Posts",
         "ar": "Beam Span between Posts"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between support posts",
+        "tr": "Destek direkleri arasındaki mesafe"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Occupancy load per square foot",
       "label_i18n": {
         "en": "Live Load",
-        "tr": "Live Load",
+        "tr": "Hareketli Yük",
         "de": "Live Load",
         "fr": "Live Load",
         "es": "Live Load",
         "ar": "Live Load"
+      },
+      "businessContext_i18n": {
+        "en": "Occupancy load per square foot",
+        "tr": "Metrekare başına kullanım yükü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Weight of deck materials",
       "label_i18n": {
         "en": "Dead Load",
-        "tr": "Dead Load",
+        "tr": "Sabit Yük",
         "de": "Dead Load",
         "fr": "Dead Load",
         "es": "Dead Load",
         "ar": "Dead Load"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of deck materials",
+        "tr": "Güverte malzemelerinin ağırlığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Allowable soil pressure",
       "label_i18n": {
         "en": "Soil Bearing Capacity",
-        "tr": "Soil Bearing Capacity",
+        "tr": "Toprak Taşıma Kapasitesi",
         "de": "Soil Bearing Capacity",
         "fr": "Soil Bearing Capacity",
         "es": "Soil Bearing Capacity",
         "ar": "Soil Bearing Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Allowable soil pressure",
+        "tr": "İzin verilen toprak basıncı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Depth of concrete footing",
       "label_i18n": {
         "en": "Footing Thickness",
-        "tr": "Footing Thickness",
+        "tr": "Temel Kalınlığı",
         "de": "Footing Thickness",
         "fr": "Footing Thickness",
         "es": "Footing Thickness",
         "ar": "Footing Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Depth of concrete footing",
+        "tr": "Beton temel derinliği"
       }
     }
   ],

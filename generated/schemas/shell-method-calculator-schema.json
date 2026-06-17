@@ -10,11 +10,15 @@
       "businessContext": "Lower limit of integration (x = a)",
       "label_i18n": {
         "en": "Lower Bound",
-        "tr": "Lower Bound",
+        "tr": "Alt Sınır",
         "de": "Lower Bound",
         "fr": "Lower Bound",
         "es": "Lower Bound",
         "ar": "Lower Bound"
+      },
+      "businessContext_i18n": {
+        "en": "Lower limit of integration (x = a)",
+        "tr": "İntegralin alt sınırı (x = a)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Upper limit of integration (x = b)",
       "label_i18n": {
         "en": "Upper Bound",
-        "tr": "Upper Bound",
+        "tr": "Üst Sınır",
         "de": "Upper Bound",
         "fr": "Upper Bound",
         "es": "Upper Bound",
         "ar": "Upper Bound"
+      },
+      "businessContext_i18n": {
+        "en": "Upper limit of integration (x = b)",
+        "tr": "İntegralin üst sınırı (x = b)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Coefficient of x² in f(x)",
       "label_i18n": {
         "en": "Coefficient a",
-        "tr": "Coefficient a",
+        "tr": "Katsayı a",
         "de": "Coefficient a",
         "fr": "Coefficient a",
         "es": "Coefficient a",
         "ar": "Coefficient a"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of x² in f(x)",
+        "tr": "f(x)'te x²'nin katsayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Coefficient of x in f(x)",
       "label_i18n": {
         "en": "Coefficient b",
-        "tr": "Coefficient b",
+        "tr": "Katsayı b",
         "de": "Coefficient b",
         "fr": "Coefficient b",
         "es": "Coefficient b",
         "ar": "Coefficient b"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of x in f(x)",
+        "tr": "f(x)'te x'in katsayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Constant term in f(x)",
       "label_i18n": {
         "en": "Coefficient c",
-        "tr": "Coefficient c",
+        "tr": "Katsayı c",
         "de": "Coefficient c",
         "fr": "Coefficient c",
         "es": "Coefficient c",
         "ar": "Coefficient c"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term in f(x)",
+        "tr": "f(x)'te sabit terim"
       }
     }
   ],

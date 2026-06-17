@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Number of full-time equivalent employees currently working in the department or line.",
       "label_i18n": {
-        "en": "Current Headcount (FTEs)"
+        "en": "Current Headcount (FTEs)",
+        "tr": "Mevcut Personel Sayısı (TZE)"
       },
       "businessContext_i18n": {
-        "en": "Number of full-time equivalent employees currently working in the department or line."
+        "en": "Number of full-time equivalent employees currently working in the department or line.",
+        "tr": "Departman veya hatta şu anda çalışan tam zamanlı eşdeğer çalışan sayısı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 200,
       "businessContext": "Average base hourly wage for the role, excluding overtime premium.",
       "label_i18n": {
-        "en": "Average Hourly Wage (Base)"
+        "en": "Average Hourly Wage (Base)",
+        "tr": "Ortalama Saatlik Ücret (Taban)"
       },
       "businessContext_i18n": {
-        "en": "Average base hourly wage for the role, excluding overtime premium."
+        "en": "Average base hourly wage for the role, excluding overtime premium.",
+        "tr": "Fazla mesai primi hariç, pozisyon için ortalama taban saatlik ücret."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 3,
       "businessContext": "Standard overtime pay multiplier (e.g., 1.5 for time-and-a-half, 2.0 for double time).",
       "label_i18n": {
-        "en": "Overtime Premium Multiplier"
+        "en": "Overtime Premium Multiplier",
+        "tr": "Fazla Mesai Primi Çarpanı"
       },
       "businessContext_i18n": {
-        "en": "Standard overtime pay multiplier (e.g., 1.5 for time-and-a-half, 2.0 for double time)."
+        "en": "Standard overtime pay multiplier (e.g., 1.5 for time-and-a-half, 2.0 for double time).",
+        "tr": "Standart fazla mesai ücret çarpanı (ör. 1.5 bir buçuk kat, 2.0 çift kat)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 60,
       "businessContext": "Average overtime hours worked per full-time employee per week.",
       "label_i18n": {
-        "en": "Overtime Hours per Week (per FTE)"
+        "en": "Overtime Hours per Week (per FTE)",
+        "tr": "Haftalık Fazla Mesai Saati (TZE başına)"
       },
       "businessContext_i18n": {
-        "en": "Average overtime hours worked per full-time employee per week."
+        "en": "Average overtime hours worked per full-time employee per week.",
+        "tr": "Tam zamanlı çalışan başına haftalık ortalama fazla mesai saati."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 100000,
       "businessContext": "Total cost to recruit, interview, onboard, and train a new employee (including agency fees, training materials, lost productivity).",
       "label_i18n": {
-        "en": "Hiring Cost per FTE"
+        "en": "Hiring Cost per FTE",
+        "tr": "Çalışan Başına İşe Alım Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total cost to recruit, interview, onboard, and train a new employee (including agency fees, training materials, lost productivity)."
+        "en": "Total cost to recruit, interview, onboard, and train a new employee (including agency fees, training materials, lost productivity).",
+        "tr": "Yeni bir çalışanı işe almak, mülakat yapmak, işe yerleştirmek ve eğitmek için toplam maliyet (ajan ücretleri, eğitim materyalleri, kayıp verimlilik dahil)."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100000,
       "businessContext": "Annual cost of benefits (health insurance, retirement, paid leave, etc.) per full-time employee.",
       "label_i18n": {
-        "en": "Annual Benefits Cost per FTE"
+        "en": "Annual Benefits Cost per FTE",
+        "tr": "Çalışan Başına Yıllık Yan Hak Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Annual cost of benefits (health insurance, retirement, paid leave, etc.) per full-time employee."
+        "en": "Annual cost of benefits (health insurance, retirement, paid leave, etc.) per full-time employee.",
+        "tr": "Tam zamanlı çalışan başına yıllık yan hak maliyeti (sağlık sigortası, emeklilik, ücretli izin vb.)."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100,
       "businessContext": "Productivity during overtime as a percentage of normal shift productivity (e.g., 85% due to fatigue).",
       "label_i18n": {
-        "en": "Overtime Productivity Factor"
+        "en": "Overtime Productivity Factor",
+        "tr": "Fazla Mesai Verimlilik Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Productivity during overtime as a percentage of normal shift productivity (e.g., 85% due to fatigue)."
+        "en": "Productivity during overtime as a percentage of normal shift productivity (e.g., 85% due to fatigue).",
+        "tr": "Fazla mesai sırasındaki verimliliğin normal vardiya verimliliğine yüzdesi (örneğin, yorgunluk nedeniyle %85)."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 100,
       "businessContext": "Average productivity of a new hire during the first 3 months as a percentage of an experienced employee.",
       "label_i18n": {
-        "en": "New Hire Ramp-Up Productivity"
+        "en": "New Hire Ramp-Up Productivity",
+        "tr": "Yeni İşe Alınanın Verimliliğe Uyum Süresi"
       },
       "businessContext_i18n": {
-        "en": "Average productivity of a new hire during the first 3 months as a percentage of an experienced employee."
+        "en": "Average productivity of a new hire during the first 3 months as a percentage of an experienced employee.",
+        "tr": "Yeni bir işe alınanın ilk 3 aydaki ortalama verimliliğinin deneyimli bir çalışana yüzdesi."
       }
     }
   ],

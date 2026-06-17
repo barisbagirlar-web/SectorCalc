@@ -10,11 +10,15 @@
       "businessContext": "Current Assets minus Current Liabilities",
       "label_i18n": {
         "en": "Working Capital",
-        "tr": "Working Capital",
+        "tr": "İşletme Sermayesi",
         "de": "Working Capital",
         "fr": "Working Capital",
         "es": "Working Capital",
         "ar": "Working Capital"
+      },
+      "businessContext_i18n": {
+        "en": "Current Assets minus Current Liabilities",
+        "tr": "Dönen Varlıklar eksi Kısa Vadeli Yükümlülükler"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total assets on balance sheet",
       "label_i18n": {
         "en": "Total Assets",
-        "tr": "Total Assets",
+        "tr": "Toplam Varlıklar",
         "de": "Total Assets",
         "fr": "Total Assets",
         "es": "Total Assets",
         "ar": "Total Assets"
+      },
+      "businessContext_i18n": {
+        "en": "Total assets on balance sheet",
+        "tr": "Bilançodaki toplam varlıklar"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cumulative net income minus dividends",
       "label_i18n": {
         "en": "Retained Earnings",
-        "tr": "Retained Earnings",
+        "tr": "Dağıtılmamış Kârlar",
         "de": "Retained Earnings",
         "fr": "Retained Earnings",
         "es": "Retained Earnings",
         "ar": "Retained Earnings"
+      },
+      "businessContext_i18n": {
+        "en": "Cumulative net income minus dividends",
+        "tr": "Net gelir eksi temettülerin kümülatif toplamı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Earnings Before Interest and Taxes",
       "label_i18n": {
         "en": "EBIT",
-        "tr": "EBIT",
+        "tr": "FVÖK",
         "de": "EBIT",
         "fr": "EBIT",
         "es": "EBIT",
         "ar": "EBIT"
+      },
+      "businessContext_i18n": {
+        "en": "Earnings Before Interest and Taxes",
+        "tr": "Faiz ve Vergi Öncesi Kâr"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Market capitalization (share price * shares outstanding)",
       "label_i18n": {
         "en": "Market Value of Equity",
-        "tr": "Market Value of Equity",
+        "tr": "Özsermayenin Piyasa Değeri",
         "de": "Market Value of Equity",
         "fr": "Market Value of Equity",
         "es": "Market Value of Equity",
         "ar": "Market Value of Equity"
+      },
+      "businessContext_i18n": {
+        "en": "Market capitalization (share price * shares outstanding)",
+        "tr": "Piyasa değeri (hisse fiyatı * dolaşımdaki hisse sayısı)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total liabilities on balance sheet",
       "label_i18n": {
         "en": "Total Liabilities",
-        "tr": "Total Liabilities",
+        "tr": "Toplam Yükümlülükler",
         "de": "Total Liabilities",
         "fr": "Total Liabilities",
         "es": "Total Liabilities",
         "ar": "Total Liabilities"
+      },
+      "businessContext_i18n": {
+        "en": "Total liabilities on balance sheet",
+        "tr": "Bilançodaki toplam yükümlülükler"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Total revenue or sales",
       "label_i18n": {
         "en": "Sales",
-        "tr": "Sales",
+        "tr": "Satışlar",
         "de": "Sales",
         "fr": "Sales",
         "es": "Sales",
         "ar": "Sales"
+      },
+      "businessContext_i18n": {
+        "en": "Total revenue or sales",
+        "tr": "Toplam gelir veya satışlar"
       }
     }
   ],

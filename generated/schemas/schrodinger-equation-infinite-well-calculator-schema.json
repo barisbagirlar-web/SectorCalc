@@ -10,11 +10,15 @@
       "businessContext": "Principal quantum number (n = 1, 2, 3, ...) indicating the energy level of the particle.",
       "label_i18n": {
         "en": "Quantum Number n",
-        "tr": "Quantum Number n",
+        "tr": "Kuantum Sayısı n",
         "de": "Quantum Number n",
         "fr": "Quantum Number n",
         "es": "Quantum Number n",
         "ar": "Quantum Number n"
+      },
+      "businessContext_i18n": {
+        "en": "Principal quantum number (n = 1, 2, 3, ...) indicating the energy level of the particle.",
+        "tr": "Baş kuantum sayısı (n = 1, 2, 3, ...) parçacığın enerji seviyesini belirtir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass of the particle confined in the infinite well (e.g., electron mass).",
       "label_i18n": {
         "en": "Particle Mass",
-        "tr": "Particle Mass",
+        "tr": "Parçacık Kütlesi",
         "de": "Particle Mass",
         "fr": "Particle Mass",
         "es": "Particle Mass",
         "ar": "Particle Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the particle confined in the infinite well (e.g., electron mass).",
+        "tr": "Sonsuz kuyuda hapsedilmiş parçacığın kütlesi (örneğin, elektron kütlesi)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of the one-dimensional infinite potential well.",
       "label_i18n": {
         "en": "Box Length",
-        "tr": "Box Length",
+        "tr": "Kutu Uzunluğu",
         "de": "Box Length",
         "fr": "Box Length",
         "es": "Box Length",
         "ar": "Box Length"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the one-dimensional infinite potential well.",
+        "tr": "Tek boyutlu sonsuz potansiyel kuyusunun genişliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Position inside the well (0 < x < L) at which the wavefunction is evaluated.",
       "label_i18n": {
         "en": "Position x",
-        "tr": "Position x",
+        "tr": "Konum x",
         "de": "Position x",
         "fr": "Position x",
         "es": "Position x",
         "ar": "Position x"
+      },
+      "businessContext_i18n": {
+        "en": "Position inside the well (0 < x < L) at which the wavefunction is evaluated.",
+        "tr": "Dalga fonksiyonunun değerlendirildiği kuyu içindeki konum (0 < x < L)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Reduced Planck constant (ħ = h/2π).",
       "label_i18n": {
         "en": "Reduced Planck Constant",
-        "tr": "Reduced Planck Constant",
+        "tr": "İndirgenmiş Planck Sabiti",
         "de": "Reduced Planck Constant",
         "fr": "Reduced Planck Constant",
         "es": "Reduced Planck Constant",
         "ar": "Reduced Planck Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Reduced Planck constant (ħ = h/2π).",
+        "tr": "İndirgenmiş Planck sabiti (ħ = h/2π)."
       }
     }
   ],

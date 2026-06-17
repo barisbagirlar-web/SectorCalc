@@ -10,11 +10,15 @@
       "businessContext": "The Gregorian calendar year to convert to Islamic calendar year.",
       "label_i18n": {
         "en": "Gregorian Year",
-        "tr": "Gregorian Year",
+        "tr": "Miladi Yıl",
         "de": "Gregorian Year",
         "fr": "Gregorian Year",
         "es": "Gregorian Year",
         "ar": "Gregorian Year"
+      },
+      "businessContext_i18n": {
+        "en": "The Gregorian calendar year to convert to Islamic calendar year.",
+        "tr": "İslami takvim yılına dönüştürülecek Miladi takvim yılı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The Gregorian month (1-12) to convert.",
       "label_i18n": {
         "en": "Gregorian Month",
-        "tr": "Gregorian Month",
+        "tr": "Miladi Ay",
         "de": "Gregorian Month",
         "fr": "Gregorian Month",
         "es": "Gregorian Month",
         "ar": "Gregorian Month"
+      },
+      "businessContext_i18n": {
+        "en": "The Gregorian month (1-12) to convert.",
+        "tr": "Dönüştürülecek Miladi ay (1-12)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The Gregorian day of the month to convert.",
       "label_i18n": {
         "en": "Gregorian Day",
-        "tr": "Gregorian Day",
+        "tr": "Miladi Gün",
         "de": "Gregorian Day",
         "fr": "Gregorian Day",
         "es": "Gregorian Day",
         "ar": "Gregorian Day"
+      },
+      "businessContext_i18n": {
+        "en": "The Gregorian day of the month to convert.",
+        "tr": "Dönüştürülecek Miladi gün."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional adjustment to account for local sighting differences, typically -1 to 1.",
       "label_i18n": {
         "en": "Adjustment Days",
-        "tr": "Adjustment Days",
+        "tr": "Ayar Günleri",
         "de": "Adjustment Days",
         "fr": "Adjustment Days",
         "es": "Adjustment Days",
         "ar": "Adjustment Days"
+      },
+      "businessContext_i18n": {
+        "en": "Optional adjustment to account for local sighting differences, typically -1 to 1.",
+        "tr": "Yerel hilal görüş farklılıklarını hesaba katmak için isteğe bağlı ayar, genellikle -1 ile 1 arası."
       }
     }
   ],

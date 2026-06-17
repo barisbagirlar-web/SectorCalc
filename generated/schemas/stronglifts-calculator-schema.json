@@ -10,11 +10,15 @@
       "businessContext": "Initial weight lifted in the first session",
       "label_i18n": {
         "en": "Starting Weight",
-        "tr": "Starting Weight",
+        "tr": "Başlangıç Ağırlığı",
         "de": "Starting Weight",
         "fr": "Starting Weight",
         "es": "Starting Weight",
         "ar": "Starting Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Initial weight lifted in the first session",
+        "tr": "İlk seansta kaldırılan başlangıç ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Weight added after each completed session",
       "label_i18n": {
         "en": "Increment per Session",
-        "tr": "Increment per Session",
+        "tr": "Seans Başına Artış",
         "de": "Increment per Session",
         "fr": "Increment per Session",
         "es": "Increment per Session",
         "ar": "Increment per Session"
+      },
+      "businessContext_i18n": {
+        "en": "Weight added after each completed session",
+        "tr": "Tamamlanan her seanstan sonra eklenen ağırlık"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Training frequency per week",
       "label_i18n": {
         "en": "Sessions per Week",
-        "tr": "Sessions per Week",
+        "tr": "Haftalık Seans Sayısı",
         "de": "Sessions per Week",
         "fr": "Sessions per Week",
         "es": "Sessions per Week",
         "ar": "Sessions per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Training frequency per week",
+        "tr": "Haftalık antrenman sıklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration of training cycle",
       "label_i18n": {
         "en": "Number of Weeks",
-        "tr": "Number of Weeks",
+        "tr": "Hafta Sayısı",
         "de": "Number of Weeks",
         "fr": "Number of Weeks",
         "es": "Number of Weeks",
         "ar": "Number of Weeks"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of training cycle",
+        "tr": "Antrenman döngüsü süresi"
       }
     }
   ],

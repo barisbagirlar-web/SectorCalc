@@ -10,11 +10,15 @@
       "businessContext": "Cost of raw ingredients per kilogram",
       "label_i18n": {
         "en": "Ingredient Cost per kg",
-        "tr": "Ingredient Cost per kg",
+        "tr": "İçerik Maliyeti (kg başına)",
         "de": "Ingredient Cost per kg",
         "fr": "Ingredient Cost per kg",
         "es": "Ingredient Cost per kg",
         "ar": "Ingredient Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw ingredients per kilogram",
+        "tr": "Hammadde içeriklerinin kilogram başına maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount of raw ingredient used per product unit in grams",
       "label_i18n": {
         "en": "Ingredient Usage per Unit",
-        "tr": "Ingredient Usage per Unit",
+        "tr": "Birim Başına İçerik Kullanımı",
         "de": "Ingredient Usage per Unit",
         "fr": "Ingredient Usage per Unit",
         "es": "Ingredient Usage per Unit",
         "ar": "Ingredient Usage per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of raw ingredient used per product unit in grams",
+        "tr": "Ürün birimi başına gram cinsinden kullanılan hammadde miktarı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of packaging materials per product unit",
       "label_i18n": {
         "en": "Packaging Cost per Unit",
-        "tr": "Packaging Cost per Unit",
+        "tr": "Birim Başına Ambalaj Maliyeti",
         "de": "Packaging Cost per Unit",
         "fr": "Packaging Cost per Unit",
         "es": "Packaging Cost per Unit",
         "ar": "Packaging Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of packaging materials per product unit",
+        "tr": "Ürün birimi başına ambalaj malzemelerinin maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of units produced in a batch",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced in a batch",
+        "tr": "Bir partide üretilen birim sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total labor cost for producing one batch",
       "label_i18n": {
         "en": "Labor Cost per Batch",
-        "tr": "Labor Cost per Batch",
+        "tr": "Parti Başına İşçilik Maliyeti",
         "de": "Labor Cost per Batch",
         "fr": "Labor Cost per Batch",
         "es": "Labor Cost per Batch",
         "ar": "Labor Cost per Batch"
+      },
+      "businessContext_i18n": {
+        "en": "Total labor cost for producing one batch",
+        "tr": "Bir parti üretmek için toplam işçilik maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Allocated overhead costs (utilities, rent, etc.) per batch",
       "label_i18n": {
         "en": "Overhead Cost per Batch",
-        "tr": "Overhead Cost per Batch",
+        "tr": "Parti Başına Genel Gider Maliyeti",
         "de": "Overhead Cost per Batch",
         "fr": "Overhead Cost per Batch",
         "es": "Overhead Cost per Batch",
         "ar": "Overhead Cost per Batch"
+      },
+      "businessContext_i18n": {
+        "en": "Allocated overhead costs (utilities, rent, etc.) per batch",
+        "tr": "Parti başına tahsis edilen genel giderler (elektrik, kira vb.)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Target profit margin percentage on selling price",
       "label_i18n": {
         "en": "Desired Profit Margin",
-        "tr": "Desired Profit Margin",
+        "tr": "Hedef Kar Marjı",
         "de": "Desired Profit Margin",
         "fr": "Desired Profit Margin",
         "es": "Desired Profit Margin",
         "ar": "Desired Profit Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Target profit margin percentage on selling price",
+        "tr": "Satış fiyatı üzerinden hedeflenen kar marjı yüzdesi"
       }
     }
   ],

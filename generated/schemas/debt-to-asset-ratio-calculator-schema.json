@@ -10,11 +10,15 @@
       "businessContext": "Total obligations due within one year",
       "label_i18n": {
         "en": "Short-Term Liabilities",
-        "tr": "Short-Term Liabilities",
+        "tr": "Kısa Vadeli Yükümlülükler",
         "de": "Short-Term Liabilities",
         "fr": "Short-Term Liabilities",
         "es": "Short-Term Liabilities",
         "ar": "Short-Term Liabilities"
+      },
+      "businessContext_i18n": {
+        "en": "Total obligations due within one year",
+        "tr": "Bir yıl içinde vadesi gelen toplam yükümlülükler"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total obligations due after one year",
       "label_i18n": {
         "en": "Long-Term Liabilities",
-        "tr": "Long-Term Liabilities",
+        "tr": "Uzun Vadeli Yükümlülükler",
         "de": "Long-Term Liabilities",
         "fr": "Long-Term Liabilities",
         "es": "Long-Term Liabilities",
         "ar": "Long-Term Liabilities"
+      },
+      "businessContext_i18n": {
+        "en": "Total obligations due after one year",
+        "tr": "Bir yıldan sonra vadesi gelen toplam yükümlülükler"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Assets expected to be converted to cash within one year",
       "label_i18n": {
         "en": "Current Assets",
-        "tr": "Current Assets",
+        "tr": "Dönen Varlıklar",
         "de": "Current Assets",
         "fr": "Current Assets",
         "es": "Current Assets",
         "ar": "Current Assets"
+      },
+      "businessContext_i18n": {
+        "en": "Assets expected to be converted to cash within one year",
+        "tr": "Bir yıl içinde nakde dönüşmesi beklenen varlıklar"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Long-term investments and property, plant, equipment",
       "label_i18n": {
         "en": "Non-Current Assets",
-        "tr": "Non-Current Assets",
+        "tr": "Duran Varlıklar",
         "de": "Non-Current Assets",
         "fr": "Non-Current Assets",
         "es": "Non-Current Assets",
         "ar": "Non-Current Assets"
+      },
+      "businessContext_i18n": {
+        "en": "Long-term investments and property, plant, equipment",
+        "tr": "Uzun vadeli yatırımlar ve maddi duran varlıklar"
       }
     }
   ],

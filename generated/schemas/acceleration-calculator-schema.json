@@ -10,11 +10,15 @@
       "businessContext": "Starting velocity of the object before acceleration",
       "label_i18n": {
         "en": "Initial Velocity",
-        "tr": "Initial Velocity",
+        "tr": "Başlangıç Hızı",
         "de": "Initial Velocity",
         "fr": "Initial Velocity",
         "es": "Initial Velocity",
         "ar": "Initial Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Starting velocity of the object before acceleration",
+        "tr": "İvmeden önce nesnenin başlangıç hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ending velocity after acceleration period",
       "label_i18n": {
         "en": "Final Velocity",
-        "tr": "Final Velocity",
+        "tr": "Son Hız",
         "de": "Final Velocity",
         "fr": "Final Velocity",
         "es": "Final Velocity",
         "ar": "Final Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Ending velocity after acceleration period",
+        "tr": "İvme periyodundan sonraki bitiş hızı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration over which velocity changes",
       "label_i18n": {
         "en": "Time Interval",
-        "tr": "Time Interval",
+        "tr": "Zaman Aralığı",
         "de": "Time Interval",
         "fr": "Time Interval",
         "es": "Time Interval",
         "ar": "Time Interval"
+      },
+      "businessContext_i18n": {
+        "en": "Duration over which velocity changes",
+        "tr": "Hızın değiştiği süre"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Net force applied to the object (optional for alternative calculation)",
       "label_i18n": {
         "en": "Applied Force",
-        "tr": "Applied Force",
+        "tr": "Uygulanan Kuvvet",
         "de": "Applied Force",
         "fr": "Applied Force",
         "es": "Applied Force",
         "ar": "Applied Force"
+      },
+      "businessContext_i18n": {
+        "en": "Net force applied to the object (optional for alternative calculation)",
+        "tr": "Nesneye uygulanan net kuvvet (alternatif hesaplama için isteğe bağlı)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Mass of the object being accelerated",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the object being accelerated",
+        "tr": "İvmelendirilen nesnenin kütlesi"
       }
     }
   ],

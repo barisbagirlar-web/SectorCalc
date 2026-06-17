@@ -10,11 +10,15 @@
       "businessContext": "Total count of paired (x,y) data points.",
       "label_i18n": {
         "en": "Number of data points (n)",
-        "tr": "Number of data points (n)",
+        "tr": "Veri noktası sayısı (n)",
         "de": "Number of data points (n)",
         "fr": "Number of data points (n)",
         "es": "Number of data points (n)",
         "ar": "Number of data points (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Total count of paired (x,y) data points.",
+        "tr": "Eşleştirilmiş (x,y) veri noktalarının toplam sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sum of all x-values in the dataset.",
       "label_i18n": {
         "en": "Sum of X values (Σx)",
-        "tr": "Sum of X values (Σx)",
+        "tr": "X Değerlerinin Toplamı (Σx)",
         "de": "Sum of X values (Σx)",
         "fr": "Sum of X values (Σx)",
         "es": "Sum of X values (Σx)",
         "ar": "Sum of X values (Σx)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all x-values in the dataset.",
+        "tr": "Veri kümesindeki tüm x değerlerinin toplamı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sum of all y-values in the dataset.",
       "label_i18n": {
         "en": "Sum of Y values (Σy)",
-        "tr": "Sum of Y values (Σy)",
+        "tr": "Y Değerlerinin Toplamı (Σy)",
         "de": "Sum of Y values (Σy)",
         "fr": "Sum of Y values (Σy)",
         "es": "Sum of Y values (Σy)",
         "ar": "Sum of Y values (Σy)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all y-values in the dataset.",
+        "tr": "Veri kümesindeki tüm y değerlerinin toplamı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sum of the products of each x-y pair.",
       "label_i18n": {
         "en": "Sum of X*Y (Σxy)",
-        "tr": "Sum of X*Y (Σxy)",
+        "tr": "X*Y Toplamı (Σxy)",
         "de": "Sum of X*Y (Σxy)",
         "fr": "Sum of X*Y (Σxy)",
         "es": "Sum of X*Y (Σxy)",
         "ar": "Sum of X*Y (Σxy)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of the products of each x-y pair.",
+        "tr": "Her x-y çiftinin çarpımlarının toplamı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Sum of the squares of x-values.",
       "label_i18n": {
         "en": "Sum of X² (Σx²)",
-        "tr": "Sum of X² (Σx²)",
+        "tr": "X²'nin toplamı (Σx²)",
         "de": "Sum of X² (Σx²)",
         "fr": "Sum of X² (Σx²)",
         "es": "Sum of X² (Σx²)",
         "ar": "Sum of X² (Σx²)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of the squares of x-values.",
+        "tr": "x değerlerinin karelerinin toplamı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Sum of the squares of y-values.",
       "label_i18n": {
         "en": "Sum of Y² (Σy²)",
-        "tr": "Sum of Y² (Σy²)",
+        "tr": "Y²'nin toplamı (Σy²)",
         "de": "Sum of Y² (Σy²)",
         "fr": "Sum of Y² (Σy²)",
         "es": "Sum of Y² (Σy²)",
         "ar": "Sum of Y² (Σy²)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of the squares of y-values.",
+        "tr": "y değerlerinin karelerinin toplamı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The temperature of air measured by a thermometer freely exposed to air but shielded from radiation and moisture.",
       "label_i18n": {
         "en": "Dry Bulb Temperature",
-        "tr": "Dry Bulb Temperature",
+        "tr": "Kuru Termometre Sıcaklığı",
         "de": "Dry Bulb Temperature",
         "fr": "Dry Bulb Temperature",
         "es": "Dry Bulb Temperature",
         "ar": "Dry Bulb Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "The temperature of air measured by a thermometer freely exposed to air but shielded from radiation and moisture.",
+        "tr": "Radyasyon ve nemden korunmuş, serbest havaya maruz kalan bir termometre ile ölçülen hava sıcaklığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The ratio of the partial pressure of water vapor to the equilibrium vapor pressure of water at the same temperature.",
       "label_i18n": {
         "en": "Relative Humidity",
-        "tr": "Relative Humidity",
+        "tr": "Bağıl Nem",
         "de": "Relative Humidity",
         "fr": "Relative Humidity",
         "es": "Relative Humidity",
         "ar": "Relative Humidity"
+      },
+      "businessContext_i18n": {
+        "en": "The ratio of the partial pressure of water vapor to the equilibrium vapor pressure of water at the same temperature.",
+        "tr": "Su buharı kısmi basıncının aynı sıcaklıktaki denge buhar basıncına oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The pressure exerted by the weight of the atmosphere at the location (standard sea-level pressure is 1013.25 hPa). Not used in this simplified calculation.",
       "label_i18n": {
         "en": "Atmospheric Pressure",
-        "tr": "Atmospheric Pressure",
+        "tr": "Atmosfer Basıncı",
         "de": "Atmospheric Pressure",
         "fr": "Atmospheric Pressure",
         "es": "Atmospheric Pressure",
         "ar": "Atmospheric Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "The pressure exerted by the weight of the atmosphere at the location (standard sea-level pressure is 1013.25 hPa). Not used in this simplified calculation.",
+        "tr": "Konumdaki atmosferin ağırlığının uyguladığı basınç (standart deniz seviyesi basıncı 1013.25 hPa'dır). Bu basitleştirilmiş hesaplamada kullanılmaz."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Elevation above sea level. Not used in this simplified calculation.",
       "label_i18n": {
         "en": "Altitude",
-        "tr": "Altitude",
+        "tr": "Rakım",
         "de": "Altitude",
         "fr": "Altitude",
         "es": "Altitude",
         "ar": "Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Elevation above sea level. Not used in this simplified calculation.",
+        "tr": "Deniz seviyesinden yükseklik. Bu basitleştirilmiş hesaplamada kullanılmaz."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Portfolio's average return over the period.",
       "label_i18n": {
         "en": "Average Return",
-        "tr": "Average Return",
+        "tr": "Ortalama Getiri",
         "de": "Average Return",
         "fr": "Average Return",
         "es": "Average Return",
         "ar": "Average Return"
+      },
+      "businessContext_i18n": {
+        "en": "Portfolio's average return over the period.",
+        "tr": "Portföyün dönem boyunca ortalama getirisi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Risk-free rate of return (e.g., government bond yield).",
       "label_i18n": {
         "en": "Risk-Free Rate",
-        "tr": "Risk-Free Rate",
+        "tr": "Risksiz Faiz Oranı",
         "de": "Risk-Free Rate",
         "fr": "Risk-Free Rate",
         "es": "Risk-Free Rate",
         "ar": "Risk-Free Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Risk-free rate of return (e.g., government bond yield).",
+        "tr": "Risksiz getiri oranı (örneğin devlet tahvili getirisi)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minimum acceptable return (often equals risk-free rate).",
       "label_i18n": {
         "en": "Target Return",
-        "tr": "Target Return",
+        "tr": "Hedef Getiri",
         "de": "Target Return",
         "fr": "Target Return",
         "es": "Target Return",
         "ar": "Target Return"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum acceptable return (often equals risk-free rate).",
+        "tr": "Minimum kabul edilebilir getiri (genellikle risksiz orana eşittir)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Downside deviation (standard deviation of returns below target).",
       "label_i18n": {
         "en": "Downside Deviation",
-        "tr": "Downside Deviation",
+        "tr": "Aşağı Yönlü Sapma",
         "de": "Downside Deviation",
         "fr": "Downside Deviation",
         "es": "Downside Deviation",
         "ar": "Downside Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Downside deviation (standard deviation of returns below target).",
+        "tr": "Aşağı yönlü sapma (hedefin altındaki getirilerin standart sapması)."
       }
     }
   ],

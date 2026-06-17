@@ -10,11 +10,15 @@
       "businessContext": "Flight distance between origin and destination airports",
       "label_i18n": {
         "en": "Flight Distance",
-        "tr": "Flight Distance",
+        "tr": "Uçuş Mesafesi",
         "de": "Flight Distance",
         "fr": "Flight Distance",
         "es": "Flight Distance",
         "ar": "Flight Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Flight distance between origin and destination airports",
+        "tr": "Kalkış ve varış havalimanları arasındaki uçuş mesafesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average cruising speed of the aircraft",
       "label_i18n": {
         "en": "Average Speed",
-        "tr": "Average Speed",
+        "tr": "Ortalama Hız",
         "de": "Average Speed",
         "fr": "Average Speed",
         "es": "Average Speed",
         "ar": "Average Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Average cruising speed of the aircraft",
+        "tr": "Ortalama Seyir Hızı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Aircraft fuel consumption rate per kilometer",
       "label_i18n": {
         "en": "Fuel Consumption Rate",
-        "tr": "Fuel Consumption Rate",
+        "tr": "Yakıt Tüketim Oranı",
         "de": "Fuel Consumption Rate",
         "fr": "Fuel Consumption Rate",
         "es": "Fuel Consumption Rate",
         "ar": "Fuel Consumption Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Aircraft fuel consumption rate per kilometer",
+        "tr": "Uçağın kilometre başına yakıt tüketim oranı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Current market price of Jet A-1 fuel per liter",
       "label_i18n": {
         "en": "Fuel Price",
-        "tr": "Fuel Price",
+        "tr": "Yakıt Fiyatı",
         "de": "Fuel Price",
         "fr": "Fuel Price",
         "es": "Fuel Price",
         "ar": "Fuel Price"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price of Jet A-1 fuel per liter",
+        "tr": "Jet A-1 yakıtının litre başına güncel piyasa fiyatı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Hourly cost for flight crew including salaries and benefits",
       "label_i18n": {
         "en": "Crew Cost per Hour",
-        "tr": "Crew Cost per Hour",
+        "tr": "Mürettebat Saatlik Maliyeti",
         "de": "Crew Cost per Hour",
         "fr": "Crew Cost per Hour",
         "es": "Crew Cost per Hour",
         "ar": "Crew Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly cost for flight crew including salaries and benefits",
+        "tr": "Uçuş ekibinin maaş ve yan haklar dahil saatlik maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Fixed airport landing fee per flight",
       "label_i18n": {
         "en": "Landing Fee",
-        "tr": "Landing Fee",
+        "tr": "İniş Ücreti",
         "de": "Landing Fee",
         "fr": "Landing Fee",
         "es": "Landing Fee",
         "ar": "Landing Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed airport landing fee per flight",
+        "tr": "Uçuş başına sabit havalimanı iniş ücreti"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Hourly maintenance cost allocation for the aircraft",
       "label_i18n": {
         "en": "Maintenance Cost per Hour",
-        "tr": "Maintenance Cost per Hour",
+        "tr": "Bakım Saatlik Maliyeti",
         "de": "Maintenance Cost per Hour",
         "fr": "Maintenance Cost per Hour",
         "es": "Maintenance Cost per Hour",
         "ar": "Maintenance Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly maintenance cost allocation for the aircraft",
+        "tr": "Uçak için saatlik bakım maliyeti dağılımı"
       }
     }
   ],

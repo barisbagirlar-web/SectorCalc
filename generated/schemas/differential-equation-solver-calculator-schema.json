@@ -10,11 +10,15 @@
       "businessContext": "Value of y at initial time t₀",
       "label_i18n": {
         "en": "Initial value y₀",
-        "tr": "Initial value y₀",
+        "tr": "Başlangıç değeri y₀",
         "de": "Initial value y₀",
         "fr": "Initial value y₀",
         "es": "Initial value y₀",
         "ar": "Initial value y₀"
+      },
+      "businessContext_i18n": {
+        "en": "Value of y at initial time t₀",
+        "tr": "y'nin başlangıç zamanı t₀'daki değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Growth (positive) or decay (negative) rate in dy/dt = a·y + b",
       "label_i18n": {
         "en": "Coefficient a",
-        "tr": "Coefficient a",
+        "tr": "Katsayı a",
         "de": "Coefficient a",
         "fr": "Coefficient a",
         "es": "Coefficient a",
         "ar": "Coefficient a"
+      },
+      "businessContext_i18n": {
+        "en": "Growth (positive) or decay (negative) rate in dy/dt = a·y + b",
+        "tr": "dy/dt = a·y + b'de büyüme (pozitif) veya azalma (negatif) oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Constant forcing term in dy/dt = a·y + b",
       "label_i18n": {
         "en": "Constant b",
-        "tr": "Constant b",
+        "tr": "Sabit b",
         "de": "Constant b",
         "fr": "Constant b",
         "es": "Constant b",
         "ar": "Constant b"
+      },
+      "businessContext_i18n": {
+        "en": "Constant forcing term in dy/dt = a·y + b",
+        "tr": "dy/dt = a·y + b'de sabit zorlama terimi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time at which initial condition y₀ is given",
       "label_i18n": {
         "en": "Initial time t₀",
-        "tr": "Initial time t₀",
+        "tr": "Başlangıç zamanı t₀",
         "de": "Initial time t₀",
         "fr": "Initial time t₀",
         "es": "Initial time t₀",
         "ar": "Initial time t₀"
+      },
+      "businessContext_i18n": {
+        "en": "Time at which initial condition y₀ is given",
+        "tr": "Başlangıç koşulu y₀'nın verildiği zaman"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Time at which to compute y(t)",
       "label_i18n": {
         "en": "Time t",
-        "tr": "Time t",
+        "tr": "Zaman t",
         "de": "Time t",
         "fr": "Time t",
         "es": "Time t",
         "ar": "Time t"
+      },
+      "businessContext_i18n": {
+        "en": "Time at which to compute y(t)",
+        "tr": "y(t)'nin hesaplanacağı zaman"
       }
     }
   ],

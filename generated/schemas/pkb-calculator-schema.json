@@ -10,11 +10,15 @@
       "businessContext": "Equilibrium constant for the base dissociation reaction.",
       "label_i18n": {
         "en": "Base Dissociation Constant (Kb)",
-        "tr": "Base Dissociation Constant (Kb)",
+        "tr": "Baz Ayrışma Sabiti (Kb)",
         "de": "Base Dissociation Constant (Kb)",
         "fr": "Base Dissociation Constant (Kb)",
         "es": "Base Dissociation Constant (Kb)",
         "ar": "Base Dissociation Constant (Kb)"
+      },
+      "businessContext_i18n": {
+        "en": "Equilibrium constant for the base dissociation reaction.",
+        "tr": "Baz ayrışma reaksiyonu için denge sabiti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Equilibrium constant for the conjugate acid. Used if Kb is not provided.",
       "label_i18n": {
         "en": "Acid Dissociation Constant (Ka)",
-        "tr": "Acid Dissociation Constant (Ka)",
+        "tr": "Asit Ayrışma Sabiti (Ka)",
         "de": "Acid Dissociation Constant (Ka)",
         "fr": "Acid Dissociation Constant (Ka)",
         "es": "Acid Dissociation Constant (Ka)",
         "ar": "Acid Dissociation Constant (Ka)"
+      },
+      "businessContext_i18n": {
+        "en": "Equilibrium constant for the conjugate acid. Used if Kb is not provided.",
+        "tr": "Konjuge asit için denge sabiti. Kb sağlanmadıysa kullanılır."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "pKa",
         "es": "pKa",
         "ar": "pKa"
+      },
+      "businessContext_i18n": {
+        "en": "Negative base-10 logarithm of Ka. Used if Kb and Ka are not provided.",
+        "tr": "Ka'nın negatif baz-10 logaritması. Kb ve Ka sağlanmadıysa kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Self-ionization constant of water at 25°C. Used when deriving Kb from Ka.",
       "label_i18n": {
         "en": "Ion Product of Water (Kw)",
-        "tr": "Ion Product of Water (Kw)",
+        "tr": "Suyun İyon Çarpımı (Kw)",
         "de": "Ion Product of Water (Kw)",
         "fr": "Ion Product of Water (Kw)",
         "es": "Ion Product of Water (Kw)",
         "ar": "Ion Product of Water (Kw)"
+      },
+      "businessContext_i18n": {
+        "en": "Self-ionization constant of water at 25°C. Used when deriving Kb from Ka.",
+        "tr": "25°C'de suyun kendi kendine iyonlaşma sabiti. Kb'yi Ka'dan türetirken kullanılır."
       }
     }
   ],

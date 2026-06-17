@@ -10,11 +10,15 @@
       "businessContext": "Unbraced length of the column",
       "label_i18n": {
         "en": "Column Length",
-        "tr": "Column Length",
+        "tr": "Kolon Uzunluğu",
         "de": "Column Length",
         "fr": "Column Length",
         "es": "Column Length",
         "ar": "Column Length"
+      },
+      "businessContext_i18n": {
+        "en": "Unbraced length of the column",
+        "tr": "Kolonun desteklenmeyen uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Area of the column cross-section",
       "label_i18n": {
         "en": "Cross-sectional Area",
-        "tr": "Cross-sectional Area",
+        "tr": "Kesit Alanı",
         "de": "Cross-sectional Area",
         "fr": "Cross-sectional Area",
         "es": "Cross-sectional Area",
         "ar": "Cross-sectional Area"
+      },
+      "businessContext_i18n": {
+        "en": "Area of the column cross-section",
+        "tr": "Kolon kesit alanı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minimum moment of inertia about buckling axis",
       "label_i18n": {
         "en": "Moment of Inertia",
-        "tr": "Moment of Inertia",
+        "tr": "Eylemsizlik Momenti",
         "de": "Moment of Inertia",
         "fr": "Moment of Inertia",
         "es": "Moment of Inertia",
         "ar": "Moment of Inertia"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum moment of inertia about buckling axis",
+        "tr": "Burkulma ekseni etrafındaki minimum atalet momenti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Young's modulus of the material",
       "label_i18n": {
         "en": "Modulus of Elasticity",
-        "tr": "Modulus of Elasticity",
+        "tr": "Elastisite Modülü",
         "de": "Modulus of Elasticity",
         "fr": "Modulus of Elasticity",
         "es": "Modulus of Elasticity",
         "ar": "Modulus of Elasticity"
+      },
+      "businessContext_i18n": {
+        "en": "Young's modulus of the material",
+        "tr": "Malzemenin Young modülü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Yield stress of the material",
       "label_i18n": {
         "en": "Yield Strength",
-        "tr": "Yield Strength",
+        "tr": "Akma Dayanımı",
         "de": "Yield Strength",
         "fr": "Yield Strength",
         "es": "Yield Strength",
         "ar": "Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Yield stress of the material",
+        "tr": "Malzemenin akma gerilmesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Effective length factor (e.g., 1.0 for pinned-pinned, 2.0 for fixed-free)",
       "label_i18n": {
         "en": "Effective Length Factor K",
-        "tr": "Effective Length Factor K",
+        "tr": "Etkin Uzunluk Faktörü K",
         "de": "Effective Length Factor K",
         "fr": "Effective Length Factor K",
         "es": "Effective Length Factor K",
         "ar": "Effective Length Factor K"
+      },
+      "businessContext_i18n": {
+        "en": "Effective length factor (e.g., 1.0 for pinned-pinned, 2.0 for fixed-free)",
+        "tr": "Etkin uzunluk faktörü (ör. 1.0 mafsallı-mafsallı, 2.0 ankastre-serbest)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Factor of safety for design load",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor of safety for design load",
+        "tr": "Tasarım yükü için güvenlik faktörü"
       }
     }
   ],

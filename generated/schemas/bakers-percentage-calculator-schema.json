@@ -10,11 +10,15 @@
       "businessContext": "The weight of flour used as the base (100%)",
       "label_i18n": {
         "en": "Flour Weight",
-        "tr": "Flour Weight",
+        "tr": "Un Ağırlığı",
         "de": "Flour Weight",
         "fr": "Flour Weight",
         "es": "Flour Weight",
         "ar": "Flour Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The weight of flour used as the base (100%)",
+        "tr": "Temel olarak kullanılan un ağırlığı (%100)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Hydration percentage relative to flour weight",
       "label_i18n": {
         "en": "Water %",
-        "tr": "Water %",
+        "tr": "Su %",
         "de": "Water %",
         "fr": "Water %",
         "es": "Water %",
         "ar": "Water %"
+      },
+      "businessContext_i18n": {
+        "en": "Hydration percentage relative to flour weight",
+        "tr": "Una göre hidrasyon yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Instant dry yeast percentage (usually 0.5–2%)",
       "label_i18n": {
         "en": "Yeast %",
-        "tr": "Yeast %",
+        "tr": "Maya %",
         "de": "Yeast %",
         "fr": "Yeast %",
         "es": "Yeast %",
         "ar": "Yeast %"
+      },
+      "businessContext_i18n": {
+        "en": "Instant dry yeast percentage (usually 0.5–2%)",
+        "tr": "Instant kuru maya yüzdesi (genellikle %0.5–2)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Salt percentage (typically 1.5–2.5%)",
       "label_i18n": {
         "en": "Salt %",
-        "tr": "Salt %",
+        "tr": "Tuz %",
         "de": "Salt %",
         "fr": "Salt %",
         "es": "Salt %",
         "ar": "Salt %"
+      },
+      "businessContext_i18n": {
+        "en": "Salt percentage (typically 1.5–2.5%)",
+        "tr": "Tuz yüzdesi (genellikle %1.5–2.5)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional sugar percentage",
       "label_i18n": {
         "en": "Sugar %",
-        "tr": "Sugar %",
+        "tr": "Şeker %",
         "de": "Sugar %",
         "fr": "Sugar %",
         "es": "Sugar %",
         "ar": "Sugar %"
+      },
+      "businessContext_i18n": {
+        "en": "Optional sugar percentage",
+        "tr": "İsteğe bağlı şeker yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Optional fat (butter, oil) percentage",
       "label_i18n": {
         "en": "Fat %",
-        "tr": "Fat %",
+        "tr": "Yağ %",
         "de": "Fat %",
         "fr": "Fat %",
         "es": "Fat %",
         "ar": "Fat %"
+      },
+      "businessContext_i18n": {
+        "en": "Optional fat (butter, oil) percentage",
+        "tr": "İsteğe bağlı yağ (tereyağı, sıvı yağ) yüzdesi"
       }
     }
   ],

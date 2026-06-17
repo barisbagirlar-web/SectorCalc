@@ -10,11 +10,15 @@
       "businessContext": "The purchase cost of the ingredient per unit weight (e.g., per kg).",
       "label_i18n": {
         "en": "Ingredient Cost per Unit",
-        "tr": "Ingredient Cost per Unit",
+        "tr": "Birim Başına Malzeme Maliyeti",
         "de": "Ingredient Cost per Unit",
         "fr": "Ingredient Cost per Unit",
         "es": "Ingredient Cost per Unit",
         "ar": "Ingredient Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The purchase cost of the ingredient per unit weight (e.g., per kg).",
+        "tr": "Malzemenin birim ağırlık başına (örn. kg başına) satın alma maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The amount of the ingredient used in the recipe.",
       "label_i18n": {
         "en": "Ingredient Quantity Used",
-        "tr": "Ingredient Quantity Used",
+        "tr": "Kullanılan Malzeme Miktarı",
         "de": "Ingredient Quantity Used",
         "fr": "Ingredient Quantity Used",
         "es": "Ingredient Quantity Used",
         "ar": "Ingredient Quantity Used"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of the ingredient used in the recipe.",
+        "tr": "Tarifte kullanılan malzeme miktarı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The number of portions the recipe yields.",
       "label_i18n": {
         "en": "Number of Portions",
-        "tr": "Number of Portions",
+        "tr": "Porsiyon sayısı",
         "de": "Number of Portions",
         "fr": "Number of Portions",
         "es": "Number of Portions",
         "ar": "Number of Portions"
+      },
+      "businessContext_i18n": {
+        "en": "The number of portions the recipe yields.",
+        "tr": "Tarifin verdiği porsiyon sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Hourly wage for kitchen staff.",
       "label_i18n": {
         "en": "Labor Cost per Hour",
-        "tr": "Labor Cost per Hour",
+        "tr": "Saatlik işçilik maliyeti",
         "de": "Labor Cost per Hour",
         "fr": "Labor Cost per Hour",
         "es": "Labor Cost per Hour",
         "ar": "Labor Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage for kitchen staff.",
+        "tr": "Mutfak personeli için saatlik ücret."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total labor time required for preparation and cooking.",
       "label_i18n": {
         "en": "Labor Time",
-        "tr": "Labor Time",
+        "tr": "İşçilik Süresi",
         "de": "Labor Time",
         "fr": "Labor Time",
         "es": "Labor Time",
         "ar": "Labor Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total labor time required for preparation and cooking.",
+        "tr": "Hazırlık ve pişirme için gereken toplam işçilik süresi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage of ingredient cost to cover overheads (rent, utilities, etc.).",
       "label_i18n": {
         "en": "Overhead Percentage",
-        "tr": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi",
         "de": "Overhead Percentage",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of ingredient cost to cover overheads (rent, utilities, etc.).",
+        "tr": "Genel giderleri (kira, elektrik vb.) karşılamak için malzeme maliyetinin yüzdesi."
       }
     }
   ],

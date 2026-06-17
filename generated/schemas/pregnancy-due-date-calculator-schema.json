@@ -21,10 +21,12 @@
       "max": 1893456000,
       "businessContext": "Date of the first day of the last menstrual period, used as the baseline for gestational age calculation.",
       "label_i18n": {
-        "en": "Last Menstrual Period (LMP) Date"
+        "en": "Last Menstrual Period (LMP) Date",
+        "tr": "Son Adet Tarihi (SAT)"
       },
       "businessContext_i18n": {
-        "en": "Date of the first day of the last menstrual period, used as the baseline for gestational age calculation."
+        "en": "Date of the first day of the last menstrual period, used as the baseline for gestational age calculation.",
+        "tr": "Son adet döneminin ilk gününün tarihi, gebelik yaşı hesaplaması için temel olarak kullanılır."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 45,
       "businessContext": "Average length of the woman's menstrual cycle in days. Deviations from 28 days adjust the due date estimate.",
       "label_i18n": {
-        "en": "Average Cycle Length"
+        "en": "Average Cycle Length",
+        "tr": "Ortalama Döngü Uzunluğu"
       },
       "businessContext_i18n": {
-        "en": "Average length of the woman's menstrual cycle in days. Deviations from 28 days adjust the due date estimate."
+        "en": "Average length of the woman's menstrual cycle in days. Deviations from 28 days adjust the due date estimate.",
+        "tr": "Kadının adet döngüsünün gün cinsinden ortalama uzunluğu. 28 günden sapmalar tahmini doğum tarihini ayarlar."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 17,
       "businessContext": "Length of the luteal phase (post-ovulation). Typically 14 days, but can vary. Used to refine ovulation date.",
       "label_i18n": {
-        "en": "Luteal Phase Length"
+        "en": "Luteal Phase Length",
+        "tr": "Luteal Faz Uzunluğu"
       },
       "businessContext_i18n": {
-        "en": "Length of the luteal phase (post-ovulation). Typically 14 days, but can vary. Used to refine ovulation date."
+        "en": "Length of the luteal phase (post-ovulation). Typically 14 days, but can vary. Used to refine ovulation date.",
+        "tr": "Luteal fazın (yumurtlama sonrası) uzunluğu. Tipik olarak 14 gündür, ancak değişebilir. Yumurtlama tarihini hassaslaştırmak için kullanılır."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 42,
       "businessContext": "Gestational age measured by ultrasound (crown-rump length). If provided, overrides LMP-based estimate.",
       "label_i18n": {
-        "en": "Ultrasound Gestational Age (weeks)"
+        "en": "Ultrasound Gestational Age (weeks)",
+        "tr": "Ultrason Gebelik Yaşı (hafta)"
       },
       "businessContext_i18n": {
-        "en": "Gestational age measured by ultrasound (crown-rump length). If provided, overrides LMP-based estimate."
+        "en": "Gestational age measured by ultrasound (crown-rump length). If provided, overrides LMP-based estimate.",
+        "tr": "Ultrason ile ölçülen gebelik yaşı (baş-popo uzunluğu). Sağlanırsa, SAT tabanlı tahmini geçersiz kılar."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 6,
       "businessContext": "Remaining days beyond weeks for ultrasound gestational age.",
       "label_i18n": {
-        "en": "Ultrasound Gestational Age (additional days)"
+        "en": "Ultrasound Gestational Age (additional days)",
+        "tr": "Ultrason Gebelik Yaşı (ek günler)"
       },
       "businessContext_i18n": {
-        "en": "Remaining days beyond weeks for ultrasound gestational age."
+        "en": "Remaining days beyond weeks for ultrasound gestational age.",
+        "tr": "Ultrason gebelik yaşı için haftaların ötesindeki kalan günler."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 10,
       "businessContext": "Standard deviation of cycle length, used to compute confidence intervals and data confidence adjustment.",
       "label_i18n": {
-        "en": "Cycle Variability (standard deviation)"
+        "en": "Cycle Variability (standard deviation)",
+        "tr": "Döngü Değişkenliği (standart sapma)"
       },
       "businessContext_i18n": {
-        "en": "Standard deviation of cycle length, used to compute confidence intervals and data confidence adjustment."
+        "en": "Standard deviation of cycle length, used to compute confidence intervals and data confidence adjustment.",
+        "tr": "Döngü uzunluğunun standart sapması, güven aralıklarını ve veri güven ayarını hesaplamak için kullanılır."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 10,
       "businessContext": "Number of previous live births. Used in risk stratification (e.g., grand multiparity).",
       "label_i18n": {
-        "en": "Parity (number of previous births)"
+        "en": "Parity (number of previous births)",
+        "tr": "Parite (önceki doğum sayısı)"
       },
       "businessContext_i18n": {
-        "en": "Number of previous live births. Used in risk stratification (e.g., grand multiparity)."
+        "en": "Number of previous live births. Used in risk stratification (e.g., grand multiparity).",
+        "tr": "Önceki canlı doğum sayısı. Risk sınıflandırmasında kullanılır (örneğin, grand multiparite)."
       }
     },
     {
@@ -139,10 +153,12 @@
       ],
       "businessContext": "Presence of known risk factors that may affect due date reliability or require additional monitoring.",
       "label_i18n": {
-        "en": "Risk Factors Present"
+        "en": "Risk Factors Present",
+        "tr": "Mevcut Risk Faktörleri"
       },
       "businessContext_i18n": {
-        "en": "Presence of known risk factors that may affect due date reliability or require additional monitoring."
+        "en": "Presence of known risk factors that may affect due date reliability or require additional monitoring.",
+        "tr": "Tahmini doğum tarihi güvenilirliğini etkileyebilecek veya ek izleme gerektirecek bilinen risk faktörlerinin varlığı."
       }
     }
   ],

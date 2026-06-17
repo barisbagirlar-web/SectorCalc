@@ -10,11 +10,15 @@
       "businessContext": "Starting pressure of the gas in the system",
       "label_i18n": {
         "en": "Initial Pressure (P1)",
-        "tr": "Initial Pressure (P1)",
+        "tr": "Başlangıç Basıncı (P1)",
         "de": "Initial Pressure (P1)",
         "fr": "Initial Pressure (P1)",
         "es": "Initial Pressure (P1)",
         "ar": "Initial Pressure (P1)"
+      },
+      "businessContext_i18n": {
+        "en": "Starting pressure of the gas in the system",
+        "tr": "Sistemdeki gazın başlangıç basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Starting volume of the gas",
       "label_i18n": {
         "en": "Initial Volume (V1)",
-        "tr": "Initial Volume (V1)",
+        "tr": "Başlangıç Hacmi (V1)",
         "de": "Initial Volume (V1)",
         "fr": "Initial Volume (V1)",
         "es": "Initial Volume (V1)",
         "ar": "Initial Volume (V1)"
+      },
+      "businessContext_i18n": {
+        "en": "Starting volume of the gas",
+        "tr": "Gazın başlangıç hacmi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Pressure after change (leave blank to calculate)",
       "label_i18n": {
         "en": "Final Pressure (P2)",
-        "tr": "Final Pressure (P2)",
+        "tr": "Son Basınç (P2)",
         "de": "Final Pressure (P2)",
         "fr": "Final Pressure (P2)",
         "es": "Final Pressure (P2)",
         "ar": "Final Pressure (P2)"
+      },
+      "businessContext_i18n": {
+        "en": "Pressure after change (leave blank to calculate)",
+        "tr": "Değişim sonrası basınç (hesaplanacaksa boş bırakın)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Volume after change (leave blank to calculate)",
       "label_i18n": {
         "en": "Final Volume (V2)",
-        "tr": "Final Volume (V2)",
+        "tr": "Son Hacim (V2)",
         "de": "Final Volume (V2)",
         "fr": "Final Volume (V2)",
         "es": "Final Volume (V2)",
         "ar": "Final Volume (V2)"
+      },
+      "businessContext_i18n": {
+        "en": "Volume after change (leave blank to calculate)",
+        "tr": "Değişim sonrası hacim (hesaplanacaksa boş bırakın)"
       }
     }
   ],

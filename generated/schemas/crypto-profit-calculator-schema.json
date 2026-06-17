@@ -10,11 +10,15 @@
       "businessContext": "Amount invested in fiat currency (USD)",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Amount invested in fiat currency (USD)",
+        "tr": "Fiat para biriminde (USD) yatırılan miktar"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Price at which cryptocurrency was purchased (per unit)",
       "label_i18n": {
         "en": "Buy Price per Coin",
-        "tr": "Buy Price per Coin",
+        "tr": "Coin başına alış fiyatı",
         "de": "Buy Price per Coin",
         "fr": "Buy Price per Coin",
         "es": "Buy Price per Coin",
         "ar": "Buy Price per Coin"
+      },
+      "businessContext_i18n": {
+        "en": "Price at which cryptocurrency was purchased (per unit)",
+        "tr": "Kripto paranın satın alındığı fiyat (birim başına)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Price at which cryptocurrency is sold (per unit)",
       "label_i18n": {
         "en": "Sell Price per Coin",
-        "tr": "Sell Price per Coin",
+        "tr": "Coin başına satış fiyatı",
         "de": "Sell Price per Coin",
         "fr": "Sell Price per Coin",
         "es": "Sell Price per Coin",
         "ar": "Sell Price per Coin"
+      },
+      "businessContext_i18n": {
+        "en": "Price at which cryptocurrency is sold (per unit)",
+        "tr": "Kripto paranın satıldığı fiyat (birim başına)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fee percentage charged per transaction (buy and sell)",
       "label_i18n": {
         "en": "Transaction Fee (%)",
-        "tr": "Transaction Fee (%)",
+        "tr": "İşlem Ücreti (%)",
         "de": "Transaction Fee (%)",
         "fr": "Transaction Fee (%)",
         "es": "Transaction Fee (%)",
         "ar": "Transaction Fee (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Fee percentage charged per transaction (buy and sell)",
+        "tr": "İşlem başına alınan ücret yüzdesi (alış ve satış)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Capital gains tax percentage applied to net profit",
       "label_i18n": {
         "en": "Tax on Profit (%)",
-        "tr": "Tax on Profit (%)",
+        "tr": "Kâr üzerinden vergi (%)",
         "de": "Tax on Profit (%)",
         "fr": "Tax on Profit (%)",
         "es": "Tax on Profit (%)",
         "ar": "Tax on Profit (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Capital gains tax percentage applied to net profit",
+        "tr": "Net kâra uygulanan sermaye kazancı vergisi yüzdesi"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Measured at the widest part of the hips, in centimeters. Typical range 80-130 cm for adults.",
       "label_i18n": {
         "en": "Hip Circumference",
-        "tr": "Hip Circumference",
+        "tr": "Kalça Çevresi",
         "de": "Hip Circumference",
         "fr": "Hip Circumference",
         "es": "Hip Circumference",
         "ar": "Hip Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Measured at the widest part of the hips, in centimeters. Typical range 80-130 cm for adults.",
+        "tr": "Kalçanın en geniş kısmından ölçülür, santimetre cinsinden. Yetişkinler için tipik aralık 80-130 cm."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standing height without shoes, in centimeters. Typical range 140-200 cm.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Standing height without shoes, in centimeters. Typical range 140-200 cm.",
+        "tr": "Ayakta, ayakkabısız boy, santimetre cinsinden. Yetişkinler için tipik aralık 140-200 cm."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body weight in kilograms. Typical range 40-150 kg.",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms. Typical range 40-150 kg.",
+        "tr": "Vücut ağırlığı, kilogram cinsinden. Tipik aralık 40-150 kg."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Neck circumference measured below the larynx, in centimeters. Typical range 30-50 cm.",
       "label_i18n": {
         "en": "Neck Circumference",
-        "tr": "Neck Circumference",
+        "tr": "Boyun Çevresi",
         "de": "Neck Circumference",
         "fr": "Neck Circumference",
         "es": "Neck Circumference",
         "ar": "Neck Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Neck circumference measured below the larynx, in centimeters. Typical range 30-50 cm.",
+        "tr": "Gırtlağın altından ölçülen boyun çevresi, santimetre cinsinden. Tipik aralık 30-50 cm."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Waist circumference measured at the narrowest point or navel, in centimeters. Typical range 60-120 cm.",
       "label_i18n": {
         "en": "Waist Circumference",
-        "tr": "Waist Circumference",
+        "tr": "Bel Çevresi",
         "de": "Waist Circumference",
         "fr": "Waist Circumference",
         "es": "Waist Circumference",
         "ar": "Waist Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Waist circumference measured at the narrowest point or navel, in centimeters. Typical range 60-120 cm.",
+        "tr": "En dar noktadan veya göbek deliğinden ölçülen bel çevresi, santimetre cinsinden. Tipik aralık 60-120 cm."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Biological sex: 0 for male, 1 for female. Determines body fat estimation model.",
       "label_i18n": {
         "en": "Gender (0=Male, 1=Female)",
-        "tr": "Gender (0=Male, 1=Female)",
+        "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
         "de": "Gender (0=Male, 1=Female)",
         "fr": "Gender (0=Male, 1=Female)",
         "es": "Gender (0=Male, 1=Female)",
         "ar": "Gender (0=Male, 1=Female)"
+      },
+      "businessContext_i18n": {
+        "en": "Biological sex: 0 for male, 1 for female. Determines body fat estimation model.",
+        "tr": "Biyolojik cinsiyet: 0 erkek, 1 kadın. Vücut yağı tahmin modelini belirler."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Age in years. For reference; not used in calculations but may affect interpretation.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age in years. For reference; not used in calculations but may affect interpretation.",
+        "tr": "Yaş (yıl). Referans amaçlıdır; hesaplamalarda kullanılmaz ancak yorumlamayı etkileyebilir."
       }
     }
   ],

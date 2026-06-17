@@ -10,11 +10,15 @@
       "businessContext": "Measured wavelength of the spectral line from the astronomical source",
       "label_i18n": {
         "en": "Observed Wavelength",
-        "tr": "Observed Wavelength",
+        "tr": "Gözlenen Dalga Boyu",
         "de": "Observed Wavelength",
         "fr": "Observed Wavelength",
         "es": "Observed Wavelength",
         "ar": "Observed Wavelength"
+      },
+      "businessContext_i18n": {
+        "en": "Measured wavelength of the spectral line from the astronomical source",
+        "tr": "Astronomik kaynaktan ölçülen tayf çizgisinin dalga boyu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Rest wavelength of the same spectral line (e.g., Hα = 656.3 nm)",
       "label_i18n": {
         "en": "Emitted Wavelength",
-        "tr": "Emitted Wavelength",
+        "tr": "Yayımlanan Dalga Boyu",
         "de": "Emitted Wavelength",
         "fr": "Emitted Wavelength",
         "es": "Emitted Wavelength",
         "ar": "Emitted Wavelength"
+      },
+      "businessContext_i18n": {
+        "en": "Rest wavelength of the same spectral line (e.g., Hα = 656.3 nm)",
+        "tr": "Aynı tayf çizgisinin durgun dalga boyu (ör. Hα = 656.3 nm)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Direct redshift input; if non-zero, overrides wavelength-based calculation",
       "label_i18n": {
         "en": "Redshift (z)",
-        "tr": "Redshift (z)",
+        "tr": "Kırmızıya Kayma (z)",
         "de": "Redshift (z)",
         "fr": "Redshift (z)",
         "es": "Redshift (z)",
         "ar": "Redshift (z)"
+      },
+      "businessContext_i18n": {
+        "en": "Direct redshift input; if non-zero, overrides wavelength-based calculation",
+        "tr": "Doğrudan kırmızıya kayma girişi; sıfırdan farklıysa dalga boyu tabanlı hesaplamayı geçersiz kılar"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Hubble constant value in km/s per Megaparsec",
       "label_i18n": {
         "en": "Hubble Constant (H₀)",
-        "tr": "Hubble Constant (H₀)",
+        "tr": "Hubble Sabiti (H₀)",
         "de": "Hubble Constant (H₀)",
         "fr": "Hubble Constant (H₀)",
         "es": "Hubble Constant (H₀)",
         "ar": "Hubble Constant (H₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Hubble constant value in km/s per Megaparsec",
+        "tr": "Hubble sabiti değeri (km/s / Megaparsek)"
       }
     }
   ],

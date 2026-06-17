@@ -10,11 +10,15 @@
       "businessContext": "Typical nap length in the Uberman cycle is 20 minutes. Adjust for personal adaptation.",
       "label_i18n": {
         "en": "Nap Duration (min)",
-        "tr": "Nap Duration (min)",
+        "tr": "Şekerleme Süresi (dakika)",
         "de": "Nap Duration (min)",
         "fr": "Nap Duration (min)",
         "es": "Nap Duration (min)",
         "ar": "Nap Duration (min)"
+      },
+      "businessContext_i18n": {
+        "en": "Typical nap length in the Uberman cycle is 20 minutes. Adjust for personal adaptation.",
+        "tr": "Uberman döngüsünde tipik şekerleme süresi 20 dakikadır. Kişisel adaptasyon için ayarlayın."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The awake time between consecutive naps, in hours. Standard Uberman schedule uses 4-hour intervals.",
       "label_i18n": {
         "en": "Interval Between Naps (h)",
-        "tr": "Interval Between Naps (h)",
+        "tr": "Şekerlemeler Arası Süre (saat)",
         "de": "Interval Between Naps (h)",
         "fr": "Interval Between Naps (h)",
         "es": "Interval Between Naps (h)",
         "ar": "Interval Between Naps (h)"
+      },
+      "businessContext_i18n": {
+        "en": "The awake time between consecutive naps, in hours. Standard Uberman schedule uses 4-hour intervals.",
+        "tr": "Ardışık şekerlemeler arasındaki uyanık kalma süresi, saat cinsinden. Standart Uberman programı 4 saatlik aralıklar kullanır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of naps taken in a 24-hour period. Standard Uberman schedule includes 6 naps per day.",
       "label_i18n": {
         "en": "Number of Naps per Day",
-        "tr": "Number of Naps per Day",
+        "tr": "Günlük Şekerleme Sayısı",
         "de": "Number of Naps per Day",
         "fr": "Number of Naps per Day",
         "es": "Number of Naps per Day",
         "ar": "Number of Naps per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of naps taken in a 24-hour period. Standard Uberman schedule includes 6 naps per day.",
+        "tr": "24 saatlik bir dönemde yapılan toplam şekerleme sayısı. Standart Uberman programı günde 6 şekerleme içerir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The starting hour of the first nap in decimal format (e.g., 8.5 for 8:30 AM).",
       "label_i18n": {
         "en": "Start Hour (24h)",
-        "tr": "Start Hour (24h)",
+        "tr": "Başlangıç Saati (24s)",
         "de": "Start Hour (24h)",
         "fr": "Start Hour (24h)",
         "es": "Start Hour (24h)",
         "ar": "Start Hour (24h)"
+      },
+      "businessContext_i18n": {
+        "en": "The starting hour of the first nap in decimal format (e.g., 8.5 for 8:30 AM).",
+        "tr": "İlk şekerlemenin ondalık formatta başlangıç saati (ör. 8:30 için 8,5)."
       }
     }
   ],

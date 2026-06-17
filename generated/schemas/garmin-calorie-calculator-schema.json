@@ -10,11 +10,15 @@
       "businessContext": "User's body weight in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight in kilograms",
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "User's age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "User's age in years",
+        "tr": "Kullanıcının yıl cinsinden yaşı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average heart rate during exercise in beats per minute",
       "label_i18n": {
         "en": "Heart Rate",
-        "tr": "Heart Rate",
+        "tr": "Kalp Atış Hızı",
         "de": "Heart Rate",
         "fr": "Heart Rate",
         "es": "Heart Rate",
         "ar": "Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average heart rate during exercise in beats per minute",
+        "tr": "Egzersiz sırasında dakikadaki atım sayısı cinsinden ortalama kalp atış hızı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Exercise duration in minutes",
       "label_i18n": {
         "en": "Duration",
-        "tr": "Duration",
+        "tr": "Süre",
         "de": "Duration",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Exercise duration in minutes",
+        "tr": "Dakika cinsinden egzersiz süresi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Gender factor: 1 for male, 0 for female",
       "label_i18n": {
         "en": "Gender (1=Male, 0=Female)",
-        "tr": "Gender (1=Male, 0=Female)",
+        "tr": "Cinsiyet (1=Erkek, 0=Kadın)",
         "de": "Gender (1=Male, 0=Female)",
         "fr": "Gender (1=Male, 0=Female)",
         "es": "Gender (1=Male, 0=Female)",
         "ar": "Gender (1=Male, 0=Female)"
+      },
+      "businessContext_i18n": {
+        "en": "Gender factor: 1 for male, 0 for female",
+        "tr": "Cinsiyet faktörü: erkek için 1, kadın için 0"
       }
     }
   ],

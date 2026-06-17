@@ -10,11 +10,15 @@
       "businessContext": "Enter weight in avoirdupois ounces",
       "label_i18n": {
         "en": "Weight (oz)",
-        "tr": "Weight (oz)",
+        "tr": "Ağırlık (oz)",
         "de": "Weight (oz)",
         "fr": "Weight (oz)",
         "es": "Weight (oz)",
         "ar": "Weight (oz)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter weight in avoirdupois ounces",
+        "tr": "Avoirdupois ons cinsinden ağırlık girin"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Grams per ounce. Default is avoirdupois ounce. For troy ounce, use 31.1034768",
       "label_i18n": {
         "en": "Conversion Factor (g/oz)",
-        "tr": "Conversion Factor (g/oz)",
+        "tr": "Dönüşüm Faktörü (g/oz)",
         "de": "Conversion Factor (g/oz)",
         "fr": "Conversion Factor (g/oz)",
         "es": "Conversion Factor (g/oz)",
         "ar": "Conversion Factor (g/oz)"
+      },
+      "businessContext_i18n": {
+        "en": "Grams per ounce. Default is avoirdupois ounce. For troy ounce, use 31.1034768",
+        "tr": "Ons başına gram. Varsayılan avoirdupois onsudur. Troy ons için 31,1034768 kullanın"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "If converting total weight of multiple identical items, enter quantity",
       "label_i18n": {
         "en": "Number of Items",
-        "tr": "Number of Items",
+        "tr": "Öğe Sayısı",
         "de": "Number of Items",
         "fr": "Number of Items",
         "es": "Number of Items",
         "ar": "Number of Items"
+      },
+      "businessContext_i18n": {
+        "en": "If converting total weight of multiple identical items, enter quantity",
+        "tr": "Birden fazla özdeş öğenin toplam ağırlığını dönüştürüyorsanız, miktarı girin"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for result rounding",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for result rounding",
+        "tr": "Sonuç yuvarlama için ondalık basamak sayısı"
       }
     }
   ],

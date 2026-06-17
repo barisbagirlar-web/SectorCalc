@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Purchase price of a single cutting tool or insert.",
       "label_i18n": {
-        "en": "Tool Cost per Unit"
+        "en": "Tool Cost per Unit",
+        "tr": "Takım Birim Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Purchase price of a single cutting tool or insert."
+        "en": "Purchase price of a single cutting tool or insert.",
+        "tr": "Tek bir kesici takımın veya insertin satın alma fiyatı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100000,
       "businessContext": "Average number of parts produced before tool replacement is required.",
       "label_i18n": {
-        "en": "Tool Life (Parts per Tool)"
+        "en": "Tool Life (Parts per Tool)",
+        "tr": "Takım Ömrü (Takım Başına Parça)"
       },
       "businessContext_i18n": {
-        "en": "Average number of parts produced before tool replacement is required."
+        "en": "Average number of parts produced before tool replacement is required.",
+        "tr": "Takım değişimi gerekmeden önce üretilen ortalama parça sayısı."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 120,
       "businessContext": "Time required to replace or index the tool.",
       "label_i18n": {
-        "en": "Replacement Time"
+        "en": "Replacement Time",
+        "tr": "Değiştirme Süresi"
       },
       "businessContext_i18n": {
-        "en": "Time required to replace or index the tool."
+        "en": "Time required to replace or index the tool.",
+        "tr": "Takımı değiştirmek veya indekslemek için gereken süre."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 500,
       "businessContext": "Fully burdened cost per hour of machine operation (including labor, overhead, depreciation).",
       "label_i18n": {
-        "en": "Machine Hourly Rate"
+        "en": "Machine Hourly Rate",
+        "tr": "Makine Saatlik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Fully burdened cost per hour of machine operation (including labor, overhead, depreciation)."
+        "en": "Fully burdened cost per hour of machine operation (including labor, overhead, depreciation).",
+        "tr": "Makine çalışmasının saat başına tam yüklenmiş maliyeti (işçilik, genel giderler, amortisman dahil)."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 100,
       "businessContext": "Percentage of parts requiring rework due to tool wear, based on Six Sigma defect tracking.",
       "label_i18n": {
-        "en": "Rework Rate due to Wear"
+        "en": "Rework Rate due to Wear",
+        "tr": "Aşınma Nedeniyle Yeniden İşleme Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of parts requiring rework due to tool wear, based on Six Sigma defect tracking."
+        "en": "Percentage of parts requiring rework due to tool wear, based on Six Sigma defect tracking.",
+        "tr": "Altı Sigma kusur takibine dayalı olarak takım aşınması nedeniyle yeniden işleme gerektiren parçaların yüzdesi."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 500,
       "businessContext": "Average cost to rework a defective part (material, labor, overhead).",
       "label_i18n": {
-        "en": "Rework Cost per Part"
+        "en": "Rework Cost per Part",
+        "tr": "Parça Başına Yeniden İşleme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Average cost to rework a defective part (material, labor, overhead)."
+        "en": "Average cost to rework a defective part (material, labor, overhead).",
+        "tr": "Hatalı bir parçayı yeniden işlemenin ortalama maliyeti (malzeme, işçilik, genel giderler)."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100,
       "businessContext": "Percentage of parts scrapped due to tool wear beyond tolerance.",
       "label_i18n": {
-        "en": "Scrap Rate due to Wear"
+        "en": "Scrap Rate due to Wear",
+        "tr": "Aşınma Nedeniyle Fire Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of parts scrapped due to tool wear beyond tolerance."
+        "en": "Percentage of parts scrapped due to tool wear beyond tolerance.",
+        "tr": "Tolerans dışı takım aşınması nedeniyle hurdaya ayrılan parçaların yüzdesi."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 1000,
       "businessContext": "Cost of raw material lost per scrapped part.",
       "label_i18n": {
-        "en": "Scrap Material Cost per Part"
+        "en": "Scrap Material Cost per Part",
+        "tr": "Parça Başına Fire Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost of raw material lost per scrapped part."
+        "en": "Cost of raw material lost per scrapped part.",
+        "tr": "Hurdaya ayrılan parça başına kaybedilen hammadde maliyeti."
       }
     }
   ],

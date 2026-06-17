@@ -10,11 +10,15 @@
       "businessContext": "Generator inertia constant in seconds (per unit).",
       "label_i18n": {
         "en": "Inertia Constant (H)",
-        "tr": "Inertia Constant (H)",
+        "tr": "Atalet Sabiti (H)",
         "de": "Inertia Constant (H)",
         "fr": "Inertia Constant (H)",
         "es": "Inertia Constant (H)",
         "ar": "Inertia Constant (H)"
+      },
+      "businessContext_i18n": {
+        "en": "Generator inertia constant in seconds (per unit).",
+        "tr": "Jeneratör atalet sabiti saniye cinsinden (birim başına)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Pre-fault rotor angle with respect to infinite bus.",
       "label_i18n": {
         "en": "Initial Load Angle (δ₀)",
-        "tr": "Initial Load Angle (δ₀)",
+        "tr": "Başlangıç Yük Açısı (δ₀)",
         "de": "Initial Load Angle (δ₀)",
         "fr": "Initial Load Angle (δ₀)",
         "es": "Initial Load Angle (δ₀)",
         "ar": "Initial Load Angle (δ₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Pre-fault rotor angle with respect to infinite bus.",
+        "tr": "Arıza öncesi rotor açısı, sonsuz bara referans alınarak."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Turbine mechanical power on system base.",
       "label_i18n": {
         "en": "Mechanical Power Input (Pₘ)",
-        "tr": "Mechanical Power Input (Pₘ)",
+        "tr": "Mekanik Güç Girişi (Pₘ)",
         "de": "Mechanical Power Input (Pₘ)",
         "fr": "Mechanical Power Input (Pₘ)",
         "es": "Mechanical Power Input (Pₘ)",
         "ar": "Mechanical Power Input (Pₘ)"
+      },
+      "businessContext_i18n": {
+        "en": "Turbine mechanical power on system base.",
+        "tr": "Türbin mekanik gücü, sistem bazında."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Post-fault maximum of the power-angle curve.",
       "label_i18n": {
         "en": "Maximum Electrical Power (Pₘₐₓ)",
-        "tr": "Maximum Electrical Power (Pₘₐₓ)",
+        "tr": "Maksimum Elektrik Gücü (Pₘₐₓ)",
         "de": "Maximum Electrical Power (Pₘₐₓ)",
         "fr": "Maximum Electrical Power (Pₘₐₓ)",
         "es": "Maximum Electrical Power (Pₘₐₓ)",
         "ar": "Maximum Electrical Power (Pₘₐₓ)"
+      },
+      "businessContext_i18n": {
+        "en": "Post-fault maximum of the power-angle curve.",
+        "tr": "Arıza sonrası güç-açı eğrisinin maksimum değeri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Nominal system frequency (50 or 60 Hz).",
       "label_i18n": {
         "en": "System Frequency (f)",
-        "tr": "System Frequency (f)",
+        "tr": "Sistem Frekansı (f)",
         "de": "System Frequency (f)",
         "fr": "System Frequency (f)",
         "es": "System Frequency (f)",
         "ar": "System Frequency (f)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal system frequency (50 or 60 Hz).",
+        "tr": "Nominal sistem frekansı (50 veya 60 Hz)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Perceived acidity of the wine, where 0 is flat and 10 is very tart.",
       "label_i18n": {
         "en": "Wine Acidity",
-        "tr": "Wine Acidity",
+        "tr": "Şarap Asitliği",
         "de": "Wine Acidity",
         "fr": "Wine Acidity",
         "es": "Wine Acidity",
         "ar": "Wine Acidity"
+      },
+      "businessContext_i18n": {
+        "en": "Perceived acidity of the wine, where 0 is flat and 10 is very tart.",
+        "tr": "Şarabın algılanan asitliği, 0 yavan, 10 çok ekşi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Perceived sweetness of the wine, where 0 is bone-dry and 10 is very sweet.",
       "label_i18n": {
         "en": "Wine Sweetness",
-        "tr": "Wine Sweetness",
+        "tr": "Şarap Tatlılığı",
         "de": "Wine Sweetness",
         "fr": "Wine Sweetness",
         "es": "Wine Sweetness",
         "ar": "Wine Sweetness"
+      },
+      "businessContext_i18n": {
+        "en": "Perceived sweetness of the wine, where 0 is bone-dry and 10 is very sweet.",
+        "tr": "Şarabın algılanan tatlılığı, 0 sek, 10 çok tatlı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body or weight of the wine on the palate, where 0 is light and 10 is full-bodied.",
       "label_i18n": {
         "en": "Wine Body",
-        "tr": "Wine Body",
+        "tr": "Şarap Gövdesi",
         "de": "Wine Body",
         "fr": "Wine Body",
         "es": "Wine Body",
         "ar": "Wine Body"
+      },
+      "businessContext_i18n": {
+        "en": "Body or weight of the wine on the palate, where 0 is light and 10 is full-bodied.",
+        "tr": "Şarabın damakta hissedilen ağırlığı, 0 hafif, 10 dolgun"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Perceived acidity of the food, where 0 is bland and 10 is sharply acidic.",
       "label_i18n": {
         "en": "Food Acidity",
-        "tr": "Food Acidity",
+        "tr": "Yiyecek Asitliği",
         "de": "Food Acidity",
         "fr": "Food Acidity",
         "es": "Food Acidity",
         "ar": "Food Acidity"
+      },
+      "businessContext_i18n": {
+        "en": "Perceived acidity of the food, where 0 is bland and 10 is sharply acidic.",
+        "tr": "Yiyeceğin algılanan asitliği, 0 yavan, 10 keskin asidik"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Perceived sweetness of the food, where 0 is savory and 10 is dessert-like.",
       "label_i18n": {
         "en": "Food Sweetness",
-        "tr": "Food Sweetness",
+        "tr": "Yiyecek Tatlılığı",
         "de": "Food Sweetness",
         "fr": "Food Sweetness",
         "es": "Food Sweetness",
         "ar": "Food Sweetness"
+      },
+      "businessContext_i18n": {
+        "en": "Perceived sweetness of the food, where 0 is savory and 10 is dessert-like.",
+        "tr": "Yiyeceğin algılanan tatlılığı, 0 tuzlu, 10 tatlı benzeri."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Richness or fattiness of the food, where 0 is lean and 10 is very heavy.",
       "label_i18n": {
         "en": "Food Richness",
-        "tr": "Food Richness",
+        "tr": "Yiyecek Zenginliği",
         "de": "Food Richness",
         "fr": "Food Richness",
         "es": "Food Richness",
         "ar": "Food Richness"
+      },
+      "businessContext_i18n": {
+        "en": "Richness or fattiness of the food, where 0 is lean and 10 is very heavy.",
+        "tr": "Yiyeceğin zenginliği veya yağlılığı, 0 yağsız, 10 çok ağır."
       }
     }
   ],

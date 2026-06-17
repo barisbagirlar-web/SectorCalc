@@ -10,11 +10,15 @@
       "businessContext": "Total number of words in the text to analyze.",
       "label_i18n": {
         "en": "Total Words",
-        "tr": "Total Words",
+        "tr": "Toplam Kelime",
         "de": "Total Words",
         "fr": "Total Words",
         "es": "Total Words",
         "ar": "Total Words"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of words in the text to analyze.",
+        "tr": "Analiz edilecek metindeki toplam kelime sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of sentences. Must be greater than 0.",
       "label_i18n": {
         "en": "Total Sentences",
-        "tr": "Total Sentences",
+        "tr": "Toplam Cümle",
         "de": "Total Sentences",
         "fr": "Total Sentences",
         "es": "Total Sentences",
         "ar": "Total Sentences"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of sentences. Must be greater than 0.",
+        "tr": "Toplam cümle sayısı. 0'dan büyük olmalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of words with 3 or more syllables (excluding proper nouns, common suffixes, etc. if exempt).",
       "label_i18n": {
         "en": "Complex Words",
-        "tr": "Complex Words",
+        "tr": "Karmaşık Kelimeler",
         "de": "Complex Words",
         "fr": "Complex Words",
         "es": "Complex Words",
         "ar": "Complex Words"
+      },
+      "businessContext_i18n": {
+        "en": "Number of words with 3 or more syllables (excluding proper nouns, common suffixes, etc. if exempt).",
+        "tr": "3 veya daha fazla heceli kelime sayısı (uygun isimler, yaygın ekler vb. hariç tutulursa)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of complex words that are exempt from counting (e.g., proper nouns, compound words). Typically 0 if using simplified counting.",
       "label_i18n": {
         "en": "Exempt Words",
-        "tr": "Exempt Words",
+        "tr": "Muaf Kelimeler",
         "de": "Exempt Words",
         "fr": "Exempt Words",
         "es": "Exempt Words",
         "ar": "Exempt Words"
+      },
+      "businessContext_i18n": {
+        "en": "Number of complex words that are exempt from counting (e.g., proper nouns, compound words). Typically 0 if using simplified counting.",
+        "tr": "Sayımdan muaf tutulan karmaşık kelime sayısı (örneğin, özel isimler, bileşik kelimeler). Basitleştirilmiş sayım kullanılıyorsa genellikle 0."
       }
     }
   ],

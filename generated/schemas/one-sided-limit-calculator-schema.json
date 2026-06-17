@@ -10,11 +10,15 @@
       "businessContext": "The arithmetic mean of the sample measurements.",
       "label_i18n": {
         "en": "Sample Mean",
-        "tr": "Sample Mean",
+        "tr": "Örneklem ortalaması",
         "de": "Sample Mean",
         "fr": "Sample Mean",
         "es": "Sample Mean",
         "ar": "Sample Mean"
+      },
+      "businessContext_i18n": {
+        "en": "The arithmetic mean of the sample measurements.",
+        "tr": "Örnek ölçümlerin aritmetik ortalaması"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The standard deviation of the sample, calculated with n-1 degrees of freedom.",
       "label_i18n": {
         "en": "Sample Standard Deviation",
-        "tr": "Sample Standard Deviation",
+        "tr": "Örneklem standart sapması",
         "de": "Sample Standard Deviation",
         "fr": "Sample Standard Deviation",
         "es": "Sample Standard Deviation",
         "ar": "Sample Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "The standard deviation of the sample, calculated with n-1 degrees of freedom.",
+        "tr": "n-1 serbestlik derecesi ile hesaplanan örnek standart sapması"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of observations in the sample.",
       "label_i18n": {
         "en": "Sample Size",
-        "tr": "Sample Size",
+        "tr": "Örneklem büyüklüğü",
         "de": "Sample Size",
         "fr": "Sample Size",
         "es": "Sample Size",
         "ar": "Sample Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of observations in the sample.",
+        "tr": "Örneklemdeki gözlem sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard normal critical value for desired proportion. Common values: p=0.99 → zp=2.326, p=0.95 → zp=1.645.",
       "label_i18n": {
         "en": "Z-score for Proportion (p)",
-        "tr": "Z-score for Proportion (p)",
+        "tr": "Oran (p) için Z-skoru",
         "de": "Z-score for Proportion (p)",
         "fr": "Z-score for Proportion (p)",
         "es": "Z-score for Proportion (p)",
         "ar": "Z-score for Proportion (p)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard normal critical value for desired proportion. Common values: p=0.99 → zp=2.326, p=0.95 → zp=1.645.",
+        "tr": "İstenen oran için standart normal kritik değer. Yaygın değerler: p=0.99 → zp=2.326, p=0.95 → zp=1.645."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Standard normal critical value for confidence level. Common values: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326.",
       "label_i18n": {
         "en": "Z-score for Confidence (γ)",
-        "tr": "Z-score for Confidence (γ)",
+        "tr": "Güven (γ) için Z-skoru",
         "de": "Z-score for Confidence (γ)",
         "fr": "Z-score for Confidence (γ)",
         "es": "Z-score for Confidence (γ)",
         "ar": "Z-score for Confidence (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard normal critical value for confidence level. Common values: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326.",
+        "tr": "Güven düzeyi için standart normal kritik değer. Yaygın değerler: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1 for upper tolerance limit, 0 for lower tolerance limit.",
       "label_i18n": {
         "en": "Limit Direction",
-        "tr": "Limit Direction",
+        "tr": "Limit Yönü",
         "de": "Limit Direction",
         "fr": "Limit Direction",
         "es": "Limit Direction",
         "ar": "Limit Direction"
+      },
+      "businessContext_i18n": {
+        "en": "1 for upper tolerance limit, 0 for lower tolerance limit.",
+        "tr": "1 üst tolerans limiti için, 0 alt tolerans limiti için."
       }
     }
   ],

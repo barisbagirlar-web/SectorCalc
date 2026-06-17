@@ -10,11 +10,15 @@
       "businessContext": "Total number of cocktails to prepare",
       "label_i18n": {
         "en": "Number of Cocktails",
-        "tr": "Number of Cocktails",
+        "tr": "Kokteyl Sayısı",
         "de": "Number of Cocktails",
         "fr": "Number of Cocktails",
         "es": "Number of Cocktails",
         "ar": "Number of Cocktails"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of cocktails to prepare",
+        "tr": "Hazırlanacak toplam kokteyl sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Volume of each cocktail",
       "label_i18n": {
         "en": "Drink Volume per Cocktail",
-        "tr": "Drink Volume per Cocktail",
+        "tr": "Kokteyl Başına İçecek Hacmi",
         "de": "Drink Volume per Cocktail",
         "fr": "Drink Volume per Cocktail",
         "es": "Drink Volume per Cocktail",
         "ar": "Drink Volume per Cocktail"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of each cocktail",
+        "tr": "Her bir kokteylin hacmi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Parts of first ingredient in the recipe",
       "label_i18n": {
         "en": "Ingredient 1 Proportion",
-        "tr": "Ingredient 1 Proportion",
+        "tr": "Malzeme 1 Oranı",
         "de": "Ingredient 1 Proportion",
         "fr": "Ingredient 1 Proportion",
         "es": "Ingredient 1 Proportion",
         "ar": "Ingredient 1 Proportion"
+      },
+      "businessContext_i18n": {
+        "en": "Parts of first ingredient in the recipe",
+        "tr": "Tarifteki ilk malzemenin parça sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Parts of second ingredient",
       "label_i18n": {
         "en": "Ingredient 2 Proportion",
-        "tr": "Ingredient 2 Proportion",
+        "tr": "Malzeme 2 Oranı",
         "de": "Ingredient 2 Proportion",
         "fr": "Ingredient 2 Proportion",
         "es": "Ingredient 2 Proportion",
         "ar": "Ingredient 2 Proportion"
+      },
+      "businessContext_i18n": {
+        "en": "Parts of second ingredient",
+        "tr": "İkinci malzemenin parça sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Parts of third ingredient",
       "label_i18n": {
         "en": "Ingredient 3 Proportion",
-        "tr": "Ingredient 3 Proportion",
+        "tr": "Malzeme 3 Oranı",
         "de": "Ingredient 3 Proportion",
         "fr": "Ingredient 3 Proportion",
         "es": "Ingredient 3 Proportion",
         "ar": "Ingredient 3 Proportion"
+      },
+      "businessContext_i18n": {
+        "en": "Parts of third ingredient",
+        "tr": "Üçüncü malzemenin parça sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Parts of fourth ingredient (optional)",
       "label_i18n": {
         "en": "Ingredient 4 Proportion",
-        "tr": "Ingredient 4 Proportion",
+        "tr": "Malzeme 4 Oranı",
         "de": "Ingredient 4 Proportion",
         "fr": "Ingredient 4 Proportion",
         "es": "Ingredient 4 Proportion",
         "ar": "Ingredient 4 Proportion"
+      },
+      "businessContext_i18n": {
+        "en": "Parts of fourth ingredient (optional)",
+        "tr": "Dördüncü malzemenin parça sayısı (isteğe bağlı)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Extra volume to account for spillage/waste",
       "label_i18n": {
         "en": "Wastage Percentage",
-        "tr": "Wastage Percentage",
+        "tr": "Fire yüzdesi",
         "de": "Wastage Percentage",
         "fr": "Wastage Percentage",
         "es": "Wastage Percentage",
         "ar": "Wastage Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Extra volume to account for spillage/waste",
+        "tr": "Dökülme/atık için ekstra hacim"
       }
     }
   ],

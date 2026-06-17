@@ -10,11 +10,15 @@
       "businessContext": "Number of deliveries made on time",
       "label_i18n": {
         "en": "On-time Deliveries",
-        "tr": "On-time Deliveries",
+        "tr": "Zamanında Teslimatlar",
         "de": "On-time Deliveries",
         "fr": "On-time Deliveries",
         "es": "On-time Deliveries",
         "ar": "On-time Deliveries"
+      },
+      "businessContext_i18n": {
+        "en": "Number of deliveries made on time",
+        "tr": "Zamanında yapılan teslimat sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of deliveries",
       "label_i18n": {
         "en": "Total Deliveries",
-        "tr": "Total Deliveries",
+        "tr": "Toplam Teslimatlar",
         "de": "Total Deliveries",
         "fr": "Total Deliveries",
         "es": "Total Deliveries",
         "ar": "Total Deliveries"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of deliveries",
+        "tr": "Toplam teslimat sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of orders delivered with correct items and quantity",
       "label_i18n": {
         "en": "Correct Orders",
-        "tr": "Correct Orders",
+        "tr": "Doğru Siparişler",
         "de": "Correct Orders",
         "fr": "Correct Orders",
         "es": "Correct Orders",
         "ar": "Correct Orders"
+      },
+      "businessContext_i18n": {
+        "en": "Number of orders delivered with correct items and quantity",
+        "tr": "Doğru ürün ve miktarla teslim edilen sipariş sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of orders delivered",
       "label_i18n": {
         "en": "Total Orders",
-        "tr": "Total Orders",
+        "tr": "Toplam Siparişler",
         "de": "Total Orders",
         "fr": "Total Orders",
         "es": "Total Orders",
         "ar": "Total Orders"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of orders delivered",
+        "tr": "Teslim edilen toplam sipariş sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of shipments without any damaged items",
       "label_i18n": {
         "en": "Damage-free Shipments",
-        "tr": "Damage-free Shipments",
+        "tr": "Hasarsız Sevkiyatlar",
         "de": "Damage-free Shipments",
         "fr": "Damage-free Shipments",
         "es": "Damage-free Shipments",
         "ar": "Damage-free Shipments"
+      },
+      "businessContext_i18n": {
+        "en": "Number of shipments without any damaged items",
+        "tr": "Hasarlı ürün içermeyen sevkiyat sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total number of shipments",
       "label_i18n": {
         "en": "Total Shipments",
-        "tr": "Total Shipments",
+        "tr": "Toplam Sevkiyatlar",
         "de": "Total Shipments",
         "fr": "Total Shipments",
         "es": "Total Shipments",
         "ar": "Total Shipments"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of shipments",
+        "tr": "Toplam sevkiyat sayısı"
       }
     }
   ],

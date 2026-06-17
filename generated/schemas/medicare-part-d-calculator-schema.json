@@ -10,11 +10,15 @@
       "businessContext": "Total retail cost of all prescription drugs for the year before insurance",
       "label_i18n": {
         "en": "Annual Total Drug Costs",
-        "tr": "Annual Total Drug Costs",
+        "tr": "Yıllık Toplam İlaç Maliyetleri",
         "de": "Annual Total Drug Costs",
         "fr": "Annual Total Drug Costs",
         "es": "Annual Total Drug Costs",
         "ar": "Annual Total Drug Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Total retail cost of all prescription drugs for the year before insurance",
+        "tr": "Sigortadan önce yıl boyunca tüm reçeteli ilaçların toplam perakende maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The amount you pay out-of-pocket before initial coverage begins",
       "label_i18n": {
         "en": "Plan Deductible",
-        "tr": "Plan Deductible",
+        "tr": "Plan Muafiyeti",
         "de": "Plan Deductible",
         "fr": "Plan Deductible",
         "es": "Plan Deductible",
         "ar": "Plan Deductible"
+      },
+      "businessContext_i18n": {
+        "en": "The amount you pay out-of-pocket before initial coverage begins",
+        "tr": "İlk teminat başlamadan önce cepten ödediğiniz tutar"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of drug costs you pay during initial coverage phase",
       "label_i18n": {
         "en": "Initial Coinsurance Rate",
-        "tr": "Initial Coinsurance Rate",
+        "tr": "İlk Ortak Sigorta Oranı",
         "de": "Initial Coinsurance Rate",
         "fr": "Initial Coinsurance Rate",
         "es": "Initial Coinsurance Rate",
         "ar": "Initial Coinsurance Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of drug costs you pay during initial coverage phase",
+        "tr": "İlk teminat aşamasında ödediğiniz ilaç maliyetlerinin yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Out-of-pocket maximum after which catastrophic coverage begins",
       "label_i18n": {
         "en": "Catastrophic Threshold",
-        "tr": "Catastrophic Threshold",
+        "tr": "Katastrofik Eşik",
         "de": "Catastrophic Threshold",
         "fr": "Catastrophic Threshold",
         "es": "Catastrophic Threshold",
         "ar": "Catastrophic Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Out-of-pocket maximum after which catastrophic coverage begins",
+        "tr": "Katastrofik teminatın başladığı cepten maksimum harcama"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of drug costs you pay in catastrophic phase",
       "label_i18n": {
         "en": "Catastrophic Coinsurance Rate",
-        "tr": "Catastrophic Coinsurance Rate",
+        "tr": "Katastrofik Ortak Sigorta Oranı",
         "de": "Catastrophic Coinsurance Rate",
         "fr": "Catastrophic Coinsurance Rate",
         "es": "Catastrophic Coinsurance Rate",
         "ar": "Catastrophic Coinsurance Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of drug costs you pay in catastrophic phase",
+        "tr": "Katastrofik aşamada ödediğiniz ilaç maliyetlerinin yüzdesi"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Upfront capital expenditure per installed kilowatt",
       "label_i18n": {
         "en": "Capital Cost per kW",
-        "tr": "Capital Cost per kW",
+        "tr": "kW Başına Sermaye Maliyeti",
         "de": "Capital Cost per kW",
         "fr": "Capital Cost per kW",
         "es": "Capital Cost per kW",
         "ar": "Capital Cost per kW"
+      },
+      "businessContext_i18n": {
+        "en": "Upfront capital expenditure per installed kilowatt",
+        "tr": "Kurulu kilovat başına peşin sermaye harcaması"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total installed capacity of the power plant",
       "label_i18n": {
         "en": "Plant Capacity",
-        "tr": "Plant Capacity",
+        "tr": "Tesis Kapasitesi",
         "de": "Plant Capacity",
         "fr": "Plant Capacity",
         "es": "Plant Capacity",
         "ar": "Plant Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Total installed capacity of the power plant",
+        "tr": "Santralin toplam kurulu kapasitesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Annual fixed operating and maintenance cost per kW",
       "label_i18n": {
         "en": "Fixed O&M Cost",
-        "tr": "Fixed O&M Cost",
+        "tr": "Sabit İşletme ve Bakım Maliyeti",
         "de": "Fixed O&M Cost",
         "fr": "Fixed O&M Cost",
         "es": "Fixed O&M Cost",
         "ar": "Fixed O&M Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Annual fixed operating and maintenance cost per kW",
+        "tr": "kW başına yıllık sabit işletme ve bakım maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Variable O&M cost per MWh generated",
       "label_i18n": {
         "en": "Variable O&M Cost",
-        "tr": "Variable O&M Cost",
+        "tr": "Değişken İşletme ve Bakım Maliyeti",
         "de": "Variable O&M Cost",
         "fr": "Variable O&M Cost",
         "es": "Variable O&M Cost",
         "ar": "Variable O&M Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Variable O&M cost per MWh generated",
+        "tr": "Üretilen MWh başına değişken işletme ve bakım maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fuel cost per MWh (0 for renewable plants)",
       "label_i18n": {
         "en": "Fuel Cost",
-        "tr": "Fuel Cost",
+        "tr": "Yakıt Maliyeti",
         "de": "Fuel Cost",
         "fr": "Fuel Cost",
         "es": "Fuel Cost",
         "ar": "Fuel Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Fuel cost per MWh (0 for renewable plants)",
+        "tr": "MWh başına yakıt maliyeti (yenilenebilir santraller için 0)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Plant capacity factor as a percentage (0-100)",
       "label_i18n": {
         "en": "Capacity Factor",
-        "tr": "Capacity Factor",
+        "tr": "Kapasite Faktörü",
         "de": "Capacity Factor",
         "fr": "Capacity Factor",
         "es": "Capacity Factor",
         "ar": "Capacity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Plant capacity factor as a percentage (0-100)",
+        "tr": "Yüzde olarak tesis kapasite faktörü (0-100)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Annual discount rate (WACC) in percent",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual discount rate (WACC) in percent",
+        "tr": "Yıllık iskonto oranı (AOSM) yüzde olarak"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Economic lifetime of the plant in years",
       "label_i18n": {
         "en": "Lifetime",
-        "tr": "Lifetime",
+        "tr": "Ekonomik Ömür",
         "de": "Lifetime",
         "fr": "Lifetime",
         "es": "Lifetime",
         "ar": "Lifetime"
+      },
+      "businessContext_i18n": {
+        "en": "Economic lifetime of the plant in years",
+        "tr": "Tesisin yıl cinsinden ekonomik ömrü"
       }
     }
   ],

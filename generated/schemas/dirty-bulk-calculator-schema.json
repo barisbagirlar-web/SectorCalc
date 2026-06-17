@@ -10,11 +10,15 @@
       "businessContext": "Total weight of dirty bulk cargo to be shipped.",
       "label_i18n": {
         "en": "Cargo Weight",
-        "tr": "Cargo Weight",
+        "tr": "Kargo Ağırlığı",
         "de": "Cargo Weight",
         "fr": "Cargo Weight",
         "es": "Cargo Weight",
         "ar": "Cargo Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of dirty bulk cargo to be shipped.",
+        "tr": "Sevk edilecek kirli dökme yükün toplam ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance over sea route.",
       "label_i18n": {
         "en": "Shipping Distance",
-        "tr": "Shipping Distance",
+        "tr": "Nakliye Mesafesi",
         "de": "Shipping Distance",
         "fr": "Shipping Distance",
         "es": "Shipping Distance",
         "ar": "Shipping Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance over sea route.",
+        "tr": "Deniz rotası üzerindeki mesafe."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Base freight rate per ton-km.",
       "label_i18n": {
         "en": "Freight Rate",
-        "tr": "Freight Rate",
+        "tr": "Navlun Oranı",
         "de": "Freight Rate",
         "fr": "Freight Rate",
         "es": "Freight Rate",
         "ar": "Freight Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Base freight rate per ton-km.",
+        "tr": "Ton-km başına temel navlun oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional percentage for tank cleaning after dirty cargo.",
       "label_i18n": {
         "en": "Cleaning Surcharge",
-        "tr": "Cleaning Surcharge",
+        "tr": "Temizlik Ek Ücreti",
         "de": "Cleaning Surcharge",
         "fr": "Cleaning Surcharge",
         "es": "Cleaning Surcharge",
         "ar": "Cleaning Surcharge"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage for tank cleaning after dirty cargo.",
+        "tr": "Kirli yük sonrası tank temizliği için ek yüzde."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected extra days due to cargo residue requiring extra cleaning.",
       "label_i18n": {
         "en": "Demurrage Risk Factor",
-        "tr": "Demurrage Risk Factor",
+        "tr": "Demuraj Risk Faktörü",
         "de": "Demurrage Risk Factor",
         "fr": "Demurrage Risk Factor",
         "es": "Demurrage Risk Factor",
         "ar": "Demurrage Risk Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Expected extra days due to cargo residue requiring extra cleaning.",
+        "tr": "Kargo kalıntısı nedeniyle ekstra temizlik gerektiren beklenen ek gün sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Daily demurrage cost if port time exceeds allowed.",
       "label_i18n": {
         "en": "Demurrage Rate",
-        "tr": "Demurrage Rate",
+        "tr": "Demuraj Oranı",
         "de": "Demurrage Rate",
         "fr": "Demurrage Rate",
         "es": "Demurrage Rate",
         "ar": "Demurrage Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Daily demurrage cost if port time exceeds allowed.",
+        "tr": "Liman süresinin izin verileni aşması durumunda günlük demuraj maliyeti."
       }
     }
   ],

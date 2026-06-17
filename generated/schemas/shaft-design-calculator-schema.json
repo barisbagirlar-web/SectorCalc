@@ -10,11 +10,15 @@
       "businessContext": "Applied torsional moment on shaft.",
       "label_i18n": {
         "en": "Torque",
-        "tr": "Torque",
+        "tr": "Tork",
         "de": "Torque",
         "fr": "Torque",
         "es": "Torque",
         "ar": "Torque"
+      },
+      "businessContext_i18n": {
+        "en": "Applied torsional moment on shaft.",
+        "tr": "Mil üzerine uygulanan burulma momenti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Maximum bending moment on shaft.",
       "label_i18n": {
         "en": "Bending Moment",
-        "tr": "Bending Moment",
+        "tr": "Eğilme Momenti",
         "de": "Bending Moment",
         "fr": "Bending Moment",
         "es": "Bending Moment",
         "ar": "Bending Moment"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum bending moment on shaft.",
+        "tr": "Mil üzerindeki maksimum eğilme momenti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Diameter of the shaft at the critical section.",
       "label_i18n": {
         "en": "Shaft Diameter",
-        "tr": "Shaft Diameter",
+        "tr": "Mil Çapı",
         "de": "Shaft Diameter",
         "fr": "Shaft Diameter",
         "es": "Shaft Diameter",
         "ar": "Shaft Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the shaft at the critical section.",
+        "tr": "Kritik kesitteki mil çapı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Yield strength of shaft material.",
       "label_i18n": {
         "en": "Material Yield Strength",
-        "tr": "Material Yield Strength",
+        "tr": "Malzeme Akma Dayanımı",
         "de": "Material Yield Strength",
         "fr": "Material Yield Strength",
         "es": "Material Yield Strength",
         "ar": "Material Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Yield strength of shaft material.",
+        "tr": "Mil malzemesinin akma dayanımı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Required safety factor against yielding.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Required safety factor against yielding.",
+        "tr": "Akma dayanımına karşı gerekli güvenlik faktörü."
       }
     }
   ],

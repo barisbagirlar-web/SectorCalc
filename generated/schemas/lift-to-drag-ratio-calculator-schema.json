@@ -15,6 +15,9 @@
         "fr": "Lift Coefficient (CL)",
         "es": "Lift Coefficient (CL)",
         "ar": "Lift Coefficient (CL)"
+      },
+      "businessContext_i18n": {
+        "en": "Non-dimensional lift coefficient of the aerodynamic body."
       }
     },
     {
@@ -31,6 +34,9 @@
         "fr": "Drag Coefficient (CD)",
         "es": "Drag Coefficient (CD)",
         "ar": "Drag Coefficient (CD)"
+      },
+      "businessContext_i18n": {
+        "en": "Non-dimensional drag coefficient of the aerodynamic body."
       }
     },
     {
@@ -42,11 +48,14 @@
       "businessContext": "Air density at current altitude and temperature (ISA sea level standard).",
       "label_i18n": {
         "en": "Air Density",
-        "tr": "Air Density",
+        "tr": "Hava Yoğunluğu",
         "de": "Air Density",
         "fr": "Air Density",
         "es": "Air Density",
         "ar": "Air Density"
+      },
+      "businessContext_i18n": {
+        "en": "Air density at current altitude and temperature (ISA sea level standard)."
       }
     },
     {
@@ -58,11 +67,14 @@
       "businessContext": "Relative airspeed of the body through the fluid.",
       "label_i18n": {
         "en": "Velocity",
-        "tr": "Velocity",
+        "tr": "Hız",
         "de": "Velocity",
         "fr": "Velocity",
         "es": "Velocity",
         "ar": "Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Relative airspeed of the body through the fluid."
       }
     },
     {
@@ -74,11 +86,14 @@
       "businessContext": "Characteristic planform area (e.g., wing area).",
       "label_i18n": {
         "en": "Reference Area",
-        "tr": "Reference Area",
+        "tr": "Referans Alanı",
         "de": "Reference Area",
         "fr": "Reference Area",
         "es": "Reference Area",
         "ar": "Reference Area"
+      },
+      "businessContext_i18n": {
+        "en": "Characteristic planform area (e.g., wing area)."
       }
     }
   ],

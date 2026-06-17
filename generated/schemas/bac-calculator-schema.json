@@ -10,11 +10,15 @@
       "businessContext": "0 for male, 1 for female",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for male, 1 for female",
+        "tr": "0 erkek, 1 kadın"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms",
+        "tr": "Vücut ağırlığı (kilogram cinsinden)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard drinks (14g ethanol each)",
       "label_i18n": {
         "en": "Number of Drinks",
-        "tr": "Number of Drinks",
+        "tr": "İçecek Sayısı",
         "de": "Number of Drinks",
         "fr": "Number of Drinks",
         "es": "Number of Drinks",
         "ar": "Number of Drinks"
+      },
+      "businessContext_i18n": {
+        "en": "Standard drinks (14g ethanol each)",
+        "tr": "Standart içki (her biri 14g etanol)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time elapsed since start of drinking",
       "label_i18n": {
         "en": "Hours Since First Drink",
-        "tr": "Hours Since First Drink",
+        "tr": "İlk İçkiden Bu Yana Geçen Saat",
         "de": "Hours Since First Drink",
         "fr": "Hours Since First Drink",
         "es": "Hours Since First Drink",
         "ar": "Hours Since First Drink"
+      },
+      "businessContext_i18n": {
+        "en": "Time elapsed since start of drinking",
+        "tr": "İçmeye başladıktan sonra geçen süre"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Alcohol by volume (ABV) per drink",
       "label_i18n": {
         "en": "Alcohol Percentage per Drink",
-        "tr": "Alcohol Percentage per Drink",
+        "tr": "İçki Başına Alkol Yüzdesi",
         "de": "Alcohol Percentage per Drink",
         "fr": "Alcohol Percentage per Drink",
         "es": "Alcohol Percentage per Drink",
         "ar": "Alcohol Percentage per Drink"
+      },
+      "businessContext_i18n": {
+        "en": "Alcohol by volume (ABV) per drink",
+        "tr": "İçki başına hacimce alkol oranı (ABV)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Volume of one drink in milliliters",
       "label_i18n": {
         "en": "Volume per Drink",
-        "tr": "Volume per Drink",
+        "tr": "İçki Başına Hacim",
         "de": "Volume per Drink",
         "fr": "Volume per Drink",
         "es": "Volume per Drink",
         "ar": "Volume per Drink"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of one drink in milliliters",
+        "tr": "Bir içkinin mililitre cinsinden hacmi"
       }
     }
   ],

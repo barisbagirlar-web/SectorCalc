@@ -10,11 +10,15 @@
       "businessContext": "Total surface area that requires spackling",
       "label_i18n": {
         "en": "Wall Area (m²)",
-        "tr": "Wall Area (m²)",
+        "tr": "Duvar Alanı (m²)",
         "de": "Wall Area (m²)",
         "fr": "Wall Area (m²)",
         "es": "Wall Area (m²)",
         "ar": "Wall Area (m²)"
+      },
+      "businessContext_i18n": {
+        "en": "Total surface area that requires spackling",
+        "tr": "Macunlanması gereken toplam yüzey alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Approximate count of holes to fill",
       "label_i18n": {
         "en": "Number of Holes",
-        "tr": "Number of Holes",
+        "tr": "Delik Sayısı",
         "de": "Number of Holes",
         "fr": "Number of Holes",
         "es": "Number of Holes",
         "ar": "Number of Holes"
+      },
+      "businessContext_i18n": {
+        "en": "Approximate count of holes to fill",
+        "tr": "Doldurulacak deliklerin yaklaşık sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Diameter of typical holes in millimeters",
       "label_i18n": {
         "en": "Average Hole Diameter (mm)",
-        "tr": "Average Hole Diameter (mm)",
+        "tr": "Ortalama Delik Çapı (mm)",
         "de": "Average Hole Diameter (mm)",
         "fr": "Average Hole Diameter (mm)",
         "es": "Average Hole Diameter (mm)",
         "ar": "Average Hole Diameter (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of typical holes in millimeters",
+        "tr": "Tipik deliklerin milimetre cinsinden çapı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Depth of typical holes in millimeters",
       "label_i18n": {
         "en": "Average Hole Depth (mm)",
-        "tr": "Average Hole Depth (mm)",
+        "tr": "Ortalama Delik Derinliği (mm)",
         "de": "Average Hole Depth (mm)",
         "fr": "Average Hole Depth (mm)",
         "es": "Average Hole Depth (mm)",
         "ar": "Average Hole Depth (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Depth of typical holes in millimeters",
+        "tr": "Tipik deliklerin milimetre cinsinden derinliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Density of the spackle compound used",
       "label_i18n": {
         "en": "Spackle Density",
-        "tr": "Spackle Density",
+        "tr": "Macun Yoğunluğu",
         "de": "Spackle Density",
         "fr": "Spackle Density",
         "es": "Spackle Density",
         "ar": "Spackle Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the spackle compound used",
+        "tr": "Kullanılan macun bileşiğinin yoğunluğu"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Net weight of a single spackle container",
       "label_i18n": {
         "en": "Container Size (kg)",
-        "tr": "Container Size (kg)",
+        "tr": "Konteyner Boyutu (kg)",
         "de": "Container Size (kg)",
         "fr": "Container Size (kg)",
         "es": "Container Size (kg)",
         "ar": "Container Size (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Net weight of a single spackle container",
+        "tr": "Tek bir macun konteynerinin net ağırlığı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Extra material to account for waste and spillage",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Waste Factor (%)",
+        "tr": "Fire Faktörü (%)",
         "de": "Waste Factor (%)",
         "fr": "Waste Factor (%)",
         "es": "Waste Factor (%)",
         "ar": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Extra material to account for waste and spillage",
+        "tr": "Atık ve dökülmeyi hesaba katmak için ekstra malzeme"
       }
     }
   ],

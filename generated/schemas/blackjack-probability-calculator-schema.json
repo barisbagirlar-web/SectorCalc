@@ -10,11 +10,15 @@
       "businessContext": "Number of decks in the shoe, typically 1-8.",
       "label_i18n": {
         "en": "Number of Decks",
-        "tr": "Number of Decks",
+        "tr": "Deste Sayısı",
         "de": "Number of Decks",
         "fr": "Number of Decks",
         "es": "Number of Decks",
         "ar": "Number of Decks"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decks in the shoe, typically 1-8.",
+        "tr": "Kart dağıtıcısındaki deste sayısı, genellikle 1-8."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of aces left in the shoe.",
       "label_i18n": {
         "en": "Aces Remaining",
-        "tr": "Aces Remaining",
+        "tr": "Kalan Aslar",
         "de": "Aces Remaining",
         "fr": "Aces Remaining",
         "es": "Aces Remaining",
         "ar": "Aces Remaining"
+      },
+      "businessContext_i18n": {
+        "en": "Number of aces left in the shoe.",
+        "tr": "Kart dağıtıcısında kalan as sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of 10, J, Q, K left in the shoe.",
       "label_i18n": {
         "en": "Ten-value Cards Remaining",
-        "tr": "Ten-value Cards Remaining",
+        "tr": "Kalan Onlu Kartlar",
         "de": "Ten-value Cards Remaining",
         "fr": "Ten-value Cards Remaining",
         "es": "Ten-value Cards Remaining",
         "ar": "Ten-value Cards Remaining"
+      },
+      "businessContext_i18n": {
+        "en": "Number of 10, J, Q, K left in the shoe.",
+        "tr": "Kart dağıtıcısında kalan 10, J, Q, K sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of 2-9 cards left in the shoe.",
       "label_i18n": {
         "en": "Other Cards Remaining",
-        "tr": "Other Cards Remaining",
+        "tr": "Kalan Diğer Kartlar",
         "de": "Other Cards Remaining",
         "fr": "Other Cards Remaining",
         "es": "Other Cards Remaining",
         "ar": "Other Cards Remaining"
+      },
+      "businessContext_i18n": {
+        "en": "Number of 2-9 cards left in the shoe.",
+        "tr": "Kart dağıtıcısında kalan 2-9 kartlarının sayısı."
       }
     }
   ],

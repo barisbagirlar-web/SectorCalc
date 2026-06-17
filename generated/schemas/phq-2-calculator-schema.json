@@ -10,11 +10,15 @@
       "businessContext": "Unique identifier of the assessed worker.",
       "label_i18n": {
         "en": "Worker ID",
-        "tr": "Worker ID",
+        "tr": "Çalışan Kimliği",
         "de": "Worker ID",
         "fr": "Worker ID",
         "es": "Worker ID",
         "ar": "Worker ID"
+      },
+      "businessContext_i18n": {
+        "en": "Unique identifier of the assessed worker.",
+        "tr": "Değerlendirilen çalışanın benzersiz tanımlayıcısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Shift during which assessment occurs.",
       "label_i18n": {
         "en": "Shift Number",
-        "tr": "Shift Number",
+        "tr": "Vardiya Numarası",
         "de": "Shift Number",
         "fr": "Shift Number",
         "es": "Shift Number",
         "ar": "Shift Number"
+      },
+      "businessContext_i18n": {
+        "en": "Shift during which assessment occurs.",
+        "tr": "Değerlendirmenin yapıldığı vardiya."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Response to PHQ-2 question 1: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day.",
       "label_i18n": {
         "en": "Little interest or pleasure in doing things (last 2 weeks)",
-        "tr": "Little interest or pleasure in doing things (last 2 weeks)",
+        "tr": "Son 2 hafta boyunca işlere karşı ilgi veya zevk azlığı",
         "de": "Little interest or pleasure in doing things (last 2 weeks)",
         "fr": "Little interest or pleasure in doing things (last 2 weeks)",
         "es": "Little interest or pleasure in doing things (last 2 weeks)",
         "ar": "Little interest or pleasure in doing things (last 2 weeks)"
+      },
+      "businessContext_i18n": {
+        "en": "Response to PHQ-2 question 1: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day.",
+        "tr": "PHQ-2 sorusu 1 yanıtı: 0=Hiç, 1=Birkaç gün, 2=Günlerin yarısından fazlası, 3=Hemen her gün."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Response to PHQ-2 question 2: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day.",
       "label_i18n": {
         "en": "Feeling down, depressed, or hopeless (last 2 weeks)",
-        "tr": "Feeling down, depressed, or hopeless (last 2 weeks)",
+        "tr": "Son 2 hafta boyunca üzgün, depresif veya umutsuz hissetme",
         "de": "Feeling down, depressed, or hopeless (last 2 weeks)",
         "fr": "Feeling down, depressed, or hopeless (last 2 weeks)",
         "es": "Feeling down, depressed, or hopeless (last 2 weeks)",
         "ar": "Feeling down, depressed, or hopeless (last 2 weeks)"
+      },
+      "businessContext_i18n": {
+        "en": "Response to PHQ-2 question 2: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day.",
+        "tr": "PHQ-2 sorusu 2 yanıtı: 0=Hiç, 1=Birkaç gün, 2=Günlerin yarısından fazlası, 3=Hemen her gün."
       }
     }
   ],

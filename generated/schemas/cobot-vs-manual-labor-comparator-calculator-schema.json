@@ -23,10 +23,12 @@
       "max": 120000,
       "businessContext": "Total annual cost per full-time equivalent worker including wages, benefits, and overhead.",
       "label_i18n": {
-        "en": "Annual Manual Labor Cost (per FTE)"
+        "en": "Annual Manual Labor Cost (per FTE)",
+        "tr": "Yıllık Manuel İşçilik Maliyeti (tam zamanlı eşdeğer başına)"
       },
       "businessContext_i18n": {
-        "en": "Total annual cost per full-time equivalent worker including wages, benefits, and overhead."
+        "en": "Total annual cost per full-time equivalent worker including wages, benefits, and overhead.",
+        "tr": "Ücretler, yan haklar ve genel giderler dahil tam zamanlı eşdeğer işçi başına toplam yıllık maliyet."
       }
     },
     {
@@ -39,10 +41,12 @@
       "max": 20,
       "businessContext": "Number of manual workers that could be replaced or augmented by one cobot.",
       "label_i18n": {
-        "en": "Number of Workers Replaced"
+        "en": "Number of Workers Replaced",
+        "tr": "Değiştirilen İşçi Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Number of manual workers that could be replaced or augmented by one cobot."
+        "en": "Number of manual workers that could be replaced or augmented by one cobot.",
+        "tr": "Bir cobot tarafından değiştirilebilecek veya desteklenebilecek manuel işçi sayısı."
       }
     },
     {
@@ -55,10 +59,12 @@
       "max": 150000,
       "businessContext": "Initial capital expenditure for the cobot including end-effector and controller.",
       "label_i18n": {
-        "en": "Cobot Purchase Price"
+        "en": "Cobot Purchase Price",
+        "tr": "Cobot Satın Alma Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Initial capital expenditure for the cobot including end-effector and controller."
+        "en": "Initial capital expenditure for the cobot including end-effector and controller.",
+        "tr": "Uç efektör ve kontrolör dahil cobot için ilk sermaye harcaması."
       }
     },
     {
@@ -71,10 +77,12 @@
       "max": 15000,
       "businessContext": "Annual service contract, spare parts, and software updates.",
       "label_i18n": {
-        "en": "Cobot Annual Maintenance Cost"
+        "en": "Cobot Annual Maintenance Cost",
+        "tr": "Cobot Yıllık Bakım Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Annual service contract, spare parts, and software updates."
+        "en": "Annual service contract, spare parts, and software updates.",
+        "tr": "Yıllık servis sözleşmesi, yedek parçalar ve yazılım güncellemeleri."
       }
     },
     {
@@ -87,10 +95,12 @@
       "max": 15,
       "businessContext": "Expected operational life before major overhaul or replacement.",
       "label_i18n": {
-        "en": "Cobot Lifespan"
+        "en": "Cobot Lifespan",
+        "tr": "Cobot Kullanım Ömrü"
       },
       "businessContext_i18n": {
-        "en": "Expected operational life before major overhaul or replacement."
+        "en": "Expected operational life before major overhaul or replacement.",
+        "tr": "Büyük revizyon veya değiştirme öncesi beklenen operasyonel ömür."
       }
     },
     {
@@ -103,10 +113,12 @@
       "max": 20,
       "businessContext": "Weighted average cost of capital for NPV calculation.",
       "label_i18n": {
-        "en": "Discount Rate (WACC)"
+        "en": "Discount Rate (WACC)",
+        "tr": "İskonto Oranı (AOSM)"
       },
       "businessContext_i18n": {
-        "en": "Weighted average cost of capital for NPV calculation."
+        "en": "Weighted average cost of capital for NPV calculation.",
+        "tr": "NBD hesaplaması için ağırlıklı ortalama sermaye maliyeti."
       }
     },
     {
@@ -119,10 +131,12 @@
       "max": 1,
       "businessContext": "Efficiency factor for manual labor (1.0 = 100% productive, 0.85 = typical with breaks/errors).",
       "label_i18n": {
-        "en": "Manual Labor Productivity Factor"
+        "en": "Manual Labor Productivity Factor",
+        "tr": "Manuel İşçilik Verimlilik Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Efficiency factor for manual labor (1.0 = 100% productive, 0.85 = typical with breaks/errors)."
+        "en": "Efficiency factor for manual labor (1.0 = 100% productive, 0.85 = typical with breaks/errors).",
+        "tr": "Manuel işçilik için verimlilik faktörü (1.0 = %100 verimli, 0.85 = molalar/hatalarla tipik)."
       }
     },
     {
@@ -135,10 +149,12 @@
       "max": 99.9,
       "businessContext": "Percentage of scheduled time the cobot is operational (excluding planned maintenance).",
       "label_i18n": {
-        "en": "Cobot Uptime"
+        "en": "Cobot Uptime",
+        "tr": "Cobot Çalışma Süresi"
       },
       "businessContext_i18n": {
-        "en": "Percentage of scheduled time the cobot is operational (excluding planned maintenance)."
+        "en": "Percentage of scheduled time the cobot is operational (excluding planned maintenance).",
+        "tr": "Cobot'un planlı bakım hariç programlanan sürenin yüzdesi olarak çalışır durumda olduğu süre."
       }
     }
   ],

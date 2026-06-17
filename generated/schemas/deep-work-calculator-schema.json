@@ -10,11 +10,15 @@
       "businessContext": "Total available work hours per day",
       "label_i18n": {
         "en": "Daily Work Hours",
-        "tr": "Daily Work Hours",
+        "tr": "Günlük Çalışma Saati",
         "de": "Daily Work Hours",
         "fr": "Daily Work Hours",
         "es": "Daily Work Hours",
         "ar": "Daily Work Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total available work hours per day",
+        "tr": "Günlük toplam kullanılabilir çalışma saati"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average number of meetings per day",
       "label_i18n": {
         "en": "Number of Meetings",
-        "tr": "Number of Meetings",
+        "tr": "Toplantı Sayısı",
         "de": "Number of Meetings",
         "fr": "Number of Meetings",
         "es": "Number of Meetings",
         "ar": "Number of Meetings"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of meetings per day",
+        "tr": "Günlük ortalama toplantı sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average duration per meeting in minutes",
       "label_i18n": {
         "en": "Average Meeting Duration",
-        "tr": "Average Meeting Duration",
+        "tr": "Ortalama Toplantı Süresi",
         "de": "Average Meeting Duration",
         "fr": "Average Meeting Duration",
         "es": "Average Meeting Duration",
         "ar": "Average Meeting Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Average duration per meeting in minutes",
+        "tr": "Dakika cinsinden ortalama toplantı süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of unplanned interruptions per day",
       "label_i18n": {
         "en": "Interruptions per Day",
-        "tr": "Interruptions per Day",
+        "tr": "Günlük Kesintiler",
         "de": "Interruptions per Day",
         "fr": "Interruptions per Day",
         "es": "Interruptions per Day",
         "ar": "Interruptions per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of unplanned interruptions per day",
+        "tr": "Günlük plansız kesinti sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Minutes to regain deep focus after an interruption",
       "label_i18n": {
         "en": "Recovery Time per Interruption",
-        "tr": "Recovery Time per Interruption",
+        "tr": "Kesinti başına toparlanma süresi",
         "de": "Recovery Time per Interruption",
         "fr": "Recovery Time per Interruption",
         "es": "Recovery Time per Interruption",
         "ar": "Recovery Time per Interruption"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes to regain deep focus after an interruption",
+        "tr": "Bir kesintiden sonra derin odaklanmayı yeniden kazanma dakikası"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Typical length of an uninterrupted deep work session",
       "label_i18n": {
         "en": "Deep Work Block Duration",
-        "tr": "Deep Work Block Duration",
+        "tr": "Derin Çalışma Blok Süresi",
         "de": "Deep Work Block Duration",
         "fr": "Deep Work Block Duration",
         "es": "Deep Work Block Duration",
         "ar": "Deep Work Block Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Typical length of an uninterrupted deep work session",
+        "tr": "Kesintisiz derin çalışma oturumunun tipik uzunluğu"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Percentage of daily hours spent on shallow, low-value tasks",
       "label_i18n": {
         "en": "Shallow Work %",
-        "tr": "Shallow Work %",
+        "tr": "Sığ Çalışma %",
         "de": "Shallow Work %",
         "fr": "Shallow Work %",
         "es": "Shallow Work %",
         "ar": "Shallow Work %"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of daily hours spent on shallow, low-value tasks",
+        "tr": "Günlük saatlerin sığ, düşük değerli görevlere harcanan yüzdesi"
       }
     }
   ],

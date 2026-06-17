@@ -10,11 +10,15 @@
       "businessContext": "Measured progesterone concentration in nanograms per milliliter.",
       "label_i18n": {
         "en": "Progesterone (ng/mL)",
-        "tr": "Progesterone (ng/mL)",
+        "tr": "Progesteron (ng/mL)",
         "de": "Progesterone (ng/mL)",
         "fr": "Progesterone (ng/mL)",
         "es": "Progesterone (ng/mL)",
         "ar": "Progesterone (ng/mL)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured progesterone concentration in nanograms per milliliter.",
+        "tr": "Mililitre başına nanogram cinsinden ölçülen progesteron konsantrasyonu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Molecular weight of progesterone (default 314.46 g/mol).",
       "label_i18n": {
         "en": "Molecular Weight (g/mol)",
-        "tr": "Molecular Weight (g/mol)",
+        "tr": "Molekül Ağırlığı (g/mol)",
         "de": "Molecular Weight (g/mol)",
         "fr": "Molecular Weight (g/mol)",
         "es": "Molecular Weight (g/mol)",
         "ar": "Molecular Weight (g/mol)"
+      },
+      "businessContext_i18n": {
+        "en": "Molecular weight of progesterone (default 314.46 g/mol).",
+        "tr": "Progesteronun moleküler ağırlığı (varsayılan 314,46 g/mol)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Dilution factor applied to the sample (1 if undiluted).",
       "label_i18n": {
         "en": "Dilution Factor",
-        "tr": "Dilution Factor",
+        "tr": "Seyreltme Faktörü",
         "de": "Dilution Factor",
         "fr": "Dilution Factor",
         "es": "Dilution Factor",
         "ar": "Dilution Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Dilution factor applied to the sample (1 if undiluted).",
+        "tr": "Numuneye uygulanan seyreltme faktörü (seyreltilmemişse 1)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Volume of the sample in milliliters.",
       "label_i18n": {
         "en": "Sample Volume (mL)",
-        "tr": "Sample Volume (mL)",
+        "tr": "Numune Hacmi (mL)",
         "de": "Sample Volume (mL)",
         "fr": "Sample Volume (mL)",
         "es": "Sample Volume (mL)",
         "ar": "Sample Volume (mL)"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of the sample in milliliters.",
+        "tr": "Numunenin mililitre cinsinden hacmi."
       }
     }
   ],

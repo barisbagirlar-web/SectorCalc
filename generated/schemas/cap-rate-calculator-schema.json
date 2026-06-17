@@ -10,11 +10,15 @@
       "businessContext": "Current market value or purchase price of the property.",
       "label_i18n": {
         "en": "Property Value",
-        "tr": "Property Value",
+        "tr": "Mülk Değeri",
         "de": "Property Value",
         "fr": "Property Value",
         "es": "Property Value",
         "ar": "Property Value"
+      },
+      "businessContext_i18n": {
+        "en": "Current market value or purchase price of the property.",
+        "tr": "Mülkün güncel piyasa değeri veya satın alma fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total projected rental income for one year before expenses.",
       "label_i18n": {
         "en": "Annual Gross Income",
-        "tr": "Annual Gross Income",
+        "tr": "Yıllık Brüt Gelir",
         "de": "Annual Gross Income",
         "fr": "Annual Gross Income",
         "es": "Annual Gross Income",
         "ar": "Annual Gross Income"
+      },
+      "businessContext_i18n": {
+        "en": "Total projected rental income for one year before expenses.",
+        "tr": "Giderlerden önce bir yıl için tahmini toplam kira geliri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total annual costs to operate the property (insurance, maintenance, taxes, etc.).",
       "label_i18n": {
         "en": "Annual Operating Expenses",
-        "tr": "Annual Operating Expenses",
+        "tr": "Yıllık İşletme Giderleri",
         "de": "Annual Operating Expenses",
         "fr": "Annual Operating Expenses",
         "es": "Annual Operating Expenses",
         "ar": "Annual Operating Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual costs to operate the property (insurance, maintenance, taxes, etc.).",
+        "tr": "Mülkü işletmek için yıllık toplam maliyetler (sigorta, bakım, vergiler vb.)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated vacancy and collection loss as a percentage of gross income.",
       "label_i18n": {
         "en": "Vacancy Rate",
-        "tr": "Vacancy Rate",
+        "tr": "Boşluk Oranı",
         "de": "Vacancy Rate",
         "fr": "Vacancy Rate",
         "es": "Vacancy Rate",
         "ar": "Vacancy Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated vacancy and collection loss as a percentage of gross income.",
+        "tr": "Brüt gelirin yüzdesi olarak tahmini boşluk ve tahsilat kaybı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional income from sources like parking, laundry, storage, etc.",
       "label_i18n": {
         "en": "Other Annual Income",
-        "tr": "Other Annual Income",
+        "tr": "Diğer Yıllık Gelir",
         "de": "Other Annual Income",
         "fr": "Other Annual Income",
         "es": "Other Annual Income",
         "ar": "Other Annual Income"
+      },
+      "businessContext_i18n": {
+        "en": "Additional income from sources like parking, laundry, storage, etc.",
+        "tr": "Diğer Gelirler"
       }
     }
   ],

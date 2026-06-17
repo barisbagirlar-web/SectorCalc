@@ -10,11 +10,15 @@
       "businessContext": "Total scheduled working hours per day",
       "label_i18n": {
         "en": "Total Work Hours",
-        "tr": "Total Work Hours",
+        "tr": "Toplam Çalışma Saati",
         "de": "Total Work Hours",
         "fr": "Total Work Hours",
         "es": "Total Work Hours",
         "ar": "Total Work Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total scheduled working hours per day",
+        "tr": "Günlük planlanan toplam çalışma saati"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total break time (e.g., lunch, coffee breaks)",
       "label_i18n": {
         "en": "Break Time",
-        "tr": "Break Time",
+        "tr": "Mola Süresi",
         "de": "Break Time",
         "fr": "Break Time",
         "es": "Break Time",
         "ar": "Break Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total break time (e.g., lunch, coffee breaks)",
+        "tr": "Toplam mola süresi (ör. öğle yemeği, kahve molaları)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time spent in scheduled meetings",
       "label_i18n": {
         "en": "Meeting Time",
-        "tr": "Meeting Time",
+        "tr": "Toplantı Süresi",
         "de": "Meeting Time",
         "fr": "Meeting Time",
         "es": "Meeting Time",
         "ar": "Meeting Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time spent in scheduled meetings",
+        "tr": "Planlanmış toplantılarda geçen süre"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average number of unplanned interruptions per day",
       "label_i18n": {
         "en": "Interruption Count",
-        "tr": "Interruption Count",
+        "tr": "Kesinti Sayısı",
         "de": "Interruption Count",
         "fr": "Interruption Count",
         "es": "Interruption Count",
         "ar": "Interruption Count"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of unplanned interruptions per day",
+        "tr": "Günlük ortalama plansız kesinti sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average duration of each interruption",
       "label_i18n": {
         "en": "Avg Interruption Duration",
-        "tr": "Avg Interruption Duration",
+        "tr": "Ort. Kesinti Süresi",
         "de": "Avg Interruption Duration",
         "fr": "Avg Interruption Duration",
         "es": "Avg Interruption Duration",
         "ar": "Avg Interruption Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Average duration of each interruption",
+        "tr": "Her bir kesintinin ortalama süresi"
       }
     }
   ],

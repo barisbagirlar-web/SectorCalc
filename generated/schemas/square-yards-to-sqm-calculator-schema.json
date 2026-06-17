@@ -10,11 +10,15 @@
       "businessContext": "Length of the area in yards",
       "label_i18n": {
         "en": "Length (yards)",
-        "tr": "Length (yards)",
+        "tr": "Uzunluk (yarda)",
         "de": "Length (yards)",
         "fr": "Length (yards)",
         "es": "Length (yards)",
         "ar": "Length (yards)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the area in yards",
+        "tr": "Alanın yarda cinsinden uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the area in yards",
       "label_i18n": {
         "en": "Width (yards)",
-        "tr": "Width (yards)",
+        "tr": "Genişlik (yarda)",
         "de": "Width (yards)",
         "fr": "Width (yards)",
         "es": "Width (yards)",
         "ar": "Width (yards)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the area in yards",
+        "tr": "Alanın yarda cinsinden genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for output",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output",
+        "tr": "Çıktı için ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Conversion factor from square yards to square meters. ISO standard: 1 yd² = 0.83612736 m²",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from square yards to square meters. ISO standard: 1 yd² = 0.83612736 m²",
+        "tr": "Yardakareden metrekareye dönüşüm faktörü. ISO standardı: 1 yd² = 0,83612736 m²"
       }
     }
   ],

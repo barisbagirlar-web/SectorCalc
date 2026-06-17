@@ -10,11 +10,15 @@
       "businessContext": "Lens focal length in millimeters",
       "label_i18n": {
         "en": "Focal Length",
-        "tr": "Focal Length",
+        "tr": "Odak Uzaklığı",
         "de": "Focal Length",
         "fr": "Focal Length",
         "es": "Focal Length",
         "ar": "Focal Length"
+      },
+      "businessContext_i18n": {
+        "en": "Lens focal length in millimeters",
+        "tr": "Milimetre cinsinden lens odak uzaklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Aperture f-number (e.g., 2.8, 5.6, 8)",
       "label_i18n": {
         "en": "Aperture (f-number)",
-        "tr": "Aperture (f-number)",
+        "tr": "Diyafram (f-sayısı)",
         "de": "Aperture (f-number)",
         "fr": "Aperture (f-number)",
         "es": "Aperture (f-number)",
         "ar": "Aperture (f-number)"
+      },
+      "businessContext_i18n": {
+        "en": "Aperture f-number (e.g., 2.8, 5.6, 8)",
+        "tr": "Diyafram f-sayısı (örn. 2.8, 5.6, 8)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance from camera to subject in meters",
       "label_i18n": {
         "en": "Subject Distance",
-        "tr": "Subject Distance",
+        "tr": "Nesne Mesafesi",
         "de": "Subject Distance",
         "fr": "Subject Distance",
         "es": "Subject Distance",
         "ar": "Subject Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from camera to subject in meters",
+        "tr": "Kameradan nesneye metre cinsinden mesafe"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Circle of confusion in mm (0.03 for full-frame 35mm)",
       "label_i18n": {
         "en": "Circle of Confusion",
-        "tr": "Circle of Confusion",
+        "tr": "Karışıklık Çemberi",
         "de": "Circle of Confusion",
         "fr": "Circle of Confusion",
         "es": "Circle of Confusion",
         "ar": "Circle of Confusion"
+      },
+      "businessContext_i18n": {
+        "en": "Circle of confusion in mm (0.03 for full-frame 35mm)",
+        "tr": "mm cinsinden karışıklık çemberi (tam kare 35mm için 0.03)"
       }
     }
   ],

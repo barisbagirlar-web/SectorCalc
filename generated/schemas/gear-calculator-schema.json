@@ -10,11 +10,15 @@
       "businessContext": "The module of the gear, typically in mm.",
       "label_i18n": {
         "en": "Module (m)",
-        "tr": "Module (m)",
+        "tr": "Modül (m)",
         "de": "Module (m)",
         "fr": "Module (m)",
         "es": "Module (m)",
         "ar": "Module (m)"
+      },
+      "businessContext_i18n": {
+        "en": "The module of the gear, typically in mm.",
+        "tr": "Dişlinin modülü, tipik olarak mm cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of teeth on the driving gear.",
       "label_i18n": {
         "en": "Number of Teeth (Pinion)",
-        "tr": "Number of Teeth (Pinion)",
+        "tr": "Diş Sayısı (Pinyon)",
         "de": "Number of Teeth (Pinion)",
         "fr": "Number of Teeth (Pinion)",
         "es": "Number of Teeth (Pinion)",
         "ar": "Number of Teeth (Pinion)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of teeth on the driving gear.",
+        "tr": "Tahrik eden dişlideki diş sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of teeth on the driven gear.",
       "label_i18n": {
         "en": "Number of Teeth (Gear)",
-        "tr": "Number of Teeth (Gear)",
+        "tr": "Diş Sayısı (Dişli)",
         "de": "Number of Teeth (Gear)",
         "fr": "Number of Teeth (Gear)",
         "es": "Number of Teeth (Gear)",
         "ar": "Number of Teeth (Gear)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of teeth on the driven gear.",
+        "tr": "Tahrik edilen dişlideki diş sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard pressure angle, typically 20 degrees.",
       "label_i18n": {
         "en": "Pressure Angle (α)",
-        "tr": "Pressure Angle (α)",
+        "tr": "Basınç Açısı (α)",
         "de": "Pressure Angle (α)",
         "fr": "Pressure Angle (α)",
         "es": "Pressure Angle (α)",
         "ar": "Pressure Angle (α)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard pressure angle, typically 20 degrees.",
+        "tr": "Standart basınç açısı, tipik olarak 20 derece."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Addendum coefficient, typically 1.0 for standard gears.",
       "label_i18n": {
         "en": "Addendum Coefficient (ha*)",
-        "tr": "Addendum Coefficient (ha*)",
+        "tr": "Baş Üstü Katsayısı (ha*)",
         "de": "Addendum Coefficient (ha*)",
         "fr": "Addendum Coefficient (ha*)",
         "es": "Addendum Coefficient (ha*)",
         "ar": "Addendum Coefficient (ha*)"
+      },
+      "businessContext_i18n": {
+        "en": "Addendum coefficient, typically 1.0 for standard gears.",
+        "tr": "Baş üstü katsayısı, standart dişliler için tipik olarak 1.0."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Dedendum coefficient, typically 1.25 for standard gears.",
       "label_i18n": {
         "en": "Dedendum Coefficient (hf*)",
-        "tr": "Dedendum Coefficient (hf*)",
+        "tr": "Diş Dibi Katsayısı (hf*)",
         "de": "Dedendum Coefficient (hf*)",
         "fr": "Dedendum Coefficient (hf*)",
         "es": "Dedendum Coefficient (hf*)",
         "ar": "Dedendum Coefficient (hf*)"
+      },
+      "businessContext_i18n": {
+        "en": "Dedendum coefficient, typically 1.25 for standard gears.",
+        "tr": "Diş dibi katsayısı, standart dişliler için genellikle 1,25'tir."
       }
     }
   ],

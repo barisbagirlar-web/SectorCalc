@@ -10,11 +10,15 @@
       "businessContext": "Total orchard area in hectares",
       "label_i18n": {
         "en": "Orchard Area",
-        "tr": "Orchard Area",
+        "tr": "Meyve Bahçesi Alanı",
         "de": "Orchard Area",
         "fr": "Orchard Area",
         "es": "Orchard Area",
         "ar": "Orchard Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total orchard area in hectares",
+        "tr": "Hektar cinsinden toplam meyve bahçesi alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance between tree rows",
       "label_i18n": {
         "en": "Row Spacing",
-        "tr": "Row Spacing",
+        "tr": "Sıra Aralığı",
         "de": "Row Spacing",
         "fr": "Row Spacing",
         "es": "Row Spacing",
         "ar": "Row Spacing"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between tree rows",
+        "tr": "Sıra arası mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance between trees within a row",
       "label_i18n": {
         "en": "Tree Spacing",
-        "tr": "Tree Spacing",
+        "tr": "Ağaç aralığı",
         "de": "Tree Spacing",
         "fr": "Tree Spacing",
         "es": "Tree Spacing",
         "ar": "Tree Spacing"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between trees within a row",
+        "tr": "Sıra içi ağaç mesafesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average fruit yield per mature tree per year",
       "label_i18n": {
         "en": "Yield Per Tree",
-        "tr": "Yield Per Tree",
+        "tr": "Ağaç başına verim",
         "de": "Yield Per Tree",
         "fr": "Yield Per Tree",
         "es": "Yield Per Tree",
         "ar": "Yield Per Tree"
+      },
+      "businessContext_i18n": {
+        "en": "Average fruit yield per mature tree per year",
+        "tr": "Olgun ağaç başına yıllık ortalama meyve verimi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Farmgate price per kilogram",
       "label_i18n": {
         "en": "Selling Price",
-        "tr": "Selling Price",
+        "tr": "Satış fiyatı",
         "de": "Selling Price",
         "fr": "Selling Price",
         "es": "Selling Price",
         "ar": "Selling Price"
+      },
+      "businessContext_i18n": {
+        "en": "Farmgate price per kilogram",
+        "tr": "Çiftlik kapısı kilogram fiyatı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual cost for pruning, spraying, fertilizing per tree",
       "label_i18n": {
         "en": "Maintenance Cost",
-        "tr": "Maintenance Cost",
+        "tr": "Bakım Maliyeti",
         "de": "Maintenance Cost",
         "fr": "Maintenance Cost",
         "es": "Maintenance Cost",
         "ar": "Maintenance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost for pruning, spraying, fertilizing per tree",
+        "tr": "Ağaç başına budama, ilaçlama, gübreleme yıllık maliyeti"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Total one-time cost for land prep, seedlings, infrastructure",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Total one-time cost for land prep, seedlings, infrastructure",
+        "tr": "Arazi hazırlığı, fidan, altyapı için toplam tek seferlik maliyet"
       }
     }
   ],

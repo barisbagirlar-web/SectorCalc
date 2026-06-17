@@ -10,11 +10,15 @@
       "businessContext": "Quantity of liquid in centiliters to convert.",
       "label_i18n": {
         "en": "Volume in Centiliters",
-        "tr": "Volume in Centiliters",
+        "tr": "Santilitre cinsinden hacim",
         "de": "Volume in Centiliters",
         "fr": "Volume in Centiliters",
         "es": "Volume in Centiliters",
         "ar": "Volume in Centiliters"
+      },
+      "businessContext_i18n": {
+        "en": "Quantity of liquid in centiliters to convert.",
+        "tr": "Dönüştürülecek santilitre cinsinden sıvı miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0 for US fluid ounces, 1 for UK fluid ounces.",
       "label_i18n": {
         "en": "Ounce Type",
-        "tr": "Ounce Type",
+        "tr": "Ons Türü",
         "de": "Ounce Type",
         "fr": "Ounce Type",
         "es": "Ounce Type",
         "ar": "Ounce Type"
+      },
+      "businessContext_i18n": {
+        "en": "0 for US fluid ounces, 1 for UK fluid ounces.",
+        "tr": "0 ABD sıvı onsu, 1 İngiltere sıvı onsu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of identical containers holding this volume.",
       "label_i18n": {
         "en": "Number of Containers",
-        "tr": "Number of Containers",
+        "tr": "Kap Sayısı",
         "de": "Number of Containers",
         "fr": "Number of Containers",
         "es": "Number of Containers",
         "ar": "Number of Containers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical containers holding this volume.",
+        "tr": "Bu hacmi tutan özdeş kap sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of volume lost or additional required, e.g., 5 for 5% waste.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of volume lost or additional required, e.g., 5 for 5% waste.",
+        "tr": "Kayıp veya ek gereken hacim yüzdesi, örn. %5 fire için 5."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for final output.",
       "label_i18n": {
         "en": "Rounding Precision",
-        "tr": "Rounding Precision",
+        "tr": "Yuvarlama Hassasiyeti",
         "de": "Rounding Precision",
         "fr": "Rounding Precision",
         "es": "Rounding Precision",
         "ar": "Rounding Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for final output.",
+        "tr": "Nihai çıktı için ondalık basamak sayısı."
       }
     }
   ],

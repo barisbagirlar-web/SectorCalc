@@ -10,11 +10,15 @@
       "businessContext": "Particle effective mass relative to free electron mass (m₀ = 9.1093837e-31 kg). For electron, use 1.0; for hole, use appropriate value.",
       "label_i18n": {
         "en": "Effective Mass Ratio (m*/m₀)",
-        "tr": "Effective Mass Ratio (m*/m₀)",
+        "tr": "Etkin Kütle Oranı (m*/m₀)",
         "de": "Effective Mass Ratio (m*/m₀)",
         "fr": "Effective Mass Ratio (m*/m₀)",
         "es": "Effective Mass Ratio (m*/m₀)",
         "ar": "Effective Mass Ratio (m*/m₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Particle effective mass relative to free electron mass (m₀ = 9.1093837e-31 kg). For electron, use 1.0; for hole, use appropriate value.",
+        "tr": "Parçacığın serbest elektron kütlesine (m₀ = 9.1093837e-31 kg) göre etkin kütlesi. Elektron için 1.0 kullanın; boşluk için uygun değeri kullanın."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Potential barrier height in electronvolts. Must be greater than particle energy for tunneling to occur classically.",
       "label_i18n": {
         "en": "Barrier Height (V)",
-        "tr": "Barrier Height (V)",
+        "tr": "Bariyer Yüksekliği (V)",
         "de": "Barrier Height (V)",
         "fr": "Barrier Height (V)",
         "es": "Barrier Height (V)",
         "ar": "Barrier Height (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Potential barrier height in electronvolts. Must be greater than particle energy for tunneling to occur classically.",
+        "tr": "Elektronvolt cinsinden potansiyel bariyer yüksekliği. Klasik olarak tünelleme gerçekleşmesi için parçacık enerjisinden büyük olmalıdır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Energy of the incident particle. Must be less than barrier height for meaningful tunneling probability.",
       "label_i18n": {
         "en": "Particle Energy (E)",
-        "tr": "Particle Energy (E)",
+        "tr": "Parçacık Enerjisi (E)",
         "de": "Particle Energy (E)",
         "fr": "Particle Energy (E)",
         "es": "Particle Energy (E)",
         "ar": "Particle Energy (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Energy of the incident particle. Must be less than barrier height for meaningful tunneling probability.",
+        "tr": "Gelen parçacığın enerjisi. Anlamlı bir tünelleme olasılığı için bariyer yüksekliğinden küçük olmalıdır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of the potential barrier in nanometers. Typical nanoscale dimensions.",
       "label_i18n": {
         "en": "Barrier Width (d)",
-        "tr": "Barrier Width (d)",
+        "tr": "Bariyer Genişliği (d)",
         "de": "Barrier Width (d)",
         "fr": "Barrier Width (d)",
         "es": "Barrier Width (d)",
         "ar": "Barrier Width (d)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the potential barrier in nanometers. Typical nanoscale dimensions.",
+        "tr": "Nanometre cinsinden potansiyel bariyer genişliği. Tipik nano ölçekli boyutlar."
       }
     }
   ],

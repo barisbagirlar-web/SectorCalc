@@ -10,11 +10,15 @@
       "businessContext": "The reference power level (e.g., 1 mW = 0.001 W for dBm)",
       "label_i18n": {
         "en": "Reference Power",
-        "tr": "Reference Power",
+        "tr": "Referans Güç",
         "de": "Reference Power",
         "fr": "Reference Power",
         "es": "Reference Power",
         "ar": "Reference Power"
+      },
+      "businessContext_i18n": {
+        "en": "The reference power level (e.g., 1 mW = 0.001 W for dBm)",
+        "tr": "Referans güç seviyesi (örneğin, dBm için 1 mW = 0.001 W)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The measured power level",
       "label_i18n": {
         "en": "Measured Power",
-        "tr": "Measured Power",
+        "tr": "Ölçülen Güç",
         "de": "Measured Power",
         "fr": "Measured Power",
         "es": "Measured Power",
         "ar": "Measured Power"
+      },
+      "businessContext_i18n": {
+        "en": "The measured power level",
+        "tr": "Ölçülen güç seviyesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The reference amplitude (voltage, pressure) in linear units",
       "label_i18n": {
         "en": "Reference Amplitude",
-        "tr": "Reference Amplitude",
+        "tr": "Referans Genlik",
         "de": "Reference Amplitude",
         "fr": "Reference Amplitude",
         "es": "Reference Amplitude",
         "ar": "Reference Amplitude"
+      },
+      "businessContext_i18n": {
+        "en": "The reference amplitude (voltage, pressure) in linear units",
+        "tr": "Referans genlik (voltaj, basınç) doğrusal birimlerde"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The measured amplitude",
       "label_i18n": {
         "en": "Measured Amplitude",
-        "tr": "Measured Amplitude",
+        "tr": "Ölçülen Genlik",
         "de": "Measured Amplitude",
         "fr": "Measured Amplitude",
         "es": "Measured Amplitude",
         "ar": "Measured Amplitude"
+      },
+      "businessContext_i18n": {
+        "en": "The measured amplitude",
+        "tr": "Ölçülen genlik"
       }
     }
   ],

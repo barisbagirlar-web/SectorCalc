@@ -10,11 +10,15 @@
       "businessContext": "Total electric charge enclosed by the Gaussian surface",
       "label_i18n": {
         "en": "Total Charge (Q)",
-        "tr": "Total Charge (Q)",
+        "tr": "Toplam Yük (Q)",
         "de": "Total Charge (Q)",
         "fr": "Total Charge (Q)",
         "es": "Total Charge (Q)",
         "ar": "Total Charge (Q)"
+      },
+      "businessContext_i18n": {
+        "en": "Total electric charge enclosed by the Gaussian surface",
+        "tr": "Gauss yüzeyi tarafından çevrelenen toplam elektrik yükü"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Permittivity of the medium (vacuum default)",
       "label_i18n": {
         "en": "Permittivity (ε)",
-        "tr": "Permittivity (ε)",
+        "tr": "Geçirgenlik (ε)",
         "de": "Permittivity (ε)",
         "fr": "Permittivity (ε)",
         "es": "Permittivity (ε)",
         "ar": "Permittivity (ε)"
+      },
+      "businessContext_i18n": {
+        "en": "Permittivity of the medium (vacuum default)",
+        "tr": "Ortamın geçirgenliği (varsayılan vakum)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Radius of the spherical Gaussian surface",
       "label_i18n": {
         "en": "Radius (r)",
-        "tr": "Radius (r)",
+        "tr": "Yarıçap (r)",
         "de": "Radius (r)",
         "fr": "Radius (r)",
         "es": "Radius (r)",
         "ar": "Radius (r)"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of the spherical Gaussian surface",
+        "tr": "Küresel Gauss yüzeyinin yarıçapı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Angle between electric field and area vector (0 for perpendicular)",
       "label_i18n": {
         "en": "Angle (θ)",
-        "tr": "Angle (θ)",
+        "tr": "Açı (θ)",
         "de": "Angle (θ)",
         "fr": "Angle (θ)",
         "es": "Angle (θ)",
         "ar": "Angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between electric field and area vector (0 for perpendicular)",
+        "tr": "Elektrik alanı ile alan vektörü arasındaki açı (dik için 0)"
       }
     }
   ],

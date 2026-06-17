@@ -10,11 +10,15 @@
       "businessContext": "Number of paired (x,y) data points",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)",
         "de": "Sample Size (n)",
         "fr": "Sample Size (n)",
         "es": "Sample Size (n)",
         "ar": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of paired (x,y) data points",
+        "tr": "Eşleştirilmiş (x,y) veri noktası sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sum of all x values",
       "label_i18n": {
         "en": "Sum of X (Σx)",
-        "tr": "Sum of X (Σx)",
+        "tr": "X'in toplamı (Σx)",
         "de": "Sum of X (Σx)",
         "fr": "Sum of X (Σx)",
         "es": "Sum of X (Σx)",
         "ar": "Sum of X (Σx)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all x values",
+        "tr": "Tüm x değerlerinin toplamı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sum of all y values",
       "label_i18n": {
         "en": "Sum of Y (Σy)",
-        "tr": "Sum of Y (Σy)",
+        "tr": "Y'nin toplamı (Σy)",
         "de": "Sum of Y (Σy)",
         "fr": "Sum of Y (Σy)",
         "es": "Sum of Y (Σy)",
         "ar": "Sum of Y (Σy)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all y values",
+        "tr": "Tüm y değerlerinin toplamı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sum of the product of each x and y pair",
       "label_i18n": {
         "en": "Sum of XY (Σxy)",
-        "tr": "Sum of XY (Σxy)",
+        "tr": "XY'nin toplamı (Σxy)",
         "de": "Sum of XY (Σxy)",
         "fr": "Sum of XY (Σxy)",
         "es": "Sum of XY (Σxy)",
         "ar": "Sum of XY (Σxy)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of the product of each x and y pair",
+        "tr": "Her x ve y çiftinin çarpımlarının toplamı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Sum of squared x values",
       "label_i18n": {
         "en": "Sum of X² (Σx²)",
-        "tr": "Sum of X² (Σx²)",
+        "tr": "X²'nin toplamı (Σx²)",
         "de": "Sum of X² (Σx²)",
         "fr": "Sum of X² (Σx²)",
         "es": "Sum of X² (Σx²)",
         "ar": "Sum of X² (Σx²)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of squared x values",
+        "tr": "Kareli x değerlerinin toplamı"
       }
     }
   ],

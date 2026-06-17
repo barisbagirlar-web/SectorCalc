@@ -10,11 +10,15 @@
       "businessContext": "Volume in US fluid ounces",
       "label_i18n": {
         "en": "US Fluid Ounces",
-        "tr": "US Fluid Ounces",
+        "tr": "ABD Sıvı Onsu",
         "de": "US Fluid Ounces",
         "fr": "US Fluid Ounces",
         "es": "US Fluid Ounces",
         "ar": "US Fluid Ounces"
+      },
+      "businessContext_i18n": {
+        "en": "Volume in US fluid ounces",
+        "tr": "ABD sıvı ons cinsinden hacim"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of units per batch",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units per batch",
+        "tr": "Parti başına birim sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of identical packages",
       "label_i18n": {
         "en": "Package Count",
-        "tr": "Package Count",
+        "tr": "Paket Sayısı",
         "de": "Package Count",
         "fr": "Package Count",
         "es": "Package Count",
         "ar": "Package Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical packages",
+        "tr": "Özdeş paket sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Allowed deviation (±%) for quality control",
       "label_i18n": {
         "en": "Measurement Tolerance",
-        "tr": "Measurement Tolerance",
+        "tr": "Ölçüm Toleransı",
         "de": "Measurement Tolerance",
         "fr": "Measurement Tolerance",
         "es": "Measurement Tolerance",
         "ar": "Measurement Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Allowed deviation (±%) for quality control",
+        "tr": "Kalite kontrol için izin verilen sapma (±%)"
       }
     }
   ],

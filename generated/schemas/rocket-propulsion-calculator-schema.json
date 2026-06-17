@@ -10,11 +10,15 @@
       "businessContext": "Total initial mass of the rocket including propellant.",
       "label_i18n": {
         "en": "Initial Mass",
-        "tr": "Initial Mass",
+        "tr": "Başlangıç Kütlesi",
         "de": "Initial Mass",
         "fr": "Initial Mass",
         "es": "Initial Mass",
         "ar": "Initial Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Total initial mass of the rocket including propellant.",
+        "tr": "Roketin yakıt dahil toplam başlangıç kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Final mass after propellant burnout (dry mass).",
       "label_i18n": {
         "en": "Final Mass",
-        "tr": "Final Mass",
+        "tr": "Son Kütle",
         "de": "Final Mass",
         "fr": "Final Mass",
         "es": "Final Mass",
         "ar": "Final Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Final mass after propellant burnout (dry mass).",
+        "tr": "Yakıt tükenmesinden sonraki son kütle (kuru kütle)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Specific impulse of the rocket engine, a measure of efficiency.",
       "label_i18n": {
         "en": "Specific Impulse (Isp)",
-        "tr": "Specific Impulse (Isp)",
+        "tr": "Özgül İtki (Isp)",
         "de": "Specific Impulse (Isp)",
         "fr": "Specific Impulse (Isp)",
         "es": "Specific Impulse (Isp)",
         "ar": "Specific Impulse (Isp)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific impulse of the rocket engine, a measure of efficiency.",
+        "tr": "Roket motorunun özgül itkisi, bir verimlilik ölçüsü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard gravitational acceleration at Earth's surface.",
       "label_i18n": {
         "en": "Gravitational Acceleration",
-        "tr": "Gravitational Acceleration",
+        "tr": "Yerçekimi İvmesi",
         "de": "Gravitational Acceleration",
         "fr": "Gravitational Acceleration",
         "es": "Gravitational Acceleration",
         "ar": "Gravitational Acceleration"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravitational acceleration at Earth's surface.",
+        "tr": "Dünya yüzeyindeki standart yerçekimi ivmesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Propellant mass flow rate through the engine.",
       "label_i18n": {
         "en": "Mass Flow Rate",
-        "tr": "Mass Flow Rate",
+        "tr": "Kütlesel Debi",
         "de": "Mass Flow Rate",
         "fr": "Mass Flow Rate",
         "es": "Mass Flow Rate",
         "ar": "Mass Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Propellant mass flow rate through the engine.",
+        "tr": "Motordan geçen yakıt kütle debisi."
       }
     }
   ],

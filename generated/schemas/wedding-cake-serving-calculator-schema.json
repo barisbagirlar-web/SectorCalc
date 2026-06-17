@@ -10,11 +10,15 @@
       "businessContext": "Select shape: 0 for round tiers, 1 for square tiers.",
       "label_i18n": {
         "en": "Cake Shape (0=Round, 1=Square)",
-        "tr": "Cake Shape (0=Round, 1=Square)",
+        "tr": "Pasta Şekli (0=Yuvarlak, 1=Kare)",
         "de": "Cake Shape (0=Round, 1=Square)",
         "fr": "Cake Shape (0=Round, 1=Square)",
         "es": "Cake Shape (0=Round, 1=Square)",
         "ar": "Cake Shape (0=Round, 1=Square)"
+      },
+      "businessContext_i18n": {
+        "en": "Select shape: 0 for round tiers, 1 for square tiers.",
+        "tr": "Şekil seçin: yuvarlak katlar için 0, kare katlar için 1."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Diameter for round or side length for square tier.",
       "label_i18n": {
         "en": "Tier 1 Diameter/Side",
-        "tr": "Tier 1 Diameter/Side",
+        "tr": "Kat 1 Çap/Kenar",
         "de": "Tier 1 Diameter/Side",
         "fr": "Tier 1 Diameter/Side",
         "es": "Tier 1 Diameter/Side",
         "ar": "Tier 1 Diameter/Side"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter for round or side length for square tier.",
+        "tr": "Yuvarlak kat için çap veya kare kat için kenar uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Enter 0 if no second tier.",
       "label_i18n": {
         "en": "Tier 2 Diameter/Side",
-        "tr": "Tier 2 Diameter/Side",
+        "tr": "Kat 2 Çap/Kenar",
         "de": "Tier 2 Diameter/Side",
         "fr": "Tier 2 Diameter/Side",
         "es": "Tier 2 Diameter/Side",
         "ar": "Tier 2 Diameter/Side"
+      },
+      "businessContext_i18n": {
+        "en": "Enter 0 if no second tier.",
+        "tr": "İkinci kat yoksa 0 girin."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Enter 0 if no third tier.",
       "label_i18n": {
         "en": "Tier 3 Diameter/Side",
-        "tr": "Tier 3 Diameter/Side",
+        "tr": "Kat 3 Çap/Kenar",
         "de": "Tier 3 Diameter/Side",
         "fr": "Tier 3 Diameter/Side",
         "es": "Tier 3 Diameter/Side",
         "ar": "Tier 3 Diameter/Side"
+      },
+      "businessContext_i18n": {
+        "en": "Enter 0 if no third tier.",
+        "tr": "Üçüncü kat yoksa 0 girin."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Typical wedding serving is 1x2 inches = 2 sq in.",
       "label_i18n": {
         "en": "Serving Size (sq in)",
-        "tr": "Serving Size (sq in)",
+        "tr": "Porsiyon Boyutu (inç kare)",
         "de": "Serving Size (sq in)",
         "fr": "Serving Size (sq in)",
         "es": "Serving Size (sq in)",
         "ar": "Serving Size (sq in)"
+      },
+      "businessContext_i18n": {
+        "en": "Typical wedding serving is 1x2 inches = 2 sq in.",
+        "tr": "Tipik düğün porsiyonu 1x2 inç = 2 inç karedir."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of guests to serve. Used to compute surplus.",
       "label_i18n": {
         "en": "Guest Count",
-        "tr": "Guest Count",
+        "tr": "Misafir Sayısı",
         "de": "Guest Count",
         "fr": "Guest Count",
         "es": "Guest Count",
         "ar": "Guest Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of guests to serve. Used to compute surplus.",
+        "tr": "Servis edilecek misafir sayısı. Fazlalığı hesaplamak için kullanılır."
       }
     }
   ],

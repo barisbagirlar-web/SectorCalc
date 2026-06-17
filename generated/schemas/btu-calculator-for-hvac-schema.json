@@ -10,11 +10,15 @@
       "businessContext": "Length of the room to be cooled or heated.",
       "label_i18n": {
         "en": "Room Length",
-        "tr": "Room Length",
+        "tr": "Oda Uzunluğu",
         "de": "Room Length",
         "fr": "Room Length",
         "es": "Room Length",
         "ar": "Room Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the room to be cooled or heated.",
+        "tr": "Soğutulacak veya ısıtılacak odanın uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the room to be cooled or heated.",
       "label_i18n": {
         "en": "Room Width",
-        "tr": "Room Width",
+        "tr": "Oda Genişliği",
         "de": "Room Width",
         "fr": "Room Width",
         "es": "Room Width",
         "ar": "Room Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the room to be cooled or heated.",
+        "tr": "Soğutulacak veya ısıtılacak odanın genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Height of the ceiling from floor.",
       "label_i18n": {
         "en": "Ceiling Height",
-        "tr": "Ceiling Height",
+        "tr": "Tavan Yüksekliği",
         "de": "Ceiling Height",
         "fr": "Ceiling Height",
         "es": "Ceiling Height",
         "ar": "Ceiling Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the ceiling from floor.",
+        "tr": "Zeminden tavan yüksekliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Insulation quality: 0.5 (excellent), 1.0 (average), 1.5 (poor).",
       "label_i18n": {
         "en": "Insulation Factor",
-        "tr": "Insulation Factor",
+        "tr": "Yalıtım Faktörü",
         "de": "Insulation Factor",
         "fr": "Insulation Factor",
         "es": "Insulation Factor",
         "ar": "Insulation Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Insulation quality: 0.5 (excellent), 1.0 (average), 1.5 (poor).",
+        "tr": "Yalıtım kalitesi: 0,5 (mükemmel), 1,0 (ortalama), 1,5 (kötü)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional BTU per square foot due to sun: 0 (none), 10 (moderate), 20 (high).",
       "label_i18n": {
         "en": "Sun Exposure",
-        "tr": "Sun Exposure",
+        "tr": "Güneşe Maruziyet",
         "de": "Sun Exposure",
         "fr": "Sun Exposure",
         "es": "Sun Exposure",
         "ar": "Sun Exposure"
+      },
+      "businessContext_i18n": {
+        "en": "Additional BTU per square foot due to sun: 0 (none), 10 (moderate), 20 (high).",
+        "tr": "Güneş nedeniyle metrekare başına ek BTU: 0 (yok), 10 (orta), 20 (yüksek)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Typical number of people in the room.",
       "label_i18n": {
         "en": "Number of Occupants",
-        "tr": "Number of Occupants",
+        "tr": "Kişi Sayısı",
         "de": "Number of Occupants",
         "fr": "Number of Occupants",
         "es": "Number of Occupants",
         "ar": "Number of Occupants"
+      },
+      "businessContext_i18n": {
+        "en": "Typical number of people in the room.",
+        "tr": "Odadaki tipik kişi sayısı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of windows in the room.",
       "label_i18n": {
         "en": "Number of Windows",
-        "tr": "Number of Windows",
+        "tr": "Pencere Sayısı",
         "de": "Number of Windows",
         "fr": "Number of Windows",
         "es": "Number of Windows",
         "ar": "Number of Windows"
+      },
+      "businessContext_i18n": {
+        "en": "Number of windows in the room.",
+        "tr": "Odadaki pencere sayısı."
       }
     }
   ],

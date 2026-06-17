@@ -10,11 +10,15 @@
       "businessContext": "The total planned production quantity for the period.",
       "label_i18n": {
         "en": "Planned Production",
-        "tr": "Planned Production",
+        "tr": "Planlanan Üretim",
         "de": "Planned Production",
         "fr": "Planned Production",
         "es": "Planned Production",
         "ar": "Planned Production"
+      },
+      "businessContext_i18n": {
+        "en": "The total planned production quantity for the period.",
+        "tr": "Dönem için planlanan toplam üretim miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The actual quantity produced during the period.",
       "label_i18n": {
         "en": "Actual Production",
-        "tr": "Actual Production",
+        "tr": "Gerçek Üretim",
         "de": "Actual Production",
         "fr": "Actual Production",
         "es": "Actual Production",
         "ar": "Actual Production"
+      },
+      "businessContext_i18n": {
+        "en": "The actual quantity produced during the period.",
+        "tr": "Dönem boyunca üretilen gerçek miktar."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The number of defect-free units produced.",
       "label_i18n": {
         "en": "Good Parts",
-        "tr": "Good Parts",
+        "tr": "İyi Parçalar",
         "de": "Good Parts",
         "fr": "Good Parts",
         "es": "Good Parts",
         "ar": "Good Parts"
+      },
+      "businessContext_i18n": {
+        "en": "The number of defect-free units produced.",
+        "tr": "Üretilen hatasız birim sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The total number of units produced, including defects.",
       "label_i18n": {
         "en": "Total Parts",
-        "tr": "Total Parts",
+        "tr": "Toplam Parçalar",
         "de": "Total Parts",
         "fr": "Total Parts",
         "es": "Total Parts",
         "ar": "Total Parts"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of units produced, including defects.",
+        "tr": "Üretilen toplam birim sayısı (hatalar dahil)."
       }
     }
   ],

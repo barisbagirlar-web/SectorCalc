@@ -10,11 +10,15 @@
       "businessContext": "Total sales or revenue from operations",
       "label_i18n": {
         "en": "Revenue",
-        "tr": "Revenue",
+        "tr": "Gelir",
         "de": "Revenue",
         "fr": "Revenue",
         "es": "Revenue",
         "ar": "Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Total sales or revenue from operations",
+        "tr": "Toplam satış veya faaliyet geliri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Direct costs attributable to production",
       "label_i18n": {
         "en": "Cost of Goods Sold (COGS)",
-        "tr": "Cost of Goods Sold (COGS)",
+        "tr": "Satılan Malların Maliyeti (COGS)",
         "de": "Cost of Goods Sold (COGS)",
         "fr": "Cost of Goods Sold (COGS)",
         "es": "Cost of Goods Sold (COGS)",
         "ar": "Cost of Goods Sold (COGS)"
+      },
+      "businessContext_i18n": {
+        "en": "Direct costs attributable to production",
+        "tr": "Üretime doğrudan atfedilebilen maliyetler"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Selling, General & Administrative Expenses and other operating costs",
       "label_i18n": {
         "en": "Operating Expenses",
-        "tr": "Operating Expenses",
+        "tr": "Faaliyet Giderleri",
         "de": "Operating Expenses",
         "fr": "Operating Expenses",
         "es": "Operating Expenses",
         "ar": "Operating Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Selling, General & Administrative Expenses and other operating costs",
+        "tr": "Satış, Genel ve İdari Giderler ve diğer işletme maliyetleri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Any other income directly from operations (negative if expense)",
       "label_i18n": {
         "en": "Other Operating Income",
-        "tr": "Other Operating Income",
+        "tr": "Diğer Faaliyet Gelirleri",
         "de": "Other Operating Income",
         "fr": "Other Operating Income",
         "es": "Other Operating Income",
         "ar": "Other Operating Income"
+      },
+      "businessContext_i18n": {
+        "en": "Any other income directly from operations (negative if expense)",
+        "tr": "Faaliyetlerden doğrudan elde edilen diğer gelirler (gider ise negatif)"
       }
     }
   ],

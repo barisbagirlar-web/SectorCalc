@@ -10,11 +10,15 @@
       "businessContext": "Scalar part of first quaternion.",
       "label_i18n": {
         "en": "q w (scalar)",
-        "tr": "q w (scalar)",
+        "tr": "q w (skaler)",
         "de": "q w (scalar)",
         "fr": "q w (scalar)",
         "es": "q w (scalar)",
         "ar": "q w (scalar)"
+      },
+      "businessContext_i18n": {
+        "en": "Scalar part of first quaternion.",
+        "tr": "Birinci kuaterniyonun skaler kısmı."
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "q x",
         "es": "q x",
         "ar": "q x"
+      },
+      "businessContext_i18n": {
+        "en": "x component of first quaternion.",
+        "tr": "Birinci kuaterniyonun x bileşeni."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "q y",
         "es": "q y",
         "ar": "q y"
+      },
+      "businessContext_i18n": {
+        "en": "y component of first quaternion.",
+        "tr": "Birinci kuaterniyonun y bileşeni."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "q z",
         "es": "q z",
         "ar": "q z"
+      },
+      "businessContext_i18n": {
+        "en": "z component of first quaternion.",
+        "tr": "Birinci kuaterniyonun z bileşeni."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Scalar part of second quaternion.",
       "label_i18n": {
         "en": "p w (scalar)",
-        "tr": "p w (scalar)",
+        "tr": "p w (skaler)",
         "de": "p w (scalar)",
         "fr": "p w (scalar)",
         "es": "p w (scalar)",
         "ar": "p w (scalar)"
+      },
+      "businessContext_i18n": {
+        "en": "Scalar part of second quaternion.",
+        "tr": "İkinci kuaterniyonun skaler kısmı."
       }
     },
     {
@@ -95,6 +115,10 @@
         "fr": "p x",
         "es": "p x",
         "ar": "p x"
+      },
+      "businessContext_i18n": {
+        "en": "x component of second quaternion.",
+        "tr": "İkinci kuaterniyonun x bileşeni."
       }
     },
     {
@@ -111,6 +135,10 @@
         "fr": "p y",
         "es": "p y",
         "ar": "p y"
+      },
+      "businessContext_i18n": {
+        "en": "y component of second quaternion.",
+        "tr": "İkinci kuaterniyonun y bileşeni."
       }
     },
     {
@@ -127,6 +155,10 @@
         "fr": "p z",
         "es": "p z",
         "ar": "p z"
+      },
+      "businessContext_i18n": {
+        "en": "z component of second quaternion.",
+        "tr": "İkinci kuaterniyonun z bileşeni."
       }
     }
   ],

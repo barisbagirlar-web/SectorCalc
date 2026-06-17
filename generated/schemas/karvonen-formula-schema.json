@@ -10,11 +10,15 @@
       "businessContext": "User's age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "User's age in years",
+        "tr": "Kullanıcının yıl cinsinden yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Heart rate at rest in beats per minute",
       "label_i18n": {
         "en": "Resting Heart Rate",
-        "tr": "Resting Heart Rate",
+        "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Resting Heart Rate",
         "fr": "Resting Heart Rate",
         "es": "Resting Heart Rate",
         "ar": "Resting Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Heart rate at rest in beats per minute",
+        "tr": "Dinlenme halinde dakikadaki kalp atış sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum heart rate (can be estimated as 220 - age)",
       "label_i18n": {
         "en": "Maximum Heart Rate",
-        "tr": "Maximum Heart Rate",
+        "tr": "Maksimum Kalp Atış Hızı",
         "de": "Maximum Heart Rate",
         "fr": "Maximum Heart Rate",
         "es": "Maximum Heart Rate",
         "ar": "Maximum Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum heart rate (can be estimated as 220 - age)",
+        "tr": "Maksimum kalp atış hızı (220 - yaş olarak tahmin edilebilir)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Lower bound of target heart rate zone as percentage of heart rate reserve",
       "label_i18n": {
         "en": "Minimum Intensity",
-        "tr": "Minimum Intensity",
+        "tr": "Minimum Yoğunluk",
         "de": "Minimum Intensity",
         "fr": "Minimum Intensity",
         "es": "Minimum Intensity",
         "ar": "Minimum Intensity"
+      },
+      "businessContext_i18n": {
+        "en": "Lower bound of target heart rate zone as percentage of heart rate reserve",
+        "tr": "Hedef kalp atış hızı bölgesinin kalp atış hızı rezervinin yüzdesi olarak alt sınırı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Upper bound of target heart rate zone as percentage of heart rate reserve",
       "label_i18n": {
         "en": "Maximum Intensity",
-        "tr": "Maximum Intensity",
+        "tr": "Maksimum Yoğunluk",
         "de": "Maximum Intensity",
         "fr": "Maximum Intensity",
         "es": "Maximum Intensity",
         "ar": "Maximum Intensity"
+      },
+      "businessContext_i18n": {
+        "en": "Upper bound of target heart rate zone as percentage of heart rate reserve",
+        "tr": "Hedef kalp atış hızı bölgesinin kalp atış hızı rezervinin yüzdesi olarak üst sınırı"
       }
     }
   ],

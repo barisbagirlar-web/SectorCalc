@@ -10,11 +10,15 @@
       "businessContext": "Measure the circumference of the horse's chest just behind the elbows and withers.",
       "label_i18n": {
         "en": "Heart Girth (cm)",
-        "tr": "Heart Girth (cm)",
+        "tr": "Göğüs Çevresi (cm)",
         "de": "Heart Girth (cm)",
         "fr": "Heart Girth (cm)",
         "es": "Heart Girth (cm)",
         "ar": "Heart Girth (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Measure the circumference of the horse's chest just behind the elbows and withers.",
+        "tr": "Atın göğsünün çevresini dirseklerin ve omuzların hemen arkasından ölçün."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measure from the point of shoulder to the point of buttock in a straight line.",
       "label_i18n": {
         "en": "Body Length (cm)",
-        "tr": "Body Length (cm)",
+        "tr": "Vücut Uzunluğu (cm)",
         "de": "Body Length (cm)",
         "fr": "Body Length (cm)",
         "es": "Body Length (cm)",
         "ar": "Body Length (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Measure from the point of shoulder to the point of buttock in a straight line.",
+        "tr": "Omuz noktasından kalça noktasına düz bir çizgide ölçün."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Measure from the ground to the highest point of the withers (optional).",
       "label_i18n": {
         "en": "Height at Withers (cm)",
-        "tr": "Height at Withers (cm)",
+        "tr": "Omuz Yüksekliği (cm)",
         "de": "Height at Withers (cm)",
         "fr": "Height at Withers (cm)",
         "es": "Height at Withers (cm)",
         "ar": "Height at Withers (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Measure from the ground to the highest point of the withers (optional).",
+        "tr": "Yerden omuzların en yüksek noktasına kadar ölçün (isteğe bağlı)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Age of the horse in years (optional).",
       "label_i18n": {
         "en": "Age (years)",
-        "tr": "Age (years)",
+        "tr": "Yaş (yıl)",
         "de": "Age (years)",
         "fr": "Age (years)",
         "es": "Age (years)",
         "ar": "Age (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the horse in years (optional).",
+        "tr": "Atın yıl cinsinden yaşı (isteğe bağlı)."
       }
     }
   ],

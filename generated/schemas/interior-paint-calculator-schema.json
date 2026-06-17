@@ -10,11 +10,15 @@
       "businessContext": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür.",
       "label_i18n": {
         "en": "Room Length (m)",
-        "tr": "Room Length (m)",
+        "tr": "Oda Uzunluğu (m)",
         "de": "Room Length (m)",
         "fr": "Room Length (m)",
         "es": "Room Length (m)",
         "ar": "Room Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür.",
+        "tr": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Genişlik, odanın boyutlarını belirler.",
       "label_i18n": {
         "en": "Room Width (m)",
-        "tr": "Room Width (m)",
+        "tr": "Oda Genişliği (m)",
         "de": "Room Width (m)",
         "fr": "Room Width (m)",
         "es": "Room Width (m)",
         "ar": "Room Width (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Genişlik, odanın boyutlarını belirler.",
+        "tr": "Genişlik, odanın boyutlarını belirler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Yükseklik, duvar alanının hesaplanmasında kullanılır.",
       "label_i18n": {
         "en": "Room Height (m)",
-        "tr": "Room Height (m)",
+        "tr": "Oda Yüksekliği (m)",
         "de": "Room Height (m)",
         "fr": "Room Height (m)",
         "es": "Room Height (m)",
         "ar": "Room Height (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Yükseklik, duvar alanının hesaplanmasında kullanılır.",
+        "tr": "Yükseklik, duvar alanının hesaplanmasında kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar.",
       "label_i18n": {
         "en": "Number of Doors",
-        "tr": "Number of Doors",
+        "tr": "Kapı sayısı",
         "de": "Number of Doors",
         "fr": "Number of Doors",
         "es": "Number of Doors",
         "ar": "Number of Doors"
+      },
+      "businessContext_i18n": {
+        "en": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar.",
+        "tr": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar.",
       "label_i18n": {
         "en": "Number of Windows",
-        "tr": "Number of Windows",
+        "tr": "Pencere Sayısı",
         "de": "Number of Windows",
         "fr": "Number of Windows",
         "es": "Number of Windows",
         "ar": "Number of Windows"
+      },
+      "businessContext_i18n": {
+        "en": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar.",
+        "tr": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Boyanın litre başına kapladığı alan, üretici verisine dayanır.",
       "label_i18n": {
         "en": "Paint Coverage (m²/L)",
-        "tr": "Paint Coverage (m²/L)",
+        "tr": "Boya Kaplama Alanı (m²/L)",
         "de": "Paint Coverage (m²/L)",
         "fr": "Paint Coverage (m²/L)",
         "es": "Paint Coverage (m²/L)",
         "ar": "Paint Coverage (m²/L)"
+      },
+      "businessContext_i18n": {
+        "en": "Boyanın litre başına kapladığı alan, üretici verisine dayanır.",
+        "tr": "Boyanın litre başına kapladığı alan, üretici verisine dayanır."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler.",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Number of Coats",
+        "tr": "Kat Sayısı",
         "de": "Number of Coats",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
+      },
+      "businessContext_i18n": {
+        "en": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler.",
+        "tr": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder.",
       "label_i18n": {
         "en": "Include Ceiling (1=Yes, 0=No)",
-        "tr": "Include Ceiling (1=Yes, 0=No)",
+        "tr": "Tavanı Dahil Et (1=Evet, 0=Hayır)",
         "de": "Include Ceiling (1=Yes, 0=No)",
         "fr": "Include Ceiling (1=Yes, 0=No)",
         "es": "Include Ceiling (1=Yes, 0=No)",
         "ar": "Include Ceiling (1=Yes, 0=No)"
+      },
+      "businessContext_i18n": {
+        "en": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder.",
+        "tr": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder."
       }
     }
   ],

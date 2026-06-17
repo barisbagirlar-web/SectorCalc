@@ -10,11 +10,15 @@
       "businessContext": "Total weight of the aircraft including payload and fuel",
       "label_i18n": {
         "en": "Aircraft Weight",
-        "tr": "Aircraft Weight",
+        "tr": "Uçak Ağırlığı",
         "de": "Aircraft Weight",
         "fr": "Aircraft Weight",
         "es": "Aircraft Weight",
         "ar": "Aircraft Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of the aircraft including payload and fuel",
+        "tr": "Yük ve yakıt dahil uçağın toplam ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total planform wing area",
       "label_i18n": {
         "en": "Wing Area",
-        "tr": "Wing Area",
+        "tr": "Kanat Alanı",
         "de": "Wing Area",
         "fr": "Wing Area",
         "es": "Wing Area",
         "ar": "Wing Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total planform wing area",
+        "tr": "Toplam planform kanat alanı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of air at current altitude",
       "label_i18n": {
         "en": "Air Density",
-        "tr": "Air Density",
+        "tr": "Hava Yoğunluğu",
         "de": "Air Density",
         "fr": "Air Density",
         "es": "Air Density",
         "ar": "Air Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of air at current altitude",
+        "tr": "Mevcut irtifadaki hava yoğunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum lift coefficient of the airfoil",
       "label_i18n": {
         "en": "Maximum Lift Coefficient (CL_max)",
-        "tr": "Maximum Lift Coefficient (CL_max)",
+        "tr": "Maksimum Kaldırma Katsayısı (CL_max)",
         "de": "Maximum Lift Coefficient (CL_max)",
         "fr": "Maximum Lift Coefficient (CL_max)",
         "es": "Maximum Lift Coefficient (CL_max)",
         "ar": "Maximum Lift Coefficient (CL_max)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum lift coefficient of the airfoil",
+        "tr": "Kanat profilinin maksimum kaldırma katsayısı"
       }
     }
   ],

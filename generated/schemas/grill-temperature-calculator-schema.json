@@ -10,11 +10,15 @@
       "businessContext": "Initial temperature of surroundings",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı",
         "de": "Ambient Temperature",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Initial temperature of surroundings",
+        "tr": "Ortamın başlangıç sıcaklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Area of grill surface exposed to heat",
       "label_i18n": {
         "en": "Grill Surface Area",
-        "tr": "Grill Surface Area",
+        "tr": "Izgara Yüzey Alanı",
         "de": "Grill Surface Area",
         "fr": "Grill Surface Area",
         "es": "Grill Surface Area",
         "ar": "Grill Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Area of grill surface exposed to heat",
+        "tr": "Isıya maruz kalan ızgara yüzey alanı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Electrical or gas power input to grill",
       "label_i18n": {
         "en": "Heat Input Power",
-        "tr": "Heat Input Power",
+        "tr": "Isı Giriş Gücü",
         "de": "Heat Input Power",
         "fr": "Heat Input Power",
         "es": "Heat Input Power",
         "ar": "Heat Input Power"
+      },
+      "businessContext_i18n": {
+        "en": "Electrical or gas power input to grill",
+        "tr": "Izgaraya elektrik veya gaz güç girişi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of heat transferred to grill surface (0-100)",
       "label_i18n": {
         "en": "Efficiency",
-        "tr": "Efficiency",
+        "tr": "Verim",
         "de": "Efficiency",
         "fr": "Efficiency",
         "es": "Efficiency",
         "ar": "Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of heat transferred to grill surface (0-100)",
+        "tr": "Izgara yüzeyine aktarılan ısı yüzdesi (0-100)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Combined convection and radiation coefficient",
       "label_i18n": {
         "en": "Heat Transfer Coefficient",
-        "tr": "Heat Transfer Coefficient",
+        "tr": "Isı Transfer Katsayısı",
         "de": "Heat Transfer Coefficient",
         "fr": "Heat Transfer Coefficient",
         "es": "Heat Transfer Coefficient",
         "ar": "Heat Transfer Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Combined convection and radiation coefficient",
+        "tr": "Birleşik konveksiyon ve radyasyon katsayısı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Base probability of a critical event per operation",
       "label_i18n": {
         "en": "Base Critical Rate",
-        "tr": "Base Critical Rate",
+        "tr": "Temel Kritik Oran",
         "de": "Base Critical Rate",
         "fr": "Base Critical Rate",
         "es": "Base Critical Rate",
         "ar": "Base Critical Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Base probability of a critical event per operation",
+        "tr": "Operasyon başına kritik olayın temel olasılığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional probability from stress factors or conditions",
       "label_i18n": {
         "en": "Critical Modifier",
-        "tr": "Critical Modifier",
+        "tr": "Kritik Değiştirici",
         "de": "Critical Modifier",
         "fr": "Critical Modifier",
         "es": "Critical Modifier",
         "ar": "Critical Modifier"
+      },
+      "businessContext_i18n": {
+        "en": "Additional probability from stress factors or conditions",
+        "tr": "Stres faktörleri veya koşullardan gelen ek olasılık"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Severity factor when a critical event occurs",
       "label_i18n": {
         "en": "Critical Damage Multiplier",
-        "tr": "Critical Damage Multiplier",
+        "tr": "Kritik Hasar Çarpanı",
         "de": "Critical Damage Multiplier",
         "fr": "Critical Damage Multiplier",
         "es": "Critical Damage Multiplier",
         "ar": "Critical Damage Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Severity factor when a critical event occurs",
+        "tr": "Kritik bir olay meydana geldiğinde şiddet faktörü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total independent operations or trials",
       "label_i18n": {
         "en": "Number of Operations",
-        "tr": "Number of Operations",
+        "tr": "Operasyon Sayısı",
         "de": "Number of Operations",
         "fr": "Number of Operations",
         "es": "Number of Operations",
         "ar": "Number of Operations"
+      },
+      "businessContext_i18n": {
+        "en": "Total independent operations or trials",
+        "tr": "Toplam bağımsız operasyon veya deneme"
       }
     }
   ],

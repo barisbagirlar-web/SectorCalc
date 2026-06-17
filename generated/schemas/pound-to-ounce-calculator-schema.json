@@ -10,11 +10,15 @@
       "businessContext": "Weight of a single item in pounds",
       "label_i18n": {
         "en": "Unit Weight (lb)",
-        "tr": "Unit Weight (lb)",
+        "tr": "Birim Ağırlık (lb)",
         "de": "Unit Weight (lb)",
         "fr": "Unit Weight (lb)",
         "es": "Unit Weight (lb)",
         "ar": "Unit Weight (lb)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of a single item in pounds",
+        "tr": "Tek bir öğenin pound cinsinden ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of items",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of items",
+        "tr": "Öğe sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight of packaging/material to subtract",
       "label_i18n": {
         "en": "Tare Weight (lb)",
-        "tr": "Tare Weight (lb)",
+        "tr": "Dara Ağırlığı (lb)",
         "de": "Tare Weight (lb)",
         "fr": "Tare Weight (lb)",
         "es": "Tare Weight (lb)",
         "ar": "Tare Weight (lb)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of packaging/material to subtract",
+        "tr": "Çıkarılacak ambalaj/malzeme ağırlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ounces per pound (standard is 16)",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Ounces per pound (standard is 16)",
+        "tr": "Pound başına ons (standart 16'dır)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places to round the result",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the result",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı"
       }
     }
   ],

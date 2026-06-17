@@ -10,11 +10,15 @@
       "businessContext": "The Gregorian calendar year for which the Hebrew calendar year is calculated.",
       "label_i18n": {
         "en": "Gregorian Year",
-        "tr": "Gregorian Year",
+        "tr": "Miladi Yıl",
         "de": "Gregorian Year",
         "fr": "Gregorian Year",
         "es": "Gregorian Year",
         "ar": "Gregorian Year"
+      },
+      "businessContext_i18n": {
+        "en": "The Gregorian calendar year for which the Hebrew calendar year is calculated.",
+        "tr": "İbrani takvim yılının hesaplandığı Gregoryen takvim yılı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The Gregorian month (1-12) for conversion.",
       "label_i18n": {
         "en": "Gregorian Month",
-        "tr": "Gregorian Month",
+        "tr": "Miladi Ay",
         "de": "Gregorian Month",
         "fr": "Gregorian Month",
         "es": "Gregorian Month",
         "ar": "Gregorian Month"
+      },
+      "businessContext_i18n": {
+        "en": "The Gregorian month (1-12) for conversion.",
+        "tr": "Dönüşüm için Gregoryen ayı (1-12)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The Gregorian day of the month.",
       "label_i18n": {
         "en": "Gregorian Day",
-        "tr": "Gregorian Day",
+        "tr": "Miladi Gün",
         "de": "Gregorian Day",
         "fr": "Gregorian Day",
         "es": "Gregorian Day",
         "ar": "Gregorian Day"
+      },
+      "businessContext_i18n": {
+        "en": "The Gregorian day of the month.",
+        "tr": "Ayın Gregoryen günü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The Hebrew calendar year for conversion to Gregorian.",
       "label_i18n": {
         "en": "Hebrew Year",
-        "tr": "Hebrew Year",
+        "tr": "İbrani Yılı",
         "de": "Hebrew Year",
         "fr": "Hebrew Year",
         "es": "Hebrew Year",
         "ar": "Hebrew Year"
+      },
+      "businessContext_i18n": {
+        "en": "The Hebrew calendar year for conversion to Gregorian.",
+        "tr": "Gregoryen'e dönüştürülecek İbrani takvim yılı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The Hebrew month (1=Tishrei, 2=Cheshvan, etc.)",
       "label_i18n": {
         "en": "Hebrew Month",
-        "tr": "Hebrew Month",
+        "tr": "İbrani Ayı",
         "de": "Hebrew Month",
         "fr": "Hebrew Month",
         "es": "Hebrew Month",
         "ar": "Hebrew Month"
+      },
+      "businessContext_i18n": {
+        "en": "The Hebrew month (1=Tishrei, 2=Cheshvan, etc.)",
+        "tr": "İbrani ayı (1=Tişri, 2=Heşvan, vb.)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "The Hebrew day of the month.",
       "label_i18n": {
         "en": "Hebrew Day",
-        "tr": "Hebrew Day",
+        "tr": "İbrani Günü",
         "de": "Hebrew Day",
         "fr": "Hebrew Day",
         "es": "Hebrew Day",
         "ar": "Hebrew Day"
+      },
+      "businessContext_i18n": {
+        "en": "The Hebrew day of the month.",
+        "tr": "Ayın İbrani günü."
       }
     }
   ],

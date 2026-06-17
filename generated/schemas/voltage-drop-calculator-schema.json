@@ -23,10 +23,12 @@
         "aluminum"
       ],
       "label_i18n": {
-        "en": "Conductor Material"
+        "en": "Conductor Material",
+        "tr": "İletken Malzemesi"
       },
       "businessContext_i18n": {
-        "en": "Material affects resistivity; copper and aluminum are common in industrial installations."
+        "en": "Material affects resistivity; copper and aluminum are common in industrial installations.",
+        "tr": "Malzeme özdirenci etkiler; bakır ve alüminyum endüstriyel tesislerde yaygındır."
       }
     },
     {
@@ -57,10 +59,12 @@
         "500"
       ],
       "label_i18n": {
-        "en": "Conductor Size (AWG or kcmil)"
+        "en": "Conductor Size (AWG or kcmil)",
+        "tr": "İletken Kesiti (AWG veya kcmil)"
       },
       "businessContext_i18n": {
-        "en": "Cross-sectional area determines resistance per unit length."
+        "en": "Cross-sectional area determines resistance per unit length.",
+        "tr": "Kesit alanı birim uzunluk başına direnci belirler."
       }
     },
     {
@@ -73,10 +77,12 @@
       "max": 10000,
       "businessContext": "Distance from source to load; longer runs increase voltage drop.",
       "label_i18n": {
-        "en": "One-Way Circuit Length"
+        "en": "One-Way Circuit Length",
+        "tr": "Tek Yönlü Devre Uzunluğu"
       },
       "businessContext_i18n": {
-        "en": "Distance from source to load; longer runs increase voltage drop."
+        "en": "Distance from source to load; longer runs increase voltage drop.",
+        "tr": "Kaynaktan yüke olan mesafe; daha uzun hatlar voltaj düşümünü artırır."
       }
     },
     {
@@ -89,10 +95,12 @@
       "max": 5000,
       "businessContext": "Current drawn by the load; higher current increases drop.",
       "label_i18n": {
-        "en": "Load Current (Amperes)"
+        "en": "Load Current (Amperes)",
+        "tr": "Yük Akımı (Amper)"
       },
       "businessContext_i18n": {
-        "en": "Current drawn by the load; higher current increases drop."
+        "en": "Current drawn by the load; higher current increases drop.",
+        "tr": "Yük tarafından çekilen akım; daha yüksek akım düşümü artırır."
       }
     },
     {
@@ -105,10 +113,12 @@
       "max": 35000,
       "businessContext": "Nominal voltage of the system; used to compute percentage drop.",
       "label_i18n": {
-        "en": "System Voltage (Line-to-Line)"
+        "en": "System Voltage (Line-to-Line)",
+        "tr": "Sistem Voltajı (Fazlar Arası)"
       },
       "businessContext_i18n": {
-        "en": "Nominal voltage of the system; used to compute percentage drop."
+        "en": "Nominal voltage of the system; used to compute percentage drop.",
+        "tr": "Sistemin nominal voltajı; yüzde düşümü hesaplamak için kullanılır."
       }
     },
     {
@@ -125,10 +135,12 @@
         "three_phase"
       ],
       "label_i18n": {
-        "en": "Phase Type"
+        "en": "Phase Type",
+        "tr": "Faz Türü"
       },
       "businessContext_i18n": {
-        "en": "Single-phase or three-phase affects the voltage drop formula (factor sqrt(3) for three-phase)."
+        "en": "Single-phase or three-phase affects the voltage drop formula (factor sqrt(3) for three-phase).",
+        "tr": "Tek fazlı veya üç fazlı, voltaj düşümü formülünü etkiler (üç fazlı için sqrt(3) faktörü)."
       }
     },
     {
@@ -141,10 +153,12 @@
       "max": 1,
       "businessContext": "Reactive component increases effective current; typical industrial PF is 0.8-0.95.",
       "label_i18n": {
-        "en": "Power Factor (cos φ)"
+        "en": "Power Factor (cos φ)",
+        "tr": "Güç Faktörü (cos φ)"
       },
       "businessContext_i18n": {
-        "en": "Reactive component increases effective current; typical industrial PF is 0.8-0.95."
+        "en": "Reactive component increases effective current; typical industrial PF is 0.8-0.95.",
+        "tr": "Reaktif bileşen efektif akımı artırır; tipik endüstriyel güç faktörü 0.8-0.95'tir."
       }
     },
     {
@@ -157,10 +171,12 @@
       "max": 60,
       "businessContext": "Temperature affects conductor resistance; higher temperature increases resistance.",
       "label_i18n": {
-        "en": "Ambient Temperature"
+        "en": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı"
       },
       "businessContext_i18n": {
-        "en": "Temperature affects conductor resistance; higher temperature increases resistance."
+        "en": "Temperature affects conductor resistance; higher temperature increases resistance.",
+        "tr": "Sıcaklık iletken direncini etkiler; yüksek sıcaklık direnci artırır."
       }
     }
   ],

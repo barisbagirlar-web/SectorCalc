@@ -10,11 +10,15 @@
       "businessContext": "Total energy used in production",
       "label_i18n": {
         "en": "Energy Consumption (kWh)",
-        "tr": "Energy Consumption (kWh)",
+        "tr": "Enerji Tüketimi (kWh)",
         "de": "Energy Consumption (kWh)",
         "fr": "Energy Consumption (kWh)",
         "es": "Energy Consumption (kWh)",
         "ar": "Energy Consumption (kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy used in production",
+        "tr": "Üretimde kullanılan toplam enerji"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of energy from renewable sources",
       "label_i18n": {
         "en": "Renewable Energy Share (%)",
-        "tr": "Renewable Energy Share (%)",
+        "tr": "Yenilenebilir Enerji Payı (%)",
         "de": "Renewable Energy Share (%)",
         "fr": "Renewable Energy Share (%)",
         "es": "Renewable Energy Share (%)",
         "ar": "Renewable Energy Share (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of energy from renewable sources",
+        "tr": "Yenilenebilir kaynaklardan enerji yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total water consumed in process",
       "label_i18n": {
         "en": "Water Usage (m³)",
-        "tr": "Water Usage (m³)",
+        "tr": "Su Kullanımı (m³)",
         "de": "Water Usage (m³)",
         "fr": "Water Usage (m³)",
         "es": "Water Usage (m³)",
         "ar": "Water Usage (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Total water consumed in process",
+        "tr": "Süreçte tüketilen toplam su"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total waste produced",
       "label_i18n": {
         "en": "Waste Generated (kg)",
-        "tr": "Waste Generated (kg)",
+        "tr": "Oluşan Atık (kg)",
         "de": "Waste Generated (kg)",
         "fr": "Waste Generated (kg)",
         "es": "Waste Generated (kg)",
         "ar": "Waste Generated (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total waste produced",
+        "tr": "Üretilen toplam atık"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Waste sent for recycling",
       "label_i18n": {
         "en": "Recycled Waste (kg)",
-        "tr": "Recycled Waste (kg)",
+        "tr": "Geri Dönüştürülen Atık (kg)",
         "de": "Recycled Waste (kg)",
         "fr": "Recycled Waste (kg)",
         "es": "Recycled Waste (kg)",
         "ar": "Recycled Waste (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Waste sent for recycling",
+        "tr": "Geri dönüşüme gönderilen atık"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total carbon dioxide emissions",
       "label_i18n": {
         "en": "CO2 Emissions (kg)",
-        "tr": "CO2 Emissions (kg)",
+        "tr": "CO2 Emisyonları (kg)",
         "de": "CO2 Emissions (kg)",
         "fr": "CO2 Emissions (kg)",
         "es": "CO2 Emissions (kg)",
         "ar": "CO2 Emissions (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total carbon dioxide emissions",
+        "tr": "Toplam karbondioksit emisyonları"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of units produced",
       "label_i18n": {
         "en": "Production Units",
-        "tr": "Production Units",
+        "tr": "Üretim Birimleri",
         "de": "Production Units",
         "fr": "Production Units",
         "es": "Production Units",
         "ar": "Production Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced",
+        "tr": "Üretilen birim sayısı"
       }
     }
   ],

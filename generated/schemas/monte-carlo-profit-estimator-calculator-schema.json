@@ -10,11 +10,15 @@
       "businessContext": "Expected average revenue (e.g., from Monte Carlo distribution mean).",
       "label_i18n": {
         "en": "Revenue Mean (μR)",
-        "tr": "Revenue Mean (μR)",
+        "tr": "Gelir Ortalaması (μR)",
         "de": "Revenue Mean (μR)",
         "fr": "Revenue Mean (μR)",
         "es": "Revenue Mean (μR)",
         "ar": "Revenue Mean (μR)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected average revenue (e.g., from Monte Carlo distribution mean).",
+        "tr": "Beklenen ortalama gelir (örneğin Monte Carlo dağılım ortalamasından)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard deviation of revenue (uncertainty measure).",
       "label_i18n": {
         "en": "Revenue Std Dev (σR)",
-        "tr": "Revenue Std Dev (σR)",
+        "tr": "Gelir Standart Sapması (σR)",
         "de": "Revenue Std Dev (σR)",
         "fr": "Revenue Std Dev (σR)",
         "es": "Revenue Std Dev (σR)",
         "ar": "Revenue Std Dev (σR)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of revenue (uncertainty measure).",
+        "tr": "Gelirin standart sapması (belirsizlik ölçüsü)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected average cost.",
       "label_i18n": {
         "en": "Cost Mean (μC)",
-        "tr": "Cost Mean (μC)",
+        "tr": "Maliyet Ortalaması (μC)",
         "de": "Cost Mean (μC)",
         "fr": "Cost Mean (μC)",
         "es": "Cost Mean (μC)",
         "ar": "Cost Mean (μC)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected average cost.",
+        "tr": "Beklenen ortalama maliyet."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard deviation of cost.",
       "label_i18n": {
         "en": "Cost Std Dev (σC)",
-        "tr": "Cost Std Dev (σC)",
+        "tr": "Maliyet Standart Sapması (σC)",
         "de": "Cost Std Dev (σC)",
         "fr": "Cost Std Dev (σC)",
         "es": "Cost Std Dev (σC)",
         "ar": "Cost Std Dev (σC)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of cost.",
+        "tr": "Maliyetin standart sapması."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Correlation coefficient between revenue and cost (-1 to 1). 0 for independence.",
       "label_i18n": {
         "en": "Correlation (R,C)",
-        "tr": "Correlation (R,C)",
+        "tr": "Korelasyon (G,M)",
         "de": "Correlation (R,C)",
         "fr": "Correlation (R,C)",
         "es": "Correlation (R,C)",
         "ar": "Correlation (R,C)"
+      },
+      "businessContext_i18n": {
+        "en": "Correlation coefficient between revenue and cost (-1 to 1). 0 for independence.",
+        "tr": "Gelir ve maliyet arasındaki korelasyon katsayısı (-1 ile 1 arası). Bağımsızlık için 0."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Z-score for confidence interval (1.96 for 95%, 2.58 for 99%).",
       "label_i18n": {
         "en": "Z-Score for CI",
-        "tr": "Z-Score for CI",
+        "tr": "GA için Z-Skoru",
         "de": "Z-Score for CI",
         "fr": "Z-Score for CI",
         "es": "Z-Score for CI",
         "ar": "Z-Score for CI"
+      },
+      "businessContext_i18n": {
+        "en": "Z-score for confidence interval (1.96 for 95%, 2.58 for 99%).",
+        "tr": "Güven aralığı için Z-skoru (%95 için 1.96, %99 için 2.58)."
       }
     }
   ],

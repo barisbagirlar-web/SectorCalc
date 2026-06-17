@@ -10,11 +10,15 @@
       "businessContext": "Red color component (0-255)",
       "label_i18n": {
         "en": "Red (R)",
-        "tr": "Red (R)",
+        "tr": "Kırmızı (R)",
         "de": "Red (R)",
         "fr": "Red (R)",
         "es": "Red (R)",
         "ar": "Red (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Red color component (0-255)",
+        "tr": "Kırmızı renk bileşeni (0-255)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Green color component (0-255)",
       "label_i18n": {
         "en": "Green (G)",
-        "tr": "Green (G)",
+        "tr": "Yeşil (G)",
         "de": "Green (G)",
         "fr": "Green (G)",
         "es": "Green (G)",
         "ar": "Green (G)"
+      },
+      "businessContext_i18n": {
+        "en": "Green color component (0-255)",
+        "tr": "Yeşil renk bileşeni (0-255)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Blue color component (0-255)",
       "label_i18n": {
         "en": "Blue (B)",
-        "tr": "Blue (B)",
+        "tr": "Mavi (B)",
         "de": "Blue (B)",
         "fr": "Blue (B)",
         "es": "Blue (B)",
         "ar": "Blue (B)"
+      },
+      "businessContext_i18n": {
+        "en": "Blue color component (0-255)",
+        "tr": "Mavi renk bileşeni (0-255)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum value of color components (typically 255 for 8-bit)",
       "label_i18n": {
         "en": "Max Input Value",
-        "tr": "Max Input Value",
+        "tr": "Maksimum Giriş Değeri",
         "de": "Max Input Value",
         "fr": "Max Input Value",
         "es": "Max Input Value",
         "ar": "Max Input Value"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum value of color components (typically 255 for 8-bit)",
+        "tr": "Renk bileşenlerinin maksimum değeri (8-bit için genellikle 255)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Output scaling factor (100 for percentage)",
       "label_i18n": {
         "en": "Output Scale",
-        "tr": "Output Scale",
+        "tr": "Çıktı Ölçeği",
         "de": "Output Scale",
         "fr": "Output Scale",
         "es": "Output Scale",
         "ar": "Output Scale"
+      },
+      "businessContext_i18n": {
+        "en": "Output scaling factor (100 for percentage)",
+        "tr": "Çıktı ölçekleme faktörü (yüzde için 100)"
       }
     }
   ],

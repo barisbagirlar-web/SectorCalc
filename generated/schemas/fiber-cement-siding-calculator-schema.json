@@ -10,11 +10,15 @@
       "businessContext": "Total length of the wall to be covered",
       "label_i18n": {
         "en": "Wall Length",
-        "tr": "Wall Length",
+        "tr": "Duvar Uzunluğu (m)",
         "de": "Wall Length",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the wall to be covered",
+        "tr": "Kaplanacak duvarın toplam uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the wall from foundation to eaves",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the wall from foundation to eaves",
+        "tr": "Temelden saçaklara kadar duvar yüksekliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of one fiber cement siding plank",
       "label_i18n": {
         "en": "Siding Width",
-        "tr": "Siding Width",
+        "tr": "Kaplama genişliği",
         "de": "Siding Width",
         "fr": "Siding Width",
         "es": "Siding Width",
         "ar": "Siding Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of one fiber cement siding plank",
+        "tr": "Bir fiber çimento kaplama levhasının genişliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Vertical overlap between siding courses",
       "label_i18n": {
         "en": "Siding Overlap",
-        "tr": "Siding Overlap",
+        "tr": "Kaplama bindirmesi",
         "de": "Siding Overlap",
         "fr": "Siding Overlap",
         "es": "Siding Overlap",
         "ar": "Siding Overlap"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical overlap between siding courses",
+        "tr": "Kaplama sıraları arasındaki dikey bindirme"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage allowance for cutting waste and breakage",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage allowance for cutting waste and breakage",
+        "tr": "Kesim atığı ve kırılma için yüzde tolerans"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost of labor per square meter installed",
       "label_i18n": {
         "en": "Labor Rate",
-        "tr": "Labor Rate",
+        "tr": "İşçilik ücreti",
         "de": "Labor Rate",
         "fr": "Labor Rate",
         "es": "Labor Rate",
         "ar": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of labor per square meter installed",
+        "tr": "Metrekare başına işçilik maliyeti"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Cost of fiber cement siding per square meter",
       "label_i18n": {
         "en": "Material Cost",
-        "tr": "Material Cost",
+        "tr": "Malzeme Maliyeti",
         "de": "Material Cost",
         "fr": "Material Cost",
         "es": "Material Cost",
         "ar": "Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of fiber cement siding per square meter",
+        "tr": "Metrekare başına fiber çimento kaplama maliyeti"
       }
     }
   ],

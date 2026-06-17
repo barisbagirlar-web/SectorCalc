@@ -22,10 +22,12 @@
       "max": 100000,
       "businessContext": "Total number of repair orders completed in the period (ISO 9001:2015 clause 8.5.1)",
       "label_i18n": {
-        "en": "Total Repair Orders (monthly)"
+        "en": "Total Repair Orders (monthly)",
+        "tr": "Toplam Onarım Emri (aylık)"
       },
       "businessContext_i18n": {
-        "en": "Total number of repair orders completed in the period (ISO 9001:2015 clause 8.5.1)"
+        "en": "Total number of repair orders completed in the period (ISO 9001:2015 clause 8.5.1)",
+        "tr": "Dönemde tamamlanan toplam onarım emri sayısı (ISO 9001:2015 madde 8.5.1)."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 100000,
       "businessContext": "Number of repair orders that returned for rework within warranty or service period (Six Sigma DPMO metric)",
       "label_i18n": {
-        "en": "Comeback Count (monthly)"
+        "en": "Comeback Count (monthly)",
+        "tr": "Geri Dönüş Sayısı (aylık)"
       },
       "businessContext_i18n": {
-        "en": "Number of repair orders that returned for rework within warranty or service period (Six Sigma DPMO metric)"
+        "en": "Number of repair orders that returned for rework within warranty or service period (Six Sigma DPMO metric)",
+        "tr": "Garanti veya servis süresi içinde yeniden işlem için geri dönen onarım emri sayısı (Altı Sigma DPMO metriği)."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 250,
       "businessContext": "Fully burdened labor rate including overhead (WERC DC Measures)",
       "label_i18n": {
-        "en": "Average Labor Rate"
+        "en": "Average Labor Rate",
+        "tr": "Ortalama İşçilik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Fully burdened labor rate including overhead (WERC DC Measures)"
+        "en": "Fully burdened labor rate including overhead (WERC DC Measures)",
+        "tr": "Genel giderler dahil tam yüklü işçilik ücreti (WERC DC Ölçütleri)."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 40,
       "businessContext": "Average technician hours spent diagnosing and re-repairing a comeback (Lean Takt time impact)",
       "label_i18n": {
-        "en": "Average Hours per Comeback"
+        "en": "Average Hours per Comeback",
+        "tr": "Geri Dönüş Başına Ortalama Saat"
       },
       "businessContext_i18n": {
-        "en": "Average technician hours spent diagnosing and re-repairing a comeback (Lean Takt time impact)"
+        "en": "Average technician hours spent diagnosing and re-repairing a comeback (Lean Takt time impact)",
+        "tr": "Bir geri dönüşü teşhis ve yeniden onarım için harcanan ortalama teknisyen saati (Yalın Takt süresi etkisi)."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 5000,
       "businessContext": "Replacement parts and materials consumed per comeback (ISO 14001 waste reduction)",
       "label_i18n": {
-        "en": "Average Parts Cost per Comeback"
+        "en": "Average Parts Cost per Comeback",
+        "tr": "Geri Dönüş Başına Ortalama Parça Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Replacement parts and materials consumed per comeback (ISO 14001 waste reduction)"
+        "en": "Replacement parts and materials consumed per comeback (ISO 14001 waste reduction)",
+        "tr": "Geri dönüş başına tüketilen yedek parça ve malzemeler (ISO 14001 atık azaltımı)."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 50000,
       "businessContext": "Estimated net profit from a loyal customer over their relationship with the shop",
       "label_i18n": {
-        "en": "Customer Lifetime Value (CLV)"
+        "en": "Customer Lifetime Value (CLV)",
+        "tr": "Müşteri Yaşam Boyu Değeri (CLV)"
       },
       "businessContext_i18n": {
-        "en": "Estimated net profit from a loyal customer over their relationship with the shop"
+        "en": "Estimated net profit from a loyal customer over their relationship with the shop",
+        "tr": "Sadık bir müşterinin atölye ile ilişkisi boyunca tahmini net karı."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 100,
       "businessContext": "Percentage of customers who never return after a comeback experience (Net Promoter Score correlation)",
       "label_i18n": {
-        "en": "Lost Customer Rate per Comeback"
+        "en": "Lost Customer Rate per Comeback",
+        "tr": "Geri Dönüş Başına Kaybedilen Müşteri Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of customers who never return after a comeback experience (Net Promoter Score correlation)"
+        "en": "Percentage of customers who never return after a comeback experience (Net Promoter Score correlation)",
+        "tr": "Bir geri dönüş deneyiminden sonra bir daha asla gelmeyen müşterilerin yüzdesi (Net Tavsiye Skoru korelasyonu)"
       }
     },
     {
@@ -138,10 +152,12 @@
       ],
       "businessContext": "Type of repair facility influences overhead multipliers (ASA industry standards)",
       "label_i18n": {
-        "en": "Shop Type"
+        "en": "Shop Type",
+        "tr": "Atölye Türü"
       },
       "businessContext_i18n": {
-        "en": "Type of repair facility influences overhead multipliers (ASA industry standards)"
+        "en": "Type of repair facility influences overhead multipliers (ASA industry standards)",
+        "tr": "Onarım tesisi türü, genel gider çarpanlarını etkiler (ASA endüstri standartları)"
       }
     }
   ],

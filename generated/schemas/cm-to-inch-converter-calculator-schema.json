@@ -19,10 +19,12 @@
       "max": 100000,
       "businessContext": "Measured length in centimeters, typically from calipers, rulers, or CAD models.",
       "label_i18n": {
-        "en": "Length in Centimeters"
+        "en": "Length in Centimeters",
+        "tr": "Uzunluk (cm)"
       },
       "businessContext_i18n": {
-        "en": "Measured length in centimeters, typically from calipers, rulers, or CAD models."
+        "en": "Measured length in centimeters, typically from calipers, rulers, or CAD models.",
+        "tr": "Kumpas, cetvel veya CAD modellerinden tipik olarak ölçülen santimetre cinsinden uzunluk."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 10,
       "businessContext": "Estimated uncertainty of the measurement (e.g., ±0.05 cm for standard calipers).",
       "label_i18n": {
-        "en": "Measurement Uncertainty"
+        "en": "Measurement Uncertainty",
+        "tr": "Ölçüm Belirsizliği"
       },
       "businessContext_i18n": {
-        "en": "Estimated uncertainty of the measurement (e.g., ±0.05 cm for standard calipers)."
+        "en": "Estimated uncertainty of the measurement (e.g., ±0.05 cm for standard calipers).",
+        "tr": "Ölçümün tahmini belirsizliği (standart kumpas için ±0,05 cm gibi)."
       }
     },
     {
@@ -54,10 +58,12 @@
       ],
       "businessContext": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST).",
       "label_i18n": {
-        "en": "Conversion Precision"
+        "en": "Conversion Precision",
+        "tr": "Dönüşüm Hassasiyeti"
       },
       "businessContext_i18n": {
-        "en": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST)."
+        "en": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST).",
+        "tr": "Endüstri standardına (ISO 80000-1, NIST) göre dönüşüm faktörü hassasiyetini seçin."
       }
     },
     {
@@ -73,10 +79,12 @@
       ],
       "businessContext": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds.",
       "label_i18n": {
-        "en": "Tolerance Class"
+        "en": "Tolerance Class",
+        "tr": "Tolerans Sınıfı"
       },
       "businessContext_i18n": {
-        "en": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds."
+        "en": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds.",
+        "tr": "ISO 2768'e göre boyutsal muayene için tolerans sınıfı. Uyarı eşiklerini etkiler."
       }
     },
     {
@@ -89,10 +97,12 @@
       "max": 1000,
       "businessContext": "Cost per inch of material or product, used for cost estimation in Lean/Six Sigma projects.",
       "label_i18n": {
-        "en": "Unit Cost per Inch"
+        "en": "Unit Cost per Inch",
+        "tr": "Birim Maliyet (inç başına)"
       },
       "businessContext_i18n": {
-        "en": "Cost per inch of material or product, used for cost estimation in Lean/Six Sigma projects."
+        "en": "Cost per inch of material or product, used for cost estimation in Lean/Six Sigma projects.",
+        "tr": "Malzeme veya ürünün inç başına maliyeti, Yalın/Altı Sigma projelerinde maliyet tahmini için kullanılır."
       }
     },
     {
@@ -105,10 +115,12 @@
       "max": 1000000,
       "businessContext": "Number of units in the batch for total cost and waste calculations.",
       "label_i18n": {
-        "en": "Batch Quantity"
+        "en": "Batch Quantity",
+        "tr": "Parti Miktarı"
       },
       "businessContext_i18n": {
-        "en": "Number of units in the batch for total cost and waste calculations."
+        "en": "Number of units in the batch for total cost and waste calculations.",
+        "tr": "Toplam maliyet ve fire hesaplamaları için partideki birim sayısı."
       }
     }
   ],

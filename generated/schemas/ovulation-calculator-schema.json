@@ -21,10 +21,12 @@
       "max": 45,
       "businessContext": "Typical range for healthy adult women; used as baseline for ovulation estimation.",
       "label_i18n": {
-        "en": "Average cycle length (days)"
+        "en": "Average cycle length (days)",
+        "tr": "Ortalama döngü uzunluğu (gün)"
       },
       "businessContext_i18n": {
-        "en": "Typical range for healthy adult women; used as baseline for ovulation estimation."
+        "en": "Typical range for healthy adult women; used as baseline for ovulation estimation.",
+        "tr": "Sağlıklı yetişkin kadınlar için tipik aralık; yumurtlama tahmini için temel alınır."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 16,
       "businessContext": "Fixed post-ovulation phase; variation indicates potential luteal phase defect.",
       "label_i18n": {
-        "en": "Luteal phase length (days)"
+        "en": "Luteal phase length (days)",
+        "tr": "Luteal faz uzunluğu (gün)"
       },
       "businessContext_i18n": {
-        "en": "Fixed post-ovulation phase; variation indicates potential luteal phase defect."
+        "en": "Fixed post-ovulation phase; variation indicates potential luteal phase defect.",
+        "tr": "Sabit yumurtlama sonrası faz; varyasyon olası luteal faz defektini gösterir."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 2000000000,
       "businessContext": "Reference point for calculating next ovulation and fertile window.",
       "label_i18n": {
-        "en": "Start date of last menstrual period"
+        "en": "Start date of last menstrual period",
+        "tr": "Son adet döneminin başlangıç tarihi"
       },
       "businessContext_i18n": {
-        "en": "Reference point for calculating next ovulation and fertile window."
+        "en": "Reference point for calculating next ovulation and fertile window.",
+        "tr": "Bir sonraki yumurtlama ve doğurgan pencereyi hesaplamak için referans noktası."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 10,
       "businessContext": "Used to compute confidence intervals and adjust fertile window width per SPC rules.",
       "label_i18n": {
-        "en": "Cycle length variability (standard deviation, days)"
+        "en": "Cycle length variability (standard deviation, days)",
+        "tr": "Döngü uzunluğu değişkenliği (standart sapma, gün)"
       },
       "businessContext_i18n": {
-        "en": "Used to compute confidence intervals and adjust fertile window width per SPC rules."
+        "en": "Used to compute confidence intervals and adjust fertile window width per SPC rules.",
+        "tr": "SPC kurallarına göre güven aralıklarını hesaplamak ve doğurgan pencere genişliğini ayarlamak için kullanılır."
       }
     },
     {
@@ -91,10 +99,12 @@
       ],
       "businessContext": "Age affects cycle regularity and fertility; used for risk adjustment.",
       "label_i18n": {
-        "en": "Age group"
+        "en": "Age group",
+        "tr": "Yaş grubu"
       },
       "businessContext_i18n": {
-        "en": "Age affects cycle regularity and fertility; used for risk adjustment."
+        "en": "Age affects cycle regularity and fertility; used for risk adjustment.",
+        "tr": "Yaş, döngü düzenliliğini ve doğurganlığı etkiler; risk ayarlaması için kullanılır."
       }
     },
     {
@@ -107,10 +117,12 @@
       "max": null,
       "businessContext": "Triggers alternative calculation method and alerts for medical consultation.",
       "label_i18n": {
-        "en": "Irregular cycles (variation > 7 days)"
+        "en": "Irregular cycles (variation > 7 days)",
+        "tr": "Düzensiz döngüler (7 günden fazla varyasyon)"
       },
       "businessContext_i18n": {
-        "en": "Triggers alternative calculation method and alerts for medical consultation."
+        "en": "Triggers alternative calculation method and alerts for medical consultation.",
+        "tr": "Alternatif hesaplama yöntemini tetikler ve tıbbi danışma için uyarı verir."
       }
     }
   ],

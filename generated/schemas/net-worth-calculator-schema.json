@@ -10,11 +10,15 @@
       "businessContext": "Liquid assets such as bank account balances, cash on hand, and short-term deposits.",
       "label_i18n": {
         "en": "Cash & Equivalents",
-        "tr": "Cash & Equivalents",
+        "tr": "Nakit ve Benzerleri",
         "de": "Cash & Equivalents",
         "fr": "Cash & Equivalents",
         "es": "Cash & Equivalents",
         "ar": "Cash & Equivalents"
+      },
+      "businessContext_i18n": {
+        "en": "Liquid assets such as bank account balances, cash on hand, and short-term deposits.",
+        "tr": "Nakit ve nakit benzerleri (banka hesap bakiyeleri, eldeki nakit, kısa vadeli mevduatlar)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Value of stocks, bonds, mutual funds, and other investment securities.",
       "label_i18n": {
         "en": "Investments",
-        "tr": "Investments",
+        "tr": "Yatırımlar",
         "de": "Investments",
         "fr": "Investments",
         "es": "Investments",
         "ar": "Investments"
+      },
+      "businessContext_i18n": {
+        "en": "Value of stocks, bonds, mutual funds, and other investment securities.",
+        "tr": "Hisse senetleri, tahviller, yatırım fonları ve diğer menkul kıymetlerin değeri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Market value of owned real estate properties including primary residence.",
       "label_i18n": {
         "en": "Real Estate",
-        "tr": "Real Estate",
+        "tr": "Gayrimenkul",
         "de": "Real Estate",
         "fr": "Real Estate",
         "es": "Real Estate",
         "ar": "Real Estate"
+      },
+      "businessContext_i18n": {
+        "en": "Market value of owned real estate properties including primary residence.",
+        "tr": "Sahip olunan gayrimenkullerin (birincil konut dahil) piyasa değeri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Value of vehicles, jewelry, art, and other high-value personal belongings.",
       "label_i18n": {
         "en": "Personal Property",
-        "tr": "Personal Property",
+        "tr": "Kişisel Mülk",
         "de": "Personal Property",
         "fr": "Personal Property",
         "es": "Personal Property",
         "ar": "Personal Property"
+      },
+      "businessContext_i18n": {
+        "en": "Value of vehicles, jewelry, art, and other high-value personal belongings.",
+        "tr": "Araçlar, mücevherler, sanat eserleri ve diğer yüksek değerli kişisel eşyaların değeri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Any other assets not categorized above (e.g., business ownership, intellectual property).",
       "label_i18n": {
         "en": "Other Assets",
-        "tr": "Other Assets",
+        "tr": "Diğer Varlıklar",
         "de": "Other Assets",
         "fr": "Other Assets",
         "es": "Other Assets",
         "ar": "Other Assets"
+      },
+      "businessContext_i18n": {
+        "en": "Any other assets not categorized above (e.g., business ownership, intellectual property).",
+        "tr": "Yukarıda kategorize edilmeyen diğer tüm varlıklar (ör. işletme sahipliği, fikri mülkiyet)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Short-term liabilities due within one year (credit cards, short-term loans).",
       "label_i18n": {
         "en": "Current Debt",
-        "tr": "Current Debt",
+        "tr": "Kısa Vadeli Borç",
         "de": "Current Debt",
         "fr": "Current Debt",
         "es": "Current Debt",
         "ar": "Current Debt"
+      },
+      "businessContext_i18n": {
+        "en": "Short-term liabilities due within one year (credit cards, short-term loans).",
+        "tr": "Bir yıl içinde vadesi dolan kısa vadeli yükümlülükler (kredi kartları, kısa vadeli krediler)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Liabilities with maturity beyond one year (mortgages, student loans, car loans).",
       "label_i18n": {
         "en": "Long-Term Debt",
-        "tr": "Long-Term Debt",
+        "tr": "Uzun Vadeli Borç",
         "de": "Long-Term Debt",
         "fr": "Long-Term Debt",
         "es": "Long-Term Debt",
         "ar": "Long-Term Debt"
+      },
+      "businessContext_i18n": {
+        "en": "Liabilities with maturity beyond one year (mortgages, student loans, car loans).",
+        "tr": "Uzun Vadeli Borç"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Any other outstanding obligations not included above (e.g., tax liabilities, medical bills).",
       "label_i18n": {
         "en": "Other Debt",
-        "tr": "Other Debt",
+        "tr": "Vadesi bir yıldan uzun olan yükümlülükler (ipotekler, öğrenci kredileri, araba kredileri).",
         "de": "Other Debt",
         "fr": "Other Debt",
         "es": "Other Debt",
         "ar": "Other Debt"
+      },
+      "businessContext_i18n": {
+        "en": "Any other outstanding obligations not included above (e.g., tax liabilities, medical bills).",
+        "tr": "Diğer Borçlar"
       }
     }
   ],

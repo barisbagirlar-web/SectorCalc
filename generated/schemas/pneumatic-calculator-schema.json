@@ -10,11 +10,15 @@
       "businessContext": "Inner diameter of the pneumatic cylinder bore",
       "label_i18n": {
         "en": "Bore Diameter",
-        "tr": "Bore Diameter",
+        "tr": "Delik Çapı",
         "de": "Bore Diameter",
         "fr": "Bore Diameter",
         "es": "Bore Diameter",
         "ar": "Bore Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the pneumatic cylinder bore",
+        "tr": "Pnömatik silindir deliğinin iç çapı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Diameter of the piston rod (0 for rodless cylinder)",
       "label_i18n": {
         "en": "Rod Diameter",
-        "tr": "Rod Diameter",
+        "tr": "Piston çubuğu çapı",
         "de": "Rod Diameter",
         "fr": "Rod Diameter",
         "es": "Rod Diameter",
         "ar": "Rod Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the piston rod (0 for rodless cylinder)",
+        "tr": "Piston çubuğunun çapı (çubuksuz silindir için 0)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Gauge pressure of compressed air supply",
       "label_i18n": {
         "en": "Working Pressure",
-        "tr": "Working Pressure",
+        "tr": "Çalışma Basıncı",
         "de": "Working Pressure",
         "fr": "Working Pressure",
         "es": "Working Pressure",
         "ar": "Working Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Gauge pressure of compressed air supply",
+        "tr": "Basınçlı hava beslemesinin gösterge basıncı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance the piston travels per cycle",
       "label_i18n": {
         "en": "Stroke Length",
-        "tr": "Stroke Length",
+        "tr": "Strok uzunluğu",
         "de": "Stroke Length",
         "fr": "Stroke Length",
         "es": "Stroke Length",
         "ar": "Stroke Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance the piston travels per cycle",
+        "tr": "Pistonun çevrim başına kat ettiği mesafe"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Operating frequency",
       "label_i18n": {
         "en": "Cycles per Minute",
-        "tr": "Cycles per Minute",
+        "tr": "Dakikadaki Çevrim Sayısı",
         "de": "Cycles per Minute",
         "fr": "Cycles per Minute",
         "es": "Cycles per Minute",
         "ar": "Cycles per Minute"
+      },
+      "businessContext_i18n": {
+        "en": "Operating frequency",
+        "tr": "Çalışma frekansı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Recommended additional force percentage for selection",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Recommended additional force percentage for selection",
+        "tr": "Seçim için önerilen ek kuvvet yüzdesi"
       }
     }
   ],

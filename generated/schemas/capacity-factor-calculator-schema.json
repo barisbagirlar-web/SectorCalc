@@ -10,11 +10,15 @@
       "businessContext": "Total energy generated in the period (megawatt-hours).",
       "label_i18n": {
         "en": "Actual Energy Produced",
-        "tr": "Actual Energy Produced",
+        "tr": "Gerçek Üretilen Enerji",
         "de": "Actual Energy Produced",
         "fr": "Actual Energy Produced",
         "es": "Actual Energy Produced",
         "ar": "Actual Energy Produced"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy generated in the period (megawatt-hours).",
+        "tr": "Dönemde üretilen toplam enerji (megawatt-saat)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Rated maximum power output (megawatts).",
       "label_i18n": {
         "en": "Installed Capacity",
-        "tr": "Installed Capacity",
+        "tr": "Kurulu Güç",
         "de": "Installed Capacity",
         "fr": "Installed Capacity",
         "es": "Installed Capacity",
         "ar": "Installed Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Rated maximum power output (megawatts).",
+        "tr": "Nominal maksimum güç çıkışı (megawatt)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total hours in the evaluation period (e.g., 8760 for a year).",
       "label_i18n": {
         "en": "Period Hours",
-        "tr": "Period Hours",
+        "tr": "Dönem Saati",
         "de": "Period Hours",
         "fr": "Period Hours",
         "es": "Period Hours",
         "ar": "Period Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total hours in the evaluation period (e.g., 8760 for a year).",
+        "tr": "Değerlendirme dönemindeki toplam saat (örneğin bir yıl için 8760)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fraction of time the plant was available (0-1). Use 1 if ignoring outages.",
       "label_i18n": {
         "en": "Availability Factor",
-        "tr": "Availability Factor",
+        "tr": "Kullanılabilirlik Faktörü",
         "de": "Availability Factor",
         "fr": "Availability Factor",
         "es": "Availability Factor",
         "ar": "Availability Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of time the plant was available (0-1). Use 1 if ignoring outages.",
+        "tr": "Tesisin kullanılabilir olduğu zamanın oranı (0-1). Kesintiler yok sayılıyorsa 1 kullanın."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Target capacity factor for comparison (percentage).",
       "label_i18n": {
         "en": "Target Capacity Factor",
-        "tr": "Target Capacity Factor",
+        "tr": "Hedef Kapasite Faktörü",
         "de": "Target Capacity Factor",
         "fr": "Target Capacity Factor",
         "es": "Target Capacity Factor",
         "ar": "Target Capacity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Target capacity factor for comparison (percentage).",
+        "tr": "Karşılaştırma için hedef kapasite faktörü (yüzde)."
       }
     }
   ],

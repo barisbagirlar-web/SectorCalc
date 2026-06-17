@@ -10,11 +10,15 @@
       "businessContext": "0 = Calculate Payout, 1 = Calculate Required Wager",
       "label_i18n": {
         "en": "Calculation Mode",
-        "tr": "Calculation Mode",
+        "tr": "Hesaplama Modu",
         "de": "Calculation Mode",
         "fr": "Calculation Mode",
         "es": "Calculation Mode",
         "ar": "Calculation Mode"
+      },
+      "businessContext_i18n": {
+        "en": "0 = Calculate Payout, 1 = Calculate Required Wager",
+        "tr": "0 = Ödeme Hesapla, 1 = Gerekli Bahis Hesapla"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Negative for favorites, positive for underdogs",
       "label_i18n": {
         "en": "American Odds",
-        "tr": "American Odds",
+        "tr": "Amerikan Oranları",
         "de": "American Odds",
         "fr": "American Odds",
         "es": "American Odds",
         "ar": "American Odds"
+      },
+      "businessContext_i18n": {
+        "en": "Negative for favorites, positive for underdogs",
+        "tr": "Favoriler için negatif, sürprizler için pozitif"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Amount bet (used in mode 0 for profit calculation, and always for breakdown)",
       "label_i18n": {
         "en": "Wager Amount ($)",
-        "tr": "Wager Amount ($)",
+        "tr": "Bahis Miktarı ($)",
         "de": "Wager Amount ($)",
         "fr": "Wager Amount ($)",
         "es": "Wager Amount ($)",
         "ar": "Wager Amount ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Amount bet (used in mode 0 for profit calculation, and always for breakdown)",
+        "tr": "Yatırılan miktar (mod 0'da kar hesaplaması için ve her zaman döküm için kullanılır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Target profit when mode is 1",
       "label_i18n": {
         "en": "Desired Profit ($)",
-        "tr": "Desired Profit ($)",
+        "tr": "Hedef Kar ($)",
         "de": "Desired Profit ($)",
         "fr": "Desired Profit ($)",
         "es": "Desired Profit ($)",
         "ar": "Desired Profit ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Target profit when mode is 1",
+        "tr": "Mod 1'de hedef kar"
       }
     }
   ],

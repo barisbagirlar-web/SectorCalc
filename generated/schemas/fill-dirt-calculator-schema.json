@@ -10,11 +10,15 @@
       "businessContext": "Length of the area to be filled.",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the area to be filled.",
+        "tr": "Doldurulacak alanın uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the area to be filled.",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the area to be filled.",
+        "tr": "Doldurulacak alanın genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired compacted depth of fill.",
       "label_i18n": {
         "en": "Depth",
-        "tr": "Depth",
+        "tr": "Derinlik",
         "de": "Depth",
         "fr": "Depth",
         "es": "Depth",
         "ar": "Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Desired compacted depth of fill.",
+        "tr": "İstenen sıkıştırılmış dolgu derinliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Loose-to-compacted volume ratio, typically 1.1–1.3.",
       "label_i18n": {
         "en": "Compaction Factor",
-        "tr": "Compaction Factor",
+        "tr": "Sıkıştırma Faktörü",
         "de": "Compaction Factor",
         "fr": "Compaction Factor",
         "es": "Compaction Factor",
         "ar": "Compaction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Loose-to-compacted volume ratio, typically 1.1–1.3.",
+        "tr": "Gevşek-sıkıştırılmış hacim oranı, tipik olarak 1,1–1,3."
       }
     }
   ],

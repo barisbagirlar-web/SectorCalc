@@ -10,11 +10,15 @@
       "businessContext": "The design speed of the road section.",
       "label_i18n": {
         "en": "Design Speed",
-        "tr": "Design Speed",
+        "tr": "Tasarım Hızı",
         "de": "Design Speed",
         "fr": "Design Speed",
         "es": "Design Speed",
         "ar": "Design Speed"
+      },
+      "businessContext_i18n": {
+        "en": "The design speed of the road section.",
+        "tr": "Yol bölümünün tasarım hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The radius of the horizontal curve.",
       "label_i18n": {
         "en": "Curve Radius",
-        "tr": "Curve Radius",
+        "tr": "Eğri Yarıçapı",
         "de": "Curve Radius",
         "fr": "Curve Radius",
         "es": "Curve Radius",
         "ar": "Curve Radius"
+      },
+      "businessContext_i18n": {
+        "en": "The radius of the horizontal curve.",
+        "tr": "Yatay eğrinin yarıçapı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The coefficient of side friction assumed for design.",
       "label_i18n": {
         "en": "Side Friction Factor",
-        "tr": "Side Friction Factor",
+        "tr": "Yanal Sürtünme Katsayısı",
         "de": "Side Friction Factor",
         "fr": "Side Friction Factor",
         "es": "Side Friction Factor",
         "ar": "Side Friction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The coefficient of side friction assumed for design.",
+        "tr": "Tasarım için varsayılan yanal sürtünme katsayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum allowable superelevation rate per design standards.",
       "label_i18n": {
         "en": "Maximum Superelevation",
-        "tr": "Maximum Superelevation",
+        "tr": "Maksimum Dever",
         "de": "Maximum Superelevation",
         "fr": "Maximum Superelevation",
         "es": "Maximum Superelevation",
         "ar": "Maximum Superelevation"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable superelevation rate per design standards.",
+        "tr": "Tasarım standartlarına göre izin verilen maksimum dever oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Gravitational acceleration constant.",
       "label_i18n": {
         "en": "Acceleration due to Gravity",
-        "tr": "Acceleration due to Gravity",
+        "tr": "Yerçekimi İvmesi",
         "de": "Acceleration due to Gravity",
         "fr": "Acceleration due to Gravity",
         "es": "Acceleration due to Gravity",
         "ar": "Acceleration due to Gravity"
+      },
+      "businessContext_i18n": {
+        "en": "Gravitational acceleration constant.",
+        "tr": "Yerçekimi ivmesi sabiti."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Weight of one scoop of protein powder",
       "label_i18n": {
         "en": "Scoop Weight (g)",
-        "tr": "Scoop Weight (g)",
+        "tr": "Kepçe Ağırlığı (g)",
         "de": "Scoop Weight (g)",
         "fr": "Scoop Weight (g)",
         "es": "Scoop Weight (g)",
         "ar": "Scoop Weight (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of one scoop of protein powder",
+        "tr": "Bir kepçe protein tozunun ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of scoops used in the shake",
       "label_i18n": {
         "en": "Number of Scoops",
-        "tr": "Number of Scoops",
+        "tr": "Kepçe Sayısı",
         "de": "Number of Scoops",
         "fr": "Number of Scoops",
         "es": "Number of Scoops",
         "ar": "Number of Scoops"
+      },
+      "businessContext_i18n": {
+        "en": "Number of scoops used in the shake",
+        "tr": "Shake'te kullanılan kepçe sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Protein content as percentage of powder weight",
       "label_i18n": {
         "en": "Protein per 100g (%)",
-        "tr": "Protein per 100g (%)",
+        "tr": "100g Başına Protein (%)",
         "de": "Protein per 100g (%)",
         "fr": "Protein per 100g (%)",
         "es": "Protein per 100g (%)",
         "ar": "Protein per 100g (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Protein content as percentage of powder weight",
+        "tr": "Toz ağırlığının yüzdesi olarak protein içeriği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Caloric content per 100g of powder",
       "label_i18n": {
         "en": "Calories per 100g",
-        "tr": "Calories per 100g",
+        "tr": "100g Başına Kalori",
         "de": "Calories per 100g",
         "fr": "Calories per 100g",
         "es": "Calories per 100g",
         "ar": "Calories per 100g"
+      },
+      "businessContext_i18n": {
+        "en": "Caloric content per 100g of powder",
+        "tr": "100g toz başına kalori içeriği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Volume of liquid added (milk or water)",
       "label_i18n": {
         "en": "Liquid Volume (ml)",
-        "tr": "Liquid Volume (ml)",
+        "tr": "Sıvı Hacmi (ml)",
         "de": "Liquid Volume (ml)",
         "fr": "Liquid Volume (ml)",
         "es": "Liquid Volume (ml)",
         "ar": "Liquid Volume (ml)"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of liquid added (milk or water)",
+        "tr": "Eklenen sıvı hacmi (süt veya su)"
       }
     }
   ],

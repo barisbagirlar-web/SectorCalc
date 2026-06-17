@@ -10,11 +10,15 @@
       "businessContext": "Patient's fasting blood glucose level (measured after 8-12 hours of no caloric intake)",
       "label_i18n": {
         "en": "Fasting Blood Sugar",
-        "tr": "Fasting Blood Sugar",
+        "tr": "Açlık Kan Şekeri",
         "de": "Fasting Blood Sugar",
         "fr": "Fasting Blood Sugar",
         "es": "Fasting Blood Sugar",
         "ar": "Fasting Blood Sugar"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's fasting blood glucose level (measured after 8-12 hours of no caloric intake)",
+        "tr": "Hastanın açlık kan glukoz seviyesi (8-12 saat kalori alımı olmadan ölçülür)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Patient's blood glucose level 2 hours after meal",
       "label_i18n": {
         "en": "Postprandial Blood Sugar",
-        "tr": "Postprandial Blood Sugar",
+        "tr": "Tokluk Kan Şekeri",
         "de": "Postprandial Blood Sugar",
         "fr": "Postprandial Blood Sugar",
         "es": "Postprandial Blood Sugar",
         "ar": "Postprandial Blood Sugar"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's blood glucose level 2 hours after meal",
+        "tr": "Hastanın yemekten 2 saat sonraki kan glukoz seviyesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Patient's random blood glucose level at any time of day",
       "label_i18n": {
         "en": "Random Blood Sugar",
-        "tr": "Random Blood Sugar",
+        "tr": "Rastgele Kan Şekeri",
         "de": "Random Blood Sugar",
         "fr": "Random Blood Sugar",
         "es": "Random Blood Sugar",
         "ar": "Random Blood Sugar"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's random blood glucose level at any time of day",
+        "tr": "Hastanın günün herhangi bir saatindeki rastgele kan glukoz seviyesi."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "HbA1c",
         "es": "HbA1c",
         "ar": "HbA1c"
+      },
+      "businessContext_i18n": {
+        "en": "Glycated hemoglobin percentage, reflecting average blood glucose over past 2-3 months",
+        "tr": "Son 2-3 aydaki ortalama kan glukozunu yansıtan glikozillenmiş hemoglobin yüzdesi."
       }
     }
   ],

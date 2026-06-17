@@ -10,11 +10,15 @@
       "businessContext": "Total cholesterol level from a blood lipid panel",
       "label_i18n": {
         "en": "Total Cholesterol",
-        "tr": "Total Cholesterol",
+        "tr": "Toplam Kolesterol",
         "de": "Total Cholesterol",
         "fr": "Total Cholesterol",
         "es": "Total Cholesterol",
         "ar": "Total Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "Total cholesterol level from a blood lipid panel",
+        "tr": "Kan lipit panelinden toplam kolesterol seviyesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "High-density lipoprotein (good) cholesterol",
       "label_i18n": {
         "en": "HDL Cholesterol",
-        "tr": "HDL Cholesterol",
+        "tr": "HDL Kolesterol",
         "de": "HDL Cholesterol",
         "fr": "HDL Cholesterol",
         "es": "HDL Cholesterol",
         "ar": "HDL Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "High-density lipoprotein (good) cholesterol",
+        "tr": "Yüksek yoğunluklu lipoprotein (iyi) kolesterol"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Low-density lipoprotein cholesterol (direct measurement), optional for Friedewald comparison",
       "label_i18n": {
         "en": "LDL Cholesterol (Direct)",
-        "tr": "LDL Cholesterol (Direct)",
+        "tr": "LDL Kolesterol (Doğrudan)",
         "de": "LDL Cholesterol (Direct)",
         "fr": "LDL Cholesterol (Direct)",
         "es": "LDL Cholesterol (Direct)",
         "ar": "LDL Cholesterol (Direct)"
+      },
+      "businessContext_i18n": {
+        "en": "Low-density lipoprotein cholesterol (direct measurement), optional for Friedewald comparison",
+        "tr": "Düşük yoğunluklu lipoprotein kolesterol (doğrudan ölçüm), Friedewald karşılaştırması için isteğe bağlı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Triglycerides level, used in VLDL and Friedewald calculation",
       "label_i18n": {
         "en": "Triglycerides",
-        "tr": "Triglycerides",
+        "tr": "Trigliserit",
         "de": "Triglycerides",
         "fr": "Triglycerides",
         "es": "Triglycerides",
         "ar": "Triglycerides"
+      },
+      "businessContext_i18n": {
+        "en": "Triglycerides level, used in VLDL and Friedewald calculation",
+        "tr": "Trigliserit seviyesi, VLDL ve Friedewald hesaplamasında kullanılır"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The spherical refractive error in diopters. Negative for myopia, positive for hyperopia.",
       "label_i18n": {
         "en": "Sphere (D)",
-        "tr": "Sphere (D)",
+        "tr": "Küre (D)",
         "de": "Sphere (D)",
         "fr": "Sphere (D)",
         "es": "Sphere (D)",
         "ar": "Sphere (D)"
+      },
+      "businessContext_i18n": {
+        "en": "The spherical refractive error in diopters. Negative for myopia, positive for hyperopia.",
+        "tr": "Diyoptri cinsinden küresel kırma kusuru. Miyopi için negatif, hipermetropi için pozitif."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The cylindrical component in diopters, typically in minus cylinder notation. Represents astigmatism.",
       "label_i18n": {
         "en": "Cylinder (D)",
-        "tr": "Cylinder (D)",
+        "tr": "Silindir (D)",
         "de": "Cylinder (D)",
         "fr": "Cylinder (D)",
         "es": "Cylinder (D)",
         "ar": "Cylinder (D)"
+      },
+      "businessContext_i18n": {
+        "en": "The cylindrical component in diopters, typically in minus cylinder notation. Represents astigmatism.",
+        "tr": "Diyoptri cinsinden silindirik bileşen, tipik olarak eksi silindir notasyonunda. Astigmatizmayı temsil eder."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The orientation of the cylinder axis in degrees, from 0 to 180.",
       "label_i18n": {
         "en": "Axis (deg)",
-        "tr": "Axis (deg)",
+        "tr": "Eksen (derece)",
         "de": "Axis (deg)",
         "fr": "Axis (deg)",
         "es": "Axis (deg)",
         "ar": "Axis (deg)"
+      },
+      "businessContext_i18n": {
+        "en": "The orientation of the cylinder axis in degrees, from 0 to 180.",
+        "tr": "Silindir ekseninin derece cinsinden yönü, 0 ile 180 arasında."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The distance from the back vertex of the spectacle lens to the cornea, typically 12-14 mm. Used to correct the prescription for the spectacle plane.",
       "label_i18n": {
         "en": "Vertex Distance (mm)",
-        "tr": "Vertex Distance (mm)",
+        "tr": "Köşe Mesafesi (mm)",
         "de": "Vertex Distance (mm)",
         "fr": "Vertex Distance (mm)",
         "es": "Vertex Distance (mm)",
         "ar": "Vertex Distance (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "The distance from the back vertex of the spectacle lens to the cornea, typically 12-14 mm. Used to correct the prescription for the spectacle plane.",
+        "tr": "Gözlük camının arka tepe noktasından korneaya olan mesafe, tipik olarak 12-14 mm. Reçeteyi gözlük düzlemine göre düzeltmek için kullanılır."
       }
     }
   ],

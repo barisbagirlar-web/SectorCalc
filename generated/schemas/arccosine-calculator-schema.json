@@ -10,11 +10,15 @@
       "businessContext": "Length of the adjacent side in the right triangle. Must be non-negative.",
       "label_i18n": {
         "en": "Adjacent Side",
-        "tr": "Adjacent Side",
+        "tr": "Komşu Kenar",
         "de": "Adjacent Side",
         "fr": "Adjacent Side",
         "es": "Adjacent Side",
         "ar": "Adjacent Side"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the adjacent side in the right triangle. Must be non-negative.",
+        "tr": "Dik üçgende komşu kenarın uzunluğu. Negatif olmamalıdır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of the hypotenuse. Must be greater than zero and greater than or equal to the adjacent side to ensure a valid arccosine input (ratio ≤ 1).",
       "label_i18n": {
         "en": "Hypotenuse",
-        "tr": "Hypotenuse",
+        "tr": "Hipotenüs",
         "de": "Hypotenuse",
         "fr": "Hypotenuse",
         "es": "Hypotenuse",
         "ar": "Hypotenuse"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the hypotenuse. Must be greater than zero and greater than or equal to the adjacent side to ensure a valid arccosine input (ratio ≤ 1).",
+        "tr": "Hipotenüs uzunluğu. Sıfırdan büyük ve komşu kenardan büyük veya eşit olmalıdır (oran ≤ 1)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0 = Radians, 1 = Degrees. Select the unit for the computed angle.",
       "label_i18n": {
         "en": "Output Unit",
-        "tr": "Output Unit",
+        "tr": "Çıktı Birimi",
         "de": "Output Unit",
         "fr": "Output Unit",
         "es": "Output Unit",
         "ar": "Output Unit"
+      },
+      "businessContext_i18n": {
+        "en": "0 = Radians, 1 = Degrees. Select the unit for the computed angle.",
+        "tr": "0 = Radyan, 1 = Derece. Hesaplanan açı için birimi seçin."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounding the result.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the result.",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı."
       }
     }
   ],

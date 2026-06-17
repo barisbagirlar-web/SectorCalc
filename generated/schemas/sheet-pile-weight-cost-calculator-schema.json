@@ -10,11 +10,15 @@
       "businessContext": "Width of a single sheet pile",
       "label_i18n": {
         "en": "Pile Width",
-        "tr": "Pile Width",
+        "tr": "Kazık Genişliği",
         "de": "Pile Width",
         "fr": "Pile Width",
         "es": "Pile Width",
         "ar": "Pile Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single sheet pile",
+        "tr": "Tek bir palplanşın genişliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of each pile",
       "label_i18n": {
         "en": "Pile Length",
-        "tr": "Pile Length",
+        "tr": "Kazık Uzunluğu",
         "de": "Pile Length",
         "fr": "Pile Length",
         "es": "Pile Length",
         "ar": "Pile Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of each pile",
+        "tr": "Her bir palplanşın uzunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of piles",
       "label_i18n": {
         "en": "Number of Piles",
-        "tr": "Number of Piles",
+        "tr": "Kazık Sayısı",
         "de": "Number of Piles",
         "fr": "Number of Piles",
         "es": "Number of Piles",
         "ar": "Number of Piles"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of piles",
+        "tr": "Toplam palplanş sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Mass of sheet pile per square meter (e.g., from manufacturer)",
       "label_i18n": {
         "en": "Unit Weight",
-        "tr": "Unit Weight",
+        "tr": "Birim ağırlık",
         "de": "Unit Weight",
         "fr": "Unit Weight",
         "es": "Unit Weight",
         "ar": "Unit Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of sheet pile per square meter (e.g., from manufacturer)",
+        "tr": "Metrekare başına palplanş kütlesi (örneğin üreticiden)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of steel per metric ton",
       "label_i18n": {
         "en": "Cost per Ton",
-        "tr": "Cost per Ton",
+        "tr": "Ton başına maliyet",
         "de": "Cost per Ton",
         "fr": "Cost per Ton",
         "es": "Cost per Ton",
         "ar": "Cost per Ton"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of steel per metric ton",
+        "tr": "Metrik ton başına çelik maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Waste factor for cutting and damage",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Waste factor for cutting and damage",
+        "tr": "Kesim ve hasar için fire faktörü"
       }
     }
   ],

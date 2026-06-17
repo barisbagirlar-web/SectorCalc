@@ -10,11 +10,15 @@
       "businessContext": "Number of observations in the sample",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)",
         "de": "Sample Size (n)",
         "fr": "Sample Size (n)",
         "es": "Sample Size (n)",
         "ar": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of observations in the sample",
+        "tr": "Örneklemdeki gözlem sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sample skewness coefficient",
       "label_i18n": {
         "en": "Skewness",
-        "tr": "Skewness",
+        "tr": "Çarpıklık",
         "de": "Skewness",
         "fr": "Skewness",
         "es": "Skewness",
         "ar": "Skewness"
+      },
+      "businessContext_i18n": {
+        "en": "Sample skewness coefficient",
+        "tr": "Örneklem çarpıklık katsayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Excess kurtosis (kurtosis - 3)",
       "label_i18n": {
         "en": "Excess Kurtosis",
-        "tr": "Excess Kurtosis",
+        "tr": "Fazla Basıklık",
         "de": "Excess Kurtosis",
         "fr": "Excess Kurtosis",
         "es": "Excess Kurtosis",
         "ar": "Excess Kurtosis"
+      },
+      "businessContext_i18n": {
+        "en": "Excess kurtosis (kurtosis - 3)",
+        "tr": "Fazla basıklık (basıklık - 3)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Z-score threshold for normality rule of thumb",
       "label_i18n": {
         "en": "Critical Z-value",
-        "tr": "Critical Z-value",
+        "tr": "Kritik Z-değeri",
         "de": "Critical Z-value",
         "fr": "Critical Z-value",
         "es": "Critical Z-value",
         "ar": "Critical Z-value"
+      },
+      "businessContext_i18n": {
+        "en": "Z-score threshold for normality rule of thumb",
+        "tr": "Normallik kuralı için Z-skor eşiği"
       }
     }
   ],

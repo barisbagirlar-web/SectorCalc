@@ -19,10 +19,12 @@
       "max": 500,
       "businessContext": "ISO 8688-1: Surface speed of the cutting tool relative to workpiece.",
       "label_i18n": {
-        "en": "Cutting Speed (Vc)"
+        "en": "Cutting Speed (Vc)",
+        "tr": "Kesme Hızı (Vc)"
       },
       "businessContext_i18n": {
-        "en": "ISO 8688-1: Surface speed of the cutting tool relative to workpiece."
+        "en": "ISO 8688-1: Surface speed of the cutting tool relative to workpiece.",
+        "tr": "ISO 8688-1: Kesici takımın iş parçasına göre yüzey hızı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 0.8,
       "businessContext": "ISO 8688-1: Axial advance per revolution.",
       "label_i18n": {
-        "en": "Feed Rate (f)"
+        "en": "Feed Rate (f)",
+        "tr": "İlerleme Hızı (f)"
       },
       "businessContext_i18n": {
-        "en": "ISO 8688-1: Axial advance per revolution."
+        "en": "ISO 8688-1: Axial advance per revolution.",
+        "tr": "ISO 8688-1: Devir başına eksenel ilerleme."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 10,
       "businessContext": "ISO 8688-1: Radial engagement of the tool.",
       "label_i18n": {
-        "en": "Depth of Cut (ap)"
+        "en": "Depth of Cut (ap)",
+        "tr": "Kesme Derinliği (ap)"
       },
       "businessContext_i18n": {
-        "en": "ISO 8688-1: Radial engagement of the tool."
+        "en": "ISO 8688-1: Radial engagement of the tool.",
+        "tr": "ISO 8688-1: Takımın radyal teması."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 200,
       "businessContext": "ISO 3685: Free length of tool holder; affects stiffness.",
       "label_i18n": {
-        "en": "Tool Overhang (L)"
+        "en": "Tool Overhang (L)",
+        "tr": "Takım Çıkıntısı (L)"
       },
       "businessContext_i18n": {
-        "en": "ISO 3685: Free length of tool holder; affects stiffness."
+        "en": "ISO 3685: Free length of tool holder; affects stiffness.",
+        "tr": "ISO 3685: Takım tutucunun serbest uzunluğu; sertliği etkiler."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 100,
       "businessContext": "ISO 3685: Cutter diameter for milling or turning insert diameter.",
       "label_i18n": {
-        "en": "Tool Diameter (D)"
+        "en": "Tool Diameter (D)",
+        "tr": "Takım Çapı (D)"
       },
       "businessContext_i18n": {
-        "en": "ISO 3685: Cutter diameter for milling or turning insert diameter."
+        "en": "ISO 3685: Cutter diameter for milling or turning insert diameter.",
+        "tr": "ISO 3685: Frezeleme için kesici çapı veya tornalama uç çapı."
       }
     },
     {
@@ -105,10 +115,12 @@
         "450"
       ],
       "label_i18n": {
-        "en": "Workpiece Material Hardness"
+        "en": "Workpiece Material Hardness",
+        "tr": "İş Parçası Malzeme Sertliği"
       },
       "businessContext_i18n": {
-        "en": "ISO 18265: Brinell hardness; affects cutting force and chatter."
+        "en": "ISO 18265: Brinell hardness; affects cutting force and chatter.",
+        "tr": "ISO 18265: Brinell sertliği; kesme kuvvetini ve tırlamayı etkiler."
       }
     },
     {
@@ -121,10 +133,12 @@
       "max": 100,
       "businessContext": "ISO 841: Rated power of the spindle motor.",
       "label_i18n": {
-        "en": "Machine Spindle Power (P_m)"
+        "en": "Machine Spindle Power (P_m)",
+        "tr": "Makine İş Mili Gücü (P_m)"
       },
       "businessContext_i18n": {
-        "en": "ISO 841: Rated power of the spindle motor."
+        "en": "ISO 841: Rated power of the spindle motor.",
+        "tr": "ISO 841: İş mili motorunun anma gücü."
       }
     },
     {
@@ -137,10 +151,12 @@
       "max": 0.2,
       "businessContext": "ISO 10816: Structural damping; 0.02-0.08 typical for machine tools.",
       "label_i18n": {
-        "en": "Machine Damping Ratio (ζ)"
+        "en": "Machine Damping Ratio (ζ)",
+        "tr": "Makine Sönümleme Oranı (ζ)"
       },
       "businessContext_i18n": {
-        "en": "ISO 10816: Structural damping; 0.02-0.08 typical for machine tools."
+        "en": "ISO 10816: Structural damping; 0.02-0.08 typical for machine tools.",
+        "tr": "ISO 10816: Yapısal sönümleme; takım tezgahları için tipik 0.02-0.08."
       }
     }
   ],

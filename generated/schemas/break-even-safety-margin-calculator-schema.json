@@ -19,10 +19,12 @@
       "max": 100000000,
       "businessContext": "Sum of all fixed expenses (rent, salaries, insurance) per period.",
       "label_i18n": {
-        "en": "Total Fixed Costs"
+        "en": "Total Fixed Costs",
+        "tr": "Toplam Sabit Maliyetler"
       },
       "businessContext_i18n": {
-        "en": "Sum of all fixed expenses (rent, salaries, insurance) per period."
+        "en": "Sum of all fixed expenses (rent, salaries, insurance) per period.",
+        "tr": "Dönem başına tüm sabit giderlerin (kira, maaşlar, sigorta) toplamı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 10000,
       "businessContext": "Direct material, labor, and overhead per unit.",
       "label_i18n": {
-        "en": "Variable Cost per Unit"
+        "en": "Variable Cost per Unit",
+        "tr": "Birim Başına Değişken Maliyet"
       },
       "businessContext_i18n": {
-        "en": "Direct material, labor, and overhead per unit."
+        "en": "Direct material, labor, and overhead per unit.",
+        "tr": "Birim başına direkt malzeme, işçilik ve genel gider."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 100000,
       "businessContext": "Revenue per unit sold.",
       "label_i18n": {
-        "en": "Selling Price per Unit"
+        "en": "Selling Price per Unit",
+        "tr": "Birim Satış Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Revenue per unit sold."
+        "en": "Revenue per unit sold.",
+        "tr": "Satılan birim başına gelir."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 10000000,
       "businessContext": "Number of units actually sold in the period.",
       "label_i18n": {
-        "en": "Actual Sales Volume"
+        "en": "Actual Sales Volume",
+        "tr": "Gerçek Satış Hacmi"
       },
       "businessContext_i18n": {
-        "en": "Number of units actually sold in the period."
+        "en": "Number of units actually sold in the period.",
+        "tr": "Dönemde fiilen satılan birim sayısı."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 20000000,
       "businessContext": "Theoretical maximum output under normal operating conditions.",
       "label_i18n": {
-        "en": "Maximum Capacity Volume"
+        "en": "Maximum Capacity Volume",
+        "tr": "Maksimum Kapasite Hacmi"
       },
       "businessContext_i18n": {
-        "en": "Theoretical maximum output under normal operating conditions."
+        "en": "Theoretical maximum output under normal operating conditions.",
+        "tr": "Normal çalışma koşullarında teorik maksimum çıktı."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": 100,
       "businessContext": "Expected percentage variation in demand (coefficient of variation).",
       "label_i18n": {
-        "en": "Demand Uncertainty Factor"
+        "en": "Demand Uncertainty Factor",
+        "tr": "Talep Belirsizlik Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Expected percentage variation in demand (coefficient of variation)."
+        "en": "Expected percentage variation in demand (coefficient of variation).",
+        "tr": "Talepte beklenen yüzde değişim (varyasyon katsayısı)."
       }
     },
     {
@@ -115,10 +127,12 @@
       "max": 50,
       "businessContext": "Annual expected increase in variable costs (inflation, supplier pricing).",
       "label_i18n": {
-        "en": "Cost Escalation Rate"
+        "en": "Cost Escalation Rate",
+        "tr": "Maliyet Artış Oranı"
       },
       "businessContext_i18n": {
-        "en": "Annual expected increase in variable costs (inflation, supplier pricing)."
+        "en": "Annual expected increase in variable costs (inflation, supplier pricing).",
+        "tr": "Değişken maliyetlerde beklenen yıllık artış (enflasyon, tedarikçi fiyatlandırması)."
       }
     },
     {
@@ -131,10 +145,12 @@
       "max": null,
       "businessContext": "If true, tax rate input is required and after-tax break-even is calculated.",
       "label_i18n": {
-        "en": "Include Tax Effect"
+        "en": "Include Tax Effect",
+        "tr": "Vergi Etkisini Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "If true, tax rate input is required and after-tax break-even is calculated."
+        "en": "If true, tax rate input is required and after-tax break-even is calculated.",
+        "tr": "Doğruysa, vergi oranı girişi gereklidir ve vergi sonrası başabaş hesaplanır."
       }
     }
   ],

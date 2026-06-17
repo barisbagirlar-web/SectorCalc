@@ -10,11 +10,15 @@
       "businessContext": "Volumetric flow rate of the fluid being pumped",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of the fluid being pumped",
+        "tr": "Pompalanan akışkanın hacimsel debisi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total dynamic head the pump must overcome",
       "label_i18n": {
         "en": "Head",
-        "tr": "Head",
+        "tr": "Düşü",
         "de": "Head",
         "fr": "Head",
         "es": "Head",
         "ar": "Head"
+      },
+      "businessContext_i18n": {
+        "en": "Total dynamic head the pump must overcome",
+        "tr": "Pompanın aşması gereken toplam dinamik yük"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of the fluid (water = 1000 kg/m³)",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluid (water = 1000 kg/m³)",
+        "tr": "Akışkanın yoğunluğu (su = 1000 kg/m³)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Efficiency of the pump (0-100%)",
       "label_i18n": {
         "en": "Pump Efficiency",
-        "tr": "Pump Efficiency",
+        "tr": "Pompa Verimliliği",
         "de": "Pump Efficiency",
         "fr": "Pump Efficiency",
         "es": "Pump Efficiency",
         "ar": "Pump Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the pump (0-100%)",
+        "tr": "Pompa verimliliği (%0-100)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Efficiency of the electric motor driving the pump (0-100%)",
       "label_i18n": {
         "en": "Motor Efficiency",
-        "tr": "Motor Efficiency",
+        "tr": "Motor verimliliği",
         "de": "Motor Efficiency",
         "fr": "Motor Efficiency",
         "es": "Motor Efficiency",
         "ar": "Motor Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the electric motor driving the pump (0-100%)",
+        "tr": "Pompayı çalıştıran elektrik motorunun verimliliği (%0-100)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Daily operating hours of the pump",
       "label_i18n": {
         "en": "Operating Hours",
-        "tr": "Operating Hours",
+        "tr": "Çalışma Saatleri",
         "de": "Operating Hours",
         "fr": "Operating Hours",
         "es": "Operating Hours",
         "ar": "Operating Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Daily operating hours of the pump",
+        "tr": "Pompanın günlük çalışma saati"
       }
     }
   ],

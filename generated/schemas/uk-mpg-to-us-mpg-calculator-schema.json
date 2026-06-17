@@ -10,11 +10,15 @@
       "businessContext": "Fuel efficiency in miles per imperial gallon",
       "label_i18n": {
         "en": "UK MPG",
-        "tr": "UK MPG",
+        "tr": "Birleşik Krallık MPG",
         "de": "UK MPG",
         "fr": "UK MPG",
         "es": "UK MPG",
         "ar": "UK MPG"
+      },
+      "businessContext_i18n": {
+        "en": "Fuel efficiency in miles per imperial gallon",
+        "tr": "Mil başına emperyal galon cinsinden yakıt verimliliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion constant: 1 imperial gallon = 4.54609 litres",
       "label_i18n": {
         "en": "Imperial Gallon to Litres",
-        "tr": "Imperial Gallon to Litres",
+        "tr": "Emperyal Galon - Litre Dönüşümü",
         "de": "Imperial Gallon to Litres",
         "fr": "Imperial Gallon to Litres",
         "es": "Imperial Gallon to Litres",
         "ar": "Imperial Gallon to Litres"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion constant: 1 imperial gallon = 4.54609 litres",
+        "tr": "Dönüşüm sabiti: 1 emperyal galon = 4,54609 litre"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Conversion constant: 1 US gallon = 3.785411784 litres",
       "label_i18n": {
         "en": "US Gallon to Litres",
-        "tr": "US Gallon to Litres",
+        "tr": "ABD Galonu - Litre Dönüşümü",
         "de": "US Gallon to Litres",
         "fr": "US Gallon to Litres",
         "es": "US Gallon to Litres",
         "ar": "US Gallon to Litres"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion constant: 1 US gallon = 3.785411784 litres",
+        "tr": "Dönüşüm sabiti: 1 ABD galonu = 3,785411784 litre"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional offset to UK MPG for scenario testing",
       "label_i18n": {
         "en": "UK MPG Adjustment",
-        "tr": "UK MPG Adjustment",
+        "tr": "Birleşik Krallık MPG Ayarı",
         "de": "UK MPG Adjustment",
         "fr": "UK MPG Adjustment",
         "es": "UK MPG Adjustment",
         "ar": "UK MPG Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "Optional offset to UK MPG for scenario testing",
+        "tr": "Senaryo testi için Birleşik Krallık MPG'sine isteğe bağlı ofset"
       }
     }
   ],

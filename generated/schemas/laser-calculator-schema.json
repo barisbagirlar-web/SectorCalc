@@ -10,11 +10,15 @@
       "businessContext": "Nominal laser output power",
       "label_i18n": {
         "en": "Laser Power",
-        "tr": "Laser Power",
+        "tr": "Lazer gücü",
         "de": "Laser Power",
         "fr": "Laser Power",
         "es": "Laser Power",
         "ar": "Laser Power"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal laser output power",
+        "tr": "Nominal lazer çıkış gücü"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Speed of the cutting head",
       "label_i18n": {
         "en": "Cutting Speed",
-        "tr": "Cutting Speed",
+        "tr": "Kesme Hızı",
         "de": "Cutting Speed",
         "fr": "Cutting Speed",
         "es": "Cutting Speed",
         "ar": "Cutting Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Speed of the cutting head",
+        "tr": "Kesme kafasının hızı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Thickness of the material being cut",
       "label_i18n": {
         "en": "Material Thickness",
-        "tr": "Material Thickness",
+        "tr": "Malzeme kalınlığı",
         "de": "Material Thickness",
         "fr": "Material Thickness",
         "es": "Material Thickness",
         "ar": "Material Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the material being cut",
+        "tr": "Kesilen malzemenin kalınlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of the cut kerf",
       "label_i18n": {
         "en": "Kerf Width",
-        "tr": "Kerf Width",
+        "tr": "Kerf genişliği",
         "de": "Kerf Width",
         "fr": "Kerf Width",
         "es": "Kerf Width",
         "ar": "Kerf Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the cut kerf",
+        "tr": "Kesim kerf genişliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fraction of laser energy absorbed by the material (0-1)",
       "label_i18n": {
         "en": "Material Absorption Coefficient",
-        "tr": "Material Absorption Coefficient",
+        "tr": "Malzeme soğurma katsayısı",
         "de": "Material Absorption Coefficient",
         "fr": "Material Absorption Coefficient",
         "es": "Material Absorption Coefficient",
         "ar": "Material Absorption Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of laser energy absorbed by the material (0-1)",
+        "tr": "Malzeme tarafından soğurulan lazer enerjisi oranı (0-1)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total operating cost including electricity, maintenance, and labor",
       "label_i18n": {
         "en": "Operating Cost per Hour",
-        "tr": "Operating Cost per Hour",
+        "tr": "Saatlik işletme maliyeti",
         "de": "Operating Cost per Hour",
         "fr": "Operating Cost per Hour",
         "es": "Operating Cost per Hour",
         "ar": "Operating Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Total operating cost including electricity, maintenance, and labor",
+        "tr": "Elektrik, bakım ve işçilik dahil toplam işletme maliyeti"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Total length of the laser cut path for the job",
       "label_i18n": {
         "en": "Total Cut Length",
-        "tr": "Total Cut Length",
+        "tr": "Toplam kesim uzunluğu",
         "de": "Total Cut Length",
         "fr": "Total Cut Length",
         "es": "Total Cut Length",
         "ar": "Total Cut Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the laser cut path for the job",
+        "tr": "İş için lazer kesim yolunun toplam uzunluğu"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Time required to load/unload material and set up the machine",
       "label_i18n": {
         "en": "Setup Time",
-        "tr": "Setup Time",
+        "tr": "Kurulum Süresi",
         "de": "Setup Time",
         "fr": "Setup Time",
         "es": "Setup Time",
         "ar": "Setup Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to load/unload material and set up the machine",
+        "tr": "Malzeme yükleme/boşaltma ve makine kurulumu için gereken süre"
       }
     }
   ],

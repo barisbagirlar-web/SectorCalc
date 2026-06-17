@@ -10,11 +10,15 @@
       "businessContext": "Number of guests attending the wedding.",
       "label_i18n": {
         "en": "Guest Count",
-        "tr": "Guest Count",
+        "tr": "Misafir Sayısı",
         "de": "Guest Count",
         "fr": "Guest Count",
         "es": "Guest Count",
         "ar": "Guest Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of guests attending the wedding.",
+        "tr": "Düğüne katılacak misafir sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost of food per guest.",
       "label_i18n": {
         "en": "Cost Per Plate",
-        "tr": "Cost Per Plate",
+        "tr": "Tabak Başına Maliyet",
         "de": "Cost Per Plate",
         "fr": "Cost Per Plate",
         "es": "Cost Per Plate",
         "ar": "Cost Per Plate"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of food per guest.",
+        "tr": "Misafir başına yiyecek maliyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of beverages per guest.",
       "label_i18n": {
         "en": "Drinks Cost Per Guest",
-        "tr": "Drinks Cost Per Guest",
+        "tr": "Misafir Başına İçecek Maliyeti",
         "de": "Drinks Cost Per Guest",
         "fr": "Drinks Cost Per Guest",
         "es": "Drinks Cost Per Guest",
         "ar": "Drinks Cost Per Guest"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of beverages per guest.",
+        "tr": "Misafir başına içecek maliyeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Service charge percentage applied to food and drinks subtotal.",
       "label_i18n": {
         "en": "Service Charge",
-        "tr": "Service Charge",
+        "tr": "Servis Ücreti",
         "de": "Service Charge",
         "fr": "Service Charge",
         "es": "Service Charge",
         "ar": "Service Charge"
+      },
+      "businessContext_i18n": {
+        "en": "Service charge percentage applied to food and drinks subtotal.",
+        "tr": "Yiyecek ve içecek ara toplamına uygulanan hizmet ücreti yüzdesi."
       }
     }
   ],

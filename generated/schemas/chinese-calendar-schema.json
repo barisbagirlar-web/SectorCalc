@@ -10,11 +10,15 @@
       "businessContext": "The Gregorian calendar year to convert.",
       "label_i18n": {
         "en": "Gregorian Year",
-        "tr": "Gregorian Year",
+        "tr": "Miladi Yıl",
         "de": "Gregorian Year",
         "fr": "Gregorian Year",
         "es": "Gregorian Year",
         "ar": "Gregorian Year"
+      },
+      "businessContext_i18n": {
+        "en": "The Gregorian calendar year to convert.",
+        "tr": "Dönüştürülecek Gregoryen takvim yılı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The Gregorian calendar month (1-12).",
       "label_i18n": {
         "en": "Gregorian Month",
-        "tr": "Gregorian Month",
+        "tr": "Miladi Ay",
         "de": "Gregorian Month",
         "fr": "Gregorian Month",
         "es": "Gregorian Month",
         "ar": "Gregorian Month"
+      },
+      "businessContext_i18n": {
+        "en": "The Gregorian calendar month (1-12).",
+        "tr": "Gregoryen takvim ayı (1-12)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The Gregorian calendar day (1-31).",
       "label_i18n": {
         "en": "Gregorian Day",
-        "tr": "Gregorian Day",
+        "tr": "Miladi Gün",
         "de": "Gregorian Day",
         "fr": "Gregorian Day",
         "es": "Gregorian Day",
         "ar": "Gregorian Day"
+      },
+      "businessContext_i18n": {
+        "en": "The Gregorian calendar day (1-31).",
+        "tr": "Gregoryen takvim günü (1-31)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Set to 1 if the month is a leap month in Chinese calendar, else 0.",
       "label_i18n": {
         "en": "Leap Month Flag",
-        "tr": "Leap Month Flag",
+        "tr": "Artık Ay İşareti",
         "de": "Leap Month Flag",
         "fr": "Leap Month Flag",
         "es": "Leap Month Flag",
         "ar": "Leap Month Flag"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 if the month is a leap month in Chinese calendar, else 0.",
+        "tr": "Çin takviminde ay artık ay ise 1, değilse 0 olarak ayarlayın."
       }
     }
   ],

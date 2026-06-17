@@ -10,11 +10,15 @@
       "businessContext": "Volumetric flow rate of water through the heater",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of water through the heater",
+        "tr": "Isıtıcıdan geçen suyun hacimsel debisi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Temperature of incoming cold water",
       "label_i18n": {
         "en": "Inlet Temperature",
-        "tr": "Inlet Temperature",
+        "tr": "Giriş Sıcaklığı",
         "de": "Inlet Temperature",
         "fr": "Inlet Temperature",
         "es": "Inlet Temperature",
         "ar": "Inlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of incoming cold water",
+        "tr": "Gelen soğuk suyun sıcaklığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired temperature of hot water output",
       "label_i18n": {
         "en": "Outlet Temperature",
-        "tr": "Outlet Temperature",
+        "tr": "Çıkış Sıcaklığı",
         "de": "Outlet Temperature",
         "fr": "Outlet Temperature",
         "es": "Outlet Temperature",
         "ar": "Outlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Desired temperature of hot water output",
+        "tr": "Sıcak su çıkışının istenen sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Heater thermal efficiency (0-100%)",
       "label_i18n": {
         "en": "Efficiency",
-        "tr": "Efficiency",
+        "tr": "Verim",
         "de": "Efficiency",
         "fr": "Efficiency",
         "es": "Efficiency",
         "ar": "Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Heater thermal efficiency (0-100%)",
+        "tr": "Isıtıcı termal verimliliği (%0-100)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of energy (electricity or gas) per kilowatt-hour",
       "label_i18n": {
         "en": "Energy Cost",
-        "tr": "Energy Cost",
+        "tr": "Enerji Maliyeti",
         "de": "Energy Cost",
         "fr": "Energy Cost",
         "es": "Energy Cost",
         "ar": "Energy Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of energy (electricity or gas) per kilowatt-hour",
+        "tr": "Kilovat-saat başına enerji maliyeti (elektrik veya gaz)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average daily duration of water heater operation",
       "label_i18n": {
         "en": "Daily Usage",
-        "tr": "Daily Usage",
+        "tr": "Günlük Kullanım",
         "de": "Daily Usage",
         "fr": "Daily Usage",
         "es": "Daily Usage",
         "ar": "Daily Usage"
+      },
+      "businessContext_i18n": {
+        "en": "Average daily duration of water heater operation",
+        "tr": "Su ısıtıcısının ortalama günlük çalışma süresi"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of days per month for cost estimation",
       "label_i18n": {
         "en": "Days per Month",
-        "tr": "Days per Month",
+        "tr": "Aylık Gün Sayısı",
         "de": "Days per Month",
         "fr": "Days per Month",
         "es": "Days per Month",
         "ar": "Days per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days per month for cost estimation",
+        "tr": "Maliyet tahmini için aylık gün sayısı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Specific heat capacity of water (4.186 kJ/(kg·°C) for water)",
       "label_i18n": {
         "en": "Specific Heat",
-        "tr": "Specific Heat",
+        "tr": "Özgül Isı",
         "de": "Specific Heat",
         "fr": "Specific Heat",
         "es": "Specific Heat",
         "ar": "Specific Heat"
+      },
+      "businessContext_i18n": {
+        "en": "Specific heat capacity of water (4.186 kJ/(kg·°C) for water)",
+        "tr": "Suyun özgül ısı kapasitesi (su için 4,186 kJ/(kg·°C))"
       }
     }
   ],

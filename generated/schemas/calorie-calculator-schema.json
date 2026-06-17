@@ -10,11 +10,15 @@
       "businessContext": "User body weight for metabolic rate estimation",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User body weight for metabolic rate estimation",
+        "tr": "Metabolik hız tahmini için kullanıcı vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "User height for body surface area proxy",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "User height for body surface area proxy",
+        "tr": "Vücut yüzey alanı vekili için kullanıcı boyu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Age affects basal metabolic rate",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age affects basal metabolic rate",
+        "tr": "Yaş, bazal metabolizma hızını etkiler"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Biological sex for Mifflin-St Jeor equation",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Biological sex for Mifflin-St Jeor equation",
+        "tr": "Mifflin-St Jeor denklemi için biyolojik cinsiyet"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Physical activity level multiplier for TDEE",
       "label_i18n": {
         "en": "Activity Factor",
-        "tr": "Activity Factor",
+        "tr": "Aktivite Faktörü",
         "de": "Activity Factor",
         "fr": "Activity Factor",
         "es": "Activity Factor",
         "ar": "Activity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Physical activity level multiplier for TDEE",
+        "tr": "Toplam günlük enerji harcaması için fiziksel aktivite seviyesi çarpanı"
       }
     }
   ],

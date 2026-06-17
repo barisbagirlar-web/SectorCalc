@@ -10,11 +10,15 @@
       "businessContext": "The total number of shares purchased in the stock.",
       "label_i18n": {
         "en": "Number of Shares",
-        "tr": "Number of Shares",
+        "tr": "Hisse Sayısı",
         "de": "Number of Shares",
         "fr": "Number of Shares",
         "es": "Number of Shares",
         "ar": "Number of Shares"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of shares purchased in the stock.",
+        "tr": "Hisse senedinde satın alınan toplam hisse sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The price at which each share was bought.",
       "label_i18n": {
         "en": "Purchase Price per Share",
-        "tr": "Purchase Price per Share",
+        "tr": "Hisse Başına Alış Fiyatı",
         "de": "Purchase Price per Share",
         "fr": "Purchase Price per Share",
         "es": "Purchase Price per Share",
         "ar": "Purchase Price per Share"
+      },
+      "businessContext_i18n": {
+        "en": "The price at which each share was bought.",
+        "tr": "Her bir hissenin satın alındığı fiyat."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The price at which each share was sold.",
       "label_i18n": {
         "en": "Selling Price per Share",
-        "tr": "Selling Price per Share",
+        "tr": "Hisse Başına Satış Fiyatı",
         "de": "Selling Price per Share",
         "fr": "Selling Price per Share",
         "es": "Selling Price per Share",
         "ar": "Selling Price per Share"
+      },
+      "businessContext_i18n": {
+        "en": "The price at which each share was sold.",
+        "tr": "Her bir hissenin satıldığı fiyat."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sum of all dividends paid per share over the holding period.",
       "label_i18n": {
         "en": "Total Dividends Received",
-        "tr": "Total Dividends Received",
+        "tr": "Alınan Toplam Temettü",
         "de": "Total Dividends Received",
         "fr": "Total Dividends Received",
         "es": "Total Dividends Received",
         "ar": "Total Dividends Received"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all dividends paid per share over the holding period.",
+        "tr": "Elde tutma süresi boyunca hisse başına ödenen tüm temettülerin toplamı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The length of time the stock was held, in years.",
       "label_i18n": {
         "en": "Holding Period",
-        "tr": "Holding Period",
+        "tr": "Tutma Süresi",
         "de": "Holding Period",
         "fr": "Holding Period",
         "es": "Holding Period",
         "ar": "Holding Period"
+      },
+      "businessContext_i18n": {
+        "en": "The length of time the stock was held, in years.",
+        "tr": "Hisse senedinin elde tutulduğu süre (yıl cinsinden)."
       }
     }
   ],

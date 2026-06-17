@@ -10,11 +10,15 @@
       "businessContext": "Distance between bridge supports",
       "label_i18n": {
         "en": "Span Length (m)",
-        "tr": "Span Length (m)",
+        "tr": "Açıklık Uzunluğu (m)",
         "de": "Span Length (m)",
         "fr": "Span Length (m)",
         "es": "Span Length (m)",
         "ar": "Span Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between bridge supports",
+        "tr": "Köprü mesnetleri arasındaki mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the bridge deck",
       "label_i18n": {
         "en": "Deck Width (m)",
-        "tr": "Deck Width (m)",
+        "tr": "Döşeme Genişliği (m)",
         "de": "Deck Width (m)",
         "fr": "Deck Width (m)",
         "es": "Deck Width (m)",
         "ar": "Deck Width (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the bridge deck",
+        "tr": "Köprü döşemesinin genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distributed load on the deck",
       "label_i18n": {
         "en": "Load per Area (kN/m²)",
-        "tr": "Load per Area (kN/m²)",
+        "tr": "Alan Başına Yük (kN/m²)",
         "de": "Load per Area (kN/m²)",
         "fr": "Load per Area (kN/m²)",
         "es": "Load per Area (kN/m²)",
         "ar": "Load per Area (kN/m²)"
+      },
+      "businessContext_i18n": {
+        "en": "Distributed load on the deck",
+        "tr": "Döşeme üzerindeki yayılı yük"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Yield strength of structural steel",
       "label_i18n": {
         "en": "Steel Yield Strength (MPa)",
-        "tr": "Steel Yield Strength (MPa)",
+        "tr": "Çelik Akma Dayanımı (MPa)",
         "de": "Steel Yield Strength (MPa)",
         "fr": "Steel Yield Strength (MPa)",
         "es": "Steel Yield Strength (MPa)",
         "ar": "Steel Yield Strength (MPa)"
+      },
+      "businessContext_i18n": {
+        "en": "Yield strength of structural steel",
+        "tr": "Yapısal çeliğin akma dayanımı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Factor of safety for design",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor of safety for design",
+        "tr": "Tasarım için güvenlik faktörü"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Depth of main beams",
       "label_i18n": {
         "en": "Beam Depth (m)",
-        "tr": "Beam Depth (m)",
+        "tr": "Kiriş Yüksekliği (m)",
         "de": "Beam Depth (m)",
         "fr": "Beam Depth (m)",
         "es": "Beam Depth (m)",
         "ar": "Beam Depth (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Depth of main beams",
+        "tr": "Ana kirişlerin yüksekliği"
       }
     }
   ],

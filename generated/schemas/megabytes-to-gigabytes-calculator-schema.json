@@ -10,11 +10,15 @@
       "businessContext": "The amount of data in megabytes to convert.",
       "label_i18n": {
         "en": "Megabytes (MB)",
-        "tr": "Megabytes (MB)",
+        "tr": "Megabayt (MB)",
         "de": "Megabytes (MB)",
         "fr": "Megabytes (MB)",
         "es": "Megabytes (MB)",
         "ar": "Megabytes (MB)"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of data in megabytes to convert.",
+        "tr": "Dönüştürülecek megabayt cinsinden veri miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Use 1024 for binary (IEC) or 1000 for SI standard.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Use 1024 for binary (IEC) or 1000 for SI standard.",
+        "tr": "İkili (IEC) için 1024 veya SI standardı için 1000 kullanın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the primary output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the primary output.",
+        "tr": "Birincil çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiply the result by this factor for batch conversions (e.g., number of files).",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Multiply the result by this factor for batch conversions (e.g., number of files).",
+        "tr": "Toplu dönüşümler için sonucu bu faktörle çarpın (ör. dosya sayısı)."
       }
     }
   ],

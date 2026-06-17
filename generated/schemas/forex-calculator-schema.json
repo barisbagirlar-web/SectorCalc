@@ -10,11 +10,15 @@
       "businessContext": "Number of standard lots (1 lot = 100,000 units)",
       "label_i18n": {
         "en": "Lot Size",
-        "tr": "Lot Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Lot Size",
         "fr": "Lot Size",
         "es": "Lot Size",
         "ar": "Lot Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of standard lots (1 lot = 100,000 units)",
+        "tr": "Standart lot sayısı (1 lot = 100.000 birim)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Exchange rate at which the position was entered",
       "label_i18n": {
         "en": "Entry Price",
-        "tr": "Entry Price",
+        "tr": "Giriş Fiyatı",
         "de": "Entry Price",
         "fr": "Entry Price",
         "es": "Entry Price",
         "ar": "Entry Price"
+      },
+      "businessContext_i18n": {
+        "en": "Exchange rate at which the position was entered",
+        "tr": "Pozisyonun girildiği döviz kuru"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Exchange rate at which the position was closed",
       "label_i18n": {
         "en": "Exit Price",
-        "tr": "Exit Price",
+        "tr": "Çıkış Fiyatı",
         "de": "Exit Price",
         "fr": "Exit Price",
         "es": "Exit Price",
         "ar": "Exit Price"
+      },
+      "businessContext_i18n": {
+        "en": "Exchange rate at which the position was closed",
+        "tr": "Pozisyonun kapatıldığı döviz kuru"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Smallest price increment (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)",
       "label_i18n": {
         "en": "Pip Size",
-        "tr": "Pip Size",
+        "tr": "Pip Boyutu",
         "de": "Pip Size",
         "fr": "Pip Size",
         "es": "Pip Size",
         "ar": "Pip Size"
+      },
+      "businessContext_i18n": {
+        "en": "Smallest price increment (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)",
+        "tr": "En küçük fiyat artışı (ör. çoğu parite için 0.0001, JPY pariteleri için 0.01)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Monetary value of one pip per standard lot in the account currency",
       "label_i18n": {
         "en": "Pip Value",
-        "tr": "Pip Value",
+        "tr": "Pip Değeri",
         "de": "Pip Value",
         "fr": "Pip Value",
         "es": "Pip Value",
         "ar": "Pip Value"
+      },
+      "businessContext_i18n": {
+        "en": "Monetary value of one pip per standard lot in the account currency",
+        "tr": "Hesap para biriminde standart lot başına bir pipin parasal değeri"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Leverage ratio provided by the broker (e.g., 100:1)",
       "label_i18n": {
         "en": "Leverage",
-        "tr": "Leverage",
+        "tr": "Kaldıraç",
         "de": "Leverage",
         "fr": "Leverage",
         "es": "Leverage",
         "ar": "Leverage"
+      },
+      "businessContext_i18n": {
+        "en": "Leverage ratio provided by the broker (e.g., 100:1)",
+        "tr": "Broker tarafından sağlanan kaldıraç oranı (ör. 100:1)"
       }
     }
   ],

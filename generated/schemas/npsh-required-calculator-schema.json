@@ -10,11 +10,15 @@
       "businessContext": "Pump shaft rotational speed in revolutions per minute (rpm).",
       "label_i18n": {
         "en": "Rotational Speed (N)",
-        "tr": "Rotational Speed (N)",
+        "tr": "Dönüş Hızı (N)",
         "de": "Rotational Speed (N)",
         "fr": "Rotational Speed (N)",
         "es": "Rotational Speed (N)",
         "ar": "Rotational Speed (N)"
+      },
+      "businessContext_i18n": {
+        "en": "Pump shaft rotational speed in revolutions per minute (rpm).",
+        "tr": "Pompa milinin dakikadaki devir sayısı (rpm)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Pump flow rate in US gallons per minute (gpm).",
       "label_i18n": {
         "en": "Flow Rate (Q)",
-        "tr": "Flow Rate (Q)",
+        "tr": "Debi (Q)",
         "de": "Flow Rate (Q)",
         "fr": "Flow Rate (Q)",
         "es": "Flow Rate (Q)",
         "ar": "Flow Rate (Q)"
+      },
+      "businessContext_i18n": {
+        "en": "Pump flow rate in US gallons per minute (gpm).",
+        "tr": "Pompa debisi, ABD galonu/dakika (gpm) cinsinden."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Pump suction specific speed (Nss) in US customary units (rpm, gpm, ft). Typical range 7000–12000.",
       "label_i18n": {
         "en": "Suction Specific Speed (S)",
-        "tr": "Suction Specific Speed (S)",
+        "tr": "Emme Özgül Hızı (S)",
         "de": "Suction Specific Speed (S)",
         "fr": "Suction Specific Speed (S)",
         "es": "Suction Specific Speed (S)",
         "ar": "Suction Specific Speed (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Pump suction specific speed (Nss) in US customary units (rpm, gpm, ft). Typical range 7000–12000.",
+        "tr": "Pompa emme özgül hızı (Nss), ABD birimlerinde (rpm, gpm, ft). Tipik aralık 7000–12000."
       }
     }
   ],

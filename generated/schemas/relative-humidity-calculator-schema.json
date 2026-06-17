@@ -10,11 +10,15 @@
       "businessContext": "The ambient air temperature measured by a standard thermometer.",
       "label_i18n": {
         "en": "Dry Bulb Temperature",
-        "tr": "Dry Bulb Temperature",
+        "tr": "Kuru Termometre Sıcaklığı",
         "de": "Dry Bulb Temperature",
         "fr": "Dry Bulb Temperature",
         "es": "Dry Bulb Temperature",
         "ar": "Dry Bulb Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "The ambient air temperature measured by a standard thermometer.",
+        "tr": "Standart bir termometre ile ölçülen ortam hava sıcaklığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Temperature measured by a wet-bulb thermometer, indicating evaporative cooling capacity.",
       "label_i18n": {
         "en": "Wet Bulb Temperature",
-        "tr": "Wet Bulb Temperature",
+        "tr": "Yaş termometre sıcaklığı",
         "de": "Wet Bulb Temperature",
         "fr": "Wet Bulb Temperature",
         "es": "Wet Bulb Temperature",
         "ar": "Wet Bulb Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature measured by a wet-bulb thermometer, indicating evaporative cooling capacity.",
+        "tr": "Yaş termometre ile ölçülen, buharlaşmalı soğutma kapasitesini gösteren sıcaklık."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Barometric pressure at the measurement location, required for psychrometric calculation.",
       "label_i18n": {
         "en": "Atmospheric Pressure",
-        "tr": "Atmospheric Pressure",
+        "tr": "Atmosfer Basıncı",
         "de": "Atmospheric Pressure",
         "fr": "Atmospheric Pressure",
         "es": "Atmospheric Pressure",
         "ar": "Atmospheric Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Barometric pressure at the measurement location, required for psychrometric calculation.",
+        "tr": "Ölçüm konumundaki barometrik basınç, psikrometrik hesaplama için gereklidir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Empirical constant depending on ventilation type; 0.00066 for aspirated, 0.0008 for sling psychrometer.",
       "label_i18n": {
         "en": "Psychrometric Constant",
-        "tr": "Psychrometric Constant",
+        "tr": "Psikrometrik sabit",
         "de": "Psychrometric Constant",
         "fr": "Psychrometric Constant",
         "es": "Psychrometric Constant",
         "ar": "Psychrometric Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical constant depending on ventilation type; 0.00066 for aspirated, 0.0008 for sling psychrometer.",
+        "tr": "Havalandırma tipine bağlı ampirik sabit; aspire edilen için 0,00066, sapan psikrometre için 0,0008."
       }
     }
   ],

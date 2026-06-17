@@ -10,11 +10,15 @@
       "businessContext": "User's body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight (kg)",
-        "tr": "Body Weight (kg)",
+        "tr": "Vücut Ağırlığı (kg)",
         "de": "Body Weight (kg)",
         "fr": "Body Weight (kg)",
         "es": "Body Weight (kg)",
         "ar": "Body Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight in kilograms",
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Base protein recommendation per kg of body weight (e.g., 0.8 for sedentary)",
       "label_i18n": {
         "en": "Base Protein (g/kg)",
-        "tr": "Base Protein (g/kg)",
+        "tr": "Temel Protein (g/kg)",
         "de": "Base Protein (g/kg)",
         "fr": "Base Protein (g/kg)",
         "es": "Base Protein (g/kg)",
         "ar": "Base Protein (g/kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Base protein recommendation per kg of body weight (e.g., 0.8 for sedentary)",
+        "tr": "Vücut ağırlığının kg'ı başına temel protein önerisi (ör. hareketsiz için 0.8)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiplier for activity level (1.0 for sedentary, 1.5 for active, 2.0 for athlete)",
       "label_i18n": {
         "en": "Activity Multiplier",
-        "tr": "Activity Multiplier",
+        "tr": "Aktivite Çarpanı",
         "de": "Activity Multiplier",
         "fr": "Activity Multiplier",
         "es": "Activity Multiplier",
         "ar": "Activity Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for activity level (1.0 for sedentary, 1.5 for active, 2.0 for athlete)",
+        "tr": "Aktivite seviyesi çarpanı (hareketsiz için 1.0, aktif için 1.5, atlet için 2.0)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for goal (1.0 for maintenance, 1.2 for muscle gain, 0.9 for weight loss)",
       "label_i18n": {
         "en": "Goal Multiplier",
-        "tr": "Goal Multiplier",
+        "tr": "Hedef Çarpanı",
         "de": "Goal Multiplier",
         "fr": "Goal Multiplier",
         "es": "Goal Multiplier",
         "ar": "Goal Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for goal (1.0 for maintenance, 1.2 for muscle gain, 0.9 for weight loss)",
+        "tr": "Hedef için çarpan (bakım için 1.0, kas kazanımı için 1.2, kilo kaybı için 0.9)"
       }
     }
   ],

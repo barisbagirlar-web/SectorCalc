@@ -10,11 +10,15 @@
       "businessContext": "The modulus for arithmetic operations, must be a positive integer.",
       "label_i18n": {
         "en": "Modulus (m)",
-        "tr": "Modulus (m)",
+        "tr": "Modül (m)",
         "de": "Modulus (m)",
         "fr": "Modulus (m)",
         "es": "Modulus (m)",
         "ar": "Modulus (m)"
+      },
+      "businessContext_i18n": {
+        "en": "The modulus for arithmetic operations, must be a positive integer.",
+        "tr": "Aritmetik işlemler için modül; pozitif tam sayı olmalıdır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "First operand.",
       "label_i18n": {
         "en": "Number a",
-        "tr": "Number a",
+        "tr": "a Sayısı",
         "de": "Number a",
         "fr": "Number a",
         "es": "Number a",
         "ar": "Number a"
+      },
+      "businessContext_i18n": {
+        "en": "First operand.",
+        "tr": "Birinci işlenen."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Second operand, used in addition, subtraction, multiplication.",
       "label_i18n": {
         "en": "Number b",
-        "tr": "Number b",
+        "tr": "b Sayısı",
         "de": "Number b",
         "fr": "Number b",
         "es": "Number b",
         "ar": "Number b"
+      },
+      "businessContext_i18n": {
+        "en": "Second operand, used in addition, subtraction, multiplication.",
+        "tr": "Toplama, çıkarma, çarpmada kullanılan ikinci işlenen."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Exponent for modular exponentiation (a^exponent mod m).",
       "label_i18n": {
         "en": "Exponent",
-        "tr": "Exponent",
+        "tr": "Üs",
         "de": "Exponent",
         "fr": "Exponent",
         "es": "Exponent",
         "ar": "Exponent"
+      },
+      "businessContext_i18n": {
+        "en": "Exponent for modular exponentiation (a^exponent mod m).",
+        "tr": "Modüler üs alma için üs (a^üs mod m)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total surface area to cover with siding",
       "label_i18n": {
         "en": "Wall Area",
-        "tr": "Wall Area",
+        "tr": "Duvar alanı",
         "de": "Wall Area",
         "fr": "Wall Area",
         "es": "Wall Area",
         "ar": "Wall Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total surface area to cover with siding",
+        "tr": "Kaplanacak toplam yüzey alanı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Length of one siding panel",
       "label_i18n": {
         "en": "Panel Length",
-        "tr": "Panel Length",
+        "tr": "Panel uzunluğu",
         "de": "Panel Length",
         "fr": "Panel Length",
         "es": "Panel Length",
         "ar": "Panel Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of one siding panel",
+        "tr": "Bir kaplama panelinin uzunluğu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Effective coverage width per panel (exposure)",
       "label_i18n": {
         "en": "Coverage Width",
-        "tr": "Coverage Width",
+        "tr": "Kaplama genişliği",
         "de": "Coverage Width",
         "fr": "Coverage Width",
         "es": "Coverage Width",
         "ar": "Coverage Width"
+      },
+      "businessContext_i18n": {
+        "en": "Effective coverage width per panel (exposure)",
+        "tr": "Panel başına etkili kaplama genişliği (maruziyet)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of extra material for waste (cuts, overlaps)",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra material for waste (cuts, overlaps)",
+        "tr": "Atık için ek malzeme yüzdesi (kesikler, bindirmeler)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Purchase cost of one panel",
       "label_i18n": {
         "en": "Material Cost per Panel",
-        "tr": "Material Cost per Panel",
+        "tr": "Panel başına malzeme maliyeti",
         "de": "Material Cost per Panel",
         "fr": "Material Cost per Panel",
         "es": "Material Cost per Panel",
         "ar": "Material Cost per Panel"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase cost of one panel",
+        "tr": "Bir panelin satın alma maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Labor time required to install one panel",
       "label_i18n": {
         "en": "Installation Time per Panel",
-        "tr": "Installation Time per Panel",
+        "tr": "Panel başına kurulum süresi",
         "de": "Installation Time per Panel",
         "fr": "Installation Time per Panel",
         "es": "Installation Time per Panel",
         "ar": "Installation Time per Panel"
+      },
+      "businessContext_i18n": {
+        "en": "Labor time required to install one panel",
+        "tr": "Bir paneli kurmak için gereken işçilik süresi"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Hourly rate for labor",
       "label_i18n": {
         "en": "Labor Cost per Hour",
-        "tr": "Labor Cost per Hour",
+        "tr": "Saatlik işçilik maliyeti",
         "de": "Labor Cost per Hour",
         "fr": "Labor Cost per Hour",
         "es": "Labor Cost per Hour",
         "ar": "Labor Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly rate for labor",
+        "tr": "Saatlik işçilik ücreti"
       }
     }
   ],

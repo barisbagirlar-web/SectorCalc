@@ -10,11 +10,15 @@
       "businessContext": "User's weight in kilograms.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's weight in kilograms.",
+        "tr": "Kullanıcının kilogram cinsinden ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "User's height in centimeters.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "User's height in centimeters.",
+        "tr": "Kullanıcının santimetre cinsinden boyu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "User's age in years.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "User's age in years.",
+        "tr": "Kullanıcının yıl cinsinden yaşı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 for female, 1 for male.",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 for female, 1 for male.",
+        "tr": "0 kadın, 1 erkek."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Duration of exercise in minutes.",
       "label_i18n": {
         "en": "Exercise Duration",
-        "tr": "Exercise Duration",
+        "tr": "Egzersiz Süresi",
         "de": "Exercise Duration",
         "fr": "Exercise Duration",
         "es": "Exercise Duration",
         "ar": "Exercise Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of exercise in minutes.",
+        "tr": "Egzersiz süresi (dakika)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Metabolic Equivalent of Task for the activity (e.g., running 8 METs).",
       "label_i18n": {
         "en": "MET Value",
-        "tr": "MET Value",
+        "tr": "MET Değeri",
         "de": "MET Value",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
+      },
+      "businessContext_i18n": {
+        "en": "Metabolic Equivalent of Task for the activity (e.g., running 8 METs).",
+        "tr": "Aktivite için metabolik eşdeğer (örneğin, koşu 8 MET)."
       }
     }
   ],

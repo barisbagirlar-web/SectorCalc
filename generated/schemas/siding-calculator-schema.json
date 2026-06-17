@@ -10,11 +10,15 @@
       "businessContext": "Total perimeter length of all walls to be sided.",
       "label_i18n": {
         "en": "Total Wall Length",
-        "tr": "Total Wall Length",
+        "tr": "Toplam Duvar Uzunluğu",
         "de": "Total Wall Length",
         "fr": "Total Wall Length",
         "es": "Total Wall Length",
         "ar": "Total Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total perimeter length of all walls to be sided.",
+        "tr": "Kaplanacak tüm duvarların toplam çevre uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the walls from base to eaves.",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the walls from base to eaves.",
+        "tr": "Duvarların tabandan saçaklara kadar yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total count of window openings.",
       "label_i18n": {
         "en": "Number of Windows",
-        "tr": "Number of Windows",
+        "tr": "Pencere Sayısı",
         "de": "Number of Windows",
         "fr": "Number of Windows",
         "es": "Number of Windows",
         "ar": "Number of Windows"
+      },
+      "businessContext_i18n": {
+        "en": "Total count of window openings.",
+        "tr": "Toplam pencere açıklığı sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average area of a single window opening.",
       "label_i18n": {
         "en": "Area per Window",
-        "tr": "Area per Window",
+        "tr": "Pencere Başına Alan",
         "de": "Area per Window",
         "fr": "Area per Window",
         "es": "Area per Window",
         "ar": "Area per Window"
+      },
+      "businessContext_i18n": {
+        "en": "Average area of a single window opening.",
+        "tr": "Tek bir pencere açıklığının ortalama alanı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total count of door openings.",
       "label_i18n": {
         "en": "Number of Doors",
-        "tr": "Number of Doors",
+        "tr": "Kapı sayısı",
         "de": "Number of Doors",
         "fr": "Number of Doors",
         "es": "Number of Doors",
         "ar": "Number of Doors"
+      },
+      "businessContext_i18n": {
+        "en": "Total count of door openings.",
+        "tr": "Toplam kapı açılma sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average area of a single door opening.",
       "label_i18n": {
         "en": "Area per Door",
-        "tr": "Area per Door",
+        "tr": "Kapı Başına Alan",
         "de": "Area per Door",
         "fr": "Area per Door",
         "es": "Area per Door",
         "ar": "Area per Door"
+      },
+      "businessContext_i18n": {
+        "en": "Average area of a single door opening.",
+        "tr": "Tek bir kapı açıklığının ortalama alanı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Surface area covered by one siding panel.",
       "label_i18n": {
         "en": "Siding Panel Coverage",
-        "tr": "Siding Panel Coverage",
+        "tr": "Dış Cephe Paneli Kaplaması",
         "de": "Siding Panel Coverage",
         "fr": "Siding Panel Coverage",
         "es": "Siding Panel Coverage",
         "ar": "Siding Panel Coverage"
+      },
+      "businessContext_i18n": {
+        "en": "Surface area covered by one siding panel.",
+        "tr": "Bir dış cephe panelinin kapladığı yüzey alanı."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Extra material to account for cuts and waste (e.g., 0.1 for 10%).",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Extra material to account for cuts and waste (e.g., 0.1 for 10%).",
+        "tr": "Kesim ve fireyi hesaba katmak için ek malzeme (ör. %10 için 0,1)."
       }
     }
   ],

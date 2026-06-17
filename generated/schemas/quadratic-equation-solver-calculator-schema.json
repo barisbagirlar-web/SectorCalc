@@ -10,11 +10,15 @@
       "businessContext": "Quadratic coefficient (non-zero for quadratic)",
       "label_i18n": {
         "en": "Coefficient a",
-        "tr": "Coefficient a",
+        "tr": "Katsayı a",
         "de": "Coefficient a",
         "fr": "Coefficient a",
         "es": "Coefficient a",
         "ar": "Coefficient a"
+      },
+      "businessContext_i18n": {
+        "en": "Quadratic coefficient (non-zero for quadratic)",
+        "tr": "İkinci derece katsayısı (ikinci derece için sıfırdan farklı)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Linear coefficient",
       "label_i18n": {
         "en": "Coefficient b",
-        "tr": "Coefficient b",
+        "tr": "Katsayı b",
         "de": "Coefficient b",
         "fr": "Coefficient b",
         "es": "Coefficient b",
         "ar": "Coefficient b"
+      },
+      "businessContext_i18n": {
+        "en": "Linear coefficient",
+        "tr": "Doğrusal katsayı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Constant term",
       "label_i18n": {
         "en": "Constant c",
-        "tr": "Constant c",
+        "tr": "Sabit c",
         "de": "Constant c",
         "fr": "Constant c",
         "es": "Constant c",
         "ar": "Constant c"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term",
+        "tr": "Sabit terim"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional: evaluate the quadratic at this x value",
       "label_i18n": {
         "en": "Evaluate at x",
-        "tr": "Evaluate at x",
+        "tr": "x'te değerlendir",
         "de": "Evaluate at x",
         "fr": "Evaluate at x",
         "es": "Evaluate at x",
         "ar": "Evaluate at x"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: evaluate the quadratic at this x value",
+        "tr": "İsteğe bağlı: ikinci dereceyi bu x değerinde değerlendir"
       }
     }
   ],

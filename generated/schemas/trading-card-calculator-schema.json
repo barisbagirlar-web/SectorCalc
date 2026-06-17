@@ -15,6 +15,10 @@
         "fr": "Card Market Price (Ungraded)",
         "es": "Card Market Price (Ungraded)",
         "ar": "Card Market Price (Ungraded)"
+      },
+      "businessContext_i18n": {
+        "en": "Current market value of the ungraded card",
+        "tr": "Current market value of the ungraded card"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total cost to submit card for professional grading",
       "label_i18n": {
         "en": "Grading Cost",
-        "tr": "Grading Cost",
+        "tr": "Derecelendirme Maliyeti",
         "de": "Grading Cost",
         "fr": "Grading Cost",
         "es": "Grading Cost",
         "ar": "Grading Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost to submit card for professional grading",
+        "tr": "Total cost to submit card for professional grading"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Expected Grade Multiplier",
         "es": "Expected Grade Multiplier",
         "ar": "Expected Grade Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Factor by which card value multiplies upon achieving the expected grade",
+        "tr": "Factor by which card value multiplies upon achieving the expected grade"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Shipping & Insurance",
         "es": "Shipping & Insurance",
         "ar": "Shipping & Insurance"
+      },
+      "businessContext_i18n": {
+        "en": "Combined shipping and insurance cost for round-trip",
+        "tr": "Combined shipping and insurance cost for round-trip"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Platform or auction house fee as a percentage of the final sale price",
       "label_i18n": {
         "en": "Selling Fee (%)",
-        "tr": "Selling Fee (%)",
+        "tr": "Satış Ücreti (%)",
         "de": "Selling Fee (%)",
         "fr": "Selling Fee (%)",
         "es": "Selling Fee (%)",
         "ar": "Selling Fee (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Platform or auction house fee as a percentage of the final sale price",
+        "tr": "Platform or auction house fee as a percentage of the final sale price"
       }
     }
   ],

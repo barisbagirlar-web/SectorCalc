@@ -10,11 +10,15 @@
       "businessContext": "Miles per US gallon fuel efficiency",
       "label_i18n": {
         "en": "Fuel Efficiency (mpg)",
-        "tr": "Fuel Efficiency (mpg)",
+        "tr": "Yakıt Verimliliği (mpg)",
         "de": "Fuel Efficiency (mpg)",
         "fr": "Fuel Efficiency (mpg)",
         "es": "Fuel Efficiency (mpg)",
         "ar": "Fuel Efficiency (mpg)"
+      },
+      "businessContext_i18n": {
+        "en": "Miles per US gallon fuel efficiency",
+        "tr": "Mil başına ABD galonu cinsinden yakıt verimliliği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Factor to convert mpg to km/L (0.425144 for US gallon; 0.354006 for Imperial)",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor to convert mpg to km/L (0.425144 for US gallon; 0.354006 for Imperial)",
+        "tr": "mpg'yi km/L'ye dönüştürme faktörü (ABD galonu için 0,425144; İmparatorluk galonu için 0,354006)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding output",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding output",
+        "tr": "Yuvarlama için ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Instrument uncertainty for worst-case tolerance analysis",
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
-        "tr": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)",
         "de": "Measurement Uncertainty (%)",
         "fr": "Measurement Uncertainty (%)",
         "es": "Measurement Uncertainty (%)",
         "ar": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Instrument uncertainty for worst-case tolerance analysis",
+        "tr": "En kötü durum tolerans analizi için enstrüman belirsizliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Systematic instrument offset to be added after conversion",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Systematic instrument offset to be added after conversion",
+        "tr": "Dönüşümden sonra eklenecek sistematik enstrüman ofseti"
       }
     }
   ],

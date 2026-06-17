@@ -10,11 +10,15 @@
       "businessContext": "Select 1 for copper or 0.61 for aluminum conductors as per ampacity standards.",
       "label_i18n": {
         "en": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
-        "tr": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
+        "tr": "İletken Malzeme Faktörü (Bakır=1, Alüminyum=0,61)",
         "de": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
         "fr": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
         "es": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
         "ar": "Conductor Material Factor (Copper=1, Aluminum=0.61)"
+      },
+      "businessContext_i18n": {
+        "en": "Select 1 for copper or 0.61 for aluminum conductors as per ampacity standards.",
+        "tr": "Ampasite standartlarına göre bakır için 1 veya alüminyum için 0,61 seçin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal cross-sectional area of the conductor in square millimeters.",
       "label_i18n": {
         "en": "Cross-Sectional Area",
-        "tr": "Cross-Sectional Area",
+        "tr": "Kesit Alanı",
         "de": "Cross-Sectional Area",
         "fr": "Cross-Sectional Area",
         "es": "Cross-Sectional Area",
         "ar": "Cross-Sectional Area"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal cross-sectional area of the conductor in square millimeters.",
+        "tr": "İletkenin milimetrekare cinsinden nominal kesit alanı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum operating temperature of the insulation (e.g., 60, 75, 90°C).",
       "label_i18n": {
         "en": "Insulation Temperature Rating",
-        "tr": "Insulation Temperature Rating",
+        "tr": "Yalıtım Sıcaklık Derecesi",
         "de": "Insulation Temperature Rating",
         "fr": "Insulation Temperature Rating",
         "es": "Insulation Temperature Rating",
         "ar": "Insulation Temperature Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum operating temperature of the insulation (e.g., 60, 75, 90°C).",
+        "tr": "Yalıtımın maksimum çalışma sıcaklığı (örn. 60, 75, 90°C)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected ambient temperature for the installation environment.",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı",
         "de": "Ambient Temperature",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Expected ambient temperature for the installation environment.",
+        "tr": "Kurulum ortamı için beklenen ortam sıcaklığı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Derating factor for multiple conductors in a raceway or cable (1.0 for single, typically <1 for multiple). Range 0 to 1.",
       "label_i18n": {
         "en": "Bundling/Grouping Factor",
-        "tr": "Bundling/Grouping Factor",
+        "tr": "Demetleme/Gruplama Faktörü",
         "de": "Bundling/Grouping Factor",
         "fr": "Bundling/Grouping Factor",
         "es": "Bundling/Grouping Factor",
         "ar": "Bundling/Grouping Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Derating factor for multiple conductors in a raceway or cable (1.0 for single, typically <1 for multiple). Range 0 to 1.",
+        "tr": "Bir kanal veya kablodaki birden fazla iletken için düşürme faktörü (tek için 1,0, birden fazla için tipik olarak <1). Aralık 0 ile 1 arası."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The net price of the goods, excluding VAT and shipping.",
       "label_i18n": {
         "en": "Net Item Price",
-        "tr": "Net Item Price",
+        "tr": "Net Ürün Fiyatı",
         "de": "Net Item Price",
         "fr": "Net Item Price",
         "es": "Net Item Price",
         "ar": "Net Item Price"
+      },
+      "businessContext_i18n": {
+        "en": "The net price of the goods, excluding VAT and shipping.",
+        "tr": "KDV ve nakliye hariç malların net fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The net shipping cost, excluding VAT.",
       "label_i18n": {
         "en": "Shipping Cost",
-        "tr": "Shipping Cost",
+        "tr": "Kargo Ücreti",
         "de": "Shipping Cost",
         "fr": "Shipping Cost",
         "es": "Shipping Cost",
         "ar": "Shipping Cost"
+      },
+      "businessContext_i18n": {
+        "en": "The net shipping cost, excluding VAT.",
+        "tr": "KDV hariç net nakliye maliyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The applicable VAT rate (e.g., 21 for 21%).",
       "label_i18n": {
         "en": "VAT Rate",
-        "tr": "VAT Rate",
+        "tr": "KDV Oranı",
         "de": "VAT Rate",
         "fr": "VAT Rate",
         "es": "VAT Rate",
         "ar": "VAT Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The applicable VAT rate (e.g., 21 for 21%).",
+        "tr": "Geçerli KDV oranı (ör. %21 için 21)."
       }
     }
   ],

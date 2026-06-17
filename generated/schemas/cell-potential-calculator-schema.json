@@ -10,11 +10,15 @@
       "businessContext": "Standard reduction potential of the cathode half-reaction, e.g., Cu²⁺ + 2e⁻ → Cu is 0.34 V.",
       "label_i18n": {
         "en": "Cathode Standard Reduction Potential (E°_cathode)",
-        "tr": "Cathode Standard Reduction Potential (E°_cathode)",
+        "tr": "Katot Standart İndirgenme Potansiyeli (E°_katot)",
         "de": "Cathode Standard Reduction Potential (E°_cathode)",
         "fr": "Cathode Standard Reduction Potential (E°_cathode)",
         "es": "Cathode Standard Reduction Potential (E°_cathode)",
         "ar": "Cathode Standard Reduction Potential (E°_cathode)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard reduction potential of the cathode half-reaction, e.g., Cu²⁺ + 2e⁻ → Cu is 0.34 V.",
+        "tr": "Katot yarı reaksiyonunun standart indirgenme potansiyeli, örn. Cu²⁺ + 2e⁻ → Cu için 0,34 V."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard reduction potential of the anode half-reaction, e.g., Zn²⁺ + 2e⁻ → Zn is -0.76 V.",
       "label_i18n": {
         "en": "Anode Standard Reduction Potential (E°_anode)",
-        "tr": "Anode Standard Reduction Potential (E°_anode)",
+        "tr": "Anot Standart İndirgenme Potansiyeli (E°_anot)",
         "de": "Anode Standard Reduction Potential (E°_anode)",
         "fr": "Anode Standard Reduction Potential (E°_anode)",
         "es": "Anode Standard Reduction Potential (E°_anode)",
         "ar": "Anode Standard Reduction Potential (E°_anode)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard reduction potential of the anode half-reaction, e.g., Zn²⁺ + 2e⁻ → Zn is -0.76 V.",
+        "tr": "Anot yarı reaksiyonunun standart indirgenme potansiyeli, örn. Zn²⁺ + 2e⁻ → Zn için -0,76 V."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Temperature in Kelvin. Standard conditions are 298.15 K (25°C).",
       "label_i18n": {
         "en": "Temperature (T)",
-        "tr": "Temperature (T)",
+        "tr": "Sıcaklık (T)",
         "de": "Temperature (T)",
         "fr": "Temperature (T)",
         "es": "Temperature (T)",
         "ar": "Temperature (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature in Kelvin. Standard conditions are 298.15 K (25°C).",
+        "tr": "Kelvin cinsinden sıcaklık. Standart koşullar 298,15 K (25°C)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of moles of electrons transferred according to the balanced redox reaction.",
       "label_i18n": {
         "en": "Number of Electrons Transferred (n)",
-        "tr": "Number of Electrons Transferred (n)",
+        "tr": "Transfer Edilen Elektron Sayısı (n)",
         "de": "Number of Electrons Transferred (n)",
         "fr": "Number of Electrons Transferred (n)",
         "es": "Number of Electrons Transferred (n)",
         "ar": "Number of Electrons Transferred (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of moles of electrons transferred according to the balanced redox reaction.",
+        "tr": "Dengeli redoks reaksiyonuna göre transfer edilen elektron mol sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Ratio of product activities to reactant activities at given concentrations/pressures. For aA + bB → cC + dD, Q = [C]^c[D]^d / [A]^a[B]^b.",
       "label_i18n": {
         "en": "Reaction Quotient (Q)",
-        "tr": "Reaction Quotient (Q)",
+        "tr": "Reaksiyon Bölümü (Q)",
         "de": "Reaction Quotient (Q)",
         "fr": "Reaction Quotient (Q)",
         "es": "Reaction Quotient (Q)",
         "ar": "Reaction Quotient (Q)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of product activities to reactant activities at given concentrations/pressures. For aA + bB → cC + dD, Q = [C]^c[D]^d / [A]^a[B]^b.",
+        "tr": "Belirli derişim/basınçlarda ürün aktivitelerinin reaktan aktivitelerine oranı. aA + bB → cC + dD için Q = [C]^c[D]^d / [A]^a[B]^b."
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 1000000,
       "businessContext": "Total number of office supply units (e.g., reams of paper, pens) consumed per year.",
       "label_i18n": {
-        "en": "Annual Usage (units)"
+        "en": "Annual Usage (units)",
+        "tr": "Yıllık Kullanım (birim)"
       },
       "businessContext_i18n": {
-        "en": "Total number of office supply units (e.g., reams of paper, pens) consumed per year."
+        "en": "Total number of office supply units (e.g., reams of paper, pens) consumed per year.",
+        "tr": "Yılda tüketilen toplam ofis malzemesi birimi sayısı (ör. top kağıt, kalem)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 1000,
       "businessContext": "Average purchase cost per unit of the office supply item.",
       "label_i18n": {
-        "en": "Unit Cost"
+        "en": "Unit Cost",
+        "tr": "Birim Maliyet"
       },
       "businessContext_i18n": {
-        "en": "Average purchase cost per unit of the office supply item."
+        "en": "Average purchase cost per unit of the office supply item.",
+        "tr": "Ofis malzemesi birimi başına ortalama satın alma maliyeti."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 500,
       "businessContext": "Fixed cost associated with placing a single purchase order (labor, processing, etc.).",
       "label_i18n": {
-        "en": "Order Cost per Purchase Order"
+        "en": "Order Cost per Purchase Order",
+        "tr": "Satın Alma Siparişi Başına Sipariş Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Fixed cost associated with placing a single purchase order (labor, processing, etc.)."
+        "en": "Fixed cost associated with placing a single purchase order (labor, processing, etc.).",
+        "tr": "Tek bir satın alma siparişi vermekle ilgili sabit maliyet (işçilik, işlem vb.)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Annual inventory holding cost as a percentage of unit cost (storage, insurance, obsolescence).",
       "label_i18n": {
-        "en": "Holding Cost Rate"
+        "en": "Holding Cost Rate",
+        "tr": "Elde Tutma Maliyeti Oranı"
       },
       "businessContext_i18n": {
-        "en": "Annual inventory holding cost as a percentage of unit cost (storage, insurance, obsolescence)."
+        "en": "Annual inventory holding cost as a percentage of unit cost (storage, insurance, obsolescence).",
+        "tr": "Birim maliyetin yüzdesi olarak yıllık stok bulundurma maliyeti (depolama, sigorta, eskime)."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 50,
       "businessContext": "Estimated percentage of supplies wasted due to over-ordering, expiration, or damage.",
       "label_i18n": {
-        "en": "Waste Percentage"
+        "en": "Waste Percentage",
+        "tr": "Fire Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Estimated percentage of supplies wasted due to over-ordering, expiration, or damage."
+        "en": "Estimated percentage of supplies wasted due to over-ordering, expiration, or damage.",
+        "tr": "Aşırı sipariş, son kullanma veya hasar nedeniyle israf edilen malzeme yüzdesi tahmini."
       }
     },
     {
@@ -106,10 +116,12 @@
       ],
       "businessContext": "How often orders are placed, affecting order size and inventory levels.",
       "label_i18n": {
-        "en": "Order Frequency"
+        "en": "Order Frequency",
+        "tr": "Sipariş Sıklığı"
       },
       "businessContext_i18n": {
-        "en": "How often orders are placed, affecting order size and inventory levels."
+        "en": "How often orders are placed, affecting order size and inventory levels.",
+        "tr": "Siparişlerin ne sıklıkta verildiği, sipariş büyüklüğünü ve stok seviyelerini etkiler."
       }
     },
     {
@@ -120,10 +132,12 @@
       "default": false,
       "businessContext": "If enabled, applies just-in-time ordering to reduce holding costs and waste.",
       "label_i18n": {
-        "en": "Use Lean Inventory Principles"
+        "en": "Use Lean Inventory Principles",
+        "tr": "Yalın Stok İlkelerini Kullan"
       },
       "businessContext_i18n": {
-        "en": "If enabled, applies just-in-time ordering to reduce holding costs and waste."
+        "en": "If enabled, applies just-in-time ordering to reduce holding costs and waste.",
+        "tr": "Etkinleştirilirse, stok taşıma maliyetlerini ve israfı azaltmak için tam zamanında sipariş uygulanır."
       }
     }
   ],

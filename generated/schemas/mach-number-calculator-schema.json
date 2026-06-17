@@ -10,11 +10,15 @@
       "businessContext": "True airspeed of the object relative to the air in meters per second.",
       "label_i18n": {
         "en": "True Airspeed",
-        "tr": "True Airspeed",
+        "tr": "Gerçek Hava Hızı",
         "de": "True Airspeed",
         "fr": "True Airspeed",
         "es": "True Airspeed",
         "ar": "True Airspeed"
+      },
+      "businessContext_i18n": {
+        "en": "True airspeed of the object relative to the air in meters per second.",
+        "tr": "Nesnenin havaya göre saniyede metre cinsinden gerçek hava hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ambient air temperature in degrees Celsius.",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı",
         "de": "Ambient Temperature",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Ambient air temperature in degrees Celsius.",
+        "tr": "Santigrat derece cinsinden ortam hava sıcaklığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Ratio of specific heats; for air, γ = 1.4.",
       "label_i18n": {
         "en": "Specific Heat Ratio (γ)",
-        "tr": "Specific Heat Ratio (γ)",
+        "tr": "Özgül Isı Oranı (γ)",
         "de": "Specific Heat Ratio (γ)",
         "fr": "Specific Heat Ratio (γ)",
         "es": "Specific Heat Ratio (γ)",
         "ar": "Specific Heat Ratio (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of specific heats; for air, γ = 1.4.",
+        "tr": "Özgül ısı oranı; hava için γ = 1,4."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Specific gas constant for the gas; for dry air, R ≈ 287 J/(kg·K).",
       "label_i18n": {
         "en": "Specific Gas Constant",
-        "tr": "Specific Gas Constant",
+        "tr": "Özgül gaz sabiti",
         "de": "Specific Gas Constant",
         "fr": "Specific Gas Constant",
         "es": "Specific Gas Constant",
         "ar": "Specific Gas Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Specific gas constant for the gas; for dry air, R ≈ 287 J/(kg·K).",
+        "tr": "Gaz için özgül gaz sabiti; kuru hava için R ≈ 287 J/(kg·K)."
       }
     }
   ],

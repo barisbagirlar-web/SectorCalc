@@ -10,11 +10,15 @@
       "businessContext": "Total volume of the solution in milliliters.",
       "label_i18n": {
         "en": "Volume (mL)",
-        "tr": "Volume (mL)",
+        "tr": "Hacim (mL)",
         "de": "Volume (mL)",
         "fr": "Volume (mL)",
         "es": "Volume (mL)",
         "ar": "Volume (mL)"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of the solution in milliliters.",
+        "tr": "Çözeltinin toplam hacmi (mL)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired sodium chloride concentration for isotonicity (typically 0.9% w/v).",
       "label_i18n": {
         "en": "Target concentration (g/100mL)",
-        "tr": "Target concentration (g/100mL)",
+        "tr": "Hedef konsantrasyon (g/100mL)",
         "de": "Target concentration (g/100mL)",
         "fr": "Target concentration (g/100mL)",
         "es": "Target concentration (g/100mL)",
         "ar": "Target concentration (g/100mL)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired sodium chloride concentration for isotonicity (typically 0.9% w/v).",
+        "tr": "İzotoniklik için istenen sodyum klorür konsantrasyonu (tipik olarak %0.9 a/h)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of the first active ingredient in grams.",
       "label_i18n": {
         "en": "Drug 1 amount (g)",
-        "tr": "Drug 1 amount (g)",
+        "tr": "İlaç 1 miktarı (g)",
         "de": "Drug 1 amount (g)",
         "fr": "Drug 1 amount (g)",
         "es": "Drug 1 amount (g)",
         "ar": "Drug 1 amount (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the first active ingredient in grams.",
+        "tr": "Birinci aktif bileşenin kütlesi (g)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sodium chloride equivalent of the first drug (g NaCl per g drug).",
       "label_i18n": {
         "en": "Drug 1 E-value",
-        "tr": "Drug 1 E-value",
+        "tr": "İlaç 1 E-değeri",
         "de": "Drug 1 E-value",
         "fr": "Drug 1 E-value",
         "es": "Drug 1 E-value",
         "ar": "Drug 1 E-value"
+      },
+      "businessContext_i18n": {
+        "en": "Sodium chloride equivalent of the first drug (g NaCl per g drug).",
+        "tr": "Birinci ilacın sodyum klorür eşdeğeri (g NaCl / g ilaç)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Mass of the second active ingredient in grams.",
       "label_i18n": {
         "en": "Drug 2 amount (g)",
-        "tr": "Drug 2 amount (g)",
+        "tr": "İlaç 2 miktarı (g)",
         "de": "Drug 2 amount (g)",
         "fr": "Drug 2 amount (g)",
         "es": "Drug 2 amount (g)",
         "ar": "Drug 2 amount (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the second active ingredient in grams.",
+        "tr": "İkinci aktif bileşenin kütlesi (g)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Sodium chloride equivalent of the second drug (g NaCl per g drug).",
       "label_i18n": {
         "en": "Drug 2 E-value",
-        "tr": "Drug 2 E-value",
+        "tr": "İlaç 2 E-değeri",
         "de": "Drug 2 E-value",
         "fr": "Drug 2 E-value",
         "es": "Drug 2 E-value",
         "ar": "Drug 2 E-value"
+      },
+      "businessContext_i18n": {
+        "en": "Sodium chloride equivalent of the second drug (g NaCl per g drug).",
+        "tr": "İkinci ilacın sodyum klorür eşdeğeri (g NaCl / g ilaç)"
       }
     }
   ],

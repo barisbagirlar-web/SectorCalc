@@ -10,11 +10,15 @@
       "businessContext": "Distance from shoulder to fist when arm is fully extended",
       "label_i18n": {
         "en": "Arm Length",
-        "tr": "Arm Length",
+        "tr": "Kol Uzunluğu",
         "de": "Arm Length",
         "fr": "Arm Length",
         "es": "Arm Length",
         "ar": "Arm Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from shoulder to fist when arm is fully extended",
+        "tr": "Kol tamamen uzatıldığında omuzdan yumruğa olan mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Angular displacement of the arm during the punch",
       "label_i18n": {
         "en": "Arm Swing Angle",
-        "tr": "Arm Swing Angle",
+        "tr": "Kol Sallama Açısı",
         "de": "Arm Swing Angle",
         "fr": "Arm Swing Angle",
         "es": "Arm Swing Angle",
         "ar": "Arm Swing Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angular displacement of the arm during the punch",
+        "tr": "Yumruk sırasında kolun açısal yer değiştirmesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angular rotation of the hips contributing to punch reach",
       "label_i18n": {
         "en": "Hip Rotation Angle",
-        "tr": "Hip Rotation Angle",
+        "tr": "Kalça Dönüş Açısı",
         "de": "Hip Rotation Angle",
         "fr": "Hip Rotation Angle",
         "es": "Hip Rotation Angle",
         "ar": "Hip Rotation Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angular rotation of the hips contributing to punch reach",
+        "tr": "Yumruk erişimine katkıda bulunan kalçanın açısal dönüşü"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Linear distance moved forward by the body during the punch",
       "label_i18n": {
         "en": "Forward Step Length",
-        "tr": "Forward Step Length",
+        "tr": "İleri Adım Uzunluğu",
         "de": "Forward Step Length",
         "fr": "Forward Step Length",
         "es": "Forward Step Length",
         "ar": "Forward Step Length"
+      },
+      "businessContext_i18n": {
+        "en": "Linear distance moved forward by the body during the punch",
+        "tr": "Yumruk sırasında vücudun ileri doğru hareket ettiği doğrusal mesafe"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Time from initiation to full extension of the punch",
       "label_i18n": {
         "en": "Punch Duration",
-        "tr": "Punch Duration",
+        "tr": "Yumruk Süresi",
         "de": "Punch Duration",
         "fr": "Punch Duration",
         "es": "Punch Duration",
         "ar": "Punch Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Time from initiation to full extension of the punch",
+        "tr": "Yumruğun başlatılmasından tam uzamaya kadar geçen süre"
       }
     }
   ],

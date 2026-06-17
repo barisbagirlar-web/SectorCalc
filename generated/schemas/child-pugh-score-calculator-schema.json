@@ -10,11 +10,15 @@
       "businessContext": "Enter total bilirubin in mg/dL",
       "label_i18n": {
         "en": "Total Bilirubin",
-        "tr": "Total Bilirubin",
+        "tr": "Toplam Bilirubin",
         "de": "Total Bilirubin",
         "fr": "Total Bilirubin",
         "es": "Total Bilirubin",
         "ar": "Total Bilirubin"
+      },
+      "businessContext_i18n": {
+        "en": "Enter total bilirubin in mg/dL",
+        "tr": "Toplam bilirubini mg/dL cinsinden girin"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Enter serum albumin in g/dL",
       "label_i18n": {
         "en": "Serum Albumin",
-        "tr": "Serum Albumin",
+        "tr": "Serum Albümin",
         "de": "Serum Albumin",
         "fr": "Serum Albumin",
         "es": "Serum Albumin",
         "ar": "Serum Albumin"
+      },
+      "businessContext_i18n": {
+        "en": "Enter serum albumin in g/dL",
+        "tr": "Serum albümini g/dL cinsinden girin"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "INR",
         "es": "INR",
         "ar": "INR"
+      },
+      "businessContext_i18n": {
+        "en": "Enter international normalized ratio (INR)",
+        "tr": "Uluslararası normalleştirilmiş oranı (INR) girin"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Enter ascites grade: 0=none, 1=slight, 2=moderate/severe",
       "label_i18n": {
         "en": "Ascites",
-        "tr": "Ascites",
+        "tr": "Asit",
         "de": "Ascites",
         "fr": "Ascites",
         "es": "Ascites",
         "ar": "Ascites"
+      },
+      "businessContext_i18n": {
+        "en": "Enter ascites grade: 0=none, 1=slight, 2=moderate/severe",
+        "tr": "Asit derecesini girin: 0=yok, 1=hafif, 2=orta/şiddetli"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Enter encephalopathy grade: 0=none, 1=grade I-II, 2=grade III-IV",
       "label_i18n": {
         "en": "Hepatic Encephalopathy",
-        "tr": "Hepatic Encephalopathy",
+        "tr": "Hepatik Ensefalopati",
         "de": "Hepatic Encephalopathy",
         "fr": "Hepatic Encephalopathy",
         "es": "Hepatic Encephalopathy",
         "ar": "Hepatic Encephalopathy"
+      },
+      "businessContext_i18n": {
+        "en": "Enter encephalopathy grade: 0=none, 1=grade I-II, 2=grade III-IV",
+        "tr": "Ensefalopati derecesini girin: 0=yok, 1=derece I-II, 2=derece III-IV"
       }
     }
   ],

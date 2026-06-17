@@ -10,11 +10,15 @@
       "businessContext": "Typical straight serve distance from baseline to service line",
       "label_i18n": {
         "en": "Distance from contact to landing",
-        "tr": "Distance from contact to landing",
+        "tr": "Temastan inişe mesafe",
         "de": "Distance from contact to landing",
         "fr": "Distance from contact to landing",
         "es": "Distance from contact to landing",
         "ar": "Distance from contact to landing"
+      },
+      "businessContext_i18n": {
+        "en": "Typical straight serve distance from baseline to service line",
+        "tr": "Tipik düz servis mesafesi (başlangıç çizgisinden servis çizgisine)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured time from ball contact to landing",
       "label_i18n": {
         "en": "Time of flight",
-        "tr": "Time of flight",
+        "tr": "Uçuş Süresi",
         "de": "Time of flight",
         "fr": "Time of flight",
         "es": "Time of flight",
         "ar": "Time of flight"
+      },
+      "businessContext_i18n": {
+        "en": "Measured time from ball contact to landing",
+        "tr": "Top temasından inişe kadar ölçülen süre"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard tennis ball mass",
       "label_i18n": {
         "en": "Ball mass",
-        "tr": "Ball mass",
+        "tr": "Top Kütlesi",
         "de": "Ball mass",
         "fr": "Ball mass",
         "es": "Ball mass",
         "ar": "Ball mass"
+      },
+      "businessContext_i18n": {
+        "en": "Standard tennis ball mass",
+        "tr": "Standart tenis topu kütlesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of ball at serve contact point",
       "label_i18n": {
         "en": "Height at contact",
-        "tr": "Height at contact",
+        "tr": "Temasta Yükseklik",
         "de": "Height at contact",
         "fr": "Height at contact",
         "es": "Height at contact",
         "ar": "Height at contact"
+      },
+      "businessContext_i18n": {
+        "en": "Height of ball at serve contact point",
+        "tr": "Servis temas noktasında topun yüksekliği"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Height of ball at landing, typically ground level",
       "label_i18n": {
         "en": "Height at landing",
-        "tr": "Height at landing",
+        "tr": "İnişte Yükseklik",
         "de": "Height at landing",
         "fr": "Height at landing",
         "es": "Height at landing",
         "ar": "Height at landing"
+      },
+      "businessContext_i18n": {
+        "en": "Height of ball at landing, typically ground level",
+        "tr": "Topun inişteki yüksekliği, genellikle zemin seviyesi"
       }
     }
   ],

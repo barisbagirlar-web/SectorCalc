@@ -10,11 +10,15 @@
       "businessContext": "Percentage of material scrapped during production.",
       "label_i18n": {
         "en": "Scrap Rate (%)",
-        "tr": "Scrap Rate (%)",
+        "tr": "Fire Oranı (%)",
         "de": "Scrap Rate (%)",
         "fr": "Scrap Rate (%)",
         "es": "Scrap Rate (%)",
         "ar": "Scrap Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of material scrapped during production.",
+        "tr": "Üretim sırasında hurdaya ayrılan malzeme yüzdesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost of raw materials per batch.",
       "label_i18n": {
         "en": "Material Cost (€)",
-        "tr": "Material Cost (€)",
+        "tr": "Malzeme Maliyeti (€)",
         "de": "Material Cost (€)",
         "fr": "Material Cost (€)",
         "es": "Material Cost (€)",
         "ar": "Material Cost (€)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw materials per batch.",
+        "tr": "Parti başına hammadde maliyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of units produced in a batch.",
       "label_i18n": {
         "en": "Batch Size (units)",
-        "tr": "Batch Size (units)",
+        "tr": "Parti Büyüklüğü (birim)",
         "de": "Batch Size (units)",
         "fr": "Batch Size (units)",
         "es": "Batch Size (units)",
         "ar": "Batch Size (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced in a batch.",
+        "tr": "Bir partide üretilen birim sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Factor accounting for rework effort (0-1).",
       "label_i18n": {
         "en": "Rework Factor",
-        "tr": "Rework Factor",
+        "tr": "Yeniden İşleme Faktörü",
         "de": "Rework Factor",
         "fr": "Rework Factor",
         "es": "Rework Factor",
         "ar": "Rework Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor accounting for rework effort (0-1).",
+        "tr": "Yeniden işleme çabasını hesaba katan faktör (0-1)."
       }
     }
   ],

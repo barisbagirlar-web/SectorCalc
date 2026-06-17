@@ -10,11 +10,15 @@
       "businessContext": "Operating frequency of the transmission line (e.g., 50/60 Hz for power lines, 1-30 MHz for RF).",
       "label_i18n": {
         "en": "Frequency",
-        "tr": "Frequency",
+        "tr": "Frekans",
         "de": "Frequency",
         "fr": "Frequency",
         "es": "Frequency",
         "ar": "Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Operating frequency of the transmission line (e.g., 50/60 Hz for power lines, 1-30 MHz for RF).",
+        "tr": "İletim hattının çalışma frekansı (örn. güç hatları için 50/60 Hz, RF için 1-30 MHz)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Inductance per unit length (H/m). Typical values: overhead lines ~1e-6 H/m, cables ~0.2e-6 H/m.",
       "label_i18n": {
         "en": "Inductance per unit length",
-        "tr": "Inductance per unit length",
+        "tr": "Birim uzunluk başına endüktans",
         "de": "Inductance per unit length",
         "fr": "Inductance per unit length",
         "es": "Inductance per unit length",
         "ar": "Inductance per unit length"
+      },
+      "businessContext_i18n": {
+        "en": "Inductance per unit length (H/m). Typical values: overhead lines ~1e-6 H/m, cables ~0.2e-6 H/m.",
+        "tr": "Birim uzunluk başına endüktans (H/m). Tipik değerler: havai hatlar ~1e-6 H/m, kablolar ~0.2e-6 H/m."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Capacitance per unit length (F/m). Typical values: overhead lines ~10e-12 F/m, cables ~50e-12 F/m.",
       "label_i18n": {
         "en": "Capacitance per unit length",
-        "tr": "Capacitance per unit length",
+        "tr": "Birim uzunluk başına kapasitans",
         "de": "Capacitance per unit length",
         "fr": "Capacitance per unit length",
         "es": "Capacitance per unit length",
         "ar": "Capacitance per unit length"
+      },
+      "businessContext_i18n": {
+        "en": "Capacitance per unit length (F/m). Typical values: overhead lines ~10e-12 F/m, cables ~50e-12 F/m.",
+        "tr": "Birim uzunluk başına kapasitans (F/m). Tipik değerler: havai hatlar ~10e-12 F/m, kablolar ~50e-12 F/m."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Resistance per unit length (Ω/m). For lossless approximation, set to 0.",
       "label_i18n": {
         "en": "Resistance per unit length",
-        "tr": "Resistance per unit length",
+        "tr": "Birim uzunluk başına direnç",
         "de": "Resistance per unit length",
         "fr": "Resistance per unit length",
         "es": "Resistance per unit length",
         "ar": "Resistance per unit length"
+      },
+      "businessContext_i18n": {
+        "en": "Resistance per unit length (Ω/m). For lossless approximation, set to 0.",
+        "tr": "Birim uzunluk başına direnç (Ω/m). Kayıpsız yaklaşım için 0 olarak ayarlayın."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Conductance per unit length (S/m). For lossless approximation, set to 0.",
       "label_i18n": {
         "en": "Conductance per unit length",
-        "tr": "Conductance per unit length",
+        "tr": "Birim uzunluk başına iletkenlik",
         "de": "Conductance per unit length",
         "fr": "Conductance per unit length",
         "es": "Conductance per unit length",
         "ar": "Conductance per unit length"
+      },
+      "businessContext_i18n": {
+        "en": "Conductance per unit length (S/m). For lossless approximation, set to 0.",
+        "tr": "Birim uzunluk başına iletkenlik (S/m). Kayıpsız yaklaşım için 0 olarak ayarlayın."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total length of the transmission line (m).",
       "label_i18n": {
         "en": "Line length",
-        "tr": "Line length",
+        "tr": "Hat uzunluğu",
         "de": "Line length",
         "fr": "Line length",
         "es": "Line length",
         "ar": "Line length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the transmission line (m).",
+        "tr": "İletim hattının toplam uzunluğu (m)."
       }
     }
   ],

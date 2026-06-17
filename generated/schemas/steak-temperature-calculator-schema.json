@@ -10,11 +10,15 @@
       "businessContext": "Thickness of the steak.",
       "label_i18n": {
         "en": "Steak Thickness",
-        "tr": "Steak Thickness",
+        "tr": "Biftek Kalınlığı",
         "de": "Steak Thickness",
         "fr": "Steak Thickness",
         "es": "Steak Thickness",
         "ar": "Steak Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the steak.",
+        "tr": "Bifteğin kalınlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Starting temperature of the steak (e.g., from fridge).",
       "label_i18n": {
         "en": "Initial Temperature",
-        "tr": "Initial Temperature",
+        "tr": "Başlangıç Sıcaklığı",
         "de": "Initial Temperature",
         "fr": "Initial Temperature",
         "es": "Initial Temperature",
         "ar": "Initial Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Starting temperature of the steak (e.g., from fridge).",
+        "tr": "Bifteğin başlangıç sıcaklığı (ör. buzdolabından)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Internal temperature for desired doneness (e.g., 55°C for medium-rare).",
       "label_i18n": {
         "en": "Target Doneness Temperature",
-        "tr": "Target Doneness Temperature",
+        "tr": "Hedef Pişme Sıcaklığı",
         "de": "Target Doneness Temperature",
         "fr": "Target Doneness Temperature",
         "es": "Target Doneness Temperature",
         "ar": "Target Doneness Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Internal temperature for desired doneness (e.g., 55°C for medium-rare).",
+        "tr": "İstenen pişme derecesi için iç sıcaklık (ör. orta-az pişmiş için 55°C)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of the cooking surface or oven.",
       "label_i18n": {
         "en": "Grill/Oven Temperature",
-        "tr": "Grill/Oven Temperature",
+        "tr": "Izgara/Fırın Sıcaklığı",
         "de": "Grill/Oven Temperature",
         "fr": "Grill/Oven Temperature",
         "es": "Grill/Oven Temperature",
         "ar": "Grill/Oven Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the cooking surface or oven.",
+        "tr": "Pişirme yüzeyi veya fırının sıcaklığı."
       }
     }
   ],

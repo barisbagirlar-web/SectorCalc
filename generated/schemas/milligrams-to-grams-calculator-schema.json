@@ -10,11 +10,15 @@
       "businessContext": "Quantity of substance in milligrams",
       "label_i18n": {
         "en": "Mass (mg)",
-        "tr": "Mass (mg)",
+        "tr": "Kütle (mg)",
         "de": "Mass (mg)",
         "fr": "Mass (mg)",
         "es": "Mass (mg)",
         "ar": "Mass (mg)"
+      },
+      "businessContext_i18n": {
+        "en": "Quantity of substance in milligrams",
+        "tr": "Miligram cinsinden madde miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from mg to g, may be adjusted for traceability",
       "label_i18n": {
         "en": "Conversion Factor (g/mg)",
-        "tr": "Conversion Factor (g/mg)",
+        "tr": "Dönüşüm Faktörü (g/mg)",
         "de": "Conversion Factor (g/mg)",
         "fr": "Conversion Factor (g/mg)",
         "es": "Conversion Factor (g/mg)",
         "ar": "Conversion Factor (g/mg)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from mg to g, may be adjusted for traceability",
+        "tr": "Mg'den g'ye standart dönüşüm faktörü, izlenebilirlik için ayarlanabilir"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output to meet precision requirements",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output to meet precision requirements",
+        "tr": "Hassasiyet gereksinimlerini karşılamak için çıktıdaki ondalık basamak sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for batch scaling, e.g., number of units",
       "label_i18n": {
         "en": "Batch Multiplier",
-        "tr": "Batch Multiplier",
+        "tr": "Parti Çarpanı",
         "de": "Batch Multiplier",
         "fr": "Batch Multiplier",
         "es": "Batch Multiplier",
         "ar": "Batch Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for batch scaling, e.g., number of units",
+        "tr": "Parti ölçekleme için çarpan, örn. birim sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Rounding mode for compliance with rounding rules",
       "label_i18n": {
         "en": "Rounding Mode (0=round,1=floor,2=ceil)",
-        "tr": "Rounding Mode (0=round,1=floor,2=ceil)",
+        "tr": "Yuvarlama Modu (0=yuvarla, 1=taban, 2=tavan)",
         "de": "Rounding Mode (0=round,1=floor,2=ceil)",
         "fr": "Rounding Mode (0=round,1=floor,2=ceil)",
         "es": "Rounding Mode (0=round,1=floor,2=ceil)",
         "ar": "Rounding Mode (0=round,1=floor,2=ceil)"
+      },
+      "businessContext_i18n": {
+        "en": "Rounding mode for compliance with rounding rules",
+        "tr": "Yuvarlama kurallarına uygun yuvarlama modu"
       }
     }
   ],

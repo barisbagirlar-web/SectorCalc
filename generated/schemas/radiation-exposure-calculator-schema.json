@@ -10,11 +10,15 @@
       "businessContext": "Enter the activity of the radioactive source in curies.",
       "label_i18n": {
         "en": "Source Activity",
-        "tr": "Source Activity",
+        "tr": "Kaynak Aktivitesi",
         "de": "Source Activity",
         "fr": "Source Activity",
         "es": "Source Activity",
         "ar": "Source Activity"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the activity of the radioactive source in curies.",
+        "tr": "Radyoaktif kaynağın aktivitesini curie cinsinden girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Specific gamma constant for the isotope in R*m²/(Ci*h).",
       "label_i18n": {
         "en": "Gamma Constant",
-        "tr": "Gamma Constant",
+        "tr": "Gama Sabiti",
         "de": "Gamma Constant",
         "fr": "Gamma Constant",
         "es": "Gamma Constant",
         "ar": "Gamma Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Specific gamma constant for the isotope in R*m²/(Ci*h).",
+        "tr": "İzotop için spesifik gama sabiti (R·m²/(Ci·saat))."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance from the source in meters.",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from the source in meters.",
+        "tr": "Kaynaktan uzaklık (metre)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Thickness of the shielding material in cm.",
       "label_i18n": {
         "en": "Shield Thickness",
-        "tr": "Shield Thickness",
+        "tr": "Zırh Kalınlığı",
         "de": "Shield Thickness",
         "fr": "Shield Thickness",
         "es": "Shield Thickness",
         "ar": "Shield Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the shielding material in cm.",
+        "tr": "Zırh malzemesinin kalınlığı (cm)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Half-value layer of the shielding material for the gamma energy.",
       "label_i18n": {
         "en": "Half-Value Layer (HVL)",
-        "tr": "Half-Value Layer (HVL)",
+        "tr": "Yarı Değer Kalınlığı (YDK)",
         "de": "Half-Value Layer (HVL)",
         "fr": "Half-Value Layer (HVL)",
         "es": "Half-Value Layer (HVL)",
         "ar": "Half-Value Layer (HVL)"
+      },
+      "businessContext_i18n": {
+        "en": "Half-value layer of the shielding material for the gamma energy.",
+        "tr": "Gama enerjisi için zırh malzemesinin yarı değer kalınlığı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Conversion factor from exposure (R) to dose (µSv), typically 8.77 for air.",
       "label_i18n": {
         "en": "Dose Conversion Factor",
-        "tr": "Dose Conversion Factor",
+        "tr": "Doz Dönüşüm Faktörü",
         "de": "Dose Conversion Factor",
         "fr": "Dose Conversion Factor",
         "es": "Dose Conversion Factor",
         "ar": "Dose Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from exposure (R) to dose (µSv), typically 8.77 for air.",
+        "tr": "Maruziyetten (R) doza (µSv) dönüşüm faktörü, tipik olarak hava için 8.77."
       }
     }
   ],

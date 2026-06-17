@@ -10,11 +10,15 @@
       "businessContext": "Consumer age for nutraceutical product dosing guidelines",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Consumer age for nutraceutical product dosing guidelines",
+        "tr": "Nutrasötik ürün dozaj yönergeleri için tüketici yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Consumer weight to adjust supplement dosage per body mass",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Consumer weight to adjust supplement dosage per body mass",
+        "tr": "Vücut kütlesine göre takviye dozajını ayarlamak için tüketici ağırlığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Baseline 25(OH)D level for deficiency correction calculation",
       "label_i18n": {
         "en": "Current Serum Vitamin D Level",
-        "tr": "Current Serum Vitamin D Level",
+        "tr": "Mevcut Serum D Vitamini Düzeyi",
         "de": "Current Serum Vitamin D Level",
         "fr": "Current Serum Vitamin D Level",
         "es": "Current Serum Vitamin D Level",
         "ar": "Current Serum Vitamin D Level"
+      },
+      "businessContext_i18n": {
+        "en": "Baseline 25(OH)D level for deficiency correction calculation",
+        "tr": "Eksiklik düzeltme hesaplaması için başlangıç 25(OH)D düzeyi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired 25(OH)D level for optimal health",
       "label_i18n": {
         "en": "Target Vitamin D Level",
-        "tr": "Target Vitamin D Level",
+        "tr": "Hedef D Vitamini Seviyesi",
         "de": "Target Vitamin D Level",
         "fr": "Target Vitamin D Level",
         "es": "Target Vitamin D Level",
         "ar": "Target Vitamin D Level"
+      },
+      "businessContext_i18n": {
+        "en": "Desired 25(OH)D level for optimal health",
+        "tr": "Optimal sağlık için istenen 25(OH)D seviyesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Duration for gradual serum level adjustment in production planning",
       "label_i18n": {
         "en": "Treatment Duration",
-        "tr": "Treatment Duration",
+        "tr": "Tedavi Süresi",
         "de": "Treatment Duration",
         "fr": "Treatment Duration",
         "es": "Treatment Duration",
         "ar": "Treatment Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration for gradual serum level adjustment in production planning",
+        "tr": "Üretim planlamasında kademeli serum seviyesi ayarlaması için süre"
       }
     }
   ],

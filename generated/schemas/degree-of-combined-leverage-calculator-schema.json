@@ -10,11 +10,15 @@
       "businessContext": "Total revenue from sales.",
       "label_i18n": {
         "en": "Sales Revenue",
-        "tr": "Sales Revenue",
+        "tr": "Satış Geliri",
         "de": "Sales Revenue",
         "fr": "Sales Revenue",
         "es": "Sales Revenue",
         "ar": "Sales Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Total revenue from sales.",
+        "tr": "Satışlardan elde edilen toplam gelir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total variable costs that vary with production volume.",
       "label_i18n": {
         "en": "Variable Costs",
-        "tr": "Variable Costs",
+        "tr": "Değişken Maliyetler",
         "de": "Variable Costs",
         "fr": "Variable Costs",
         "es": "Variable Costs",
         "ar": "Variable Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Total variable costs that vary with production volume.",
+        "tr": "Üretim hacmine göre değişen toplam değişken maliyetler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fixed costs not dependent on production volume, such as rent, salaries.",
       "label_i18n": {
         "en": "Fixed Operating Costs",
-        "tr": "Fixed Operating Costs",
+        "tr": "Sabit İşletme Maliyetleri",
         "de": "Fixed Operating Costs",
         "fr": "Fixed Operating Costs",
         "es": "Fixed Operating Costs",
         "ar": "Fixed Operating Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed costs not dependent on production volume, such as rent, salaries.",
+        "tr": "Üretim hacmine bağlı olmayan sabit maliyetler (kira, maaşlar gibi)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Interest payments on debt.",
       "label_i18n": {
         "en": "Interest Expense",
-        "tr": "Interest Expense",
+        "tr": "Faiz Gideri",
         "de": "Interest Expense",
         "fr": "Interest Expense",
         "es": "Interest Expense",
         "ar": "Interest Expense"
+      },
+      "businessContext_i18n": {
+        "en": "Interest payments on debt.",
+        "tr": "Borç faiz ödemeleri."
       }
     }
   ],

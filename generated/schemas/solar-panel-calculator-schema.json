@@ -10,11 +10,15 @@
       "businessContext": "Area of a single solar panel in square meters.",
       "label_i18n": {
         "en": "Panel Area",
-        "tr": "Panel Area",
+        "tr": "Panel Alanı",
         "de": "Panel Area",
         "fr": "Panel Area",
         "es": "Panel Area",
         "ar": "Panel Area"
+      },
+      "businessContext_i18n": {
+        "en": "Area of a single solar panel in square meters.",
+        "tr": "Tek bir güneş panelinin metrekare cinsinden alanı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion efficiency of the solar panel under standard test conditions.",
       "label_i18n": {
         "en": "Panel Efficiency",
-        "tr": "Panel Efficiency",
+        "tr": "Panel Verimliliği",
         "de": "Panel Efficiency",
         "fr": "Panel Efficiency",
         "es": "Panel Efficiency",
         "ar": "Panel Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion efficiency of the solar panel under standard test conditions.",
+        "tr": "Standart test koşullarında güneş panelinin dönüşüm verimliliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard test condition irradiance, typically 1000 W/m².",
       "label_i18n": {
         "en": "Solar Irradiance",
-        "tr": "Solar Irradiance",
+        "tr": "Güneş Işınımı",
         "de": "Solar Irradiance",
         "fr": "Solar Irradiance",
         "es": "Solar Irradiance",
         "ar": "Solar Irradiance"
+      },
+      "businessContext_i18n": {
+        "en": "Standard test condition irradiance, typically 1000 W/m².",
+        "tr": "Standart test koşulu ışınımı, tipik olarak 1000 W/m²."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total system losses including wiring, inverter, soiling, and mismatch.",
       "label_i18n": {
         "en": "System Losses",
-        "tr": "System Losses",
+        "tr": "Sistem Kayıpları",
         "de": "System Losses",
         "fr": "System Losses",
         "es": "System Losses",
         "ar": "System Losses"
+      },
+      "businessContext_i18n": {
+        "en": "Total system losses including wiring, inverter, soiling, and mismatch.",
+        "tr": "Kablolama, invertör, kirlenme ve uyumsuzluk dahil toplam sistem kayıpları."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Angle of the panel relative to horizontal plane.",
       "label_i18n": {
         "en": "Tilt Angle",
-        "tr": "Tilt Angle",
+        "tr": "Eğim Açısı",
         "de": "Tilt Angle",
         "fr": "Tilt Angle",
         "es": "Tilt Angle",
         "ar": "Tilt Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of the panel relative to horizontal plane.",
+        "tr": "Panelin yatay düzleme göre açısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Compass direction the panel faces (0 = south in northern hemisphere).",
       "label_i18n": {
         "en": "Azimuth Angle",
-        "tr": "Azimuth Angle",
+        "tr": "Azimut Açısı",
         "de": "Azimuth Angle",
         "fr": "Azimuth Angle",
         "es": "Azimuth Angle",
         "ar": "Azimuth Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Compass direction the panel faces (0 = south in northern hemisphere).",
+        "tr": "Panelin baktığı pusula yönü (kuzey yarımkürede 0 = güney)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Latitude of the installation site, positive for northern hemisphere.",
       "label_i18n": {
         "en": "Latitude",
-        "tr": "Latitude",
+        "tr": "Enlem",
         "de": "Latitude",
         "fr": "Latitude",
         "es": "Latitude",
         "ar": "Latitude"
+      },
+      "businessContext_i18n": {
+        "en": "Latitude of the installation site, positive for northern hemisphere.",
+        "tr": "Kurulum sahasının enlemi, kuzey yarımküre için pozitif."
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Total equivalent full-sun hours per year at the location.",
       "label_i18n": {
         "en": "Annual Sun Hours",
-        "tr": "Annual Sun Hours",
+        "tr": "Yıllık Güneş Saati",
         "de": "Annual Sun Hours",
         "fr": "Annual Sun Hours",
         "es": "Annual Sun Hours",
         "ar": "Annual Sun Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total equivalent full-sun hours per year at the location.",
+        "tr": "Konumda yıllık toplam eşdeğer tam güneş saati."
       }
     }
   ],

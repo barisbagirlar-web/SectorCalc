@@ -10,11 +10,15 @@
       "businessContext": "Sugar content of wort/must before fermentation",
       "label_i18n": {
         "en": "Initial Sugar Concentration",
-        "tr": "Initial Sugar Concentration",
+        "tr": "Başlangıç Şeker Konsantrasyonu",
         "de": "Initial Sugar Concentration",
         "fr": "Initial Sugar Concentration",
         "es": "Initial Sugar Concentration",
         "ar": "Initial Sugar Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Sugar content of wort/must before fermentation",
+        "tr": "Fermentasyon öncesi şıranın/şarabın şeker içeriği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of active fermentation",
       "label_i18n": {
         "en": "Fermentation Time",
-        "tr": "Fermentation Time",
+        "tr": "Fermentasyon Süresi",
         "de": "Fermentation Time",
         "fr": "Fermentation Time",
         "es": "Fermentation Time",
         "ar": "Fermentation Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of active fermentation",
+        "tr": "Aktif fermantasyon süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average temperature during fermentation",
       "label_i18n": {
         "en": "Fermentation Temperature",
-        "tr": "Fermentation Temperature",
+        "tr": "Fermentasyon Sıcaklığı",
         "de": "Fermentation Temperature",
         "fr": "Fermentation Temperature",
         "es": "Fermentation Temperature",
         "ar": "Fermentation Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Average temperature during fermentation",
+        "tr": "Fermantasyon sırasındaki ortalama sıcaklık"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Initial viable yeast cell density",
       "label_i18n": {
         "en": "Yeast Pitch Rate",
-        "tr": "Yeast Pitch Rate",
+        "tr": "Maya Aşılama Oranı",
         "de": "Yeast Pitch Rate",
         "fr": "Yeast Pitch Rate",
         "es": "Yeast Pitch Rate",
         "ar": "Yeast Pitch Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Initial viable yeast cell density",
+        "tr": "Başlangıçtaki canlı maya hücre yoğunluğu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total liquid volume",
       "label_i18n": {
         "en": "Batch Volume",
-        "tr": "Batch Volume",
+        "tr": "Parti Hacmi",
         "de": "Batch Volume",
         "fr": "Batch Volume",
         "es": "Batch Volume",
         "ar": "Batch Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total liquid volume",
+        "tr": "Toplam sıvı hacmi"
       }
     }
   ],

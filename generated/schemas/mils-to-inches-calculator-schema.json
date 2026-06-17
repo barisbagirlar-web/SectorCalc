@@ -15,6 +15,10 @@
         "fr": "Mils",
         "es": "Mils",
         "ar": "Mils"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness in mils (1 mil = 0.001 inch)",
+        "tr": "Mils cinsinden kalınlık (1 mil = 0.001 inç)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of decimal places for output display",
       "label_i18n": {
         "en": "Precision",
-        "tr": "Precision",
+        "tr": "Hassasiyet",
         "de": "Precision",
         "fr": "Precision",
         "es": "Precision",
         "ar": "Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for output display",
+        "tr": "Çıktı görüntüleme için ondalık basamak sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiplier for mils value (use for calibration)",
       "label_i18n": {
         "en": "Scale Factor",
-        "tr": "Scale Factor",
+        "tr": "Ölçek Faktörü",
         "de": "Scale Factor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for mils value (use for calibration)",
+        "tr": "Mils değeri için çarpan (kalibrasyon için kullanın)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional base thickness in inches to add",
       "label_i18n": {
         "en": "Base Inches",
-        "tr": "Base Inches",
+        "tr": "Taban İnç",
         "de": "Base Inches",
         "fr": "Base Inches",
         "es": "Base Inches",
         "ar": "Base Inches"
+      },
+      "businessContext_i18n": {
+        "en": "Additional base thickness in inches to add",
+        "tr": "Eklenecek ek taban kalınlığı (inç)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Measured Brinell hardness value from indentation test",
       "label_i18n": {
         "en": "Brinell Hardness (HBW)",
-        "tr": "Brinell Hardness (HBW)",
+        "tr": "Brinell Sertliği (HBW)",
         "de": "Brinell Hardness (HBW)",
         "fr": "Brinell Hardness (HBW)",
         "es": "Brinell Hardness (HBW)",
         "ar": "Brinell Hardness (HBW)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured Brinell hardness value from indentation test",
+        "tr": "Çentik testinden ölçülen Brinell sertlik değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1 for HRA, 2 for HRB, 3 for HRC",
       "label_i18n": {
         "en": "Rockwell Scale",
-        "tr": "Rockwell Scale",
+        "tr": "Rockwell Ölçeği",
         "de": "Rockwell Scale",
         "fr": "Rockwell Scale",
         "es": "Rockwell Scale",
         "ar": "Rockwell Scale"
+      },
+      "businessContext_i18n": {
+        "en": "1 for HRA, 2 for HRB, 3 for HRC",
+        "tr": "1: HRA, 2: HRB, 3: HRC"
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

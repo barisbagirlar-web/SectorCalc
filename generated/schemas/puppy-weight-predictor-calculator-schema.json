@@ -10,11 +10,15 @@
       "businessContext": "The puppy's current weight in kilograms.",
       "label_i18n": {
         "en": "Current Weight",
-        "tr": "Current Weight",
+        "tr": "Mevcut Ağırlık",
         "de": "Current Weight",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The puppy's current weight in kilograms.",
+        "tr": "Yavru köpeğin kilogram cinsinden mevcut ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The puppy's current age in weeks.",
       "label_i18n": {
         "en": "Current Age",
-        "tr": "Current Age",
+        "tr": "Mevcut Yaş",
         "de": "Current Age",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
+      },
+      "businessContext_i18n": {
+        "en": "The puppy's current age in weeks.",
+        "tr": "Yavru köpeğin hafta cinsinden mevcut yaşı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Typical age in months when this breed reaches adult size (e.g., small: 9-12, medium: 12-15, large: 18-24).",
       "label_i18n": {
         "en": "Breed Maturity Age",
-        "tr": "Breed Maturity Age",
+        "tr": "Irk Olgunluk Yaşı",
         "de": "Breed Maturity Age",
         "fr": "Breed Maturity Age",
         "es": "Breed Maturity Age",
         "ar": "Breed Maturity Age"
+      },
+      "businessContext_i18n": {
+        "en": "Typical age in months when this breed reaches adult size (e.g., small: 9-12, medium: 12-15, large: 18-24).",
+        "tr": "Bu ırkın yetişkin boyuta ulaştığı tipik ay cinsinden yaş (örneğin, küçük: 9-12, orta: 12-15, büyük: 18-24)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier to adjust for individual variation (e.g., 0.9 for smaller, 1.1 for larger).",
       "label_i18n": {
         "en": "Adjustment Factor",
-        "tr": "Adjustment Factor",
+        "tr": "Düzeltme Faktörü",
         "de": "Adjustment Factor",
         "fr": "Adjustment Factor",
         "es": "Adjustment Factor",
         "ar": "Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to adjust for individual variation (e.g., 0.9 for smaller, 1.1 for larger).",
+        "tr": "Bireysel farklılıkları ayarlamak için çarpan (örneğin, daha küçük için 0.9, daha büyük için 1.1)."
       }
     }
   ],

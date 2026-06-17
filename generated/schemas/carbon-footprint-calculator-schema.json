@@ -10,11 +10,15 @@
       "businessContext": "Monthly electricity usage from grid, converted to CO2 using an emission factor of 0.5 kg CO2/kWh.",
       "label_i18n": {
         "en": "Electricity Consumption",
-        "tr": "Electricity Consumption",
+        "tr": "Elektrik Tüketimi",
         "de": "Electricity Consumption",
         "fr": "Electricity Consumption",
         "es": "Electricity Consumption",
         "ar": "Electricity Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly electricity usage from grid, converted to CO2 using an emission factor of 0.5 kg CO2/kWh.",
+        "tr": "Şebekeden aylık elektrik kullanımı, 0.5 kg CO2/kWh emisyon faktörü ile CO2'ye dönüştürülür."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Monthly natural gas consumption in cubic meters, with an emission factor of 2.0 kg CO2/m³.",
       "label_i18n": {
         "en": "Natural Gas Consumption",
-        "tr": "Natural Gas Consumption",
+        "tr": "Doğal Gaz Tüketimi",
         "de": "Natural Gas Consumption",
         "fr": "Natural Gas Consumption",
         "es": "Natural Gas Consumption",
         "ar": "Natural Gas Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly natural gas consumption in cubic meters, with an emission factor of 2.0 kg CO2/m³.",
+        "tr": "Metreküp cinsinden aylık doğal gaz tüketimi, 2.0 kg CO2/m³ emisyon faktörü ile."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Monthly fuel (gasoline/diesel) consumption in liters, using factor 2.3 kg CO2/L.",
       "label_i18n": {
         "en": "Fuel Consumption (Vehicles)",
-        "tr": "Fuel Consumption (Vehicles)",
+        "tr": "Yakıt Tüketimi (Araçlar)",
         "de": "Fuel Consumption (Vehicles)",
         "fr": "Fuel Consumption (Vehicles)",
         "es": "Fuel Consumption (Vehicles)",
         "ar": "Fuel Consumption (Vehicles)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly fuel (gasoline/diesel) consumption in liters, using factor 2.3 kg CO2/L.",
+        "tr": "Litre cinsinden aylık yakıt (benzin/motorin) tüketimi, 2.3 kg CO2/L faktörü kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Monthly solid waste sent to landfill, emission factor 0.5 kg CO2/kg.",
       "label_i18n": {
         "en": "Waste Generated",
-        "tr": "Waste Generated",
+        "tr": "Oluşan Atık",
         "de": "Waste Generated",
         "fr": "Waste Generated",
         "es": "Waste Generated",
         "ar": "Waste Generated"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly solid waste sent to landfill, emission factor 0.5 kg CO2/kg.",
+        "tr": "Aylık katı atık depolama sahasına gönderilir, emisyon faktörü 0.5 kg CO2/kg."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Monthly water usage, including treatment and pumping, factor 0.3 kg CO2/m³.",
       "label_i18n": {
         "en": "Water Consumption",
-        "tr": "Water Consumption",
+        "tr": "Su Tüketimi",
         "de": "Water Consumption",
         "fr": "Water Consumption",
         "es": "Water Consumption",
         "ar": "Water Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly water usage, including treatment and pumping, factor 0.3 kg CO2/m³.",
+        "tr": "Aylık su kullanımı, arıtma ve pompalama dahil, faktör 0.3 kg CO2/m³."
       }
     }
   ],

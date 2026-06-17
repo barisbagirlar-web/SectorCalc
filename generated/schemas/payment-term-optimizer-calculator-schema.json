@@ -19,10 +19,12 @@
       "max": 10000000,
       "businessContext": "Average monetary value of a single invoice issued to customers.",
       "label_i18n": {
-        "en": "Average Invoice Value"
+        "en": "Average Invoice Value",
+        "tr": "Ortalama Fatura Değeri"
       },
       "businessContext_i18n": {
-        "en": "Average monetary value of a single invoice issued to customers."
+        "en": "Average monetary value of a single invoice issued to customers.",
+        "tr": "Müşterilere kesilen tek bir faturanın ortalama parasal değeri."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 1000000,
       "businessContext": "Total number of invoices issued per year.",
       "label_i18n": {
-        "en": "Annual Invoice Count"
+        "en": "Annual Invoice Count",
+        "tr": "Yıllık Fatura Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total number of invoices issued per year."
+        "en": "Total number of invoices issued per year.",
+        "tr": "Yılda kesilen toplam fatura sayısı."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 180,
       "businessContext": "Current net payment term offered to customers (e.g., Net 30).",
       "label_i18n": {
-        "en": "Current Payment Terms (Days)"
+        "en": "Current Payment Terms (Days)",
+        "tr": "Mevcut Ödeme Vadesi (Gün)"
       },
       "businessContext_i18n": {
-        "en": "Current net payment term offered to customers (e.g., Net 30)."
+        "en": "Current net payment term offered to customers (e.g., Net 30).",
+        "tr": "Müşterilere sunulan mevcut net ödeme vadesi (örn. Net 30)."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 180,
       "businessContext": "New net payment term to be evaluated (e.g., Net 15).",
       "label_i18n": {
-        "en": "Proposed Payment Terms (Days)"
+        "en": "Proposed Payment Terms (Days)",
+        "tr": "Önerilen Ödeme Vadesi (Gün)"
       },
       "businessContext_i18n": {
-        "en": "New net payment term to be evaluated (e.g., Net 15)."
+        "en": "New net payment term to be evaluated (e.g., Net 15).",
+        "tr": "Değerlendirilecek yeni net ödeme vadesi (örn. Net 15)."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 10,
       "businessContext": "Percentage discount offered for early payment (e.g., 2/10 Net 30).",
       "label_i18n": {
-        "en": "Early Payment Discount (%)"
+        "en": "Early Payment Discount (%)",
+        "tr": "Erken Ödeme İskontosu (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage discount offered for early payment (e.g., 2/10 Net 30)."
+        "en": "Percentage discount offered for early payment (e.g., 2/10 Net 30).",
+        "tr": "Erken ödeme için sunulan yüzde iskonto (örn. 2/10 Net 30)."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": 60,
       "businessContext": "Number of days within which the discount can be taken (e.g., 10 days for 2/10).",
       "label_i18n": {
-        "en": "Discount Window (Days)"
+        "en": "Discount Window (Days)",
+        "tr": "İskonto Penceresi (Gün)"
       },
       "businessContext_i18n": {
-        "en": "Number of days within which the discount can be taken (e.g., 10 days for 2/10)."
+        "en": "Number of days within which the discount can be taken (e.g., 10 days for 2/10).",
+        "tr": "İskontonun kullanılabileceği gün sayısı (örn. 2/10 için 10 gün)."
       }
     },
     {
@@ -115,10 +127,12 @@
       "max": 30,
       "businessContext": "Annual weighted average cost of capital (WACC) for the company.",
       "label_i18n": {
-        "en": "Cost of Capital (%)"
+        "en": "Cost of Capital (%)",
+        "tr": "Sermaye Maliyeti (%)"
       },
       "businessContext_i18n": {
-        "en": "Annual weighted average cost of capital (WACC) for the company."
+        "en": "Annual weighted average cost of capital (WACC) for the company.",
+        "tr": "Şirket için yıllık ağırlıklı ortalama sermaye maliyeti (WACC)."
       }
     },
     {
@@ -131,10 +145,12 @@
       "max": 100,
       "businessContext": "Estimated percentage of customers who will take the early payment discount.",
       "label_i18n": {
-        "en": "Customer Acceptance Rate (%)"
+        "en": "Customer Acceptance Rate (%)",
+        "tr": "Müşteri Kabul Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Estimated percentage of customers who will take the early payment discount."
+        "en": "Estimated percentage of customers who will take the early payment discount.",
+        "tr": "Erken ödeme iskontosunu kullanacak müşterilerin tahmini yüzdesi."
       }
     }
   ],

@@ -15,6 +15,10 @@
         "fr": "pKa",
         "es": "pKa",
         "ar": "pKa"
+      },
+      "businessContext_i18n": {
+        "en": "Negative logarithm of the acid dissociation constant (Ka) of the weak acid.",
+        "tr": "Zayıf asidin asit ayrışma sabitinin (Ka) negatif logaritması."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Molar concentration of the weak acid species in the buffer.",
       "label_i18n": {
         "en": "Concentration of Acid (HA)",
-        "tr": "Concentration of Acid (HA)",
+        "tr": "Asit (HA) Konsantrasyonu",
         "de": "Concentration of Acid (HA)",
         "fr": "Concentration of Acid (HA)",
         "es": "Concentration of Acid (HA)",
         "ar": "Concentration of Acid (HA)"
+      },
+      "businessContext_i18n": {
+        "en": "Molar concentration of the weak acid species in the buffer.",
+        "tr": "Tampondaki zayıf asit türünün molar konsantrasyonu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Molar concentration of the conjugate base species in the buffer.",
       "label_i18n": {
         "en": "Concentration of Conjugate Base (A⁻)",
-        "tr": "Concentration of Conjugate Base (A⁻)",
+        "tr": "Konjuge Baz (A⁻) Konsantrasyonu",
         "de": "Concentration of Conjugate Base (A⁻)",
         "fr": "Concentration of Conjugate Base (A⁻)",
         "es": "Concentration of Conjugate Base (A⁻)",
         "ar": "Concentration of Conjugate Base (A⁻)"
+      },
+      "businessContext_i18n": {
+        "en": "Molar concentration of the conjugate base species in the buffer.",
+        "tr": "Tampondaki konjuge baz türünün molar konsantrasyonu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of the buffer solution; ensure the provided pKa corresponds to this temperature.",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the buffer solution; ensure the provided pKa corresponds to this temperature.",
+        "tr": "Tampon çözeltisinin sıcaklığı; sağlanan pKa'nın bu sıcaklığa karşılık geldiğinden emin olun."
       }
     }
   ],

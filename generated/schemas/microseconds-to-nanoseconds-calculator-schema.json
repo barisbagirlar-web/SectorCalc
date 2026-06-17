@@ -10,11 +10,15 @@
       "businessContext": "Time duration in microseconds to be converted to nanoseconds.",
       "label_i18n": {
         "en": "Microseconds",
-        "tr": "Microseconds",
+        "tr": "Mikrosaniye",
         "de": "Microseconds",
         "fr": "Microseconds",
         "es": "Microseconds",
         "ar": "Microseconds"
+      },
+      "businessContext_i18n": {
+        "en": "Time duration in microseconds to be converted to nanoseconds.",
+        "tr": "Nanometreye dönüştürülecek mikrosaniye cinsinden süre"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from microseconds to nanoseconds. Fixed at 1000 for certified calculations. Do not alter without recalibration.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from microseconds to nanoseconds. Fixed at 1000 for certified calculations. Do not alter without recalibration.",
+        "tr": "Mikrosaniyeden nanosaniyeye standart dönüşüm faktörü. Sertifikalı hesaplamalar için 1000 olarak sabittir. Yeniden kalibrasyon olmadan değiştirmeyin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the result. Use 0 for integer nanoseconds as per standard.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the result. Use 0 for integer nanoseconds as per standard.",
+        "tr": "Sonucun yuvarlanması için ondalık basamak sayısı. Standarda göre tam nanosaniye için 0 kullanın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "If converting multiple identical durations, enter the quantity. Acts as a multiplier.",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "If converting multiple identical durations, enter the quantity. Acts as a multiplier.",
+        "tr": "Birden fazla aynı süre dönüştürülüyorsa, miktarı girin. Çarpan görevi görür."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Acceptable deviation in nanoseconds for quality assurance. The result will be checked against ± tolerance.",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Acceptable deviation in nanoseconds for quality assurance. The result will be checked against ± tolerance.",
+        "tr": "Kalite güvencesi için nanosaniye cinsinden kabul edilebilir sapma. Sonuç ± toleransa göre kontrol edilecektir."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Instrument calibration offset added to the converted value.",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Instrument calibration offset added to the converted value.",
+        "tr": "Dönüştürülen değere eklenen enstrüman kalibrasyon ofseti."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Remaining principal balance on the existing mortgage.",
       "label_i18n": {
         "en": "Current Loan Balance",
-        "tr": "Current Loan Balance",
+        "tr": "Mevcut Kredi Bakiyesi",
         "de": "Current Loan Balance",
         "fr": "Current Loan Balance",
         "es": "Current Loan Balance",
         "ar": "Current Loan Balance"
+      },
+      "businessContext_i18n": {
+        "en": "Remaining principal balance on the existing mortgage.",
+        "tr": "Mevcut mortgage üzerindeki kalan anapara bakiyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual interest rate of the existing mortgage.",
       "label_i18n": {
         "en": "Current Interest Rate (Annual %)",
-        "tr": "Current Interest Rate (Annual %)",
+        "tr": "Mevcut Faiz Oranı (Yıllık %)",
         "de": "Current Interest Rate (Annual %)",
         "fr": "Current Interest Rate (Annual %)",
         "es": "Current Interest Rate (Annual %)",
         "ar": "Current Interest Rate (Annual %)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate of the existing mortgage.",
+        "tr": "Mevcut mortgage'ın yıllık faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of months left on the existing mortgage.",
       "label_i18n": {
         "en": "Remaining Loan Term",
-        "tr": "Remaining Loan Term",
+        "tr": "Kalan Kredi Vadesi",
         "de": "Remaining Loan Term",
         "fr": "Remaining Loan Term",
         "es": "Remaining Loan Term",
         "ar": "Remaining Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months left on the existing mortgage.",
+        "tr": "Mevcut mortgage'da kalan ay sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual interest rate of the new refinance loan.",
       "label_i18n": {
         "en": "New Interest Rate (Annual %)",
-        "tr": "New Interest Rate (Annual %)",
+        "tr": "Yeni Faiz Oranı (Yıllık %)",
         "de": "New Interest Rate (Annual %)",
         "fr": "New Interest Rate (Annual %)",
         "es": "New Interest Rate (Annual %)",
         "ar": "New Interest Rate (Annual %)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual interest rate of the new refinance loan.",
+        "tr": "Yeni refinansman kredisinin yıllık faiz oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Term of the new refinance loan in months.",
       "label_i18n": {
         "en": "New Loan Term",
-        "tr": "New Loan Term",
+        "tr": "Yeni Kredi Vadesi",
         "de": "New Loan Term",
         "fr": "New Loan Term",
         "es": "New Loan Term",
         "ar": "New Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Term of the new refinance loan in months.",
+        "tr": "Yeni refinansman kredisinin ay cinsinden vadesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Upfront fees and costs associated with refinancing, not financed.",
       "label_i18n": {
         "en": "Closing Costs",
-        "tr": "Closing Costs",
+        "tr": "Kapanış Maliyetleri",
         "de": "Closing Costs",
         "fr": "Closing Costs",
         "es": "Closing Costs",
         "ar": "Closing Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Upfront fees and costs associated with refinancing, not financed.",
+        "tr": "Finanse edilmeyen, refinansmanla ilgili peşin ücretler ve maliyetler."
       }
     }
   ],

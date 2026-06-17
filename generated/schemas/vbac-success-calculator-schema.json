@@ -10,11 +10,15 @@
       "businessContext": "Age of the mother at delivery",
       "label_i18n": {
         "en": "Maternal Age",
-        "tr": "Maternal Age",
+        "tr": "Anne Yaşı",
         "de": "Maternal Age",
         "fr": "Maternal Age",
         "es": "Maternal Age",
         "ar": "Maternal Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the mother at delivery",
+        "tr": "Doğum anında annenin yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Body Mass Index before pregnancy",
       "label_i18n": {
         "en": "BMI",
-        "tr": "BMI",
+        "tr": "VKİ",
         "de": "BMI",
         "fr": "BMI",
         "es": "BMI",
         "ar": "BMI"
+      },
+      "businessContext_i18n": {
+        "en": "Body Mass Index before pregnancy",
+        "tr": "Hamilelik öncesi Vücut Kitle İndeksi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 if previous vaginal birth, 0 otherwise",
       "label_i18n": {
         "en": "Previous Vaginal Birth",
-        "tr": "Previous Vaginal Birth",
+        "tr": "Önceki Vajinal Doğum",
         "de": "Previous Vaginal Birth",
         "fr": "Previous Vaginal Birth",
         "es": "Previous Vaginal Birth",
         "ar": "Previous Vaginal Birth"
+      },
+      "businessContext_i18n": {
+        "en": "1 if previous vaginal birth, 0 otherwise",
+        "tr": "Önceki vajinal doğum varsa 1, yoksa 0"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 if previous cesarean indication is recurrent, 0 otherwise",
       "label_i18n": {
         "en": "Previous CS Indication Recurrent",
-        "tr": "Previous CS Indication Recurrent",
+        "tr": "Önceki Sezaryen Endikasyonu Tekrarlayan",
         "de": "Previous CS Indication Recurrent",
         "fr": "Previous CS Indication Recurrent",
         "es": "Previous CS Indication Recurrent",
         "ar": "Previous CS Indication Recurrent"
+      },
+      "businessContext_i18n": {
+        "en": "1 if previous cesarean indication is recurrent, 0 otherwise",
+        "tr": "Önceki sezaryen endikasyonu tekrarlayan ise 1, değilse 0"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Gestational age at delivery in weeks",
       "label_i18n": {
         "en": "Gestational Age",
-        "tr": "Gestational Age",
+        "tr": "Gebelik Haftası",
         "de": "Gestational Age",
         "fr": "Gestational Age",
         "es": "Gestational Age",
         "ar": "Gestational Age"
+      },
+      "businessContext_i18n": {
+        "en": "Gestational age at delivery in weeks",
+        "tr": "Doğumdaki gebelik haftası"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cervical dilation at admission in cm",
       "label_i18n": {
         "en": "Cervical Dilation",
-        "tr": "Cervical Dilation",
+        "tr": "Servikal Dilatasyon",
         "de": "Cervical Dilation",
         "fr": "Cervical Dilation",
         "es": "Cervical Dilation",
         "ar": "Cervical Dilation"
+      },
+      "businessContext_i18n": {
+        "en": "Cervical dilation at admission in cm",
+        "tr": "Başvuru anında servikal dilatasyon (cm)"
       }
     }
   ],

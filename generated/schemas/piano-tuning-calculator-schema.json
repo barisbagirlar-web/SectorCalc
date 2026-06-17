@@ -10,11 +10,15 @@
       "businessContext": "MIDI note number of the reference pitch (e.g., A4 = 69).",
       "label_i18n": {
         "en": "Reference Note MIDI Number",
-        "tr": "Reference Note MIDI Number",
+        "tr": "Referans Nota MIDI Numarası",
         "de": "Reference Note MIDI Number",
         "fr": "Reference Note MIDI Number",
         "es": "Reference Note MIDI Number",
         "ar": "Reference Note MIDI Number"
+      },
+      "businessContext_i18n": {
+        "en": "MIDI note number of the reference pitch (e.g., A4 = 69).",
+        "tr": "Referans perdenin MIDI nota numarası (ör. A4 = 69)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard tuning frequency of the reference note in Hertz.",
       "label_i18n": {
         "en": "Reference Frequency",
-        "tr": "Reference Frequency",
+        "tr": "Referans Frekans",
         "de": "Reference Frequency",
         "fr": "Reference Frequency",
         "es": "Reference Frequency",
         "ar": "Reference Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Standard tuning frequency of the reference note in Hertz.",
+        "tr": "Referans notanın standart akort frekansı (Hertz cinsinden)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "MIDI note number of the key to tune.",
       "label_i18n": {
         "en": "Target Note MIDI Number",
-        "tr": "Target Note MIDI Number",
+        "tr": "Hedef Nota MIDI Numarası",
         "de": "Target Note MIDI Number",
         "fr": "Target Note MIDI Number",
         "es": "Target Note MIDI Number",
         "ar": "Target Note MIDI Number"
+      },
+      "businessContext_i18n": {
+        "en": "MIDI note number of the key to tune.",
+        "tr": "Akort edilecek tuşun MIDI nota numarası."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Tuning offset in cents (1/100 semitone) for historical temperaments or artistic adjustment.",
       "label_i18n": {
         "en": "Detuning Offset",
-        "tr": "Detuning Offset",
+        "tr": "Sapma Miktarı",
         "de": "Detuning Offset",
         "fr": "Detuning Offset",
         "es": "Detuning Offset",
         "ar": "Detuning Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Tuning offset in cents (1/100 semitone) for historical temperaments or artistic adjustment.",
+        "tr": "Tarihsel mizaçlar veya sanatsal ayarlama için sent (1/100 yarım ton) cinsinden akort sapması."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Inharmonicity coefficient for stretch tuning. Typical for a piano: B ≈ 0.0004. Set to 0 for pure equal temperament.",
       "label_i18n": {
         "en": "Inharmonicity Coefficient (B)",
-        "tr": "Inharmonicity Coefficient (B)",
+        "tr": "Armonik Olmayanlık Katsayısı (B)",
         "de": "Inharmonicity Coefficient (B)",
         "fr": "Inharmonicity Coefficient (B)",
         "es": "Inharmonicity Coefficient (B)",
         "ar": "Inharmonicity Coefficient (B)"
+      },
+      "businessContext_i18n": {
+        "en": "Inharmonicity coefficient for stretch tuning. Typical for a piano: B ≈ 0.0004. Set to 0 for pure equal temperament.",
+        "tr": "Germe akort için armonik olmayanlık katsayısı. Piyano için tipik: B ≈ 0.0004. Saf eşit mizaç için 0'a ayarlayın."
       }
     }
   ],

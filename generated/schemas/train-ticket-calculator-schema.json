@@ -10,11 +10,15 @@
       "businessContext": "The number of adult passengers traveling.",
       "label_i18n": {
         "en": "Number of Adult Passengers",
-        "tr": "Number of Adult Passengers",
+        "tr": "Yetişkin Yolcu Sayısı",
         "de": "Number of Adult Passengers",
         "fr": "Number of Adult Passengers",
         "es": "Number of Adult Passengers",
         "ar": "Number of Adult Passengers"
+      },
+      "businessContext_i18n": {
+        "en": "The number of adult passengers traveling.",
+        "tr": "Seyahat eden yetişkin yolcu sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of children aged 5-12. They get a discount.",
       "label_i18n": {
         "en": "Number of Children (5-12)",
-        "tr": "Number of Children (5-12)",
+        "tr": "Çocuk Sayısı (5-12)",
         "de": "Number of Children (5-12)",
         "fr": "Number of Children (5-12)",
         "es": "Number of Children (5-12)",
         "ar": "Number of Children (5-12)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of children aged 5-12. They get a discount.",
+        "tr": "5-12 yaş arası çocuk sayısı. İndirim uygulanır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total travel distance in kilometers.",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total travel distance in kilometers.",
+        "tr": "Kilometre cinsinden toplam seyahat mesafesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard fare per kilometer per passenger.",
       "label_i18n": {
         "en": "Base Fare per km",
-        "tr": "Base Fare per km",
+        "tr": "Km Başına Taban Ücret",
         "de": "Base Fare per km",
         "fr": "Base Fare per km",
         "es": "Base Fare per km",
         "ar": "Base Fare per km"
+      },
+      "businessContext_i18n": {
+        "en": "Standard fare per kilometer per passenger.",
+        "tr": "Yolcu başına kilometre başına standart ücret."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Discount percentage applied to child tickets (0-100).",
       "label_i18n": {
         "en": "Child Discount Rate",
-        "tr": "Child Discount Rate",
+        "tr": "Çocuk İndirim Oranı",
         "de": "Child Discount Rate",
         "fr": "Child Discount Rate",
         "es": "Child Discount Rate",
         "ar": "Child Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Discount percentage applied to child tickets (0-100).",
+        "tr": "Çocuk biletlerine uygulanan indirim yüzdesi (0-100)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional discount rate for groups of 5 or more total passengers.",
       "label_i18n": {
         "en": "Group Discount Rate (for 5+ passengers)",
-        "tr": "Group Discount Rate (for 5+ passengers)",
+        "tr": "Grup İndirim Oranı (5+ yolcu)",
         "de": "Group Discount Rate (for 5+ passengers)",
         "fr": "Group Discount Rate (for 5+ passengers)",
         "es": "Group Discount Rate (for 5+ passengers)",
         "ar": "Group Discount Rate (for 5+ passengers)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional discount rate for groups of 5 or more total passengers.",
+        "tr": "5 veya daha fazla toplam yolcu için grup indirim oranı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Fixed service fee applied per ticket (per passenger).",
       "label_i18n": {
         "en": "Service Fee per Ticket",
-        "tr": "Service Fee per Ticket",
+        "tr": "Bilet Başına Hizmet Ücreti",
         "de": "Service Fee per Ticket",
         "fr": "Service Fee per Ticket",
         "es": "Service Fee per Ticket",
         "ar": "Service Fee per Ticket"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed service fee applied per ticket (per passenger).",
+        "tr": "Bilet başına (yolcu başına) uygulanan sabit hizmet ücreti."
       }
     }
   ],

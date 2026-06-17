@@ -10,11 +10,15 @@
       "businessContext": "The amount of Ethereum to convert, before transaction fees.",
       "label_i18n": {
         "en": "Ethereum Amount",
-        "tr": "Ethereum Amount",
+        "tr": "Ethereum Miktarı",
         "de": "Ethereum Amount",
         "fr": "Ethereum Amount",
         "es": "Ethereum Amount",
         "ar": "Ethereum Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of Ethereum to convert, before transaction fees.",
+        "tr": "İşlem ücretlerinden önce dönüştürülecek Ethereum miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current market price of 1 ETH in US dollars.",
       "label_i18n": {
         "en": "ETH Price (USD)",
-        "tr": "ETH Price (USD)",
+        "tr": "ETH Fiyatı (USD)",
         "de": "ETH Price (USD)",
         "fr": "ETH Price (USD)",
         "es": "ETH Price (USD)",
         "ar": "ETH Price (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price of 1 ETH in US dollars.",
+        "tr": "1 ETH'nin ABD doları cinsinden güncel piyasa fiyatı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum gas units allowed for the Ethereum transaction (standard ETH transfer: 21000).",
       "label_i18n": {
         "en": "Gas Limit",
-        "tr": "Gas Limit",
+        "tr": "Gaz Limiti",
         "de": "Gas Limit",
         "fr": "Gas Limit",
         "es": "Gas Limit",
         "ar": "Gas Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum gas units allowed for the Ethereum transaction (standard ETH transfer: 21000).",
+        "tr": "Ethereum işlemi için izin verilen maksimum gaz birimi (standart ETH transferi: 21000)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum fee per gas unit in Gwei (1 ETH = 10^9 Gwei). This covers base fee + priority fee.",
       "label_i18n": {
         "en": "Max Fee per Gas",
-        "tr": "Max Fee per Gas",
+        "tr": "Gaz Başına Maksimum Ücret",
         "de": "Max Fee per Gas",
         "fr": "Max Fee per Gas",
         "es": "Max Fee per Gas",
         "ar": "Max Fee per Gas"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum fee per gas unit in Gwei (1 ETH = 10^9 Gwei). This covers base fee + priority fee.",
+        "tr": "Gwei cinsinden gaz birimi başına maksimum ücret (1 ETH = 10^9 Gwei). Temel ücret + öncelik ücretini kapsar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier to simulate higher gas prices during network congestion (1 for normal, >1 for high demand).",
       "label_i18n": {
         "en": "Network Congestion Multiplier",
-        "tr": "Network Congestion Multiplier",
+        "tr": "Ağ Tıkanıklığı Çarpanı",
         "de": "Network Congestion Multiplier",
         "fr": "Network Congestion Multiplier",
         "es": "Network Congestion Multiplier",
         "ar": "Network Congestion Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to simulate higher gas prices during network congestion (1 for normal, >1 for high demand).",
+        "tr": "Ağ tıkanıklığı sırasında daha yüksek gaz fiyatlarını simüle etmek için çarpan (normal için 1, yüksek talep için >1)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage fee charged by the exchange or service for converting crypto to fiat currency.",
       "label_i18n": {
         "en": "Conversion Fee (%)",
-        "tr": "Conversion Fee (%)",
+        "tr": "Dönüşüm Ücreti (%)",
         "de": "Conversion Fee (%)",
         "fr": "Conversion Fee (%)",
         "es": "Conversion Fee (%)",
         "ar": "Conversion Fee (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage fee charged by the exchange or service for converting crypto to fiat currency.",
+        "tr": "Kripto parayı itibari paraya dönüştürmek için borsa veya hizmet tarafından alınan yüzde ücret."
       }
     }
   ],

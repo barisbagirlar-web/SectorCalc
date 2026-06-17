@@ -10,11 +10,15 @@
       "businessContext": "Expected or historical annualized portfolio return",
       "label_i18n": {
         "en": "Portfolio Return",
-        "tr": "Portfolio Return",
+        "tr": "Portföy Getirisi",
         "de": "Portfolio Return",
         "fr": "Portfolio Return",
         "es": "Portfolio Return",
         "ar": "Portfolio Return"
+      },
+      "businessContext_i18n": {
+        "en": "Expected or historical annualized portfolio return",
+        "tr": "Beklenen veya geçmiş yıllık portföy getirisi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current risk-free rate (e.g., 10-year government bond yield)",
       "label_i18n": {
         "en": "Risk-Free Rate",
-        "tr": "Risk-Free Rate",
+        "tr": "Risksiz Faiz Oranı",
         "de": "Risk-Free Rate",
         "fr": "Risk-Free Rate",
         "es": "Risk-Free Rate",
         "ar": "Risk-Free Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Current risk-free rate (e.g., 10-year government bond yield)",
+        "tr": "Mevcut risksiz oran (ör. 10 yıllık devlet tahvili getirisi)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Beta coefficient of the portfolio relative to the benchmark",
       "label_i18n": {
         "en": "Portfolio Beta",
-        "tr": "Portfolio Beta",
+        "tr": "Portföy Betası",
         "de": "Portfolio Beta",
         "fr": "Portfolio Beta",
         "es": "Portfolio Beta",
         "ar": "Portfolio Beta"
+      },
+      "businessContext_i18n": {
+        "en": "Beta coefficient of the portfolio relative to the benchmark",
+        "tr": "Portföyün gösterge endekse göre beta katsayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of periods per year for returns (1 for annual, 12 for monthly). Used to annualize the ratio if returns are not annual.",
       "label_i18n": {
         "en": "Periods per Year",
-        "tr": "Periods per Year",
+        "tr": "Yıllık Dönem Sayısı",
         "de": "Periods per Year",
         "fr": "Periods per Year",
         "es": "Periods per Year",
         "ar": "Periods per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of periods per year for returns (1 for annual, 12 for monthly). Used to annualize the ratio if returns are not annual.",
+        "tr": "Getiriler için yıllık dönem sayısı (yıllık için 1, aylık için 12). Getiriler yıllık değilse oranı yıllıklaştırmak için kullanılır."
       }
     }
   ],

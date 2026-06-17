@@ -10,11 +10,15 @@
       "businessContext": "The value of goods as stated on the commercial invoice.",
       "label_i18n": {
         "en": "Invoice Value",
-        "tr": "Invoice Value",
+        "tr": "Fatura Değeri",
         "de": "Invoice Value",
         "fr": "Invoice Value",
         "es": "Invoice Value",
         "ar": "Invoice Value"
+      },
+      "businessContext_i18n": {
+        "en": "The value of goods as stated on the commercial invoice.",
+        "tr": "Ticari faturada belirtilen malların değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost of insuring the shipment during transit.",
       "label_i18n": {
         "en": "Insurance Cost",
-        "tr": "Insurance Cost",
+        "tr": "Sigorta Maliyeti",
         "de": "Insurance Cost",
         "fr": "Insurance Cost",
         "es": "Insurance Cost",
         "ar": "Insurance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of insuring the shipment during transit.",
+        "tr": "Nakliye sırasında gönderiyi sigortalama maliyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of transporting the goods to the destination port.",
       "label_i18n": {
         "en": "Freight Cost",
-        "tr": "Freight Cost",
+        "tr": "Navlun Maliyeti",
         "de": "Freight Cost",
         "fr": "Freight Cost",
         "es": "Freight Cost",
         "ar": "Freight Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of transporting the goods to the destination port.",
+        "tr": "Malların varış limanına taşınma maliyeti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ad valorem customs duty rate for the imported goods.",
       "label_i18n": {
         "en": "Duty Rate",
-        "tr": "Duty Rate",
+        "tr": "Gümrük Vergisi Oranı",
         "de": "Duty Rate",
         "fr": "Duty Rate",
         "es": "Duty Rate",
         "ar": "Duty Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Ad valorem customs duty rate for the imported goods.",
+        "tr": "İthal edilen mallar için ad valorem gümrük vergisi oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Value Added Tax rate applied to the tax base.",
       "label_i18n": {
         "en": "VAT Rate",
-        "tr": "VAT Rate",
+        "tr": "KDV Oranı",
         "de": "VAT Rate",
         "fr": "VAT Rate",
         "es": "VAT Rate",
         "ar": "VAT Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Value Added Tax rate applied to the tax base.",
+        "tr": "Vergi matrahına uygulanan katma değer vergisi oranı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Other costs such as customs brokering or terminal handling charges.",
       "label_i18n": {
         "en": "Additional Fees",
-        "tr": "Additional Fees",
+        "tr": "Ek Ücretler",
         "de": "Additional Fees",
         "fr": "Additional Fees",
         "es": "Additional Fees",
         "ar": "Additional Fees"
+      },
+      "businessContext_i18n": {
+        "en": "Other costs such as customs brokering or terminal handling charges.",
+        "tr": "Gümrük müşavirliği veya terminal işlem ücretleri gibi diğer maliyetler."
       }
     }
   ],

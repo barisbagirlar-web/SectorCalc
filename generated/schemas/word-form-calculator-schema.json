@@ -10,11 +10,15 @@
       "businessContext": "Count of words in the document",
       "label_i18n": {
         "en": "Total Words",
-        "tr": "Total Words",
+        "tr": "Toplam Kelime",
         "de": "Total Words",
         "fr": "Total Words",
         "es": "Total Words",
         "ar": "Total Words"
+      },
+      "businessContext_i18n": {
+        "en": "Count of words in the document",
+        "tr": "Belgedeki kelime sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Count of sentences",
       "label_i18n": {
         "en": "Total Sentences",
-        "tr": "Total Sentences",
+        "tr": "Toplam Cümle",
         "de": "Total Sentences",
         "fr": "Total Sentences",
         "es": "Total Sentences",
         "ar": "Total Sentences"
+      },
+      "businessContext_i18n": {
+        "en": "Count of sentences",
+        "tr": "Cümle sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Count of syllables",
       "label_i18n": {
         "en": "Total Syllables",
-        "tr": "Total Syllables",
+        "tr": "Toplam Hece",
         "de": "Total Syllables",
         "fr": "Total Syllables",
         "es": "Total Syllables",
         "ar": "Total Syllables"
+      },
+      "businessContext_i18n": {
+        "en": "Count of syllables",
+        "tr": "Hece sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of words with 3 or more syllables",
       "label_i18n": {
         "en": "Complex Words (≥3 syllables)",
-        "tr": "Complex Words (≥3 syllables)",
+        "tr": "Karmaşık Kelimeler (≥3 hece)",
         "de": "Complex Words (≥3 syllables)",
         "fr": "Complex Words (≥3 syllables)",
         "es": "Complex Words (≥3 syllables)",
         "ar": "Complex Words (≥3 syllables)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of words with 3 or more syllables",
+        "tr": "3 veya daha fazla heceli kelime sayısı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Weight used for the set",
       "label_i18n": {
         "en": "Lifted Weight",
-        "tr": "Lifted Weight",
+        "tr": "Kaldırılan Ağırlık",
         "de": "Lifted Weight",
         "fr": "Lifted Weight",
         "es": "Lifted Weight",
         "ar": "Lifted Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight used for the set",
+        "tr": "Set için kullanılan ağırlık"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of reps performed to failure or near failure",
       "label_i18n": {
         "en": "Repetitions",
-        "tr": "Repetitions",
+        "tr": "Tekrar Sayısı",
         "de": "Repetitions",
         "fr": "Repetitions",
         "es": "Repetitions",
         "ar": "Repetitions"
+      },
+      "businessContext_i18n": {
+        "en": "Number of reps performed to failure or near failure",
+        "tr": "Başarısızlığa veya başarısızlığa yakın yapılan tekrar sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Lifter's body weight",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Lifter's body weight",
+        "tr": "Kaldırıcının vücut ağırlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Freshness percentage (100 = no fatigue)",
       "label_i18n": {
         "en": "Fatigue Factor",
-        "tr": "Fatigue Factor",
+        "tr": "Yorgunluk Faktörü",
         "de": "Fatigue Factor",
         "fr": "Fatigue Factor",
         "es": "Fatigue Factor",
         "ar": "Fatigue Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Freshness percentage (100 = no fatigue)",
+        "tr": "Tazelik yüzdesi (100 = yorgunluk yok)"
       }
     }
   ],

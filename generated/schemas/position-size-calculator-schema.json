@@ -10,11 +10,15 @@
       "businessContext": "Total capital available for trading",
       "label_i18n": {
         "en": "Account Balance",
-        "tr": "Account Balance",
+        "tr": "Hesap Bakiyesi",
         "de": "Account Balance",
         "fr": "Account Balance",
         "es": "Account Balance",
         "ar": "Account Balance"
+      },
+      "businessContext_i18n": {
+        "en": "Total capital available for trading",
+        "tr": "İşlem için mevcut toplam sermaye"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Maximum percentage of account to risk per trade",
       "label_i18n": {
         "en": "Risk Percentage",
-        "tr": "Risk Percentage",
+        "tr": "Risk yüzdesi",
         "de": "Risk Percentage",
         "fr": "Risk Percentage",
         "es": "Risk Percentage",
         "ar": "Risk Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum percentage of account to risk per trade",
+        "tr": "İşlem başına riske atılacak maksimum hesap yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Price at which the trade is entered",
       "label_i18n": {
         "en": "Entry Price",
-        "tr": "Entry Price",
+        "tr": "Giriş Fiyatı",
         "de": "Entry Price",
         "fr": "Entry Price",
         "es": "Entry Price",
         "ar": "Entry Price"
+      },
+      "businessContext_i18n": {
+        "en": "Price at which the trade is entered",
+        "tr": "İşleme girilen fiyat"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Price at which the trade will be exited to limit loss",
       "label_i18n": {
         "en": "Stop Loss Price",
-        "tr": "Stop Loss Price",
+        "tr": "Stop Loss Fiyatı",
         "de": "Stop Loss Price",
         "fr": "Stop Loss Price",
         "es": "Stop Loss Price",
         "ar": "Stop Loss Price"
+      },
+      "businessContext_i18n": {
+        "en": "Price at which the trade will be exited to limit loss",
+        "tr": "Zararı sınırlamak için işlemden çıkılacak fiyat"
       }
     }
   ],

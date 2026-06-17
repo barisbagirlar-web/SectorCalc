@@ -10,11 +10,15 @@
       "businessContext": "Current assessed skill level of the worker (0-100)",
       "label_i18n": {
         "en": "Current Skill Level",
-        "tr": "Current Skill Level",
+        "tr": "Mevcut Beceri Seviyesi",
         "de": "Current Skill Level",
         "fr": "Current Skill Level",
         "es": "Current Skill Level",
         "ar": "Current Skill Level"
+      },
+      "businessContext_i18n": {
+        "en": "Current assessed skill level of the worker (0-100)",
+        "tr": "Çalışanın mevcut değerlendirilen beceri seviyesi (0-100)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total hours of completed training",
       "label_i18n": {
         "en": "Training Hours",
-        "tr": "Training Hours",
+        "tr": "Eğitim Saatleri",
         "de": "Training Hours",
         "fr": "Training Hours",
         "es": "Training Hours",
         "ar": "Training Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total hours of completed training",
+        "tr": "Tamamlanan toplam eğitim saati"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total years of relevant work experience",
       "label_i18n": {
         "en": "Years of Experience",
-        "tr": "Years of Experience",
+        "tr": "Deneyim Yılı",
         "de": "Years of Experience",
         "fr": "Years of Experience",
         "es": "Years of Experience",
         "ar": "Years of Experience"
+      },
+      "businessContext_i18n": {
+        "en": "Total years of relevant work experience",
+        "tr": "Toplam ilgili iş deneyimi yılı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average complexity of tasks performed (1=low, 10=high)",
       "label_i18n": {
         "en": "Task Complexity",
-        "tr": "Task Complexity",
+        "tr": "Görev Karmaşıklığı",
         "de": "Task Complexity",
         "fr": "Task Complexity",
         "es": "Task Complexity",
         "ar": "Task Complexity"
+      },
+      "businessContext_i18n": {
+        "en": "Average complexity of tasks performed (1=low, 10=high)",
+        "tr": "Gerçekleştirilen görevlerin ortalama karmaşıklığı (1=düşük, 10=yüksek)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of relevant certifications held",
       "label_i18n": {
         "en": "Certifications",
-        "tr": "Certifications",
+        "tr": "Sertifikalar",
         "de": "Certifications",
         "fr": "Certifications",
         "es": "Certifications",
         "ar": "Certifications"
+      },
+      "businessContext_i18n": {
+        "en": "Number of relevant certifications held",
+        "tr": "Sahip olunan ilgili sertifika sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average error rate in task execution (0-100%)",
       "label_i18n": {
         "en": "Error Rate",
-        "tr": "Error Rate",
+        "tr": "Hata Oranı",
         "de": "Error Rate",
         "fr": "Error Rate",
         "es": "Error Rate",
         "ar": "Error Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average error rate in task execution (0-100%)",
+        "tr": "Görev yürütmede ortalama hata oranı (0-100%)"
       }
     }
   ],

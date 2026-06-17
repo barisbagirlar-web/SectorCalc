@@ -22,10 +22,12 @@
       "max": 50,
       "businessContext": "Span length between supports, typical for structural steel beams in industrial racks (WERC standard).",
       "label_i18n": {
-        "en": "Beam Length (L)"
+        "en": "Beam Length (L)",
+        "tr": "Kiriş Uzunluğu (L)"
       },
       "businessContext_i18n": {
-        "en": "Span length between supports, typical for structural steel beams in industrial racks (WERC standard)."
+        "en": "Span length between supports, typical for structural steel beams in industrial racks (WERC standard).",
+        "tr": "Mesnetler arasındaki açıklık uzunluğu, endüstriyel raflardaki yapısal çelik kirişler için tipiktir (WERC standardı)."
       }
     },
     {
@@ -42,10 +44,12 @@
       ],
       "businessContext": "Common load configurations in material handling and structural analysis per ISO 9001 design control.",
       "label_i18n": {
-        "en": "Load Type"
+        "en": "Load Type",
+        "tr": "Yük Türü"
       },
       "businessContext_i18n": {
-        "en": "Common load configurations in material handling and structural analysis per ISO 9001 design control."
+        "en": "Common load configurations in material handling and structural analysis per ISO 9001 design control.",
+        "tr": "Malzeme taşıma ve yapısal analizde yaygın yük konfigürasyonları, ISO 9001 tasarım kontrolüne uygun."
       }
     },
     {
@@ -58,10 +62,12 @@
       "max": 500,
       "businessContext": "Concentrated force applied at a specific point, typical for forklift impact or equipment loads.",
       "label_i18n": {
-        "en": "Point Load (P)"
+        "en": "Point Load (P)",
+        "tr": "Noktasal Yük (P)"
       },
       "businessContext_i18n": {
-        "en": "Concentrated force applied at a specific point, typical for forklift impact or equipment loads."
+        "en": "Concentrated force applied at a specific point, typical for forklift impact or equipment loads.",
+        "tr": "Belirli bir noktaya uygulanan yoğun kuvvet, forklift darbesi veya ekipman yükleri için tipiktir."
       }
     },
     {
@@ -74,10 +80,12 @@
       "max": 100,
       "businessContext": "Load per unit length, e.g., conveyor belt or storage rack loading per linear meter.",
       "label_i18n": {
-        "en": "Uniformly Distributed Load (w)"
+        "en": "Uniformly Distributed Load (w)",
+        "tr": "Düzgün Yayılı Yük (w)"
       },
       "businessContext_i18n": {
-        "en": "Load per unit length, e.g., conveyor belt or storage rack loading per linear meter."
+        "en": "Load per unit length, e.g., conveyor belt or storage rack loading per linear meter.",
+        "tr": "Birim uzunluk başına yük, örn. konveyör bandı veya depolama rafı yüklemesi (metre başına)."
       }
     },
     {
@@ -90,10 +98,12 @@
       "max": 50,
       "businessContext": "Distance from left support to point load application, used for asymmetric loading analysis.",
       "label_i18n": {
-        "en": "Load Position from Left Support (a)"
+        "en": "Load Position from Left Support (a)",
+        "tr": "Yükün Sol Mesnetten Uzaklığı (a)"
       },
       "businessContext_i18n": {
-        "en": "Distance from left support to point load application, used for asymmetric loading analysis."
+        "en": "Distance from left support to point load application, used for asymmetric loading analysis.",
+        "tr": "Sol mesnetten noktasal yük uygulama noktasına olan mesafe, asimetrik yükleme analizinde kullanılır."
       }
     },
     {
@@ -106,10 +116,12 @@
       "max": 400,
       "businessContext": "Material stiffness property, typical for steel (200 GPa) or aluminum (70 GPa) per ISO 6892-1.",
       "label_i18n": {
-        "en": "Young's Modulus (E)"
+        "en": "Young's Modulus (E)",
+        "tr": "Elastisite Modülü (E)"
       },
       "businessContext_i18n": {
-        "en": "Material stiffness property, typical for steel (200 GPa) or aluminum (70 GPa) per ISO 6892-1."
+        "en": "Material stiffness property, typical for steel (200 GPa) or aluminum (70 GPa) per ISO 6892-1.",
+        "tr": "Malzeme sertlik özelliği, çelik için tipik (200 GPa) veya alüminyum (70 GPa) ISO 6892-1'e göre."
       }
     },
     {
@@ -122,10 +134,12 @@
       "max": 100000,
       "businessContext": "Cross-sectional property resisting bending, calculated from beam profile (e.g., I-beam, rectangular).",
       "label_i18n": {
-        "en": "Moment of Inertia (I)"
+        "en": "Moment of Inertia (I)",
+        "tr": "Atalet Momenti (I)"
       },
       "businessContext_i18n": {
-        "en": "Cross-sectional property resisting bending, calculated from beam profile (e.g., I-beam, rectangular)."
+        "en": "Cross-sectional property resisting bending, calculated from beam profile (e.g., I-beam, rectangular).",
+        "tr": "Eğilmeye karşı koyan kesit özelliği, kiriş profiline göre hesaplanır (örn. I-kiriş, dikdörtgen)."
       }
     },
     {
@@ -138,10 +152,12 @@
       "max": 1000,
       "businessContext": "Material yield stress, typical for structural steel S235 (235 MPa) or S355 (355 MPa) per EN 10025.",
       "label_i18n": {
-        "en": "Yield Strength (σ_y)"
+        "en": "Yield Strength (σ_y)",
+        "tr": "Akma Dayanımı (σ_y)"
       },
       "businessContext_i18n": {
-        "en": "Material yield stress, typical for structural steel S235 (235 MPa) or S355 (355 MPa) per EN 10025."
+        "en": "Material yield stress, typical for structural steel S235 (235 MPa) or S355 (355 MPa) per EN 10025.",
+        "tr": "Malzeme akma gerilmesi, yapısal çelik S235 (235 MPa) veya S355 (355 MPa) için tipik EN 10025'e göre."
       }
     }
   ],

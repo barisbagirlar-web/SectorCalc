@@ -10,11 +10,15 @@
       "businessContext": "Total global population in billions",
       "label_i18n": {
         "en": "World Population",
-        "tr": "World Population",
+        "tr": "Dünya Nüfusu",
         "de": "World Population",
         "fr": "World Population",
         "es": "World Population",
         "ar": "World Population"
+      },
+      "businessContext_i18n": {
+        "en": "Total global population in billions",
+        "tr": "Milyar cinsinden toplam küresel nüfus"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average global biocapacity availability per person in global hectares",
       "label_i18n": {
         "en": "Biocapacity per capita",
-        "tr": "Biocapacity per capita",
+        "tr": "Kişi Başına Biyokapasite",
         "de": "Biocapacity per capita",
         "fr": "Biocapacity per capita",
         "es": "Biocapacity per capita",
         "ar": "Biocapacity per capita"
+      },
+      "businessContext_i18n": {
+        "en": "Average global biocapacity availability per person in global hectares",
+        "tr": "Kişi başına ortalama küresel biyokapasite kullanılabilirliği (küresel hektar)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average global ecological footprint per person in global hectares",
       "label_i18n": {
         "en": "Ecological Footprint per capita",
-        "tr": "Ecological Footprint per capita",
+        "tr": "Kişi Başına Ekolojik Ayak İzi",
         "de": "Ecological Footprint per capita",
         "fr": "Ecological Footprint per capita",
         "es": "Ecological Footprint per capita",
         "ar": "Ecological Footprint per capita"
+      },
+      "businessContext_i18n": {
+        "en": "Average global ecological footprint per person in global hectares",
+        "tr": "Kişi başına ortalama küresel ekolojik ayak izi (küresel hektar)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Year for which Earth Overshoot Day is calculated (used for date context)",
       "label_i18n": {
         "en": "Calculation Year",
-        "tr": "Calculation Year",
+        "tr": "Hesaplama Yılı",
         "de": "Calculation Year",
         "fr": "Calculation Year",
         "es": "Calculation Year",
         "ar": "Calculation Year"
+      },
+      "businessContext_i18n": {
+        "en": "Year for which Earth Overshoot Day is calculated (used for date context)",
+        "tr": "Dünya Limit Aşım Günü'nün hesaplandığı yıl (tarih bağlamı için kullanılır)"
       }
     }
   ],

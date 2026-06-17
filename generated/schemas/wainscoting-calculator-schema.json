@@ -10,11 +10,15 @@
       "businessContext": "Total length of the wall where wainscoting will be installed.",
       "label_i18n": {
         "en": "Wall Length",
-        "tr": "Wall Length",
+        "tr": "Duvar Uzunluğu (m)",
         "de": "Wall Length",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the wall where wainscoting will be installed.",
+        "tr": "Lambri montajı yapılacak duvarın toplam uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the wainscoting paneling from floor to top rail.",
       "label_i18n": {
         "en": "Wainscoting Height",
-        "tr": "Wainscoting Height",
+        "tr": "Lambri Yüksekliği",
         "de": "Wainscoting Height",
         "fr": "Wainscoting Height",
         "es": "Wainscoting Height",
         "ar": "Wainscoting Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the wainscoting paneling from floor to top rail.",
+        "tr": "Lambri panelinin zeminden üst rayına kadar olan yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of each individual wainscoting panel (excluding stiles).",
       "label_i18n": {
         "en": "Panel Width",
-        "tr": "Panel Width",
+        "tr": "Panel Genişliği",
         "de": "Panel Width",
         "fr": "Panel Width",
         "es": "Panel Width",
         "ar": "Panel Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of each individual wainscoting panel (excluding stiles).",
+        "tr": "Her bir lambri panelinin genişliği (dikmeler hariç)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of the vertical trim pieces separating panels (includes end stiles).",
       "label_i18n": {
         "en": "Stile Width",
-        "tr": "Stile Width",
+        "tr": "Dikme Genişliği",
         "de": "Stile Width",
         "fr": "Stile Width",
         "es": "Stile Width",
         "ar": "Stile Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the vertical trim pieces separating panels (includes end stiles).",
+        "tr": "Panelleri ayıran dikey trim parçalarının genişliği (uç dikmeler dahil)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Length of a standard plywood sheet (typically 8 ft).",
       "label_i18n": {
         "en": "Plywood Sheet Length",
-        "tr": "Plywood Sheet Length",
+        "tr": "Kontrplak Levha Uzunluğu",
         "de": "Plywood Sheet Length",
         "fr": "Plywood Sheet Length",
         "es": "Plywood Sheet Length",
         "ar": "Plywood Sheet Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a standard plywood sheet (typically 8 ft).",
+        "tr": "Standart bir kontrplak levhanın uzunluğu (genellikle 8 ft)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Width of a standard plywood sheet (typically 4 ft).",
       "label_i18n": {
         "en": "Plywood Sheet Width",
-        "tr": "Plywood Sheet Width",
+        "tr": "Kontrplak Levha Genişliği",
         "de": "Plywood Sheet Width",
         "fr": "Plywood Sheet Width",
         "es": "Plywood Sheet Width",
         "ar": "Plywood Sheet Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a standard plywood sheet (typically 4 ft).",
+        "tr": "Standart bir kontrplak levhanın genişliği (genellikle 4 ft)."
       }
     }
   ],

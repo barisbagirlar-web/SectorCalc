@@ -10,11 +10,15 @@
       "businessContext": "Number of barrels to convert",
       "label_i18n": {
         "en": "Barrel Count",
-        "tr": "Barrel Count",
+        "tr": "Varil Sayısı",
         "de": "Barrel Count",
         "fr": "Barrel Count",
         "es": "Barrel Count",
         "ar": "Barrel Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of barrels to convert",
+        "tr": "Dönüştürülecek varil sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Default is for US oil barrel (42 US gallons). Adjust for other barrel types.",
       "label_i18n": {
         "en": "Liter per Barrel",
-        "tr": "Liter per Barrel",
+        "tr": "Varil Başına Litre",
         "de": "Liter per Barrel",
         "fr": "Liter per Barrel",
         "es": "Liter per Barrel",
         "ar": "Liter per Barrel"
+      },
+      "businessContext_i18n": {
+        "en": "Default is for US oil barrel (42 US gallons). Adjust for other barrel types.",
+        "tr": "Varsayılan ABD petrol varili (42 ABD galonu) içindir. Diğer varil türleri için ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Temperature for volume correction (optional)",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature for volume correction (optional)",
+        "tr": "Hacim düzeltmesi için sıcaklık (isteğe bağlı)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for temperature correction. Use 1 if no correction.",
       "label_i18n": {
         "en": "Volume Correction Factor",
-        "tr": "Volume Correction Factor",
+        "tr": "Hacim Düzeltme Faktörü",
         "de": "Volume Correction Factor",
         "fr": "Volume Correction Factor",
         "es": "Volume Correction Factor",
         "ar": "Volume Correction Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for temperature correction. Use 1 if no correction.",
+        "tr": "Sıcaklık düzeltmesi için çarpan. Düzeltme yoksa 1 kullanın."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total linear length of railing including posts.",
       "label_i18n": {
         "en": "Total Railing Length",
-        "tr": "Total Railing Length",
+        "tr": "Toplam Korkuluk Uzunluğu",
         "de": "Total Railing Length",
         "fr": "Total Railing Length",
         "es": "Total Railing Length",
         "ar": "Total Railing Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total linear length of railing including posts.",
+        "tr": "Direkler dahil korkuluğun toplam doğrusal uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of a single post.",
       "label_i18n": {
         "en": "Post Width",
-        "tr": "Post Width",
+        "tr": "Direk Genişliği",
         "de": "Post Width",
         "fr": "Post Width",
         "es": "Post Width",
         "ar": "Post Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single post.",
+        "tr": "Tek bir direğin genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of posts in the railing run (minimum 2 for ends).",
       "label_i18n": {
         "en": "Number of Posts",
-        "tr": "Number of Posts",
+        "tr": "Direk Sayısı",
         "de": "Number of Posts",
         "fr": "Number of Posts",
         "es": "Number of Posts",
         "ar": "Number of Posts"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of posts in the railing run (minimum 2 for ends).",
+        "tr": "Korkuluk hattındaki toplam direk sayısı (uçlar için minimum 2)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of a single baluster.",
       "label_i18n": {
         "en": "Baluster Width",
-        "tr": "Baluster Width",
+        "tr": "Korkuluk Dikmesi Genişliği",
         "de": "Baluster Width",
         "fr": "Baluster Width",
         "es": "Baluster Width",
         "ar": "Baluster Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single baluster.",
+        "tr": "Tek bir korkuluk dikmesinin genişliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum gap between balusters as per safety code (commonly 4 inches = 0.1016 m).",
       "label_i18n": {
         "en": "Maximum Allowed Gap",
-        "tr": "Maximum Allowed Gap",
+        "tr": "İzin Verilen Maksimum Boşluk",
         "de": "Maximum Allowed Gap",
         "fr": "Maximum Allowed Gap",
         "es": "Maximum Allowed Gap",
         "ar": "Maximum Allowed Gap"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum gap between balusters as per safety code (commonly 4 inches = 0.1016 m).",
+        "tr": "Güvenlik yönetmeliğine göre korkuluklar arasındaki maksimum boşluk (genellikle 4 inç = 0.1016 m)."
       }
     }
   ],

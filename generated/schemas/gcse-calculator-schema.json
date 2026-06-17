@@ -10,11 +10,15 @@
       "businessContext": "The horizontal length of the wall in meters.",
       "label_i18n": {
         "en": "Wall Length",
-        "tr": "Wall Length",
+        "tr": "Duvar Uzunluğu (m)",
         "de": "Wall Length",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "The horizontal length of the wall in meters.",
+        "tr": "Duvarın metre cinsinden yatay uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The height of the wall from base to top in meters.",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "The height of the wall from base to top in meters.",
+        "tr": "Duvarın tabandan tepeye metre cinsinden yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The thickness of the wall in terms of brick leaves (1 for half-brick, 2 for full brick, etc.).",
       "label_i18n": {
         "en": "Number of Leaves",
-        "tr": "Number of Leaves",
+        "tr": "Tuğla sıra sayısı",
         "de": "Number of Leaves",
         "fr": "Number of Leaves",
         "es": "Number of Leaves",
         "ar": "Number of Leaves"
+      },
+      "businessContext_i18n": {
+        "en": "The thickness of the wall in terms of brick leaves (1 for half-brick, 2 for full brick, etc.).",
+        "tr": "Duvarın tuğla sırası cinsinden kalınlığı (1 yarım tuğla, 2 tam tuğla vb.)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard brick length (e.g., 215mm for UK format).",
       "label_i18n": {
         "en": "Brick Length",
-        "tr": "Brick Length",
+        "tr": "Tuğla uzunluğu",
         "de": "Brick Length",
         "fr": "Brick Length",
         "es": "Brick Length",
         "ar": "Brick Length"
+      },
+      "businessContext_i18n": {
+        "en": "Standard brick length (e.g., 215mm for UK format).",
+        "tr": "Standart tuğla uzunluğu (örneğin, İngiltere formatı için 215mm)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Standard brick height (e.g., 65mm for UK format).",
       "label_i18n": {
         "en": "Brick Height",
-        "tr": "Brick Height",
+        "tr": "Tuğla yüksekliği",
         "de": "Brick Height",
         "fr": "Brick Height",
         "es": "Brick Height",
         "ar": "Brick Height"
+      },
+      "businessContext_i18n": {
+        "en": "Standard brick height (e.g., 65mm for UK format).",
+        "tr": "Standart tuğla yüksekliği (örneğin, İngiltere formatı için 65mm)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Typical mortar joint thickness between bricks (e.g., 10mm).",
       "label_i18n": {
         "en": "Mortar Joint Thickness",
-        "tr": "Mortar Joint Thickness",
+        "tr": "Harç Derz Kalınlığı",
         "de": "Mortar Joint Thickness",
         "fr": "Mortar Joint Thickness",
         "es": "Mortar Joint Thickness",
         "ar": "Mortar Joint Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Typical mortar joint thickness between bricks (e.g., 10mm).",
+        "tr": "Tuğlalar arasındaki tipik harç derz kalınlığı (örneğin, 10mm)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Allowance for cutting and breakage as a percentage (e.g., 5% => extra 5%).",
       "label_i18n": {
         "en": "Wastage Percentage",
-        "tr": "Wastage Percentage",
+        "tr": "Fire yüzdesi",
         "de": "Wastage Percentage",
         "fr": "Wastage Percentage",
         "es": "Wastage Percentage",
         "ar": "Wastage Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Allowance for cutting and breakage as a percentage (e.g., 5% => extra 5%).",
+        "tr": "Kesim ve kırılma payı yüzdesi (örneğin, %5 => ek %5)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Applied bending moment at the section of interest.",
       "label_i18n": {
         "en": "Bending Moment",
-        "tr": "Bending Moment",
+        "tr": "Eğilme Momenti",
         "de": "Bending Moment",
         "fr": "Bending Moment",
         "es": "Bending Moment",
         "ar": "Bending Moment"
+      },
+      "businessContext_i18n": {
+        "en": "Applied bending moment at the section of interest.",
+        "tr": "İlgili kesitte uygulanan eğilme momenti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Elastic section modulus about the axis of bending.",
       "label_i18n": {
         "en": "Section Modulus",
-        "tr": "Section Modulus",
+        "tr": "Kesit Modülü",
         "de": "Section Modulus",
         "fr": "Section Modulus",
         "es": "Section Modulus",
         "ar": "Section Modulus"
+      },
+      "businessContext_i18n": {
+        "en": "Elastic section modulus about the axis of bending.",
+        "tr": "Eğilme eksenine göre elastik kesit modülü."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance from the neutral axis to the extreme fiber where stress is maximum.",
       "label_i18n": {
         "en": "Distance from Neutral Axis",
-        "tr": "Distance from Neutral Axis",
+        "tr": "Nötr Eksene Uzaklık",
         "de": "Distance from Neutral Axis",
         "fr": "Distance from Neutral Axis",
         "es": "Distance from Neutral Axis",
         "ar": "Distance from Neutral Axis"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from the neutral axis to the extreme fiber where stress is maximum.",
+        "tr": "Nötr eksenden gerilmenin maksimum olduğu en uç lifteki mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Second moment of area about the neutral axis.",
       "label_i18n": {
         "en": "Moment of Inertia",
-        "tr": "Moment of Inertia",
+        "tr": "Eylemsizlik Momenti",
         "de": "Moment of Inertia",
         "fr": "Moment of Inertia",
         "es": "Moment of Inertia",
         "ar": "Moment of Inertia"
+      },
+      "businessContext_i18n": {
+        "en": "Second moment of area about the neutral axis.",
+        "tr": "Nötr eksene göre alanın ikinci momenti."
       }
     }
   ],

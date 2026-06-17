@@ -10,11 +10,15 @@
       "businessContext": "The current value of the inherited IRA account.",
       "label_i18n": {
         "en": "Current IRA Balance",
-        "tr": "Current IRA Balance",
+        "tr": "Mevcut IRA Bakiyesi",
         "de": "Current IRA Balance",
         "fr": "Current IRA Balance",
         "es": "Current IRA Balance",
         "ar": "Current IRA Balance"
+      },
+      "businessContext_i18n": {
+        "en": "The current value of the inherited IRA account.",
+        "tr": "Miras alınan IRA hesabının mevcut değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The current age of the beneficiary.",
       "label_i18n": {
         "en": "Beneficiary's Age",
-        "tr": "Beneficiary's Age",
+        "tr": "Yararlanıcının Yaşı",
         "de": "Beneficiary's Age",
         "fr": "Beneficiary's Age",
         "es": "Beneficiary's Age",
         "ar": "Beneficiary's Age"
+      },
+      "businessContext_i18n": {
+        "en": "The current age of the beneficiary.",
+        "tr": "Yararlanıcının mevcut yaşı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The IRS single life expectancy factor for the beneficiary's age, used to calculate RMD.",
       "label_i18n": {
         "en": "Life Expectancy Factor",
-        "tr": "Life Expectancy Factor",
+        "tr": "Yaşam Beklentisi Faktörü",
         "de": "Life Expectancy Factor",
         "fr": "Life Expectancy Factor",
         "es": "Life Expectancy Factor",
         "ar": "Life Expectancy Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The IRS single life expectancy factor for the beneficiary's age, used to calculate RMD.",
+        "tr": "Yararlanıcının yaşına göre IRS tek yaşam beklentisi faktörü, RMD hesaplamasında kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected annual rate of return on IRA investments, used for projection.",
       "label_i18n": {
         "en": "Expected Annual Return",
-        "tr": "Expected Annual Return",
+        "tr": "Beklenen Yıllık Getiri",
         "de": "Expected Annual Return",
         "fr": "Expected Annual Return",
         "es": "Expected Annual Return",
         "ar": "Expected Annual Return"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual rate of return on IRA investments, used for projection.",
+        "tr": "IRA yatırımlarında beklenen yıllık getiri oranı, projeksiyon için kullanılır."
       }
     }
   ],

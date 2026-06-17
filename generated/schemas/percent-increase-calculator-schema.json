@@ -10,11 +10,15 @@
       "businessContext": "The initial amount before change. Represents baseline measurement.",
       "label_i18n": {
         "en": "Original Value",
-        "tr": "Original Value",
+        "tr": "Orijinal Değer",
         "de": "Original Value",
         "fr": "Original Value",
         "es": "Original Value",
         "ar": "Original Value"
+      },
+      "businessContext_i18n": {
+        "en": "The initial amount before change. Represents baseline measurement.",
+        "tr": "Değişim öncesi başlangıç miktarı. Temel ölçümü temsil eder."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The final amount after change. Used to compare with original.",
       "label_i18n": {
         "en": "New Value",
-        "tr": "New Value",
+        "tr": "Yeni Değer",
         "de": "New Value",
         "fr": "New Value",
         "es": "New Value",
         "ar": "New Value"
+      },
+      "businessContext_i18n": {
+        "en": "The final amount after change. Used to compare with original.",
+        "tr": "Değişim sonrası nihai miktar. Orijinal ile karşılaştırmak için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Precision of the percentage output. Typical industrial reports require 1-2 decimals.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Precision of the percentage output. Typical industrial reports require 1-2 decimals.",
+        "tr": "Yüzde çıktısının hassasiyeti. Tipik endüstriyel raporlar 1-2 ondalık basamak gerektirir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional threshold to flag significant increase. Triggers alert if exceeded.",
       "label_i18n": {
         "en": "Increase Threshold (%)",
-        "tr": "Increase Threshold (%)",
+        "tr": "Artış Eşiği (%)",
         "de": "Increase Threshold (%)",
         "fr": "Increase Threshold (%)",
         "es": "Increase Threshold (%)",
         "ar": "Increase Threshold (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional threshold to flag significant increase. Triggers alert if exceeded.",
+        "tr": "Önemli artışı işaretlemek için isteğe bağlı eşik. Aşılırsa uyarı tetikler."
       }
     }
   ],

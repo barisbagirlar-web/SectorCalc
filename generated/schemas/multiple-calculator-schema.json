@@ -10,11 +10,15 @@
       "businessContext": "Number of units to be produced",
       "label_i18n": {
         "en": "Production Quantity",
-        "tr": "Production Quantity",
+        "tr": "Üretim Miktarı",
         "de": "Production Quantity",
         "fr": "Production Quantity",
         "es": "Production Quantity",
         "ar": "Production Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units to be produced",
+        "tr": "Üretilecek birim sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cost of raw materials per unit",
       "label_i18n": {
         "en": "Material Cost per Unit",
-        "tr": "Material Cost per Unit",
+        "tr": "Birim Başına Malzeme Maliyeti",
         "de": "Material Cost per Unit",
         "fr": "Material Cost per Unit",
         "es": "Material Cost per Unit",
         "ar": "Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw materials per unit",
+        "tr": "Birim başına hammadde maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Direct labor cost per unit",
       "label_i18n": {
         "en": "Labor Cost per Unit",
-        "tr": "Labor Cost per Unit",
+        "tr": "Birim başına işçilik maliyeti",
         "de": "Labor Cost per Unit",
         "fr": "Labor Cost per Unit",
         "es": "Labor Cost per Unit",
         "ar": "Labor Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor cost per unit",
+        "tr": "Birim başına direkt işçilik maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total fixed overhead costs for the production run",
       "label_i18n": {
         "en": "Fixed Overhead Costs",
-        "tr": "Fixed Overhead Costs",
+        "tr": "Sabit Genel Giderler",
         "de": "Fixed Overhead Costs",
         "fr": "Fixed Overhead Costs",
         "es": "Fixed Overhead Costs",
         "ar": "Fixed Overhead Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Total fixed overhead costs for the production run",
+        "tr": "Üretim partisi için toplam sabit genel giderler"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Desired profit margin as percentage of cost",
       "label_i18n": {
         "en": "Profit Margin (%)",
-        "tr": "Profit Margin (%)",
+        "tr": "Kar Marjı (%)",
         "de": "Profit Margin (%)",
         "fr": "Profit Margin (%)",
         "es": "Profit Margin (%)",
         "ar": "Profit Margin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired profit margin as percentage of cost",
+        "tr": "Maliyetin yüzdesi olarak istenen kar marjı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Applicable sales tax rate",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)",
         "de": "Tax Rate (%)",
         "fr": "Tax Rate (%)",
         "es": "Tax Rate (%)",
         "ar": "Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable sales tax rate",
+        "tr": "Geçerli satış vergisi oranı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total annual expenditure on purchased goods and services (in USD)",
       "label_i18n": {
         "en": "Annual Spend on Purchased Goods & Services",
-        "tr": "Annual Spend on Purchased Goods & Services",
+        "tr": "Satın Alınan Mal ve Hizmetlere Yıllık Harcama",
         "de": "Annual Spend on Purchased Goods & Services",
         "fr": "Annual Spend on Purchased Goods & Services",
         "es": "Annual Spend on Purchased Goods & Services",
         "ar": "Annual Spend on Purchased Goods & Services"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual expenditure on purchased goods and services (in USD)",
+        "tr": "Satın alınan mal ve hizmetlere toplam yıllık harcama (USD)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average emission factor for the purchased goods sector (kg CO2-equivalent per dollar spent)",
       "label_i18n": {
         "en": "Emission Factor for Purchased Goods",
-        "tr": "Emission Factor for Purchased Goods",
+        "tr": "Satın Alınan Mallar için Emisyon Faktörü",
         "de": "Emission Factor for Purchased Goods",
         "fr": "Emission Factor for Purchased Goods",
         "es": "Emission Factor for Purchased Goods",
         "ar": "Emission Factor for Purchased Goods"
+      },
+      "businessContext_i18n": {
+        "en": "Average emission factor for the purchased goods sector (kg CO2-equivalent per dollar spent)",
+        "tr": "Satın alınan mallar sektörü için ortalama emisyon faktörü (harcanan dolar başına kg CO2 eşdeğeri)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total distance traveled for business purposes per year (sum over all employees and trips)",
       "label_i18n": {
         "en": "Total Business Travel Distance",
-        "tr": "Total Business Travel Distance",
+        "tr": "Toplam İş Seyahati Mesafesi",
         "de": "Total Business Travel Distance",
         "fr": "Total Business Travel Distance",
         "es": "Total Business Travel Distance",
         "ar": "Total Business Travel Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance traveled for business purposes per year (sum over all employees and trips)",
+        "tr": "Yıllık toplam iş seyahati mesafesi (tüm çalışanlar ve seyahatler toplamı)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average emission factor for business travel (e.g., air travel ~0.2 kg CO2e per km)",
       "label_i18n": {
         "en": "Emission Factor for Business Travel",
-        "tr": "Emission Factor for Business Travel",
+        "tr": "İş Seyahati Emisyon Faktörü",
         "de": "Emission Factor for Business Travel",
         "fr": "Emission Factor for Business Travel",
         "es": "Emission Factor for Business Travel",
         "ar": "Emission Factor for Business Travel"
+      },
+      "businessContext_i18n": {
+        "en": "Average emission factor for business travel (e.g., air travel ~0.2 kg CO2e per km)",
+        "tr": "İş seyahati için ortalama emisyon faktörü (örneğin, hava yolculuğu ~0,2 kg CO2e/km)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total distance commuted by all employees per year (round-trip distance × working days × employees)",
       "label_i18n": {
         "en": "Total Employee Commuting Distance",
-        "tr": "Total Employee Commuting Distance",
+        "tr": "Toplam Çalışan İşe Gidiş-Geliş Mesafesi",
         "de": "Total Employee Commuting Distance",
         "fr": "Total Employee Commuting Distance",
         "es": "Total Employee Commuting Distance",
         "ar": "Total Employee Commuting Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance commuted by all employees per year (round-trip distance × working days × employees)",
+        "tr": "Tüm çalışanların yıllık toplam işe gidiş-geliş mesafesi (gidiş-dönüş mesafesi × çalışma günü × çalışan sayısı)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Average emission factor for employee commuting (e.g., car ~0.15 kg CO2e per km)",
       "label_i18n": {
         "en": "Emission Factor for Commuting",
-        "tr": "Emission Factor for Commuting",
+        "tr": "İşe Gidiş-Geliş Emisyon Faktörü",
         "de": "Emission Factor for Commuting",
         "fr": "Emission Factor for Commuting",
         "es": "Emission Factor for Commuting",
         "ar": "Emission Factor for Commuting"
+      },
+      "businessContext_i18n": {
+        "en": "Average emission factor for employee commuting (e.g., car ~0.15 kg CO2e per km)",
+        "tr": "Çalışan işe gidiş-gelişi için ortalama emisyon faktörü (örneğin, araba ~0,15 kg CO2e/km)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Total waste generated in operations per year (in metric tonnes)",
       "label_i18n": {
         "en": "Total Waste Generated",
-        "tr": "Total Waste Generated",
+        "tr": "Toplam Atık Üretimi",
         "de": "Total Waste Generated",
         "fr": "Total Waste Generated",
         "es": "Total Waste Generated",
         "ar": "Total Waste Generated"
+      },
+      "businessContext_i18n": {
+        "en": "Total waste generated in operations per year (in metric tonnes)",
+        "tr": "Operasyonlarda yıllık toplam atık miktarı (metrik ton cinsinden)"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Emission factor for waste disposal/treatment (kg CO2-equivalent per tonne of waste)",
       "label_i18n": {
         "en": "Emission Factor for Waste",
-        "tr": "Emission Factor for Waste",
+        "tr": "Atık Emisyon Faktörü",
         "de": "Emission Factor for Waste",
         "fr": "Emission Factor for Waste",
         "es": "Emission Factor for Waste",
         "ar": "Emission Factor for Waste"
+      },
+      "businessContext_i18n": {
+        "en": "Emission factor for waste disposal/treatment (kg CO2-equivalent per tonne of waste)",
+        "tr": "Atık bertaraf/arıtma emisyon faktörü (ton atık başına kg CO2 eşdeğeri)"
       }
     }
   ],

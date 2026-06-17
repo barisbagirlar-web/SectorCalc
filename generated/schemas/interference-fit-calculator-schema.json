@@ -10,11 +10,15 @@
       "businessContext": "Nominal diameter of the shaft",
       "label_i18n": {
         "en": "Shaft Diameter (mm)",
-        "tr": "Shaft Diameter (mm)",
+        "tr": "Mil Çapı (mm)",
         "de": "Shaft Diameter (mm)",
         "fr": "Shaft Diameter (mm)",
         "es": "Shaft Diameter (mm)",
         "ar": "Shaft Diameter (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal diameter of the shaft",
+        "tr": "Mil nominal çapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Outer diameter of the hub",
       "label_i18n": {
         "en": "Hub Outer Diameter (mm)",
-        "tr": "Hub Outer Diameter (mm)",
+        "tr": "Göbek Dış Çapı (mm)",
         "de": "Hub Outer Diameter (mm)",
         "fr": "Hub Outer Diameter (mm)",
         "es": "Hub Outer Diameter (mm)",
         "ar": "Hub Outer Diameter (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Outer diameter of the hub",
+        "tr": "Göbek dış çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Radial interference between shaft and hub",
       "label_i18n": {
         "en": "Interference (mm)",
-        "tr": "Interference (mm)",
+        "tr": "Sıkı Geçme (mm)",
         "de": "Interference (mm)",
         "fr": "Interference (mm)",
         "es": "Interference (mm)",
         "ar": "Interference (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Radial interference between shaft and hub",
+        "tr": "Mil ile göbek arasındaki radyal sıkı geçme"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Elastic modulus of shaft material",
       "label_i18n": {
         "en": "Young's Modulus Shaft (GPa)",
-        "tr": "Young's Modulus Shaft (GPa)",
+        "tr": "Mil Elastisite Modülü (GPa)",
         "de": "Young's Modulus Shaft (GPa)",
         "fr": "Young's Modulus Shaft (GPa)",
         "es": "Young's Modulus Shaft (GPa)",
         "ar": "Young's Modulus Shaft (GPa)"
+      },
+      "businessContext_i18n": {
+        "en": "Elastic modulus of shaft material",
+        "tr": "Mil malzemesinin elastisite modülü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Elastic modulus of hub material",
       "label_i18n": {
         "en": "Young's Modulus Hub (GPa)",
-        "tr": "Young's Modulus Hub (GPa)",
+        "tr": "Göbek Elastisite Modülü (GPa)",
         "de": "Young's Modulus Hub (GPa)",
         "fr": "Young's Modulus Hub (GPa)",
         "es": "Young's Modulus Hub (GPa)",
         "ar": "Young's Modulus Hub (GPa)"
+      },
+      "businessContext_i18n": {
+        "en": "Elastic modulus of hub material",
+        "tr": "Göbek malzemesinin elastisite modülü"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Poisson's ratio of shaft material",
       "label_i18n": {
         "en": "Poisson's Ratio Shaft",
-        "tr": "Poisson's Ratio Shaft",
+        "tr": "Mil Poisson Oranı",
         "de": "Poisson's Ratio Shaft",
         "fr": "Poisson's Ratio Shaft",
         "es": "Poisson's Ratio Shaft",
         "ar": "Poisson's Ratio Shaft"
+      },
+      "businessContext_i18n": {
+        "en": "Poisson's ratio of shaft material",
+        "tr": "Mil malzemesinin Poisson oranı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Poisson's ratio of hub material",
       "label_i18n": {
         "en": "Poisson's Ratio Hub",
-        "tr": "Poisson's Ratio Hub",
+        "tr": "Göbek Poisson Oranı",
         "de": "Poisson's Ratio Hub",
         "fr": "Poisson's Ratio Hub",
         "es": "Poisson's Ratio Hub",
         "ar": "Poisson's Ratio Hub"
+      },
+      "businessContext_i18n": {
+        "en": "Poisson's ratio of hub material",
+        "tr": "Göbek malzemesinin Poisson oranı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Coefficient of friction between mating surfaces",
       "label_i18n": {
         "en": "Friction Coefficient",
-        "tr": "Friction Coefficient",
+        "tr": "Sürtünme Katsayısı",
         "de": "Friction Coefficient",
         "fr": "Friction Coefficient",
         "es": "Friction Coefficient",
         "ar": "Friction Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of friction between mating surfaces",
+        "tr": "Birleşme yüzeyleri arasındaki sürtünme katsayısı"
       }
     }
   ],

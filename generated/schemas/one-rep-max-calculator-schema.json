@@ -10,11 +10,15 @@
       "businessContext": "The weight used for the lift, in kilograms.",
       "label_i18n": {
         "en": "Weight Lifted",
-        "tr": "Weight Lifted",
+        "tr": "Kaldırılan Ağırlık",
         "de": "Weight Lifted",
         "fr": "Weight Lifted",
         "es": "Weight Lifted",
         "ar": "Weight Lifted"
+      },
+      "businessContext_i18n": {
+        "en": "The weight used for the lift, in kilograms.",
+        "tr": "Kaldırma için kullanılan ağırlık (kilogram)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of repetitions performed to failure or near failure.",
       "label_i18n": {
         "en": "Repetitions",
-        "tr": "Repetitions",
+        "tr": "Tekrar Sayısı",
         "de": "Repetitions",
         "fr": "Repetitions",
         "es": "Repetitions",
         "ar": "Repetitions"
+      },
+      "businessContext_i18n": {
+        "en": "Number of repetitions performed to failure or near failure.",
+        "tr": "Başarısızlığa veya başarısızlığa yakın gerçekleştirilen tekrar sayısı"
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

@@ -10,11 +10,15 @@
       "businessContext": "Patient's body weight used to calculate fluid resuscitation volume.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's body weight used to calculate fluid resuscitation volume.",
+        "tr": "Sıvı resüsitasyon hacmini hesaplamak için kullanılan hasta vücut ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of total body surface area affected by burns.",
       "label_i18n": {
         "en": "Total Burn Surface Area",
-        "tr": "Total Burn Surface Area",
+        "tr": "Toplam Yanık Yüzey Alanı",
         "de": "Total Burn Surface Area",
         "fr": "Total Burn Surface Area",
         "es": "Total Burn Surface Area",
         "ar": "Total Burn Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of total body surface area affected by burns.",
+        "tr": "Yanıklardan etkilenen toplam vücut yüzey alanı yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard Parkland factor (4 mL per kg per % TBSA).",
       "label_i18n": {
         "en": "Fluid Volume Factor",
-        "tr": "Fluid Volume Factor",
+        "tr": "Sıvı Hacim Faktörü",
         "de": "Fluid Volume Factor",
         "fr": "Fluid Volume Factor",
         "es": "Fluid Volume Factor",
         "ar": "Fluid Volume Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard Parkland factor (4 mL per kg per % TBSA).",
+        "tr": "Standart Parkland faktörü (kg başına % TBSA başına 4 mL)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Duration for the first half of total fluid volume (typically 8 hours).",
       "label_i18n": {
         "en": "First Half Duration",
-        "tr": "First Half Duration",
+        "tr": "İlk Yarı Süresi",
         "de": "First Half Duration",
         "fr": "First Half Duration",
         "es": "First Half Duration",
         "ar": "First Half Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration for the first half of total fluid volume (typically 8 hours).",
+        "tr": "Toplam sıvı hacminin ilk yarısı için süre (tipik olarak 8 saat)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Duration for the second half of total fluid volume (typically 16 hours).",
       "label_i18n": {
         "en": "Second Half Duration",
-        "tr": "Second Half Duration",
+        "tr": "İkinci Yarı Süresi",
         "de": "Second Half Duration",
         "fr": "Second Half Duration",
         "es": "Second Half Duration",
         "ar": "Second Half Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration for the second half of total fluid volume (typically 16 hours).",
+        "tr": "Toplam sıvı hacminin ikinci yarısı için süre (tipik olarak 16 saat)."
       }
     }
   ],

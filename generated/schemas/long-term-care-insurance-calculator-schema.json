@@ -10,11 +10,15 @@
       "businessContext": "The amount paid per day of care",
       "label_i18n": {
         "en": "Daily Benefit Amount",
-        "tr": "Daily Benefit Amount",
+        "tr": "Günlük Yardım Tutarı",
         "de": "Daily Benefit Amount",
         "fr": "Daily Benefit Amount",
         "es": "Daily Benefit Amount",
         "ar": "Daily Benefit Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The amount paid per day of care",
+        "tr": "Bakım günü başına ödenen tutar"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Maximum number of years benefits are paid",
       "label_i18n": {
         "en": "Benefit Period (Years)",
-        "tr": "Benefit Period (Years)",
+        "tr": "Yardım Süresi (Yıl)",
         "de": "Benefit Period (Years)",
         "fr": "Benefit Period (Years)",
         "es": "Benefit Period (Years)",
         "ar": "Benefit Period (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum number of years benefits are paid",
+        "tr": "Yardımların ödendiği maksimum yıl sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Waiting period before benefits start",
       "label_i18n": {
         "en": "Elimination Period (Days)",
-        "tr": "Elimination Period (Days)",
+        "tr": "Muafiyet Süresi (Gün)",
         "de": "Elimination Period (Days)",
         "fr": "Elimination Period (Days)",
         "es": "Elimination Period (Days)",
         "ar": "Elimination Period (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Waiting period before benefits start",
+        "tr": "Yardımlar başlamadan önceki bekleme süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Yearly percentage increase in daily benefit (informative, not used in core calculation)",
       "label_i18n": {
         "en": "Annual Inflation Protection",
-        "tr": "Annual Inflation Protection",
+        "tr": "Yıllık Enflasyon Koruması",
         "de": "Annual Inflation Protection",
         "fr": "Annual Inflation Protection",
         "es": "Annual Inflation Protection",
         "ar": "Annual Inflation Protection"
+      },
+      "businessContext_i18n": {
+        "en": "Yearly percentage increase in daily benefit (informative, not used in core calculation)",
+        "tr": "Günlük yardımda yıllık yüzde artış (bilgilendirme amaçlıdır, temel hesaplamada kullanılmaz)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Cargo length in centimeters",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Cargo length in centimeters",
+        "tr": "Kargo uzunluğu (cm)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cargo width in centimeters",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Cargo width in centimeters",
+        "tr": "Kargo genişliği (cm)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cargo height in centimeters",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Cargo height in centimeters",
+        "tr": "Kargo yüksekliği (cm)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical packages",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical packages",
+        "tr": "Özdeş paket sayısı"
       }
     }
   ],

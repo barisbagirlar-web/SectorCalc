@@ -10,11 +10,15 @@
       "businessContext": "Molar concentration of the weak acid form.",
       "label_i18n": {
         "en": "Weak Acid Concentration [HA]",
-        "tr": "Weak Acid Concentration [HA]",
+        "tr": "Zayıf Asit Konsantrasyonu [HA]",
         "de": "Weak Acid Concentration [HA]",
         "fr": "Weak Acid Concentration [HA]",
         "es": "Weak Acid Concentration [HA]",
         "ar": "Weak Acid Concentration [HA]"
+      },
+      "businessContext_i18n": {
+        "en": "Molar concentration of the weak acid form.",
+        "tr": "Zayıf asit formunun molar konsantrasyonu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Molar concentration of the conjugate base form.",
       "label_i18n": {
         "en": "Conjugate Base Concentration [A-]",
-        "tr": "Conjugate Base Concentration [A-]",
+        "tr": "Konjuge Baz Konsantrasyonu [A-]",
         "de": "Conjugate Base Concentration [A-]",
         "fr": "Conjugate Base Concentration [A-]",
         "es": "Conjugate Base Concentration [A-]",
         "ar": "Conjugate Base Concentration [A-]"
+      },
+      "businessContext_i18n": {
+        "en": "Molar concentration of the conjugate base form.",
+        "tr": "Konjuge baz formunun molar konsantrasyonu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Measured pH of the buffer solution.",
       "label_i18n": {
         "en": "Solution pH",
-        "tr": "Solution pH",
+        "tr": "Çözelti pH'ı",
         "de": "Solution pH",
         "fr": "Solution pH",
         "es": "Solution pH",
         "ar": "Solution pH"
+      },
+      "businessContext_i18n": {
+        "en": "Measured pH of the buffer solution.",
+        "tr": "Tampon çözeltinin ölçülen pH'ı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of the solution (reference, not used in standard calculation).",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the solution (reference, not used in standard calculation).",
+        "tr": "Çözeltinin sıcaklığı (referans, standart hesaplamada kullanılmaz)."
       }
     }
   ],

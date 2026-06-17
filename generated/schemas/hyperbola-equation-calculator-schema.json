@@ -10,11 +10,15 @@
       "businessContext": "Horizontal coordinate of the hyperbola center.",
       "label_i18n": {
         "en": "Center X (h)",
-        "tr": "Center X (h)",
+        "tr": "Merkez X (h)",
         "de": "Center X (h)",
         "fr": "Center X (h)",
         "es": "Center X (h)",
         "ar": "Center X (h)"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal coordinate of the hyperbola center.",
+        "tr": "Hiperbol merkezinin yatay koordinatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vertical coordinate of the hyperbola center.",
       "label_i18n": {
         "en": "Center Y (k)",
-        "tr": "Center Y (k)",
+        "tr": "Merkez Y (k)",
         "de": "Center Y (k)",
         "fr": "Center Y (k)",
         "es": "Center Y (k)",
         "ar": "Center Y (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical coordinate of the hyperbola center.",
+        "tr": "Hiperbol merkezinin dikey koordinatı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance from center to vertex along transverse axis.",
       "label_i18n": {
         "en": "Semi-Major Axis (a)",
-        "tr": "Semi-Major Axis (a)",
+        "tr": "Yarı-Büyük Eksen (a)",
         "de": "Semi-Major Axis (a)",
         "fr": "Semi-Major Axis (a)",
         "es": "Semi-Major Axis (a)",
         "ar": "Semi-Major Axis (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from center to vertex along transverse axis.",
+        "tr": "Merkezden enine eksen boyunca tepe noktasına olan mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance related to asymptote slope, perpendicular to a.",
       "label_i18n": {
         "en": "Semi-Minor Axis (b)",
-        "tr": "Semi-Minor Axis (b)",
+        "tr": "Yarı-Küçük Eksen (b)",
         "de": "Semi-Minor Axis (b)",
         "fr": "Semi-Minor Axis (b)",
         "es": "Semi-Minor Axis (b)",
         "ar": "Semi-Minor Axis (b)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance related to asymptote slope, perpendicular to a.",
+        "tr": "Asimptot eğimiyle ilgili, a'ya dik mesafe."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Direction of transverse axis: 0 for horizontal, 1 for vertical.",
       "label_i18n": {
         "en": "Transverse Axis",
-        "tr": "Transverse Axis",
+        "tr": "Enine Eksen",
         "de": "Transverse Axis",
         "fr": "Transverse Axis",
         "es": "Transverse Axis",
         "ar": "Transverse Axis"
+      },
+      "businessContext_i18n": {
+        "en": "Direction of transverse axis: 0 for horizontal, 1 for vertical.",
+        "tr": "Enine eksenin yönü: 0 yatay, 1 dikey."
       }
     }
   ],

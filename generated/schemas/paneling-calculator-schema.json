@@ -10,11 +10,15 @@
       "businessContext": "Width of the room or wall to be paneled.",
       "label_i18n": {
         "en": "Room Width",
-        "tr": "Room Width",
+        "tr": "Oda Genişliği",
         "de": "Room Width",
         "fr": "Room Width",
         "es": "Room Width",
         "ar": "Room Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the room or wall to be paneled.",
+        "tr": "Panelle kaplanacak oda veya duvar genişliği."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Height of the room or wall.",
       "label_i18n": {
         "en": "Room Height",
-        "tr": "Room Height",
+        "tr": "Oda Yüksekliği",
         "de": "Room Height",
         "fr": "Room Height",
         "es": "Room Height",
         "ar": "Room Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the room or wall.",
+        "tr": "Oda veya duvar yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Width of a single panel.",
       "label_i18n": {
         "en": "Panel Width",
-        "tr": "Panel Width",
+        "tr": "Panel Genişliği",
         "de": "Panel Width",
         "fr": "Panel Width",
         "es": "Panel Width",
         "ar": "Panel Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of a single panel.",
+        "tr": "Tek bir panelin genişliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of a single panel.",
       "label_i18n": {
         "en": "Panel Height",
-        "tr": "Panel Height",
+        "tr": "Panel Yüksekliği",
         "de": "Panel Height",
         "fr": "Panel Height",
         "es": "Panel Height",
         "ar": "Panel Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of a single panel.",
+        "tr": "Tek bir panelin yüksekliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of extra material to account for cutting, fitting, and damage.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra material to account for cutting, fitting, and damage.",
+        "tr": "Kesim, uyum ve hasar için ek malzeme yüzdesi."
       }
     }
   ],

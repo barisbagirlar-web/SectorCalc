@@ -10,11 +10,15 @@
       "businessContext": "Mass of a single object",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of a single object",
+        "tr": "Tek bir nesnenin kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor to kg (e.g., 1 for kg, 0.001 for g, 1000 for ton)",
       "label_i18n": {
         "en": "Mass Unit Factor",
-        "tr": "Mass Unit Factor",
+        "tr": "Kütle Birim Faktörü",
         "de": "Mass Unit Factor",
         "fr": "Mass Unit Factor",
         "es": "Mass Unit Factor",
         "ar": "Mass Unit Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor to kg (e.g., 1 for kg, 0.001 for g, 1000 for ton)",
+        "tr": "kg'ye dönüşüm faktörü (ör. kg için 1, g için 0.001, ton için 1000)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Velocity of the object",
       "label_i18n": {
         "en": "Velocity",
-        "tr": "Velocity",
+        "tr": "Hız",
         "de": "Velocity",
         "fr": "Velocity",
         "es": "Velocity",
         "ar": "Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Velocity of the object",
+        "tr": "Nesnenin hızı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Conversion factor to m/s (e.g., 1 for m/s, 0.277778 for km/h, 0.44704 for mph)",
       "label_i18n": {
         "en": "Velocity Unit Factor",
-        "tr": "Velocity Unit Factor",
+        "tr": "Hız Birim Faktörü",
         "de": "Velocity Unit Factor",
         "fr": "Velocity Unit Factor",
         "es": "Velocity Unit Factor",
         "ar": "Velocity Unit Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor to m/s (e.g., 1 for m/s, 0.277778 for km/h, 0.44704 for mph)",
+        "tr": "m/s'ye dönüşüm faktörü (ör. m/s için 1, km/s için 0.277778, mph için 0.44704)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of identical objects",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical objects",
+        "tr": "Özdeş nesne sayısı"
       }
     }
   ],

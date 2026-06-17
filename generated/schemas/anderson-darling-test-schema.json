@@ -10,11 +10,15 @@
       "businessContext": "Number of data points in the sample",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Sample Size (n)",
+        "tr": "Örneklem Büyüklüğü (n)",
         "de": "Sample Size (n)",
         "fr": "Sample Size (n)",
         "es": "Sample Size (n)",
         "ar": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of data points in the sample",
+        "tr": "Örneklemdeki veri noktası sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sample values sorted in ascending order",
       "label_i18n": {
         "en": "Sorted Data (comma-separated)",
-        "tr": "Sorted Data (comma-separated)",
+        "tr": "Sıralanmış Veriler (virgülle ayrılmış)",
         "de": "Sorted Data (comma-separated)",
         "fr": "Sorted Data (comma-separated)",
         "es": "Sorted Data (comma-separated)",
         "ar": "Sorted Data (comma-separated)"
+      },
+      "businessContext_i18n": {
+        "en": "Sample values sorted in ascending order",
+        "tr": "Örnek değerler artan sırada sıralanmış"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mean of the hypothesized normal distribution",
       "label_i18n": {
         "en": "Mean (μ)",
-        "tr": "Mean (μ)",
+        "tr": "Ortalama (μ)",
         "de": "Mean (μ)",
         "fr": "Mean (μ)",
         "es": "Mean (μ)",
         "ar": "Mean (μ)"
+      },
+      "businessContext_i18n": {
+        "en": "Mean of the hypothesized normal distribution",
+        "tr": "Varsayılan normal dağılımın ortalaması"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard deviation of the hypothesized normal distribution",
       "label_i18n": {
         "en": "Standard Deviation (σ)",
-        "tr": "Standard Deviation (σ)",
+        "tr": "Standart Sapma (σ)",
         "de": "Standard Deviation (σ)",
         "fr": "Standard Deviation (σ)",
         "es": "Standard Deviation (σ)",
         "ar": "Standard Deviation (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of the hypothesized normal distribution",
+        "tr": "Varsayılan normal dağılımın standart sapması"
       }
     }
   ],

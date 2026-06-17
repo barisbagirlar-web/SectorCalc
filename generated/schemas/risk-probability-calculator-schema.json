@@ -10,11 +10,15 @@
       "businessContext": "Base failure rate of the component or system",
       "label_i18n": {
         "en": "Failure Rate (λ)",
-        "tr": "Failure Rate (λ)",
+        "tr": "Arıza Oranı (λ)",
         "de": "Failure Rate (λ)",
         "fr": "Failure Rate (λ)",
         "es": "Failure Rate (λ)",
         "ar": "Failure Rate (λ)"
+      },
+      "businessContext_i18n": {
+        "en": "Base failure rate of the component or system",
+        "tr": "Bileşenin veya sistemin temel arıza oranı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of operation or mission",
       "label_i18n": {
         "en": "Mission Time",
-        "tr": "Mission Time",
+        "tr": "Görev Süresi",
         "de": "Mission Time",
         "fr": "Mission Time",
         "es": "Mission Time",
         "ar": "Mission Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of operation or mission",
+        "tr": "Operasyon veya görev süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Factor increasing failure rate due to harsh conditions",
       "label_i18n": {
         "en": "Environmental Stress Factor",
-        "tr": "Environmental Stress Factor",
+        "tr": "Çevresel Stres Faktörü",
         "de": "Environmental Stress Factor",
         "fr": "Environmental Stress Factor",
         "es": "Environmental Stress Factor",
         "ar": "Environmental Stress Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor increasing failure rate due to harsh conditions",
+        "tr": "Zorlu koşullar nedeniyle arıza oranını artıran faktör"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Factor representing maintenance effectiveness; higher reduces failure rate",
       "label_i18n": {
         "en": "Maintenance Quality Factor",
-        "tr": "Maintenance Quality Factor",
+        "tr": "Bakım Kalite Faktörü",
         "de": "Maintenance Quality Factor",
         "fr": "Maintenance Quality Factor",
         "es": "Maintenance Quality Factor",
         "ar": "Maintenance Quality Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor representing maintenance effectiveness; higher reduces failure rate",
+        "tr": "Bakım etkinliğini temsil eden faktör; yüksek değer arıza oranını azaltır"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Probability that a fault is detected before it leads to failure",
       "label_i18n": {
         "en": "Fault Detection Probability",
-        "tr": "Fault Detection Probability",
+        "tr": "Arıza Tespit Olasılığı",
         "de": "Fault Detection Probability",
         "fr": "Fault Detection Probability",
         "es": "Fault Detection Probability",
         "ar": "Fault Detection Probability"
+      },
+      "businessContext_i18n": {
+        "en": "Probability that a fault is detected before it leads to failure",
+        "tr": "Bir arızanın hataya yol açmadan önce tespit edilme olasılığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of independent redundant components in parallel (1 means no redundancy)",
       "label_i18n": {
         "en": "Redundancy Level",
-        "tr": "Redundancy Level",
+        "tr": "Yedeklilik Seviyesi",
         "de": "Redundancy Level",
         "fr": "Redundancy Level",
         "es": "Redundancy Level",
         "ar": "Redundancy Level"
+      },
+      "businessContext_i18n": {
+        "en": "Number of independent redundant components in parallel (1 means no redundancy)",
+        "tr": "Paralel bağlı bağımsız yedekli bileşen sayısı (1, yedeklilik olmadığı anlamına gelir)"
       }
     }
   ],

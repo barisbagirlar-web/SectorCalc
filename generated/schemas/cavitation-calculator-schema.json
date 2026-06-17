@@ -10,11 +10,15 @@
       "businessContext": "Absolute static pressure of the fluid at the point of interest",
       "label_i18n": {
         "en": "Fluid Pressure",
-        "tr": "Fluid Pressure",
+        "tr": "Akışkan Basıncı",
         "de": "Fluid Pressure",
         "fr": "Fluid Pressure",
         "es": "Fluid Pressure",
         "ar": "Fluid Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute static pressure of the fluid at the point of interest",
+        "tr": "İlgili noktadaki akışkanın mutlak statik basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vapor pressure of the fluid at operating temperature",
       "label_i18n": {
         "en": "Vapor Pressure",
-        "tr": "Vapor Pressure",
+        "tr": "Buhar Basıncı",
         "de": "Vapor Pressure",
         "fr": "Vapor Pressure",
         "es": "Vapor Pressure",
         "ar": "Vapor Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Vapor pressure of the fluid at operating temperature",
+        "tr": "Akışkanın çalışma sıcaklığındaki buhar basıncı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of the fluid under operating conditions",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluid under operating conditions",
+        "tr": "Akışkanın çalışma koşullarındaki yoğunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Mean flow velocity at the section under evaluation",
       "label_i18n": {
         "en": "Flow Velocity",
-        "tr": "Flow Velocity",
+        "tr": "Akış Hızı",
         "de": "Flow Velocity",
         "fr": "Flow Velocity",
         "es": "Flow Velocity",
         "ar": "Flow Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Mean flow velocity at the section under evaluation",
+        "tr": "Değerlendirilen kesitteki ortalama akış hızı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Age of the pet in years",
       "label_i18n": {
         "en": "Pet Age",
-        "tr": "Pet Age",
+        "tr": "Evcil Hayvan Yaşı",
         "de": "Pet Age",
         "fr": "Pet Age",
         "es": "Pet Age",
         "ar": "Pet Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the pet in years",
+        "tr": "Evcil hayvanın yıl cinsinden yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Risk factor assigned to the breed (1 = low risk, 3 = high risk)",
       "label_i18n": {
         "en": "Breed Risk Factor",
-        "tr": "Breed Risk Factor",
+        "tr": "Irk Risk Faktörü",
         "de": "Breed Risk Factor",
         "fr": "Breed Risk Factor",
         "es": "Breed Risk Factor",
         "ar": "Breed Risk Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Risk factor assigned to the breed (1 = low risk, 3 = high risk)",
+        "tr": "Irka atanan risk faktörü (1 = düşük risk, 3 = yüksek risk)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Starting monthly premium before adjustments",
       "label_i18n": {
         "en": "Base Monthly Premium",
-        "tr": "Base Monthly Premium",
+        "tr": "Temel Aylık Prim",
         "de": "Base Monthly Premium",
         "fr": "Base Monthly Premium",
         "es": "Base Monthly Premium",
         "ar": "Base Monthly Premium"
+      },
+      "businessContext_i18n": {
+        "en": "Starting monthly premium before adjustments",
+        "tr": "Düzenlemelerden önceki başlangıç aylık primi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum amount the policy will pay per year",
       "label_i18n": {
         "en": "Annual Coverage Limit",
-        "tr": "Annual Coverage Limit",
+        "tr": "Yıllık Teminat Limiti",
         "de": "Annual Coverage Limit",
         "fr": "Annual Coverage Limit",
         "es": "Annual Coverage Limit",
         "ar": "Annual Coverage Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum amount the policy will pay per year",
+        "tr": "Poliçenin yılda ödeyeceği maksimum tutar"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Amount the owner must pay before insurance covers the rest",
       "label_i18n": {
         "en": "Deductible",
-        "tr": "Deductible",
+        "tr": "Muafiyet",
         "de": "Deductible",
         "fr": "Deductible",
         "es": "Deductible",
         "ar": "Deductible"
+      },
+      "businessContext_i18n": {
+        "en": "Amount the owner must pay before insurance covers the rest",
+        "tr": "Sigorta kapsamına girmeden önce mal sahibinin ödemesi gereken tutar"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Percentage of covered costs paid by the insurer after deductible",
       "label_i18n": {
         "en": "Reimbursement Rate",
-        "tr": "Reimbursement Rate",
+        "tr": "Geri Ödeme Oranı",
         "de": "Reimbursement Rate",
         "fr": "Reimbursement Rate",
         "es": "Reimbursement Rate",
         "ar": "Reimbursement Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of covered costs paid by the insurer after deductible",
+        "tr": "Muafiyet sonrası sigortacı tarafından ödenen masrafların yüzdesi"
       }
     }
   ],

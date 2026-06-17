@@ -10,11 +10,15 @@
       "businessContext": "Vessel pressure before decompression",
       "label_i18n": {
         "en": "Initial Pressure",
-        "tr": "Initial Pressure",
+        "tr": "Başlangıç Basıncı",
         "de": "Initial Pressure",
         "fr": "Initial Pressure",
         "es": "Initial Pressure",
         "ar": "Initial Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Vessel pressure before decompression",
+        "tr": "Dekompresyon öncesi kap basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target pressure after decompression",
       "label_i18n": {
         "en": "Final Pressure",
-        "tr": "Final Pressure",
+        "tr": "Nihai Basınç",
         "de": "Final Pressure",
         "fr": "Final Pressure",
         "es": "Final Pressure",
         "ar": "Final Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Target pressure after decompression",
+        "tr": "Dekompresyon sonrası hedef basınç"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Internal volume of the pressure vessel",
       "label_i18n": {
         "en": "Vessel Volume",
-        "tr": "Vessel Volume",
+        "tr": "Kap Hacmi",
         "de": "Vessel Volume",
         "fr": "Vessel Volume",
         "es": "Vessel Volume",
         "ar": "Vessel Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Internal volume of the pressure vessel",
+        "tr": "Basınçlı kabın iç hacmi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard flow rate (1 atm, 20°C) of gas release",
       "label_i18n": {
         "en": "Flow Rate (Std)",
-        "tr": "Flow Rate (Std)",
+        "tr": "Debi (Std)",
         "de": "Flow Rate (Std)",
         "fr": "Flow Rate (Std)",
         "es": "Flow Rate (Std)",
         "ar": "Flow Rate (Std)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard flow rate (1 atm, 20°C) of gas release",
+        "tr": "Standart debi (1 atm, 20°C) gaz çıkışı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Operating temperature of the gas, used for correction",
       "label_i18n": {
         "en": "Gas Temperature",
-        "tr": "Gas Temperature",
+        "tr": "Gaz Sıcaklığı",
         "de": "Gas Temperature",
         "fr": "Gas Temperature",
         "es": "Gas Temperature",
         "ar": "Gas Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Operating temperature of the gas, used for correction",
+        "tr": "Gazın çalışma sıcaklığı, düzeltme için kullanılır"
       }
     }
   ],

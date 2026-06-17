@@ -10,11 +10,15 @@
       "businessContext": "The length of one piece to be cut from the fabric.",
       "label_i18n": {
         "en": "Piece Length (cm)",
-        "tr": "Piece Length (cm)",
+        "tr": "Parça Uzunluğu (cm)",
         "de": "Piece Length (cm)",
         "fr": "Piece Length (cm)",
         "es": "Piece Length (cm)",
         "ar": "Piece Length (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "The length of one piece to be cut from the fabric.",
+        "tr": "Kumaştan kesilecek bir parçanın uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The width of one piece to be cut from the fabric.",
       "label_i18n": {
         "en": "Piece Width (cm)",
-        "tr": "Piece Width (cm)",
+        "tr": "Parça Genişliği (cm)",
         "de": "Piece Width (cm)",
         "fr": "Piece Width (cm)",
         "es": "Piece Width (cm)",
         "ar": "Piece Width (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "The width of one piece to be cut from the fabric.",
+        "tr": "Kumaştan kesilecek bir parçanın genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The total number of pieces to be cut.",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of pieces to be cut.",
+        "tr": "Kesilecek toplam parça sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Available usable width of the fabric after accounting for selvage.",
       "label_i18n": {
         "en": "Fabric Width (cm)",
-        "tr": "Fabric Width (cm)",
+        "tr": "Kumaş Eni (cm)",
         "de": "Fabric Width (cm)",
         "fr": "Fabric Width (cm)",
         "es": "Fabric Width (cm)",
         "ar": "Fabric Width (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Available usable width of the fabric after accounting for selvage.",
+        "tr": "Kenar payı düşüldükten sonra kullanılabilir kumaş genişliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of extra fabric to account for cutting waste and defects.",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Waste Factor (%)",
+        "tr": "Fire Faktörü (%)",
         "de": "Waste Factor (%)",
         "fr": "Waste Factor (%)",
         "es": "Waste Factor (%)",
         "ar": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra fabric to account for cutting waste and defects.",
+        "tr": "Kesim atığı ve kusurları hesaba katmak için ek kumaş yüzdesi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Length of pattern repeat if matching is required; set to 0 for plain fabrics.",
       "label_i18n": {
         "en": "Pattern Repeat (cm)",
-        "tr": "Pattern Repeat (cm)",
+        "tr": "Desen Tekrarı (cm)",
         "de": "Pattern Repeat (cm)",
         "fr": "Pattern Repeat (cm)",
         "es": "Pattern Repeat (cm)",
         "ar": "Pattern Repeat (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of pattern repeat if matching is required; set to 0 for plain fabrics.",
+        "tr": "Desen eşleştirmesi gerekiyorsa desen tekrarı uzunluğu; düz kumaşlar için 0 ayarlayın."
       }
     }
   ],

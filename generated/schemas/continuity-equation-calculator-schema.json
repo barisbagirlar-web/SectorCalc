@@ -10,11 +10,15 @@
       "businessContext": "Inner diameter of the pipe or duct",
       "label_i18n": {
         "en": "Pipe Inner Diameter",
-        "tr": "Pipe Inner Diameter",
+        "tr": "Boru İç Çapı",
         "de": "Pipe Inner Diameter",
         "fr": "Pipe Inner Diameter",
         "es": "Pipe Inner Diameter",
         "ar": "Pipe Inner Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the pipe or duct",
+        "tr": "Boru veya kanalın iç çapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average flow velocity",
       "label_i18n": {
         "en": "Flow Velocity",
-        "tr": "Flow Velocity",
+        "tr": "Akış Hızı",
         "de": "Flow Velocity",
         "fr": "Flow Velocity",
         "es": "Flow Velocity",
         "ar": "Flow Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Average flow velocity",
+        "tr": "Ortalama akış hızı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of the fluid (e.g., 1000 for water)",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluid (e.g., 1000 for water)",
+        "tr": "Akışkanın yoğunluğu (örneğin su için 1000)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Design safety factor for flow rate capacity",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor for flow rate capacity",
+        "tr": "Akış kapasitesi için tasarım güvenlik faktörü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier to convert m³/s to desired unit (e.g., 1000 for L/s)",
       "label_i18n": {
         "en": "Output Unit Multiplier",
-        "tr": "Output Unit Multiplier",
+        "tr": "Çıktı Birim Çarpanı",
         "de": "Output Unit Multiplier",
         "fr": "Output Unit Multiplier",
         "es": "Output Unit Multiplier",
         "ar": "Output Unit Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to convert m³/s to desired unit (e.g., 1000 for L/s)",
+        "tr": "m³/s'yi istenen birime dönüştürmek için çarpan (örneğin L/s için 1000)"
       }
     }
   ],

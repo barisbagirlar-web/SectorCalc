@@ -10,11 +10,15 @@
       "businessContext": "The input value that needs to be rounded to a specified multiple.",
       "label_i18n": {
         "en": "Value to Round",
-        "tr": "Value to Round",
+        "tr": "Yuvarlanacak Değer",
         "de": "Value to Round",
         "fr": "Value to Round",
         "es": "Value to Round",
         "ar": "Value to Round"
+      },
+      "businessContext_i18n": {
+        "en": "The input value that needs to be rounded to a specified multiple.",
+        "tr": "Belirtilen bir kata yuvarlanması gereken girdi değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The multiple to round to, e.g., 0.5 for half-unit rounding, 5 for nearest 5, etc.",
       "label_i18n": {
         "en": "Round to Nearest",
-        "tr": "Round to Nearest",
+        "tr": "En Yakına Yuvarla",
         "de": "Round to Nearest",
         "fr": "Round to Nearest",
         "es": "Round to Nearest",
         "ar": "Round to Nearest"
+      },
+      "businessContext_i18n": {
+        "en": "The multiple to round to, e.g., 0.5 for half-unit rounding, 5 for nearest 5, etc.",
+        "tr": "Yuvarlama katı, örn. 0,5 yarım birim yuvarlama için, 5 en yakın 5'e yuvarlama için vb."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Optional offset applied before rounding. The value is shifted by this amount, rounded, then shifted back.",
       "label_i18n": {
         "en": "Offset",
-        "tr": "Offset",
+        "tr": "Ofset",
         "de": "Offset",
         "fr": "Offset",
         "es": "Offset",
         "ar": "Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Optional offset applied before rounding. The value is shifted by this amount, rounded, then shifted back.",
+        "tr": "Yuvarlamadan önce uygulanan isteğe bağlı kaydırma. Değer bu miktar kadar kaydırılır, yuvarlanır, ardından geri kaydırılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the rounded output. Ensures precision and readability.",
       "label_i18n": {
         "en": "Decimal Places in Output",
-        "tr": "Decimal Places in Output",
+        "tr": "Çıktıdaki Ondalık Basamaklar",
         "de": "Decimal Places in Output",
         "fr": "Decimal Places in Output",
         "es": "Decimal Places in Output",
         "ar": "Decimal Places in Output"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the rounded output. Ensures precision and readability.",
+        "tr": "Yuvarlanmış çıktı için ondalık basamak sayısı. Hassasiyet ve okunabilirlik sağlar."
       }
     }
   ],

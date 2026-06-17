@@ -10,11 +10,15 @@
       "businessContext": "Total catchment area of the roof surface available for rainwater collection.",
       "label_i18n": {
         "en": "Roof Area",
-        "tr": "Roof Area",
+        "tr": "Çatı Alanı",
         "de": "Roof Area",
         "fr": "Roof Area",
         "es": "Roof Area",
         "ar": "Roof Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total catchment area of the roof surface available for rainwater collection.",
+        "tr": "Yağmur suyu toplama için mevcut çatı yüzeyinin toplam toplama alanı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ratio of rainfall that becomes runoff, accounting for roof material, slope, and evaporation losses.",
       "label_i18n": {
         "en": "Runoff Coefficient",
-        "tr": "Runoff Coefficient",
+        "tr": "Akış Katsayısı",
         "de": "Runoff Coefficient",
         "fr": "Runoff Coefficient",
         "es": "Runoff Coefficient",
         "ar": "Runoff Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of rainfall that becomes runoff, accounting for roof material, slope, and evaporation losses.",
+        "tr": "Çatı malzemesi, eğim ve buharlaşma kayıplarını hesaba katarak yağışın akışa dönüşme oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Long-term average precipitation depth per year at the location.",
       "label_i18n": {
         "en": "Average Annual Rainfall",
-        "tr": "Average Annual Rainfall",
+        "tr": "Ortalama Yıllık Yağış",
         "de": "Average Annual Rainfall",
         "fr": "Average Annual Rainfall",
         "es": "Average Annual Rainfall",
         "ar": "Average Annual Rainfall"
+      },
+      "businessContext_i18n": {
+        "en": "Long-term average precipitation depth per year at the location.",
+        "tr": "Konumda yıllık uzun vadeli ortalama yağış derinliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of harvested water that passes through the filtration system without loss.",
       "label_i18n": {
         "en": "Filter Efficiency",
-        "tr": "Filter Efficiency",
+        "tr": "Filtre Verimliliği",
         "de": "Filter Efficiency",
         "fr": "Filter Efficiency",
         "es": "Filter Efficiency",
         "ar": "Filter Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of harvested water that passes through the filtration system without loss.",
+        "tr": "Filtrasyon sisteminden kayıpsız geçen toplanan suyun yüzdesi."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Enter the angle in decimal degrees if known. Leave 0 to use degrees, minutes, seconds.",
       "label_i18n": {
         "en": "Decimal Degrees",
-        "tr": "Decimal Degrees",
+        "tr": "Ondalık Derece",
         "de": "Decimal Degrees",
         "fr": "Decimal Degrees",
         "es": "Decimal Degrees",
         "ar": "Decimal Degrees"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the angle in decimal degrees if known. Leave 0 to use degrees, minutes, seconds.",
+        "tr": "Biliniyorsa açıyı ondalık derece cinsinden girin. Derece, dakika, saniye kullanmak için 0 bırakın."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Whole degrees part.",
       "label_i18n": {
         "en": "Degrees",
-        "tr": "Degrees",
+        "tr": "Derece",
         "de": "Degrees",
         "fr": "Degrees",
         "es": "Degrees",
         "ar": "Degrees"
+      },
+      "businessContext_i18n": {
+        "en": "Whole degrees part.",
+        "tr": "Tam derece kısmı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Arcminutes. 1 arcminute = 1/60 degree.",
       "label_i18n": {
         "en": "Minutes",
-        "tr": "Minutes",
+        "tr": "Dakika",
         "de": "Minutes",
         "fr": "Minutes",
         "es": "Minutes",
         "ar": "Minutes"
+      },
+      "businessContext_i18n": {
+        "en": "Arcminutes. 1 arcminute = 1/60 degree.",
+        "tr": "Dakika. 1 dakika = 1/60 derece."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Arcseconds. 1 arcsecond = 1/60 arcminute.",
       "label_i18n": {
         "en": "Seconds",
-        "tr": "Seconds",
+        "tr": "Saniye",
         "de": "Seconds",
         "fr": "Seconds",
         "es": "Seconds",
         "ar": "Seconds"
+      },
+      "businessContext_i18n": {
+        "en": "Arcseconds. 1 arcsecond = 1/60 arcminute.",
+        "tr": "Saniye. 1 saniye = 1/60 dakika."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places in the output.",
       "label_i18n": {
         "en": "Output Precision",
-        "tr": "Output Precision",
+        "tr": "Çıktı Hassasiyeti",
         "de": "Output Precision",
         "fr": "Output Precision",
         "es": "Output Precision",
         "ar": "Output Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places in the output.",
+        "tr": "Çıktıdaki ondalık basamak sayısı."
       }
     }
   ],

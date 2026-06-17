@@ -19,10 +19,12 @@
       "max": 100000,
       "businessContext": "Total number of full-time equivalent employees in the organization.",
       "label_i18n": {
-        "en": "Total Employees"
+        "en": "Total Employees",
+        "tr": "Toplam Çalışan Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total number of full-time equivalent employees in the organization."
+        "en": "Total number of full-time equivalent employees in the organization.",
+        "tr": "Organizasyondaki toplam tam zaman eşdeğeri çalışan sayısı."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 100,
       "businessContext": "Percentage of scheduled work hours lost due to unplanned absences (ISO 30400).",
       "label_i18n": {
-        "en": "Absenteeism Rate (%)"
+        "en": "Absenteeism Rate (%)",
+        "tr": "Devamsızlık Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of scheduled work hours lost due to unplanned absences (ISO 30400)."
+        "en": "Percentage of scheduled work hours lost due to unplanned absences (ISO 30400).",
+        "tr": "Planlanmamış devamsızlıklar nedeniyle kaybedilen planlı çalışma saatlerinin yüzdesi (ISO 30400)."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 200,
       "businessContext": "Weighted average hourly wage including benefits and payroll taxes.",
       "label_i18n": {
-        "en": "Average Hourly Wage (USD)"
+        "en": "Average Hourly Wage (USD)",
+        "tr": "Ortalama Saatlik Ücret (USD)"
       },
       "businessContext_i18n": {
-        "en": "Weighted average hourly wage including benefits and payroll taxes."
+        "en": "Weighted average hourly wage including benefits and payroll taxes.",
+        "tr": "Yan haklar ve bordro vergileri dahil ağırlıklı ortalama saatlik ücret."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 16,
       "businessContext": "Standard scheduled hours per employee per day.",
       "label_i18n": {
-        "en": "Average Hours per Day"
+        "en": "Average Hours per Day",
+        "tr": "Günlük Ortalama Saat"
       },
       "businessContext_i18n": {
-        "en": "Standard scheduled hours per employee per day."
+        "en": "Standard scheduled hours per employee per day.",
+        "tr": "Çalışan başına günlük standart planlı saat."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 365,
       "businessContext": "Number of scheduled working days per year (excluding weekends and holidays).",
       "label_i18n": {
-        "en": "Working Days per Year"
+        "en": "Working Days per Year",
+        "tr": "Yıllık Çalışma Günü"
       },
       "businessContext_i18n": {
-        "en": "Number of scheduled working days per year (excluding weekends and holidays)."
+        "en": "Number of scheduled working days per year (excluding weekends and holidays).",
+        "tr": "Yıllık planlanan çalışma günü sayısı (hafta sonları ve tatiller hariç)."
       }
     },
     {
@@ -99,10 +109,12 @@
       "max": 500,
       "businessContext": "Average cost of overtime, temporary staff, or cross-training to cover absent employees.",
       "label_i18n": {
-        "en": "Replacement Cost per Hour (USD)"
+        "en": "Replacement Cost per Hour (USD)",
+        "tr": "Saat Başına İkame Maliyeti (USD)"
       },
       "businessContext_i18n": {
-        "en": "Average cost of overtime, temporary staff, or cross-training to cover absent employees."
+        "en": "Average cost of overtime, temporary staff, or cross-training to cover absent employees.",
+        "tr": "Devamsız çalışanları kapsamak için fazla mesai, geçici personel veya çapraz eğitimin ortalama maliyeti."
       }
     },
     {
@@ -115,10 +127,12 @@
       "max": 5,
       "businessContext": "Multiplier to account for indirect costs (supervision, facilities, HR) per direct labor hour.",
       "label_i18n": {
-        "en": "Overhead Multiplier"
+        "en": "Overhead Multiplier",
+        "tr": "Genel Gider Çarpanı"
       },
       "businessContext_i18n": {
-        "en": "Multiplier to account for indirect costs (supervision, facilities, HR) per direct labor hour."
+        "en": "Multiplier to account for indirect costs (supervision, facilities, HR) per direct labor hour.",
+        "tr": "Doğrudan işçilik saati başına dolaylı maliyetleri (denetim, tesisler, İK) hesaba katan çarpan."
       }
     },
     {
@@ -139,10 +153,12 @@
       ],
       "businessContext": "Industry sector for benchmarking and adjusting cost factors.",
       "label_i18n": {
-        "en": "Industry Type"
+        "en": "Industry Type",
+        "tr": "Sektör Türü"
       },
       "businessContext_i18n": {
-        "en": "Industry sector for benchmarking and adjusting cost factors."
+        "en": "Industry sector for benchmarking and adjusting cost factors.",
+        "tr": "Kıyaslama ve maliyet faktörlerini ayarlamak için endüstri sektörü."
       }
     }
   ],

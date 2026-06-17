@@ -10,11 +10,15 @@
       "businessContext": "Initial concentration of reactant A",
       "label_i18n": {
         "en": "Initial Concentration [A]₀",
-        "tr": "Initial Concentration [A]₀",
+        "tr": "Başlangıç Derişimi [A]₀",
         "de": "Initial Concentration [A]₀",
         "fr": "Initial Concentration [A]₀",
         "es": "Initial Concentration [A]₀",
         "ar": "Initial Concentration [A]₀"
+      },
+      "businessContext_i18n": {
+        "en": "Initial concentration of reactant A",
+        "tr": "A reaktanının başlangıç derişimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Reaction rate constant, units depend on reaction order",
       "label_i18n": {
         "en": "Rate Constant (k)",
-        "tr": "Rate Constant (k)",
+        "tr": "Hız Sabiti (k)",
         "de": "Rate Constant (k)",
         "fr": "Rate Constant (k)",
         "es": "Rate Constant (k)",
         "ar": "Rate Constant (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Reaction rate constant, units depend on reaction order",
+        "tr": "Reaksiyon hız sabiti, birimler reaksiyon derecesine bağlıdır"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Elapsed time of reaction",
       "label_i18n": {
         "en": "Time (t)",
-        "tr": "Time (t)",
+        "tr": "Zaman (t)",
         "de": "Time (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Elapsed time of reaction",
+        "tr": "Reaksiyonun geçen süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Order of the reaction with respect to A (0, 1, or 2)",
       "label_i18n": {
         "en": "Reaction Order (n)",
-        "tr": "Reaction Order (n)",
+        "tr": "Reaksiyon Derecesi (n)",
         "de": "Reaction Order (n)",
         "fr": "Reaction Order (n)",
         "es": "Reaction Order (n)",
         "ar": "Reaction Order (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Order of the reaction with respect to A (0, 1, or 2)",
+        "tr": "A'ya göre reaksiyon derecesi (0, 1 veya 2)"
       }
     }
   ],

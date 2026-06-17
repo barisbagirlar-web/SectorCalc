@@ -10,11 +10,15 @@
       "businessContext": "The initial mass or amount of substance at time zero.",
       "label_i18n": {
         "en": "Initial Quantity",
-        "tr": "Initial Quantity",
+        "tr": "Başlangıç Miktarı",
         "de": "Initial Quantity",
         "fr": "Initial Quantity",
         "es": "Initial Quantity",
         "ar": "Initial Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "The initial mass or amount of substance at time zero.",
+        "tr": "Sıfır zamanındaki başlangıç kütlesi veya miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measurement uncertainty or tolerance percentage applied to the initial quantity (e.g., ±5%).",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Measurement uncertainty or tolerance percentage applied to the initial quantity (e.g., ±5%).",
+        "tr": "Başlangıç miktarına uygulanan ölçüm belirsizliği veya tolerans yüzdesi (örn. ±%5)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The half-life of the substance in consistent time units.",
       "label_i18n": {
         "en": "Half-Life",
-        "tr": "Half-Life",
+        "tr": "Yarılanma Süresi",
         "de": "Half-Life",
         "fr": "Half-Life",
         "es": "Half-Life",
         "ar": "Half-Life"
+      },
+      "businessContext_i18n": {
+        "en": "The half-life of the substance in consistent time units.",
+        "tr": "Maddenin tutarlı zaman birimleri cinsinden yarılanma süresi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The total elapsed time since start, in the same time unit as half-life.",
       "label_i18n": {
         "en": "Elapsed Time",
-        "tr": "Elapsed Time",
+        "tr": "Geçen Süre",
         "de": "Elapsed Time",
         "fr": "Elapsed Time",
         "es": "Elapsed Time",
         "ar": "Elapsed Time"
+      },
+      "businessContext_i18n": {
+        "en": "The total elapsed time since start, in the same time unit as half-life.",
+        "tr": "Başlangıçtan bu yana geçen toplam süre, yarılanma süresi ile aynı zaman biriminde."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Number of cards that complete your winning hand.",
       "label_i18n": {
         "en": "Outs",
-        "tr": "Outs",
+        "tr": "Çıkışlar",
         "de": "Outs",
         "fr": "Outs",
         "es": "Outs",
         "ar": "Outs"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cards that complete your winning hand.",
+        "tr": "Kazanan elinizi tamamlayan kart sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of community cards remaining (1 for river only, 2 for turn and river).",
       "label_i18n": {
         "en": "Streets to Come",
-        "tr": "Streets to Come",
+        "tr": "Gelecek Sokaklar",
         "de": "Streets to Come",
         "fr": "Streets to Come",
         "es": "Streets to Come",
         "ar": "Streets to Come"
+      },
+      "businessContext_i18n": {
+        "en": "Number of community cards remaining (1 for river only, 2 for turn and river).",
+        "tr": "Kalan topluluk kartı sayısı (sadece nehir için 1, dönüş ve nehir için 2)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current size of the pot before calling.",
       "label_i18n": {
         "en": "Pot Size",
-        "tr": "Pot Size",
+        "tr": "Pot Büyüklüğü",
         "de": "Pot Size",
         "fr": "Pot Size",
         "es": "Pot Size",
         "ar": "Pot Size"
+      },
+      "businessContext_i18n": {
+        "en": "Current size of the pot before calling.",
+        "tr": "Çağırmadan önceki mevcut pot büyüklüğü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Amount you must call to stay in the hand.",
       "label_i18n": {
         "en": "Bet to Call",
-        "tr": "Bet to Call",
+        "tr": "Çağrılacak Bahis",
         "de": "Bet to Call",
         "fr": "Bet to Call",
         "es": "Bet to Call",
         "ar": "Bet to Call"
+      },
+      "businessContext_i18n": {
+        "en": "Amount you must call to stay in the hand.",
+        "tr": "Oyunda kalmak için çağırmanız gereken miktar."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Inner diameter of the thick wall vessel",
       "label_i18n": {
         "en": "Inside Diameter",
-        "tr": "Inside Diameter",
+        "tr": "İç Çap",
         "de": "Inside Diameter",
         "fr": "Inside Diameter",
         "es": "Inside Diameter",
         "ar": "Inside Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the thick wall vessel",
+        "tr": "Kalın cidarlı kabın iç çapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Outer diameter of the thick wall vessel",
       "label_i18n": {
         "en": "Outside Diameter",
-        "tr": "Outside Diameter",
+        "tr": "Dış Çap",
         "de": "Outside Diameter",
         "fr": "Outside Diameter",
         "es": "Outside Diameter",
         "ar": "Outside Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Outer diameter of the thick wall vessel",
+        "tr": "Kalın cidarlı kabın dış çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Pressure inside the vessel",
       "label_i18n": {
         "en": "Internal Pressure",
-        "tr": "Internal Pressure",
+        "tr": "İç Basınç",
         "de": "Internal Pressure",
         "fr": "Internal Pressure",
         "es": "Internal Pressure",
         "ar": "Internal Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Pressure inside the vessel",
+        "tr": "Kap içi basınç"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Pressure outside the vessel, typically 0",
       "label_i18n": {
         "en": "External Pressure",
-        "tr": "External Pressure",
+        "tr": "Dış Basınç",
         "de": "External Pressure",
         "fr": "External Pressure",
         "es": "External Pressure",
         "ar": "External Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Pressure outside the vessel, typically 0",
+        "tr": "Kap dışı basınç, genellikle 0"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Material yield strength for safety factor calculation (0 to omit)",
       "label_i18n": {
         "en": "Yield Strength",
-        "tr": "Yield Strength",
+        "tr": "Akma Dayanımı",
         "de": "Yield Strength",
         "fr": "Yield Strength",
         "es": "Yield Strength",
         "ar": "Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Material yield strength for safety factor calculation (0 to omit)",
+        "tr": "Güvenlik faktörü hesaplaması için malzeme akma dayanımı (0 atlanır)"
       }
     }
   ],

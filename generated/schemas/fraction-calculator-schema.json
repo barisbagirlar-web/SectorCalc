@@ -10,11 +10,15 @@
       "businessContext": "First fraction numerator",
       "label_i18n": {
         "en": "Numerator 1",
-        "tr": "Numerator 1",
+        "tr": "Pay 1",
         "de": "Numerator 1",
         "fr": "Numerator 1",
         "es": "Numerator 1",
         "ar": "Numerator 1"
+      },
+      "businessContext_i18n": {
+        "en": "First fraction numerator",
+        "tr": "Birinci kesir payı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "First fraction denominator (non-zero)",
       "label_i18n": {
         "en": "Denominator 1",
-        "tr": "Denominator 1",
+        "tr": "Payda 1",
         "de": "Denominator 1",
         "fr": "Denominator 1",
         "es": "Denominator 1",
         "ar": "Denominator 1"
+      },
+      "businessContext_i18n": {
+        "en": "First fraction denominator (non-zero)",
+        "tr": "Birinci kesir paydası (sıfırdan farklı)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Second fraction numerator",
       "label_i18n": {
         "en": "Numerator 2",
-        "tr": "Numerator 2",
+        "tr": "Pay 2",
         "de": "Numerator 2",
         "fr": "Numerator 2",
         "es": "Numerator 2",
         "ar": "Numerator 2"
+      },
+      "businessContext_i18n": {
+        "en": "Second fraction numerator",
+        "tr": "İkinci kesir payı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Second fraction denominator (non-zero)",
       "label_i18n": {
         "en": "Denominator 2",
-        "tr": "Denominator 2",
+        "tr": "Payda 2",
         "de": "Denominator 2",
         "fr": "Denominator 2",
         "es": "Denominator 2",
         "ar": "Denominator 2"
+      },
+      "businessContext_i18n": {
+        "en": "Second fraction denominator (non-zero)",
+        "tr": "İkinci kesir paydası (sıfırdan farklı)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "0=add, 1=subtract, 2=multiply, 3=divide",
       "label_i18n": {
         "en": "Operation",
-        "tr": "Operation",
+        "tr": "İşlem",
         "de": "Operation",
         "fr": "Operation",
         "es": "Operation",
         "ar": "Operation"
+      },
+      "businessContext_i18n": {
+        "en": "0=add, 1=subtract, 2=multiply, 3=divide",
+        "tr": "0=topla, 1=çıkar, 2=çarp, 3=böl"
       }
     }
   ],

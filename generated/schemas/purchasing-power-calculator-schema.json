@@ -10,11 +10,15 @@
       "businessContext": "The nominal income or amount to evaluate.",
       "label_i18n": {
         "en": "Initial Income",
-        "tr": "Initial Income",
+        "tr": "Başlangıç Geliri",
         "de": "Initial Income",
         "fr": "Initial Income",
         "es": "Initial Income",
         "ar": "Initial Income"
+      },
+      "businessContext_i18n": {
+        "en": "The nominal income or amount to evaluate.",
+        "tr": "Değerlendirilecek nominal gelir veya miktar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average annual inflation rate.",
       "label_i18n": {
         "en": "Annual Inflation Rate",
-        "tr": "Annual Inflation Rate",
+        "tr": "Yıllık Enflasyon Oranı",
         "de": "Annual Inflation Rate",
         "fr": "Annual Inflation Rate",
         "es": "Annual Inflation Rate",
         "ar": "Annual Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average annual inflation rate.",
+        "tr": "Ortalama yıllık enflasyon oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Base year of the income.",
       "label_i18n": {
         "en": "From Year",
-        "tr": "From Year",
+        "tr": "Başlangıç Yılı",
         "de": "From Year",
         "fr": "From Year",
         "es": "From Year",
         "ar": "From Year"
+      },
+      "businessContext_i18n": {
+        "en": "Base year of the income.",
+        "tr": "Gelirin baz yılı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Target year for purchasing power comparison.",
       "label_i18n": {
         "en": "To Year",
-        "tr": "To Year",
+        "tr": "Bitiş Yılı",
         "de": "To Year",
         "fr": "To Year",
         "es": "To Year",
         "ar": "To Year"
+      },
+      "businessContext_i18n": {
+        "en": "Target year for purchasing power comparison.",
+        "tr": "Satın alma gücü karşılaştırması için hedef yıl."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of times inflation compounds per year (1 for annual, 12 for monthly).",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı",
         "de": "Compounding Frequency",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times inflation compounds per year (1 for annual, 12 for monthly).",
+        "tr": "Enflasyonun yılda kaç kez bileşik hesaplandığı (yıllık için 1, aylık için 12)."
       }
     }
   ],

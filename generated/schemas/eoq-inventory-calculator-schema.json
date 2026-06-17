@@ -23,10 +23,12 @@
       "max": 100000000,
       "businessContext": "Total forecasted demand for the item over one year. Used to calculate order frequency and total cycle stock.",
       "label_i18n": {
-        "en": "Annual Demand (units)"
+        "en": "Annual Demand (units)",
+        "tr": "Yıllık Talep (birim)"
       },
       "businessContext_i18n": {
-        "en": "Total forecasted demand for the item over one year. Used to calculate order frequency and total cycle stock."
+        "en": "Total forecasted demand for the item over one year. Used to calculate order frequency and total cycle stock.",
+        "tr": "Ürünün bir yıl boyunca toplam tahmini talebi. Sipariş sıklığı ve toplam çevrim stoğunu hesaplamak için kullanılır."
       }
     },
     {
@@ -39,10 +41,12 @@
       "max": 10000,
       "businessContext": "Fixed cost incurred per purchase order (e.g., administrative, inspection, transportation setup).",
       "label_i18n": {
-        "en": "Ordering Cost per Order"
+        "en": "Ordering Cost per Order",
+        "tr": "Sipariş Maliyeti (sipariş başına)"
       },
       "businessContext_i18n": {
-        "en": "Fixed cost incurred per purchase order (e.g., administrative, inspection, transportation setup)."
+        "en": "Fixed cost incurred per purchase order (e.g., administrative, inspection, transportation setup).",
+        "tr": "Satın alma siparişi başına sabit maliyet (ör. idari, muayene, nakliye kurulumu)."
       }
     },
     {
@@ -55,10 +59,12 @@
       "max": 1000,
       "businessContext": "Cost to hold one unit in inventory for one year, including storage, insurance, obsolescence, and capital cost.",
       "label_i18n": {
-        "en": "Holding Cost per Unit per Year"
+        "en": "Holding Cost per Unit per Year",
+        "tr": "Birim Başına Yıllık Elde Tutma Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost to hold one unit in inventory for one year, including storage, insurance, obsolescence, and capital cost."
+        "en": "Cost to hold one unit in inventory for one year, including storage, insurance, obsolescence, and capital cost.",
+        "tr": "Bir birimi bir yıl boyunca stokta tutmanın maliyeti; depolama, sigorta, eskime ve sermaye maliyetini içerir."
       }
     },
     {
@@ -71,10 +77,12 @@
       "max": 100000,
       "businessContext": "Purchase price per unit from supplier. Used to calculate total annual purchase cost and capital tied up.",
       "label_i18n": {
-        "en": "Unit Cost (Purchase Price)"
+        "en": "Unit Cost (Purchase Price)",
+        "tr": "Birim Maliyet (Satın Alma Fiyatı)"
       },
       "businessContext_i18n": {
-        "en": "Purchase price per unit from supplier. Used to calculate total annual purchase cost and capital tied up."
+        "en": "Purchase price per unit from supplier. Used to calculate total annual purchase cost and capital tied up.",
+        "tr": "Tedarikçiden birim başına satın alma fiyatı. Yıllık toplam satın alma maliyeti ve bağlı sermayeyi hesaplamak için kullanılır."
       }
     },
     {
@@ -87,10 +95,12 @@
       "max": 365,
       "businessContext": "Average time from order placement to receipt. Critical for safety stock and reorder point calculations.",
       "label_i18n": {
-        "en": "Lead Time (days)"
+        "en": "Lead Time (days)",
+        "tr": "Teslim Süresi (gün)"
       },
       "businessContext_i18n": {
-        "en": "Average time from order placement to receipt. Critical for safety stock and reorder point calculations."
+        "en": "Average time from order placement to receipt. Critical for safety stock and reorder point calculations.",
+        "tr": "Sipariş verme ile teslim alma arasındaki ortalama süre. Emniyet stoğu ve yeniden sipariş noktası hesaplamaları için kritiktir."
       }
     },
     {
@@ -103,10 +113,12 @@
       "max": 100000,
       "businessContext": "Standard deviation of daily demand. Used to calculate safety stock under uncertainty (Six Sigma approach).",
       "label_i18n": {
-        "en": "Demand Variability (Std Dev of Daily Demand)"
+        "en": "Demand Variability (Std Dev of Daily Demand)",
+        "tr": "Talep Değişkenliği (Günlük Talebin Standart Sapması)"
       },
       "businessContext_i18n": {
-        "en": "Standard deviation of daily demand. Used to calculate safety stock under uncertainty (Six Sigma approach)."
+        "en": "Standard deviation of daily demand. Used to calculate safety stock under uncertainty (Six Sigma approach).",
+        "tr": "Günlük talebin standart sapması. Belirsizlik altında emniyet stoğu hesaplamak için kullanılır (Altı Sigma yaklaşımı)."
       }
     },
     {
@@ -123,10 +135,12 @@
       ],
       "businessContext": "Target probability of not stocking out during lead time. Higher service levels increase safety stock.",
       "label_i18n": {
-        "en": "Desired Service Level"
+        "en": "Desired Service Level",
+        "tr": "İstenen Hizmet Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Target probability of not stocking out during lead time. Higher service levels increase safety stock."
+        "en": "Target probability of not stocking out during lead time. Higher service levels increase safety stock.",
+        "tr": "Teslim süresi boyunca stokta kalmama olasılığı hedefi. Daha yüksek hizmet seviyeleri emniyet stoğunu artırır."
       }
     },
     {
@@ -139,10 +153,12 @@
       "max": 10000,
       "businessContext": "Cost incurred per unit when demand cannot be met from stock (lost sales, penalty, expediting).",
       "label_i18n": {
-        "en": "Backorder Cost per Unit"
+        "en": "Backorder Cost per Unit",
+        "tr": "Birim Başına Geri Sipariş Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost incurred per unit when demand cannot be met from stock (lost sales, penalty, expediting)."
+        "en": "Cost incurred per unit when demand cannot be met from stock (lost sales, penalty, expediting).",
+        "tr": "Talep stoktan karşılanamadığında birim başına oluşan maliyet (kayıp satış, ceza, hızlandırma)."
       }
     }
   ],

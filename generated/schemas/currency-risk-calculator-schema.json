@@ -21,10 +21,12 @@
       "max": 1000000000,
       "businessContext": "Total value of foreign currency receivables or payables subject to exchange rate fluctuation.",
       "label_i18n": {
-        "en": "Exposure Amount (in base currency)"
+        "en": "Exposure Amount (in base currency)",
+        "tr": "Maruziyet Tutarı (baz para biriminde)"
       },
       "businessContext_i18n": {
-        "en": "Total value of foreign currency receivables or payables subject to exchange rate fluctuation."
+        "en": "Total value of foreign currency receivables or payables subject to exchange rate fluctuation.",
+        "tr": "Döviz kuru dalgalanmasına tabi yabancı para alacak veya borçların toplam değeri."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 50,
       "businessContext": "Historical or implied standard deviation of daily log returns annualized (ISO 31000 risk metric).",
       "label_i18n": {
-        "en": "Annualized Volatility of Exchange Rate"
+        "en": "Annualized Volatility of Exchange Rate",
+        "tr": "Döviz Kurunun Yıllıklandırılmış Volatilitesi"
       },
       "businessContext_i18n": {
-        "en": "Historical or implied standard deviation of daily log returns annualized (ISO 31000 risk metric)."
+        "en": "Historical or implied standard deviation of daily log returns annualized (ISO 31000 risk metric).",
+        "tr": "Günlük log getirilerinin yıllıklandırılmış tarihsel veya zımni standart sapması (ISO 31000 risk metriği)."
       }
     },
     {
@@ -58,10 +62,12 @@
         "99"
       ],
       "label_i18n": {
-        "en": "Confidence Level for VaR Calculation"
+        "en": "Confidence Level for VaR Calculation",
+        "tr": "VaR Hesaplaması için Güven Düzeyi"
       },
       "businessContext_i18n": {
-        "en": "Statistical confidence level used in Value at Risk (VaR) estimation, typical values 90%, 95%, 99%."
+        "en": "Statistical confidence level used in Value at Risk (VaR) estimation, typical values 90%, 95%, 99%.",
+        "tr": "Riskteki Değer (VaR) tahmininde kullanılan istatistiksel güven düzeyi, tipik değerler %90, %95, %99."
       }
     },
     {
@@ -74,10 +80,12 @@
       "max": 100,
       "businessContext": "Percentage of exposure covered by hedging instruments (forwards, options). Lean metric for waste reduction.",
       "label_i18n": {
-        "en": "Hedge Ratio"
+        "en": "Hedge Ratio",
+        "tr": "Korunma Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of exposure covered by hedging instruments (forwards, options). Lean metric for waste reduction."
+        "en": "Percentage of exposure covered by hedging instruments (forwards, options). Lean metric for waste reduction.",
+        "tr": "Korunma araçları (forward, opsiyon) ile kapsanan maruziyet yüzdesi. İsraf azaltımı için yalın metrik."
       }
     },
     {
@@ -90,10 +98,12 @@
       "max": 365,
       "businessContext": "Risk assessment period aligned with business planning cycles (WERC supply chain standard).",
       "label_i18n": {
-        "en": "Time Horizon (days)"
+        "en": "Time Horizon (days)",
+        "tr": "Zaman Ufku (gün)"
       },
       "businessContext_i18n": {
-        "en": "Risk assessment period aligned with business planning cycles (WERC supply chain standard)."
+        "en": "Risk assessment period aligned with business planning cycles (WERC supply chain standard).",
+        "tr": "İş planlama döngüleriyle uyumlu risk değerlendirme dönemi (WERC tedarik zinciri standardı)."
       }
     },
     {
@@ -106,10 +116,12 @@
       "max": null,
       "businessContext": "Applies a Six Sigma-based correction factor to account for process variation in hedging execution.",
       "label_i18n": {
-        "en": "Enable Lean Volatility Adjustment"
+        "en": "Enable Lean Volatility Adjustment",
+        "tr": "Yalın Volatilite Ayarlamasını Etkinleştir"
       },
       "businessContext_i18n": {
-        "en": "Applies a Six Sigma-based correction factor to account for process variation in hedging execution."
+        "en": "Applies a Six Sigma-based correction factor to account for process variation in hedging execution.",
+        "tr": "Hedefleme yürütmesindeki süreç değişkenliğini hesaba katmak için Altı Sigma tabanlı bir düzeltme faktörü uygular."
       }
     }
   ],

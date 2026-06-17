@@ -10,11 +10,15 @@
       "businessContext": "Continuous load current",
       "label_i18n": {
         "en": "Nominal Current",
-        "tr": "Nominal Current",
+        "tr": "Nominal Akım",
         "de": "Nominal Current",
         "fr": "Nominal Current",
         "es": "Nominal Current",
         "ar": "Nominal Current"
+      },
+      "businessContext_i18n": {
+        "en": "Continuous load current",
+        "tr": "Sürekli yük akımı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal system voltage",
       "label_i18n": {
         "en": "System Voltage",
-        "tr": "System Voltage",
+        "tr": "Sistem Gerilimi",
         "de": "System Voltage",
         "fr": "System Voltage",
         "es": "System Voltage",
         "ar": "System Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal system voltage",
+        "tr": "Nominal sistem voltajı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "One-way cable length",
       "label_i18n": {
         "en": "Cable Length",
-        "tr": "Cable Length",
+        "tr": "Kablo Uzunluğu",
         "de": "Cable Length",
         "fr": "Cable Length",
         "es": "Cable Length",
         "ar": "Cable Length"
+      },
+      "businessContext_i18n": {
+        "en": "One-way cable length",
+        "tr": "Tek yönlü kablo uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0: Copper, 1: Aluminum",
       "label_i18n": {
         "en": "Conductor Material",
-        "tr": "Conductor Material",
+        "tr": "İletken Malzemesi",
         "de": "Conductor Material",
         "fr": "Conductor Material",
         "es": "Conductor Material",
         "ar": "Conductor Material"
+      },
+      "businessContext_i18n": {
+        "en": "0: Copper, 1: Aluminum",
+        "tr": "0: Bakır, 1: Alüminyum"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Allowable voltage drop",
       "label_i18n": {
         "en": "Max Voltage Drop Percentage",
-        "tr": "Max Voltage Drop Percentage",
+        "tr": "Maksimum Gerilim Düşümü Yüzdesi",
         "de": "Max Voltage Drop Percentage",
         "fr": "Max Voltage Drop Percentage",
         "es": "Max Voltage Drop Percentage",
         "ar": "Max Voltage Drop Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Allowable voltage drop",
+        "tr": "İzin verilen voltaj düşümü"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1: Single-phase/DC, 3: Three-phase",
       "label_i18n": {
         "en": "Number of Phases",
-        "tr": "Number of Phases",
+        "tr": "Faz Sayısı",
         "de": "Number of Phases",
         "fr": "Number of Phases",
         "es": "Number of Phases",
         "ar": "Number of Phases"
+      },
+      "businessContext_i18n": {
+        "en": "1: Single-phase/DC, 3: Three-phase",
+        "tr": "1: Tek fazlı/DC, 3: Üç fazlı"
       }
     }
   ],

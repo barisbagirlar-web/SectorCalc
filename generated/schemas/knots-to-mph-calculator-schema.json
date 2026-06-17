@@ -10,11 +10,15 @@
       "businessContext": "The speed value in knots to be converted to miles per hour.",
       "label_i18n": {
         "en": "Speed in knots",
-        "tr": "Speed in knots",
+        "tr": "Knot cinsinden hız",
         "de": "Speed in knots",
         "fr": "Speed in knots",
         "es": "Speed in knots",
         "ar": "Speed in knots"
+      },
+      "businessContext_i18n": {
+        "en": "The speed value in knots to be converted to miles per hour.",
+        "tr": "Mil/saat'e dönüştürülecek knot cinsinden hız değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Multiplier for instrument calibration (dimensionless).",
       "label_i18n": {
         "en": "Calibration factor",
-        "tr": "Calibration factor",
+        "tr": "Kalibrasyon faktörü",
         "de": "Calibration factor",
         "fr": "Calibration factor",
         "es": "Calibration factor",
         "ar": "Calibration factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for instrument calibration (dimensionless).",
+        "tr": "Enstrüman kalibrasyonu için çarpan (boyutsuz)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additive offset in knots for instrument calibration.",
       "label_i18n": {
         "en": "Calibration offset",
-        "tr": "Calibration offset",
+        "tr": "Kalibrasyon ofseti",
         "de": "Calibration offset",
         "fr": "Calibration offset",
         "es": "Calibration offset",
         "ar": "Calibration offset"
+      },
+      "businessContext_i18n": {
+        "en": "Additive offset in knots for instrument calibration.",
+        "tr": "Alet kalibrasyonu için düğüm cinsinden ekleme ofseti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 = Standard (1.15078), 2 = High Precision (1.15077945).",
       "label_i18n": {
         "en": "Precision mode",
-        "tr": "Precision mode",
+        "tr": "Hassasiyet modu",
         "de": "Precision mode",
         "fr": "Precision mode",
         "es": "Precision mode",
         "ar": "Precision mode"
+      },
+      "businessContext_i18n": {
+        "en": "1 = Standard (1.15078), 2 = High Precision (1.15077945).",
+        "tr": "1 = Standart (1,15078), 2 = Yüksek Hassasiyet (1,15077945)."
       }
     }
   ],

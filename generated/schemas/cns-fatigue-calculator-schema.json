@@ -10,11 +10,15 @@
       "businessContext": "User's body weight in kilograms.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User's body weight in kilograms.",
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Weight lifted during the exercise.",
       "label_i18n": {
         "en": "Weight Lifted",
-        "tr": "Weight Lifted",
+        "tr": "Kaldırılan Ağırlık",
         "de": "Weight Lifted",
         "fr": "Weight Lifted",
         "es": "Weight Lifted",
         "ar": "Weight Lifted"
+      },
+      "businessContext_i18n": {
+        "en": "Weight lifted during the exercise.",
+        "tr": "Egzersiz sırasında kaldırılan ağırlık."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of repetitions per set.",
       "label_i18n": {
         "en": "Repetitions per Set",
-        "tr": "Repetitions per Set",
+        "tr": "Set Başına Tekrar Sayısı",
         "de": "Repetitions per Set",
         "fr": "Repetitions per Set",
         "es": "Repetitions per Set",
         "ar": "Repetitions per Set"
+      },
+      "businessContext_i18n": {
+        "en": "Number of repetitions per set.",
+        "tr": "Set başına tekrar sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of sets performed.",
       "label_i18n": {
         "en": "Number of Sets",
-        "tr": "Number of Sets",
+        "tr": "Set Sayısı",
         "de": "Number of Sets",
         "fr": "Number of Sets",
         "es": "Number of Sets",
         "ar": "Number of Sets"
+      },
+      "businessContext_i18n": {
+        "en": "Number of sets performed.",
+        "tr": "Gerçekleştirilen set sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Rest period between sets in minutes.",
       "label_i18n": {
         "en": "Rest Between Sets",
-        "tr": "Rest Between Sets",
+        "tr": "Setler Arası Dinlenme",
         "de": "Rest Between Sets",
         "fr": "Rest Between Sets",
         "es": "Rest Between Sets",
         "ar": "Rest Between Sets"
+      },
+      "businessContext_i18n": {
+        "en": "Rest period between sets in minutes.",
+        "tr": "Setler arasındaki dinlenme süresi (dakika)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Number of days since the previous training session.",
       "label_i18n": {
         "en": "Days Since Last Session",
-        "tr": "Days Since Last Session",
+        "tr": "Son Seansın Üzerinden Geçen Gün Sayısı",
         "de": "Days Since Last Session",
         "fr": "Days Since Last Session",
         "es": "Days Since Last Session",
         "ar": "Days Since Last Session"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days since the previous training session.",
+        "tr": "Önceki antrenman seansından bu yana geçen gün sayısı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Years of consistent training experience.",
       "label_i18n": {
         "en": "Training Experience",
-        "tr": "Training Experience",
+        "tr": "Antrenman Deneyimi",
         "de": "Training Experience",
         "fr": "Training Experience",
         "es": "Training Experience",
         "ar": "Training Experience"
+      },
+      "businessContext_i18n": {
+        "en": "Years of consistent training experience.",
+        "tr": "Yıllar cinsinden tutarlı antrenman deneyimi."
       }
     }
   ],

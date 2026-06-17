@@ -10,11 +10,15 @@
       "businessContext": "Diameter of the drum head measured across the bearing edge in centimeters.",
       "label_i18n": {
         "en": "Drum Diameter",
-        "tr": "Drum Diameter",
+        "tr": "Tambur Çapı",
         "de": "Drum Diameter",
         "fr": "Drum Diameter",
         "es": "Drum Diameter",
         "ar": "Drum Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the drum head measured across the bearing edge in centimeters.",
+        "tr": "Tambur başlığının yatak kenarı boyunca santimetre cinsinden ölçülen çapı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Thickness of the drum head material (e.g., Mylar) in millimeters.",
       "label_i18n": {
         "en": "Head Thickness",
-        "tr": "Head Thickness",
+        "tr": "Başlık Kalınlığı",
         "de": "Head Thickness",
         "fr": "Head Thickness",
         "es": "Head Thickness",
         "ar": "Head Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the drum head material (e.g., Mylar) in millimeters.",
+        "tr": "Tambur başlığı malzemesinin (ör. Mylar) milimetre cinsinden kalınlığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Volumetric mass density of the drum head material in kilograms per cubic meter.",
       "label_i18n": {
         "en": "Head Material Density",
-        "tr": "Head Material Density",
+        "tr": "Başlık Malzemesi Yoğunluğu",
         "de": "Head Material Density",
         "fr": "Head Material Density",
         "es": "Head Material Density",
         "ar": "Head Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric mass density of the drum head material in kilograms per cubic meter.",
+        "tr": "Tambur başlığı malzemesinin metreküp başına kilogram cinsinden hacimsel kütle yoğunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Tension per unit length applied to the drum head in Newtons per meter.",
       "label_i18n": {
         "en": "Tension",
-        "tr": "Tension",
+        "tr": "Gerginlik",
         "de": "Tension",
         "fr": "Tension",
         "es": "Tension",
         "ar": "Tension"
+      },
+      "businessContext_i18n": {
+        "en": "Tension per unit length applied to the drum head in Newtons per meter.",
+        "tr": "Tambur başlığına metre başına Newton cinsinden uygulanan birim uzunluk başına gerginlik."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplicative calibration factor to compensate for material variations or environmental effects.",
       "label_i18n": {
         "en": "Density Adjustment Factor",
-        "tr": "Density Adjustment Factor",
+        "tr": "Yoğunluk Ayarlama Faktörü",
         "de": "Density Adjustment Factor",
         "fr": "Density Adjustment Factor",
         "es": "Density Adjustment Factor",
         "ar": "Density Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplicative calibration factor to compensate for material variations or environmental effects.",
+        "tr": "Malzeme varyasyonlarını veya çevresel etkileri telafi etmek için çarpımsal kalibrasyon faktörü."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Earnings Before Interest and Taxes",
       "label_i18n": {
         "en": "EBIT",
-        "tr": "EBIT",
+        "tr": "FVÖK",
         "de": "EBIT",
         "fr": "EBIT",
         "es": "EBIT",
         "ar": "EBIT"
+      },
+      "businessContext_i18n": {
+        "en": "Earnings Before Interest and Taxes",
+        "tr": "Faiz ve Vergi Öncesi Kâr"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total interest payments on debt",
       "label_i18n": {
         "en": "Interest Expense",
-        "tr": "Interest Expense",
+        "tr": "Faiz Gideri",
         "de": "Interest Expense",
         "fr": "Interest Expense",
         "es": "Interest Expense",
         "ar": "Interest Expense"
+      },
+      "businessContext_i18n": {
+        "en": "Total interest payments on debt",
+        "tr": "Borç üzerindeki toplam faiz ödemeleri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Earnings Before Interest, Taxes, Depreciation and Amortization",
       "label_i18n": {
         "en": "EBITDA",
-        "tr": "EBITDA",
+        "tr": "FAVÖK",
         "de": "EBITDA",
         "fr": "EBITDA",
         "es": "EBITDA",
         "ar": "EBITDA"
+      },
+      "businessContext_i18n": {
+        "en": "Earnings Before Interest, Taxes, Depreciation and Amortization",
+        "tr": "Faiz, Vergi, Amortisman ve İtfa Öncesi Kazanç"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Depreciation and amortization expenses",
       "label_i18n": {
         "en": "Depreciation & Amortization",
-        "tr": "Depreciation & Amortization",
+        "tr": "Amortisman ve İtfa",
         "de": "Depreciation & Amortization",
         "fr": "Depreciation & Amortization",
         "es": "Depreciation & Amortization",
         "ar": "Depreciation & Amortization"
+      },
+      "businessContext_i18n": {
+        "en": "Depreciation and amortization expenses",
+        "tr": "Amortisman ve itfa giderleri"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Radius of the circle or arc in meters",
       "label_i18n": {
         "en": "Radius",
-        "tr": "Radius",
+        "tr": "Yarıçap",
         "de": "Radius",
         "fr": "Radius",
         "es": "Radius",
         "ar": "Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of the circle or arc in meters",
+        "tr": "Daire veya yayın metre cinsinden yarıçapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Starting angle of the arc (degrees if unit=0, radians if unit=1)",
       "label_i18n": {
         "en": "Start Angle",
-        "tr": "Start Angle",
+        "tr": "Başlangıç Açısı",
         "de": "Start Angle",
         "fr": "Start Angle",
         "es": "Start Angle",
         "ar": "Start Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Starting angle of the arc (degrees if unit=0, radians if unit=1)",
+        "tr": "Yayın başlangıç açısı (birim=0 ise derece, birim=1 ise radyan)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Ending angle of the arc (degrees if unit=0, radians if unit=1)",
       "label_i18n": {
         "en": "End Angle",
-        "tr": "End Angle",
+        "tr": "Bitiş Açısı",
         "de": "End Angle",
         "fr": "End Angle",
         "es": "End Angle",
         "ar": "End Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Ending angle of the arc (degrees if unit=0, radians if unit=1)",
+        "tr": "Yayın bitiş açısı (birim=0 ise derece, birim=1 ise radyan)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Unit for angles: 0 for degrees, 1 for radians",
       "label_i18n": {
         "en": "Angle Unit (0=deg, 1=rad)",
-        "tr": "Angle Unit (0=deg, 1=rad)",
+        "tr": "Açı Birimi (0=derece, 1=radyan)",
         "de": "Angle Unit (0=deg, 1=rad)",
         "fr": "Angle Unit (0=deg, 1=rad)",
         "es": "Angle Unit (0=deg, 1=rad)",
         "ar": "Angle Unit (0=deg, 1=rad)"
+      },
+      "businessContext_i18n": {
+        "en": "Unit for angles: 0 for degrees, 1 for radians",
+        "tr": "Açılar için birim: 0 derece, 1 radyan"
       }
     }
   ],

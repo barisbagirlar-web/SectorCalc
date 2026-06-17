@@ -15,6 +15,10 @@
         "fr": "Minimum",
         "es": "Minimum",
         "ar": "Minimum"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum value in the dataset.",
+        "tr": "Veri setindeki minimum değer."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "First quartile (25th percentile) - median of lower half.",
       "label_i18n": {
         "en": "First Quartile (Q1)",
-        "tr": "First Quartile (Q1)",
+        "tr": "Birinci Çeyrek (Q1)",
         "de": "First Quartile (Q1)",
         "fr": "First Quartile (Q1)",
         "es": "First Quartile (Q1)",
         "ar": "First Quartile (Q1)"
+      },
+      "businessContext_i18n": {
+        "en": "First quartile (25th percentile) - median of lower half.",
+        "tr": "Birinci çeyrek (%25'inci yüzdelik) - alt yarının medyanı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Second quartile (50th percentile) - median.",
       "label_i18n": {
         "en": "Median (Q2)",
-        "tr": "Median (Q2)",
+        "tr": "Medyan (Q2)",
         "de": "Median (Q2)",
         "fr": "Median (Q2)",
         "es": "Median (Q2)",
         "ar": "Median (Q2)"
+      },
+      "businessContext_i18n": {
+        "en": "Second quartile (50th percentile) - median.",
+        "tr": "İkinci çeyrek (%50'inci yüzdelik) - medyan."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Third quartile (75th percentile) - median of upper half.",
       "label_i18n": {
         "en": "Third Quartile (Q3)",
-        "tr": "Third Quartile (Q3)",
+        "tr": "Üçüncü Çeyrek (Q3)",
         "de": "Third Quartile (Q3)",
         "fr": "Third Quartile (Q3)",
         "es": "Third Quartile (Q3)",
         "ar": "Third Quartile (Q3)"
+      },
+      "businessContext_i18n": {
+        "en": "Third quartile (75th percentile) - median of upper half.",
+        "tr": "Üçüncü çeyrek (%75'inci yüzdelik) - üst yarının medyanı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum value in the dataset.",
       "label_i18n": {
         "en": "Maximum",
-        "tr": "Maximum",
+        "tr": "Maksimum",
         "de": "Maximum",
         "fr": "Maximum",
         "es": "Maximum",
         "ar": "Maximum"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum value in the dataset.",
+        "tr": "Veri setindeki maksimum değer."
       }
     }
   ],

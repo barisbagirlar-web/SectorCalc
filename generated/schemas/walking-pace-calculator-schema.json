@@ -10,11 +10,15 @@
       "businessContext": "Total walking distance in meters, e.g., from one workstation to another in a factory layout.",
       "label_i18n": {
         "en": "Distance (meters)",
-        "tr": "Distance (meters)",
+        "tr": "Mesafe (metre)",
         "de": "Distance (meters)",
         "fr": "Distance (meters)",
         "es": "Distance (meters)",
         "ar": "Distance (meters)"
+      },
+      "businessContext_i18n": {
+        "en": "Total walking distance in meters, e.g., from one workstation to another in a factory layout.",
+        "tr": "Metre cinsinden toplam yürüme mesafesi, örn. bir fabrika düzeninde bir iş istasyonundan diğerine."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Hours part of the walking time.",
       "label_i18n": {
         "en": "Time (hours)",
-        "tr": "Time (hours)",
+        "tr": "Süre (saat)",
         "de": "Time (hours)",
         "fr": "Time (hours)",
         "es": "Time (hours)",
         "ar": "Time (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Hours part of the walking time.",
+        "tr": "Yürüme süresinin saat kısmı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minutes part of the walking time.",
       "label_i18n": {
         "en": "Time (minutes)",
-        "tr": "Time (minutes)",
+        "tr": "Süre (dakika)",
         "de": "Time (minutes)",
         "fr": "Time (minutes)",
         "es": "Time (minutes)",
         "ar": "Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes part of the walking time.",
+        "tr": "Yürüme süresinin dakika kısmı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Seconds part of the walking time.",
       "label_i18n": {
         "en": "Time (seconds)",
-        "tr": "Time (seconds)",
+        "tr": "Süre (saniye)",
         "de": "Time (seconds)",
         "fr": "Time (seconds)",
         "es": "Time (seconds)",
         "ar": "Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Seconds part of the walking time.",
+        "tr": "Yürüme süresinin saniye kısmı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional: average stride length in centimeters for step-based distance calculation.",
       "label_i18n": {
         "en": "Stride Length (cm)",
-        "tr": "Stride Length (cm)",
+        "tr": "Adım Uzunluğu (cm)",
         "de": "Stride Length (cm)",
         "fr": "Stride Length (cm)",
         "es": "Stride Length (cm)",
         "ar": "Stride Length (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: average stride length in centimeters for step-based distance calculation.",
+        "tr": "İsteğe bağlı: adım tabanlı mesafe hesaplaması için santimetre cinsinden ortalama adım uzunluğu."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Optional: number of steps taken. Used with stride length to estimate distance if distance is not directly entered.",
       "label_i18n": {
         "en": "Steps",
-        "tr": "Steps",
+        "tr": "Adımlar",
         "de": "Steps",
         "fr": "Steps",
         "es": "Steps",
         "ar": "Steps"
+      },
+      "businessContext_i18n": {
+        "en": "Optional: number of steps taken. Used with stride length to estimate distance if distance is not directly entered.",
+        "tr": "İsteğe bağlı: atılan adım sayısı. Mesafe doğrudan girilmezse adım uzunluğu ile mesafe tahmini için kullanılır."
       }
     }
   ],

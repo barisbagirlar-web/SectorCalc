@@ -10,11 +10,15 @@
       "businessContext": "Total value of investment portfolio (e.g., retirement savings)",
       "label_i18n": {
         "en": "Portfolio Value",
-        "tr": "Portfolio Value",
+        "tr": "Portföy Değeri",
         "de": "Portfolio Value",
         "fr": "Portfolio Value",
         "es": "Portfolio Value",
         "ar": "Portfolio Value"
+      },
+      "businessContext_i18n": {
+        "en": "Total value of investment portfolio (e.g., retirement savings)",
+        "tr": "Yatırım portföyünün toplam değeri (örneğin, emeklilik birikimi)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired annual withdrawal amount during retirement",
       "label_i18n": {
         "en": "Desired Annual Withdrawal",
-        "tr": "Desired Annual Withdrawal",
+        "tr": "İstenen Yıllık Çekim",
         "de": "Desired Annual Withdrawal",
         "fr": "Desired Annual Withdrawal",
         "es": "Desired Annual Withdrawal",
         "ar": "Desired Annual Withdrawal"
+      },
+      "businessContext_i18n": {
+        "en": "Desired annual withdrawal amount during retirement",
+        "tr": "Emeklilik sırasında istenen yıllık çekim tutarı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Safe withdrawal rate (typically 4%)",
       "label_i18n": {
         "en": "Withdrawal Rate",
-        "tr": "Withdrawal Rate",
+        "tr": "Çekme Oranı",
         "de": "Withdrawal Rate",
         "fr": "Withdrawal Rate",
         "es": "Withdrawal Rate",
         "ar": "Withdrawal Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Safe withdrawal rate (typically 4%)",
+        "tr": "Güvenli çekim oranı (tipik olarak %4)"
       }
     }
   ],

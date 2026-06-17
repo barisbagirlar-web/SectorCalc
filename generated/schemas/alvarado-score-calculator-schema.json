@@ -10,11 +10,15 @@
       "businessContext": "1 point if present, 0 otherwise",
       "label_i18n": {
         "en": "Migration of pain to RLQ",
-        "tr": "Migration of pain to RLQ",
+        "tr": "Ağrının sağ alt kadrana göçü",
         "de": "Migration of pain to RLQ",
         "fr": "Migration of pain to RLQ",
         "es": "Migration of pain to RLQ",
         "ar": "Migration of pain to RLQ"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if present, 0 otherwise",
+        "tr": "Varsa 1 puan, yoksa 0"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1 point if present, 0 otherwise",
       "label_i18n": {
         "en": "Anorexia",
-        "tr": "Anorexia",
+        "tr": "Anoreksi",
         "de": "Anorexia",
         "fr": "Anorexia",
         "es": "Anorexia",
         "ar": "Anorexia"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if present, 0 otherwise",
+        "tr": "Varsa 1 puan, yoksa 0"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 point if present, 0 otherwise",
       "label_i18n": {
         "en": "Nausea or vomiting",
-        "tr": "Nausea or vomiting",
+        "tr": "Bulantı veya kusma",
         "de": "Nausea or vomiting",
         "fr": "Nausea or vomiting",
         "es": "Nausea or vomiting",
         "ar": "Nausea or vomiting"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if present, 0 otherwise",
+        "tr": "Varsa 1 puan, yoksa 0"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "2 points if present, 0 otherwise",
       "label_i18n": {
         "en": "Tenderness in right lower quadrant",
-        "tr": "Tenderness in right lower quadrant",
+        "tr": "Sağ alt kadranda hassasiyet",
         "de": "Tenderness in right lower quadrant",
         "fr": "Tenderness in right lower quadrant",
         "es": "Tenderness in right lower quadrant",
         "ar": "Tenderness in right lower quadrant"
+      },
+      "businessContext_i18n": {
+        "en": "2 points if present, 0 otherwise",
+        "tr": "Varsa 2 puan, yoksa 0"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1 point if present, 0 otherwise",
       "label_i18n": {
         "en": "Rebound tenderness",
-        "tr": "Rebound tenderness",
+        "tr": "Rebound hassasiyeti",
         "de": "Rebound tenderness",
         "fr": "Rebound tenderness",
         "es": "Rebound tenderness",
         "ar": "Rebound tenderness"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if present, 0 otherwise",
+        "tr": "Varsa 1 puan, yoksa 0"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "1 point if elevated, 0 otherwise",
       "label_i18n": {
         "en": "Elevated temperature (>37.3°C)",
-        "tr": "Elevated temperature (>37.3°C)",
+        "tr": "Yüksek ateş (>37.3°C)",
         "de": "Elevated temperature (>37.3°C)",
         "fr": "Elevated temperature (>37.3°C)",
         "es": "Elevated temperature (>37.3°C)",
         "ar": "Elevated temperature (>37.3°C)"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if elevated, 0 otherwise",
+        "tr": "Yüksekse 1 puan, değilse 0"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "2 points if present, 0 otherwise",
       "label_i18n": {
         "en": "Leukocytosis (>10,000/mm³)",
-        "tr": "Leukocytosis (>10,000/mm³)",
+        "tr": "Lökositoz (>10.000/mm³)",
         "de": "Leukocytosis (>10,000/mm³)",
         "fr": "Leukocytosis (>10,000/mm³)",
         "es": "Leukocytosis (>10,000/mm³)",
         "ar": "Leukocytosis (>10,000/mm³)"
+      },
+      "businessContext_i18n": {
+        "en": "2 points if present, 0 otherwise",
+        "tr": "Varsa 2 puan, yoksa 0"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "1 point if present, 0 otherwise",
       "label_i18n": {
         "en": "Left shift (neutrophils >75%)",
-        "tr": "Left shift (neutrophils >75%)",
+        "tr": "Sola kayma (nötrofiller >%75)",
         "de": "Left shift (neutrophils >75%)",
         "fr": "Left shift (neutrophils >75%)",
         "es": "Left shift (neutrophils >75%)",
         "ar": "Left shift (neutrophils >75%)"
+      },
+      "businessContext_i18n": {
+        "en": "1 point if present, 0 otherwise",
+        "tr": "Varsa 1 puan, yoksa 0"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Distance in kilometers to convert to miles.",
       "label_i18n": {
         "en": "Kilometers",
-        "tr": "Kilometers",
+        "tr": "Kilometre",
         "de": "Kilometers",
         "fr": "Kilometers",
         "es": "Kilometers",
         "ar": "Kilometers"
+      },
+      "businessContext_i18n": {
+        "en": "Distance in kilometers to convert to miles.",
+        "tr": "Mile dönüştürülecek kilometre cinsinden mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Conversion factor from kilometers to miles. Standard is 0.621371. Customize if needed.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Conversion factor from kilometers to miles. Standard is 0.621371. Customize if needed.",
+        "tr": "Kilometreden mile dönüşüm faktörü. Standart 0,621371'dir. Gerekirse özelleştirin."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places to round the result.",
       "label_i18n": {
         "en": "Rounding Decimals",
-        "tr": "Rounding Decimals",
+        "tr": "Yuvarlama Ondalık Basamakları",
         "de": "Rounding Decimals",
         "fr": "Rounding Decimals",
         "es": "Rounding Decimals",
         "ar": "Rounding Decimals"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the result.",
+        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Set to 1 to output result in scientific notation (e.g., 1.23e+2). 0 for standard decimal.",
       "label_i18n": {
         "en": "Use Scientific Notation",
-        "tr": "Use Scientific Notation",
+        "tr": "Bilimsel Gösterim Kullan",
         "de": "Use Scientific Notation",
         "fr": "Use Scientific Notation",
         "es": "Use Scientific Notation",
         "ar": "Use Scientific Notation"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to output result in scientific notation (e.g., 1.23e+2). 0 for standard decimal.",
+        "tr": "Sonucu bilimsel gösterimde (örn. 1,23e+2) çıkarmak için 1 ayarlayın. Standart ondalık için 0."
       }
     }
   ],

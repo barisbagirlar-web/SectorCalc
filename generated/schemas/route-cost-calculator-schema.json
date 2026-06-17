@@ -21,10 +21,12 @@
       "max": 5000,
       "businessContext": "Total one-way distance of the route. Used as primary driver for fuel, labor, and maintenance costs.",
       "label_i18n": {
-        "en": "Route Distance (km)"
+        "en": "Route Distance (km)",
+        "tr": "Rota Mesafesi (km)"
       },
       "businessContext_i18n": {
-        "en": "Total one-way distance of the route. Used as primary driver for fuel, labor, and maintenance costs."
+        "en": "Total one-way distance of the route. Used as primary driver for fuel, labor, and maintenance costs.",
+        "tr": "Rotanın tek yön toplam mesafesi. Yakıt, işçilik ve bakım maliyetleri için birincil sürücü olarak kullanılır."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 80,
       "businessContext": "Average fuel consumption of the vehicle. Based on manufacturer data or telematics.",
       "label_i18n": {
-        "en": "Fuel Consumption (L/100km)"
+        "en": "Fuel Consumption (L/100km)",
+        "tr": "Yakıt Tüketimi (L/100km)"
       },
       "businessContext_i18n": {
-        "en": "Average fuel consumption of the vehicle. Based on manufacturer data or telematics."
+        "en": "Average fuel consumption of the vehicle. Based on manufacturer data or telematics.",
+        "tr": "Aracın ortalama yakıt tüketimi. Üretici verileri veya telematik esas alınır."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 3,
       "businessContext": "Current market price of diesel or gasoline. Updated weekly.",
       "label_i18n": {
-        "en": "Fuel Price (per liter)"
+        "en": "Fuel Price (per liter)",
+        "tr": "Yakıt Fiyatı (litre başına)"
       },
       "businessContext_i18n": {
-        "en": "Current market price of diesel or gasoline. Updated weekly."
+        "en": "Current market price of diesel or gasoline. Updated weekly.",
+        "tr": "Dizel veya benzinin güncel piyasa fiyatı. Haftalık güncellenir."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 60,
       "businessContext": "Gross hourly wage including social charges. Based on collective labor agreements.",
       "label_i18n": {
-        "en": "Driver Wage (€/hour)"
+        "en": "Driver Wage (€/hour)",
+        "tr": "Sürücü Ücreti (€/saat)"
       },
       "businessContext_i18n": {
-        "en": "Gross hourly wage including social charges. Based on collective labor agreements."
+        "en": "Gross hourly wage including social charges. Based on collective labor agreements.",
+        "tr": "Sosyal giderler dahil brüt saatlik ücret. Toplu iş sözleşmelerine dayanır."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 120,
       "businessContext": "Expected average speed including traffic and stops. Used to calculate travel time.",
       "label_i18n": {
-        "en": "Average Speed (km/h)"
+        "en": "Average Speed (km/h)",
+        "tr": "Ortalama Hız (km/s)"
       },
       "businessContext_i18n": {
-        "en": "Expected average speed including traffic and stops. Used to calculate travel time."
+        "en": "Expected average speed including traffic and stops. Used to calculate travel time.",
+        "tr": "Trafik ve duraklar dahil beklenen ortalama hız. Seyahat süresini hesaplamak için kullanılır."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 0.5,
       "businessContext": "Average maintenance cost per kilometer including tires, oil, and repairs. Based on fleet data.",
       "label_i18n": {
-        "en": "Maintenance Cost (€/km)"
+        "en": "Maintenance Cost (€/km)",
+        "tr": "Bakım Maliyeti (€/km)"
       },
       "businessContext_i18n": {
-        "en": "Average maintenance cost per kilometer including tires, oil, and repairs. Based on fleet data."
+        "en": "Average maintenance cost per kilometer including tires, oil, and repairs. Based on fleet data.",
+        "tr": "Lastikler, yağ ve onarımlar dahil kilometre başına ortalama bakım maliyeti. Filo verilerine dayanır."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 500,
       "businessContext": "Sum of all tolls on the route. Can be obtained from route planning software.",
       "label_i18n": {
-        "en": "Total Toll Cost (€)"
+        "en": "Total Toll Cost (€)",
+        "tr": "Toplam Geçiş Ücreti (€)"
       },
       "businessContext_i18n": {
-        "en": "Sum of all tolls on the route. Can be obtained from route planning software."
+        "en": "Sum of all tolls on the route. Can be obtained from route planning software.",
+        "tr": "Rotadaki tüm geçiş ücretlerinin toplamı. Rota planlama yazılımından elde edilebilir."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 40,
       "businessContext": "Total weight of cargo. Affects fuel consumption and wear.",
       "label_i18n": {
-        "en": "Load Weight (tonnes)"
+        "en": "Load Weight (tonnes)",
+        "tr": "Yük Ağırlığı (ton)"
       },
       "businessContext_i18n": {
-        "en": "Total weight of cargo. Affects fuel consumption and wear."
+        "en": "Total weight of cargo. Affects fuel consumption and wear.",
+        "tr": "Kargonun toplam ağırlığı. Yakıt tüketimini ve aşınmayı etkiler."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Distance run in kilometers",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance run in kilometers",
+        "tr": "Kilometre cinsinden koşulan mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Hours component of time taken",
       "label_i18n": {
         "en": "Time (hours)",
-        "tr": "Time (hours)",
+        "tr": "Süre (saat)",
         "de": "Time (hours)",
         "fr": "Time (hours)",
         "es": "Time (hours)",
         "ar": "Time (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Hours component of time taken",
+        "tr": "Geçen sürenin saat bileşeni"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Minutes component of time taken",
       "label_i18n": {
         "en": "Time (minutes)",
-        "tr": "Time (minutes)",
+        "tr": "Süre (dakika)",
         "de": "Time (minutes)",
         "fr": "Time (minutes)",
         "es": "Time (minutes)",
         "ar": "Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Minutes component of time taken",
+        "tr": "Geçen sürenin dakika bileşeni"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Seconds component of time taken",
       "label_i18n": {
         "en": "Time (seconds)",
-        "tr": "Time (seconds)",
+        "tr": "Süre (saniye)",
         "de": "Time (seconds)",
         "fr": "Time (seconds)",
         "es": "Time (seconds)",
         "ar": "Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Seconds component of time taken",
+        "tr": "Zamanın saniye bileşeni"
       }
     }
   ],

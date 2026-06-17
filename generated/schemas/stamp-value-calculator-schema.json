@@ -10,11 +10,15 @@
       "businessContext": "The monetary value of the contract or transaction document.",
       "label_i18n": {
         "en": "Document Value",
-        "tr": "Document Value",
+        "tr": "Belge Değeri",
         "de": "Document Value",
         "fr": "Document Value",
         "es": "Document Value",
         "ar": "Document Value"
+      },
+      "businessContext_i18n": {
+        "en": "The monetary value of the contract or transaction document.",
+        "tr": "Sözleşme veya işlem belgesinin parasal değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Applicable stamp duty percentage based on jurisdiction and document type.",
       "label_i18n": {
         "en": "Stamp Duty Rate",
-        "tr": "Stamp Duty Rate",
+        "tr": "Damga Vergisi Oranı",
         "de": "Stamp Duty Rate",
         "fr": "Stamp Duty Rate",
         "es": "Stamp Duty Rate",
         "ar": "Stamp Duty Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable stamp duty percentage based on jurisdiction and document type.",
+        "tr": "Yargı yetkisi ve belge türüne göre uygulanabilir damga vergisi yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fixed administrative fee for stamping, if any.",
       "label_i18n": {
         "en": "Fixed Fee",
-        "tr": "Fixed Fee",
+        "tr": "Sabit Ücret",
         "de": "Fixed Fee",
         "fr": "Fixed Fee",
         "es": "Fixed Fee",
         "ar": "Fixed Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed administrative fee for stamping, if any.",
+        "tr": "Varsa, damgalama için sabit idari ücret."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Minimum document value below which no stamp duty applies.",
       "label_i18n": {
         "en": "Exemption Threshold",
-        "tr": "Exemption Threshold",
+        "tr": "Muafiyet Eşiği",
         "de": "Exemption Threshold",
         "fr": "Exemption Threshold",
         "es": "Exemption Threshold",
         "ar": "Exemption Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum document value below which no stamp duty applies.",
+        "tr": "Altında damga vergisi uygulanmayan minimum belge değeri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of stamping instances for bulk calculations.",
       "label_i18n": {
         "en": "Number of Stamps",
-        "tr": "Number of Stamps",
+        "tr": "Damga Sayısı",
         "de": "Number of Stamps",
         "fr": "Number of Stamps",
         "es": "Number of Stamps",
         "ar": "Number of Stamps"
+      },
+      "businessContext_i18n": {
+        "en": "Number of stamping instances for bulk calculations.",
+        "tr": "Toplu hesaplamalar için damgalama örneği sayısı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Design pressure inside the vessel",
       "label_i18n": {
         "en": "Internal Pressure",
-        "tr": "Internal Pressure",
+        "tr": "İç Basınç",
         "de": "Internal Pressure",
         "fr": "Internal Pressure",
         "es": "Internal Pressure",
         "ar": "Internal Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Design pressure inside the vessel",
+        "tr": "Kap içi tasarım basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Inner radius of the cylindrical vessel",
       "label_i18n": {
         "en": "Inner Radius",
-        "tr": "Inner Radius",
+        "tr": "İç yarıçap",
         "de": "Inner Radius",
         "fr": "Inner Radius",
         "es": "Inner Radius",
         "ar": "Inner Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Inner radius of the cylindrical vessel",
+        "tr": "Silindirik kabın iç yarıçapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Thickness of the vessel wall",
       "label_i18n": {
         "en": "Wall Thickness",
-        "tr": "Wall Thickness",
+        "tr": "Duvar Kalınlığı (cm)",
         "de": "Wall Thickness",
         "fr": "Wall Thickness",
         "es": "Wall Thickness",
         "ar": "Wall Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the vessel wall",
+        "tr": "Kap cidar kalınlığı"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Allowable Stress",
         "es": "Allowable Stress",
         "ar": "Allowable Stress"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable stress of the material",
+        "tr": "Malzemenin izin verilen maksimum gerilmesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Efficiency of welded joints (0-1)",
       "label_i18n": {
         "en": "Joint Efficiency",
-        "tr": "Joint Efficiency",
+        "tr": "Birleştirme Verimi",
         "de": "Joint Efficiency",
         "fr": "Joint Efficiency",
         "es": "Joint Efficiency",
         "ar": "Joint Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of welded joints (0-1)",
+        "tr": "Kaynaklı birleştirme verimliliği (0-1)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional thickness for corrosion",
       "label_i18n": {
         "en": "Corrosion Allowance",
-        "tr": "Corrosion Allowance",
+        "tr": "Korozyon Payı",
         "de": "Corrosion Allowance",
         "fr": "Corrosion Allowance",
         "es": "Corrosion Allowance",
         "ar": "Corrosion Allowance"
+      },
+      "businessContext_i18n": {
+        "en": "Additional thickness for corrosion",
+        "tr": "Korozyon için ek kalınlık"
       }
     }
   ],

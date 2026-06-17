@@ -10,11 +10,15 @@
       "businessContext": "Temperature of the high-temperature heat source in Kelvin",
       "label_i18n": {
         "en": "Hot Reservoir Temperature (K)",
-        "tr": "Hot Reservoir Temperature (K)",
+        "tr": "Sıcak Rezervuar Sıcaklığı (K)",
         "de": "Hot Reservoir Temperature (K)",
         "fr": "Hot Reservoir Temperature (K)",
         "es": "Hot Reservoir Temperature (K)",
         "ar": "Hot Reservoir Temperature (K)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the high-temperature heat source in Kelvin",
+        "tr": "Yüksek sıcaklıktaki ısı kaynağının Kelvin cinsinden sıcaklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Temperature of the low-temperature heat sink in Kelvin",
       "label_i18n": {
         "en": "Cold Reservoir Temperature (K)",
-        "tr": "Cold Reservoir Temperature (K)",
+        "tr": "Soğuk Rezervuar Sıcaklığı (K)",
         "de": "Cold Reservoir Temperature (K)",
         "fr": "Cold Reservoir Temperature (K)",
         "es": "Cold Reservoir Temperature (K)",
         "ar": "Cold Reservoir Temperature (K)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the low-temperature heat sink in Kelvin",
+        "tr": "Düşük sıcaklıktaki ısı emicinin Kelvin cinsinden sıcaklığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Heat energy supplied to the engine per cycle or time interval",
       "label_i18n": {
         "en": "Heat Input (kJ)",
-        "tr": "Heat Input (kJ)",
+        "tr": "Isı Girişi (kJ)",
         "de": "Heat Input (kJ)",
         "fr": "Heat Input (kJ)",
         "es": "Heat Input (kJ)",
         "ar": "Heat Input (kJ)"
+      },
+      "businessContext_i18n": {
+        "en": "Heat energy supplied to the engine per cycle or time interval",
+        "tr": "Motorun çevrim veya zaman aralığı başına sağlanan ısı enerjisi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Net mechanical work produced by the engine",
       "label_i18n": {
         "en": "Net Work Output (kJ)",
-        "tr": "Net Work Output (kJ)",
+        "tr": "Net İş Çıkışı (kJ)",
         "de": "Net Work Output (kJ)",
         "fr": "Net Work Output (kJ)",
         "es": "Net Work Output (kJ)",
         "ar": "Net Work Output (kJ)"
+      },
+      "businessContext_i18n": {
+        "en": "Net mechanical work produced by the engine",
+        "tr": "Motor tarafından üretilen net mekanik iş"
       }
     }
   ],

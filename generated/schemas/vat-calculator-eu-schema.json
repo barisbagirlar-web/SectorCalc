@@ -10,11 +10,15 @@
       "businessContext": "The net price before VAT",
       "label_i18n": {
         "en": "Net Amount (EUR)",
-        "tr": "Net Amount (EUR)",
+        "tr": "Net Tutar (EUR)",
         "de": "Net Amount (EUR)",
         "fr": "Net Amount (EUR)",
         "es": "Net Amount (EUR)",
         "ar": "Net Amount (EUR)"
+      },
+      "businessContext_i18n": {
+        "en": "The net price before VAT",
+        "tr": "KDV öncesi net fiyat"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard VAT rate in the EU country (e.g., 20 for Germany)",
       "label_i18n": {
         "en": "VAT Rate (%)",
-        "tr": "VAT Rate (%)",
+        "tr": "KDV Oranı (%)",
         "de": "VAT Rate (%)",
         "fr": "VAT Rate (%)",
         "es": "VAT Rate (%)",
         "ar": "VAT Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard VAT rate in the EU country (e.g., 20 for Germany)",
+        "tr": "AB ülkesindeki standart KDV oranı (ör. Almanya için 20)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of units",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units",
+        "tr": "Birim sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Discount applied before VAT",
       "label_i18n": {
         "en": "Discount (%)",
-        "tr": "Discount (%)",
+        "tr": "İndirim (%)",
         "de": "Discount (%)",
         "fr": "Discount (%)",
         "es": "Discount (%)",
         "ar": "Discount (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Discount applied before VAT",
+        "tr": "KDV öncesi uygulanan indirim"
       }
     }
   ],

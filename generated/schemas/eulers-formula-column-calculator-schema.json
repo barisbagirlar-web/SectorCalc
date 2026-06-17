@@ -10,11 +10,15 @@
       "businessContext": "Material modulus of elasticity, e.g., 200000 MPa for steel.",
       "label_i18n": {
         "en": "Young's Modulus (E)",
-        "tr": "Young's Modulus (E)",
+        "tr": "Elastisite Modülü (E)",
         "de": "Young's Modulus (E)",
         "fr": "Young's Modulus (E)",
         "es": "Young's Modulus (E)",
         "ar": "Young's Modulus (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Material modulus of elasticity, e.g., 200000 MPa for steel.",
+        "tr": "Malzeme elastisite modülü, örn. çelik için 200000 MPa."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Second moment of area of the column cross-section.",
       "label_i18n": {
         "en": "Area Moment of Inertia (I)",
-        "tr": "Area Moment of Inertia (I)",
+        "tr": "Alan Atalet Momenti (I)",
         "de": "Area Moment of Inertia (I)",
         "fr": "Area Moment of Inertia (I)",
         "es": "Area Moment of Inertia (I)",
         "ar": "Area Moment of Inertia (I)"
+      },
+      "businessContext_i18n": {
+        "en": "Second moment of area of the column cross-section.",
+        "tr": "Kolon kesitinin ikinci alan momenti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Depends on end conditions: 1.0 for pinned-pinned, 0.5 for fixed-fixed, etc.",
       "label_i18n": {
         "en": "Effective Length Factor (K)",
-        "tr": "Effective Length Factor (K)",
+        "tr": "Etkili Uzunluk Faktörü (K)",
         "de": "Effective Length Factor (K)",
         "fr": "Effective Length Factor (K)",
         "es": "Effective Length Factor (K)",
         "ar": "Effective Length Factor (K)"
+      },
+      "businessContext_i18n": {
+        "en": "Depends on end conditions: 1.0 for pinned-pinned, 0.5 for fixed-fixed, etc.",
+        "tr": "Uç koşullarına bağlıdır: mafsallı-mafsallı için 1.0, ankastre-ankastre için 0.5, vb."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Unsupported length of the column.",
       "label_i18n": {
         "en": "Column Length (L)",
-        "tr": "Column Length (L)",
+        "tr": "Kolon Uzunluğu (L)",
         "de": "Column Length (L)",
         "fr": "Column Length (L)",
         "es": "Column Length (L)",
         "ar": "Column Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Unsupported length of the column.",
+        "tr": "Kolonun desteklenmeyen uzunluğu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cross-sectional area of the column for stress calculation.",
       "label_i18n": {
         "en": "Cross-sectional Area (A)",
-        "tr": "Cross-sectional Area (A)",
+        "tr": "Kesit Alanı (A)",
         "de": "Cross-sectional Area (A)",
         "fr": "Cross-sectional Area (A)",
         "es": "Cross-sectional Area (A)",
         "ar": "Cross-sectional Area (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional area of the column for stress calculation.",
+        "tr": "Gerilme hesabı için kolon kesit alanı."
       }
     }
   ],

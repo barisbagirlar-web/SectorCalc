@@ -10,11 +10,15 @@
       "businessContext": "Number of US oil barrels to convert",
       "label_i18n": {
         "en": "Barrels (US oil)",
-        "tr": "Barrels (US oil)",
+        "tr": "Varil (ABD petrol)",
         "de": "Barrels (US oil)",
         "fr": "Barrels (US oil)",
         "es": "Barrels (US oil)",
         "ar": "Barrels (US oil)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of US oil barrels to convert",
+        "tr": "Dönüştürülecek ABD petrol varili sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1=US oil (42 gal), 2=US liquid (31.5 gal), 3=UK imperial (36 gal)",
       "label_i18n": {
         "en": "Barrel type",
-        "tr": "Barrel type",
+        "tr": "Varil türü",
         "de": "Barrel type",
         "fr": "Barrel type",
         "es": "Barrel type",
         "ar": "Barrel type"
+      },
+      "businessContext_i18n": {
+        "en": "1=US oil (42 gal), 2=US liquid (31.5 gal), 3=UK imperial (36 gal)",
+        "tr": "1=ABD petrol (42 gal), 2=ABD sıvı (31,5 gal), 3=İngiltere imperial (36 gal)"
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

@@ -15,6 +15,10 @@
         "fr": "Load Mass",
         "es": "Load Mass",
         "ar": "Load Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the load to be supported",
+        "tr": "Desteklenecek yük kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Gravitational acceleration (standard 9.81 m/s²)",
       "label_i18n": {
         "en": "Gravity",
-        "tr": "Gravity",
+        "tr": "Yerçekimi",
         "de": "Gravity",
         "fr": "Gravity",
         "es": "Gravity",
         "ar": "Gravity"
+      },
+      "businessContext_i18n": {
+        "en": "Gravitational acceleration (standard 9.81 m/s²)",
+        "tr": "Yerçekimi ivmesi (standart 9,81 m/s²)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle of ropes/cables from horizontal",
       "label_i18n": {
         "en": "Angle from Horizontal",
-        "tr": "Angle from Horizontal",
+        "tr": "Yataydan Açı",
         "de": "Angle from Horizontal",
         "fr": "Angle from Horizontal",
         "es": "Angle from Horizontal",
         "ar": "Angle from Horizontal"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of ropes/cables from horizontal",
+        "tr": "Halat/kablo yataydan açısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of supporting ropes or cables",
       "label_i18n": {
         "en": "Number of Ropes",
-        "tr": "Number of Ropes",
+        "tr": "Halat Sayısı",
         "de": "Number of Ropes",
         "fr": "Number of Ropes",
         "es": "Number of Ropes",
         "ar": "Number of Ropes"
+      },
+      "businessContext_i18n": {
+        "en": "Number of supporting ropes or cables",
+        "tr": "Destekleyici halat veya kablo sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Engineering safety factor per relevant standards",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Engineering safety factor per relevant standards",
+        "tr": "İlgili standartlara göre mühendislik güvenlik faktörü"
       }
     }
   ],

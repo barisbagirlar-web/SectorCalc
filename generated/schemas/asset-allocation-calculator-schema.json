@@ -10,11 +10,15 @@
       "businessContext": "Total amount to allocate",
       "label_i18n": {
         "en": "Total Investment Amount",
-        "tr": "Total Investment Amount",
+        "tr": "Toplam Yatırım Tutarı",
         "de": "Total Investment Amount",
         "fr": "Total Investment Amount",
         "es": "Total Investment Amount",
         "ar": "Total Investment Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total amount to allocate",
+        "tr": "Tahsis edilecek toplam tutar"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage allocated to stocks",
       "label_i18n": {
         "en": "Stock Allocation (%)",
-        "tr": "Stock Allocation (%)",
+        "tr": "Hisse Senedi Tahsisi (%)",
         "de": "Stock Allocation (%)",
         "fr": "Stock Allocation (%)",
         "es": "Stock Allocation (%)",
         "ar": "Stock Allocation (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage allocated to stocks",
+        "tr": "Hisselere tahsis edilen yüzde"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage allocated to bonds",
       "label_i18n": {
         "en": "Bond Allocation (%)",
-        "tr": "Bond Allocation (%)",
+        "tr": "Tahvil Tahsisi (%)",
         "de": "Bond Allocation (%)",
         "fr": "Bond Allocation (%)",
         "es": "Bond Allocation (%)",
         "ar": "Bond Allocation (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage allocated to bonds",
+        "tr": "Tahvillere tahsis edilen yüzde"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage allocated to cash",
       "label_i18n": {
         "en": "Cash Allocation (%)",
-        "tr": "Cash Allocation (%)",
+        "tr": "Nakit Tahsisi (%)",
         "de": "Cash Allocation (%)",
         "fr": "Cash Allocation (%)",
         "es": "Cash Allocation (%)",
         "ar": "Cash Allocation (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage allocated to cash",
+        "tr": "Nakde tahsis edilen yüzde"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected annual return from stocks",
       "label_i18n": {
         "en": "Expected Stock Return (%)",
-        "tr": "Expected Stock Return (%)",
+        "tr": "Beklenen Hisse Senedi Getirisi (%)",
         "de": "Expected Stock Return (%)",
         "fr": "Expected Stock Return (%)",
         "es": "Expected Stock Return (%)",
         "ar": "Expected Stock Return (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual return from stocks",
+        "tr": "Hisselerden beklenen yıllık getiri"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Expected annual return from bonds",
       "label_i18n": {
         "en": "Expected Bond Return (%)",
-        "tr": "Expected Bond Return (%)",
+        "tr": "Beklenen Tahvil Getirisi (%)",
         "de": "Expected Bond Return (%)",
         "fr": "Expected Bond Return (%)",
         "es": "Expected Bond Return (%)",
         "ar": "Expected Bond Return (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual return from bonds",
+        "tr": "Tahvillerden beklenen yıllık getiri"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Expected annual return from cash",
       "label_i18n": {
         "en": "Cash Return (%)",
-        "tr": "Cash Return (%)",
+        "tr": "Nakit Getirisi (%)",
         "de": "Cash Return (%)",
         "fr": "Cash Return (%)",
         "es": "Cash Return (%)",
         "ar": "Cash Return (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual return from cash",
+        "tr": "Nakitten beklenen yıllık getiri"
       }
     }
   ],

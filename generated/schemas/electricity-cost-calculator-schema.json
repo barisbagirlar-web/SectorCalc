@@ -10,11 +10,15 @@
       "businessContext": "Average power draw of the equipment or facility in kilowatts.",
       "label_i18n": {
         "en": "Power Consumption",
-        "tr": "Power Consumption",
+        "tr": "Güç Tüketimi",
         "de": "Power Consumption",
         "fr": "Power Consumption",
         "es": "Power Consumption",
         "ar": "Power Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Average power draw of the equipment or facility in kilowatts.",
+        "tr": "Ekipmanın veya tesisin kilovat cinsinden ortalama güç tüketimi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of hours the equipment operates each day.",
       "label_i18n": {
         "en": "Operating Hours per Day",
-        "tr": "Operating Hours per Day",
+        "tr": "Günlük Çalışma Saati",
         "de": "Operating Hours per Day",
         "fr": "Operating Hours per Day",
         "es": "Operating Hours per Day",
         "ar": "Operating Hours per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of hours the equipment operates each day.",
+        "tr": "Ekipmanın her gün çalıştığı saat sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Typical number of operating days in a month.",
       "label_i18n": {
         "en": "Operating Days per Month",
-        "tr": "Operating Days per Month",
+        "tr": "Aylık Çalışma Günü",
         "de": "Operating Days per Month",
         "fr": "Operating Days per Month",
         "es": "Operating Days per Month",
         "ar": "Operating Days per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Typical number of operating days in a month.",
+        "tr": "Bir aydaki tipik çalışma günü sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost per kilowatt-hour of energy consumed.",
       "label_i18n": {
         "en": "Electricity Rate",
-        "tr": "Electricity Rate",
+        "tr": "Elektrik Tarifesi",
         "de": "Electricity Rate",
         "fr": "Electricity Rate",
         "es": "Electricity Rate",
         "ar": "Electricity Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per kilowatt-hour of energy consumed.",
+        "tr": "Tüketilen enerjinin kilovat-saat başına maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Highest average demand in kW during a 15-minute interval in the billing period. Set to 0 if no demand charge.",
       "label_i18n": {
         "en": "Peak Demand",
-        "tr": "Peak Demand",
+        "tr": "Pik Talep",
         "de": "Peak Demand",
         "fr": "Peak Demand",
         "es": "Peak Demand",
         "ar": "Peak Demand"
+      },
+      "businessContext_i18n": {
+        "en": "Highest average demand in kW during a 15-minute interval in the billing period. Set to 0 if no demand charge.",
+        "tr": "Fatura döneminde 15 dakikalık bir aralıkta kW cinsinden en yüksek ortalama talep. Talep ücreti yoksa 0 olarak ayarlayın."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost per kW of peak demand. Set to 0 if no demand charge.",
       "label_i18n": {
         "en": "Demand Charge Rate",
-        "tr": "Demand Charge Rate",
+        "tr": "Talep Ücreti Oranı",
         "de": "Demand Charge Rate",
         "fr": "Demand Charge Rate",
         "es": "Demand Charge Rate",
         "ar": "Demand Charge Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per kW of peak demand. Set to 0 if no demand charge.",
+        "tr": "Pik talep başına kW maliyeti. Talep ücreti yoksa 0 olarak ayarlayın."
       }
     }
   ],

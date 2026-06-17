@@ -10,11 +10,15 @@
       "businessContext": "Total distance covered on treadmill",
       "label_i18n": {
         "en": "Distance",
-        "tr": "Distance",
+        "tr": "Mesafe",
         "de": "Distance",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance covered on treadmill",
+        "tr": "Koşu bandında katedilen toplam mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Treadmill incline setting in percent grade (e.g., 5 for 5%)",
       "label_i18n": {
         "en": "Incline (%)",
-        "tr": "Incline (%)",
+        "tr": "Eğim (%)",
         "de": "Incline (%)",
         "fr": "Incline (%)",
         "es": "Incline (%)",
         "ar": "Incline (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Treadmill incline setting in percent grade (e.g., 5 for 5%)",
+        "tr": "Koşu bandı eğim ayarı yüzde olarak (örneğin %5 için 5)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "User body weight for calorie calculation",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "User body weight for calorie calculation",
+        "tr": "Kalori hesaplaması için kullanıcı vücut ağırlığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Treadmill belt speed in miles per hour",
       "label_i18n": {
         "en": "Speed",
-        "tr": "Speed",
+        "tr": "Hız",
         "de": "Speed",
         "fr": "Speed",
         "es": "Speed",
         "ar": "Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Treadmill belt speed in miles per hour",
+        "tr": "Koşu bandı hızı (mil/sa)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Duration of exercise",
       "label_i18n": {
         "en": "Time",
-        "tr": "Time",
+        "tr": "Zaman",
         "de": "Time",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of exercise",
+        "tr": "Egzersiz süresi"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Stagnation pressure at nozzle inlet",
       "label_i18n": {
         "en": "Total Pressure",
-        "tr": "Total Pressure",
+        "tr": "Toplam Basınç",
         "de": "Total Pressure",
         "fr": "Total Pressure",
         "es": "Total Pressure",
         "ar": "Total Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Stagnation pressure at nozzle inlet",
+        "tr": "Nozul girişinde durma basıncı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Stagnation temperature at nozzle inlet",
       "label_i18n": {
         "en": "Total Temperature",
-        "tr": "Total Temperature",
+        "tr": "Toplam Sıcaklık",
         "de": "Total Temperature",
         "fr": "Total Temperature",
         "es": "Total Temperature",
         "ar": "Total Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Stagnation temperature at nozzle inlet",
+        "tr": "Nozul girişindeki durma sıcaklığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cross-sectional area at the nozzle throat",
       "label_i18n": {
         "en": "Throat Area",
-        "tr": "Throat Area",
+        "tr": "Boğaz Alanı",
         "de": "Throat Area",
         "fr": "Throat Area",
         "es": "Throat Area",
         "ar": "Throat Area"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional area at the nozzle throat",
+        "tr": "Nozul boğazındaki kesit alanı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cross-sectional area at the nozzle exit",
       "label_i18n": {
         "en": "Exit Area",
-        "tr": "Exit Area",
+        "tr": "Çıkış Alanı",
         "de": "Exit Area",
         "fr": "Exit Area",
         "es": "Exit Area",
         "ar": "Exit Area"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional area at the nozzle exit",
+        "tr": "Nozul çıkışındaki kesit alanı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Specific gas constant for the working fluid (e.g., air=287)",
       "label_i18n": {
         "en": "Gas Constant (R)",
-        "tr": "Gas Constant (R)",
+        "tr": "Gaz Sabiti (R)",
         "de": "Gas Constant (R)",
         "fr": "Gas Constant (R)",
         "es": "Gas Constant (R)",
         "ar": "Gas Constant (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific gas constant for the working fluid (e.g., air=287)",
+        "tr": "Çalışma akışkanı için özgül gaz sabiti (örneğin hava=287)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Ratio of specific heats Cp/Cv",
       "label_i18n": {
         "en": "Specific Heat Ratio (γ)",
-        "tr": "Specific Heat Ratio (γ)",
+        "tr": "Özgül Isı Oranı (γ)",
         "de": "Specific Heat Ratio (γ)",
         "fr": "Specific Heat Ratio (γ)",
         "es": "Specific Heat Ratio (γ)",
         "ar": "Specific Heat Ratio (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of specific heats Cp/Cv",
+        "tr": "Özgül ısı oranı Cp/Cv"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Pressure of the environment at the nozzle exit (back pressure)",
       "label_i18n": {
         "en": "Ambient Pressure",
-        "tr": "Ambient Pressure",
+        "tr": "Ortam basıncı",
         "de": "Ambient Pressure",
         "fr": "Ambient Pressure",
         "es": "Ambient Pressure",
         "ar": "Ambient Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Pressure of the environment at the nozzle exit (back pressure)",
+        "tr": "Nozul çıkışındaki ortam basıncı (arka basınç)"
       }
     }
   ],

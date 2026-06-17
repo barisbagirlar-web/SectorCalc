@@ -10,11 +10,15 @@
       "businessContext": "The base price per night for the listing",
       "label_i18n": {
         "en": "Nightly Rate",
-        "tr": "Nightly Rate",
+        "tr": "Gecelik Ücret",
         "de": "Nightly Rate",
         "fr": "Nightly Rate",
         "es": "Nightly Rate",
         "ar": "Nightly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The base price per night for the listing",
+        "tr": "İlan için gece başına taban fiyat"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of stay",
       "label_i18n": {
         "en": "Number of Nights",
-        "tr": "Number of Nights",
+        "tr": "Gece Sayısı",
         "de": "Number of Nights",
         "fr": "Number of Nights",
         "es": "Number of Nights",
         "ar": "Number of Nights"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of stay",
+        "tr": "Konaklama süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "One-time cleaning fee charged per booking",
       "label_i18n": {
         "en": "Cleaning Fee",
-        "tr": "Cleaning Fee",
+        "tr": "Temizlik Ücreti",
         "de": "Cleaning Fee",
         "fr": "Cleaning Fee",
         "es": "Cleaning Fee",
         "ar": "Cleaning Fee"
+      },
+      "businessContext_i18n": {
+        "en": "One-time cleaning fee charged per booking",
+        "tr": "Rezervasyon başına alınan tek seferlik temizlik ücreti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Airbnb host service fee percentage",
       "label_i18n": {
         "en": "Service Fee Rate",
-        "tr": "Service Fee Rate",
+        "tr": "Hizmet Ücreti Oranı",
         "de": "Service Fee Rate",
         "fr": "Service Fee Rate",
         "es": "Service Fee Rate",
         "ar": "Service Fee Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Airbnb host service fee percentage",
+        "tr": "Airbnb ev sahibi hizmet ücreti yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Local occupancy / transient tax percentage",
       "label_i18n": {
         "en": "Occupancy Tax Rate",
-        "tr": "Occupancy Tax Rate",
+        "tr": "Konaklama Vergisi Oranı",
         "de": "Occupancy Tax Rate",
         "fr": "Occupancy Tax Rate",
         "es": "Occupancy Tax Rate",
         "ar": "Occupancy Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Local occupancy / transient tax percentage",
+        "tr": "Yerel konaklama / geçici vergi yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Fee per extra guest per night beyond base occupancy",
       "label_i18n": {
         "en": "Additional Guest Fee (per guest per night)",
-        "tr": "Additional Guest Fee (per guest per night)",
+        "tr": "Ek Misafir Ücreti (misafir başına gece başına)",
         "de": "Additional Guest Fee (per guest per night)",
         "fr": "Additional Guest Fee (per guest per night)",
         "es": "Additional Guest Fee (per guest per night)",
         "ar": "Additional Guest Fee (per guest per night)"
+      },
+      "businessContext_i18n": {
+        "en": "Fee per extra guest per night beyond base occupancy",
+        "tr": "Temel doluluk oranını aşan her ek misafir için gece başına ücret"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Number of guests exceeding the base occupancy (e.g., beyond 2)",
       "label_i18n": {
         "en": "Number of Extra Guests",
-        "tr": "Number of Extra Guests",
+        "tr": "Ek Misafir Sayısı",
         "de": "Number of Extra Guests",
         "fr": "Number of Extra Guests",
         "es": "Number of Extra Guests",
         "ar": "Number of Extra Guests"
+      },
+      "businessContext_i18n": {
+        "en": "Number of guests exceeding the base occupancy (e.g., beyond 2)",
+        "tr": "Temel doluluk oranını (ör. 2 kişi) aşan misafir sayısı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Percentage discount applied to the total (e.g., long-stay discount)",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage discount applied to the total (e.g., long-stay discount)",
+        "tr": "Toplam tutara uygulanan yüzde indirim (ör. uzun süreli konaklama indirimi)"
       }
     }
   ],

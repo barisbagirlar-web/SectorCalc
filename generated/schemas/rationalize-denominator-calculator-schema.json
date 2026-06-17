@@ -10,11 +10,15 @@
       "businessContext": "Value above the fraction line.",
       "label_i18n": {
         "en": "Numerator",
-        "tr": "Numerator",
+        "tr": "Pay",
         "de": "Numerator",
         "fr": "Numerator",
         "es": "Numerator",
         "ar": "Numerator"
+      },
+      "businessContext_i18n": {
+        "en": "Value above the fraction line.",
+        "tr": "Kesir çizgisinin üzerindeki değer."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Constant term in denominator (a + b√c).",
       "label_i18n": {
         "en": "Constant (a)",
-        "tr": "Constant (a)",
+        "tr": "Sabit (a)",
         "de": "Constant (a)",
         "fr": "Constant (a)",
         "es": "Constant (a)",
         "ar": "Constant (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term in denominator (a + b√c).",
+        "tr": "Paydadaki sabit terim (a + b√c)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Coefficient of the square root term in denominator.",
       "label_i18n": {
         "en": "Radical Coefficient (b)",
-        "tr": "Radical Coefficient (b)",
+        "tr": "Kök Katsayısı (b)",
         "de": "Radical Coefficient (b)",
         "fr": "Radical Coefficient (b)",
         "es": "Radical Coefficient (b)",
         "ar": "Radical Coefficient (b)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of the square root term in denominator.",
+        "tr": "Paydadaki kareköklü terimin katsayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Value under the square root (c).",
       "label_i18n": {
         "en": "Radicand (c)",
-        "tr": "Radicand (c)",
+        "tr": "Kök içi (c)",
         "de": "Radicand (c)",
         "fr": "Radicand (c)",
         "es": "Radicand (c)",
         "ar": "Radicand (c)"
+      },
+      "businessContext_i18n": {
+        "en": "Value under the square root (c).",
+        "tr": "Karekök altındaki değer (c)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Uncontrolled hypertension",
       "label_i18n": {
         "en": "Hypertension (SBP>160mmHg)",
-        "tr": "Hypertension (SBP>160mmHg)",
+        "tr": "Hipertansiyon (SBP>160mmHg)",
         "de": "Hypertension (SBP>160mmHg)",
         "fr": "Hypertension (SBP>160mmHg)",
         "es": "Hypertension (SBP>160mmHg)",
         "ar": "Hypertension (SBP>160mmHg)"
+      },
+      "businessContext_i18n": {
+        "en": "Uncontrolled hypertension",
+        "tr": "Kontrolsüz hipertansiyon"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Chronic dialysis, renal transplant, serum creatinine ≥2.26 mg/dL or ≥200 µmol/L",
       "label_i18n": {
         "en": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
-        "tr": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
+        "tr": "Anormal Böbrek Fonksiyonu (diyaliz, transplant, Cr>2.26mg/dL veya >200µmol/L)",
         "de": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
         "fr": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
         "es": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
         "ar": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)"
+      },
+      "businessContext_i18n": {
+        "en": "Chronic dialysis, renal transplant, serum creatinine ≥2.26 mg/dL or ≥200 µmol/L",
+        "tr": "Kronik diyaliz, böbrek nakli, serum kreatinin ≥2.26 mg/dL veya ≥200 µmol/L"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Chronic hepatic disease (cirrhosis) or biochemical evidence of significant hepatic derangement",
       "label_i18n": {
         "en": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
-        "tr": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
+        "tr": "Anormal Karaciğer Fonksiyonu (siroz, bilirubin >2x ÜSN, AST/ALT/ALP >3x ÜSN)",
         "de": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
         "fr": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
         "es": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
         "ar": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)"
+      },
+      "businessContext_i18n": {
+        "en": "Chronic hepatic disease (cirrhosis) or biochemical evidence of significant hepatic derangement",
+        "tr": "Kronik karaciğer hastalığı (siroz) veya önemli karaciğer bozukluğunun biyokimyasal kanıtı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Previous stroke, transient ischemic attack, or thromboembolism",
       "label_i18n": {
         "en": "Stroke History",
-        "tr": "Stroke History",
+        "tr": "İnme Öyküsü",
         "de": "Stroke History",
         "fr": "Stroke History",
         "es": "Stroke History",
         "ar": "Stroke History"
+      },
+      "businessContext_i18n": {
+        "en": "Previous stroke, transient ischemic attack, or thromboembolism",
+        "tr": "Önceki inme, geçici iskemik atak veya tromboembolizm"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "History of major bleeding or predisposition to bleeding (e.g., bleeding diathesis, anemia)",
       "label_i18n": {
         "en": "Bleeding History or Predisposition",
-        "tr": "Bleeding History or Predisposition",
+        "tr": "Kanama Öyküsü veya Yatkınlığı",
         "de": "Bleeding History or Predisposition",
         "fr": "Bleeding History or Predisposition",
         "es": "Bleeding History or Predisposition",
         "ar": "Bleeding History or Predisposition"
+      },
+      "businessContext_i18n": {
+        "en": "History of major bleeding or predisposition to bleeding (e.g., bleeding diathesis, anemia)",
+        "tr": "Majör kanama öyküsü veya kanamaya yatkınlık (örn. kanama diyatezi, anemi)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Labile international normalized ratio (INR), unstable or high INRs, or poor time in therapeutic range (<60%)",
       "label_i18n": {
         "en": "Labile INR (unstable/high, TTR <60%)",
-        "tr": "Labile INR (unstable/high, TTR <60%)",
+        "tr": "Değişken INR (dengesiz/yüksek, TTR <%60)",
         "de": "Labile INR (unstable/high, TTR <60%)",
         "fr": "Labile INR (unstable/high, TTR <60%)",
         "es": "Labile INR (unstable/high, TTR <60%)",
         "ar": "Labile INR (unstable/high, TTR <60%)"
+      },
+      "businessContext_i18n": {
+        "en": "Labile international normalized ratio (INR), unstable or high INRs, or poor time in therapeutic range (<60%)",
+        "tr": "Değişken uluslararası normalleştirilmiş oran (INR), dengesiz veya yüksek INR'ler veya terapötik aralıkta zayıf süre (<%60)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Age >65 years",
       "label_i18n": {
         "en": "Elderly (age >65 years)",
-        "tr": "Elderly (age >65 years)",
+        "tr": "Yaşlı (yaş >65 yıl)",
         "de": "Elderly (age >65 years)",
         "fr": "Elderly (age >65 years)",
         "es": "Elderly (age >65 years)",
         "ar": "Elderly (age >65 years)"
+      },
+      "businessContext_i18n": {
+        "en": "Age >65 years",
+        "tr": "Yaş >65 yıl"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Concomitant use of antiplatelet agents or non-steroidal anti-inflammatory drugs, or alcohol excess ≥8 drinks/week",
       "label_i18n": {
         "en": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
-        "tr": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
+        "tr": "İlaçlar/Alkol (antiplatelet ajanlar, NSAID'ler, alkol kötüye kullanımı ≥8 içki/hafta)",
         "de": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
         "fr": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
         "es": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
         "ar": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)"
+      },
+      "businessContext_i18n": {
+        "en": "Concomitant use of antiplatelet agents or non-steroidal anti-inflammatory drugs, or alcohol excess ≥8 drinks/week",
+        "tr": "Antiplatelet ajanların veya non-steroid antiinflamatuar ilaçların eşzamanlı kullanımı veya aşırı alkol tüketimi ≥8 içki/hafta"
       }
     }
   ],

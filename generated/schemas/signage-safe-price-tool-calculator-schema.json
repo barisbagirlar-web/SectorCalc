@@ -24,10 +24,12 @@
       "max": 100000,
       "businessContext": "Direct cost of raw materials per signage unit, including substrate, ink, and laminates.",
       "label_i18n": {
-        "en": "Material Cost per Unit"
+        "en": "Material Cost per Unit",
+        "tr": "Birim Başına Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct cost of raw materials per signage unit, including substrate, ink, and laminates."
+        "en": "Direct cost of raw materials per signage unit, including substrate, ink, and laminates.",
+        "tr": "Tabela birimi başına doğrudan hammadde maliyeti (alt tabaka, mürekkep ve laminat dahil)."
       }
     },
     {
@@ -40,10 +42,12 @@
       "max": 100,
       "businessContext": "Standard direct labor hours required to produce one signage unit, based on time studies.",
       "label_i18n": {
-        "en": "Labor Hours per Unit"
+        "en": "Labor Hours per Unit",
+        "tr": "Birim Başına İşçilik Saati"
       },
       "businessContext_i18n": {
-        "en": "Standard direct labor hours required to produce one signage unit, based on time studies."
+        "en": "Standard direct labor hours required to produce one signage unit, based on time studies.",
+        "tr": "Zaman etütlerine dayalı olarak bir tabela birimi üretmek için gereken standart doğrudan işçilik saati."
       }
     },
     {
@@ -56,10 +60,12 @@
       "max": 200,
       "businessContext": "Fully burdened hourly wage including benefits, taxes, and overhead allocation.",
       "label_i18n": {
-        "en": "Labor Rate per Hour"
+        "en": "Labor Rate per Hour",
+        "tr": "Saatlik İşçilik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Fully burdened hourly wage including benefits, taxes, and overhead allocation."
+        "en": "Fully burdened hourly wage including benefits, taxes, and overhead allocation.",
+        "tr": "Yan haklar, vergiler ve genel gider dağıtımı dahil tam yüklü saatlik ücret."
       }
     },
     {
@@ -72,10 +78,12 @@
       "max": 100,
       "businessContext": "Percentage applied to direct costs to cover facility, equipment, and administrative overhead.",
       "label_i18n": {
-        "en": "Overhead Rate"
+        "en": "Overhead Rate",
+        "tr": "Genel gider oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage applied to direct costs to cover facility, equipment, and administrative overhead."
+        "en": "Percentage applied to direct costs to cover facility, equipment, and administrative overhead.",
+        "tr": "Tesis, ekipman ve idari genel giderleri karşılamak için doğrudan maliyetlere uygulanan yüzde."
       }
     },
     {
@@ -93,10 +101,12 @@
       ],
       "businessContext": "Adjusts labor and waste factors based on design complexity per ISO 9001 process variation guidelines.",
       "label_i18n": {
-        "en": "Complexity Factor"
+        "en": "Complexity Factor",
+        "tr": "Karmaşıklık Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Adjusts labor and waste factors based on design complexity per ISO 9001 process variation guidelines."
+        "en": "Adjusts labor and waste factors based on design complexity per ISO 9001 process variation guidelines.",
+        "tr": "ISO 9001 proses varyasyon kılavuzlarına göre tasarım karmaşıklığına bağlı olarak işçilik ve fire faktörlerini ayarlar."
       }
     },
     {
@@ -114,10 +124,12 @@
       ],
       "businessContext": "Defines inspection rigor and rework allowance based on Six Sigma quality levels.",
       "label_i18n": {
-        "en": "Quality Level"
+        "en": "Quality Level",
+        "tr": "Kalite Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Defines inspection rigor and rework allowance based on Six Sigma quality levels."
+        "en": "Defines inspection rigor and rework allowance based on Six Sigma quality levels.",
+        "tr": "Altı Sigma kalite seviyelerine göre muayene titizliğini ve yeniden işleme payını tanımlar."
       }
     },
     {
@@ -130,10 +142,12 @@
       "max": 100000,
       "businessContext": "Total number of signage units in the order, affecting volume discounts and setup amortization.",
       "label_i18n": {
-        "en": "Order Quantity"
+        "en": "Order Quantity",
+        "tr": "Sipariş Miktarı"
       },
       "businessContext_i18n": {
-        "en": "Total number of signage units in the order, affecting volume discounts and setup amortization."
+        "en": "Total number of signage units in the order, affecting volume discounts and setup amortization.",
+        "tr": "Siparişteki toplam tabela birimi sayısı, hacim indirimlerini ve kurulum amortismanını etkiler."
       }
     },
     {
@@ -146,10 +160,12 @@
       "max": 50,
       "businessContext": "Expected material waste percentage due to setup, trimming, and defects, aligned with Lean manufacturing targets.",
       "label_i18n": {
-        "en": "Waste Factor"
+        "en": "Waste Factor",
+        "tr": "Atık Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Expected material waste percentage due to setup, trimming, and defects, aligned with Lean manufacturing targets."
+        "en": "Expected material waste percentage due to setup, trimming, and defects, aligned with Lean manufacturing targets.",
+        "tr": "Kurulum, düzeltme ve kusurlar nedeniyle beklenen malzeme fire yüzdesi, Yalın üretim hedefleriyle uyumludur."
       }
     }
   ],

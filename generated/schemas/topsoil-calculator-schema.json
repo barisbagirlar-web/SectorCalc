@@ -10,11 +10,15 @@
       "businessContext": "Length of the area to cover with topsoil",
       "label_i18n": {
         "en": "Length",
-        "tr": "Length",
+        "tr": "Uzunluk",
         "de": "Length",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the area to cover with topsoil",
+        "tr": "Üst toprakla kaplanacak alanın uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Width of the area",
       "label_i18n": {
         "en": "Width",
-        "tr": "Width",
+        "tr": "Genişlik",
         "de": "Width",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the area",
+        "tr": "Alanın genişliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Desired topsoil depth",
       "label_i18n": {
         "en": "Depth",
-        "tr": "Depth",
+        "tr": "Derinlik",
         "de": "Depth",
         "fr": "Depth",
         "es": "Depth",
         "ar": "Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Desired topsoil depth",
+        "tr": "İstenen üst toprak derinliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Bulk density of topsoil for weight estimation",
       "label_i18n": {
         "en": "Bulk Density",
-        "tr": "Bulk Density",
+        "tr": "Yığın yoğunluğu",
         "de": "Bulk Density",
         "fr": "Bulk Density",
         "es": "Bulk Density",
         "ar": "Bulk Density"
+      },
+      "businessContext_i18n": {
+        "en": "Bulk density of topsoil for weight estimation",
+        "tr": "Ağırlık tahmini için üst toprağın yığın yoğunluğu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Purchase price of topsoil per cubic meter",
       "label_i18n": {
         "en": "Cost per Unit Volume",
-        "tr": "Cost per Unit Volume",
+        "tr": "Birim Hacim Başına Maliyet",
         "de": "Cost per Unit Volume",
         "fr": "Cost per Unit Volume",
         "es": "Cost per Unit Volume",
         "ar": "Cost per Unit Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price of topsoil per cubic meter",
+        "tr": "Metreküp başına üst toprak satın alma fiyatı"
       }
     }
   ],

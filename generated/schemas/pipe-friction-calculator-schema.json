@@ -10,11 +10,15 @@
       "businessContext": "Length of the straight pipe section",
       "label_i18n": {
         "en": "Pipe Length",
-        "tr": "Pipe Length",
+        "tr": "Boru Uzunluğu",
         "de": "Pipe Length",
         "fr": "Pipe Length",
         "es": "Pipe Length",
         "ar": "Pipe Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the straight pipe section",
+        "tr": "Düz boru bölümünün uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Inside diameter of the pipe",
       "label_i18n": {
         "en": "Internal Diameter",
-        "tr": "Internal Diameter",
+        "tr": "İç Çap",
         "de": "Internal Diameter",
         "fr": "Internal Diameter",
         "es": "Internal Diameter",
         "ar": "Internal Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inside diameter of the pipe",
+        "tr": "Boru iç çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Volumetric flow rate of the fluid",
       "label_i18n": {
         "en": "Flow Rate",
-        "tr": "Flow Rate",
+        "tr": "Debi",
         "de": "Flow Rate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of the fluid",
+        "tr": "Akışkanın hacimsel debisi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Surface roughness of the pipe material (e.g., 0.045 for commercial steel)",
       "label_i18n": {
         "en": "Pipe Roughness",
-        "tr": "Pipe Roughness",
+        "tr": "Boru Pürüzlülüğü",
         "de": "Pipe Roughness",
         "fr": "Pipe Roughness",
         "es": "Pipe Roughness",
         "ar": "Pipe Roughness"
+      },
+      "businessContext_i18n": {
+        "en": "Surface roughness of the pipe material (e.g., 0.045 for commercial steel)",
+        "tr": "Boru malzemesinin yüzey pürüzlülüğü (örneğin ticari çelik için 0.045)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Density of the fluid (e.g., 1000 for water at 20°C)",
       "label_i18n": {
         "en": "Fluid Density",
-        "tr": "Fluid Density",
+        "tr": "Akışkan Yoğunluğu",
         "de": "Fluid Density",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the fluid (e.g., 1000 for water at 20°C)",
+        "tr": "Akışkanın yoğunluğu (örneğin 20°C'de su için 1000)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Dynamic viscosity of the fluid (e.g., 0.001 for water at 20°C)",
       "label_i18n": {
         "en": "Dynamic Viscosity",
-        "tr": "Dynamic Viscosity",
+        "tr": "Dinamik viskozite",
         "de": "Dynamic Viscosity",
         "fr": "Dynamic Viscosity",
         "es": "Dynamic Viscosity",
         "ar": "Dynamic Viscosity"
+      },
+      "businessContext_i18n": {
+        "en": "Dynamic viscosity of the fluid (e.g., 0.001 for water at 20°C)",
+        "tr": "Akışkanın dinamik viskozitesi (örneğin 20°C'de su için 0.001)"
       }
     }
   ],

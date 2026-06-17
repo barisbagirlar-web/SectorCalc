@@ -10,11 +10,15 @@
       "businessContext": "Number of defect-free parts produced during the planned production time.",
       "label_i18n": {
         "en": "Good Parts Produced",
-        "tr": "Good Parts Produced",
+        "tr": "Üretilen İyi Parça Sayısı",
         "de": "Good Parts Produced",
         "fr": "Good Parts Produced",
         "es": "Good Parts Produced",
         "ar": "Good Parts Produced"
+      },
+      "businessContext_i18n": {
+        "en": "Number of defect-free parts produced during the planned production time.",
+        "tr": "Planlanan üretim süresinde üretilen hatasız parça sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total parts produced including defective ones.",
       "label_i18n": {
         "en": "Total Parts Produced",
-        "tr": "Total Parts Produced",
+        "tr": "Üretilen Toplam Parça",
         "de": "Total Parts Produced",
         "fr": "Total Parts Produced",
         "es": "Total Parts Produced",
         "ar": "Total Parts Produced"
+      },
+      "businessContext_i18n": {
+        "en": "Total parts produced including defective ones.",
+        "tr": "Hatalı olanlar dahil üretilen toplam parça sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The theoretical fastest time to produce one part.",
       "label_i18n": {
         "en": "Ideal Cycle Time",
-        "tr": "Ideal Cycle Time",
+        "tr": "İdeal Çevrim Süresi",
         "de": "Ideal Cycle Time",
         "fr": "Ideal Cycle Time",
         "es": "Ideal Cycle Time",
         "ar": "Ideal Cycle Time"
+      },
+      "businessContext_i18n": {
+        "en": "The theoretical fastest time to produce one part.",
+        "tr": "Bir parçayı üretmek için teorik en hızlı süre."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total scheduled production time for the shift or period.",
       "label_i18n": {
         "en": "Planned Production Time",
-        "tr": "Planned Production Time",
+        "tr": "Planlanan Üretim Süresi",
         "de": "Planned Production Time",
         "fr": "Planned Production Time",
         "es": "Planned Production Time",
         "ar": "Planned Production Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total scheduled production time for the shift or period.",
+        "tr": "Vardiya veya dönem için planlanan toplam üretim süresi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Unplanned and planned stoppages during the planned production time.",
       "label_i18n": {
         "en": "Total Downtime",
-        "tr": "Total Downtime",
+        "tr": "Toplam Durma Süresi",
         "de": "Total Downtime",
         "fr": "Total Downtime",
         "es": "Total Downtime",
         "ar": "Total Downtime"
+      },
+      "businessContext_i18n": {
+        "en": "Unplanned and planned stoppages during the planned production time.",
+        "tr": "Planlanan üretim süresi içindeki plansız ve planlı duruşlar."
       }
     }
   ],

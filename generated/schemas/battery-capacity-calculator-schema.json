@@ -10,11 +10,15 @@
       "businessContext": "Total power consumption of the load",
       "label_i18n": {
         "en": "Load Power",
-        "tr": "Load Power",
+        "tr": "Yük Gücü",
         "de": "Load Power",
         "fr": "Load Power",
         "es": "Load Power",
         "ar": "Load Power"
+      },
+      "businessContext_i18n": {
+        "en": "Total power consumption of the load",
+        "tr": "Yükün toplam güç tüketimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired backup time",
       "label_i18n": {
         "en": "Backup Time",
-        "tr": "Backup Time",
+        "tr": "Yedekleme Süresi",
         "de": "Backup Time",
         "fr": "Backup Time",
         "es": "Backup Time",
         "ar": "Backup Time"
+      },
+      "businessContext_i18n": {
+        "en": "Desired backup time",
+        "tr": "İstenen yedekleme süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Nominal voltage of battery bank",
       "label_i18n": {
         "en": "System Voltage",
-        "tr": "System Voltage",
+        "tr": "Sistem Gerilimi",
         "de": "System Voltage",
         "fr": "System Voltage",
         "es": "System Voltage",
         "ar": "System Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal voltage of battery bank",
+        "tr": "Akü bankasının nominal gerilimi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Combined efficiency of inverter and cabling (0-1)",
       "label_i18n": {
         "en": "System Efficiency",
-        "tr": "System Efficiency",
+        "tr": "Sistem Verimliliği",
         "de": "System Efficiency",
         "fr": "System Efficiency",
         "es": "System Efficiency",
         "ar": "System Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Combined efficiency of inverter and cabling (0-1)",
+        "tr": "İnvertör ve kablo kombinasyon verimliliği (0-1)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum discharge depth (e.g., 0.8 means 80% usable)",
       "label_i18n": {
         "en": "Depth of Discharge (DoD)",
-        "tr": "Depth of Discharge (DoD)",
+        "tr": "Deşarj Derinliği (DoD)",
         "de": "Depth of Discharge (DoD)",
         "fr": "Depth of Discharge (DoD)",
         "es": "Depth of Discharge (DoD)",
         "ar": "Depth of Discharge (DoD)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum discharge depth (e.g., 0.8 means 80% usable)",
+        "tr": "Maksimum deşarj derinliği (örn. 0,8 %80 kullanılabilir anlamına gelir)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total area to be painted in square meters.",
       "label_i18n": {
         "en": "Area to Paint",
-        "tr": "Area to Paint",
+        "tr": "Boyanacak Alan",
         "de": "Area to Paint",
         "fr": "Area to Paint",
         "es": "Area to Paint",
         "ar": "Area to Paint"
+      },
+      "businessContext_i18n": {
+        "en": "Total area to be painted in square meters.",
+        "tr": "Metrekare cinsinden boyanacak toplam alan."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of paint coats to apply.",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Number of Coats",
+        "tr": "Kat Sayısı",
         "de": "Number of Coats",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
+      },
+      "businessContext_i18n": {
+        "en": "Number of paint coats to apply.",
+        "tr": "Uygulanacak boya kat sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Manufacturer's stated coverage in m² per liter.",
       "label_i18n": {
         "en": "Coverage per Liter",
-        "tr": "Coverage per Liter",
+        "tr": "Litre Başına Kaplama",
         "de": "Coverage per Liter",
         "fr": "Coverage per Liter",
         "es": "Coverage per Liter",
         "ar": "Coverage per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturer's stated coverage in m² per liter.",
+        "tr": "Üreticinin belirttiği, m²/litre cinsinden kaplama alanı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected paint wastage as percentage (e.g., overspray, spillage).",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Expected paint wastage as percentage (e.g., overspray, spillage).",
+        "tr": "Beklenen boya israfı yüzdesi (örneğin, fazla püskürtme, dökülme)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Multiplier for rough surfaces (1.0=smooth, 1.5=rough).",
       "label_i18n": {
         "en": "Surface Roughness Factor",
-        "tr": "Surface Roughness Factor",
+        "tr": "Yüzey Pürüzlülük Faktörü",
         "de": "Surface Roughness Factor",
         "fr": "Surface Roughness Factor",
         "es": "Surface Roughness Factor",
         "ar": "Surface Roughness Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for rough surfaces (1.0=smooth, 1.5=rough).",
+        "tr": "Pürüzlü yüzeyler için çarpan (1.0=pürüzsüz, 1.5=pürüzlü)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost of paint per liter in local currency.",
       "label_i18n": {
         "en": "Paint Price per Liter",
-        "tr": "Paint Price per Liter",
+        "tr": "Litre Başına Boya Fiyatı",
         "de": "Paint Price per Liter",
         "fr": "Paint Price per Liter",
         "es": "Paint Price per Liter",
         "ar": "Paint Price per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of paint per liter in local currency.",
+        "tr": "Yerel para birimi cinsinden litre başına boya maliyeti."
       }
     }
   ],

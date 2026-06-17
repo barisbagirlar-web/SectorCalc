@@ -10,11 +10,15 @@
       "businessContext": "Percentage of defective products",
       "label_i18n": {
         "en": "Defect Rate",
-        "tr": "Defect Rate",
+        "tr": "Fire Oranı",
         "de": "Defect Rate",
         "fr": "Defect Rate",
         "es": "Defect Rate",
         "ar": "Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of defective products",
+        "tr": "Hatalı ürün yüzdesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of deliveries completed on time",
       "label_i18n": {
         "en": "On-Time Delivery Rate",
-        "tr": "On-Time Delivery Rate",
+        "tr": "Zamanında Teslimat Oranı",
         "de": "On-Time Delivery Rate",
         "fr": "On-Time Delivery Rate",
         "es": "On-Time Delivery Rate",
         "ar": "On-Time Delivery Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of deliveries completed on time",
+        "tr": "Zamanında tamamlanan teslimatların yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Actual production rate",
       "label_i18n": {
         "en": "Actual Productivity",
-        "tr": "Actual Productivity",
+        "tr": "Gerçek Verimlilik",
         "de": "Actual Productivity",
         "fr": "Actual Productivity",
         "es": "Actual Productivity",
         "ar": "Actual Productivity"
+      },
+      "businessContext_i18n": {
+        "en": "Actual production rate",
+        "tr": "Gerçek üretim hızı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Target production rate",
       "label_i18n": {
         "en": "Target Productivity",
-        "tr": "Target Productivity",
+        "tr": "Hedef Verimlilik",
         "de": "Target Productivity",
         "fr": "Target Productivity",
         "es": "Target Productivity",
         "ar": "Target Productivity"
+      },
+      "businessContext_i18n": {
+        "en": "Target production rate",
+        "tr": "Hedef üretim hızı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of safety incidents (each deducts 10 points)",
       "label_i18n": {
         "en": "Safety Incidents",
-        "tr": "Safety Incidents",
+        "tr": "Güvenlik Olayları",
         "de": "Safety Incidents",
         "fr": "Safety Incidents",
         "es": "Safety Incidents",
         "ar": "Safety Incidents"
+      },
+      "businessContext_i18n": {
+        "en": "Number of safety incidents (each deducts 10 points)",
+        "tr": "Güvenlik olayı sayısı (her biri 10 puan düşer)"
       }
     }
   ],

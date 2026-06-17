@@ -10,11 +10,15 @@
       "businessContext": "Standard daily operating hours outside Ramadan.",
       "label_i18n": {
         "en": "Normal Daily Working Hours",
-        "tr": "Normal Daily Working Hours",
+        "tr": "Normal Günlük Çalışma Saatleri",
         "de": "Normal Daily Working Hours",
         "fr": "Normal Daily Working Hours",
         "es": "Normal Daily Working Hours",
         "ar": "Normal Daily Working Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Standard daily operating hours outside Ramadan.",
+        "tr": "Ramazan dışı standart günlük çalışma saatleri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Reduced daily operating hours during Ramadan.",
       "label_i18n": {
         "en": "Ramadan Daily Working Hours",
-        "tr": "Ramadan Daily Working Hours",
+        "tr": "Ramazan Günlük Çalışma Saatleri",
         "de": "Ramadan Daily Working Hours",
         "fr": "Ramadan Daily Working Hours",
         "es": "Ramadan Daily Working Hours",
         "ar": "Ramadan Daily Working Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Reduced daily operating hours during Ramadan.",
+        "tr": "Ramazan boyunca azaltılmış günlük çalışma saatleri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total number of working days in the month of Ramadan.",
       "label_i18n": {
         "en": "Working Days in Ramadan",
-        "tr": "Working Days in Ramadan",
+        "tr": "Ramazan'da Çalışma Günleri",
         "de": "Working Days in Ramadan",
         "fr": "Working Days in Ramadan",
         "es": "Working Days in Ramadan",
         "ar": "Working Days in Ramadan"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of working days in the month of Ramadan.",
+        "tr": "Ramazan ayındaki toplam çalışma günü sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average electrical power demand while factory is operating.",
       "label_i18n": {
         "en": "Energy Consumption Rate",
-        "tr": "Energy Consumption Rate",
+        "tr": "Enerji Tüketim Oranı",
         "de": "Energy Consumption Rate",
         "fr": "Energy Consumption Rate",
         "es": "Energy Consumption Rate",
         "ar": "Energy Consumption Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average electrical power demand while factory is operating.",
+        "tr": "Fabrika çalışırken ortalama elektrik güç talebi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of electricity per kilowatt-hour.",
       "label_i18n": {
         "en": "Energy Cost per kWh",
-        "tr": "Energy Cost per kWh",
+        "tr": "kWh başına Enerji Maliyeti",
         "de": "Energy Cost per kWh",
         "fr": "Energy Cost per kWh",
         "es": "Energy Cost per kWh",
         "ar": "Energy Cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kilowatt-hour.",
+        "tr": "Kilovatsaat başına elektrik maliyeti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Carbon dioxide emission per kilowatt-hour consumed from grid.",
       "label_i18n": {
         "en": "CO₂ Emission Factor",
-        "tr": "CO₂ Emission Factor",
+        "tr": "CO₂ Emisyon Faktörü",
         "de": "CO₂ Emission Factor",
         "fr": "CO₂ Emission Factor",
         "es": "CO₂ Emission Factor",
         "ar": "CO₂ Emission Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Carbon dioxide emission per kilowatt-hour consumed from grid.",
+        "tr": "Şebekeden tüketilen kilovatsaat başına karbondioksit emisyonu."
       }
     }
   ],

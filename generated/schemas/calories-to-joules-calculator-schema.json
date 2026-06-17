@@ -10,11 +10,15 @@
       "businessContext": "The amount of energy in calories to convert.",
       "label_i18n": {
         "en": "Calorie Amount",
-        "tr": "Calorie Amount",
+        "tr": "Kalori Miktarı",
         "de": "Calorie Amount",
         "fr": "Calorie Amount",
         "es": "Calorie Amount",
         "ar": "Calorie Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of energy in calories to convert.",
+        "tr": "Dönüştürülecek kalori cinsinden enerji miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard thermochemical conversion factor. Adjust for specific calorie definitions.",
       "label_i18n": {
         "en": "Conversion Factor (J/cal)",
-        "tr": "Conversion Factor (J/cal)",
+        "tr": "Dönüşüm Faktörü (J/cal)",
         "de": "Conversion Factor (J/cal)",
         "fr": "Conversion Factor (J/cal)",
         "es": "Conversion Factor (J/cal)",
         "ar": "Conversion Factor (J/cal)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard thermochemical conversion factor. Adjust for specific calorie definitions.",
+        "tr": "Standart termokimyasal dönüşüm faktörü. Belirli kalori tanımları için ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of identical items to convert total energy.",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical items to convert total energy.",
+        "tr": "Toplam enerjiyi dönüştürmek için aynı öğelerin sayısı."
       }
     }
   ],

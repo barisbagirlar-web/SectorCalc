@@ -10,11 +10,15 @@
       "businessContext": "UV Index at the location (0-11+, typically from weather service)",
       "label_i18n": {
         "en": "UV Index",
-        "tr": "UV Index",
+        "tr": "UV İndeksi",
         "de": "UV Index",
         "fr": "UV Index",
         "es": "UV Index",
         "ar": "UV Index"
+      },
+      "businessContext_i18n": {
+        "en": "UV Index at the location (0-11+, typically from weather service)",
+        "tr": "Konumdaki UV İndeksi (0-11+, genellikle hava durumu servisinden)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Duration of sun exposure in minutes",
       "label_i18n": {
         "en": "Exposure Time",
-        "tr": "Exposure Time",
+        "tr": "Maruziyet Süresi",
         "de": "Exposure Time",
         "fr": "Exposure Time",
         "es": "Exposure Time",
         "ar": "Exposure Time"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of sun exposure in minutes",
+        "tr": "Güneşe maruz kalma süresi (dakika)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of body surface area exposed (e.g., face and hands ~10%, full body ~100%)",
       "label_i18n": {
         "en": "Body Area Exposed",
-        "tr": "Body Area Exposed",
+        "tr": "Maruz Kalan Vücut Alanı",
         "de": "Body Area Exposed",
         "fr": "Body Area Exposed",
         "es": "Body Area Exposed",
         "ar": "Body Area Exposed"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of body surface area exposed (e.g., face and hands ~10%, full body ~100%)",
+        "tr": "Maruz kalan vücut yüzey alanı yüzdesi (ör. yüz ve eller ~%10, tüm vücut ~%100)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fitzpatrick skin type (1=very fair, 6=very dark)",
       "label_i18n": {
         "en": "Skin Type (Fitzpatrick)",
-        "tr": "Skin Type (Fitzpatrick)",
+        "tr": "Cilt Tipi (Fitzpatrick)",
         "de": "Skin Type (Fitzpatrick)",
         "fr": "Skin Type (Fitzpatrick)",
         "es": "Skin Type (Fitzpatrick)",
         "ar": "Skin Type (Fitzpatrick)"
+      },
+      "businessContext_i18n": {
+        "en": "Fitzpatrick skin type (1=very fair, 6=very dark)",
+        "tr": "Fitzpatrick cilt tipi (1=çok açık, 6=çok koyu)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage of sky covered by clouds (0=clear, 100=overcast)",
       "label_i18n": {
         "en": "Cloud Cover",
-        "tr": "Cloud Cover",
+        "tr": "Bulut Örtüsü",
         "de": "Cloud Cover",
         "fr": "Cloud Cover",
         "es": "Cloud Cover",
         "ar": "Cloud Cover"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of sky covered by clouds (0=clear, 100=overcast)",
+        "tr": "Gökyüzünün bulutlarla kaplı yüzdesi (0=açık, 100=kapalı)"
       }
     }
   ],

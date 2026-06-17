@@ -10,11 +10,15 @@
       "businessContext": "The total amount spent in the transaction.",
       "label_i18n": {
         "en": "Purchase Amount",
-        "tr": "Purchase Amount",
+        "tr": "Satın Alma Tutarı",
         "de": "Purchase Amount",
         "fr": "Purchase Amount",
         "es": "Purchase Amount",
         "ar": "Purchase Amount"
+      },
+      "businessContext_i18n": {
+        "en": "The total amount spent in the transaction.",
+        "tr": "İşlemde harcanan toplam tutar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Points earned per unit of currency spent before multipliers.",
       "label_i18n": {
         "en": "Base Points Rate",
-        "tr": "Base Points Rate",
+        "tr": "Temel Puan Oranı",
         "de": "Base Points Rate",
         "fr": "Base Points Rate",
         "es": "Base Points Rate",
         "ar": "Base Points Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Points earned per unit of currency spent before multipliers.",
+        "tr": "Çarpanlar öncesinde birim para başına kazanılan puan."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiplier based on customer loyalty tier (e.g., 1 for base, 1.5 for silver, 2 for gold).",
       "label_i18n": {
         "en": "Tier Multiplier",
-        "tr": "Tier Multiplier",
+        "tr": "Seviye Çarpanı",
         "de": "Tier Multiplier",
         "fr": "Tier Multiplier",
         "es": "Tier Multiplier",
         "ar": "Tier Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier based on customer loyalty tier (e.g., 1 for base, 1.5 for silver, 2 for gold).",
+        "tr": "Müşteri sadakat seviyesine göre çarpan (ör. 1 taban, 1.5 gümüş, 2 altın)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional flat bonus points from promotions or campaigns.",
       "label_i18n": {
         "en": "Bonus Points",
-        "tr": "Bonus Points",
+        "tr": "Bonus Puanlar",
         "de": "Bonus Points",
         "fr": "Bonus Points",
         "es": "Bonus Points",
         "ar": "Bonus Points"
+      },
+      "businessContext_i18n": {
+        "en": "Additional flat bonus points from promotions or campaigns.",
+        "tr": "Promosyon veya kampanyalardan gelen ek sabit puanlar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum points that can be earned in this transaction; 0 for no cap.",
       "label_i18n": {
         "en": "Points Cap",
-        "tr": "Points Cap",
+        "tr": "Puan Sınırı",
         "de": "Points Cap",
         "fr": "Points Cap",
         "es": "Points Cap",
         "ar": "Points Cap"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum points that can be earned in this transaction; 0 for no cap.",
+        "tr": "Bu işlemde kazanılabilecek maksimum puan; sınır yoksa 0."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Value of one point when redeemed (e.g., 0.01 means 1 point = 0.01 currency).",
       "label_i18n": {
         "en": "Points to Currency Conversion",
-        "tr": "Points to Currency Conversion",
+        "tr": "Puan-Para Dönüşümü",
         "de": "Points to Currency Conversion",
         "fr": "Points to Currency Conversion",
         "es": "Points to Currency Conversion",
         "ar": "Points to Currency Conversion"
+      },
+      "businessContext_i18n": {
+        "en": "Value of one point when redeemed (e.g., 0.01 means 1 point = 0.01 currency).",
+        "tr": "Bir puanın kullanıldığındaki değeri (ör. 0.01, 1 puan = 0.01 para birimi)."
       }
     }
   ],

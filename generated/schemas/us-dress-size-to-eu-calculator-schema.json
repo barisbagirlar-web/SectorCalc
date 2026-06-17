@@ -10,11 +10,15 @@
       "businessContext": "Numeric US women's dress size (e.g., 0, 2, 4, ...). Typically even numbers, but decimals are accepted.",
       "label_i18n": {
         "en": "US dress size",
-        "tr": "US dress size",
+        "tr": "ABD elbise bedeni",
         "de": "US dress size",
         "fr": "US dress size",
         "es": "US dress size",
         "ar": "US dress size"
+      },
+      "businessContext_i18n": {
+        "en": "Numeric US women's dress size (e.g., 0, 2, 4, ...). Typically even numbers, but decimals are accepted.",
+        "tr": "Sayısal ABD kadın elbise bedeni (örn. 0, 2, 4, ...). Genellikle çift sayılar, ancak ondalıklı kabul edilir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0: Women (standard), 1: Juniors, 2: Plus size. Affects base offset for EU conversion.",
       "label_i18n": {
         "en": "Age group",
-        "tr": "Age group",
+        "tr": "Yaş grubu",
         "de": "Age group",
         "fr": "Age group",
         "es": "Age group",
         "ar": "Age group"
+      },
+      "businessContext_i18n": {
+        "en": "0: Women (standard), 1: Juniors, 2: Plus size. Affects base offset for EU conversion.",
+        "tr": "0: Kadın (standart), 1: Genç kız, 2: Büyük beden. AB beden dönüşümü için temel ofseti etkiler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Manual adjustment for brand-specific fit (e.g., -1 for smaller fit, +1 for larger fit). Can be negative.",
       "label_i18n": {
         "en": "Brand adjustment",
-        "tr": "Brand adjustment",
+        "tr": "Marka ayarlaması",
         "de": "Brand adjustment",
         "fr": "Brand adjustment",
         "es": "Brand adjustment",
         "ar": "Brand adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "Manual adjustment for brand-specific fit (e.g., -1 for smaller fit, +1 for larger fit). Can be negative.",
+        "tr": "Markaya özgü uyum için manuel ayarlama (örn. daha dar uyum için -1, daha bol uyum için +1). Negatif olabilir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the EU size output. Use 0 for integer sizes.",
       "label_i18n": {
         "en": "Precision",
-        "tr": "Precision",
+        "tr": "Hassasiyet",
         "de": "Precision",
         "fr": "Precision",
         "es": "Precision",
         "ar": "Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the EU size output. Use 0 for integer sizes.",
+        "tr": "AB beden çıktısı için ondalık basamak sayısı. Tam sayı bedenler için 0 kullanın."
       }
     }
   ],

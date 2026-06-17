@@ -21,10 +21,12 @@
       "max": 100000,
       "businessContext": "Magnitude of the first force/velocity vector in Newtons (N) or m/s. Typical range for industrial applications: 0.1–100,000 N.",
       "label_i18n": {
-        "en": "Vector 1 Magnitude"
+        "en": "Vector 1 Magnitude",
+        "tr": "Vektör 1 Büyüklüğü"
       },
       "businessContext_i18n": {
-        "en": "Magnitude of the first force/velocity vector in Newtons (N) or m/s. Typical range for industrial applications: 0.1–100,000 N."
+        "en": "Magnitude of the first force/velocity vector in Newtons (N) or m/s. Typical range for industrial applications: 0.1–100,000 N.",
+        "tr": "Birinci kuvvet/hız vektörünün Newton (N) veya m/s cinsinden büyüklüğü. Endüstriyel uygulamalar için tipik aralık: 0,1–100.000 N."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 360,
       "businessContext": "Direction of the first vector measured from positive x-axis (0° to 360°). Used in force analysis per ISO 80000-2.",
       "label_i18n": {
-        "en": "Vector 1 Angle"
+        "en": "Vector 1 Angle",
+        "tr": "Vektör 1 Açısı"
       },
       "businessContext_i18n": {
-        "en": "Direction of the first vector measured from positive x-axis (0° to 360°). Used in force analysis per ISO 80000-2."
+        "en": "Direction of the first vector measured from positive x-axis (0° to 360°). Used in force analysis per ISO 80000-2.",
+        "tr": "Pozitif x ekseninden ölçülen birinci vektörün yönü (0° ila 360°). ISO 80000-2'ye göre kuvvet analizinde kullanılır."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 100000,
       "businessContext": "Magnitude of the second vector. Common in multi-force systems (e.g., conveyor belt tensions, robotic arm loads).",
       "label_i18n": {
-        "en": "Vector 2 Magnitude"
+        "en": "Vector 2 Magnitude",
+        "tr": "Vektör 2 Büyüklüğü"
       },
       "businessContext_i18n": {
-        "en": "Magnitude of the second vector. Common in multi-force systems (e.g., conveyor belt tensions, robotic arm loads)."
+        "en": "Magnitude of the second vector. Common in multi-force systems (e.g., conveyor belt tensions, robotic arm loads).",
+        "tr": "İkinci vektörün büyüklüğü. Çoklu kuvvet sistemlerinde yaygındır (örneğin, konveyör bant gerilimleri, robot kol yükleri)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 360,
       "businessContext": "Direction of the second vector. Typical angles: 0° (horizontal), 90° (vertical), 180° (opposite).",
       "label_i18n": {
-        "en": "Vector 2 Angle"
+        "en": "Vector 2 Angle",
+        "tr": "Vektör 2 Açısı"
       },
       "businessContext_i18n": {
-        "en": "Direction of the second vector. Typical angles: 0° (horizontal), 90° (vertical), 180° (opposite)."
+        "en": "Direction of the second vector. Typical angles: 0° (horizontal), 90° (vertical), 180° (opposite).",
+        "tr": "İkinci vektörün yönü. Tipik açılar: 0° (yatay), 90° (dikey), 180° (zıt)."
       }
     },
     {
@@ -89,10 +97,12 @@
         "Imperial"
       ],
       "label_i18n": {
-        "en": "Unit System"
+        "en": "Unit System",
+        "tr": "Birim Sistemi"
       },
       "businessContext_i18n": {
-        "en": "Select SI (metric) or Imperial (lb, ft/s) for output consistency. ISO 1000 recommends SI for engineering calculations."
+        "en": "Select SI (metric) or Imperial (lb, ft/s) for output consistency. ISO 1000 recommends SI for engineering calculations.",
+        "tr": "Tutarlılık için SI (metrik) veya Imperial (lb, ft/s) seçin. ISO 1000, mühendislik hesaplamaları için SI'yı önerir."
       }
     },
     {
@@ -105,10 +115,12 @@
       "max": 100,
       "businessContext": "Confidence in input measurement accuracy (e.g., from sensor calibration). Used for Six Sigma risk adjustment.",
       "label_i18n": {
-        "en": "Data Confidence Level"
+        "en": "Data Confidence Level",
+        "tr": "Veri Güven Düzeyi"
       },
       "businessContext_i18n": {
-        "en": "Confidence in input measurement accuracy (e.g., from sensor calibration). Used for Six Sigma risk adjustment."
+        "en": "Confidence in input measurement accuracy (e.g., from sensor calibration). Used for Six Sigma risk adjustment.",
+        "tr": "Giriş ölçüm doğruluğuna güven (örneğin, sensör kalibrasyonundan). Altı Sigma risk ayarlaması için kullanılır."
       }
     }
   ],

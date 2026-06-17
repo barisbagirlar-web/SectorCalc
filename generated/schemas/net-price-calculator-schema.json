@@ -10,11 +10,15 @@
       "businessContext": "The original price before any discounts or taxes.",
       "label_i18n": {
         "en": "List Price",
-        "tr": "List Price",
+        "tr": "Liste Fiyatı",
         "de": "List Price",
         "fr": "List Price",
         "es": "List Price",
         "ar": "List Price"
+      },
+      "businessContext_i18n": {
+        "en": "The original price before any discounts or taxes.",
+        "tr": "İndirim veya vergilerden önceki orijinal fiyat."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage discount applied to the list price.",
       "label_i18n": {
         "en": "Discount (%)",
-        "tr": "Discount (%)",
+        "tr": "İndirim (%)",
         "de": "Discount (%)",
         "fr": "Discount (%)",
         "es": "Discount (%)",
         "ar": "Discount (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage discount applied to the list price.",
+        "tr": "Liste fiyatına uygulanan yüzde indirim."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Value Added Tax percentage applied to the discounted price.",
       "label_i18n": {
         "en": "VAT (%)",
-        "tr": "VAT (%)",
+        "tr": "KDV (%)",
         "de": "VAT (%)",
         "fr": "VAT (%)",
         "es": "VAT (%)",
         "ar": "VAT (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Value Added Tax percentage applied to the discounted price.",
+        "tr": "İndirimli fiyata uygulanan Katma Değer Vergisi yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Any additional fixed charges (e.g., shipping, handling) added before tax.",
       "label_i18n": {
         "en": "Extra Charges",
-        "tr": "Extra Charges",
+        "tr": "Ek Ücretler",
         "de": "Extra Charges",
         "fr": "Extra Charges",
         "es": "Extra Charges",
         "ar": "Extra Charges"
+      },
+      "businessContext_i18n": {
+        "en": "Any additional fixed charges (e.g., shipping, handling) added before tax.",
+        "tr": "Vergiden önce eklenen sabit ücretler (örn. nakliye, işlem ücreti)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total revenue from sales or services",
       "label_i18n": {
         "en": "Revenue",
-        "tr": "Revenue",
+        "tr": "Gelir",
         "de": "Revenue",
         "fr": "Revenue",
         "es": "Revenue",
         "ar": "Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Total revenue from sales or services",
+        "tr": "Satış veya hizmetlerden elde edilen toplam gelir"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total operating expenses including depreciation and amortization",
       "label_i18n": {
         "en": "Operating Expenses",
-        "tr": "Operating Expenses",
+        "tr": "Faaliyet Giderleri",
         "de": "Operating Expenses",
         "fr": "Operating Expenses",
         "es": "Operating Expenses",
         "ar": "Operating Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Total operating expenses including depreciation and amortization",
+        "tr": "Amortisman ve itfa dahil toplam faaliyet giderleri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Non-cash depreciation and amortization expense included in operating expenses",
       "label_i18n": {
         "en": "Depreciation & Amortization",
-        "tr": "Depreciation & Amortization",
+        "tr": "Amortisman ve İtfa",
         "de": "Depreciation & Amortization",
         "fr": "Depreciation & Amortization",
         "es": "Depreciation & Amortization",
         "ar": "Depreciation & Amortization"
+      },
+      "businessContext_i18n": {
+        "en": "Non-cash depreciation and amortization expense included in operating expenses",
+        "tr": "Faaliyet giderlerine dahil nakdi olmayan amortisman ve itfa gideri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Corporate tax rate as a decimal (e.g., 0.20 for 20%)",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Corporate tax rate as a decimal (e.g., 0.20 for 20%)",
+        "tr": "Kurumlar vergisi oranı ondalık olarak (ör. %20 için 0,20)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Investment in fixed assets such as property, plant, and equipment",
       "label_i18n": {
         "en": "Capital Expenditures (CapEx)",
-        "tr": "Capital Expenditures (CapEx)",
+        "tr": "Sermaye Harcamaları (CapEx)",
         "de": "Capital Expenditures (CapEx)",
         "fr": "Capital Expenditures (CapEx)",
         "es": "Capital Expenditures (CapEx)",
         "ar": "Capital Expenditures (CapEx)"
+      },
+      "businessContext_i18n": {
+        "en": "Investment in fixed assets such as property, plant, and equipment",
+        "tr": "Maddi duran varlıklar gibi sabit varlıklara yatırım"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Increase in net working capital (current assets minus current liabilities)",
       "label_i18n": {
         "en": "Change in Working Capital",
-        "tr": "Change in Working Capital",
+        "tr": "İşletme Sermayesindeki Değişim",
         "de": "Change in Working Capital",
         "fr": "Change in Working Capital",
         "es": "Change in Working Capital",
         "ar": "Change in Working Capital"
+      },
+      "businessContext_i18n": {
+        "en": "Increase in net working capital (current assets minus current liabilities)",
+        "tr": "Net işletme sermayesindeki artış (dönen varlıklar eksi kısa vadeli yükümlülükler)"
       }
     }
   ],

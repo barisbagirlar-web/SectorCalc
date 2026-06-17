@@ -10,11 +10,15 @@
       "businessContext": "The speed to convert from miles per hour.",
       "label_i18n": {
         "en": "Speed in mph",
-        "tr": "Speed in mph",
+        "tr": "mph cinsinden hız",
         "de": "Speed in mph",
         "fr": "Speed in mph",
         "es": "Speed in mph",
         "ar": "Speed in mph"
+      },
+      "businessContext_i18n": {
+        "en": "The speed to convert from miles per hour.",
+        "tr": "Mil/saat'ten dönüştürülecek hız."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The factor to multiply mph by to get knots. 1 mph = 0.868976 knots (standard). Editable for calibration.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The factor to multiply mph by to get knots. 1 mph = 0.868976 knots (standard). Editable for calibration.",
+        "tr": "mph'yi knot'a çarpmak için faktör. 1 mph = 0,868976 knot (standart). Kalibrasyon için düzenlenebilir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places to round the output knots.",
       "label_i18n": {
         "en": "Decimal places",
-        "tr": "Decimal places",
+        "tr": "Ondalık basamaklar",
         "de": "Decimal places",
         "fr": "Decimal places",
         "es": "Decimal places",
         "ar": "Decimal places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the output knots.",
+        "tr": "Çıktı knot'larını yuvarlamak için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Optional known value in knots to validate conversion accuracy.",
       "label_i18n": {
         "en": "Known knots (for QC)",
-        "tr": "Known knots (for QC)",
+        "tr": "Bilinen knot (QC için)",
         "de": "Known knots (for QC)",
         "fr": "Known knots (for QC)",
         "es": "Known knots (for QC)",
         "ar": "Known knots (for QC)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional known value in knots to validate conversion accuracy.",
+        "tr": "Dönüşüm doğruluğunu doğrulamak için knot cinsinden isteğe bağlı bilinen değer."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Maximum allowed deviation between computed and known knots for quality check.",
       "label_i18n": {
         "en": "Tolerance",
-        "tr": "Tolerance",
+        "tr": "Tolerans",
         "de": "Tolerance",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowed deviation between computed and known knots for quality check.",
+        "tr": "Kalite kontrol için hesaplanan ve bilinen knot arasındaki izin verilen maksimum sapma."
       }
     }
   ],

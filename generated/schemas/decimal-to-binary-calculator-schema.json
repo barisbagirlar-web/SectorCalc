@@ -10,11 +10,15 @@
       "businessContext": "The non-negative decimal integer to convert to binary.",
       "label_i18n": {
         "en": "Decimal Number",
-        "tr": "Decimal Number",
+        "tr": "Ondalık Sayı",
         "de": "Decimal Number",
         "fr": "Decimal Number",
         "es": "Decimal Number",
         "ar": "Decimal Number"
+      },
+      "businessContext_i18n": {
+        "en": "The non-negative decimal integer to convert to binary.",
+        "tr": "İkiliye dönüştürülecek negatif olmayan ondalık tam sayı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Minimum number of bits in the output binary string. Shorter results are padded with leading zeros.",
       "label_i18n": {
         "en": "Minimum Bits",
-        "tr": "Minimum Bits",
+        "tr": "Minimum Bit",
         "de": "Minimum Bits",
         "fr": "Minimum Bits",
         "es": "Minimum Bits",
         "ar": "Minimum Bits"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum number of bits in the output binary string. Shorter results are padded with leading zeros.",
+        "tr": "İkili çıktı dizisindeki minimum bit sayısı. Kısa sonuçlar başa sıfır eklenerek doldurulur."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of bits per group separated by a space. 0 means no grouping.",
       "label_i18n": {
         "en": "Group Size",
-        "tr": "Group Size",
+        "tr": "Grup Boyutu",
         "de": "Group Size",
         "fr": "Group Size",
         "es": "Group Size",
         "ar": "Group Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of bits per group separated by a space. 0 means no grouping.",
+        "tr": "Boşlukla ayrılmış grup başına bit sayısı. 0 gruplama yapılmaz."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 to prepend '0b' prefix, 0 to omit. Only effective when output is a string.",
       "label_i18n": {
         "en": "Include 0b Prefix",
-        "tr": "Include 0b Prefix",
+        "tr": "0b Önekini Dahil Et",
         "de": "Include 0b Prefix",
         "fr": "Include 0b Prefix",
         "es": "Include 0b Prefix",
         "ar": "Include 0b Prefix"
+      },
+      "businessContext_i18n": {
+        "en": "1 to prepend '0b' prefix, 0 to omit. Only effective when output is a string.",
+        "tr": "1 ise '0b' önekini ekle, 0 ise atla. Yalnızca çıktı dize olduğunda etkilidir."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1 to output the binary value as a base-10 number (loosing leading zeros and formatting), 0 to output as a formatted string.",
       "label_i18n": {
         "en": "Output as Number",
-        "tr": "Output as Number",
+        "tr": "Sayı Olarak Çıktı",
         "de": "Output as Number",
         "fr": "Output as Number",
         "es": "Output as Number",
         "ar": "Output as Number"
+      },
+      "businessContext_i18n": {
+        "en": "1 to output the binary value as a base-10 number (loosing leading zeros and formatting), 0 to output as a formatted string.",
+        "tr": "1 ise ikili değeri ondalık sayı olarak çıkar (baştaki sıfırlar ve biçimlendirme kaybolur), 0 ise biçimlendirilmiş dize olarak çıkar."
       }
     }
   ],

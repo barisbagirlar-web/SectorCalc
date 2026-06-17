@@ -10,11 +10,15 @@
       "businessContext": "Constant force applied",
       "label_i18n": {
         "en": "Force",
-        "tr": "Force",
+        "tr": "Kuvvet",
         "de": "Force",
         "fr": "Force",
         "es": "Force",
         "ar": "Force"
+      },
+      "businessContext_i18n": {
+        "en": "Constant force applied",
+        "tr": "Uygulanan sabit kuvvet"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Time duration of force application",
       "label_i18n": {
         "en": "Time",
-        "tr": "Time",
+        "tr": "Zaman",
         "de": "Time",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time duration of force application",
+        "tr": "Kuvvet uygulama süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of the object",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the object",
+        "tr": "Cismin kütlesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Velocity before impulse",
       "label_i18n": {
         "en": "Initial Velocity",
-        "tr": "Initial Velocity",
+        "tr": "Başlangıç Hızı",
         "de": "Initial Velocity",
         "fr": "Initial Velocity",
         "es": "Initial Velocity",
         "ar": "Initial Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Velocity before impulse",
+        "tr": "Darbeden önceki hız"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Velocity after impulse",
       "label_i18n": {
         "en": "Final Velocity",
-        "tr": "Final Velocity",
+        "tr": "Son Hız",
         "de": "Final Velocity",
         "fr": "Final Velocity",
         "es": "Final Velocity",
         "ar": "Final Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Velocity after impulse",
+        "tr": "Darbeden sonraki hız"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Design safety factor for impulse load",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor for impulse load",
+        "tr": "Darbe yükü için tasarım güvenlik faktörü"
       }
     }
   ],

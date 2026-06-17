@@ -21,10 +21,12 @@
       "max": 100,
       "businessContext": "Number of distinct parts selected for the Gage R&R study, typically 5-20 per AIAG MSA guidelines.",
       "label_i18n": {
-        "en": "Number of Parts in Study"
+        "en": "Number of Parts in Study",
+        "tr": "Çalışmadaki Parça Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Number of distinct parts selected for the Gage R&R study, typically 5-20 per AIAG MSA guidelines."
+        "en": "Number of distinct parts selected for the Gage R&R study, typically 5-20 per AIAG MSA guidelines.",
+        "tr": "Gage R&R çalışması için seçilen farklı parça sayısı, AIAG MSA kılavuzuna göre genellikle 5-20."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10,
       "businessContext": "Number of operators or appraisers performing measurements, minimum 2 for reproducibility estimation.",
       "label_i18n": {
-        "en": "Number of Appraisers"
+        "en": "Number of Appraisers",
+        "tr": "Değerlendirici Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Number of operators or appraisers performing measurements, minimum 2 for reproducibility estimation."
+        "en": "Number of operators or appraisers performing measurements, minimum 2 for reproducibility estimation.",
+        "tr": "Ölçümleri gerçekleştiren operatör veya değerlendirici sayısı, tekrarlanabilirlik tahmini için minimum 2."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 10,
       "businessContext": "Number of repeated measurements per part per appraiser, typically 2-3.",
       "label_i18n": {
-        "en": "Number of Trials per Part"
+        "en": "Number of Trials per Part",
+        "tr": "Parça Başına Deneme Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Number of repeated measurements per part per appraiser, typically 2-3."
+        "en": "Number of repeated measurements per part per appraiser, typically 2-3.",
+        "tr": "Her değerlendirici tarafından her parça için yapılan tekrarlı ölçüm sayısı, genellikle 2-3."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Standard deviation of all measurements in the study, representing total process variation.",
       "label_i18n": {
-        "en": "Total Observed Variation (Std Dev)"
+        "en": "Total Observed Variation (Std Dev)",
+        "tr": "Toplam Gözlemlenen Değişim (Standart Sapma)"
       },
       "businessContext_i18n": {
-        "en": "Standard deviation of all measurements in the study, representing total process variation."
+        "en": "Standard deviation of all measurements in the study, representing total process variation.",
+        "tr": "Çalışmadaki tüm ölçümlerin standart sapması, toplam proses değişimini temsil eder."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 100,
       "businessContext": "Variation due to equipment (same operator, same part, repeated measurements).",
       "label_i18n": {
-        "en": "Repeatability Variation (Std Dev)"
+        "en": "Repeatability Variation (Std Dev)",
+        "tr": "Tekrarlanabilirlik Değişimi (Std Sapma)"
       },
       "businessContext_i18n": {
-        "en": "Variation due to equipment (same operator, same part, repeated measurements)."
+        "en": "Variation due to equipment (same operator, same part, repeated measurements).",
+        "tr": "Ekipmandan kaynaklanan değişim (aynı operatör, aynı parça, tekrarlanan ölçümler)."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Variation due to different operators measuring the same part.",
       "label_i18n": {
-        "en": "Reproducibility Variation (Std Dev)"
+        "en": "Reproducibility Variation (Std Dev)",
+        "tr": "Yeniden Üretilebilirlik Değişimi (Std Sapma)"
       },
       "businessContext_i18n": {
-        "en": "Variation due to different operators measuring the same part."
+        "en": "Variation due to different operators measuring the same part.",
+        "tr": "Aynı parçayı ölçen farklı operatörlerden kaynaklanan değişim."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100000,
       "businessContext": "Average cost incurred when a non-conforming unit is detected internally (scrap, rework, inspection).",
       "label_i18n": {
-        "en": "Cost per Defect (Internal)"
+        "en": "Cost per Defect (Internal)",
+        "tr": "Hata Başına Maliyet (Dahili)"
       },
       "businessContext_i18n": {
-        "en": "Average cost incurred when a non-conforming unit is detected internally (scrap, rework, inspection)."
+        "en": "Average cost incurred when a non-conforming unit is detected internally (scrap, rework, inspection).",
+        "tr": "Uygun olmayan bir birimin dahili olarak tespit edilmesi durumunda oluşan ortalama maliyet (fire, yeniden işleme, muayene)."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 1000000,
       "businessContext": "Average cost when a defect reaches the customer (warranty, liability, lost sales).",
       "label_i18n": {
-        "en": "Cost per Escaped Defect (External)"
+        "en": "Cost per Escaped Defect (External)",
+        "tr": "Kaçan Hata Başına Maliyet (Harici)"
       },
       "businessContext_i18n": {
-        "en": "Average cost when a defect reaches the customer (warranty, liability, lost sales)."
+        "en": "Average cost when a defect reaches the customer (warranty, liability, lost sales).",
+        "tr": "Bir hatanın müşteriye ulaşması durumunda oluşan ortalama maliyet (garanti, sorumluluk, kaybedilen satışlar)."
       }
     }
   ],

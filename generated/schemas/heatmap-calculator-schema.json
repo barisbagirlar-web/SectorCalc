@@ -10,11 +10,15 @@
       "businessContext": "Probability of risk event occurring, rated 1-5",
       "label_i18n": {
         "en": "Likelihood Rating",
-        "tr": "Likelihood Rating",
+        "tr": "Olasılık Derecesi",
         "de": "Likelihood Rating",
         "fr": "Likelihood Rating",
         "es": "Likelihood Rating",
         "ar": "Likelihood Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Probability of risk event occurring, rated 1-5",
+        "tr": "Risk olayının gerçekleşme olasılığı, 1-5 arası derecelendirilir"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Severity of consequences if risk occurs, rated 1-5",
       "label_i18n": {
         "en": "Impact Rating",
-        "tr": "Impact Rating",
+        "tr": "Etki Derecesi",
         "de": "Impact Rating",
         "fr": "Impact Rating",
         "es": "Impact Rating",
         "ar": "Impact Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Severity of consequences if risk occurs, rated 1-5",
+        "tr": "Risk gerçekleşirse sonuçların şiddeti, 1-5 arası derecelendirilir"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "How effectively existing controls reduce risk, 0-100%",
       "label_i18n": {
         "en": "Control Effectiveness",
-        "tr": "Control Effectiveness",
+        "tr": "Kontrol Etkinliği",
         "de": "Control Effectiveness",
         "fr": "Control Effectiveness",
         "es": "Control Effectiveness",
         "ar": "Control Effectiveness"
+      },
+      "businessContext_i18n": {
+        "en": "How effectively existing controls reduce risk, 0-100%",
+        "tr": "Mevcut kontrollerin riski ne kadar etkili azalttığı, %0-100"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Probability after controls, rated 1-5",
       "label_i18n": {
         "en": "Residual Likelihood",
-        "tr": "Residual Likelihood",
+        "tr": "Kalan Olasılık",
         "de": "Residual Likelihood",
         "fr": "Residual Likelihood",
         "es": "Residual Likelihood",
         "ar": "Residual Likelihood"
+      },
+      "businessContext_i18n": {
+        "en": "Probability after controls, rated 1-5",
+        "tr": "Kontrollerden sonra olasılık, 1-5 arası derecelendirilir"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Severity after controls, rated 1-5",
       "label_i18n": {
         "en": "Residual Impact",
-        "tr": "Residual Impact",
+        "tr": "Kalan Etki",
         "de": "Residual Impact",
         "fr": "Residual Impact",
         "es": "Residual Impact",
         "ar": "Residual Impact"
+      },
+      "businessContext_i18n": {
+        "en": "Severity after controls, rated 1-5",
+        "tr": "Kontrollerden sonra şiddet, 1-5 arası derecelendirilir"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Weight of inherent risk in overall score, 0-1",
       "label_i18n": {
         "en": "Inherent Weight",
-        "tr": "Inherent Weight",
+        "tr": "Doğal Ağırlık",
         "de": "Inherent Weight",
         "fr": "Inherent Weight",
         "es": "Inherent Weight",
         "ar": "Inherent Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of inherent risk in overall score, 0-1",
+        "tr": "Genel puanda içsel riskin ağırlığı, 0-1"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Weight of residual risk in overall score, 0-1",
       "label_i18n": {
         "en": "Residual Weight",
-        "tr": "Residual Weight",
+        "tr": "Artık Ağırlık",
         "de": "Residual Weight",
         "fr": "Residual Weight",
         "es": "Residual Weight",
         "ar": "Residual Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of residual risk in overall score, 0-1",
+        "tr": "Genel puanda artık riskin ağırlığı, 0-1"
       }
     }
   ],

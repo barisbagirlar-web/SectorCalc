@@ -19,10 +19,12 @@
       "max": 3600,
       "businessContext": "Average cycle time recorded during direct observation, excluding any abnormal delays.",
       "label_i18n": {
-        "en": "Observed Time (seconds)"
+        "en": "Observed Time (seconds)",
+        "tr": "Gözlemlenen Süre (saniye)"
       },
       "businessContext_i18n": {
-        "en": "Average cycle time recorded during direct observation, excluding any abnormal delays."
+        "en": "Average cycle time recorded during direct observation, excluding any abnormal delays.",
+        "tr": "Doğrudan gözlem sırasında kaydedilen, anormal gecikmeler hariç ortalama çevrim süresi."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 150,
       "businessContext": "Operator pace relative to normal (100% = standard pace). Based on Westinghouse or similar rating system.",
       "label_i18n": {
-        "en": "Performance Rating (%)"
+        "en": "Performance Rating (%)",
+        "tr": "Performans Değerlendirmesi (%)"
       },
       "businessContext_i18n": {
-        "en": "Operator pace relative to normal (100% = standard pace). Based on Westinghouse or similar rating system."
+        "en": "Operator pace relative to normal (100% = standard pace). Based on Westinghouse or similar rating system.",
+        "tr": "Operatör hızının normale göre oranı (%100 = standart hız). Westinghouse veya benzeri değerlendirme sistemine dayanır."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 50,
       "businessContext": "Total allowance for fatigue, personal needs, and unavoidable delays (ISO 9001 / ILO guidelines).",
       "label_i18n": {
-        "en": "Allowance Percentage (%)"
+        "en": "Allowance Percentage (%)",
+        "tr": "İzin Yüzdesi (%)"
       },
       "businessContext_i18n": {
-        "en": "Total allowance for fatigue, personal needs, and unavoidable delays (ISO 9001 / ILO guidelines)."
+        "en": "Total allowance for fatigue, personal needs, and unavoidable delays (ISO 9001 / ILO guidelines).",
+        "tr": "Yorgunluk, kişisel ihtiyaçlar ve kaçınılmaz gecikmeler için toplam izin (ISO 9001 / ILO yönergeleri)."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 100,
       "businessContext": "How many times the observed element occurs per complete work cycle (e.g., 2 inspections per assembly).",
       "label_i18n": {
-        "en": "Frequency per Cycle"
+        "en": "Frequency per Cycle",
+        "tr": "Çevrim Başına Frekans"
       },
       "businessContext_i18n": {
-        "en": "How many times the observed element occurs per complete work cycle (e.g., 2 inspections per assembly)."
+        "en": "How many times the observed element occurs per complete work cycle (e.g., 2 inspections per assembly).",
+        "tr": "Gözlemlenen elemanın tam bir iş çevriminde kaç kez gerçekleştiği (örneğin, montaj başına 2 muayene)."
       }
     },
     {
@@ -86,10 +94,12 @@
       "default": "Stopwatch",
       "businessContext": "The technique used to obtain the observed time; affects confidence and adjustment factors.",
       "label_i18n": {
-        "en": "Work Measurement Method"
+        "en": "Work Measurement Method",
+        "tr": "İş Ölçüm Yöntemi"
       },
       "businessContext_i18n": {
-        "en": "The technique used to obtain the observed time; affects confidence and adjustment factors."
+        "en": "The technique used to obtain the observed time; affects confidence and adjustment factors.",
+        "tr": "Gözlemlenen süreyi elde etmek için kullanılan teknik; güven ve düzeltme faktörlerini etkiler."
       },
       "unit": "unit"
     },
@@ -100,10 +110,12 @@
       "default": false,
       "businessContext": "If true, applies a learning curve factor (80% slope) for new or changed processes.",
       "label_i18n": {
-        "en": "Include Learning Curve Adjustment"
+        "en": "Include Learning Curve Adjustment",
+        "tr": "Öğrenme Eğrisi Ayarlamasını Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "If true, applies a learning curve factor (80% slope) for new or changed processes."
+        "en": "If true, applies a learning curve factor (80% slope) for new or changed processes.",
+        "tr": "Doğruysa, yeni veya değiştirilmiş süreçler için bir öğrenme eğrisi faktörü (%80 eğim) uygular."
       },
       "unit": "unit"
     }

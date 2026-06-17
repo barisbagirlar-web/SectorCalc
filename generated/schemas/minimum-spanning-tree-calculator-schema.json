@@ -10,11 +10,15 @@
       "businessContext": "The number of nodes in the network. This version supports 3-node MST calculation.",
       "label_i18n": {
         "en": "Number of Nodes",
-        "tr": "Number of Nodes",
+        "tr": "Düğüm Sayısı",
         "de": "Number of Nodes",
         "fr": "Number of Nodes",
         "es": "Number of Nodes",
         "ar": "Number of Nodes"
+      },
+      "businessContext_i18n": {
+        "en": "The number of nodes in the network. This version supports 3-node MST calculation.",
+        "tr": "Ağdaki düğüm sayısı. Bu sürüm 3 düğümlü MST hesaplamasını destekler."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance between node A and node B.",
       "label_i18n": {
         "en": "Edge A-B Length",
-        "tr": "Edge A-B Length",
+        "tr": "A-B Kenar Uzunluğu",
         "de": "Edge A-B Length",
         "fr": "Edge A-B Length",
         "es": "Edge A-B Length",
         "ar": "Edge A-B Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between node A and node B.",
+        "tr": "A düğümü ile B düğümü arasındaki mesafe."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance between node B and node C.",
       "label_i18n": {
         "en": "Edge B-C Length",
-        "tr": "Edge B-C Length",
+        "tr": "B-C Kenar Uzunluğu",
         "de": "Edge B-C Length",
         "fr": "Edge B-C Length",
         "es": "Edge B-C Length",
         "ar": "Edge B-C Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between node B and node C.",
+        "tr": "B düğümü ile C düğümü arasındaki mesafe."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Distance between node C and node A.",
       "label_i18n": {
         "en": "Edge C-A Length",
-        "tr": "Edge C-A Length",
+        "tr": "C-A Kenar Uzunluğu",
         "de": "Edge C-A Length",
         "fr": "Edge C-A Length",
         "es": "Edge C-A Length",
         "ar": "Edge C-A Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between node C and node A.",
+        "tr": "C düğümü ile A düğümü arasındaki mesafe."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost per meter of cabling or piping for the network.",
       "label_i18n": {
         "en": "Cost per Meter",
-        "tr": "Cost per Meter",
+        "tr": "Metre Başına Maliyet",
         "de": "Cost per Meter",
         "fr": "Cost per Meter",
         "es": "Cost per Meter",
         "ar": "Cost per Meter"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per meter of cabling or piping for the network.",
+        "tr": "Ağ için kablo veya boru döşemenin metre başına maliyeti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Multiplicative safety factor to account for contingencies.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplicative safety factor to account for contingencies.",
+        "tr": "Öngörülemeyen durumlar için çarpımsal güvenlik faktörü."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Measured pressure in millimeters of mercury, standard atmosphere = 760 mmHg",
       "label_i18n": {
         "en": "Pressure (mmHg)",
-        "tr": "Pressure (mmHg)",
+        "tr": "Basınç (mmHg)",
         "de": "Pressure (mmHg)",
         "fr": "Pressure (mmHg)",
         "es": "Pressure (mmHg)",
         "ar": "Pressure (mmHg)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured pressure in millimeters of mercury, standard atmosphere = 760 mmHg",
+        "tr": "Milimetre cıva cinsinden ölçülen basınç, standart atmosfer = 760 mmHg"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from mmHg to psi (1 mmHg = 0.0193368 psi). Adjust for custom calibrations.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from mmHg to psi (1 mmHg = 0.0193368 psi). Adjust for custom calibrations.",
+        "tr": "mmHg'den psi'ye standart dönüşüm faktörü (1 mmHg = 0,0193368 psi). Özel kalibrasyonlar için ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Calibration offset in psi to correct systematic measurement error.",
       "label_i18n": {
         "en": "Offset",
-        "tr": "Offset",
+        "tr": "Ofset",
         "de": "Offset",
         "fr": "Offset",
         "es": "Offset",
         "ar": "Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Calibration offset in psi to correct systematic measurement error.",
+        "tr": "Sistematik ölçüm hatasını düzeltmek için psi cinsinden kalibrasyon ofseti."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for the rounded output.",
       "label_i18n": {
         "en": "Output Precision",
-        "tr": "Output Precision",
+        "tr": "Çıktı Hassasiyeti",
         "de": "Output Precision",
         "fr": "Output Precision",
         "es": "Output Precision",
         "ar": "Output Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the rounded output.",
+        "tr": "Yuvarlanmış çıktı için ondalık basamak sayısı."
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 100000,
       "businessContext": "Direct material cost per unit for the current material.",
       "label_i18n": {
-        "en": "Current Material Cost per Unit"
+        "en": "Current Material Cost per Unit",
+        "tr": "Mevcut Malzeme Birim Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct material cost per unit for the current material."
+        "en": "Direct material cost per unit for the current material.",
+        "tr": "Mevcut malzeme için birim başına doğrudan malzeme maliyeti."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100000,
       "businessContext": "Direct material cost per unit for the alternative material.",
       "label_i18n": {
-        "en": "Alternative Material Cost per Unit"
+        "en": "Alternative Material Cost per Unit",
+        "tr": "Alternatif Malzeme Birim Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct material cost per unit for the alternative material."
+        "en": "Direct material cost per unit for the alternative material.",
+        "tr": "Alternatif malzeme için birim başına doğrudan malzeme maliyeti."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 100000000,
       "businessContext": "Total number of units produced or purchased per year.",
       "label_i18n": {
-        "en": "Annual Volume (units)"
+        "en": "Annual Volume (units)",
+        "tr": "Yıllık Hacim (adet)"
       },
       "businessContext_i18n": {
-        "en": "Total number of units produced or purchased per year."
+        "en": "Total number of units produced or purchased per year.",
+        "tr": "Yılda üretilen veya satın alınan toplam birim sayısı."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Percentage of units scrapped due to defects with current material.",
       "label_i18n": {
-        "en": "Current Scrap Rate (%)"
+        "en": "Current Scrap Rate (%)",
+        "tr": "Mevcut Fire Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of units scrapped due to defects with current material."
+        "en": "Percentage of units scrapped due to defects with current material.",
+        "tr": "Mevcut malzeme ile kusurlar nedeniyle hurdaya ayrılan birimlerin yüzdesi."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 100,
       "businessContext": "Percentage of units scrapped due to defects with alternative material.",
       "label_i18n": {
-        "en": "Alternative Scrap Rate (%)"
+        "en": "Alternative Scrap Rate (%)",
+        "tr": "Alternatif Fire Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of units scrapped due to defects with alternative material."
+        "en": "Percentage of units scrapped due to defects with alternative material.",
+        "tr": "Alternatif malzeme ile kusurlar nedeniyle hurdaya ayrılan birimlerin yüzdesi."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 10000,
       "businessContext": "Transportation, handling, and warehousing cost per unit for current material.",
       "label_i18n": {
-        "en": "Current Logistics Cost per Unit"
+        "en": "Current Logistics Cost per Unit",
+        "tr": "Mevcut Lojistik Birim Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Transportation, handling, and warehousing cost per unit for current material."
+        "en": "Transportation, handling, and warehousing cost per unit for current material.",
+        "tr": "Mevcut malzeme için birim başına nakliye, elleçleme ve depolama maliyeti."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 10000,
       "businessContext": "Transportation, handling, and warehousing cost per unit for alternative material.",
       "label_i18n": {
-        "en": "Alternative Logistics Cost per Unit"
+        "en": "Alternative Logistics Cost per Unit",
+        "tr": "Alternatif Lojistik Birim Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Transportation, handling, and warehousing cost per unit for alternative material."
+        "en": "Transportation, handling, and warehousing cost per unit for alternative material.",
+        "tr": "Alternatif malzeme için birim başına nakliye, elleçleme ve depolama maliyeti."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 10000000,
       "businessContext": "Cost to retool, test, and qualify the alternative material.",
       "label_i18n": {
-        "en": "One-time Changeover Cost"
+        "en": "One-time Changeover Cost",
+        "tr": "Tek Seferlik Değişim Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost to retool, test, and qualify the alternative material."
+        "en": "Cost to retool, test, and qualify the alternative material.",
+        "tr": "Alternatif malzemeyi yeniden takımlandırma, test etme ve kalifiye etme maliyeti."
       }
     }
   ],

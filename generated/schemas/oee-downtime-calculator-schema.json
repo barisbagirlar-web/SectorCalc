@@ -1,69 +1,7 @@
 {
   "slug": "oee-downtime-calculator",
   "title": "OEE & Downtime Calculator",
-  "description": {
-    "short": "Measures production equipment effectiveness from availability, performance, and quality inputs.",
-    "long": "Overall Equipment Effectiveness (OEE) is a critical metric for how effectively production assets are used. This calculator uses planned production time, downtime, ideal cycle time, and part counts to compute OEE and surface downtime loss drivers. It follows ISO 22400, Lean manufacturing, and Six Sigma guidance for shop-floor reviews.",
-    "short_i18n": {
-      "en": "Measures production equipment effectiveness from availability, performance, and quality inputs.",
-      "tr": "Kullanılabilirlik, performans ve kalite girdileriyle üretim ekipmanı etkinliğini ölçer."
-    },
-    "long_i18n": {
-      "en": "Overall Equipment Effectiveness (OEE) is a critical metric for how effectively production assets are used. This calculator uses planned production time, downtime, ideal cycle time, and part counts to compute OEE and surface downtime loss drivers. It follows ISO 22400, Lean manufacturing, and Six Sigma guidance for shop-floor reviews.",
-      "tr": "OEE (Genel Ekipman Etkinliği), üretim ekipmanlarının ne kadar etkin kullanıldığını gösteren kritik bir metriktir. Bu hesaplayıcı planlanan üretim süresi, duruş süreleri, ideal çevrim süresi ve üretilen parça sayısı gibi girdilerle OEE'yi hesaplar ve duruş kaynaklarını analiz eder. ISO 22400, Lean üretim ve Six Sigma rehberliğiyle uyumludur."
-    }
-  },
-  "example": {
-    "title": "OEE improvement on a CNC shop floor",
-    "scenario": "An 8-hour shift (480 minutes) has 60 minutes of unplanned downtime. Ideal cycle time is 0.5 minutes per part. The shift produces 180 parts, 15 of which are defective.",
-    "steps": [
-      "Operating time = 480 − 60 = 420 minutes",
-      "Theoretical output = 420 ÷ 0.5 = 840 parts",
-      "Performance = 180 ÷ 840 = 21.4%",
-      "Quality = (180 − 15) ÷ 180 = 91.7%",
-      "Availability = 420 ÷ 480 = 87.5%",
-      "OEE = 0.875 × 0.214 × 0.917 = 17.2%"
-    ],
-    "result": "OEE is 17.2%, indicating major speed and downtime losses. Reducing downtime or improving cycle time against the ideal rate should be the first improvement priority.",
-    "title_i18n": {
-      "en": "OEE improvement on a CNC shop floor",
-      "tr": "Bir CNC atölyesinde OEE iyileştirme"
-    },
-    "scenario_i18n": {
-      "en": "An 8-hour shift (480 minutes) has 60 minutes of unplanned downtime. Ideal cycle time is 0.5 minutes per part. The shift produces 180 parts, 15 of which are defective.",
-      "tr": "8 saatlik bir vardiyada (480 dakika) toplam 60 dakika plansız duruş yaşanıyor. İdeal çevrim süresi parça başına 0.5 dakika. Vardiya boyunca 180 parça üretiliyor, bunlardan 15'i hatalı."
-    },
-    "result_i18n": {
-      "en": "OEE is 17.2%, indicating major speed and downtime losses. Reducing downtime or improving cycle time against the ideal rate should be the first improvement priority.",
-      "tr": "OEE %17,2 olarak hesaplanır. Bu, ciddi hız ve duruş kayıpları olduğunu gösterir. Duruş sürelerini azaltmak veya ideal çevrim süresine yaklaşmak ilk iyileştirme önceliği olmalıdır."
-    }
-  },
-  "faqs": [
-    {
-      "question": "What is OEE?",
-      "answer": "OEE (Overall Equipment Effectiveness) measures equipment productivity as the product of availability, performance, and quality.",
-      "question_i18n": {
-        "en": "What is OEE?",
-        "tr": "OEE nedir?"
-      },
-      "answer_i18n": {
-        "en": "OEE (Overall Equipment Effectiveness) measures equipment productivity as the product of availability, performance, and quality.",
-        "tr": "OEE (Overall Equipment Effectiveness), ekipman etkinliğini kullanılabilirlik, performans ve kalite faktörlerinin çarpımıyla ölçen bir metriktir."
-      }
-    },
-    {
-      "question": "How is ideal cycle time determined?",
-      "answer": "Ideal cycle time is the shortest time required to produce one good part under optimal conditions, often from OEM data or best demonstrated shift records.",
-      "question_i18n": {
-        "en": "How is ideal cycle time determined?",
-        "tr": "İdeal çevrim süresi nasıl belirlenir?"
-      },
-      "answer_i18n": {
-        "en": "Ideal cycle time is the shortest time required to produce one good part under optimal conditions, often from OEM data or best demonstrated shift records.",
-        "tr": "İdeal çevrim süresi, bir parçanın optimum koşullarda üretilmesi için gereken en kısa süredir. Genellikle makine üreticisinin verileri veya en iyi performans gösteren vardiya kayıtlarından belirlenir."
-      }
-    }
-  ],
+  "description": "Calculates Overall Equipment Effectiveness (OEE) based on Availability, Performance, and Quality, with detailed downtime loss analysis and actionable improvement suggestions. Compliant with ISO 22400, Lean Manufacturing, and Six Sigma standards.",
   "premiumRequired": true,
   "premiumFeatures": [
     "PDF export",
@@ -84,10 +22,12 @@
       "max": 1440,
       "businessContext": "Total scheduled time for production in a shift/day (e.g., 8 hours = 480 minutes).",
       "label_i18n": {
-        "en": "Planned Production Time (minutes)"
+        "en": "Planned Production Time (minutes)",
+        "tr": "Planlanan Üretim Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Total scheduled time for production in a shift/day (e.g., 8 hours = 480 minutes)."
+        "en": "Total scheduled time for production in a shift/day (e.g., 8 hours = 480 minutes).",
+        "tr": "Bir vardiya/günde planlanan toplam üretim süresi (ör. 8 saat = 480 dakika)."
       }
     },
     {
@@ -100,10 +40,12 @@
       "max": 1440,
       "businessContext": "Sum of all unplanned and planned stops (breakdowns, setup, maintenance).",
       "label_i18n": {
-        "en": "Total Downtime (minutes)"
+        "en": "Total Downtime (minutes)",
+        "tr": "Toplam Durma Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Sum of all unplanned and planned stops (breakdowns, setup, maintenance)."
+        "en": "Sum of all unplanned and planned stops (breakdowns, setup, maintenance).",
+        "tr": "Tüm plansız ve planlı duruşların toplamı (arıza, kurulum, bakım)."
       }
     },
     {
@@ -116,10 +58,12 @@
       "max": 100,
       "businessContext": "Theoretical fastest time to produce one unit under optimal conditions.",
       "label_i18n": {
-        "en": "Ideal Cycle Time (minutes per unit)"
+        "en": "Ideal Cycle Time (minutes per unit)",
+        "tr": "İdeal Çevrim Süresi (dakika/birim)"
       },
       "businessContext_i18n": {
-        "en": "Theoretical fastest time to produce one unit under optimal conditions."
+        "en": "Theoretical fastest time to produce one unit under optimal conditions.",
+        "tr": "Optimum koşullarda bir birim üretmek için teorik en hızlı süre."
       }
     },
     {
@@ -132,10 +76,12 @@
       "max": 100000,
       "businessContext": "Total count of units produced during the planned production time.",
       "label_i18n": {
-        "en": "Total Parts Produced"
+        "en": "Total Parts Produced",
+        "tr": "Üretilen Toplam Parça"
       },
       "businessContext_i18n": {
-        "en": "Total count of units produced during the planned production time."
+        "en": "Total count of units produced during the planned production time.",
+        "tr": "Planlanan üretim süresi boyunca üretilen toplam birim sayısı."
       }
     },
     {
@@ -148,10 +94,12 @@
       "max": 100000,
       "businessContext": "Number of units that do not meet quality standards (scrap, rework).",
       "label_i18n": {
-        "en": "Defective Parts"
+        "en": "Defective Parts",
+        "tr": "Hatalı Parçalar"
       },
       "businessContext_i18n": {
-        "en": "Number of units that do not meet quality standards (scrap, rework)."
+        "en": "Number of units that do not meet quality standards (scrap, rework).",
+        "tr": "Kalite standartlarını karşılamayan birim sayısı (fire, yeniden işleme)."
       }
     },
     {
@@ -167,10 +115,12 @@
       ],
       "businessContext": "Type of shift to adjust for fatigue or environmental factors.",
       "label_i18n": {
-        "en": "Shift Type"
+        "en": "Shift Type",
+        "tr": "Vardiya Türü"
       },
       "businessContext_i18n": {
-        "en": "Type of shift to adjust for fatigue or environmental factors."
+        "en": "Type of shift to adjust for fatigue or environmental factors.",
+        "tr": "Yorgunluk veya çevresel faktörleri ayarlamak için vardiya türü."
       }
     },
     {
@@ -181,10 +131,12 @@
       "default": true,
       "businessContext": "If true, small stops are counted as downtime per Six Sigma guidelines.",
       "label_i18n": {
-        "en": "Include Micro-Stops (< 2 min) in Downtime"
+        "en": "Include Micro-Stops (< 2 min) in Downtime",
+        "tr": "Mikro-Duruşları (< 2 dk) Durma Süresine Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "If true, small stops are counted as downtime per Six Sigma guidelines."
+        "en": "If true, small stops are counted as downtime per Six Sigma guidelines.",
+        "tr": "Doğruysa, Altı Sigma yönergelerine göre küçük duruşlar durma süresi olarak sayılır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The most recent annual dividend payment per share in dollars.",
       "label_i18n": {
         "en": "Current Annual Dividend Per Share",
-        "tr": "Current Annual Dividend Per Share",
+        "tr": "Mevcut Yıllık Hisse Başına Temettü",
         "de": "Current Annual Dividend Per Share",
         "fr": "Current Annual Dividend Per Share",
         "es": "Current Annual Dividend Per Share",
         "ar": "Current Annual Dividend Per Share"
+      },
+      "businessContext_i18n": {
+        "en": "The most recent annual dividend payment per share in dollars.",
+        "tr": "Hisse başına en son yıllık temettü ödemesi, dolar cinsinden."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The anticipated annual growth rate of the dividend, expressed as a percentage.",
       "label_i18n": {
         "en": "Expected Dividend Growth Rate",
-        "tr": "Expected Dividend Growth Rate",
+        "tr": "Beklenen Temettü Büyüme Oranı",
         "de": "Expected Dividend Growth Rate",
         "fr": "Expected Dividend Growth Rate",
         "es": "Expected Dividend Growth Rate",
         "ar": "Expected Dividend Growth Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The anticipated annual growth rate of the dividend, expressed as a percentage.",
+        "tr": "Temettünün beklenen yıllık büyüme oranı, yüzde olarak ifade edilir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The investor's required rate of return or discount rate, expressed as a percentage.",
       "label_i18n": {
         "en": "Required Rate of Return",
-        "tr": "Required Rate of Return",
+        "tr": "Gerekli Getiri Oranı",
         "de": "Required Rate of Return",
         "fr": "Required Rate of Return",
         "es": "Required Rate of Return",
         "ar": "Required Rate of Return"
+      },
+      "businessContext_i18n": {
+        "en": "The investor's required rate of return or discount rate, expressed as a percentage.",
+        "tr": "Yatırımcının gerekli getiri oranı veya iskonto oranı, yüzde olarak ifade edilir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The number of years into the future for which the dividend is projected.",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Number of Years",
+        "tr": "Yıl Sayısı",
         "de": "Number of Years",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
+      },
+      "businessContext_i18n": {
+        "en": "The number of years into the future for which the dividend is projected.",
+        "tr": "Temettünün tahmin edildiği gelecekteki yıl sayısı."
       }
     }
   ],

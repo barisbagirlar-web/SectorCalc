@@ -10,11 +10,15 @@
       "businessContext": "Total fair market value of all assets at time of death",
       "label_i18n": {
         "en": "Gross Estate Value",
-        "tr": "Gross Estate Value",
+        "tr": "Brüt Emlak Değeri",
         "de": "Gross Estate Value",
         "fr": "Gross Estate Value",
         "es": "Gross Estate Value",
         "ar": "Gross Estate Value"
+      },
+      "businessContext_i18n": {
+        "en": "Total fair market value of all assets at time of death",
+        "tr": "Ölüm anındaki tüm varlıkların toplam gerçeğe uygun piyasa değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Federal or jurisdictional exempt amount",
       "label_i18n": {
         "en": "Standard Exemption",
-        "tr": "Standard Exemption",
+        "tr": "Standart İstisna",
         "de": "Standard Exemption",
         "fr": "Standard Exemption",
         "es": "Standard Exemption",
         "ar": "Standard Exemption"
+      },
+      "businessContext_i18n": {
+        "en": "Federal or jurisdictional exempt amount",
+        "tr": "Federal veya yargısal muafiyet tutarı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Charitable, marital, debts, and other allowable deductions",
       "label_i18n": {
         "en": "Other Deductions",
-        "tr": "Other Deductions",
+        "tr": "Diğer Kesintiler",
         "de": "Other Deductions",
         "fr": "Other Deductions",
         "es": "Other Deductions",
         "ar": "Other Deductions"
+      },
+      "businessContext_i18n": {
+        "en": "Charitable, marital, debts, and other allowable deductions",
+        "tr": "Hayır kurumu, eş, borçlar ve diğer izin verilen kesintiler"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Statutory tax rate on taxable estate",
       "label_i18n": {
         "en": "Base Tax Rate",
-        "tr": "Base Tax Rate",
+        "tr": "Temel Vergi Oranı",
         "de": "Base Tax Rate",
         "fr": "Base Tax Rate",
         "es": "Base Tax Rate",
         "ar": "Base Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Statutory tax rate on taxable estate",
+        "tr": "Vergiye tabi emlak üzerindeki yasal vergi oranı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Taxable estate amount above which a surcharge applies",
       "label_i18n": {
         "en": "Surcharge Threshold",
-        "tr": "Surcharge Threshold",
+        "tr": "Ek Vergi Eşiği",
         "de": "Surcharge Threshold",
         "fr": "Surcharge Threshold",
         "es": "Surcharge Threshold",
         "ar": "Surcharge Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Taxable estate amount above which a surcharge applies",
+        "tr": "Ek verginin uygulandığı vergiye tabi emlak tutarı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional tax rate applied on estate value exceeding surcharge threshold",
       "label_i18n": {
         "en": "Surcharge Rate",
-        "tr": "Surcharge Rate",
+        "tr": "Ek Vergi Oranı",
         "de": "Surcharge Rate",
         "fr": "Surcharge Rate",
         "es": "Surcharge Rate",
         "ar": "Surcharge Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Additional tax rate applied on estate value exceeding surcharge threshold",
+        "tr": "Ek vergi eşiğini aşan emlak değerine uygulanan ek vergi oranı"
       }
     }
   ],

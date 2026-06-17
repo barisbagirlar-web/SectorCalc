@@ -22,10 +22,12 @@
       "max": 10000,
       "businessContext": "Total length of the weld joint to be deposited.",
       "label_i18n": {
-        "en": "Weld Length (mm)"
+        "en": "Weld Length (mm)",
+        "tr": "Kaynak Uzunluğu (mm)"
       },
       "businessContext_i18n": {
-        "en": "Total length of the weld joint to be deposited."
+        "en": "Total length of the weld joint to be deposited.",
+        "tr": "Biriktirilecek kaynak bağlantısının toplam uzunluğu."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 50,
       "businessContext": "Effective throat thickness of the fillet or groove weld.",
       "label_i18n": {
-        "en": "Weld Throat Thickness (mm)"
+        "en": "Weld Throat Thickness (mm)",
+        "tr": "Kaynak Boğaz Kalınlığı (mm)"
       },
       "businessContext_i18n": {
-        "en": "Effective throat thickness of the fillet or groove weld."
+        "en": "Effective throat thickness of the fillet or groove weld.",
+        "tr": "Köşe veya oluk kaynağının etkin boğaz kalınlığı."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 20,
       "businessContext": "Density of the base and filler material (typical steel ~7.85).",
       "label_i18n": {
-        "en": "Material Density (g/cm³)"
+        "en": "Material Density (g/cm³)",
+        "tr": "Malzeme Yoğunluğu (g/cm³)"
       },
       "businessContext_i18n": {
-        "en": "Density of the base and filler material (typical steel ~7.85)."
+        "en": "Density of the base and filler material (typical steel ~7.85).",
+        "tr": "Taban ve dolgu malzemesinin yoğunluğu (tipik çelik ~7.85)."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 100,
       "businessContext": "Ratio of deposited weld metal to total filler metal consumed (includes spatter and losses).",
       "label_i18n": {
-        "en": "Deposition Efficiency (%)"
+        "en": "Deposition Efficiency (%)",
+        "tr": "Biriktirme Verimliliği (%)"
       },
       "businessContext_i18n": {
-        "en": "Ratio of deposited weld metal to total filler metal consumed (includes spatter and losses)."
+        "en": "Ratio of deposited weld metal to total filler metal consumed (includes spatter and losses).",
+        "tr": "Biriktirilen kaynak metalinin tüketilen toplam dolgu metaline oranı (sıçrama ve kayıplar dahil)."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 200,
       "businessContext": "Fully burdened hourly labor cost for welder.",
       "label_i18n": {
-        "en": "Labor Rate (USD/hour)"
+        "en": "Labor Rate (USD/hour)",
+        "tr": "İşçilik Ücreti (USD/saat)"
       },
       "businessContext_i18n": {
-        "en": "Fully burdened hourly labor cost for welder."
+        "en": "Fully burdened hourly labor cost for welder.",
+        "tr": "Kaynakçı için tam yüklü saatlik işçilik maliyeti."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 2000,
       "businessContext": "Travel speed of the welding torch along the joint.",
       "label_i18n": {
-        "en": "Welding Speed (mm/min)"
+        "en": "Welding Speed (mm/min)",
+        "tr": "Kaynak Hızı (mm/dk)"
       },
       "businessContext_i18n": {
-        "en": "Travel speed of the welding torch along the joint."
+        "en": "Travel speed of the welding torch along the joint.",
+        "tr": "Kaynak torcunun birleşme hattı boyunca ilerleme hızı."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 50,
       "businessContext": "Cost per kilogram of filler wire or electrode.",
       "label_i18n": {
-        "en": "Filler Wire Cost (USD/kg)"
+        "en": "Filler Wire Cost (USD/kg)",
+        "tr": "Dolgu Teli Maliyeti (USD/kg)"
       },
       "businessContext_i18n": {
-        "en": "Cost per kilogram of filler wire or electrode."
+        "en": "Cost per kilogram of filler wire or electrode.",
+        "tr": "Dolgu teli veya elektrotun kilogram başına maliyeti."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 1,
       "businessContext": "Cost per liter of shielding gas (e.g., Argon/CO2 mix).",
       "label_i18n": {
-        "en": "Shielding Gas Cost (USD/L)"
+        "en": "Shielding Gas Cost (USD/L)",
+        "tr": "Koruyucu Gaz Maliyeti (USD/L)"
       },
       "businessContext_i18n": {
-        "en": "Cost per liter of shielding gas (e.g., Argon/CO2 mix)."
+        "en": "Cost per liter of shielding gas (e.g., Argon/CO2 mix).",
+        "tr": "Litre başına koruyucu gaz maliyeti (örn. Argon/CO2 karışımı)."
       }
     }
   ],

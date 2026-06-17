@@ -22,10 +22,12 @@
       "max": 150,
       "businessContext": "Average fully loaded labor cost per operator hour, including wages, benefits, and overhead. Based on industry benchmarks (BLS, ISO 9001:2015 clause 7.1.6).",
       "label_i18n": {
-        "en": "Labor Rate (per hour)"
+        "en": "Labor Rate (per hour)",
+        "tr": "İşçilik Ücreti (saat başına)"
       },
       "businessContext_i18n": {
-        "en": "Average fully loaded labor cost per operator hour, including wages, benefits, and overhead. Based on industry benchmarks (BLS, ISO 9001:2015 clause 7.1.6)."
+        "en": "Average fully loaded labor cost per operator hour, including wages, benefits, and overhead. Based on industry benchmarks (BLS, ISO 9001:2015 clause 7.1.6).",
+        "tr": "Yan haklar ve genel giderler dahil, operatör başına saatlik ortalama tam yüklü işçilik maliyeti. Sektör kıyaslamalarına dayanır (BLS, ISO 9001:2015 madde 7.1.6)."
       }
     },
     {
@@ -38,10 +40,12 @@
       "max": 500,
       "businessContext": "Number of direct operators whose work is impacted by the Kaizen event. Used to calculate labor savings.",
       "label_i18n": {
-        "en": "Number of Operators Affected"
+        "en": "Number of Operators Affected",
+        "tr": "Etkilenen Operatör Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Number of direct operators whose work is impacted by the Kaizen event. Used to calculate labor savings."
+        "en": "Number of direct operators whose work is impacted by the Kaizen event. Used to calculate labor savings.",
+        "tr": "Kaizen etkinliğinden etkilenen doğrudan operatör sayısı. İşçilik tasarrufunu hesaplamak için kullanılır."
       }
     },
     {
@@ -54,10 +58,12 @@
       "max": 480,
       "businessContext": "Reduction in cycle time or non-value-added time per operator per shift, measured via time studies (Lean standard work, ISO 22400).",
       "label_i18n": {
-        "en": "Time Saved per Operator per Shift"
+        "en": "Time Saved per Operator per Shift",
+        "tr": "Operatör Başına Vardiya Başına Kazanılan Süre"
       },
       "businessContext_i18n": {
-        "en": "Reduction in cycle time or non-value-added time per operator per shift, measured via time studies (Lean standard work, ISO 22400)."
+        "en": "Reduction in cycle time or non-value-added time per operator per shift, measured via time studies (Lean standard work, ISO 22400).",
+        "tr": "Zaman etütleri ile ölçülen, operatör başına vardiya başına çevrim süresi veya katma değersiz süredeki azalma (Yalın standart iş, ISO 22400)."
       }
     },
     {
@@ -70,10 +76,12 @@
       "max": 3,
       "businessContext": "Number of production shifts per day. Typical in manufacturing (WERC DC Measures).",
       "label_i18n": {
-        "en": "Shifts per Day"
+        "en": "Shifts per Day",
+        "tr": "Günlük Vardiya Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Number of production shifts per day. Typical in manufacturing (WERC DC Measures)."
+        "en": "Number of production shifts per day. Typical in manufacturing (WERC DC Measures).",
+        "tr": "Günlük üretim vardiyası sayısı. Üretimde tipiktir (WERC DC Ölçütleri)."
       }
     },
     {
@@ -86,10 +94,12 @@
       "max": 365,
       "businessContext": "Annual operating days, excluding weekends and holidays. Standard for industrial planning (ISO 9001).",
       "label_i18n": {
-        "en": "Operating Days per Year"
+        "en": "Operating Days per Year",
+        "tr": "Yıllık Çalışma Günü Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Annual operating days, excluding weekends and holidays. Standard for industrial planning (ISO 9001)."
+        "en": "Annual operating days, excluding weekends and holidays. Standard for industrial planning (ISO 9001).",
+        "tr": "Yıllık çalışma günü, hafta sonları ve tatiller hariç. Endüstriyel planlama için standart (ISO 9001)."
       }
     },
     {
@@ -102,10 +112,12 @@
       "max": 100,
       "businessContext": "Percentage of defective units before improvement. Six Sigma DMAIC baseline (DPMO conversion).",
       "label_i18n": {
-        "en": "Defect Rate Before Kaizen"
+        "en": "Defect Rate Before Kaizen",
+        "tr": "Kaizen Öncesi Hata Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of defective units before improvement. Six Sigma DMAIC baseline (DPMO conversion)."
+        "en": "Percentage of defective units before improvement. Six Sigma DMAIC baseline (DPMO conversion).",
+        "tr": "İyileştirme öncesi hatalı birim yüzdesi. Altı Sigma DMAIC temel çizgisi (DPMO dönüşümü)."
       }
     },
     {
@@ -118,10 +130,12 @@
       "max": 100,
       "businessContext": "Percentage of defective units after improvement. Must be <= defect_rate_before for valid savings.",
       "label_i18n": {
-        "en": "Defect Rate After Kaizen"
+        "en": "Defect Rate After Kaizen",
+        "tr": "Kaizen Sonrası Hata Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of defective units after improvement. Must be <= defect_rate_before for valid savings."
+        "en": "Percentage of defective units after improvement. Must be <= defect_rate_before for valid savings.",
+        "tr": "İyileştirme sonrası hatalı birim yüzdesi. Geçerli tasarruf için hata_oranı_oncesi'nden küçük veya eşit olmalıdır."
       }
     },
     {
@@ -134,10 +148,12 @@
       "max": 10000000,
       "businessContext": "Total units produced per year. Used to scale defect savings.",
       "label_i18n": {
-        "en": "Annual Production Volume"
+        "en": "Annual Production Volume",
+        "tr": "Yıllık Üretim Hacmi"
       },
       "businessContext_i18n": {
-        "en": "Total units produced per year. Used to scale defect savings."
+        "en": "Total units produced per year. Used to scale defect savings.",
+        "tr": "Yıllık üretilen toplam birim. Hata tasarruflarını ölçeklendirmek için kullanılır."
       }
     }
   ],

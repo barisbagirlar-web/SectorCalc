@@ -10,11 +10,15 @@
       "businessContext": "Total power rating of equipment being audited.",
       "label_i18n": {
         "en": "Equipment Power Rating",
-        "tr": "Equipment Power Rating",
+        "tr": "Ekipman Güç Değeri",
         "de": "Equipment Power Rating",
         "fr": "Equipment Power Rating",
         "es": "Equipment Power Rating",
         "ar": "Equipment Power Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Total power rating of equipment being audited.",
+        "tr": "Denetlenen ekipmanın toplam güç değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual operating hours of the equipment.",
       "label_i18n": {
         "en": "Operating Hours per Year",
-        "tr": "Operating Hours per Year",
+        "tr": "Yıllık Çalışma Saati",
         "de": "Operating Hours per Year",
         "fr": "Operating Hours per Year",
         "es": "Operating Hours per Year",
         "ar": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Annual operating hours of the equipment.",
+        "tr": "Ekipmanın yıllık çalışma saati."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of full power at which equipment typically operates.",
       "label_i18n": {
         "en": "Load Factor",
-        "tr": "Load Factor",
+        "tr": "Yük Faktörü",
         "de": "Load Factor",
         "fr": "Load Factor",
         "es": "Load Factor",
         "ar": "Load Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of full power at which equipment typically operates.",
+        "tr": "Ekipmanın tipik olarak çalıştığı tam güç yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Electricity cost per kilowatt-hour.",
       "label_i18n": {
         "en": "Cost per kWh",
-        "tr": "Cost per kWh",
+        "tr": "kWh Başına Maliyet",
         "de": "Cost per kWh",
         "fr": "Cost per kWh",
         "es": "Cost per kWh",
         "ar": "Cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Electricity cost per kilowatt-hour.",
+        "tr": "Kilovatsaat başına elektrik maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total floor area of the facility being audited.",
       "label_i18n": {
         "en": "Floor Area",
-        "tr": "Floor Area",
+        "tr": "Alan",
         "de": "Floor Area",
         "fr": "Floor Area",
         "es": "Floor Area",
         "ar": "Floor Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total floor area of the facility being audited.",
+        "tr": "Denetlenen tesisin toplam taban alanı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Carbon emission factor for grid electricity.",
       "label_i18n": {
         "en": "CO2 Emission Factor",
-        "tr": "CO2 Emission Factor",
+        "tr": "CO2 Emisyon Faktörü",
         "de": "CO2 Emission Factor",
         "fr": "CO2 Emission Factor",
         "es": "CO2 Emission Factor",
         "ar": "CO2 Emission Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Carbon emission factor for grid electricity.",
+        "tr": "Şebeke elektriği için karbon emisyon faktörü."
       }
     }
   ],

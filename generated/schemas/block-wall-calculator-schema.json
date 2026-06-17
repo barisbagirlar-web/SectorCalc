@@ -10,11 +10,15 @@
       "businessContext": "Total horizontal length of the wall in meters.",
       "label_i18n": {
         "en": "Wall Length",
-        "tr": "Wall Length",
+        "tr": "Duvar Uzunluğu (m)",
         "de": "Wall Length",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total horizontal length of the wall in meters.",
+        "tr": "Duvarın metre cinsinden toplam yatay uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Vertical height of the wall from floor to ceiling in meters.",
       "label_i18n": {
         "en": "Wall Height",
-        "tr": "Wall Height",
+        "tr": "Duvar Yüksekliği",
         "de": "Wall Height",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical height of the wall from floor to ceiling in meters.",
+        "tr": "Duvarın zeminden tavana metre cinsinden dikey yüksekliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of a single block including any interlocking features in millimeters.",
       "label_i18n": {
         "en": "Block Length",
-        "tr": "Block Length",
+        "tr": "Blok Uzunluğu",
         "de": "Block Length",
         "fr": "Block Length",
         "es": "Block Length",
         "ar": "Block Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of a single block including any interlocking features in millimeters.",
+        "tr": "Kilitleme özellikleri dahil tek bir bloğun milimetre cinsinden uzunluğu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of a single block in millimeters.",
       "label_i18n": {
         "en": "Block Height",
-        "tr": "Block Height",
+        "tr": "Blok Yüksekliği",
         "de": "Block Height",
         "fr": "Block Height",
         "es": "Block Height",
         "ar": "Block Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of a single block in millimeters.",
+        "tr": "Tek bir bloğun milimetre cinsinden yüksekliği."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Thickness of the mortar joint between blocks in millimeters.",
       "label_i18n": {
         "en": "Mortar Joint Thickness",
-        "tr": "Mortar Joint Thickness",
+        "tr": "Harç Derz Kalınlığı",
         "de": "Mortar Joint Thickness",
         "fr": "Mortar Joint Thickness",
         "es": "Mortar Joint Thickness",
         "ar": "Mortar Joint Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the mortar joint between blocks in millimeters.",
+        "tr": "Bloklar arasındaki harç derzinin milimetre cinsinden kalınlığı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Unit price of one block in USD.",
       "label_i18n": {
         "en": "Price per Block",
-        "tr": "Price per Block",
+        "tr": "Blok Başına Fiyat",
         "de": "Price per Block",
         "fr": "Price per Block",
         "es": "Price per Block",
         "ar": "Price per Block"
+      },
+      "businessContext_i18n": {
+        "en": "Unit price of one block in USD.",
+        "tr": "Bir bloğun USD cinsinden birim fiyatı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Percentage of extra blocks to account for cutting, breakage, and waste.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of extra blocks to account for cutting, breakage, and waste.",
+        "tr": "Kesim, kırılma ve fireyi hesaba katmak için ek blok yüzdesi."
       }
     }
   ],

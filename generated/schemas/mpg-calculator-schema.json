@@ -10,11 +10,15 @@
       "businessContext": "Total distance driven in miles between fill-ups or over a period.",
       "label_i18n": {
         "en": "Distance Traveled",
-        "tr": "Distance Traveled",
+        "tr": "Kat Edilen Mesafe",
         "de": "Distance Traveled",
         "fr": "Distance Traveled",
         "es": "Distance Traveled",
         "ar": "Distance Traveled"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance driven in miles between fill-ups or over a period.",
+        "tr": "Dolumlar arasında veya bir dönem boyunca mil cinsinden kat edilen toplam mesafe."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total fuel consumed in gallons over the same distance.",
       "label_i18n": {
         "en": "Fuel Used",
-        "tr": "Fuel Used",
+        "tr": "Kullanılan Yakıt",
         "de": "Fuel Used",
         "fr": "Fuel Used",
         "es": "Fuel Used",
         "ar": "Fuel Used"
+      },
+      "businessContext_i18n": {
+        "en": "Total fuel consumed in gallons over the same distance.",
+        "tr": "Aynı mesafe boyunca galon cinsinden tüketilen toplam yakıt."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current price of fuel per gallon for cost calculations.",
       "label_i18n": {
         "en": "Fuel Cost per Gallon",
-        "tr": "Fuel Cost per Gallon",
+        "tr": "Galon Başına Yakıt Maliyeti",
         "de": "Fuel Cost per Gallon",
         "fr": "Fuel Cost per Gallon",
         "es": "Fuel Cost per Gallon",
         "ar": "Fuel Cost per Gallon"
+      },
+      "businessContext_i18n": {
+        "en": "Current price of fuel per gallon for cost calculations.",
+        "tr": "Maliyet hesaplamaları için galon başına güncel yakıt fiyatı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of trips or fill-ups this calculation averages over.",
       "label_i18n": {
         "en": "Number of Trips",
-        "tr": "Number of Trips",
+        "tr": "Seyir Sayısı",
         "de": "Number of Trips",
         "fr": "Number of Trips",
         "es": "Number of Trips",
         "ar": "Number of Trips"
+      },
+      "businessContext_i18n": {
+        "en": "Number of trips or fill-ups this calculation averages over.",
+        "tr": "Bu hesaplamanın ortalamasını aldığı sefer veya dolum sayısı."
       }
     }
   ],

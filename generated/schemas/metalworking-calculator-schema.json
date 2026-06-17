@@ -10,11 +10,15 @@
       "businessContext": "Rotational speed of the spindle",
       "label_i18n": {
         "en": "Spindle Speed",
-        "tr": "Spindle Speed",
+        "tr": "İş Mili Hızı",
         "de": "Spindle Speed",
         "fr": "Spindle Speed",
         "es": "Spindle Speed",
         "ar": "Spindle Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Rotational speed of the spindle",
+        "tr": "İş milinin dönüş hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Diameter of the cutting tool",
       "label_i18n": {
         "en": "Tool Diameter",
-        "tr": "Tool Diameter",
+        "tr": "Takım Çapı",
         "de": "Tool Diameter",
         "fr": "Tool Diameter",
         "es": "Tool Diameter",
         "ar": "Tool Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the cutting tool",
+        "tr": "Kesici takımın çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of cutting flutes on the tool",
       "label_i18n": {
         "en": "Number of Flutes",
-        "tr": "Number of Flutes",
+        "tr": "Kanallı Uç Sayısı",
         "de": "Number of Flutes",
         "fr": "Number of Flutes",
         "es": "Number of Flutes",
         "ar": "Number of Flutes"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cutting flutes on the tool",
+        "tr": "Takımdaki kesici kanalların sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Thickness of material removed per tooth per revolution",
       "label_i18n": {
         "en": "Chip Load",
-        "tr": "Chip Load",
+        "tr": "Talaş Yükü",
         "de": "Chip Load",
         "fr": "Chip Load",
         "es": "Chip Load",
         "ar": "Chip Load"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of material removed per tooth per revolution",
+        "tr": "Diş başına devir başına kaldırılan malzeme kalınlığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Depth of material removal along the tool axis",
       "label_i18n": {
         "en": "Axial Depth of Cut",
-        "tr": "Axial Depth of Cut",
+        "tr": "Eksenel Kesme Derinliği",
         "de": "Axial Depth of Cut",
         "fr": "Axial Depth of Cut",
         "es": "Axial Depth of Cut",
         "ar": "Axial Depth of Cut"
+      },
+      "businessContext_i18n": {
+        "en": "Depth of material removal along the tool axis",
+        "tr": "Takım ekseni boyunca malzeme kaldırma derinliği"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Width of material engagement perpendicular to tool axis",
       "label_i18n": {
         "en": "Radial Width of Cut",
-        "tr": "Radial Width of Cut",
+        "tr": "Radyal Kesme Genişliği",
         "de": "Radial Width of Cut",
         "fr": "Radial Width of Cut",
         "es": "Radial Width of Cut",
         "ar": "Radial Width of Cut"
+      },
+      "businessContext_i18n": {
+        "en": "Width of material engagement perpendicular to tool axis",
+        "tr": "Takım eksenine dik malzeme temas genişliği"
       }
     }
   ],

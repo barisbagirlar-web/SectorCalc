@@ -10,11 +10,15 @@
       "businessContext": "Land area measurement in perches (1 perch = 25.29285264 m²)",
       "label_i18n": {
         "en": "Area in perches",
-        "tr": "Area in perches",
+        "tr": "Perch cinsinden alan",
         "de": "Area in perches",
         "fr": "Area in perches",
         "es": "Area in perches",
         "ar": "Area in perches"
+      },
+      "businessContext_i18n": {
+        "en": "Land area measurement in perches (1 perch = 25.29285264 m²)",
+        "tr": "Perch cinsinden arazi alanı ölçümü (1 perch = 25,29285264 m²)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor; can be overridden for historical variants",
       "label_i18n": {
         "en": "Conversion factor (sqm per perch)",
-        "tr": "Conversion factor (sqm per perch)",
+        "tr": "Dönüşüm faktörü (m² per perch)",
         "de": "Conversion factor (sqm per perch)",
         "fr": "Conversion factor (sqm per perch)",
         "es": "Conversion factor (sqm per perch)",
         "ar": "Conversion factor (sqm per perch)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor; can be overridden for historical variants",
+        "tr": "Standart dönüşüm faktörü; tarihsel varyantlar için geçersiz kılınabilir"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Optional input to compute equivalent perches for validation",
       "label_i18n": {
         "en": "Verify reverse: known area in sqm",
-        "tr": "Verify reverse: known area in sqm",
+        "tr": "Tersini doğrula: m² cinsinden bilinen alan",
         "de": "Verify reverse: known area in sqm",
         "fr": "Verify reverse: known area in sqm",
         "es": "Verify reverse: known area in sqm",
         "ar": "Verify reverse: known area in sqm"
+      },
+      "businessContext_i18n": {
+        "en": "Optional input to compute equivalent perches for validation",
+        "tr": "Doğrulama için eşdeğer perch hesaplamak üzere isteğe bağlı girdi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Calibration offset added to the result",
       "label_i18n": {
         "en": "Offset adjustment (sqm)",
-        "tr": "Offset adjustment (sqm)",
+        "tr": "Ofset ayarı (m²)",
         "de": "Offset adjustment (sqm)",
         "fr": "Offset adjustment (sqm)",
         "es": "Offset adjustment (sqm)",
         "ar": "Offset adjustment (sqm)"
+      },
+      "businessContext_i18n": {
+        "en": "Calibration offset added to the result",
+        "tr": "Sonuca eklenen kalibrasyon ofseti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of decimal places for rounding display (not used in raw calculation)",
       "label_i18n": {
         "en": "Decimal precision for display",
-        "tr": "Decimal precision for display",
+        "tr": "Görüntüleme için ondalık hassasiyet",
         "de": "Decimal precision for display",
         "fr": "Decimal precision for display",
         "es": "Decimal precision for display",
         "ar": "Decimal precision for display"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding display (not used in raw calculation)",
+        "tr": "Görüntüleme yuvarlaması için ondalık basamak sayısı (ham hesaplamada kullanılmaz)"
       }
     }
   ],

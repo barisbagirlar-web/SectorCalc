@@ -10,11 +10,15 @@
       "businessContext": "Mass of the substance to be vaporized.",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the substance to be vaporized.",
+        "tr": "Buharlaştırılacak maddenin kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Starting temperature of the liquid before heating.",
       "label_i18n": {
         "en": "Initial Temperature",
-        "tr": "Initial Temperature",
+        "tr": "Başlangıç Sıcaklığı",
         "de": "Initial Temperature",
         "fr": "Initial Temperature",
         "es": "Initial Temperature",
         "ar": "Initial Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Starting temperature of the liquid before heating.",
+        "tr": "Isıtmadan önce sıvının başlangıç sıcaklığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Boiling point of the liquid at the given pressure.",
       "label_i18n": {
         "en": "Boiling Point",
-        "tr": "Boiling Point",
+        "tr": "Kaynama Noktası",
         "de": "Boiling Point",
         "fr": "Boiling Point",
         "es": "Boiling Point",
         "ar": "Boiling Point"
+      },
+      "businessContext_i18n": {
+        "en": "Boiling point of the liquid at the given pressure.",
+        "tr": "Verilen basınçta sıvının kaynama noktası."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Specific heat capacity of the liquid phase (constant pressure).",
       "label_i18n": {
         "en": "Specific Heat Capacity",
-        "tr": "Specific Heat Capacity",
+        "tr": "Özgül Isı Kapasitesi",
         "de": "Specific Heat Capacity",
         "fr": "Specific Heat Capacity",
         "es": "Specific Heat Capacity",
         "ar": "Specific Heat Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Specific heat capacity of the liquid phase (constant pressure).",
+        "tr": "Sıvı fazın özgül ısı kapasitesi (sabit basınç)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Energy required to vaporize one kilogram of the liquid at boiling point.",
       "label_i18n": {
         "en": "Latent Heat of Vaporization",
-        "tr": "Latent Heat of Vaporization",
+        "tr": "Buharlaşma Gizli Isısı",
         "de": "Latent Heat of Vaporization",
         "fr": "Latent Heat of Vaporization",
         "es": "Latent Heat of Vaporization",
         "ar": "Latent Heat of Vaporization"
+      },
+      "businessContext_i18n": {
+        "en": "Energy required to vaporize one kilogram of the liquid at boiling point.",
+        "tr": "Kaynama noktasında bir kilogram sıvıyı buharlaştırmak için gereken enerji."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Efficiency of the heating system (100% means no losses).",
       "label_i18n": {
         "en": "Heating Efficiency",
-        "tr": "Heating Efficiency",
+        "tr": "Isıtma Verimliliği",
         "de": "Heating Efficiency",
         "fr": "Heating Efficiency",
         "es": "Heating Efficiency",
         "ar": "Heating Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the heating system (100% means no losses).",
+        "tr": "Isıtma sisteminin verimliliği (%100 kayıp olmadığı anlamına gelir)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Multiplier to account for design margins or uncertainties.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to account for design margins or uncertainties.",
+        "tr": "Tasarım payları veya belirsizlikleri hesaba katmak için çarpan."
       }
     }
   ],

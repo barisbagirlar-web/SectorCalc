@@ -10,11 +10,15 @@
       "businessContext": "Total number of nodes in the graph.",
       "label_i18n": {
         "en": "Number of Vertices (V)",
-        "tr": "Number of Vertices (V)",
+        "tr": "Köşe Sayısı (V)",
         "de": "Number of Vertices (V)",
         "fr": "Number of Vertices (V)",
         "es": "Number of Vertices (V)",
         "ar": "Number of Vertices (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of nodes in the graph.",
+        "tr": "Graftaki toplam düğüm sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total number of connections between nodes.",
       "label_i18n": {
         "en": "Number of Edges (E)",
-        "tr": "Number of Edges (E)",
+        "tr": "Kenar Sayısı (E)",
         "de": "Number of Edges (E)",
         "fr": "Number of Edges (E)",
         "es": "Number of Edges (E)",
         "ar": "Number of Edges (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of connections between nodes.",
+        "tr": "Düğümler arasındaki toplam bağlantı sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Indicates whether the graph is bipartite. 1 if yes, 0 otherwise.",
       "label_i18n": {
         "en": "Is Bipartite? (0=No, 1=Yes)",
-        "tr": "Is Bipartite? (0=No, 1=Yes)",
+        "tr": "İki Parçalı mı? (0=Hayır, 1=Evet)",
         "de": "Is Bipartite? (0=No, 1=Yes)",
         "fr": "Is Bipartite? (0=No, 1=Yes)",
         "es": "Is Bipartite? (0=No, 1=Yes)",
         "ar": "Is Bipartite? (0=No, 1=Yes)"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether the graph is bipartite. 1 if yes, 0 otherwise.",
+        "tr": "Grafın iki parçalı olup olmadığını belirtir. 1 evet, 0 hayır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Desired breathing cycles per minute (typically 5-6 for coherence)",
       "label_i18n": {
         "en": "Target Breathing Rate",
-        "tr": "Target Breathing Rate",
+        "tr": "Hedef Solunum Hızı",
         "de": "Target Breathing Rate",
         "fr": "Target Breathing Rate",
         "es": "Target Breathing Rate",
         "ar": "Target Breathing Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Desired breathing cycles per minute (typically 5-6 for coherence)",
+        "tr": "Dakikada istenen solunum döngüsü sayısı (tipik olarak 5-6, uyum için)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ratio of inhale duration to exhale duration (e.g., 0.5 means inhale is half of exhale)",
       "label_i18n": {
         "en": "Inhale/Exhale Ratio",
-        "tr": "Inhale/Exhale Ratio",
+        "tr": "Nefes Alma/Nefes Verme Oranı",
         "de": "Inhale/Exhale Ratio",
         "fr": "Inhale/Exhale Ratio",
         "es": "Inhale/Exhale Ratio",
         "ar": "Inhale/Exhale Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of inhale duration to exhale duration (e.g., 0.5 means inhale is half of exhale)",
+        "tr": "Nefes alma süresinin nefes verme süresine oranı (örneğin, 0,5 nefes almanın nefes vermenin yarısı olduğu anlamına gelir)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total duration of the practice session",
       "label_i18n": {
         "en": "Practice Duration",
-        "tr": "Practice Duration",
+        "tr": "Pratik Süresi",
         "de": "Practice Duration",
         "fr": "Practice Duration",
         "es": "Practice Duration",
         "ar": "Practice Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration of the practice session",
+        "tr": "Pratik seansının toplam süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Your typical resting breathing rate for comparison",
       "label_i18n": {
         "en": "Resting Breathing Rate",
-        "tr": "Resting Breathing Rate",
+        "tr": "Dinlenme Solunum Hızı",
         "de": "Resting Breathing Rate",
         "fr": "Resting Breathing Rate",
         "es": "Resting Breathing Rate",
         "ar": "Resting Breathing Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Your typical resting breathing rate for comparison",
+        "tr": "Karşılaştırma için tipik dinlenme solunum hızınız"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Mass of vehicle structure and engines, excluding fuel and payload.",
       "label_i18n": {
         "en": "Empty Mass",
-        "tr": "Empty Mass",
+        "tr": "Boş Kütle",
         "de": "Empty Mass",
         "fr": "Empty Mass",
         "es": "Empty Mass",
         "ar": "Empty Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of vehicle structure and engines, excluding fuel and payload.",
+        "tr": "Yakıt ve yük hariç, araç yapısı ve motorlarının kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass of fuel onboard.",
       "label_i18n": {
         "en": "Fuel Mass",
-        "tr": "Fuel Mass",
+        "tr": "Yakıt Kütlesi",
         "de": "Fuel Mass",
         "fr": "Fuel Mass",
         "es": "Fuel Mass",
         "ar": "Fuel Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of fuel onboard.",
+        "tr": "Araçtaki yakıt kütlesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mass of payload.",
       "label_i18n": {
         "en": "Payload Mass",
-        "tr": "Payload Mass",
+        "tr": "Yük Kütlesi",
         "de": "Payload Mass",
         "fr": "Payload Mass",
         "es": "Payload Mass",
         "ar": "Payload Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of payload.",
+        "tr": "Yükün kütlesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total thrust produced by propulsion system.",
       "label_i18n": {
         "en": "Thrust",
-        "tr": "Thrust",
+        "tr": "İtki",
         "de": "Thrust",
         "fr": "Thrust",
         "es": "Thrust",
         "ar": "Thrust"
+      },
+      "businessContext_i18n": {
+        "en": "Total thrust produced by propulsion system.",
+        "tr": "Tahrik sistemi tarafından üretilen toplam itki."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Standard gravity; use 9.81 for Earth surface.",
       "label_i18n": {
         "en": "Gravitational Acceleration",
-        "tr": "Gravitational Acceleration",
+        "tr": "Yerçekimi İvmesi",
         "de": "Gravitational Acceleration",
         "fr": "Gravitational Acceleration",
         "es": "Gravitational Acceleration",
         "ar": "Gravitational Acceleration"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravity; use 9.81 for Earth surface.",
+        "tr": "Standart yerçekimi; Dünya yüzeyi için 9.81 kullanın."
       }
     }
   ],

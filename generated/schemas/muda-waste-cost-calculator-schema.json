@@ -21,10 +21,12 @@
       "max": 10000,
       "businessContext": "Direct material cost per unit of product, including raw materials and purchased components.",
       "label_i18n": {
-        "en": "Material Cost per Unit"
+        "en": "Material Cost per Unit",
+        "tr": "Birim Başına Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Direct material cost per unit of product, including raw materials and purchased components."
+        "en": "Direct material cost per unit of product, including raw materials and purchased components.",
+        "tr": "Ürün birimi başına doğrudan malzeme maliyeti (hammadde ve satın alınan parçalar dahil)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 500,
       "businessContext": "Average fully burdened labor cost per hour for direct operators.",
       "label_i18n": {
-        "en": "Labor Cost per Hour"
+        "en": "Labor Cost per Hour",
+        "tr": "Saatlik işçilik maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Average fully burdened labor cost per hour for direct operators."
+        "en": "Average fully burdened labor cost per hour for direct operators.",
+        "tr": "Doğrudan operatörler için saat başına ortalama tam yüklü işçilik maliyeti."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 500,
       "businessContext": "Percentage of direct labor cost allocated to manufacturing overhead (ISO 9001 cost accounting).",
       "label_i18n": {
-        "en": "Overhead Rate"
+        "en": "Overhead Rate",
+        "tr": "Genel gider oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of direct labor cost allocated to manufacturing overhead (ISO 9001 cost accounting)."
+        "en": "Percentage of direct labor cost allocated to manufacturing overhead (ISO 9001 cost accounting).",
+        "tr": "Doğrudan işçilik maliyetinin üretim genel giderlerine ayrılan yüzdesi (ISO 9001 maliyet muhasebesi)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 100,
       "businessContext": "Percentage of units produced that are defective and require rework or scrap (Six Sigma DPMO metric).",
       "label_i18n": {
-        "en": "Defect Rate"
+        "en": "Defect Rate",
+        "tr": "Fire Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of units produced that are defective and require rework or scrap (Six Sigma DPMO metric)."
+        "en": "Percentage of units produced that are defective and require rework or scrap (Six Sigma DPMO metric).",
+        "tr": "Üretilen birimlerin yeniden işlem veya fire gerektiren kusurlu yüzdesi (Altı Sigma DPMO metriği)."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 10,
       "businessContext": "Average time spent reworking a defective unit.",
       "label_i18n": {
-        "en": "Rework Time per Unit"
+        "en": "Rework Time per Unit",
+        "tr": "Birim Başına Yeniden İşlem Süresi"
       },
       "businessContext_i18n": {
-        "en": "Average time spent reworking a defective unit."
+        "en": "Average time spent reworking a defective unit.",
+        "tr": "Kusurlu bir birimi yeniden işlemek için harcanan ortalama süre."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Percentage of defective units that are scrapped (cannot be reworked).",
       "label_i18n": {
-        "en": "Scrap Rate"
+        "en": "Scrap Rate",
+        "tr": "Fire Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of defective units that are scrapped (cannot be reworked)."
+        "en": "Percentage of defective units that are scrapped (cannot be reworked).",
+        "tr": "Geri dönüştürülemeyen (fire) hatalı birimlerin yüzdesi."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 10,
       "businessContext": "Average idle time per unit due to bottlenecks, material shortages, or equipment downtime (Lean Takt time analysis).",
       "label_i18n": {
-        "en": "Waiting Time per Unit"
+        "en": "Waiting Time per Unit",
+        "tr": "Birim Başına Bekleme Süresi"
       },
       "businessContext_i18n": {
-        "en": "Average idle time per unit due to bottlenecks, material shortages, or equipment downtime (Lean Takt time analysis)."
+        "en": "Average idle time per unit due to bottlenecks, material shortages, or equipment downtime (Lean Takt time analysis).",
+        "tr": "Darboğazlar, malzeme eksiklikleri veya ekipman duruşları nedeniyle birim başına ortalama boşta kalma süresi (Yalın Takt süresi analizi)."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 100,
       "businessContext": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies.",
       "label_i18n": {
-        "en": "Excess Motion Cost per Unit"
+        "en": "Excess Motion Cost per Unit",
+        "tr": "Birim Başına Gereksiz Hareket Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies."
+        "en": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies.",
+        "tr": "Zaman-hareket etüdlerine dayalı olarak, birim başına gereksiz işçi hareketinin (yürüme, uzanma) maliyeti."
       }
     }
   ],

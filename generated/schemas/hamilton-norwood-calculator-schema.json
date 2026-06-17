@@ -15,6 +15,10 @@
         "fr": "Temporal Recession (cm)",
         "es": "Temporal Recession (cm)",
         "ar": "Temporal Recession (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from original anterior hairline to current anterior hairline at temples",
+        "tr": "Orijinal ön saç çizgisinden şakaklardaki mevcut ön saç çizgisine olan mesafe"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Diameter of circular bald area at the vertex (crown)",
       "label_i18n": {
         "en": "Vertex Bald Diameter (cm)",
-        "tr": "Vertex Bald Diameter (cm)",
+        "tr": "Vertex Kel Bölge Çapı (cm)",
         "de": "Vertex Bald Diameter (cm)",
         "fr": "Vertex Bald Diameter (cm)",
         "es": "Vertex Bald Diameter (cm)",
         "ar": "Vertex Bald Diameter (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of circular bald area at the vertex (crown)",
+        "tr": "Vertex (tepe) bölgesindeki dairesel kel alanın çapı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Area of diffuse thinning in frontal region beyond recession",
       "label_i18n": {
         "en": "Frontal Thinning Area (cm²)",
-        "tr": "Frontal Thinning Area (cm²)",
+        "tr": "Frontal İncelme Alanı (cm²)",
         "de": "Frontal Thinning Area (cm²)",
         "fr": "Frontal Thinning Area (cm²)",
         "es": "Frontal Thinning Area (cm²)",
         "ar": "Frontal Thinning Area (cm²)"
+      },
+      "businessContext_i18n": {
+        "en": "Area of diffuse thinning in frontal region beyond recession",
+        "tr": "Çekilmenin ötesinde frontal bölgede yaygın incelme alanı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Area of diffuse thinning around vertex bald spot",
       "label_i18n": {
         "en": "Crown Thinning Area (cm²)",
-        "tr": "Crown Thinning Area (cm²)",
+        "tr": "Tepe İncelme Alanı (cm²)",
         "de": "Crown Thinning Area (cm²)",
         "fr": "Crown Thinning Area (cm²)",
         "es": "Crown Thinning Area (cm²)",
         "ar": "Crown Thinning Area (cm²)"
+      },
+      "businessContext_i18n": {
+        "en": "Area of diffuse thinning around vertex bald spot",
+        "tr": "Vertex kel noktası etrafında yaygın incelme alanı"
       }
     }
   ],

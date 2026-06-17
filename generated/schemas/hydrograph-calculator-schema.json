@@ -10,11 +10,15 @@
       "businessContext": "Main stream length from outlet to watershed divide",
       "label_i18n": {
         "en": "Main Stream Length",
-        "tr": "Main Stream Length",
+        "tr": "Ana Akarsu Uzunluğu",
         "de": "Main Stream Length",
         "fr": "Main Stream Length",
         "es": "Main Stream Length",
         "ar": "Main Stream Length"
+      },
+      "businessContext_i18n": {
+        "en": "Main stream length from outlet to watershed divide",
+        "tr": "Çıkıştan su bölümü çizgisine kadar ana akarsu uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance from outlet to a point on the stream nearest the centroid of the watershed",
       "label_i18n": {
         "en": "Distance Along Stream to Centroid",
-        "tr": "Distance Along Stream to Centroid",
+        "tr": "Ağırlık Merkezine Akarsu Boyunca Mesafe",
         "de": "Distance Along Stream to Centroid",
         "fr": "Distance Along Stream to Centroid",
         "es": "Distance Along Stream to Centroid",
         "ar": "Distance Along Stream to Centroid"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from outlet to a point on the stream nearest the centroid of the watershed",
+        "tr": "Çıkıştan, havzanın ağırlık merkezine en yakın akarsu noktasına olan mesafe."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total watershed drainage area",
       "label_i18n": {
         "en": "Drainage Area",
-        "tr": "Drainage Area",
+        "tr": "Drenaj Alanı",
         "de": "Drainage Area",
         "fr": "Drainage Area",
         "es": "Drainage Area",
         "ar": "Drainage Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total watershed drainage area",
+        "tr": "Toplam havza drenaj alanı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Coefficient depending on watershed slope and storage, typically 1.0–2.5",
       "label_i18n": {
         "en": "Coefficient Ct",
-        "tr": "Coefficient Ct",
+        "tr": "Katsayı Ct",
         "de": "Coefficient Ct",
         "fr": "Coefficient Ct",
         "es": "Coefficient Ct",
         "ar": "Coefficient Ct"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient depending on watershed slope and storage, typically 1.0–2.5",
+        "tr": "Havza eğimi ve depolamasına bağlı katsayı, tipik olarak 1.0–2.5."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Peak discharge coefficient, typically 0.4–0.8",
       "label_i18n": {
         "en": "Coefficient Cp",
-        "tr": "Coefficient Cp",
+        "tr": "Katsayı Cp",
         "de": "Coefficient Cp",
         "fr": "Coefficient Cp",
         "es": "Coefficient Cp",
         "ar": "Coefficient Cp"
+      },
+      "businessContext_i18n": {
+        "en": "Peak discharge coefficient, typically 0.4–0.8",
+        "tr": "Pik debi katsayısı, tipik olarak 0.4–0.8."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Current transformer ratio (primary to secondary)",
       "label_i18n": {
         "en": "CT Ratio",
-        "tr": "CT Ratio",
+        "tr": "CT Oranı",
         "de": "CT Ratio",
         "fr": "CT Ratio",
         "es": "CT Ratio",
         "ar": "CT Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Current transformer ratio (primary to secondary)",
+        "tr": "Akım trafosu dönüşüm oranı (primerden sekondere)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Relay pickup setting in Amps at secondary side",
       "label_i18n": {
         "en": "Relay Pickup Current",
-        "tr": "Relay Pickup Current",
+        "tr": "Röle Çekme Akımı",
         "de": "Relay Pickup Current",
         "fr": "Relay Pickup Current",
         "es": "Relay Pickup Current",
         "ar": "Relay Pickup Current"
+      },
+      "businessContext_i18n": {
+        "en": "Relay pickup setting in Amps at secondary side",
+        "tr": "Sekonder tarafta röle çekme ayarı (Amper)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fault current in the primary circuit",
       "label_i18n": {
         "en": "Primary Fault Current",
-        "tr": "Primary Fault Current",
+        "tr": "Primer Arıza Akımı",
         "de": "Primary Fault Current",
         "fr": "Primary Fault Current",
         "es": "Primary Fault Current",
         "ar": "Primary Fault Current"
+      },
+      "businessContext_i18n": {
+        "en": "Fault current in the primary circuit",
+        "tr": "Primer devredeki arıza akımı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time multiplier setting of the relay",
       "label_i18n": {
         "en": "Time Multiplier Setting (TMS)",
-        "tr": "Time Multiplier Setting (TMS)",
+        "tr": "Zaman Çarpan Ayarı (TMS)",
         "de": "Time Multiplier Setting (TMS)",
         "fr": "Time Multiplier Setting (TMS)",
         "es": "Time Multiplier Setting (TMS)",
         "ar": "Time Multiplier Setting (TMS)"
+      },
+      "businessContext_i18n": {
+        "en": "Time multiplier setting of the relay",
+        "tr": "Rölenin zaman çarpan ayarı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "k factor for the IEC inverse-time curve equation",
       "label_i18n": {
         "en": "Curve Constant k",
-        "tr": "Curve Constant k",
+        "tr": "Eğri Sabiti k",
         "de": "Curve Constant k",
         "fr": "Curve Constant k",
         "es": "Curve Constant k",
         "ar": "Curve Constant k"
+      },
+      "businessContext_i18n": {
+        "en": "k factor for the IEC inverse-time curve equation",
+        "tr": "IEC ters zaman eğrisi denklemi için k faktörü"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "α exponent for the IEC inverse-time curve equation",
       "label_i18n": {
         "en": "Curve Constant α",
-        "tr": "Curve Constant α",
+        "tr": "Eğri Sabiti α",
         "de": "Curve Constant α",
         "fr": "Curve Constant α",
         "es": "Curve Constant α",
         "ar": "Curve Constant α"
+      },
+      "businessContext_i18n": {
+        "en": "α exponent for the IEC inverse-time curve equation",
+        "tr": "IEC ters zaman eğrisi denklemi için α üssü"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "c additive constant for the IEC inverse-time curve equation",
       "label_i18n": {
         "en": "Curve Constant c",
-        "tr": "Curve Constant c",
+        "tr": "Eğri Sabiti c",
         "de": "Curve Constant c",
         "fr": "Curve Constant c",
         "es": "Curve Constant c",
         "ar": "Curve Constant c"
+      },
+      "businessContext_i18n": {
+        "en": "c additive constant for the IEC inverse-time curve equation",
+        "tr": "IEC ters zaman eğrisi denklemi için c toplama sabiti"
       }
     }
   ],

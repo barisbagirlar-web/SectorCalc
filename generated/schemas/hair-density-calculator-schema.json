@@ -10,11 +10,15 @@
       "businessContext": "Number of hairs observed in the sample area.",
       "label_i18n": {
         "en": "Counted Hairs",
-        "tr": "Counted Hairs",
+        "tr": "Sayılan Tüyler",
         "de": "Counted Hairs",
         "fr": "Counted Hairs",
         "es": "Counted Hairs",
         "ar": "Counted Hairs"
+      },
+      "businessContext_i18n": {
+        "en": "Number of hairs observed in the sample area.",
+        "tr": "Numune alanında gözlemlenen tüy sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Area of the sample region in square centimeters.",
       "label_i18n": {
         "en": "Sample Area",
-        "tr": "Sample Area",
+        "tr": "Numune Alanı",
         "de": "Sample Area",
         "fr": "Sample Area",
         "es": "Sample Area",
         "ar": "Sample Area"
+      },
+      "businessContext_i18n": {
+        "en": "Area of the sample region in square centimeters.",
+        "tr": "Numune bölgesinin santimetrekare cinsinden alanı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Magnification factor of the optical device (1 for no magnification).",
       "label_i18n": {
         "en": "Magnification",
-        "tr": "Magnification",
+        "tr": "Büyütme",
         "de": "Magnification",
         "fr": "Magnification",
         "es": "Magnification",
         "ar": "Magnification"
+      },
+      "businessContext_i18n": {
+        "en": "Magnification factor of the optical device (1 for no magnification).",
+        "tr": "Optik cihazın büyütme faktörü (büyütme yoksa 1)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Device-specific calibration coefficient to correct the measurement.",
       "label_i18n": {
         "en": "Calibration Factor",
-        "tr": "Calibration Factor",
+        "tr": "Kalibrasyon Faktörü",
         "de": "Calibration Factor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Device-specific calibration coefficient to correct the measurement.",
+        "tr": "Ölçümü düzeltmek için cihaza özgü kalibrasyon katsayısı."
       }
     }
   ],

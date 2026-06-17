@@ -10,11 +10,15 @@
       "businessContext": "Initial lump sum investment",
       "label_i18n": {
         "en": "Principal Amount",
-        "tr": "Principal Amount",
+        "tr": "Anapara Tutarı",
         "de": "Principal Amount",
         "fr": "Principal Amount",
         "es": "Principal Amount",
         "ar": "Principal Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Initial lump sum investment",
+        "tr": "Başlangıçtaki toplu yatırım"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected annual return rate",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual return rate",
+        "tr": "Beklenen yıllık getiri oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total annuity duration",
       "label_i18n": {
         "en": "Number of Periods",
-        "tr": "Number of Periods",
+        "tr": "Dönem Sayısı",
         "de": "Number of Periods",
         "fr": "Number of Periods",
         "es": "Number of Periods",
         "ar": "Number of Periods"
+      },
+      "businessContext_i18n": {
+        "en": "Total annuity duration",
+        "tr": "Toplam gelir süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Frequency of payments (e.g., 12 for monthly)",
       "label_i18n": {
         "en": "Payments Per Year",
-        "tr": "Payments Per Year",
+        "tr": "Yıllık Ödeme Sayısı",
         "de": "Payments Per Year",
         "fr": "Payments Per Year",
         "es": "Payments Per Year",
         "ar": "Payments Per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency of payments (e.g., 12 for monthly)",
+        "tr": "Ödeme sıklığı (örneğin aylık için 12)"
       }
     }
   ],

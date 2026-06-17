@@ -10,11 +10,15 @@
       "businessContext": "The total usable battery capacity of the electric vehicle.",
       "label_i18n": {
         "en": "Battery Capacity",
-        "tr": "Battery Capacity",
+        "tr": "Pil Kapasitesi",
         "de": "Battery Capacity",
         "fr": "Battery Capacity",
         "es": "Battery Capacity",
         "ar": "Battery Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "The total usable battery capacity of the electric vehicle.",
+        "tr": "Elektrikli aracın toplam kullanılabilir batarya kapasitesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The current state of charge as a percentage of battery capacity.",
       "label_i18n": {
         "en": "Current Charge",
-        "tr": "Current Charge",
+        "tr": "Mevcut Şarj",
         "de": "Current Charge",
         "fr": "Current Charge",
         "es": "Current Charge",
         "ar": "Current Charge"
+      },
+      "businessContext_i18n": {
+        "en": "The current state of charge as a percentage of battery capacity.",
+        "tr": "Batarya kapasitesinin yüzdesi olarak mevcut şarj durumu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The target state of charge after charging session.",
       "label_i18n": {
         "en": "Desired Charge",
-        "tr": "Desired Charge",
+        "tr": "Hedef Şarj",
         "de": "Desired Charge",
         "fr": "Desired Charge",
         "es": "Desired Charge",
         "ar": "Desired Charge"
+      },
+      "businessContext_i18n": {
+        "en": "The target state of charge after charging session.",
+        "tr": "Şarj seansı sonrası hedeflenen şarj durumu."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The charging power of the charging station.",
       "label_i18n": {
         "en": "Charging Power",
-        "tr": "Charging Power",
+        "tr": "Şarj Gücü",
         "de": "Charging Power",
         "fr": "Charging Power",
         "es": "Charging Power",
         "ar": "Charging Power"
+      },
+      "businessContext_i18n": {
+        "en": "The charging power of the charging station.",
+        "tr": "Şarj istasyonunun şarj gücü."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cost of electricity per kWh.",
       "label_i18n": {
         "en": "Electricity Cost",
-        "tr": "Electricity Cost",
+        "tr": "Elektrik Maliyeti",
         "de": "Electricity Cost",
         "fr": "Electricity Cost",
         "es": "Electricity Cost",
         "ar": "Electricity Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kWh.",
+        "tr": "kWh başına elektrik maliyeti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Charging efficiency, including conversion losses.",
       "label_i18n": {
         "en": "Charging Efficiency",
-        "tr": "Charging Efficiency",
+        "tr": "Şarj Verimliliği",
         "de": "Charging Efficiency",
         "fr": "Charging Efficiency",
         "es": "Charging Efficiency",
         "ar": "Charging Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Charging efficiency, including conversion losses.",
+        "tr": "Dönüşüm kayıpları dahil şarj verimliliği."
       }
     }
   ],

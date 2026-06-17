@@ -10,11 +10,15 @@
       "businessContext": "Total number of observations in the dataset.",
       "label_i18n": {
         "en": "Number of data points",
-        "tr": "Number of data points",
+        "tr": "Veri noktası sayısı",
         "de": "Number of data points",
         "fr": "Number of data points",
         "es": "Number of data points",
         "ar": "Number of data points"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of observations in the dataset.",
+        "tr": "Veri setindeki toplam gözlem sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Smallest data value.",
       "label_i18n": {
         "en": "Minimum value",
-        "tr": "Minimum value",
+        "tr": "Minimum değer",
         "de": "Minimum value",
         "fr": "Minimum value",
         "es": "Minimum value",
         "ar": "Minimum value"
+      },
+      "businessContext_i18n": {
+        "en": "Smallest data value.",
+        "tr": "En küçük veri değeri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Largest data value.",
       "label_i18n": {
         "en": "Maximum value",
-        "tr": "Maximum value",
+        "tr": "Maksimum değer",
         "de": "Maximum value",
         "fr": "Maximum value",
         "es": "Maximum value",
         "ar": "Maximum value"
+      },
+      "businessContext_i18n": {
+        "en": "Largest data value.",
+        "tr": "En büyük veri değeri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated or known standard deviation of the data.",
       "label_i18n": {
         "en": "Standard deviation",
-        "tr": "Standard deviation",
+        "tr": "Standart sapma",
         "de": "Standard deviation",
         "fr": "Standard deviation",
         "es": "Standard deviation",
         "ar": "Standard deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated or known standard deviation of the data.",
+        "tr": "Verilerin tahmini veya bilinen standart sapması."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Difference between 75th and 25th percentiles.",
       "label_i18n": {
         "en": "Interquartile range (IQR)",
-        "tr": "Interquartile range (IQR)",
+        "tr": "Çeyrekler arası açıklık (IQR)",
         "de": "Interquartile range (IQR)",
         "fr": "Interquartile range (IQR)",
         "es": "Interquartile range (IQR)",
         "ar": "Interquartile range (IQR)"
+      },
+      "businessContext_i18n": {
+        "en": "Difference between 75th and 25th percentiles.",
+        "tr": "75. ve 25. yüzdelikler arasındaki fark."
       }
     }
   ],

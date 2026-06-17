@@ -10,11 +10,15 @@
       "businessContext": "Rotational speed of the shaft in revolutions per minute",
       "label_i18n": {
         "en": "Shaft Speed",
-        "tr": "Shaft Speed",
+        "tr": "Mil Hızı",
         "de": "Shaft Speed",
         "fr": "Shaft Speed",
         "es": "Shaft Speed",
         "ar": "Shaft Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Rotational speed of the shaft in revolutions per minute",
+        "tr": "Milinin dakikadaki devir sayısı cinsinden dönüş hızı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Coefficient of friction between bearing surfaces",
       "label_i18n": {
         "en": "Friction Coefficient",
-        "tr": "Friction Coefficient",
+        "tr": "Sürtünme Katsayısı",
         "de": "Friction Coefficient",
         "fr": "Friction Coefficient",
         "es": "Friction Coefficient",
         "ar": "Friction Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of friction between bearing surfaces",
+        "tr": "Rulman yüzeyleri arasındaki sürtünme katsayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Radial load applied on the bearing",
       "label_i18n": {
         "en": "Radial Load",
-        "tr": "Radial Load",
+        "tr": "Radyal Yük",
         "de": "Radial Load",
         "fr": "Radial Load",
         "es": "Radial Load",
         "ar": "Radial Load"
+      },
+      "businessContext_i18n": {
+        "en": "Radial load applied on the bearing",
+        "tr": "Radyal yük (rulmana uygulanan)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Inner diameter of the bearing bore",
       "label_i18n": {
         "en": "Bore Diameter",
-        "tr": "Bore Diameter",
+        "tr": "Delik Çapı",
         "de": "Bore Diameter",
         "fr": "Bore Diameter",
         "es": "Bore Diameter",
         "ar": "Bore Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the bearing bore",
+        "tr": "Rulman yatağının iç çapı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Surrounding ambient temperature",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı",
         "de": "Ambient Temperature",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Surrounding ambient temperature",
+        "tr": "Ortam sıcaklığı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Thermal dissipation capacity of the bearing housing",
       "label_i18n": {
         "en": "Cooling Coefficient",
-        "tr": "Cooling Coefficient",
+        "tr": "Soğutma Katsayısı",
         "de": "Cooling Coefficient",
         "fr": "Cooling Coefficient",
         "es": "Cooling Coefficient",
         "ar": "Cooling Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Thermal dissipation capacity of the bearing housing",
+        "tr": "Rulman yuvasının ısı dağıtma kapasitesi"
       }
     }
   ],

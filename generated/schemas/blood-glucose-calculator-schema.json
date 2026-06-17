@@ -10,11 +10,15 @@
       "businessContext": "1: Unit Conversion (mg/dL <-> mmol/L), 2: HbA1c to eAG (mg/dL), 3: eAG (mg/dL) to HbA1c",
       "label_i18n": {
         "en": "Calculation Mode",
-        "tr": "Calculation Mode",
+        "tr": "Hesaplama Modu",
         "de": "Calculation Mode",
         "fr": "Calculation Mode",
         "es": "Calculation Mode",
         "ar": "Calculation Mode"
+      },
+      "businessContext_i18n": {
+        "en": "1: Unit Conversion (mg/dL <-> mmol/L), 2: HbA1c to eAG (mg/dL), 3: eAG (mg/dL) to HbA1c",
+        "tr": "1: Birim Dönüşümü (mg/dL <-> mmol/L), 2: HbA1c'den eAG'ye (mg/dL), 3: eAG'den (mg/dL) HbA1c'ye"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The blood glucose value to convert or calculate from; unit depends on mode and unitFrom",
       "label_i18n": {
         "en": "Input Value",
-        "tr": "Input Value",
+        "tr": "Giriş Değeri",
         "de": "Input Value",
         "fr": "Input Value",
         "es": "Input Value",
         "ar": "Input Value"
+      },
+      "businessContext_i18n": {
+        "en": "The blood glucose value to convert or calculate from; unit depends on mode and unitFrom",
+        "tr": "Dönüştürülecek veya hesaplanacak kan glukoz değeri; birim, mod ve unitFrom'a bağlıdır"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 for mg/dL, 2 for mmol/L (used in mode 1; in other modes, assume input units accordingly)",
       "label_i18n": {
         "en": "Input Unit",
-        "tr": "Input Unit",
+        "tr": "Giriş Birimi",
         "de": "Input Unit",
         "fr": "Input Unit",
         "es": "Input Unit",
         "ar": "Input Unit"
+      },
+      "businessContext_i18n": {
+        "en": "1 for mg/dL, 2 for mmol/L (used in mode 1; in other modes, assume input units accordingly)",
+        "tr": "1 mg/dL, 2 mmol/L (mod 1'de kullanılır; diğer modlarda giriş birimi buna göre varsayılır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1 for mg/dL, 2 for mmol/L (used in mode 1)",
       "label_i18n": {
         "en": "Target Unit",
-        "tr": "Target Unit",
+        "tr": "Hedef Birim",
         "de": "Target Unit",
         "fr": "Target Unit",
         "es": "Target Unit",
         "ar": "Target Unit"
+      },
+      "businessContext_i18n": {
+        "en": "1 for mg/dL, 2 for mmol/L (used in mode 1)",
+        "tr": "1 mg/dL, 2 mmol/L (mod 1'de kullanılır)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1 if fasting, 0 if non-fasting (for reference only, does not affect calculation)",
       "label_i18n": {
         "en": "Fasting State",
-        "tr": "Fasting State",
+        "tr": "Açlık Durumu",
         "de": "Fasting State",
         "fr": "Fasting State",
         "es": "Fasting State",
         "ar": "Fasting State"
+      },
+      "businessContext_i18n": {
+        "en": "1 if fasting, 0 if non-fasting (for reference only, does not affect calculation)",
+        "tr": "1 aç, 0 tok (yalnızca referans amaçlıdır, hesaplamayı etkilemez)"
       }
     }
   ],

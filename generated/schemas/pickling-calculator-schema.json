@@ -10,11 +10,15 @@
       "businessContext": "Total area of metal to be pickled.",
       "label_i18n": {
         "en": "Metal Surface Area",
-        "tr": "Metal Surface Area",
+        "tr": "Metal Yüzey Alanı",
         "de": "Metal Surface Area",
         "fr": "Metal Surface Area",
         "es": "Metal Surface Area",
         "ar": "Metal Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total area of metal to be pickled.",
+        "tr": "Dekapaj yapılacak metalin toplam alanı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average oxide scale thickness.",
       "label_i18n": {
         "en": "Scale Thickness",
-        "tr": "Scale Thickness",
+        "tr": "Tufal Kalınlığı",
         "de": "Scale Thickness",
         "fr": "Scale Thickness",
         "es": "Scale Thickness",
         "ar": "Scale Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Average oxide scale thickness.",
+        "tr": "Ortalama oksit tufal kalınlığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Density of the scale (e.g., iron oxide ≈ 5000 kg/m³).",
       "label_i18n": {
         "en": "Scale Density",
-        "tr": "Scale Density",
+        "tr": "Tufal Yoğunluğu",
         "de": "Scale Density",
         "fr": "Scale Density",
         "es": "Scale Density",
         "ar": "Scale Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the scale (e.g., iron oxide ≈ 5000 kg/m³).",
+        "tr": "Tufalın yoğunluğu (örneğin, demir oksit ≈ 5000 kg/m³)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Concentration of hydrochloric acid by weight (typical 15-20%).",
       "label_i18n": {
         "en": "Acid Concentration",
-        "tr": "Acid Concentration",
+        "tr": "Asit Konsantrasyonu",
         "de": "Acid Concentration",
         "fr": "Acid Concentration",
         "es": "Acid Concentration",
         "ar": "Acid Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Concentration of hydrochloric acid by weight (typical 15-20%).",
+        "tr": "Hidroklorik Asit Konsantrasyonu"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Density of the acid solution (18% HCl ≈ 1.09 kg/L).",
       "label_i18n": {
         "en": "Acid Density",
-        "tr": "Acid Density",
+        "tr": "Ağırlıkça hidroklorik asit konsantrasyonu (tipik %15-20).",
         "de": "Acid Density",
         "fr": "Acid Density",
         "es": "Acid Density",
         "ar": "Acid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the acid solution (18% HCl ≈ 1.09 kg/L).",
+        "tr": "Asit Yoğunluğu"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Mass of acid required to dissolve 1 kg of scale, considering chemical reaction.",
       "label_i18n": {
         "en": "Stoichiometric Ratio",
-        "tr": "Stoichiometric Ratio",
+        "tr": "Asit çözeltisinin yoğunluğu (%18 HCl ≈ 1,09 kg/L).",
         "de": "Stoichiometric Ratio",
         "fr": "Stoichiometric Ratio",
         "es": "Stoichiometric Ratio",
         "ar": "Stoichiometric Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of acid required to dissolve 1 kg of scale, considering chemical reaction.",
+        "tr": "Stokiyometrik Oran"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Volume of acid solution carried out on metal surface per m².",
       "label_i18n": {
         "en": "Drag-out Rate",
-        "tr": "Drag-out Rate",
+        "tr": "1 kg tufalı çözmek için gereken asit kütlesi (kimyasal reaksiyon dikkate alınarak).",
         "de": "Drag-out Rate",
         "fr": "Drag-out Rate",
         "es": "Drag-out Rate",
         "ar": "Drag-out Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of acid solution carried out on metal surface per m².",
+        "tr": "Sürüklenme Oranı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Volume of rinse water needed per m² of metal surface.",
       "label_i18n": {
         "en": "Rinse Water Ratio",
-        "tr": "Rinse Water Ratio",
+        "tr": "m² başına metal yüzeyinde taşınan asit çözeltisi hacmi.",
         "de": "Rinse Water Ratio",
         "fr": "Rinse Water Ratio",
         "es": "Rinse Water Ratio",
         "ar": "Rinse Water Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of rinse water needed per m² of metal surface.",
+        "tr": "Durulama Suyu Oranı"
       }
     }
   ],

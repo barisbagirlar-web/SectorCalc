@@ -10,11 +10,15 @@
       "businessContext": "The annualized volatility (standard deviation of returns) of Asset 1, expressed as a percentage. Used to determine its risk contribution.",
       "label_i18n": {
         "en": "Annualized Volatility Asset 1 (%)",
-        "tr": "Annualized Volatility Asset 1 (%)",
+        "tr": "Yıllıklandırılmış Volatilite Varlık 1 (%)",
         "de": "Annualized Volatility Asset 1 (%)",
         "fr": "Annualized Volatility Asset 1 (%)",
         "es": "Annualized Volatility Asset 1 (%)",
         "ar": "Annualized Volatility Asset 1 (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The annualized volatility (standard deviation of returns) of Asset 1, expressed as a percentage. Used to determine its risk contribution.",
+        "tr": "Varlık 1'in yıllıklandırılmış volatilitesi (getirilerin standart sapması), yüzde olarak ifade edilir. Risk katkısını belirlemek için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The annualized volatility of Asset 2, as a percentage. Inputting a high value will reduce its weight.",
       "label_i18n": {
         "en": "Annualized Volatility Asset 2 (%)",
-        "tr": "Annualized Volatility Asset 2 (%)",
+        "tr": "Yıllıklandırılmış Volatilite Varlık 2 (%)",
         "de": "Annualized Volatility Asset 2 (%)",
         "fr": "Annualized Volatility Asset 2 (%)",
         "es": "Annualized Volatility Asset 2 (%)",
         "ar": "Annualized Volatility Asset 2 (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The annualized volatility of Asset 2, as a percentage. Inputting a high value will reduce its weight.",
+        "tr": "Varlık 2'nin yüzde olarak yıllıklandırılmış volatilitesi. Yüksek bir değer girmek ağırlığını azaltacaktır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The annualized volatility of Asset 3. Use a very large number (e.g., 1e9) if this asset is not in the portfolio to effectively exclude it.",
       "label_i18n": {
         "en": "Annualized Volatility Asset 3 (%)",
-        "tr": "Annualized Volatility Asset 3 (%)",
+        "tr": "Yıllıklandırılmış Volatilite Varlık 3 (%)",
         "de": "Annualized Volatility Asset 3 (%)",
         "fr": "Annualized Volatility Asset 3 (%)",
         "es": "Annualized Volatility Asset 3 (%)",
         "ar": "Annualized Volatility Asset 3 (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The annualized volatility of Asset 3. Use a very large number (e.g., 1e9) if this asset is not in the portfolio to effectively exclude it.",
+        "tr": "Varlık 3'ün volatilitesi. Bu varlık portföyde değilse, etkin bir şekilde hariç tutmak için çok büyük bir sayı (örneğin, 1e9) kullanın."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The annualized volatility of Asset 4. Set to a very large number if unused.",
       "label_i18n": {
         "en": "Annualized Volatility Asset 4 (%)",
-        "tr": "Annualized Volatility Asset 4 (%)",
+        "tr": "Yıllıklandırılmış Volatilite Varlık 4 (%)",
         "de": "Annualized Volatility Asset 4 (%)",
         "fr": "Annualized Volatility Asset 4 (%)",
         "es": "Annualized Volatility Asset 4 (%)",
         "ar": "Annualized Volatility Asset 4 (%)"
+      },
+      "businessContext_i18n": {
+        "en": "The annualized volatility of Asset 4. Set to a very large number if unused.",
+        "tr": "Varlık 4'ün volatilitesi. Kullanılmıyorsa çok büyük bir sayıya ayarlayın."
       }
     }
   ],

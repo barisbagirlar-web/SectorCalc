@@ -10,11 +10,15 @@
       "businessContext": "The purchase price or initial cost of the asset.",
       "label_i18n": {
         "en": "Initial Cost",
-        "tr": "Initial Cost",
+        "tr": "Başlangıç Maliyeti",
         "de": "Initial Cost",
         "fr": "Initial Cost",
         "es": "Initial Cost",
         "ar": "Initial Cost"
+      },
+      "businessContext_i18n": {
+        "en": "The purchase price or initial cost of the asset.",
+        "tr": "Varlığın satın alma fiyatı veya başlangıç maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The estimated residual value at the end of useful life.",
       "label_i18n": {
         "en": "Salvage Value",
-        "tr": "Salvage Value",
+        "tr": "Hurda Değeri",
         "de": "Salvage Value",
         "fr": "Salvage Value",
         "es": "Salvage Value",
         "ar": "Salvage Value"
+      },
+      "businessContext_i18n": {
+        "en": "The estimated residual value at the end of useful life.",
+        "tr": "Faydalı ömür sonunda tahmini hurda değeri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The expected useful life of the asset in years.",
       "label_i18n": {
         "en": "Useful Life",
-        "tr": "Useful Life",
+        "tr": "Faydalı Ömür",
         "de": "Useful Life",
         "fr": "Useful Life",
         "es": "Useful Life",
         "ar": "Useful Life"
+      },
+      "businessContext_i18n": {
+        "en": "The expected useful life of the asset in years.",
+        "tr": "Varlığın beklenen faydalı ömrü (yıl)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The multiplying factor for straight-line rate (e.g., 2 for double-declining balance).",
       "label_i18n": {
         "en": "Depreciation Factor",
-        "tr": "Depreciation Factor",
+        "tr": "Amortisman Faktörü",
         "de": "Depreciation Factor",
         "fr": "Depreciation Factor",
         "es": "Depreciation Factor",
         "ar": "Depreciation Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The multiplying factor for straight-line rate (e.g., 2 for double-declining balance).",
+        "tr": "Doğrusal amortisman oranı için çarpan faktör (örneğin, çift azalan bakiyeler için 2)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The year for which to calculate depreciation (1-based index).",
       "label_i18n": {
         "en": "Year",
-        "tr": "Year",
+        "tr": "Yıl",
         "de": "Year",
         "fr": "Year",
         "es": "Year",
         "ar": "Year"
+      },
+      "businessContext_i18n": {
+        "en": "The year for which to calculate depreciation (1-based index).",
+        "tr": "Amortismanın hesaplanacağı yıl (1 tabanlı indeks)."
       }
     }
   ],

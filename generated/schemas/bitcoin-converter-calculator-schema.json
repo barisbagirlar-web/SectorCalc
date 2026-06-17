@@ -10,11 +10,15 @@
       "businessContext": "Enter the amount of Bitcoin to convert to USD. Set to 0 if converting USD to BTC.",
       "label_i18n": {
         "en": "Bitcoin Amount",
-        "tr": "Bitcoin Amount",
+        "tr": "Bitcoin Miktarı",
         "de": "Bitcoin Amount",
         "fr": "Bitcoin Amount",
         "es": "Bitcoin Amount",
         "ar": "Bitcoin Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the amount of Bitcoin to convert to USD. Set to 0 if converting USD to BTC.",
+        "tr": "USD'ye dönüştürmek için Bitcoin miktarını girin. USD'den BTC'ye dönüştürüyorsanız 0 olarak ayarlayın."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Enter the amount of USD to convert to Bitcoin. Set to 0 if converting BTC to USD.",
       "label_i18n": {
         "en": "USD Amount",
-        "tr": "USD Amount",
+        "tr": "USD Tutarı",
         "de": "USD Amount",
         "fr": "USD Amount",
         "es": "USD Amount",
         "ar": "USD Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the amount of USD to convert to Bitcoin. Set to 0 if converting BTC to USD.",
+        "tr": "Bitcoin'e dönüştürülecek USD miktarını girin. BTC'den USD'ye dönüştürüyorsanız 0 olarak ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current market price of 1 Bitcoin in USD.",
       "label_i18n": {
         "en": "BTC Market Price",
-        "tr": "BTC Market Price",
+        "tr": "BTC Piyasa Fiyatı",
         "de": "BTC Market Price",
         "fr": "BTC Market Price",
         "es": "BTC Market Price",
         "ar": "BTC Market Price"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price of 1 Bitcoin in USD.",
+        "tr": "1 Bitcoin'in USD cinsinden güncel piyasa fiyatı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage fee charged per transaction (e.g., 0.5 for 0.5%).",
       "label_i18n": {
         "en": "Transaction Fee (%)",
-        "tr": "Transaction Fee (%)",
+        "tr": "İşlem Ücreti (%)",
         "de": "Transaction Fee (%)",
         "fr": "Transaction Fee (%)",
         "es": "Transaction Fee (%)",
         "ar": "Transaction Fee (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage fee charged per transaction (e.g., 0.5 for 0.5%).",
+        "tr": "İşlem başına alınan yüzde ücret (örneğin, %0,5 için 0,5)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Fixed fee in USD added per transaction.",
       "label_i18n": {
         "en": "Fixed Fee (USD)",
-        "tr": "Fixed Fee (USD)",
+        "tr": "Sabit Ücret (USD)",
         "de": "Fixed Fee (USD)",
         "fr": "Fixed Fee (USD)",
         "es": "Fixed Fee (USD)",
         "ar": "Fixed Fee (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed fee in USD added per transaction.",
+        "tr": "İşlem başına eklenen USD cinsinden sabit ücret."
       }
     }
   ],

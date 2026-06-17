@@ -10,11 +10,15 @@
       "businessContext": "Starting molar concentration of reactant A in a second-order reaction (rate = k[A]² or k[A][B] with [A]₀ = [B]₀)",
       "label_i18n": {
         "en": "Initial Concentration [A]₀",
-        "tr": "Initial Concentration [A]₀",
+        "tr": "Başlangıç Derişimi [A]₀",
         "de": "Initial Concentration [A]₀",
         "fr": "Initial Concentration [A]₀",
         "es": "Initial Concentration [A]₀",
         "ar": "Initial Concentration [A]₀"
+      },
+      "businessContext_i18n": {
+        "en": "Starting molar concentration of reactant A in a second-order reaction (rate = k[A]² or k[A][B] with [A]₀ = [B]₀)",
+        "tr": "İkinci dereceden bir reaksiyonda A reaktanının başlangıç molar derişimi (hız = k[A]² veya k[A][B] ve [A]₀ = [B]₀)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Second-order rate constant to quantify reaction speed",
       "label_i18n": {
         "en": "Rate Constant (k)",
-        "tr": "Rate Constant (k)",
+        "tr": "Hız Sabiti (k)",
         "de": "Rate Constant (k)",
         "fr": "Rate Constant (k)",
         "es": "Rate Constant (k)",
         "ar": "Rate Constant (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Second-order rate constant to quantify reaction speed",
+        "tr": "Reaksiyon hızını ölçmek için ikinci derece hız sabiti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Time at which to calculate the concentration of A",
       "label_i18n": {
         "en": "Elapsed Time (t)",
-        "tr": "Elapsed Time (t)",
+        "tr": "Geçen Süre (t)",
         "de": "Elapsed Time (t)",
         "fr": "Elapsed Time (t)",
         "es": "Elapsed Time (t)",
         "ar": "Elapsed Time (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Time at which to calculate the concentration of A",
+        "tr": "A'nın derişiminin hesaplanacağı süre"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Desired concentration of A used to calculate the required reaction time",
       "label_i18n": {
         "en": "Target Concentration [A]",
-        "tr": "Target Concentration [A]",
+        "tr": "Hedef Derişim [A]",
         "de": "Target Concentration [A]",
         "fr": "Target Concentration [A]",
         "es": "Target Concentration [A]",
         "ar": "Target Concentration [A]"
+      },
+      "businessContext_i18n": {
+        "en": "Desired concentration of A used to calculate the required reaction time",
+        "tr": "Gerekli reaksiyon süresini hesaplamak için kullanılan istenen A derişimi"
       }
     }
   ],

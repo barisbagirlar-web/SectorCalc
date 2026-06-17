@@ -10,11 +10,15 @@
       "businessContext": "Total amount of the transaction including taxes.",
       "label_i18n": {
         "en": "Transaction Amount",
-        "tr": "Transaction Amount",
+        "tr": "İşlem Tutarı",
         "de": "Transaction Amount",
         "fr": "Transaction Amount",
         "es": "Transaction Amount",
         "ar": "Transaction Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total amount of the transaction including taxes.",
+        "tr": "Vergiler dahil işlemin toplam tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The percentage fee for domestic card processing (e.g., 2.9% for Stripe).",
       "label_i18n": {
         "en": "Processing Fee Percentage",
-        "tr": "Processing Fee Percentage",
+        "tr": "İşlem Ücreti Yüzdesi",
         "de": "Processing Fee Percentage",
         "fr": "Processing Fee Percentage",
         "es": "Processing Fee Percentage",
         "ar": "Processing Fee Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage fee for domestic card processing (e.g., 2.9% for Stripe).",
+        "tr": "Yerel kart işleme için yüzde ücreti (örn., Stripe için %2,9)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The fixed fee per transaction (e.g., $0.30 for Stripe).",
       "label_i18n": {
         "en": "Fixed Fee",
-        "tr": "Fixed Fee",
+        "tr": "Sabit Ücret",
         "de": "Fixed Fee",
         "fr": "Fixed Fee",
         "es": "Fixed Fee",
         "ar": "Fixed Fee"
+      },
+      "businessContext_i18n": {
+        "en": "The fixed fee per transaction (e.g., $0.30 for Stripe).",
+        "tr": "İşlem başına sabit ücret (örn., Stripe için $0,30)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional percentage for international cards or currency conversion (Stripe adds 1% for international, another 1% for conversion if needed).",
       "label_i18n": {
         "en": "Additional Fee Percentage",
-        "tr": "Additional Fee Percentage",
+        "tr": "Ek Ücret Yüzdesi",
         "de": "Additional Fee Percentage",
         "fr": "Additional Fee Percentage",
         "es": "Additional Fee Percentage",
         "ar": "Additional Fee Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage for international cards or currency conversion (Stripe adds 1% for international, another 1% for conversion if needed).",
+        "tr": "Uluslararası kartlar veya para birimi dönüşümü için ek yüzde (Stripe uluslararası için %1, gerekirse dönüşüm için ek %1 ekler)."
       }
     }
   ],

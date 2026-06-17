@@ -10,11 +10,15 @@
       "businessContext": "Weight of the prime rib roast in pounds",
       "label_i18n": {
         "en": "Weight of Prime Rib",
-        "tr": "Weight of Prime Rib",
+        "tr": "Prima Kaburga Ağırlığı",
         "de": "Weight of Prime Rib",
         "fr": "Weight of Prime Rib",
         "es": "Weight of Prime Rib",
         "ar": "Weight of Prime Rib"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the prime rib roast in pounds",
+        "tr": "Prima kaburga rostosunun pound cinsinden ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Cooking time factor per pound, typically 5 for rare at 500°F",
       "label_i18n": {
         "en": "Minutes per Pound",
-        "tr": "Minutes per Pound",
+        "tr": "Pound Başına Dakika",
         "de": "Minutes per Pound",
         "fr": "Minutes per Pound",
         "es": "Minutes per Pound",
         "ar": "Minutes per Pound"
+      },
+      "businessContext_i18n": {
+        "en": "Cooking time factor per pound, typically 5 for rare at 500°F",
+        "tr": "Pound başına pişirme süresi faktörü, genellikle 500°F'de az pişmiş için 5"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Any additional base cooking time, e.g., for searing, in minutes",
       "label_i18n": {
         "en": "Base Time",
-        "tr": "Base Time",
+        "tr": "Temel Süre",
         "de": "Base Time",
         "fr": "Base Time",
         "es": "Base Time",
         "ar": "Base Time"
+      },
+      "businessContext_i18n": {
+        "en": "Any additional base cooking time, e.g., for searing, in minutes",
+        "tr": "Örneğin mühürleme için ek temel pişirme süresi, dakika cinsinden"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Time to rest the roast after cooking, in minutes",
       "label_i18n": {
         "en": "Resting Time",
-        "tr": "Resting Time",
+        "tr": "Dinlenme Süresi",
         "de": "Resting Time",
         "fr": "Resting Time",
         "es": "Resting Time",
         "ar": "Resting Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time to rest the roast after cooking, in minutes",
+        "tr": "Rostonun pişirme sonrası dinlenme süresi, dakika cinsinden"
       }
     }
   ],

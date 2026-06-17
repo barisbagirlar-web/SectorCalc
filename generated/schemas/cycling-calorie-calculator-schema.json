@@ -10,11 +10,15 @@
       "businessContext": "Total mass of the cyclist including any cargo, directly proportional to energy expenditure based on physics work equation.",
       "label_i18n": {
         "en": "Cyclist Weight (including load)",
-        "tr": "Cyclist Weight (including load)",
+        "tr": "Bisikletçi Ağırlığı (yük dahil)",
         "de": "Cyclist Weight (including load)",
         "fr": "Cyclist Weight (including load)",
         "es": "Cyclist Weight (including load)",
         "ar": "Cyclist Weight (including load)"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of the cyclist including any cargo, directly proportional to energy expenditure based on physics work equation.",
+        "tr": "Bisikletçinin kargo dahil toplam kütlesi, fizik iş denklemine göre enerji harcamasıyla doğru orantılıdır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Distance covered during the cycling activity, used to compute average speed and mechanical work done against friction and gradient.",
       "label_i18n": {
         "en": "Total Cycling Distance",
-        "tr": "Total Cycling Distance",
+        "tr": "Toplam Bisiklet Sürüş Mesafesi",
         "de": "Total Cycling Distance",
         "fr": "Total Cycling Distance",
         "es": "Total Cycling Distance",
         "ar": "Total Cycling Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance covered during the cycling activity, used to compute average speed and mechanical work done against friction and gradient.",
+        "tr": "Bisiklet aktivitesi sırasında kat edilen mesafe, ortalama hız ve sürtünme ile eğime karşı yapılan mekanik işi hesaplamak için kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Net time spent pedaling, excluding stops; combined with distance to derive average speed for MET estimation.",
       "label_i18n": {
         "en": "Active Cycling Duration",
-        "tr": "Active Cycling Duration",
+        "tr": "Aktif Bisiklet Sürüş Süresi",
         "de": "Active Cycling Duration",
         "fr": "Active Cycling Duration",
         "es": "Active Cycling Duration",
         "ar": "Active Cycling Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Net time spent pedaling, excluding stops; combined with distance to derive average speed for MET estimation.",
+        "tr": "Duruşlar hariç pedal çevirerek geçen net süre; MET tahmini için ortalama hızı türetmek amacıyla mesafe ile birleştirilir."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average gradient of the route; positive incline increases effort and MET value linearly, negative reduces, zero for flat terrain.",
       "label_i18n": {
         "en": "Average Road Incline",
-        "tr": "Average Road Incline",
+        "tr": "Ortalama Yol Eğimi",
         "de": "Average Road Incline",
         "fr": "Average Road Incline",
         "es": "Average Road Incline",
         "ar": "Average Road Incline"
+      },
+      "businessContext_i18n": {
+        "en": "Average gradient of the route; positive incline increases effort and MET value linearly, negative reduces, zero for flat terrain.",
+        "tr": "Rotanın ortalama eğimi; pozitif eğim eforu ve MET değerini doğrusal olarak artırır, negatif azaltır, düz arazi için sıfır."
       }
     }
   ],

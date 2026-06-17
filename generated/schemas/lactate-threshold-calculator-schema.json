@@ -10,11 +10,15 @@
       "businessContext": "Athlete's age in years.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Athlete's age in years.",
+        "tr": "Sporcunun yıl cinsinden yaşı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Resting heart rate measured in beats per minute.",
       "label_i18n": {
         "en": "Resting Heart Rate",
-        "tr": "Resting Heart Rate",
+        "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Resting Heart Rate",
         "fr": "Resting Heart Rate",
         "es": "Resting Heart Rate",
         "ar": "Resting Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Resting heart rate measured in beats per minute.",
+        "tr": "Dakikadaki atım sayısı cinsinden ölçülen dinlenme kalp atış hızı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Maximum heart rate. Enter 0 to estimate from age (220 - age).",
       "label_i18n": {
         "en": "Maximum Heart Rate",
-        "tr": "Maximum Heart Rate",
+        "tr": "Maksimum Kalp Atış Hızı",
         "de": "Maximum Heart Rate",
         "fr": "Maximum Heart Rate",
         "es": "Maximum Heart Rate",
         "ar": "Maximum Heart Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum heart rate. Enter 0 to estimate from age (220 - age).",
+        "tr": "Maksimum kalp atış hızı. Tahmin için 0 girin (220 - yaş)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fraction of heart rate reserve representing lactate threshold (typically 0.85-0.90).",
       "label_i18n": {
         "en": "Intensity Factor",
-        "tr": "Intensity Factor",
+        "tr": "Yoğunluk Faktörü",
         "de": "Intensity Factor",
         "fr": "Intensity Factor",
         "es": "Intensity Factor",
         "ar": "Intensity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of heart rate reserve representing lactate threshold (typically 0.85-0.90).",
+        "tr": "Laktat eşiğini temsil eden kalp atış hızı rezervinin oranı (genellikle 0.85-0.90)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Average heart rate during a 30-minute all-out effort. If >0, used directly as LTHR.",
       "label_i18n": {
         "en": "30-min Trial Average HR",
-        "tr": "30-min Trial Average HR",
+        "tr": "30 dk Deneme Ortalama Kalp Atış Hızı",
         "de": "30-min Trial Average HR",
         "fr": "30-min Trial Average HR",
         "es": "30-min Trial Average HR",
         "ar": "30-min Trial Average HR"
+      },
+      "businessContext_i18n": {
+        "en": "Average heart rate during a 30-minute all-out effort. If >0, used directly as LTHR.",
+        "tr": "30 dakikalık maksimum efor sırasında ortalama kalp atış hızı. >0 ise doğrudan LTHR olarak kullanılır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total number of consecutive RR intervals recorded",
       "label_i18n": {
         "en": "Number of RR intervals (N)",
-        "tr": "Number of RR intervals (N)",
+        "tr": "RR aralığı sayısı (N)",
         "de": "Number of RR intervals (N)",
         "fr": "Number of RR intervals (N)",
         "es": "Number of RR intervals (N)",
         "ar": "Number of RR intervals (N)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of consecutive RR intervals recorded",
+        "tr": "Kaydedilen ardışık RR aralıklarının toplam sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sum of all RR interval durations in milliseconds",
       "label_i18n": {
         "en": "Sum of RR intervals",
-        "tr": "Sum of RR intervals",
+        "tr": "RR aralıklarının toplamı",
         "de": "Sum of RR intervals",
         "fr": "Sum of RR intervals",
         "es": "Sum of RR intervals",
         "ar": "Sum of RR intervals"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all RR interval durations in milliseconds",
+        "tr": "Tüm RR aralıklarının milisaniye cinsinden toplam süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sum of the squares of each RR interval for variance calculation",
       "label_i18n": {
         "en": "Sum of squared RR intervals",
-        "tr": "Sum of squared RR intervals",
+        "tr": "Kareli RR aralıklarının toplamı",
         "de": "Sum of squared RR intervals",
         "fr": "Sum of squared RR intervals",
         "es": "Sum of squared RR intervals",
         "ar": "Sum of squared RR intervals"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of the squares of each RR interval for variance calculation",
+        "tr": "Varyans hesaplaması için her bir RR aralığının karelerinin toplamı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sum of squared differences between consecutive RR intervals",
       "label_i18n": {
         "en": "Sum of squared successive differences",
-        "tr": "Sum of squared successive differences",
+        "tr": "Kareli ardışık farkların toplamı",
         "de": "Sum of squared successive differences",
         "fr": "Sum of squared successive differences",
         "es": "Sum of squared successive differences",
         "ar": "Sum of squared successive differences"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of squared differences between consecutive RR intervals",
+        "tr": "Ardışık RR aralıkları arasındaki kareli farkların toplamı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of interval differences greater than 50 ms",
       "label_i18n": {
         "en": "Count of NN50",
-        "tr": "Count of NN50",
+        "tr": "NN50 sayısı",
         "de": "Count of NN50",
         "fr": "Count of NN50",
         "es": "Count of NN50",
         "ar": "Count of NN50"
+      },
+      "businessContext_i18n": {
+        "en": "Number of interval differences greater than 50 ms",
+        "tr": "50 ms'den büyük aralık farklarının sayısı"
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 1000000000,
       "businessContext": "Initial investment or loan amount in base currency.",
       "label_i18n": {
-        "en": "Principal Amount"
+        "en": "Principal Amount",
+        "tr": "Anapara Tutarı"
       },
       "businessContext_i18n": {
-        "en": "Initial investment or loan amount in base currency."
+        "en": "Initial investment or loan amount in base currency.",
+        "tr": "Başlangıç yatırımı veya kredi tutarı (temel para birimi cinsinden)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 100,
       "businessContext": "Nominal annual interest rate as a percentage.",
       "label_i18n": {
-        "en": "Annual Interest Rate"
+        "en": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı"
       },
       "businessContext_i18n": {
-        "en": "Nominal annual interest rate as a percentage."
+        "en": "Nominal annual interest rate as a percentage.",
+        "tr": "Nominal yıllık faiz oranı (yüzde olarak)."
       }
     },
     {
@@ -61,10 +65,12 @@
         "365"
       ],
       "label_i18n": {
-        "en": "Compounding Frequency"
+        "en": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı"
       },
       "businessContext_i18n": {
-        "en": "Number of compounding periods per year (e.g., 1=annual, 12=monthly, 365=daily)."
+        "en": "Number of compounding periods per year (e.g., 1=annual, 12=monthly, 365=daily).",
+        "tr": "Yıllık bileşik dönem sayısı (örneğin, 1=yıllık, 12=aylık, 365=günlük)."
       }
     },
     {
@@ -77,10 +83,12 @@
       "max": 100,
       "businessContext": "Total duration of investment or loan in years.",
       "label_i18n": {
-        "en": "Time Period"
+        "en": "Time Period",
+        "tr": "Zaman Periyodu"
       },
       "businessContext_i18n": {
-        "en": "Total duration of investment or loan in years."
+        "en": "Total duration of investment or loan in years.",
+        "tr": "Yatırım veya kredinin toplam süresi (yıl olarak)."
       }
     },
     {
@@ -93,10 +101,12 @@
       "max": 100000000,
       "businessContext": "Fixed amount added at the end of each compounding period.",
       "label_i18n": {
-        "en": "Additional Contribution per Period"
+        "en": "Additional Contribution per Period",
+        "tr": "Dönem Başına Ek Katkı"
       },
       "businessContext_i18n": {
-        "en": "Fixed amount added at the end of each compounding period."
+        "en": "Fixed amount added at the end of each compounding period.",
+        "tr": "Her bileşik döneminin sonunda eklenen sabit tutar."
       }
     },
     {
@@ -109,10 +119,12 @@
       "max": 100,
       "businessContext": "Expected annual inflation rate for real value adjustment.",
       "label_i18n": {
-        "en": "Inflation Rate"
+        "en": "Inflation Rate",
+        "tr": "Enflasyon Oranı"
       },
       "businessContext_i18n": {
-        "en": "Expected annual inflation rate for real value adjustment."
+        "en": "Expected annual inflation rate for real value adjustment.",
+        "tr": "Reel değer ayarlaması için beklenen yıllık enflasyon oranı."
       }
     },
     {
@@ -125,10 +137,12 @@
       "max": 100,
       "businessContext": "Percentage of interest earnings taxed annually.",
       "label_i18n": {
-        "en": "Tax Rate on Interest"
+        "en": "Tax Rate on Interest",
+        "tr": "Faiz Üzerindeki Vergi Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of interest earnings taxed annually."
+        "en": "Percentage of interest earnings taxed annually.",
+        "tr": "Yıllık olarak vergilendirilen faiz kazancının yüzdesi."
       }
     }
   ],

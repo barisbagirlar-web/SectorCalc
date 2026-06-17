@@ -10,11 +10,15 @@
       "businessContext": "Cost or time required to produce the first unit (in any currency or hour unit). Serves as basis for learning curve calculation.",
       "label_i18n": {
         "en": "First Unit Cost",
-        "tr": "First Unit Cost",
+        "tr": "İlk Birim Maliyeti",
         "de": "First Unit Cost",
         "fr": "First Unit Cost",
         "es": "First Unit Cost",
         "ar": "First Unit Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost or time required to produce the first unit (in any currency or hour unit). Serves as basis for learning curve calculation.",
+        "tr": "İlk birimi üretmek için gereken maliyet veya süre (herhangi bir para birimi veya saat birimi). Öğrenme eğrisi hesaplaması için temel oluşturur."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The percentage of cost retained when cumulative output doubles. Typical values range from 70% to 100% (no learning).",
       "label_i18n": {
         "en": "Learning Rate",
-        "tr": "Learning Rate",
+        "tr": "Öğrenme Oranı",
         "de": "Learning Rate",
         "fr": "Learning Rate",
         "es": "Learning Rate",
         "ar": "Learning Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage of cost retained when cumulative output doubles. Typical values range from 70% to 100% (no learning).",
+        "tr": "Kümülatif çıktı iki katına çıktığında korunan maliyet yüzdesi. Tipik değerler %70 ile %100 (öğrenme yok) arasındadır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The cumulative unit number for which the individual cost is estimated.",
       "label_i18n": {
         "en": "Unit Number",
-        "tr": "Unit Number",
+        "tr": "Birim Numarası",
         "de": "Unit Number",
         "fr": "Unit Number",
         "es": "Unit Number",
         "ar": "Unit Number"
+      },
+      "businessContext_i18n": {
+        "en": "The cumulative unit number for which the individual cost is estimated.",
+        "tr": "Bireysel maliyetin tahmin edildiği kümülatif birim numarası."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of units in the production batch for total cost calculation.",
       "label_i18n": {
         "en": "Batch Size",
-        "tr": "Batch Size",
+        "tr": "Parti Büyüklüğü",
         "de": "Batch Size",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units in the production batch for total cost calculation.",
+        "tr": "Toplam maliyet hesaplaması için üretim partisindeki toplam birim sayısı."
       }
     }
   ],

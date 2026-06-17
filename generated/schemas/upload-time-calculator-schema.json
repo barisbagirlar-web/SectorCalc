@@ -10,11 +10,15 @@
       "businessContext": "Size of the file to upload in megabytes (MB).",
       "label_i18n": {
         "en": "File Size (MB)",
-        "tr": "File Size (MB)",
+        "tr": "Dosya Boyutu (MB)",
         "de": "File Size (MB)",
         "fr": "File Size (MB)",
         "es": "File Size (MB)",
         "ar": "File Size (MB)"
+      },
+      "businessContext_i18n": {
+        "en": "Size of the file to upload in megabytes (MB).",
+        "tr": "Yüklenecek dosyanın megabayt (MB) cinsinden boyutu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Upload bandwidth in megabits per second (Mbps).",
       "label_i18n": {
         "en": "Upload Speed (Mbps)",
-        "tr": "Upload Speed (Mbps)",
+        "tr": "Yükleme Hızı (Mbps)",
         "de": "Upload Speed (Mbps)",
         "fr": "Upload Speed (Mbps)",
         "es": "Upload Speed (Mbps)",
         "ar": "Upload Speed (Mbps)"
+      },
+      "businessContext_i18n": {
+        "en": "Upload bandwidth in megabits per second (Mbps).",
+        "tr": "Megabit/saniye (Mbps) cinsinden yükleme bant genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Multiplier accounting for protocol overhead (e.g., 1.1 for 10% overhead).",
       "label_i18n": {
         "en": "Overhead Factor",
-        "tr": "Overhead Factor",
+        "tr": "Genel Gider Faktörü",
         "de": "Overhead Factor",
         "fr": "Overhead Factor",
         "es": "Overhead Factor",
         "ar": "Overhead Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier accounting for protocol overhead (e.g., 1.1 for 10% overhead).",
+        "tr": "Protokol ek yükünü hesaba katan çarpan (ör. %10 ek yük için 1.1)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of parallel upload connections.",
       "label_i18n": {
         "en": "Parallel Connections",
-        "tr": "Parallel Connections",
+        "tr": "Paralel Bağlantılar",
         "de": "Parallel Connections",
         "fr": "Parallel Connections",
         "es": "Parallel Connections",
         "ar": "Parallel Connections"
+      },
+      "businessContext_i18n": {
+        "en": "Number of parallel upload connections.",
+        "tr": "Paralel yükleme bağlantı sayısı."
       }
     }
   ],

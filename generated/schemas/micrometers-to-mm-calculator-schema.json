@@ -10,11 +10,15 @@
       "businessContext": "Measured length in micrometers",
       "label_i18n": {
         "en": "Micrometer Value",
-        "tr": "Micrometer Value",
+        "tr": "Mikrometre Değeri",
         "de": "Micrometer Value",
         "fr": "Micrometer Value",
         "es": "Micrometer Value",
         "ar": "Micrometer Value"
+      },
+      "businessContext_i18n": {
+        "en": "Measured length in micrometers",
+        "tr": "Mikrometre cinsinden ölçülen uzunluk"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Instrument calibration correction as percentage",
       "label_i18n": {
         "en": "Calibration Factor",
-        "tr": "Calibration Factor",
+        "tr": "Kalibrasyon Faktörü",
         "de": "Calibration Factor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Instrument calibration correction as percentage",
+        "tr": "Yüzde olarak enstrüman kalibrasyon düzeltmesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Material linear thermal expansion coefficient",
       "label_i18n": {
         "en": "Temperature Coefficient",
-        "tr": "Temperature Coefficient",
+        "tr": "Sıcaklık Katsayısı",
         "de": "Temperature Coefficient",
         "fr": "Temperature Coefficient",
         "es": "Temperature Coefficient",
         "ar": "Temperature Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Material linear thermal expansion coefficient",
+        "tr": "Malzemenin doğrusal termal genleşme katsayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature during measurement in Celsius",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı",
         "de": "Ambient Temperature",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature during measurement in Celsius",
+        "tr": "Ölçüm sırasında Santigrat cinsinden sıcaklık"
       }
     }
   ],

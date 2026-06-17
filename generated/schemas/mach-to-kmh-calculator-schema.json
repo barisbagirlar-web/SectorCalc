@@ -10,11 +10,15 @@
       "businessContext": "The Mach number (ratio of speed to speed of sound).",
       "label_i18n": {
         "en": "Mach Number",
-        "tr": "Mach Number",
+        "tr": "Mach sayısı",
         "de": "Mach Number",
         "fr": "Mach Number",
         "es": "Mach Number",
         "ar": "Mach Number"
+      },
+      "businessContext_i18n": {
+        "en": "The Mach number (ratio of speed to speed of sound).",
+        "tr": "Mach sayısı (hızın ses hızına oranı)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Temperature of the air in degrees Celsius.",
       "label_i18n": {
         "en": "Air Temperature",
-        "tr": "Air Temperature",
+        "tr": "Hava Sıcaklığı",
         "de": "Air Temperature",
         "fr": "Air Temperature",
         "es": "Air Temperature",
         "ar": "Air Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of the air in degrees Celsius.",
+        "tr": "Santigrat derece cinsinden hava sıcaklığı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Ratio of specific heats for air. Standard value is 1.4.",
       "label_i18n": {
         "en": "Adiabatic Index (γ)",
-        "tr": "Adiabatic Index (γ)",
+        "tr": "Adyabatik İndeks (γ)",
         "de": "Adiabatic Index (γ)",
         "fr": "Adiabatic Index (γ)",
         "es": "Adiabatic Index (γ)",
         "ar": "Adiabatic Index (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of specific heats for air. Standard value is 1.4.",
+        "tr": "Hava için özgül ısı oranı. Standart değer 1.4'tür."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Specific gas constant for dry air. Standard value is 287.058 J/(kg·K).",
       "label_i18n": {
         "en": "Specific Gas Constant (R)",
-        "tr": "Specific Gas Constant (R)",
+        "tr": "Özgül Gaz Sabiti (R)",
         "de": "Specific Gas Constant (R)",
         "fr": "Specific Gas Constant (R)",
         "es": "Specific Gas Constant (R)",
         "ar": "Specific Gas Constant (R)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific gas constant for dry air. Standard value is 287.058 J/(kg·K).",
+        "tr": "Kuru hava için özgül gaz sabiti. Standart değer 287.058 J/(kg·K)'dir."
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 100000000,
       "businessContext": "Total agreed subcontractor contract amount.",
       "label_i18n": {
-        "en": "Total Contract Value (TCV)"
+        "en": "Total Contract Value (TCV)",
+        "tr": "Toplam Sözleşme Değeri (TSD)"
       },
       "businessContext_i18n": {
-        "en": "Total agreed subcontractor contract amount."
+        "en": "Total agreed subcontractor contract amount.",
+        "tr": "Üzerinde anlaşılan toplam taşeron sözleşme tutarı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 50000000,
       "businessContext": "Total labor cost incurred by subcontractor.",
       "label_i18n": {
-        "en": "Actual Labor Cost"
+        "en": "Actual Labor Cost",
+        "tr": "Gerçek İşçilik Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total labor cost incurred by subcontractor."
+        "en": "Total labor cost incurred by subcontractor.",
+        "tr": "Taşeron tarafından oluşan toplam işçilik maliyeti."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 50000000,
       "businessContext": "Total material cost incurred by subcontractor.",
       "label_i18n": {
-        "en": "Actual Material Cost"
+        "en": "Actual Material Cost",
+        "tr": "Gerçek Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total material cost incurred by subcontractor."
+        "en": "Total material cost incurred by subcontractor.",
+        "tr": "Taşeron tarafından oluşan toplam malzeme maliyeti."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 20000000,
       "businessContext": "Total equipment and machinery cost.",
       "label_i18n": {
-        "en": "Actual Equipment Cost"
+        "en": "Actual Equipment Cost",
+        "tr": "Gerçek Ekipman Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total equipment and machinery cost."
+        "en": "Total equipment and machinery cost.",
+        "tr": "Toplam ekipman ve makine maliyeti."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 50,
       "businessContext": "Overhead as percentage of direct costs (ISO 9001 cost accounting).",
       "label_i18n": {
-        "en": "Overhead Percentage"
+        "en": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Overhead as percentage of direct costs (ISO 9001 cost accounting)."
+        "en": "Overhead as percentage of direct costs (ISO 9001 cost accounting).",
+        "tr": "Doğrudan maliyetlerin yüzdesi olarak genel gider (ISO 9001 maliyet muhasebesi)."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 10000000,
       "businessContext": "Cost of rework due to non-conformance (Six Sigma DMAIC).",
       "label_i18n": {
-        "en": "Quality Rework Cost"
+        "en": "Quality Rework Cost",
+        "tr": "Kalite Yeniden İşleme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost of rework due to non-conformance (Six Sigma DMAIC)."
+        "en": "Cost of rework due to non-conformance (Six Sigma DMAIC).",
+        "tr": "Uygunsuzluk nedeniyle yeniden işleme maliyeti (Altı Sigma DMAIC)."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 5000000,
       "businessContext": "Penalties incurred due to late delivery (Lean just-in-time).",
       "label_i18n": {
-        "en": "Schedule Delay Penalty"
+        "en": "Schedule Delay Penalty",
+        "tr": "Program Gecikme Cezası"
       },
       "businessContext_i18n": {
-        "en": "Penalties incurred due to late delivery (Lean just-in-time)."
+        "en": "Penalties incurred due to late delivery (Lean just-in-time).",
+        "tr": "Geç teslimat nedeniyle oluşan cezalar (Yalın tam zamanında)."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 30,
       "businessContext": "Estimated waste as percentage of total direct costs (Lean manufacturing).",
       "label_i18n": {
-        "en": "Waste Factor (Lean Muda)"
+        "en": "Waste Factor (Lean Muda)",
+        "tr": "İsraf Faktörü (Yalın Muda)"
       },
       "businessContext_i18n": {
-        "en": "Estimated waste as percentage of total direct costs (Lean manufacturing)."
+        "en": "Estimated waste as percentage of total direct costs (Lean manufacturing).",
+        "tr": "Toplam doğrudan maliyetlerin yüzdesi olarak tahmini israf (Yalın üretim)."
       }
     }
   ],

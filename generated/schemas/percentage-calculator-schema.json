@@ -21,10 +21,12 @@
       "max": 1000000,
       "businessContext": "Total number of units produced in the reporting period (ISO 9001:2015 clause 9.1.3).",
       "label_i18n": {
-        "en": "Total Units Produced"
+        "en": "Total Units Produced",
+        "tr": "Toplam Üretilen Birim"
       },
       "businessContext_i18n": {
-        "en": "Total number of units produced in the reporting period (ISO 9001:2015 clause 9.1.3)."
+        "en": "Total number of units produced in the reporting period (ISO 9001:2015 clause 9.1.3).",
+        "tr": "Raporlama döneminde üretilen toplam birim sayısı (ISO 9001:2015 madde 9.1.3)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 1000000,
       "businessContext": "Number of units failing quality inspection (Six Sigma DPMO metric).",
       "label_i18n": {
-        "en": "Defective Units"
+        "en": "Defective Units",
+        "tr": "Hatalı Birimler"
       },
       "businessContext_i18n": {
-        "en": "Number of units failing quality inspection (Six Sigma DPMO metric)."
+        "en": "Number of units failing quality inspection (Six Sigma DPMO metric).",
+        "tr": "Kalite denetiminden geçemeyen birim sayısı (Altı Sigma DPMO metriği)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1000000,
       "businessContext": "Units that required rework to meet specifications (Lean waste reduction).",
       "label_i18n": {
-        "en": "Rework Units"
+        "en": "Rework Units",
+        "tr": "Yeniden İşleme Birimleri"
       },
       "businessContext_i18n": {
-        "en": "Units that required rework to meet specifications (Lean waste reduction)."
+        "en": "Units that required rework to meet specifications (Lean waste reduction).",
+        "tr": "Spesifikasyonları karşılamak için yeniden işlem gerektiren birimler (Yalın israf azaltma)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 1000000,
       "businessContext": "Units that are scrapped and cannot be reworked (material yield loss).",
       "label_i18n": {
-        "en": "Scrap Units"
+        "en": "Scrap Units",
+        "tr": "Fire Birimler"
       },
       "businessContext_i18n": {
-        "en": "Units that are scrapped and cannot be reworked (material yield loss)."
+        "en": "Units that are scrapped and cannot be reworked (material yield loss).",
+        "tr": "Hurdaya ayrılan ve yeniden işlenemeyen birimler (malzeme verim kaybı)."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 100,
       "businessContext": "Desired first-pass yield percentage (Six Sigma target ≥ 99.99966% for 6σ).",
       "label_i18n": {
-        "en": "Target Yield (%)"
+        "en": "Target Yield (%)",
+        "tr": "Hedef Verim (%)"
       },
       "businessContext_i18n": {
-        "en": "Desired first-pass yield percentage (Six Sigma target ≥ 99.99966% for 6σ)."
+        "en": "Desired first-pass yield percentage (Six Sigma target ≥ 99.99966% for 6σ).",
+        "tr": "İstenen ilk geçiş verim yüzdesi (Altı Sigma hedefi ≥ %99,99966)."
       }
     },
     {
@@ -105,10 +115,12 @@
       ],
       "businessContext": "Type of process for contextual benchmarking (WERC DC metrics, ISO 9001).",
       "label_i18n": {
-        "en": "Process Type"
+        "en": "Process Type",
+        "tr": "Proses Türü"
       },
       "businessContext_i18n": {
-        "en": "Type of process for contextual benchmarking (WERC DC metrics, ISO 9001)."
+        "en": "Type of process for contextual benchmarking (WERC DC metrics, ISO 9001).",
+        "tr": "Bağlamsal kıyaslama için proses türü (WERC DC metrikleri, ISO 9001)."
       }
     },
     {
@@ -119,10 +131,12 @@
       "default": true,
       "businessContext": "If true, scrap units are counted as defective for defect rate calculation.",
       "label_i18n": {
-        "en": "Include Scrap in Defect Count"
+        "en": "Include Scrap in Defect Count",
+        "tr": "Fireyi Kusur Sayısına Dahil Et"
       },
       "businessContext_i18n": {
-        "en": "If true, scrap units are counted as defective for defect rate calculation."
+        "en": "If true, scrap units are counted as defective for defect rate calculation.",
+        "tr": "Doğruysa, kusur oranı hesaplamasında fire birimler kusurlu sayılır."
       }
     }
   ],

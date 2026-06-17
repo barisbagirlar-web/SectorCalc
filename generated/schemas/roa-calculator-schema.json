@@ -10,11 +10,15 @@
       "businessContext": "Annual net income from income statement",
       "label_i18n": {
         "en": "Net Income",
-        "tr": "Net Income",
+        "tr": "Net Gelir",
         "de": "Net Income",
         "fr": "Net Income",
         "es": "Net Income",
         "ar": "Net Income"
+      },
+      "businessContext_i18n": {
+        "en": "Annual net income from income statement",
+        "tr": "Gelir tablosundan yıllık net gelir"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total assets at the start of the period",
       "label_i18n": {
         "en": "Beginning Total Assets",
-        "tr": "Beginning Total Assets",
+        "tr": "Dönem Başı Toplam Varlıklar",
         "de": "Beginning Total Assets",
         "fr": "Beginning Total Assets",
         "es": "Beginning Total Assets",
         "ar": "Beginning Total Assets"
+      },
+      "businessContext_i18n": {
+        "en": "Total assets at the start of the period",
+        "tr": "Dönem başındaki toplam varlıklar"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total assets at the end of the period",
       "label_i18n": {
         "en": "Ending Total Assets",
-        "tr": "Ending Total Assets",
+        "tr": "Dönem Sonu Toplam Varlıklar",
         "de": "Ending Total Assets",
         "fr": "Ending Total Assets",
         "es": "Ending Total Assets",
         "ar": "Ending Total Assets"
+      },
+      "businessContext_i18n": {
+        "en": "Total assets at the end of the period",
+        "tr": "Dönem sonundaki toplam varlıklar"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "If provided, use as average total assets instead of computing from beginning and ending",
       "label_i18n": {
         "en": "Average Assets Override",
-        "tr": "Average Assets Override",
+        "tr": "Ortalama Varlıklar Geçersiz Kılma",
         "de": "Average Assets Override",
         "fr": "Average Assets Override",
         "es": "Average Assets Override",
         "ar": "Average Assets Override"
+      },
+      "businessContext_i18n": {
+        "en": "If provided, use as average total assets instead of computing from beginning and ending",
+        "tr": "Sağlanırsa, başlangıç ve bitişten hesaplamak yerine ortalama toplam varlık olarak kullanılır"
       }
     }
   ],

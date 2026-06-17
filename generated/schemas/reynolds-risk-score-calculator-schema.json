@@ -10,11 +10,15 @@
       "businessContext": "Patient age",
       "label_i18n": {
         "en": "Age (years)",
-        "tr": "Age (years)",
+        "tr": "Yaş (yıl)",
         "de": "Age (years)",
         "fr": "Age (years)",
         "es": "Age (years)",
         "ar": "Age (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age",
+        "tr": "Hasta yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Treated or untreated systolic BP",
       "label_i18n": {
         "en": "Systolic Blood Pressure",
-        "tr": "Systolic Blood Pressure",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic Blood Pressure",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Treated or untreated systolic BP",
+        "tr": "Tedavi edilmiş veya edilmemiş sistolik KB"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Fasting total cholesterol",
       "label_i18n": {
         "en": "Total Cholesterol",
-        "tr": "Total Cholesterol",
+        "tr": "Toplam Kolesterol",
         "de": "Total Cholesterol",
         "fr": "Total Cholesterol",
         "es": "Total Cholesterol",
         "ar": "Total Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "Fasting total cholesterol",
+        "tr": "Açlık total kolesterol"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fasting HDL cholesterol",
       "label_i18n": {
         "en": "HDL Cholesterol",
-        "tr": "HDL Cholesterol",
+        "tr": "HDL Kolesterol",
         "de": "HDL Cholesterol",
         "fr": "HDL Cholesterol",
         "es": "HDL Cholesterol",
         "ar": "HDL Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "Fasting HDL cholesterol",
+        "tr": "Açlık HDL kolesterol"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Current smoker (1) or not (0)",
       "label_i18n": {
         "en": "Smoker",
-        "tr": "Smoker",
+        "tr": "Sigara içen",
         "de": "Smoker",
         "fr": "Smoker",
         "es": "Smoker",
         "ar": "Smoker"
+      },
+      "businessContext_i18n": {
+        "en": "Current smoker (1) or not (0)",
+        "tr": "Mevcut sigara içicisi (1) veya değil (0)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Diabetes diagnosis (1) or not (0)",
       "label_i18n": {
         "en": "Diabetic",
-        "tr": "Diabetic",
+        "tr": "Diyabetik",
         "de": "Diabetic",
         "fr": "Diabetic",
         "es": "Diabetic",
         "ar": "Diabetic"
+      },
+      "businessContext_i18n": {
+        "en": "Diabetes diagnosis (1) or not (0)",
+        "tr": "Diyabet tanısı (1) veya değil (0)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "0 = male, 1 = female",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Gender",
+        "tr": "Cinsiyet",
         "de": "Gender",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "0 = male, 1 = female",
+        "tr": "0 = erkek, 1 = kadın"
       }
     }
   ],

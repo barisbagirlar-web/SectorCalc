@@ -10,11 +10,15 @@
       "businessContext": "Positive integer n (n ≥ 1) for which the number of integer partitions is approximated. Used in combinatorics, inventory partitioning, and resource distribution modeling.",
       "label_i18n": {
         "en": "Integer to Partition",
-        "tr": "Integer to Partition",
+        "tr": "Bölünecek Tam Sayı",
         "de": "Integer to Partition",
         "fr": "Integer to Partition",
         "es": "Integer to Partition",
         "ar": "Integer to Partition"
+      },
+      "businessContext_i18n": {
+        "en": "Positive integer n (n ≥ 1) for which the number of integer partitions is approximated. Used in combinatorics, inventory partitioning, and resource distribution modeling.",
+        "tr": "Pozitif tam sayı n (n ≥ 1) için tamsayı bölümlerinin sayısı yaklaşık olarak hesaplanır. Kombinatorik, envanter bölümleme ve kaynak dağıtım modellemesinde kullanılır."
       }
     },
     {
@@ -22,7 +26,7 @@
       "label": "auto_input_2",
       "label_i18n": {
         "en": "auto_input_2",
-        "tr": "auto_input_2",
+        "tr": "otomatik_giriş_2",
         "de": "auto_input_2",
         "fr": "auto_input_2",
         "es": "auto_input_2",
@@ -34,7 +38,7 @@
       "businessContext": "Auto-generated input 2.",
       "businessContext_i18n": {
         "en": "Auto-generated input 2.",
-        "tr": "Auto-generated input 2.",
+        "tr": "Otomatik oluşturulan giriş 2.",
         "de": "Auto-generated input 2.",
         "fr": "Auto-generated input 2.",
         "es": "Auto-generated input 2.",
@@ -46,7 +50,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -58,7 +62,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

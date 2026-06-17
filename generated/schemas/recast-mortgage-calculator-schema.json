@@ -10,11 +10,15 @@
       "businessContext": "The outstanding principal balance of the mortgage.",
       "label_i18n": {
         "en": "Current Loan Balance",
-        "tr": "Current Loan Balance",
+        "tr": "Mevcut Kredi Bakiyesi",
         "de": "Current Loan Balance",
         "fr": "Current Loan Balance",
         "es": "Current Loan Balance",
         "ar": "Current Loan Balance"
+      },
+      "businessContext_i18n": {
+        "en": "The outstanding principal balance of the mortgage.",
+        "tr": "Mortgage'nin ödenmemiş anapara bakiyesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The annual interest rate on the loan.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The annual interest rate on the loan.",
+        "tr": "Kredinin yıllık faiz oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The number of months remaining on the original loan schedule.",
       "label_i18n": {
         "en": "Remaining Loan Term",
-        "tr": "Remaining Loan Term",
+        "tr": "Kalan Kredi Vadesi",
         "de": "Remaining Loan Term",
         "fr": "Remaining Loan Term",
         "es": "Remaining Loan Term",
         "ar": "Remaining Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "The number of months remaining on the original loan schedule.",
+        "tr": "Orijinal kredi planında kalan ay sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The amount you plan to pay toward the principal to recast the mortgage.",
       "label_i18n": {
         "en": "Lump Sum Payment",
-        "tr": "Lump Sum Payment",
+        "tr": "Toplu Ödeme",
         "de": "Lump Sum Payment",
         "fr": "Lump Sum Payment",
         "es": "Lump Sum Payment",
         "ar": "Lump Sum Payment"
+      },
+      "businessContext_i18n": {
+        "en": "The amount you plan to pay toward the principal to recast the mortgage.",
+        "tr": "Mortgage'i yeniden yapılandırmak için anaparaya ödemeyi planladığınız tutar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The fee charged by the lender for recasting the mortgage.",
       "label_i18n": {
         "en": "Recast Fee",
-        "tr": "Recast Fee",
+        "tr": "Yeniden Yapılandırma Ücreti",
         "de": "Recast Fee",
         "fr": "Recast Fee",
         "es": "Recast Fee",
         "ar": "Recast Fee"
+      },
+      "businessContext_i18n": {
+        "en": "The fee charged by the lender for recasting the mortgage.",
+        "tr": "Borç verenin mortgage'i yeniden yapılandırmak için aldığı ücret."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Start of interval for x-axis revolution",
       "label_i18n": {
         "en": "Lower Bound (a)",
-        "tr": "Lower Bound (a)",
+        "tr": "Alt Sınır (a)",
         "de": "Lower Bound (a)",
         "fr": "Lower Bound (a)",
         "es": "Lower Bound (a)",
         "ar": "Lower Bound (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Start of interval for x-axis revolution",
+        "tr": "X ekseni dönüşü için aralığın başlangıcı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "End of interval for x-axis revolution",
       "label_i18n": {
         "en": "Upper Bound (b)",
-        "tr": "Upper Bound (b)",
+        "tr": "Üst Sınır (b)",
         "de": "Upper Bound (b)",
         "fr": "Upper Bound (b)",
         "es": "Upper Bound (b)",
         "ar": "Upper Bound (b)"
+      },
+      "businessContext_i18n": {
+        "en": "End of interval for x-axis revolution",
+        "tr": "X ekseni dönüşü için aralığın sonu"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Slope of linear generating function f(x)=mx+c",
       "label_i18n": {
         "en": "Slope (m)",
-        "tr": "Slope (m)",
+        "tr": "Eğim (m)",
         "de": "Slope (m)",
         "fr": "Slope (m)",
         "es": "Slope (m)",
         "ar": "Slope (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Slope of linear generating function f(x)=mx+c",
+        "tr": "Doğrusal üretim fonksiyonu f(x)=mx+c'nin eğimi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Intercept of linear generating function",
       "label_i18n": {
         "en": "Intercept (c)",
-        "tr": "Intercept (c)",
+        "tr": "Kesişim (c)",
         "de": "Intercept (c)",
         "fr": "Intercept (c)",
         "es": "Intercept (c)",
         "ar": "Intercept (c)"
+      },
+      "businessContext_i18n": {
+        "en": "Intercept of linear generating function",
+        "tr": "Doğrusal üretim fonksiyonunun kesişimi"
       }
     }
   ],

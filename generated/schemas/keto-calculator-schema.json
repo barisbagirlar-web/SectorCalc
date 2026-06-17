@@ -10,11 +10,15 @@
       "businessContext": "Total body weight in kilograms",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total body weight in kilograms",
+        "tr": "Toplam vücut ağırlığı (kg)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated body fat percentage (e.g., 25 for 25%)",
       "label_i18n": {
         "en": "Body Fat Percentage",
-        "tr": "Body Fat Percentage",
+        "tr": "Vücut yağ yüzdesi",
         "de": "Body Fat Percentage",
         "fr": "Body Fat Percentage",
         "es": "Body Fat Percentage",
         "ar": "Body Fat Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated body fat percentage (e.g., 25 for 25%)",
+        "tr": "Tahmini vücut yağ yüzdesi (örneğin, %25 için 25)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 for male, 0 for female",
       "label_i18n": {
         "en": "Gender (1=Male, 0=Female)",
-        "tr": "Gender (1=Male, 0=Female)",
+        "tr": "Cinsiyet (1=Erkek, 0=Kadın)",
         "de": "Gender (1=Male, 0=Female)",
         "fr": "Gender (1=Male, 0=Female)",
         "es": "Gender (1=Male, 0=Female)",
         "ar": "Gender (1=Male, 0=Female)"
+      },
+      "businessContext_i18n": {
+        "en": "1 for male, 0 for female",
+        "tr": "1 erkek, 0 kadın"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "1.2: Sedentary, 1.375: Lightly Active, 1.55: Moderately Active, 1.725: Very Active, 1.9: Extra Active",
       "label_i18n": {
         "en": "Activity Level Multiplier",
-        "tr": "Activity Level Multiplier",
+        "tr": "Aktivite seviyesi çarpanı",
         "de": "Activity Level Multiplier",
         "fr": "Activity Level Multiplier",
         "es": "Activity Level Multiplier",
         "ar": "Activity Level Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "1.2: Sedentary, 1.375: Lightly Active, 1.55: Moderately Active, 1.725: Very Active, 1.9: Extra Active",
+        "tr": "1,2: Hareketsiz, 1,375: Hafif Aktif, 1,55: Orta Aktif, 1,725: Çok Aktif, 1,9: Ekstra Aktif"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage to reduce maintenance calories (0=maintenance, 20=20% deficit for weight loss)",
       "label_i18n": {
         "en": "Caloric Deficit",
-        "tr": "Caloric Deficit",
+        "tr": "Kalori Açığı",
         "de": "Caloric Deficit",
         "fr": "Caloric Deficit",
         "es": "Caloric Deficit",
         "ar": "Caloric Deficit"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage to reduce maintenance calories (0=maintenance, 20=20% deficit for weight loss)",
+        "tr": "Bazal kaloriden düşülecek yüzde (0=koruma, 20=kil kaybı için %20 açık)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The monthly rental income from the property.",
       "label_i18n": {
         "en": "Monthly Rent",
-        "tr": "Monthly Rent",
+        "tr": "Aylık Kira",
         "de": "Monthly Rent",
         "fr": "Monthly Rent",
         "es": "Monthly Rent",
         "ar": "Monthly Rent"
+      },
+      "businessContext_i18n": {
+        "en": "The monthly rental income from the property.",
+        "tr": "Mülkten elde edilen aylık kira geliri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected occupancy rate as a percentage of the year.",
       "label_i18n": {
         "en": "Occupancy Rate (%)",
-        "tr": "Occupancy Rate (%)",
+        "tr": "Doluluk Oranı (%)",
         "de": "Occupancy Rate (%)",
         "fr": "Occupancy Rate (%)",
         "es": "Occupancy Rate (%)",
         "ar": "Occupancy Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected occupancy rate as a percentage of the year.",
+        "tr": "Yılın yüzdesi olarak beklenen doluluk oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of gross income for property management.",
       "label_i18n": {
         "en": "Management Fee (%)",
-        "tr": "Management Fee (%)",
+        "tr": "Yönetim Ücreti (%)",
         "de": "Management Fee (%)",
         "fr": "Management Fee (%)",
         "es": "Management Fee (%)",
         "ar": "Management Fee (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of gross income for property management.",
+        "tr": "Gayrimenkul yönetimi için brüt gelirin yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Estimated monthly maintenance and repair costs.",
       "label_i18n": {
         "en": "Monthly Maintenance",
-        "tr": "Monthly Maintenance",
+        "tr": "Aylık Bakım",
         "de": "Monthly Maintenance",
         "fr": "Monthly Maintenance",
         "es": "Monthly Maintenance",
         "ar": "Monthly Maintenance"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated monthly maintenance and repair costs.",
+        "tr": "Tahmini aylık bakım ve onarım maliyetleri."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Monthly insurance premium.",
       "label_i18n": {
         "en": "Monthly Insurance",
-        "tr": "Monthly Insurance",
+        "tr": "Aylık Sigorta",
         "de": "Monthly Insurance",
         "fr": "Monthly Insurance",
         "es": "Monthly Insurance",
         "ar": "Monthly Insurance"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly insurance premium.",
+        "tr": "Aylık sigorta primi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual property tax amount.",
       "label_i18n": {
         "en": "Annual Property Tax",
-        "tr": "Annual Property Tax",
+        "tr": "Yıllık Emlak Vergisi",
         "de": "Annual Property Tax",
         "fr": "Annual Property Tax",
         "es": "Annual Property Tax",
         "ar": "Annual Property Tax"
+      },
+      "businessContext_i18n": {
+        "en": "Annual property tax amount.",
+        "tr": "Yıllık emlak vergisi tutarı."
       }
     }
   ],

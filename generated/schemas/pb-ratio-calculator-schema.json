@@ -10,11 +10,15 @@
       "businessContext": "Current trading price of one share",
       "label_i18n": {
         "en": "Market Price per Share",
-        "tr": "Market Price per Share",
+        "tr": "Hisse Başına Piyasa Fiyatı",
         "de": "Market Price per Share",
         "fr": "Market Price per Share",
         "es": "Market Price per Share",
         "ar": "Market Price per Share"
+      },
+      "businessContext_i18n": {
+        "en": "Current trading price of one share",
+        "tr": "Bir hissenin güncel işlem fiyatı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total equity from balance sheet",
       "label_i18n": {
         "en": "Total Shareholder Equity",
-        "tr": "Total Shareholder Equity",
+        "tr": "Toplam Özkaynak",
         "de": "Total Shareholder Equity",
         "fr": "Total Shareholder Equity",
         "es": "Total Shareholder Equity",
         "ar": "Total Shareholder Equity"
+      },
+      "businessContext_i18n": {
+        "en": "Total equity from balance sheet",
+        "tr": "Bilançodan toplam özkaynak"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of common shares outstanding",
       "label_i18n": {
         "en": "Shares Outstanding",
-        "tr": "Shares Outstanding",
+        "tr": "Tedavüldeki Hisse Sayısı",
         "de": "Shares Outstanding",
         "fr": "Shares Outstanding",
         "es": "Shares Outstanding",
         "ar": "Shares Outstanding"
+      },
+      "businessContext_i18n": {
+        "en": "Number of common shares outstanding",
+        "tr": "Tedavüldeki adi hisse senedi sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average P/B ratio for the industry",
       "label_i18n": {
         "en": "Industry Average P/B Ratio",
-        "tr": "Industry Average P/B Ratio",
+        "tr": "Sektör Ortalama Fiyat/Defter Değeri Oranı",
         "de": "Industry Average P/B Ratio",
         "fr": "Industry Average P/B Ratio",
         "es": "Industry Average P/B Ratio",
         "ar": "Industry Average P/B Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Average P/B ratio for the industry",
+        "tr": "Sektör için ortalama Fiyat/Defter Değeri oranı"
       }
     }
   ],

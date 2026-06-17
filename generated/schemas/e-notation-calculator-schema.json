@@ -10,11 +10,15 @@
       "businessContext": "First number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)",
       "label_i18n": {
         "en": "Coefficient 1",
-        "tr": "Coefficient 1",
+        "tr": "Katsayı 1",
         "de": "Coefficient 1",
         "fr": "Coefficient 1",
         "es": "Coefficient 1",
         "ar": "Coefficient 1"
+      },
+      "businessContext_i18n": {
+        "en": "First number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)",
+        "tr": "Birinci sayının anlamlı basamakları (örneğin, 1 ≤ |katsayı| < 10 önerilir)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Exponent of 10 for the first number",
       "label_i18n": {
         "en": "Exponent 1",
-        "tr": "Exponent 1",
+        "tr": "Üs 1",
         "de": "Exponent 1",
         "fr": "Exponent 1",
         "es": "Exponent 1",
         "ar": "Exponent 1"
+      },
+      "businessContext_i18n": {
+        "en": "Exponent of 10 for the first number",
+        "tr": "Birinci sayı için 10'un üssü"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Second number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)",
       "label_i18n": {
         "en": "Coefficient 2",
-        "tr": "Coefficient 2",
+        "tr": "Katsayı 2",
         "de": "Coefficient 2",
         "fr": "Coefficient 2",
         "es": "Coefficient 2",
         "ar": "Coefficient 2"
+      },
+      "businessContext_i18n": {
+        "en": "Second number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)",
+        "tr": "İkinci sayının anlamlı basamakları (örneğin, 1 ≤ |katsayı| < 10 önerilir)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Exponent of 10 for the second number",
       "label_i18n": {
         "en": "Exponent 2",
-        "tr": "Exponent 2",
+        "tr": "Üs 2",
         "de": "Exponent 2",
         "fr": "Exponent 2",
         "es": "Exponent 2",
         "ar": "Exponent 2"
+      },
+      "businessContext_i18n": {
+        "en": "Exponent of 10 for the second number",
+        "tr": "İkinci sayı için 10'un üssü"
       }
     }
   ],

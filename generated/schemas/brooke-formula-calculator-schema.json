@@ -10,11 +10,15 @@
       "businessContext": "Patient's body weight in kilograms.",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's body weight in kilograms.",
+        "tr": "Hastanın kilogram cinsinden vücut ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of total body surface area affected by burns.",
       "label_i18n": {
         "en": "Total Burn Surface Area",
-        "tr": "Total Burn Surface Area",
+        "tr": "Toplam Yanık Yüzey Alanı",
         "de": "Total Burn Surface Area",
         "fr": "Total Burn Surface Area",
         "es": "Total Burn Surface Area",
         "ar": "Total Burn Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of total body surface area affected by burns.",
+        "tr": "Yanıklardan etkilenen toplam vücut yüzey alanı yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard Brooke formula uses 2 mL/kg/% TBSA.",
       "label_i18n": {
         "en": "Fluid Volume Factor",
-        "tr": "Fluid Volume Factor",
+        "tr": "Sıvı Hacim Faktörü",
         "de": "Fluid Volume Factor",
         "fr": "Fluid Volume Factor",
         "es": "Fluid Volume Factor",
         "ar": "Fluid Volume Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard Brooke formula uses 2 mL/kg/% TBSA.",
+        "tr": "Standart Brooke formülü 2 mL/kg/% TYYA kullanır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Hours for first half of fluid administration.",
       "label_i18n": {
         "en": "First Period Hours",
-        "tr": "First Period Hours",
+        "tr": "Birinci Dönem Saatleri",
         "de": "First Period Hours",
         "fr": "First Period Hours",
         "es": "First Period Hours",
         "ar": "First Period Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Hours for first half of fluid administration.",
+        "tr": "Sıvı uygulamasının ilk yarısı için saatler."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Hours for second half of fluid administration.",
       "label_i18n": {
         "en": "Second Period Hours",
-        "tr": "Second Period Hours",
+        "tr": "İkinci Dönem Saatleri",
         "de": "Second Period Hours",
         "fr": "Second Period Hours",
         "es": "Second Period Hours",
         "ar": "Second Period Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Hours for second half of fluid administration.",
+        "tr": "Sıvı uygulamasının ikinci yarısı için saatler."
       }
     }
   ],

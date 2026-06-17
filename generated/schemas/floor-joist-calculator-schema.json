@@ -10,11 +10,15 @@
       "businessContext": "Length of joist span in feet",
       "label_i18n": {
         "en": "Span (ft)",
-        "tr": "Span (ft)",
+        "tr": "Açıklık (ft)",
         "de": "Span (ft)",
         "fr": "Span (ft)",
         "es": "Span (ft)",
         "ar": "Span (ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of joist span in feet",
+        "tr": "Kiriş açıklığının fit cinsinden uzunluğu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Center-to-center joist spacing in inches",
       "label_i18n": {
         "en": "Spacing (in)",
-        "tr": "Spacing (in)",
+        "tr": "Aralık (in)",
         "de": "Spacing (in)",
         "fr": "Spacing (in)",
         "es": "Spacing (in)",
         "ar": "Spacing (in)"
+      },
+      "businessContext_i18n": {
+        "en": "Center-to-center joist spacing in inches",
+        "tr": "Kirişler arası merkezden merkeze mesafe (inç cinsinden)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Uniform dead load in pounds per square foot",
       "label_i18n": {
         "en": "Dead Load (psf)",
-        "tr": "Dead Load (psf)",
+        "tr": "Ölü Yük (psf)",
         "de": "Dead Load (psf)",
         "fr": "Dead Load (psf)",
         "es": "Dead Load (psf)",
         "ar": "Dead Load (psf)"
+      },
+      "businessContext_i18n": {
+        "en": "Uniform dead load in pounds per square foot",
+        "tr": "Metrekare başına pound cinsinden düzgün yayılı ölü yük"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Uniform live load in pounds per square foot",
       "label_i18n": {
         "en": "Live Load (psf)",
-        "tr": "Live Load (psf)",
+        "tr": "Hareketli Yük (psf)",
         "de": "Live Load (psf)",
         "fr": "Live Load (psf)",
         "es": "Live Load (psf)",
         "ar": "Live Load (psf)"
+      },
+      "businessContext_i18n": {
+        "en": "Uniform live load in pounds per square foot",
+        "tr": "Metrekare başına pound cinsinden düzgün yayılı hareketli yük"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Modulus of elasticity of the joist material",
       "label_i18n": {
         "en": "Modulus of Elasticity (psi)",
-        "tr": "Modulus of Elasticity (psi)",
+        "tr": "Elastisite Modülü (psi)",
         "de": "Modulus of Elasticity (psi)",
         "fr": "Modulus of Elasticity (psi)",
         "es": "Modulus of Elasticity (psi)",
         "ar": "Modulus of Elasticity (psi)"
+      },
+      "businessContext_i18n": {
+        "en": "Modulus of elasticity of the joist material",
+        "tr": "Kiriş malzemesinin elastisite modülü"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Moment of inertia of the joist cross-section",
       "label_i18n": {
         "en": "Moment of Inertia (in⁴)",
-        "tr": "Moment of Inertia (in⁴)",
+        "tr": "Atalet Momenti (in⁴)",
         "de": "Moment of Inertia (in⁴)",
         "fr": "Moment of Inertia (in⁴)",
         "es": "Moment of Inertia (in⁴)",
         "ar": "Moment of Inertia (in⁴)"
+      },
+      "businessContext_i18n": {
+        "en": "Moment of inertia of the joist cross-section",
+        "tr": "Kiriş kesitinin atalet momenti"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Deflection limit denominator, e.g., 360 for L/360",
       "label_i18n": {
         "en": "Deflection Limit (L/x)",
-        "tr": "Deflection Limit (L/x)",
+        "tr": "Sehim Sınırı (L/x)",
         "de": "Deflection Limit (L/x)",
         "fr": "Deflection Limit (L/x)",
         "es": "Deflection Limit (L/x)",
         "ar": "Deflection Limit (L/x)"
+      },
+      "businessContext_i18n": {
+        "en": "Deflection limit denominator, e.g., 360 for L/360",
+        "tr": "Sehim sınırı paydası, örn. L/360 için 360"
       }
     }
   ],

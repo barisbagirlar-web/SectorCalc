@@ -10,11 +10,15 @@
       "businessContext": "Notch frequency of the band-stop filter.",
       "label_i18n": {
         "en": "Center Frequency",
-        "tr": "Center Frequency",
+        "tr": "Merkez Frekansı",
         "de": "Center Frequency",
         "fr": "Center Frequency",
         "es": "Center Frequency",
         "ar": "Center Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Notch frequency of the band-stop filter.",
+        "tr": "Bant durdurma filtresinin çentik frekansı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Lower -3 dB cutoff frequency of the stopband.",
       "label_i18n": {
         "en": "Lower Cutoff Frequency",
-        "tr": "Lower Cutoff Frequency",
+        "tr": "Alt Kesim Frekansı",
         "de": "Lower Cutoff Frequency",
         "fr": "Lower Cutoff Frequency",
         "es": "Lower Cutoff Frequency",
         "ar": "Lower Cutoff Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Lower -3 dB cutoff frequency of the stopband.",
+        "tr": "Durdurma bandının alt -3 dB kesim frekansı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Upper -3 dB cutoff frequency of the stopband.",
       "label_i18n": {
         "en": "Upper Cutoff Frequency",
-        "tr": "Upper Cutoff Frequency",
+        "tr": "Üst Kesim Frekansı",
         "de": "Upper Cutoff Frequency",
         "fr": "Upper Cutoff Frequency",
         "es": "Upper Cutoff Frequency",
         "ar": "Upper Cutoff Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Upper -3 dB cutoff frequency of the stopband.",
+        "tr": "Durdurma bandının üst -3 dB kesim frekansı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Frequency at which the filter response is evaluated.",
       "label_i18n": {
         "en": "Evaluation Frequency",
-        "tr": "Evaluation Frequency",
+        "tr": "Değerlendirme Frekansı",
         "de": "Evaluation Frequency",
         "fr": "Evaluation Frequency",
         "es": "Evaluation Frequency",
         "ar": "Evaluation Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency at which the filter response is evaluated.",
+        "tr": "Filtre yanıtının değerlendirildiği frekans."
       }
     }
   ],

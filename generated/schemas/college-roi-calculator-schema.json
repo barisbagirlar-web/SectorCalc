@@ -10,11 +10,15 @@
       "businessContext": "Average annual cost of college including tuition, fees, and materials.",
       "label_i18n": {
         "en": "Annual Tuition & Fees",
-        "tr": "Annual Tuition & Fees",
+        "tr": "Yıllık Harç ve Ücretler",
         "de": "Annual Tuition & Fees",
         "fr": "Annual Tuition & Fees",
         "es": "Annual Tuition & Fees",
         "ar": "Annual Tuition & Fees"
+      },
+      "businessContext_i18n": {
+        "en": "Average annual cost of college including tuition, fees, and materials.",
+        "tr": "Üniversitenin ortalama yıllık maliyeti (harç, ücret ve malzemeler dahil)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Expected duration of college education.",
       "label_i18n": {
         "en": "Years in College",
-        "tr": "Years in College",
+        "tr": "Üniversite Yılı Sayısı",
         "de": "Years in College",
         "fr": "Years in College",
         "es": "Years in College",
         "ar": "Years in College"
+      },
+      "businessContext_i18n": {
+        "en": "Expected duration of college education.",
+        "tr": "Beklenen üniversite eğitimi süresi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Estimated annual salary if not attending college, assumed constant over working years.",
       "label_i18n": {
         "en": "Alternative Salary Without College",
-        "tr": "Alternative Salary Without College",
+        "tr": "Üniversitesiz Alternatif Maaş",
         "de": "Alternative Salary Without College",
         "fr": "Alternative Salary Without College",
         "es": "Alternative Salary Without College",
         "ar": "Alternative Salary Without College"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated annual salary if not attending college, assumed constant over working years.",
+        "tr": "Üniversiteye gitmemesi durumunda tahmini yıllık maaş (çalışma yılları boyunca sabit kabul edilir)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected annual salary in the first year after graduation.",
       "label_i18n": {
         "en": "Starting Salary After College",
-        "tr": "Starting Salary After College",
+        "tr": "Üniversite Sonrası Başlangıç Maaşı",
         "de": "Starting Salary After College",
         "fr": "Starting Salary After College",
         "es": "Starting Salary After College",
         "ar": "Starting Salary After College"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual salary in the first year after graduation.",
+        "tr": "Mezuniyetten sonraki ilk yılda beklenen yıllık maaş"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Expected annual percentage increase in college graduate salary.",
       "label_i18n": {
         "en": "Annual Salary Growth Rate",
-        "tr": "Annual Salary Growth Rate",
+        "tr": "Yıllık Maaş Artış Oranı",
         "de": "Annual Salary Growth Rate",
         "fr": "Annual Salary Growth Rate",
         "es": "Annual Salary Growth Rate",
         "ar": "Annual Salary Growth Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual percentage increase in college graduate salary.",
+        "tr": "Üniversite mezunu maaşında beklenen yıllık yüzde artış"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Expected number of years working after graduation until retirement.",
       "label_i18n": {
         "en": "Working Years After College",
-        "tr": "Working Years After College",
+        "tr": "Üniversite Sonrası Çalışma Yılı Sayısı",
         "de": "Working Years After College",
         "fr": "Working Years After College",
         "es": "Working Years After College",
         "ar": "Working Years After College"
+      },
+      "businessContext_i18n": {
+        "en": "Expected number of years working after graduation until retirement.",
+        "tr": "Mezuniyetten emekliliğe kadar beklenen çalışma yılı sayısı"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Annual rate used to discount future cash flows to present value (opportunity cost of capital).",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual rate used to discount future cash flows to present value (opportunity cost of capital).",
+        "tr": "Gelecekteki nakit akışlarını bugünkü değere indirgemek için kullanılan yıllık oran (sermaye fırsat maliyeti)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Input value in kilobytes to be converted to megabytes. Typical for storage or memory size calculations.",
       "label_i18n": {
         "en": "Kilobytes (KB)",
-        "tr": "Kilobytes (KB)",
+        "tr": "Kilobayt (KB)",
         "de": "Kilobytes (KB)",
         "fr": "Kilobytes (KB)",
         "es": "Kilobytes (KB)",
         "ar": "Kilobytes (KB)"
+      },
+      "businessContext_i18n": {
+        "en": "Input value in kilobytes to be converted to megabytes. Typical for storage or memory size calculations.",
+        "tr": "Megabayta dönüştürülecek kilobayt cinsinden giriş değeri. Depolama veya bellek boyutu hesaplamaları için tipik."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of kilobytes per megabyte. Use 1024 for binary (MiB) or 1000 for decimal (MB) per SI standards. Default 1024 aligns with technical memory specifications.",
       "label_i18n": {
         "en": "Conversion Divisor",
-        "tr": "Conversion Divisor",
+        "tr": "Dönüşüm Böleni",
         "de": "Conversion Divisor",
         "fr": "Conversion Divisor",
         "es": "Conversion Divisor",
         "ar": "Conversion Divisor"
+      },
+      "businessContext_i18n": {
+        "en": "Number of kilobytes per megabyte. Use 1024 for binary (MiB) or 1000 for decimal (MB) per SI standards. Default 1024 aligns with technical memory specifications.",
+        "tr": "Megabayt başına kilobayt sayısı. İkili (MiB) için 1024 veya SI standartlarına göre ondalık (MB) için 1000 kullanın. Varsayılan 1024, teknik bellek özellikleriyle uyumludur."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for rounding the output. Ensures precision control for technical documentation and reporting.",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding the output. Ensures precision control for technical documentation and reporting.",
+        "tr": "Çıktının yuvarlanması için ondalık basamak sayısı. Teknik dokümantasyon ve raporlama için hassasiyet kontrolü sağlar."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Static offset added to the converted value, used to correct systematic measurement deviations in industrial data acquisition systems.",
       "label_i18n": {
         "en": "Calibration Offset (MB)",
-        "tr": "Calibration Offset (MB)",
+        "tr": "Kalibrasyon Ofseti (MB)",
         "de": "Calibration Offset (MB)",
         "fr": "Calibration Offset (MB)",
         "es": "Calibration Offset (MB)",
         "ar": "Calibration Offset (MB)"
+      },
+      "businessContext_i18n": {
+        "en": "Static offset added to the converted value, used to correct systematic measurement deviations in industrial data acquisition systems.",
+        "tr": "Dönüştürülen değere eklenen statik ofset, endüstriyel veri toplama sistemlerinde sistematik ölçüm sapmalarını düzeltmek için kullanılır."
       }
     }
   ],

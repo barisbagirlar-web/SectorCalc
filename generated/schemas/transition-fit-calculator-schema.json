@@ -10,11 +10,15 @@
       "businessContext": "Nominal diameter of the cylindrical parts",
       "label_i18n": {
         "en": "Nominal Size",
-        "tr": "Nominal Size",
+        "tr": "Nominal Boyut",
         "de": "Nominal Size",
         "fr": "Nominal Size",
         "es": "Nominal Size",
         "ar": "Nominal Size"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal diameter of the cylindrical parts",
+        "tr": "Silindirik parçaların nominal çapı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Upper deviation of the hole from nominal size (positive for larger hole)",
       "label_i18n": {
         "en": "Hole Upper Deviation",
-        "tr": "Hole Upper Deviation",
+        "tr": "Delik Üst Sapması",
         "de": "Hole Upper Deviation",
         "fr": "Hole Upper Deviation",
         "es": "Hole Upper Deviation",
         "ar": "Hole Upper Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Upper deviation of the hole from nominal size (positive for larger hole)",
+        "tr": "Delik nominal boyutundan üst sapma (büyük delik için pozitif)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Lower deviation of the hole from nominal size (negative for smaller hole)",
       "label_i18n": {
         "en": "Hole Lower Deviation",
-        "tr": "Hole Lower Deviation",
+        "tr": "Delik Alt Sapması",
         "de": "Hole Lower Deviation",
         "fr": "Hole Lower Deviation",
         "es": "Hole Lower Deviation",
         "ar": "Hole Lower Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Lower deviation of the hole from nominal size (negative for smaller hole)",
+        "tr": "Delik nominal boyutundan alt sapma (küçük delik için negatif)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Upper deviation of the shaft from nominal size (positive for larger shaft)",
       "label_i18n": {
         "en": "Shaft Upper Deviation",
-        "tr": "Shaft Upper Deviation",
+        "tr": "Mil Üst Sapması",
         "de": "Shaft Upper Deviation",
         "fr": "Shaft Upper Deviation",
         "es": "Shaft Upper Deviation",
         "ar": "Shaft Upper Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Upper deviation of the shaft from nominal size (positive for larger shaft)",
+        "tr": "Mil nominal boyutundan üst sapma (büyük mil için pozitif)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Lower deviation of the shaft from nominal size (negative for smaller shaft)",
       "label_i18n": {
         "en": "Shaft Lower Deviation",
-        "tr": "Shaft Lower Deviation",
+        "tr": "Mil Alt Sapması",
         "de": "Shaft Lower Deviation",
         "fr": "Shaft Lower Deviation",
         "es": "Shaft Lower Deviation",
         "ar": "Shaft Lower Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Lower deviation of the shaft from nominal size (negative for smaller shaft)",
+        "tr": "Mil nominal boyutundan alt sapma (küçük mil için negatif)"
       }
     }
   ],

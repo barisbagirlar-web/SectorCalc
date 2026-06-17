@@ -10,11 +10,15 @@
       "businessContext": "Air temperature in Celsius",
       "label_i18n": {
         "en": "Temperature",
-        "tr": "Temperature",
+        "tr": "Sıcaklık",
         "de": "Temperature",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Air temperature in Celsius",
+        "tr": "Santigrat cinsinden hava sıcaklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Relative humidity percentage (0-100)",
       "label_i18n": {
         "en": "Relative Humidity",
-        "tr": "Relative Humidity",
+        "tr": "Bağıl Nem",
         "de": "Relative Humidity",
         "fr": "Relative Humidity",
         "es": "Relative Humidity",
         "ar": "Relative Humidity"
+      },
+      "businessContext_i18n": {
+        "en": "Relative humidity percentage (0-100)",
+        "tr": "Bağıl nem yüzdesi (0-100)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Molar mass of water vapor, standard value 18.015 g/mol",
       "label_i18n": {
         "en": "Molar Mass of Water",
-        "tr": "Molar Mass of Water",
+        "tr": "Suyun Molar Kütlesi",
         "de": "Molar Mass of Water",
         "fr": "Molar Mass of Water",
         "es": "Molar Mass of Water",
         "ar": "Molar Mass of Water"
+      },
+      "businessContext_i18n": {
+        "en": "Molar mass of water vapor, standard value 18.015 g/mol",
+        "tr": "Su buharının molar kütlesi, standart değer 18,015 g/mol"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Ideal gas constant R, standard value 8.314 J/(mol·K)",
       "label_i18n": {
         "en": "Universal Gas Constant",
-        "tr": "Universal Gas Constant",
+        "tr": "Evrensel Gaz Sabiti",
         "de": "Universal Gas Constant",
         "fr": "Universal Gas Constant",
         "es": "Universal Gas Constant",
         "ar": "Universal Gas Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Ideal gas constant R, standard value 8.314 J/(mol·K)",
+        "tr": "İdeal gaz sabiti R, standart değer 8,314 J/(mol·K)"
       }
     }
   ],

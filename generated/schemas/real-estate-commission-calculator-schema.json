@@ -10,11 +10,15 @@
       "businessContext": "The final agreed sale price of the property.",
       "label_i18n": {
         "en": "Sale Price",
-        "tr": "Sale Price",
+        "tr": "Satış Fiyatı",
         "de": "Sale Price",
         "fr": "Sale Price",
         "es": "Sale Price",
         "ar": "Sale Price"
+      },
+      "businessContext_i18n": {
+        "en": "The final agreed sale price of the property.",
+        "tr": "Mülkün nihai anlaşılan satış fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The combined commission percentage for both buyer and seller agents.",
       "label_i18n": {
         "en": "Total Commission Rate",
-        "tr": "Total Commission Rate",
+        "tr": "Toplam Komisyon Oranı",
         "de": "Total Commission Rate",
         "fr": "Total Commission Rate",
         "es": "Total Commission Rate",
         "ar": "Total Commission Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The combined commission percentage for both buyer and seller agents.",
+        "tr": "Hem alıcı hem de satıcı acenteleri için birleşik komisyon yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The percentage of the total commission that goes to the buyer's agent.",
       "label_i18n": {
         "en": "Buyer Agent Split",
-        "tr": "Buyer Agent Split",
+        "tr": "Alıcı Acente Payı",
         "de": "Buyer Agent Split",
         "fr": "Buyer Agent Split",
         "es": "Buyer Agent Split",
         "ar": "Buyer Agent Split"
+      },
+      "businessContext_i18n": {
+        "en": "The percentage of the total commission that goes to the buyer's agent.",
+        "tr": "Toplam komisyonun alıcı acentesine giden yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Any additional fixed fees (e.g., administrative charges) beyond the commission.",
       "label_i18n": {
         "en": "Additional Flat Fee",
-        "tr": "Additional Flat Fee",
+        "tr": "Ek Sabit Ücret",
         "de": "Additional Flat Fee",
         "fr": "Additional Flat Fee",
         "es": "Additional Flat Fee",
         "ar": "Additional Flat Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Any additional fixed fees (e.g., administrative charges) beyond the commission.",
+        "tr": "Komisyon dışındaki ek sabit ücretler (ör. idari masraflar)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "The Value Added Tax rate applied to the commission, if applicable.",
       "label_i18n": {
         "en": "VAT Rate",
-        "tr": "VAT Rate",
+        "tr": "KDV Oranı",
         "de": "VAT Rate",
         "fr": "VAT Rate",
         "es": "VAT Rate",
         "ar": "VAT Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The Value Added Tax rate applied to the commission, if applicable.",
+        "tr": "Komisyona uygulanan Katma Değer Vergisi oranı (varsa)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Indicates whether VAT is applied (1 = yes, 0 = no).",
       "label_i18n": {
         "en": "VAT Applicable",
-        "tr": "VAT Applicable",
+        "tr": "KDV Uygulanabilir",
         "de": "VAT Applicable",
         "fr": "VAT Applicable",
         "es": "VAT Applicable",
         "ar": "VAT Applicable"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether VAT is applied (1 = yes, 0 = no).",
+        "tr": "KDV'nin uygulanıp uygulanmadığını belirtir (1 = evet, 0 = hayır)."
       }
     }
   ],

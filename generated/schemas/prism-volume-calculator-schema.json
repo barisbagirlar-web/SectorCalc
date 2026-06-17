@@ -10,11 +10,15 @@
       "businessContext": "If known, enter the prism's base area directly (set >0). If 0, base area is computed from sides and side length.",
       "label_i18n": {
         "en": "Base Area",
-        "tr": "Base Area",
+        "tr": "Taban Alanı",
         "de": "Base Area",
         "fr": "Base Area",
         "es": "Base Area",
         "ar": "Base Area"
+      },
+      "businessContext_i18n": {
+        "en": "If known, enter the prism's base area directly (set >0). If 0, base area is computed from sides and side length.",
+        "tr": "Biliniyorsa, prizmanın taban alanını doğrudan girin (>0 ayarlayın). 0 ise, taban alanı kenar sayısı ve kenar uzunluğundan hesaplanır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of sides of the regular polygonal base (e.g., 3 for triangle, 4 for square). Only used if base area is 0.",
       "label_i18n": {
         "en": "Number of Sides",
-        "tr": "Number of Sides",
+        "tr": "Kenar Sayısı",
         "de": "Number of Sides",
         "fr": "Number of Sides",
         "es": "Number of Sides",
         "ar": "Number of Sides"
+      },
+      "businessContext_i18n": {
+        "en": "Number of sides of the regular polygonal base (e.g., 3 for triangle, 4 for square). Only used if base area is 0.",
+        "tr": "Düzgün çokgen tabanın kenar sayısı (ör. 3 üçgen, 4 kare). Yalnızca taban alanı 0 ise kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of one side of the regular polygonal base. Only used if base area is 0.",
       "label_i18n": {
         "en": "Side Length",
-        "tr": "Side Length",
+        "tr": "Kenar Uzunluğu",
         "de": "Side Length",
         "fr": "Side Length",
         "es": "Side Length",
         "ar": "Side Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of one side of the regular polygonal base. Only used if base area is 0.",
+        "tr": "Düzgün çokgen tabanın bir kenarının uzunluğu. Yalnızca taban alanı 0 ise kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Perpendicular height of the prism.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Perpendicular height of the prism.",
+        "tr": "Prizmanın dik yüksekliği."
       }
     }
   ],

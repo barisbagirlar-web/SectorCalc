@@ -10,11 +10,15 @@
       "businessContext": "Dry-bulb temperature of the saturated air parcel at the level of interest.",
       "label_i18n": {
         "en": "Temperature (°C)",
-        "tr": "Temperature (°C)",
+        "tr": "Sıcaklık (°C)",
         "de": "Temperature (°C)",
         "fr": "Temperature (°C)",
         "es": "Temperature (°C)",
         "ar": "Temperature (°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Dry-bulb temperature of the saturated air parcel at the level of interest.",
+        "tr": "İlgili seviyedeki doymuş hava parselinin kuru termometre sıcaklığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Atmospheric pressure at the level of interest (e.g., sea level pressure).",
       "label_i18n": {
         "en": "Pressure (hPa)",
-        "tr": "Pressure (hPa)",
+        "tr": "Basınç (hPa)",
         "de": "Pressure (hPa)",
         "fr": "Pressure (hPa)",
         "es": "Pressure (hPa)",
         "ar": "Pressure (hPa)"
+      },
+      "businessContext_i18n": {
+        "en": "Atmospheric pressure at the level of interest (e.g., sea level pressure).",
+        "tr": "İlgili seviyedeki atmosfer basıncı (örneğin deniz seviyesi basıncı)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Acceleration due to gravity; standard value used unless high precision required.",
       "label_i18n": {
         "en": "Gravity (m/s²)",
-        "tr": "Gravity (m/s²)",
+        "tr": "Yerçekimi (m/s²)",
         "de": "Gravity (m/s²)",
         "fr": "Gravity (m/s²)",
         "es": "Gravity (m/s²)",
         "ar": "Gravity (m/s²)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity; standard value used unless high precision required.",
+        "tr": "Yerçekimi ivmesi; yüksek hassasiyet gerekmedikçe standart değer kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Latent heat of vaporization of water; varies slightly with temperature but constant assumed.",
       "label_i18n": {
         "en": "Latent heat of vaporization (J/kg)",
-        "tr": "Latent heat of vaporization (J/kg)",
+        "tr": "Buharlaşma gizli ısısı (J/kg)",
         "de": "Latent heat of vaporization (J/kg)",
         "fr": "Latent heat of vaporization (J/kg)",
         "es": "Latent heat of vaporization (J/kg)",
         "ar": "Latent heat of vaporization (J/kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Latent heat of vaporization of water; varies slightly with temperature but constant assumed.",
+        "tr": "Suyun buharlaşma gizli ısısı; sıcaklıkla hafifçe değişir ancak sabit kabul edilir."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Specific gas constant for dry air.",
       "label_i18n": {
         "en": "Gas constant dry air (J/(kg·K))",
-        "tr": "Gas constant dry air (J/(kg·K))",
+        "tr": "Kuru hava gaz sabiti (J/(kg·K))",
         "de": "Gas constant dry air (J/(kg·K))",
         "fr": "Gas constant dry air (J/(kg·K))",
         "es": "Gas constant dry air (J/(kg·K))",
         "ar": "Gas constant dry air (J/(kg·K))"
+      },
+      "businessContext_i18n": {
+        "en": "Specific gas constant for dry air.",
+        "tr": "Kuru hava için özgül gaz sabiti."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Specific heat at constant pressure for dry air.",
       "label_i18n": {
         "en": "Specific heat dry air (J/(kg·K))",
-        "tr": "Specific heat dry air (J/(kg·K))",
+        "tr": "Kuru hava özgül ısısı (J/(kg·K))",
         "de": "Specific heat dry air (J/(kg·K))",
         "fr": "Specific heat dry air (J/(kg·K))",
         "es": "Specific heat dry air (J/(kg·K))",
         "ar": "Specific heat dry air (J/(kg·K))"
+      },
+      "businessContext_i18n": {
+        "en": "Specific heat at constant pressure for dry air.",
+        "tr": "Kuru hava için sabit basınçtaki özgül ısı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Ratio of gas constant of dry air to water vapor, ≈0.622.",
       "label_i18n": {
         "en": "ε (ratio of gas constants)",
-        "tr": "ε (ratio of gas constants)",
+        "tr": "ε (gaz sabitleri oranı)",
         "de": "ε (ratio of gas constants)",
         "fr": "ε (ratio of gas constants)",
         "es": "ε (ratio of gas constants)",
         "ar": "ε (ratio of gas constants)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of gas constant of dry air to water vapor, ≈0.622.",
+        "tr": "Kuru hava gaz sabitinin su buharına oranı, yaklaşık 0,622."
       }
     }
   ],

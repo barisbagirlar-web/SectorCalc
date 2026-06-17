@@ -10,11 +10,15 @@
       "businessContext": "Total width of the concrete element (e.g., beam or slab dimension perpendicular to rebar direction).",
       "label_i18n": {
         "en": "Element Width",
-        "tr": "Element Width",
+        "tr": "Eleman Genişliği",
         "de": "Element Width",
         "fr": "Element Width",
         "es": "Element Width",
         "ar": "Element Width"
+      },
+      "businessContext_i18n": {
+        "en": "Total width of the concrete element (e.g., beam or slab dimension perpendicular to rebar direction).",
+        "tr": "Beton elemanın toplam genişliği (örneğin, donatı yönüne dik kiriş veya döşeme boyutu)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Clear concrete cover from left edge to outer surface of leftmost rebar.",
       "label_i18n": {
         "en": "Left Cover",
-        "tr": "Left Cover",
+        "tr": "Sol Pas Payı",
         "de": "Left Cover",
         "fr": "Left Cover",
         "es": "Left Cover",
         "ar": "Left Cover"
+      },
+      "businessContext_i18n": {
+        "en": "Clear concrete cover from left edge to outer surface of leftmost rebar.",
+        "tr": "Sol kenardan en soldaki donatının dış yüzeyine kadar olan net beton örtüsü."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Clear concrete cover from right edge to outer surface of rightmost rebar.",
       "label_i18n": {
         "en": "Right Cover",
-        "tr": "Right Cover",
+        "tr": "Sağ Pas Payı",
         "de": "Right Cover",
         "fr": "Right Cover",
         "es": "Right Cover",
         "ar": "Right Cover"
+      },
+      "businessContext_i18n": {
+        "en": "Clear concrete cover from right edge to outer surface of rightmost rebar.",
+        "tr": "Sağ kenardan en sağdaki donatının dış yüzeyine kadar olan net beton örtüsü."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Nominal diameter of the reinforcing bar.",
       "label_i18n": {
         "en": "Rebar Diameter",
-        "tr": "Rebar Diameter",
+        "tr": "Donatı Çapı",
         "de": "Rebar Diameter",
         "fr": "Rebar Diameter",
         "es": "Rebar Diameter",
         "ar": "Rebar Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal diameter of the reinforcing bar.",
+        "tr": "Donatı çubuğunun nominal çapı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total number of longitudinal bars placed within the element width (must be ≥2).",
       "label_i18n": {
         "en": "Number of Bars",
-        "tr": "Number of Bars",
+        "tr": "Çubuk Sayısı",
         "de": "Number of Bars",
         "fr": "Number of Bars",
         "es": "Number of Bars",
         "ar": "Number of Bars"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of longitudinal bars placed within the element width (must be ≥2).",
+        "tr": "Eleman genişliği içine yerleştirilen toplam boyuna donatı sayısı (≥2 olmalıdır)."
       }
     }
   ],

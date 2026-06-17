@@ -10,11 +10,15 @@
       "businessContext": "Total length of the deck area in meters.",
       "label_i18n": {
         "en": "Deck Length",
-        "tr": "Deck Length",
+        "tr": "Deck Uzunluğu",
         "de": "Deck Length",
         "fr": "Deck Length",
         "es": "Deck Length",
         "ar": "Deck Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the deck area in meters.",
+        "tr": "Güverte alanının metre cinsinden toplam uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total width of the deck area in meters.",
       "label_i18n": {
         "en": "Deck Width",
-        "tr": "Deck Width",
+        "tr": "Güverte Genişliği",
         "de": "Deck Width",
         "fr": "Deck Width",
         "es": "Deck Width",
         "ar": "Deck Width"
+      },
+      "businessContext_i18n": {
+        "en": "Total width of the deck area in meters.",
+        "tr": "Güverte alanının metre cinsinden toplam genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of one deck board, typically available in standard sizes.",
       "label_i18n": {
         "en": "Board Length",
-        "tr": "Board Length",
+        "tr": "Tahta Uzunluğu",
         "de": "Board Length",
         "fr": "Board Length",
         "es": "Board Length",
         "ar": "Board Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of one deck board, typically available in standard sizes.",
+        "tr": "Bir güverte tahtasının uzunluğu, genellikle standart boyutlarda mevcuttur."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Width of one deck board (e.g., 140 mm = 0.14 m).",
       "label_i18n": {
         "en": "Board Width",
-        "tr": "Board Width",
+        "tr": "Tahta Genişliği",
         "de": "Board Width",
         "fr": "Board Width",
         "es": "Board Width",
         "ar": "Board Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of one deck board (e.g., 140 mm = 0.14 m).",
+        "tr": "Bir güverte tahtasının genişliği (ör. 140 mm = 0,14 m)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Unit price of one deck board in currency.",
       "label_i18n": {
         "en": "Board Price",
-        "tr": "Board Price",
+        "tr": "Tahta Fiyatı",
         "de": "Board Price",
         "fr": "Board Price",
         "es": "Board Price",
         "ar": "Board Price"
+      },
+      "businessContext_i18n": {
+        "en": "Unit price of one deck board in currency.",
+        "tr": "Bir güverte tahtasının para birimi cinsinden birim fiyatı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional material percentage to account for cuts and waste (e.g., 10% = 0.1).",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional material percentage to account for cuts and waste (e.g., 10% = 0.1).",
+        "tr": "Kesim ve fireyi hesaba katmak için ek malzeme yüzdesi (ör. %10 = 0,1)."
       }
     }
   ],

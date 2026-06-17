@@ -10,11 +10,15 @@
       "businessContext": "0 = Metric (kg, cm), 1 = Imperial (stones, pounds, feet, inches)",
       "label_i18n": {
         "en": "Measurement System",
-        "tr": "Measurement System",
+        "tr": "Ölçüm Sistemi",
         "de": "Measurement System",
         "fr": "Measurement System",
         "es": "Measurement System",
         "ar": "Measurement System"
+      },
+      "businessContext_i18n": {
+        "en": "0 = Metric (kg, cm), 1 = Imperial (stones, pounds, feet, inches)",
+        "tr": "0 = Metrik (kg, cm), 1 = İmparatorluk (stone, pound, fit, inç)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Body weight in kilograms, used when Metric system selected",
       "label_i18n": {
         "en": "Weight (kg)",
-        "tr": "Weight (kg)",
+        "tr": "Ağırlık (kg)",
         "de": "Weight (kg)",
         "fr": "Weight (kg)",
         "es": "Weight (kg)",
         "ar": "Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms, used when Metric system selected",
+        "tr": "Vücut ağırlığı (kg), Metrik sistem seçildiğinde kullanılır"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body height in centimeters, used when Metric system selected",
       "label_i18n": {
         "en": "Height (cm)",
-        "tr": "Height (cm)",
+        "tr": "Boy (cm)",
         "de": "Height (cm)",
         "fr": "Height (cm)",
         "es": "Height (cm)",
         "ar": "Height (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Body height in centimeters, used when Metric system selected",
+        "tr": "Vücut boyu (cm), Metrik sistem seçildiğinde kullanılır"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Whole number of stones, used when Imperial system selected",
       "label_i18n": {
         "en": "Weight - Stones",
-        "tr": "Weight - Stones",
+        "tr": "Ağırlık - Stone",
         "de": "Weight - Stones",
         "fr": "Weight - Stones",
         "es": "Weight - Stones",
         "ar": "Weight - Stones"
+      },
+      "businessContext_i18n": {
+        "en": "Whole number of stones, used when Imperial system selected",
+        "tr": "Tam stone sayısı, İmparatorluk sistemi seçildiğinde kullanılır"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional pounds beyond stones, used when Imperial system selected",
       "label_i18n": {
         "en": "Weight - Pounds",
-        "tr": "Weight - Pounds",
+        "tr": "Ağırlık - Pound",
         "de": "Weight - Pounds",
         "fr": "Weight - Pounds",
         "es": "Weight - Pounds",
         "ar": "Weight - Pounds"
+      },
+      "businessContext_i18n": {
+        "en": "Additional pounds beyond stones, used when Imperial system selected",
+        "tr": "Stone'ların ötesindeki ek pound, İmparatorluk sistemi seçildiğinde kullanılır"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Whole number of feet, used when Imperial system selected",
       "label_i18n": {
         "en": "Height - Feet",
-        "tr": "Height - Feet",
+        "tr": "Boy - Fit",
         "de": "Height - Feet",
         "fr": "Height - Feet",
         "es": "Height - Feet",
         "ar": "Height - Feet"
+      },
+      "businessContext_i18n": {
+        "en": "Whole number of feet, used when Imperial system selected",
+        "tr": "Tam fit sayısı, İmparatorluk sistemi seçildiğinde kullanılır"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Additional inches beyond feet, used when Imperial system selected",
       "label_i18n": {
         "en": "Height - Inches",
-        "tr": "Height - Inches",
+        "tr": "Boy - İnç",
         "de": "Height - Inches",
         "fr": "Height - Inches",
         "es": "Height - Inches",
         "ar": "Height - Inches"
+      },
+      "businessContext_i18n": {
+        "en": "Additional inches beyond feet, used when Imperial system selected",
+        "tr": "Fit'in ötesindeki ek inç, İmparatorluk sistemi seçildiğinde kullanılır"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Current weight of the infant",
       "label_i18n": {
         "en": "Baby Weight",
-        "tr": "Baby Weight",
+        "tr": "Bebek Ağırlığı",
         "de": "Baby Weight",
         "fr": "Baby Weight",
         "es": "Baby Weight",
         "ar": "Baby Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Current weight of the infant",
+        "tr": "Bebeğin mevcut ağırlığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Recommended daily milk intake per kg of body weight",
       "label_i18n": {
         "en": "Daily Milk per kg",
-        "tr": "Daily Milk per kg",
+        "tr": "kg Başına Günlük Süt",
         "de": "Daily Milk per kg",
         "fr": "Daily Milk per kg",
         "es": "Daily Milk per kg",
         "ar": "Daily Milk per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Recommended daily milk intake per kg of body weight",
+        "tr": "Vücut ağırlığının kg'ı başına önerilen günlük süt alımı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average number of feeding sessions per day",
       "label_i18n": {
         "en": "Feedings per Day",
-        "tr": "Feedings per Day",
+        "tr": "Günde Besleme Sayısı",
         "de": "Feedings per Day",
         "fr": "Feedings per Day",
         "es": "Feedings per Day",
         "ar": "Feedings per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of feeding sessions per day",
+        "tr": "Günlük ortalama besleme seansı sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Amount of breast milk per feeding session",
       "label_i18n": {
         "en": "Milk per Session",
-        "tr": "Milk per Session",
+        "tr": "Seans başına süt miktarı",
         "de": "Milk per Session",
         "fr": "Milk per Session",
         "es": "Milk per Session",
         "ar": "Milk per Session"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of breast milk per feeding session",
+        "tr": "Her besleme seansında verilen anne sütü miktarı"
       }
     }
   ],

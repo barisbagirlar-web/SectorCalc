@@ -10,11 +10,15 @@
       "businessContext": "Weight of the base material in kg",
       "label_i18n": {
         "en": "Base Material Weight",
-        "tr": "Base Material Weight",
+        "tr": "Temel Malzeme Ağırlığı",
         "de": "Base Material Weight",
         "fr": "Base Material Weight",
         "es": "Base Material Weight",
         "ar": "Base Material Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the base material in kg",
+        "tr": "Temel malzemenin kg cinsinden ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Initial concentration of the target substance in the base material (%)",
       "label_i18n": {
         "en": "Base Concentration",
-        "tr": "Base Concentration",
+        "tr": "Temel Konsantrasyonu",
         "de": "Base Concentration",
         "fr": "Base Concentration",
         "es": "Base Concentration",
         "ar": "Base Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Initial concentration of the target substance in the base material (%)",
+        "tr": "Temel malzemedeki hedef maddenin başlangıç konsantrasyonu (%)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Target final concentration of the mixture (%)",
       "label_i18n": {
         "en": "Desired Concentration",
-        "tr": "Desired Concentration",
+        "tr": "İstenen konsantrasyon",
         "de": "Desired Concentration",
         "fr": "Desired Concentration",
         "es": "Desired Concentration",
         "ar": "Desired Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Target final concentration of the mixture (%)",
+        "tr": "Karışımın hedef nihai konsantrasyonu (%)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Concentration of the target substance in the supplement (%)",
       "label_i18n": {
         "en": "Supplement Concentration",
-        "tr": "Supplement Concentration",
+        "tr": "Takviye Konsantrasyonu",
         "de": "Supplement Concentration",
         "fr": "Supplement Concentration",
         "es": "Supplement Concentration",
         "ar": "Supplement Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Concentration of the target substance in the supplement (%)",
+        "tr": "Takviyedeki hedef maddenin konsantrasyonu (%)."
       }
     }
   ],

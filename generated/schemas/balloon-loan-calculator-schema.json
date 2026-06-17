@@ -10,11 +10,15 @@
       "businessContext": "Total borrowed amount",
       "label_i18n": {
         "en": "Loan Amount",
-        "tr": "Loan Amount",
+        "tr": "Kredi Tutarı",
         "de": "Loan Amount",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total borrowed amount",
+        "tr": "Toplam borç miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal annual interest rate",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal annual interest rate",
+        "tr": "Nominal yıllık faiz oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration until balloon payment",
       "label_i18n": {
         "en": "Loan Term (Years)",
-        "tr": "Loan Term (Years)",
+        "tr": "Kredi Vadesi (Yıl)",
         "de": "Loan Term (Years)",
         "fr": "Loan Term (Years)",
         "es": "Loan Term (Years)",
         "ar": "Loan Term (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration until balloon payment",
+        "tr": "Balon ödemeye kadar geçen süre"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Balloon payment amount as % of loan",
       "label_i18n": {
         "en": "Balloon Payment (%)",
-        "tr": "Balloon Payment (%)",
+        "tr": "Balon Ödeme (%)",
         "de": "Balloon Payment (%)",
         "fr": "Balloon Payment (%)",
         "es": "Balloon Payment (%)",
         "ar": "Balloon Payment (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Balloon payment amount as % of loan",
+        "tr": "Kredinin yüzdesi olarak balon ödeme tutarı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Compounding frequency",
       "label_i18n": {
         "en": "Payments per Year",
-        "tr": "Payments per Year",
+        "tr": "Yıllık Ödeme Sayısı",
         "de": "Payments per Year",
         "fr": "Payments per Year",
         "es": "Payments per Year",
         "ar": "Payments per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Compounding frequency",
+        "tr": "Bileşik faiz sıklığı"
       }
     }
   ],

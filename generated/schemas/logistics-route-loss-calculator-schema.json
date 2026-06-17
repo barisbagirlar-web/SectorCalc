@@ -21,10 +21,12 @@
       "max": 5000,
       "businessContext": "Total distance of the route from origin to destination.",
       "label_i18n": {
-        "en": "Route Distance (km)"
+        "en": "Route Distance (km)",
+        "tr": "Rota Mesafesi (km)"
       },
       "businessContext_i18n": {
-        "en": "Total distance of the route from origin to destination."
+        "en": "Total distance of the route from origin to destination.",
+        "tr": "Rota mesafesi, başlangıç noktasından varış noktasına toplam mesafe."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 120,
       "businessContext": "Expected average speed under normal conditions.",
       "label_i18n": {
-        "en": "Average Speed (km/h)"
+        "en": "Average Speed (km/h)",
+        "tr": "Ortalama Hız (km/s)"
       },
       "businessContext_i18n": {
-        "en": "Expected average speed under normal conditions."
+        "en": "Expected average speed under normal conditions.",
+        "tr": "Normal koşullar altında beklenen ortalama hız."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 50,
       "businessContext": "Number of planned stops along the route (e.g., for pickup/delivery).",
       "label_i18n": {
-        "en": "Planned Stops"
+        "en": "Planned Stops",
+        "tr": "Planlı Duraklar"
       },
       "businessContext_i18n": {
-        "en": "Number of planned stops along the route (e.g., for pickup/delivery)."
+        "en": "Number of planned stops along the route (e.g., for pickup/delivery).",
+        "tr": "Rota boyunca planlı durak sayısı (örneğin, yükleme/boşaltma için)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 240,
       "businessContext": "Average time spent per stop, including waiting and handling.",
       "label_i18n": {
-        "en": "Average Stop Time (min)"
+        "en": "Average Stop Time (min)",
+        "tr": "Ortalama Durak Süresi (dk)"
       },
       "businessContext_i18n": {
-        "en": "Average time spent per stop, including waiting and handling."
+        "en": "Average time spent per stop, including waiting and handling.",
+        "tr": "Bekleme ve elleçleme dahil, durak başına ortalama süre."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 1,
       "businessContext": "Fraction of driving time lost due to traffic congestion (0 = none, 1 = 100% delay).",
       "label_i18n": {
-        "en": "Traffic Delay Factor"
+        "en": "Traffic Delay Factor",
+        "tr": "Trafik Gecikme Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Fraction of driving time lost due to traffic congestion (0 = none, 1 = 100% delay)."
+        "en": "Fraction of driving time lost due to traffic congestion (0 = none, 1 = 100% delay).",
+        "tr": "Trafik sıkışıklığı nedeniyle kaybedilen sürüş süresinin oranı (0 = yok, 1 = %100 gecikme)."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 10,
       "businessContext": "Average fuel cost per kilometer for the vehicle type.",
       "label_i18n": {
-        "en": "Fuel Cost per km"
+        "en": "Fuel Cost per km",
+        "tr": "km Başına Yakıt Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Average fuel cost per kilometer for the vehicle type."
+        "en": "Average fuel cost per kilometer for the vehicle type.",
+        "tr": "Araç tipi için km başına ortalama yakıt maliyeti."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 200,
       "businessContext": "Hourly wage of the driver (including benefits).",
       "label_i18n": {
-        "en": "Driver Wage per Hour"
+        "en": "Driver Wage per Hour",
+        "tr": "Sürücü Saatlik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Hourly wage of the driver (including benefits)."
+        "en": "Hourly wage of the driver (including benefits).",
+        "tr": "Sürücünün saatlik ücreti (yan haklar dahil)."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 5,
       "businessContext": "Non-fuel operating costs per km (maintenance, tires, depreciation).",
       "label_i18n": {
-        "en": "Vehicle Operating Cost per km"
+        "en": "Vehicle Operating Cost per km",
+        "tr": "km Başına Araç İşletme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Non-fuel operating costs per km (maintenance, tires, depreciation)."
+        "en": "Non-fuel operating costs per km (maintenance, tires, depreciation).",
+        "tr": "km başına yakıt dışı işletme maliyetleri (bakım, lastik, amortisman)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The total annuity jackpot amount advertised.",
       "label_i18n": {
         "en": "Advertised Jackpot",
-        "tr": "Advertised Jackpot",
+        "tr": "Reklamı Yapılan İkramiye",
         "de": "Advertised Jackpot",
         "fr": "Advertised Jackpot",
         "es": "Advertised Jackpot",
         "ar": "Advertised Jackpot"
+      },
+      "businessContext_i18n": {
+        "en": "The total annuity jackpot amount advertised.",
+        "tr": "Reklamı yapılan toplam yıllık gelir ikramiye tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of jackpot paid as lump sum (typically 60%).",
       "label_i18n": {
         "en": "Cash Option Percentage",
-        "tr": "Cash Option Percentage",
+        "tr": "Nakit Seçeneği Yüzdesi",
         "de": "Cash Option Percentage",
         "fr": "Cash Option Percentage",
         "es": "Cash Option Percentage",
         "ar": "Cash Option Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of jackpot paid as lump sum (typically 60%).",
+        "tr": "İkramiyenin toplu ödeme olarak ödenen yüzdesi (tipik olarak %60)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Federal tax withholding rate for lottery winnings.",
       "label_i18n": {
         "en": "Federal Tax Rate",
-        "tr": "Federal Tax Rate",
+        "tr": "Federal Vergi Oranı",
         "de": "Federal Tax Rate",
         "fr": "Federal Tax Rate",
         "es": "Federal Tax Rate",
         "ar": "Federal Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Federal tax withholding rate for lottery winnings.",
+        "tr": "Piyango kazançları için federal vergi stopaj oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "State tax withholding rate, varies by state.",
       "label_i18n": {
         "en": "State Tax Rate",
-        "tr": "State Tax Rate",
+        "tr": "Eyalet Vergi Oranı",
         "de": "State Tax Rate",
         "fr": "State Tax Rate",
         "es": "State Tax Rate",
         "ar": "State Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "State tax withholding rate, varies by state.",
+        "tr": "Eyalete göre değişen eyalet vergi stopaj oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of years over which annuity is paid out.",
       "label_i18n": {
         "en": "Annuity Period",
-        "tr": "Annuity Period",
+        "tr": "Yıllık Gelir Süresi",
         "de": "Annuity Period",
         "fr": "Annuity Period",
         "es": "Annuity Period",
         "ar": "Annuity Period"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years over which annuity is paid out.",
+        "tr": "Yıllık gelirin ödendiği yıl sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual increase in annuity payments (Mega Millions uses 5%).",
       "label_i18n": {
         "en": "Annuity Growth Rate",
-        "tr": "Annuity Growth Rate",
+        "tr": "Yıllık Gelir Büyüme Oranı",
         "de": "Annuity Growth Rate",
         "fr": "Annuity Growth Rate",
         "es": "Annuity Growth Rate",
         "ar": "Annuity Growth Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual increase in annuity payments (Mega Millions uses 5%).",
+        "tr": "Yıllık gelir ödemelerindeki yıllık artış (Mega Millions %5 kullanır)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Standard normal deviate (used if rawScoreProvided is 0)",
       "label_i18n": {
         "en": "Z-score",
-        "tr": "Z-score",
+        "tr": "Z-skoru",
         "de": "Z-score",
         "fr": "Z-score",
         "es": "Z-score",
         "ar": "Z-score"
+      },
+      "businessContext_i18n": {
+        "en": "Standard normal deviate (used if rawScoreProvided is 0)",
+        "tr": "Standart normal sapma (rawScoreProvided 0 ise kullanılır)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Population mean for raw score conversion",
       "label_i18n": {
         "en": "Mean",
-        "tr": "Mean",
+        "tr": "Ortalama",
         "de": "Mean",
         "fr": "Mean",
         "es": "Mean",
         "ar": "Mean"
+      },
+      "businessContext_i18n": {
+        "en": "Population mean for raw score conversion",
+        "tr": "Ham puan dönüşümü için popülasyon ortalaması"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Population standard deviation (must be > 0)",
       "label_i18n": {
         "en": "Standard Deviation",
-        "tr": "Standard Deviation",
+        "tr": "Standart Sapma",
         "de": "Standard Deviation",
         "fr": "Standard Deviation",
         "es": "Standard Deviation",
         "ar": "Standard Deviation"
+      },
+      "businessContext_i18n": {
+        "en": "Population standard deviation (must be > 0)",
+        "tr": "Popülasyon standart sapması (> 0 olmalıdır)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Raw value to convert to Z-score",
       "label_i18n": {
         "en": "Raw Score",
-        "tr": "Raw Score",
+        "tr": "Ham Puan",
         "de": "Raw Score",
         "fr": "Raw Score",
         "es": "Raw Score",
         "ar": "Raw Score"
+      },
+      "businessContext_i18n": {
+        "en": "Raw value to convert to Z-score",
+        "tr": "Z-puanına dönüştürülecek ham değer"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Set to 1 to compute Z-score from raw score, mean, stdDev; 0 to use given Z-score",
       "label_i18n": {
         "en": "Use Raw Score?",
-        "tr": "Use Raw Score?",
+        "tr": "Ham Puan Kullanılsın mı?",
         "de": "Use Raw Score?",
         "fr": "Use Raw Score?",
         "es": "Use Raw Score?",
         "ar": "Use Raw Score?"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to compute Z-score from raw score, mean, stdDev; 0 to use given Z-score",
+        "tr": "Z-puanını ham puan, ortalama ve standart sapmadan hesaplamak için 1; verilen Z-puanını kullanmak için 0 olarak ayarlayın."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "0 = lower tail (cumulative), 1 = upper tail (1 - cumulative)",
       "label_i18n": {
         "en": "Tail",
-        "tr": "Tail",
+        "tr": "Kuyruk",
         "de": "Tail",
         "fr": "Tail",
         "es": "Tail",
         "ar": "Tail"
+      },
+      "businessContext_i18n": {
+        "en": "0 = lower tail (cumulative), 1 = upper tail (1 - cumulative)",
+        "tr": "0 = alt kuyruk (kümülatif), 1 = üst kuyruk (1 - kümülatif)"
       }
     }
   ],

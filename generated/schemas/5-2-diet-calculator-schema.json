@@ -10,11 +10,15 @@
       "businessContext": "Daily calorie intake on normal eating days (5 days per week)",
       "label_i18n": {
         "en": "Normal Day Calories",
-        "tr": "Normal Day Calories",
+        "tr": "Normal Gün Kalorisi",
         "de": "Normal Day Calories",
         "fr": "Normal Day Calories",
         "es": "Normal Day Calories",
         "ar": "Normal Day Calories"
+      },
+      "businessContext_i18n": {
+        "en": "Daily calorie intake on normal eating days (5 days per week)",
+        "tr": "Normal yeme günlerinde (haftada 5 gün) günlük kalori alımı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Daily calorie intake on fasting days (2 days per week)",
       "label_i18n": {
         "en": "Fast Day Calories",
-        "tr": "Fast Day Calories",
+        "tr": "Oruç Günü Kalorisi",
         "de": "Fast Day Calories",
         "fr": "Fast Day Calories",
         "es": "Fast Day Calories",
         "ar": "Fast Day Calories"
+      },
+      "businessContext_i18n": {
+        "en": "Daily calorie intake on fasting days (2 days per week)",
+        "tr": "Oruç günlerinde (haftada 2 gün) günlük kalori alımı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of the diet plan",
       "label_i18n": {
         "en": "Number of Weeks",
-        "tr": "Number of Weeks",
+        "tr": "Hafta Sayısı",
         "de": "Number of Weeks",
         "fr": "Number of Weeks",
         "es": "Number of Weeks",
         "ar": "Number of Weeks"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the diet plan",
+        "tr": "Diyet planının süresi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Daily calorie intake to maintain current weight (based on TDEE)",
       "label_i18n": {
         "en": "Maintenance Calories",
-        "tr": "Maintenance Calories",
+        "tr": "Bakım Kalorisi",
         "de": "Maintenance Calories",
         "fr": "Maintenance Calories",
         "es": "Maintenance Calories",
         "ar": "Maintenance Calories"
+      },
+      "businessContext_i18n": {
+        "en": "Daily calorie intake to maintain current weight (based on TDEE)",
+        "tr": "Mevcut kiloyu korumak için günlük kalori alımı (TDEE'ye göre)"
       }
     }
   ],

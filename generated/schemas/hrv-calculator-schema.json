@@ -10,11 +10,15 @@
       "businessContext": "Typical winter outdoor temperature",
       "label_i18n": {
         "en": "Outdoor Air Temperature",
-        "tr": "Outdoor Air Temperature",
+        "tr": "Dış Hava Sıcaklığı",
         "de": "Outdoor Air Temperature",
         "fr": "Outdoor Air Temperature",
         "es": "Outdoor Air Temperature",
         "ar": "Outdoor Air Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Typical winter outdoor temperature",
+        "tr": "Tipik kış dış hava sıcaklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target indoor temperature",
       "label_i18n": {
         "en": "Indoor Air Temperature",
-        "tr": "Indoor Air Temperature",
+        "tr": "İç Hava Sıcaklığı",
         "de": "Indoor Air Temperature",
         "fr": "Indoor Air Temperature",
         "es": "Indoor Air Temperature",
         "ar": "Indoor Air Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Target indoor temperature",
+        "tr": "Hedef iç ortam sıcaklığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Temperature of fresh air supplied to indoor after heat exchange",
       "label_i18n": {
         "en": "Supply Air Temperature after HRV",
-        "tr": "Supply Air Temperature after HRV",
+        "tr": "HRV Sonrası Besleme Havası Sıcaklığı",
         "de": "Supply Air Temperature after HRV",
         "fr": "Supply Air Temperature after HRV",
         "es": "Supply Air Temperature after HRV",
         "ar": "Supply Air Temperature after HRV"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of fresh air supplied to indoor after heat exchange",
+        "tr": "Isı değişiminden sonra iç ortama verilen taze havanın sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Temperature of stale air exhausted after heat exchange",
       "label_i18n": {
         "en": "Exhaust Air Temperature after HRV",
-        "tr": "Exhaust Air Temperature after HRV",
+        "tr": "HRV Sonrası Egzoz Havası Sıcaklığı",
         "de": "Exhaust Air Temperature after HRV",
         "fr": "Exhaust Air Temperature after HRV",
         "es": "Exhaust Air Temperature after HRV",
         "ar": "Exhaust Air Temperature after HRV"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of stale air exhausted after heat exchange",
+        "tr": "Isı değişiminden sonra dışarı atılan kirli havanın sıcaklığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Ventilation air flow rate",
       "label_i18n": {
         "en": "Air Flow Rate",
-        "tr": "Air Flow Rate",
+        "tr": "Hava Akış Hızı",
         "de": "Air Flow Rate",
         "fr": "Air Flow Rate",
         "es": "Air Flow Rate",
         "ar": "Air Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Ventilation air flow rate",
+        "tr": "Havalandırma havası debisi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Density of air (standard 1.2 kg/m³)",
       "label_i18n": {
         "en": "Air Density",
-        "tr": "Air Density",
+        "tr": "Hava Yoğunluğu",
         "de": "Air Density",
         "fr": "Air Density",
         "es": "Air Density",
         "ar": "Air Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of air (standard 1.2 kg/m³)",
+        "tr": "Hava yoğunluğu (standart 1,2 kg/m³)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Specific heat of air at constant pressure",
       "label_i18n": {
         "en": "Specific Heat Capacity of Air",
-        "tr": "Specific Heat Capacity of Air",
+        "tr": "Havanın Özgül Isı Kapasitesi",
         "de": "Specific Heat Capacity of Air",
         "fr": "Specific Heat Capacity of Air",
         "es": "Specific Heat Capacity of Air",
         "ar": "Specific Heat Capacity of Air"
+      },
+      "businessContext_i18n": {
+        "en": "Specific heat of air at constant pressure",
+        "tr": "Sabit basınçta havanın özgül ısısı"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Hours per year the HRV operates",
       "label_i18n": {
         "en": "Annual Operating Hours",
-        "tr": "Annual Operating Hours",
+        "tr": "Yıllık Çalışma Saati",
         "de": "Annual Operating Hours",
         "fr": "Annual Operating Hours",
         "es": "Annual Operating Hours",
         "ar": "Annual Operating Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Hours per year the HRV operates",
+        "tr": "HRV'nin yıllık çalışma saati"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Current length of hair from scalp to tip.",
       "label_i18n": {
         "en": "Current Length",
-        "tr": "Current Length",
+        "tr": "Mevcut Uzunluk",
         "de": "Current Length",
         "fr": "Current Length",
         "es": "Current Length",
         "ar": "Current Length"
+      },
+      "businessContext_i18n": {
+        "en": "Current length of hair from scalp to tip.",
+        "tr": "Saçın saç derisinden uca mevcut uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Desired final hair length.",
       "label_i18n": {
         "en": "Target Length",
-        "tr": "Target Length",
+        "tr": "Hedef Uzunluk",
         "de": "Target Length",
         "fr": "Target Length",
         "es": "Target Length",
         "ar": "Target Length"
+      },
+      "businessContext_i18n": {
+        "en": "Desired final hair length.",
+        "tr": "İstenen nihai saç uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average hair growth per month. Typical range 1-1.5 cm.",
       "label_i18n": {
         "en": "Monthly Growth Rate",
-        "tr": "Monthly Growth Rate",
+        "tr": "Aylık Uzama Hızı",
         "de": "Monthly Growth Rate",
         "fr": "Monthly Growth Rate",
         "es": "Monthly Growth Rate",
         "ar": "Monthly Growth Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average hair growth per month. Typical range 1-1.5 cm.",
+        "tr": "Aylık ortalama saç uzaması. Tipik aralık 1-1,5 cm."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for individual health/diet effects (1 = average).",
       "label_i18n": {
         "en": "Health & Nutrition Factor",
-        "tr": "Health & Nutrition Factor",
+        "tr": "Sağlık ve Beslenme Faktörü",
         "de": "Health & Nutrition Factor",
         "fr": "Health & Nutrition Factor",
         "es": "Health & Nutrition Factor",
         "ar": "Health & Nutrition Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for individual health/diet effects (1 = average).",
+        "tr": "Bireysel sağlık/diyet etkileri için çarpan (1 = ortalama)."
       }
     }
   ],

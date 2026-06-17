@@ -10,11 +10,15 @@
       "businessContext": "Wet basis moisture content of the material before drying",
       "label_i18n": {
         "en": "Initial Moisture Content",
-        "tr": "Initial Moisture Content",
+        "tr": "Başlangıç Nem İçeriği",
         "de": "Initial Moisture Content",
         "fr": "Initial Moisture Content",
         "es": "Initial Moisture Content",
         "ar": "Initial Moisture Content"
+      },
+      "businessContext_i18n": {
+        "en": "Wet basis moisture content of the material before drying",
+        "tr": "Kurutma öncesi malzemenin yaş bazda nem içeriği"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target moisture content after drying (wet basis)",
       "label_i18n": {
         "en": "Final Moisture Content",
-        "tr": "Final Moisture Content",
+        "tr": "Son Nem İçeriği",
         "de": "Final Moisture Content",
         "fr": "Final Moisture Content",
         "es": "Final Moisture Content",
         "ar": "Final Moisture Content"
+      },
+      "businessContext_i18n": {
+        "en": "Target moisture content after drying (wet basis)",
+        "tr": "Kurutma sonrası hedef nem içeriği (yaş baz)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total mass of wet material to be dried",
       "label_i18n": {
         "en": "Wet Material Mass",
-        "tr": "Wet Material Mass",
+        "tr": "Islak Malzeme Kütlesi",
         "de": "Wet Material Mass",
         "fr": "Wet Material Mass",
         "es": "Wet Material Mass",
         "ar": "Wet Material Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of wet material to be dried",
+        "tr": "Kurutulacak ıslak malzemenin toplam kütlesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Moisture removal capacity of the dryer",
       "label_i18n": {
         "en": "Drying Rate",
-        "tr": "Drying Rate",
+        "tr": "Kurutma Hızı",
         "de": "Drying Rate",
         "fr": "Drying Rate",
         "es": "Drying Rate",
         "ar": "Drying Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Moisture removal capacity of the dryer",
+        "tr": "Kurutucunun nem giderme kapasitesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Energy required to evaporate 1 kg of water",
       "label_i18n": {
         "en": "Specific Energy Consumption",
-        "tr": "Specific Energy Consumption",
+        "tr": "Özgül Enerji Tüketimi",
         "de": "Specific Energy Consumption",
         "fr": "Specific Energy Consumption",
         "es": "Specific Energy Consumption",
         "ar": "Specific Energy Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Energy required to evaporate 1 kg of water",
+        "tr": "1 kg suyu buharlaştırmak için gereken enerji"
       }
     }
   ],

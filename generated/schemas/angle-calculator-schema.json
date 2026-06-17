@@ -10,11 +10,15 @@
       "businessContext": "Angle value for trigonometric function",
       "label_i18n": {
         "en": "Angle",
-        "tr": "Angle",
+        "tr": "Açı",
         "de": "Angle",
         "fr": "Angle",
         "es": "Angle",
         "ar": "Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle value for trigonometric function",
+        "tr": "Trigonometrik fonksiyon için açı değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "0: Degrees, 1: Radians",
       "label_i18n": {
         "en": "Angle Mode",
-        "tr": "Angle Mode",
+        "tr": "Açı Modu",
         "de": "Angle Mode",
         "fr": "Angle Mode",
         "es": "Angle Mode",
         "ar": "Angle Mode"
+      },
+      "businessContext_i18n": {
+        "en": "0: Degrees, 1: Radians",
+        "tr": "0: Derece, 1: Radyan"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan",
       "label_i18n": {
         "en": "Function",
-        "tr": "Function",
+        "tr": "Fonksiyon",
         "de": "Function",
         "fr": "Function",
         "es": "Function",
         "ar": "Function"
+      },
+      "businessContext_i18n": {
+        "en": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan",
+        "tr": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places for rounding (0 or positive integer)",
       "label_i18n": {
         "en": "Precision",
-        "tr": "Precision",
+        "tr": "Hassasiyet",
         "de": "Precision",
         "fr": "Precision",
         "es": "Precision",
         "ar": "Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for rounding (0 or positive integer)",
+        "tr": "Yuvarlama için ondalık basamak sayısı (0 veya pozitif tam sayı)"
       }
     }
   ],

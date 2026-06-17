@@ -10,11 +10,15 @@
       "businessContext": "Time when the fasting period starts (24-hour format).",
       "label_i18n": {
         "en": "Fasting Start Hour",
-        "tr": "Fasting Start Hour",
+        "tr": "Oruç Başlangıç Saati",
         "de": "Fasting Start Hour",
         "fr": "Fasting Start Hour",
         "es": "Fasting Start Hour",
         "ar": "Fasting Start Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Time when the fasting period starts (24-hour format).",
+        "tr": "Oruç döneminin başladığı saat (24 saat formatında)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of consecutive hours to fast.",
       "label_i18n": {
         "en": "Fasting Duration",
-        "tr": "Fasting Duration",
+        "tr": "Oruç Süresi",
         "de": "Fasting Duration",
         "fr": "Fasting Duration",
         "es": "Fasting Duration",
         "ar": "Fasting Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Number of consecutive hours to fast.",
+        "tr": "Ardışık olarak oruç tutulacak saat sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of hours allowed for eating.",
       "label_i18n": {
         "en": "Eating Window Duration",
-        "tr": "Eating Window Duration",
+        "tr": "Yeme Penceresi Süresi",
         "de": "Eating Window Duration",
         "fr": "Eating Window Duration",
         "es": "Eating Window Duration",
         "ar": "Eating Window Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Number of hours allowed for eating.",
+        "tr": "Yemek yemeye izin verilen saat sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total calories to consume during the eating window.",
       "label_i18n": {
         "en": "Target Daily Calories",
-        "tr": "Target Daily Calories",
+        "tr": "Hedef Günlük Kalori",
         "de": "Target Daily Calories",
         "fr": "Target Daily Calories",
         "es": "Target Daily Calories",
         "ar": "Target Daily Calories"
+      },
+      "businessContext_i18n": {
+        "en": "Total calories to consume during the eating window.",
+        "tr": "Yeme penceresi boyunca tüketilmesi gereken toplam kalori."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Current body weight for additional context.",
       "label_i18n": {
         "en": "Current Weight",
-        "tr": "Current Weight",
+        "tr": "Mevcut Ağırlık",
         "de": "Current Weight",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Current body weight for additional context.",
+        "tr": "Ek bağlam için mevcut vücut ağırlığı."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Time for one complete cycle. Used in f = 1/T.",
       "label_i18n": {
         "en": "Period (T)",
-        "tr": "Period (T)",
+        "tr": "Periyot (T)",
         "de": "Period (T)",
         "fr": "Period (T)",
         "es": "Period (T)",
         "ar": "Period (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Time for one complete cycle. Used in f = 1/T.",
+        "tr": "Bir tam döngü için geçen süre. f = 1/T formülünde kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of cycles observed. Used with Total Time to compute frequency.",
       "label_i18n": {
         "en": "Number of Cycles",
-        "tr": "Number of Cycles",
+        "tr": "Döngü Sayısı",
         "de": "Number of Cycles",
         "fr": "Number of Cycles",
         "es": "Number of Cycles",
         "ar": "Number of Cycles"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cycles observed. Used with Total Time to compute frequency.",
+        "tr": "Gözlemlenen döngü sayısı. Frekansı hesaplamak için Toplam Süre ile birlikte kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total time over which cycles were counted. Used in f = cycles / time.",
       "label_i18n": {
         "en": "Total Time",
-        "tr": "Total Time",
+        "tr": "Toplam Süre",
         "de": "Total Time",
         "fr": "Total Time",
         "es": "Total Time",
         "ar": "Total Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total time over which cycles were counted. Used in f = cycles / time.",
+        "tr": "Döngülerin sayıldığı toplam süre. f = döngü/süre formülünde kullanılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Wave propagation speed. Used with Wavelength to compute frequency.",
       "label_i18n": {
         "en": "Velocity (v)",
-        "tr": "Velocity (v)",
+        "tr": "Hız (v)",
         "de": "Velocity (v)",
         "fr": "Velocity (v)",
         "es": "Velocity (v)",
         "ar": "Velocity (v)"
+      },
+      "businessContext_i18n": {
+        "en": "Wave propagation speed. Used with Wavelength to compute frequency.",
+        "tr": "Dalga yayılma hızı. Frekansı hesaplamak için Dalga Boyu ile birlikte kullanılır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Distance between successive peaks. Used with Velocity in f = v/λ.",
       "label_i18n": {
         "en": "Wavelength (λ)",
-        "tr": "Wavelength (λ)",
+        "tr": "Dalga Boyu (λ)",
         "de": "Wavelength (λ)",
         "fr": "Wavelength (λ)",
         "es": "Wavelength (λ)",
         "ar": "Wavelength (λ)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between successive peaks. Used with Velocity in f = v/λ.",
+        "tr": "Ardışık tepeler arasındaki mesafe. f = v/λ formülünde Hız ile birlikte kullanılır."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Angular frequency in radians per second. Converted to Hz via f = ω/(2π).",
       "label_i18n": {
         "en": "Angular Frequency (ω)",
-        "tr": "Angular Frequency (ω)",
+        "tr": "Açısal Frekans (ω)",
         "de": "Angular Frequency (ω)",
         "fr": "Angular Frequency (ω)",
         "es": "Angular Frequency (ω)",
         "ar": "Angular Frequency (ω)"
+      },
+      "businessContext_i18n": {
+        "en": "Angular frequency in radians per second. Converted to Hz via f = ω/(2π).",
+        "tr": "Radyan/saniye cinsinden açısal frekans. f = ω/(2π) ile Hz'e dönüştürülür."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Rotational speed in revolutions per minute. Converted to Hz via f = RPM/60.",
       "label_i18n": {
         "en": "Revolutions per Minute (RPM)",
-        "tr": "Revolutions per Minute (RPM)",
+        "tr": "Dakikadaki Devir Sayısı (RPM)",
         "de": "Revolutions per Minute (RPM)",
         "fr": "Revolutions per Minute (RPM)",
         "es": "Revolutions per Minute (RPM)",
         "ar": "Revolutions per Minute (RPM)"
+      },
+      "businessContext_i18n": {
+        "en": "Rotational speed in revolutions per minute. Converted to Hz via f = RPM/60.",
+        "tr": "Dakikadaki devir cinsinden dönüş hızı. f = RPM/60 ile Hz'e dönüştürülür."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "User's height in centimeters",
       "label_i18n": {
         "en": "Height (cm)",
-        "tr": "Height (cm)",
+        "tr": "Boy (cm)",
         "de": "Height (cm)",
         "fr": "Height (cm)",
         "es": "Height (cm)",
         "ar": "Height (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "User's height in centimeters",
+        "tr": "Kullanıcının santimetre cinsinden boyu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Biological sex: 0 for male, 1 for female",
       "label_i18n": {
         "en": "Sex (0=Male, 1=Female)",
-        "tr": "Sex (0=Male, 1=Female)",
+        "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
         "de": "Sex (0=Male, 1=Female)",
         "fr": "Sex (0=Male, 1=Female)",
         "es": "Sex (0=Male, 1=Female)",
         "ar": "Sex (0=Male, 1=Female)"
+      },
+      "businessContext_i18n": {
+        "en": "Biological sex: 0 for male, 1 for female",
+        "tr": "Biyolojik cinsiyet: 0 erkek, 1 kadın"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body frame size category",
       "label_i18n": {
         "en": "Frame Size (0=Small, 1=Medium, 2=Large)",
-        "tr": "Frame Size (0=Small, 1=Medium, 2=Large)",
+        "tr": "Çerçeve Boyutu (0=Küçük, 1=Orta, 2=Büyük)",
         "de": "Frame Size (0=Small, 1=Medium, 2=Large)",
         "fr": "Frame Size (0=Small, 1=Medium, 2=Large)",
         "es": "Frame Size (0=Small, 1=Medium, 2=Large)",
         "ar": "Frame Size (0=Small, 1=Medium, 2=Large)"
+      },
+      "businessContext_i18n": {
+        "en": "Body frame size category",
+        "tr": "Vücut çerçeve boyutu kategorisi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "User's current weight for comparison",
       "label_i18n": {
         "en": "Current Weight (kg)",
-        "tr": "Current Weight (kg)",
+        "tr": "Mevcut Ağırlık (kg)",
         "de": "Current Weight (kg)",
         "fr": "Current Weight (kg)",
         "es": "Current Weight (kg)",
         "ar": "Current Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "User's current weight for comparison",
+        "tr": "Karşılaştırma için kullanıcının mevcut ağırlığı"
       }
     }
   ],

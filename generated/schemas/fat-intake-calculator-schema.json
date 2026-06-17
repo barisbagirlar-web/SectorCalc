@@ -10,11 +10,15 @@
       "businessContext": "Typical total daily energy intake as basis for fat calculation",
       "label_i18n": {
         "en": "Daily Calorie Intake",
-        "tr": "Daily Calorie Intake",
+        "tr": "Günlük Kalori Alımı",
         "de": "Daily Calorie Intake",
         "fr": "Daily Calorie Intake",
         "es": "Daily Calorie Intake",
         "ar": "Daily Calorie Intake"
+      },
+      "businessContext_i18n": {
+        "en": "Typical total daily energy intake as basis for fat calculation",
+        "tr": "Yağ hesaplaması için temel alınan tipik toplam günlük enerji alımı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target percentage of daily calories from fat, typically 20–35%",
       "label_i18n": {
         "en": "Fat Percentage",
-        "tr": "Fat Percentage",
+        "tr": "Yağ Yüzdesi",
         "de": "Fat Percentage",
         "fr": "Fat Percentage",
         "es": "Fat Percentage",
         "ar": "Fat Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Target percentage of daily calories from fat, typically 20–35%",
+        "tr": "Günlük kalorilerin yağdan gelmesi hedeflenen yüzdesi, tipik olarak %20–35"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of daily meals for per-meal fat distribution",
       "label_i18n": {
         "en": "Meals per Day",
-        "tr": "Meals per Day",
+        "tr": "Günde Öğün Sayısı",
         "de": "Meals per Day",
         "fr": "Meals per Day",
         "es": "Meals per Day",
         "ar": "Meals per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of daily meals for per-meal fat distribution",
+        "tr": "Öğün başına yağ dağılımı için günlük öğün sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Individual body weight used to normalize fat intake per kilogram",
       "label_i18n": {
         "en": "Body Weight",
-        "tr": "Body Weight",
+        "tr": "Vücut Ağırlığı",
         "de": "Body Weight",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Individual body weight used to normalize fat intake per kilogram",
+        "tr": "Vücut ağırlığını kilogram başına yağ alımını normalleştirmek için kullanılan bireysel ağırlık"
       }
     }
   ],

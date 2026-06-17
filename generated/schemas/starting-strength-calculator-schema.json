@@ -10,11 +10,15 @@
       "businessContext": "The weight you can lift for the given number of reps with good form.",
       "label_i18n": {
         "en": "Weight Lifted",
-        "tr": "Weight Lifted",
+        "tr": "Kaldırılan Ağırlık",
         "de": "Weight Lifted",
         "fr": "Weight Lifted",
         "es": "Weight Lifted",
         "ar": "Weight Lifted"
+      },
+      "businessContext_i18n": {
+        "en": "The weight you can lift for the given number of reps with good form.",
+        "tr": "Verilen tekrar sayısı için iyi formda kaldırabileceğiniz ağırlık."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of consecutive repetitions performed with the given weight.",
       "label_i18n": {
         "en": "Reps Performed",
-        "tr": "Reps Performed",
+        "tr": "Yapılan Tekrar Sayısı",
         "de": "Reps Performed",
         "fr": "Reps Performed",
         "es": "Reps Performed",
         "ar": "Reps Performed"
+      },
+      "businessContext_i18n": {
+        "en": "Number of consecutive repetitions performed with the given weight.",
+        "tr": "Verilen ağırlıkla art arda yapılan tekrar sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of estimated 1RM to use as starting weight for the program.",
       "label_i18n": {
         "en": "Starting Percentage",
-        "tr": "Starting Percentage",
+        "tr": "Başlangıç Yüzdesi",
         "de": "Starting Percentage",
         "fr": "Starting Percentage",
         "es": "Starting Percentage",
         "ar": "Starting Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of estimated 1RM to use as starting weight for the program.",
+        "tr": "Program için başlangıç ağırlığı olarak kullanılacak tahmini 1TM'nin yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Your current bodyweight, used for reference and progression context.",
       "label_i18n": {
         "en": "Bodyweight",
-        "tr": "Bodyweight",
+        "tr": "Vücut Ağırlığı",
         "de": "Bodyweight",
         "fr": "Bodyweight",
         "es": "Bodyweight",
         "ar": "Bodyweight"
+      },
+      "businessContext_i18n": {
+        "en": "Your current bodyweight, used for reference and progression context.",
+        "tr": "Mevcut vücut ağırlığınız, referans ve ilerleme bağlamı için kullanılır."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The standard price per unit before any bulk discount is applied.",
       "label_i18n": {
         "en": "Base Price per Unit",
-        "tr": "Base Price per Unit",
+        "tr": "Birim Başına Taban Fiyat",
         "de": "Base Price per Unit",
         "fr": "Base Price per Unit",
         "es": "Base Price per Unit",
         "ar": "Base Price per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The standard price per unit before any bulk discount is applied.",
+        "tr": "Toplu indirim uygulanmadan önceki standart birim fiyatı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The total number of units being purchased in a single order.",
       "label_i18n": {
         "en": "Quantity Ordered",
-        "tr": "Quantity Ordered",
+        "tr": "Sipariş Edilen Miktar",
         "de": "Quantity Ordered",
         "fr": "Quantity Ordered",
         "es": "Quantity Ordered",
         "ar": "Quantity Ordered"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of units being purchased in a single order.",
+        "tr": "Tek bir siparişte satın alınan toplam birim sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The upper limit of the discount percentage achievable with very large orders.",
       "label_i18n": {
         "en": "Maximum Discount",
-        "tr": "Maximum Discount",
+        "tr": "Maksimum İndirim",
         "de": "Maximum Discount",
         "fr": "Maximum Discount",
         "es": "Maximum Discount",
         "ar": "Maximum Discount"
+      },
+      "businessContext_i18n": {
+        "en": "The upper limit of the discount percentage achievable with very large orders.",
+        "tr": "Çok büyük siparişlerde ulaşılabilen maksimum indirim yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The quantity at which the discount reaches approximately 63% of the maximum discount (i.e., the e-folding scale).",
       "label_i18n": {
         "en": "Discount Scale Factor",
-        "tr": "Discount Scale Factor",
+        "tr": "İndirim Ölçek Faktörü",
         "de": "Discount Scale Factor",
         "fr": "Discount Scale Factor",
         "es": "Discount Scale Factor",
         "ar": "Discount Scale Factor"
+      },
+      "businessContext_i18n": {
+        "en": "The quantity at which the discount reaches approximately 63% of the maximum discount (i.e., the e-folding scale).",
+        "tr": "İndirimin maksimum indirimin yaklaşık %63'üne ulaştığı miktar (e-katlama ölçeği)."
       }
     }
   ],

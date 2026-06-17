@@ -21,10 +21,12 @@
       "max": 150,
       "businessContext": "Average hourly wage paid to direct production workers, including base pay and shift differentials.",
       "label_i18n": {
-        "en": "Direct Labor Hourly Rate"
+        "en": "Direct Labor Hourly Rate",
+        "tr": "Direkt İşçilik Saatlik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Average hourly wage paid to direct production workers, including base pay and shift differentials."
+        "en": "Average hourly wage paid to direct production workers, including base pay and shift differentials.",
+        "tr": "Doğrudan üretim işçilerine ödenen ortalama saatlik ücret, temel ücret ve vardiya farkları dahil."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 500,
       "businessContext": "Total headcount of workers directly involved in production.",
       "label_i18n": {
-        "en": "Number of Direct Labor Employees"
+        "en": "Number of Direct Labor Employees",
+        "tr": "Direkt İşçilik Çalışan Sayısı"
       },
       "businessContext_i18n": {
-        "en": "Total headcount of workers directly involved in production."
+        "en": "Total headcount of workers directly involved in production.",
+        "tr": "Doğrudan üretimde çalışan toplam personel sayısı."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 3000,
       "businessContext": "Standard annual hours per employee (e.g., 52 weeks * 40 hours). Adjust for overtime or part-time.",
       "label_i18n": {
-        "en": "Annual Operating Hours per Employee"
+        "en": "Annual Operating Hours per Employee",
+        "tr": "Çalışan Başına Yıllık Çalışma Saati"
       },
       "businessContext_i18n": {
-        "en": "Standard annual hours per employee (e.g., 52 weeks * 40 hours). Adjust for overtime or part-time."
+        "en": "Standard annual hours per employee (e.g., 52 weeks * 40 hours). Adjust for overtime or part-time.",
+        "tr": "Çalışan başına standart yıllık saat (ör. 52 hafta * 40 saat). Fazla mesai veya yarı zamanlı için ayarlayın."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 10000000,
       "businessContext": "All indirect costs: rent, utilities, management salaries, insurance, taxes, maintenance, IT, etc.",
       "label_i18n": {
-        "en": "Total Annual Overhead Costs"
+        "en": "Total Annual Overhead Costs",
+        "tr": "Toplam Yıllık Genel Giderler"
       },
       "businessContext_i18n": {
-        "en": "All indirect costs: rent, utilities, management salaries, insurance, taxes, maintenance, IT, etc."
+        "en": "All indirect costs: rent, utilities, management salaries, insurance, taxes, maintenance, IT, etc.",
+        "tr": "Tüm dolaylı maliyetler: kira, kamu hizmetleri, yönetim maaşları, sigorta, vergiler, bakım, BT vb."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 5000000,
       "businessContext": "Depreciation, lease payments, repairs, tooling, and energy costs for all production equipment.",
       "label_i18n": {
-        "en": "Total Annual Machine Costs"
+        "en": "Total Annual Machine Costs",
+        "tr": "Toplam Yıllık Makine Maliyetleri"
       },
       "businessContext_i18n": {
-        "en": "Depreciation, lease payments, repairs, tooling, and energy costs for all production equipment."
+        "en": "Depreciation, lease payments, repairs, tooling, and energy costs for all production equipment.",
+        "tr": "Tüm üretim ekipmanları için amortisman, kira ödemeleri, onarımlar, takım ve enerji maliyetleri."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 100,
       "businessContext": "Overall equipment effectiveness (OEE) or labor efficiency, accounting for downtime, setup, and speed loss.",
       "label_i18n": {
-        "en": "Average Shop Efficiency (%)"
+        "en": "Average Shop Efficiency (%)",
+        "tr": "Ortalama Atölye Verimliliği (%)"
       },
       "businessContext_i18n": {
-        "en": "Overall equipment effectiveness (OEE) or labor efficiency, accounting for downtime, setup, and speed loss."
+        "en": "Overall equipment effectiveness (OEE) or labor efficiency, accounting for downtime, setup, and speed loss.",
+        "tr": "Genel ekipman etkinliği (OEE) veya işçilik verimliliği; duruş, kurulum ve hız kaybını hesaba katar."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 100,
       "businessContext": "First-pass yield or overall yield; rework and scrap increase effective hourly cost.",
       "label_i18n": {
-        "en": "Quality Yield (%)"
+        "en": "Quality Yield (%)",
+        "tr": "Kalite Verimi (%)"
       },
       "businessContext_i18n": {
-        "en": "First-pass yield or overall yield; rework and scrap increase effective hourly cost."
+        "en": "First-pass yield or overall yield; rework and scrap increase effective hourly cost.",
+        "tr": "İlk geçiş verimi veya genel verim; yeniden işleme ve fire efektif saatlik maliyeti artırır."
       }
     },
     {
@@ -133,10 +147,12 @@
       "max": 2,
       "businessContext": "1.0 for single shift, 1.1 for two-shift, 1.2 for three-shift operations (accounts for shift differentials).",
       "label_i18n": {
-        "en": "Shift Premium Factor"
+        "en": "Shift Premium Factor",
+        "tr": "Vardiya Primi Faktörü"
       },
       "businessContext_i18n": {
-        "en": "1.0 for single shift, 1.1 for two-shift, 1.2 for three-shift operations (accounts for shift differentials)."
+        "en": "1.0 for single shift, 1.1 for two-shift, 1.2 for three-shift operations (accounts for shift differentials).",
+        "tr": "Tek vardiya için 1.0, iki vardiya için 1.1, üç vardiya için 1.2 (vardiya farklarını hesaba katar)."
       }
     }
   ],

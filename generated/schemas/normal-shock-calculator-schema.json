@@ -10,11 +10,15 @@
       "businessContext": "Enter the Mach number before the shock (M1 > 1 for normal shock).",
       "label_i18n": {
         "en": "Upstream Mach Number",
-        "tr": "Upstream Mach Number",
+        "tr": "Yukarı Akış Mach Sayısı",
         "de": "Upstream Mach Number",
         "fr": "Upstream Mach Number",
         "es": "Upstream Mach Number",
         "ar": "Upstream Mach Number"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the Mach number before the shock (M1 > 1 for normal shock).",
+        "tr": "Şok öncesi Mach sayısını girin (normal şok için M1 > 1)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ratio of specific heats (Cp/Cv), typically 1.4 for air.",
       "label_i18n": {
         "en": "Specific Heat Ratio",
-        "tr": "Specific Heat Ratio",
+        "tr": "Özgül ısı oranı",
         "de": "Specific Heat Ratio",
         "fr": "Specific Heat Ratio",
         "es": "Specific Heat Ratio",
         "ar": "Specific Heat Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of specific heats (Cp/Cv), typically 1.4 for air.",
+        "tr": "Özgül ısı oranı (Cp/Cv), tipik olarak hava için 1.4."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Absolute static pressure before shock (optional for absolute values).",
       "label_i18n": {
         "en": "Upstream Static Pressure",
-        "tr": "Upstream Static Pressure",
+        "tr": "Yukarı Akış Statik Basıncı",
         "de": "Upstream Static Pressure",
         "fr": "Upstream Static Pressure",
         "es": "Upstream Static Pressure",
         "ar": "Upstream Static Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute static pressure before shock (optional for absolute values).",
+        "tr": "Şok öncesi mutlak statik basınç (mutlak değerler için isteğe bağlı)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Absolute static temperature before shock (optional for absolute values).",
       "label_i18n": {
         "en": "Upstream Static Temperature",
-        "tr": "Upstream Static Temperature",
+        "tr": "Yukarı Akış Statik Sıcaklığı",
         "de": "Upstream Static Temperature",
         "fr": "Upstream Static Temperature",
         "es": "Upstream Static Temperature",
         "ar": "Upstream Static Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute static temperature before shock (optional for absolute values).",
+        "tr": "Şok öncesi mutlak statik sıcaklık (mutlak değerler için isteğe bağlı)."
       }
     }
   ],

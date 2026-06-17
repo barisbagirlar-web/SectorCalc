@@ -10,11 +10,15 @@
       "businessContext": "Elevation of the location above mean sea level in feet. Use either this or the meters input.",
       "label_i18n": {
         "en": "Field Elevation (ft)",
-        "tr": "Field Elevation (ft)",
+        "tr": "Saha Yüksekliği (ft)",
         "de": "Field Elevation (ft)",
         "fr": "Field Elevation (ft)",
         "es": "Field Elevation (ft)",
         "ar": "Field Elevation (ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Elevation of the location above mean sea level in feet. Use either this or the meters input.",
+        "tr": "Konumun ortalama deniz seviyesinden fit cinsinden yüksekliği. Bunu veya metre girişini kullanın."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Elevation of the location above mean sea level in meters. Used only if fieldElevation is 0.",
       "label_i18n": {
         "en": "Field Elevation (m)",
-        "tr": "Field Elevation (m)",
+        "tr": "Saha Yüksekliği (m)",
         "de": "Field Elevation (m)",
         "fr": "Field Elevation (m)",
         "es": "Field Elevation (m)",
         "ar": "Field Elevation (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Elevation of the location above mean sea level in meters. Used only if fieldElevation is 0.",
+        "tr": "Konumun ortalama deniz seviyesinden metre cinsinden yüksekliği. Yalnızca sahaYüksekliği 0 ise kullanılır."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current altimeter setting or QNH in inches of mercury. Use either this or QNH hPa.",
       "label_i18n": {
         "en": "Altimeter Setting (inHg)",
-        "tr": "Altimeter Setting (inHg)",
+        "tr": "Altimetre Ayarı (inHg)",
         "de": "Altimeter Setting (inHg)",
         "fr": "Altimeter Setting (inHg)",
         "es": "Altimeter Setting (inHg)",
         "ar": "Altimeter Setting (inHg)"
+      },
+      "businessContext_i18n": {
+        "en": "Current altimeter setting or QNH in inches of mercury. Use either this or QNH hPa.",
+        "tr": "İnç cıva cinsinden mevcut altimetre ayarı veya QNH. Bunu veya QNH hPa'yı kullanın."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "QNH (hPa)",
         "es": "QNH (hPa)",
         "ar": "QNH (hPa)"
+      },
+      "businessContext_i18n": {
+        "en": "Current altimeter setting or QNH in hectopascals. Used only if altimeterSetting is 0.",
+        "tr": "Hektopaskal cinsinden mevcut altimetre ayarı veya QNH. Yalnızca altimetreAyarı 0 ise kullanılır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Standard pressure at sea level in inches of mercury. Normally 29.92 inHg.",
       "label_i18n": {
         "en": "Standard Pressure (inHg)",
-        "tr": "Standard Pressure (inHg)",
+        "tr": "Standart Basınç (inHg)",
         "de": "Standard Pressure (inHg)",
         "fr": "Standard Pressure (inHg)",
         "es": "Standard Pressure (inHg)",
         "ar": "Standard Pressure (inHg)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard pressure at sea level in inches of mercury. Normally 29.92 inHg.",
+        "tr": "Deniz seviyesinde inç cıva cinsinden standart basınç. Normalde 29.92 inHg."
       }
     }
   ],

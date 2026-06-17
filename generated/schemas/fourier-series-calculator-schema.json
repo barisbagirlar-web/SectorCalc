@@ -10,11 +10,15 @@
       "businessContext": "Sinyalin ortalama seviyesi (titreşim analizi)",
       "label_i18n": {
         "en": "DC Offset (a₀)",
-        "tr": "DC Offset (a₀)",
+        "tr": "DC Bileşeni (a₀)",
         "de": "DC Offset (a₀)",
         "fr": "DC Offset (a₀)",
         "es": "DC Offset (a₀)",
         "ar": "DC Offset (a₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Sinyalin ortalama seviyesi (titreşim analizi)",
+        "tr": "Sinyalin ortalama seviyesi (titreşim analizi)"
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Genlik (A)",
         "es": "Genlik (A)",
         "ar": "Genlik (A)"
+      },
+      "businessContext_i18n": {
+        "en": "Kare dalganın tepe genliği",
+        "tr": "Kare dalganın tepe genliği"
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Periyot (T)",
         "es": "Periyot (T)",
         "ar": "Periyot (T)"
+      },
+      "businessContext_i18n": {
+        "en": "Temel titreşim periyodu",
+        "tr": "Temel titreşim periyodu"
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Zaman (t)",
         "es": "Zaman (t)",
         "ar": "Zaman (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Sinyalin değerlendirildiği an",
+        "tr": "Sinyalin değerlendirildiği an"
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "Harmonik Sayısı (N)",
         "es": "Harmonik Sayısı (N)",
         "ar": "Harmonik Sayısı (N)"
+      },
+      "businessContext_i18n": {
+        "en": "Kullanılacak tek harmonik sayısı (1, 3, 5)",
+        "tr": "Kullanılacak tek harmonik sayısı (1, 3, 5)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "The total number of cookies to produce",
       "label_i18n": {
         "en": "Number of Cookies",
-        "tr": "Number of Cookies",
+        "tr": "Kurabiye Sayısı",
         "de": "Number of Cookies",
         "fr": "Number of Cookies",
         "es": "Number of Cookies",
         "ar": "Number of Cookies"
+      },
+      "businessContext_i18n": {
+        "en": "The total number of cookies to produce",
+        "tr": "Üretilecek toplam kurabiye sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Purchase cost of all-purpose flour per kilogram",
       "label_i18n": {
         "en": "Flour Cost per kg",
-        "tr": "Flour Cost per kg",
+        "tr": "Un Maliyeti (kg başına)",
         "de": "Flour Cost per kg",
         "fr": "Flour Cost per kg",
         "es": "Flour Cost per kg",
         "ar": "Flour Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase cost of all-purpose flour per kilogram",
+        "tr": "Çok amaçlı unun kilogram başına satın alma maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Purchase cost of granulated sugar per kilogram",
       "label_i18n": {
         "en": "Granulated Sugar Cost per kg",
-        "tr": "Granulated Sugar Cost per kg",
+        "tr": "Toz Şeker Maliyeti (kg başına)",
         "de": "Granulated Sugar Cost per kg",
         "fr": "Granulated Sugar Cost per kg",
         "es": "Granulated Sugar Cost per kg",
         "ar": "Granulated Sugar Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase cost of granulated sugar per kilogram",
+        "tr": "Toz şekerin kilogram başına satın alma maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Purchase cost of unsalted butter per kilogram",
       "label_i18n": {
         "en": "Unsalted Butter Cost per kg",
-        "tr": "Unsalted Butter Cost per kg",
+        "tr": "Tuzsuz Tereyağı Maliyeti (kg başına)",
         "de": "Unsalted Butter Cost per kg",
         "fr": "Unsalted Butter Cost per kg",
         "es": "Unsalted Butter Cost per kg",
         "ar": "Unsalted Butter Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase cost of unsalted butter per kilogram",
+        "tr": "Tuzsuz tereyağının kilogram başına satın alma maliyeti"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Purchase cost per large egg",
       "label_i18n": {
         "en": "Egg Cost per Unit",
-        "tr": "Egg Cost per Unit",
+        "tr": "Yumurta Maliyeti (adet başına)",
         "de": "Egg Cost per Unit",
         "fr": "Egg Cost per Unit",
         "es": "Egg Cost per Unit",
         "ar": "Egg Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase cost per large egg",
+        "tr": "Büyük boy yumurtanın adet başına satın alma maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Purchase cost of semi-sweet chocolate chips per kilogram",
       "label_i18n": {
         "en": "Chocolate Chips Cost per kg",
-        "tr": "Chocolate Chips Cost per kg",
+        "tr": "Çikolata Parçacıkları Maliyeti (kg başına)",
         "de": "Chocolate Chips Cost per kg",
         "fr": "Chocolate Chips Cost per kg",
         "es": "Chocolate Chips Cost per kg",
         "ar": "Chocolate Chips Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase cost of semi-sweet chocolate chips per kilogram",
+        "tr": "Yarı tatlı çikolata parçacıklarının kilogram başına satın alma maliyeti"
       }
     }
   ],

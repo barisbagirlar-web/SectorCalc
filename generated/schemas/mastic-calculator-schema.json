@@ -10,11 +10,15 @@
       "businessContext": "The linear length of one joint to be filled with mastic.",
       "label_i18n": {
         "en": "Joint Length",
-        "tr": "Joint Length",
+        "tr": "Derz Uzunluğu",
         "de": "Joint Length",
         "fr": "Joint Length",
         "es": "Joint Length",
         "ar": "Joint Length"
+      },
+      "businessContext_i18n": {
+        "en": "The linear length of one joint to be filled with mastic.",
+        "tr": "Mastik ile doldurulacak bir derzin doğrusal uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The width of the joint gap.",
       "label_i18n": {
         "en": "Joint Width",
-        "tr": "Joint Width",
+        "tr": "Derz Genişliği",
         "de": "Joint Width",
         "fr": "Joint Width",
         "es": "Joint Width",
         "ar": "Joint Width"
+      },
+      "businessContext_i18n": {
+        "en": "The width of the joint gap.",
+        "tr": "Derz boşluğunun genişliği."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The depth of the joint to be filled.",
       "label_i18n": {
         "en": "Joint Depth",
-        "tr": "Joint Depth",
+        "tr": "Derz Derinliği",
         "de": "Joint Depth",
         "fr": "Joint Depth",
         "es": "Joint Depth",
         "ar": "Joint Depth"
+      },
+      "businessContext_i18n": {
+        "en": "The depth of the joint to be filled.",
+        "tr": "Doldurulacak derzin derinliği."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total number of joints of the same dimensions.",
       "label_i18n": {
         "en": "Number of Joints",
-        "tr": "Number of Joints",
+        "tr": "Derz Sayısı",
         "de": "Number of Joints",
         "fr": "Number of Joints",
         "es": "Number of Joints",
         "ar": "Number of Joints"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of joints of the same dimensions.",
+        "tr": "Aynı boyutlardaki toplam derz sayısı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Net volume of mastic in one standard cartridge.",
       "label_i18n": {
         "en": "Cartridge Volume",
-        "tr": "Cartridge Volume",
+        "tr": "Kartuş Hacmi",
         "de": "Cartridge Volume",
         "fr": "Cartridge Volume",
         "es": "Cartridge Volume",
         "ar": "Cartridge Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Net volume of mastic in one standard cartridge.",
+        "tr": "Bir standart kartuştaki net mastik hacmi."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Additional percentage to account for material loss during application.",
       "label_i18n": {
         "en": "Waste Factor",
-        "tr": "Waste Factor",
+        "tr": "Atık Faktörü",
         "de": "Waste Factor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Additional percentage to account for material loss during application.",
+        "tr": "Uygulama sırasında malzeme kaybını hesaba katmak için ek yüzde."
       }
     }
   ],

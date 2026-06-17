@@ -10,11 +10,15 @@
       "businessContext": "Number of US cups of sugar",
       "label_i18n": {
         "en": "Cups",
-        "tr": "Cups",
+        "tr": "Bardak",
         "de": "Cups",
         "fr": "Cups",
         "es": "Cups",
         "ar": "Cups"
+      },
+      "businessContext_i18n": {
+        "en": "Number of US cups of sugar",
+        "tr": "ABD bardak şeker miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional tablespoons of sugar",
       "label_i18n": {
         "en": "Tablespoons",
-        "tr": "Tablespoons",
+        "tr": "Yemek Kaşığı",
         "de": "Tablespoons",
         "fr": "Tablespoons",
         "es": "Tablespoons",
         "ar": "Tablespoons"
+      },
+      "businessContext_i18n": {
+        "en": "Additional tablespoons of sugar",
+        "tr": "Ek yemek kaşığı şeker"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional teaspoons of sugar",
       "label_i18n": {
         "en": "Teaspoons",
-        "tr": "Teaspoons",
+        "tr": "Çay Kaşığı",
         "de": "Teaspoons",
         "fr": "Teaspoons",
         "es": "Teaspoons",
         "ar": "Teaspoons"
+      },
+      "businessContext_i18n": {
+        "en": "Additional teaspoons of sugar",
+        "tr": "Ek çay kaşığı şeker"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = Granulated, 1 = Powdered, 2 = Brown (packed)",
       "label_i18n": {
         "en": "Sugar Type",
-        "tr": "Sugar Type",
+        "tr": "Şeker Türü",
         "de": "Sugar Type",
         "fr": "Sugar Type",
         "es": "Sugar Type",
         "ar": "Sugar Type"
+      },
+      "businessContext_i18n": {
+        "en": "0 = Granulated, 1 = Powdered, 2 = Brown (packed)",
+        "tr": "0 = Toz şeker, 1 = Pudra şekeri, 2 = Esmer şeker (sıkıştırılmış)"
       }
     }
   ],

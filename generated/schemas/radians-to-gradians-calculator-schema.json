@@ -10,11 +10,15 @@
       "businessContext": "The angle measurement in radians to be converted.",
       "label_i18n": {
         "en": "Angle in Radians",
-        "tr": "Angle in Radians",
+        "tr": "Radyan Cinsinden Açı",
         "de": "Angle in Radians",
         "fr": "Angle in Radians",
         "es": "Angle in Radians",
         "ar": "Angle in Radians"
+      },
+      "businessContext_i18n": {
+        "en": "The angle measurement in radians to be converted.",
+        "tr": "Dönüştürülecek radyan cinsinden açı ölçümü."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Gradians per radian. Standard is 200/π. Adjust for custom units.",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Gradians per radian. Standard is 200/π. Adjust for custom units.",
+        "tr": "Radyan başına gradyan. Standart 200/π'dir. Özel birimler için ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output.",
+        "tr": "Çıktı için ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additive offset in gradians for calibration purposes.",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Additive offset in gradians for calibration purposes.",
+        "tr": "Kalibrasyon amacıyla gradyan cinsinden eklenen ofset."
       }
     }
   ],

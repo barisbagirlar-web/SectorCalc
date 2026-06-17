@@ -10,11 +10,15 @@
       "businessContext": "Electric current flowing through the wire segment",
       "label_i18n": {
         "en": "Current",
-        "tr": "Current",
+        "tr": "Akım",
         "de": "Current",
         "fr": "Current",
         "es": "Current",
         "ar": "Current"
+      },
+      "businessContext_i18n": {
+        "en": "Electric current flowing through the wire segment",
+        "tr": "Tel segmentinden geçen elektrik akımı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Shortest distance from the point to the infinite line containing the wire segment",
       "label_i18n": {
         "en": "Perpendicular Distance",
-        "tr": "Perpendicular Distance",
+        "tr": "Dik Mesafe",
         "de": "Perpendicular Distance",
         "fr": "Perpendicular Distance",
         "es": "Perpendicular Distance",
         "ar": "Perpendicular Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Shortest distance from the point to the infinite line containing the wire segment",
+        "tr": "Noktadan teli içeren sonsuz doğruya olan en kısa mesafe"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Z-coordinate of the observation point relative to the wire segment (wire along Z-axis)",
       "label_i18n": {
         "en": "Observation Point Z",
-        "tr": "Observation Point Z",
+        "tr": "Gözlem Noktası Z",
         "de": "Observation Point Z",
         "fr": "Observation Point Z",
         "es": "Observation Point Z",
         "ar": "Observation Point Z"
+      },
+      "businessContext_i18n": {
+        "en": "Z-coordinate of the observation point relative to the wire segment (wire along Z-axis)",
+        "tr": "Gözlem noktasının tel segmentine göre Z koordinatı (tel Z ekseni boyunca)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Z-coordinate of the wire segment start",
       "label_i18n": {
         "en": "Segment Start Z",
-        "tr": "Segment Start Z",
+        "tr": "Segment Başlangıç Z",
         "de": "Segment Start Z",
         "fr": "Segment Start Z",
         "es": "Segment Start Z",
         "ar": "Segment Start Z"
+      },
+      "businessContext_i18n": {
+        "en": "Z-coordinate of the wire segment start",
+        "tr": "Tel segmentinin başlangıç Z koordinatı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Z-coordinate of the wire segment end",
       "label_i18n": {
         "en": "Segment End Z",
-        "tr": "Segment End Z",
+        "tr": "Segment Bitiş Z",
         "de": "Segment End Z",
         "fr": "Segment End Z",
         "es": "Segment End Z",
         "ar": "Segment End Z"
+      },
+      "businessContext_i18n": {
+        "en": "Z-coordinate of the wire segment end",
+        "tr": "Tel segmentinin bitiş Z koordinatı"
       }
     }
   ],

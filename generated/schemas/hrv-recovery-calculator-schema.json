@@ -10,11 +10,15 @@
       "businessContext": "Outside air temperature",
       "label_i18n": {
         "en": "Outdoor Temperature",
-        "tr": "Outdoor Temperature",
+        "tr": "Dış Ortam Sıcaklığı",
         "de": "Outdoor Temperature",
         "fr": "Outdoor Temperature",
         "es": "Outdoor Temperature",
         "ar": "Outdoor Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Outside air temperature",
+        "tr": "Dış hava sıcaklığı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Indoor exhaust air temperature before heat exchanger",
       "label_i18n": {
         "en": "Exhaust Air Temperature",
-        "tr": "Exhaust Air Temperature",
+        "tr": "Egzoz havası sıcaklığı",
         "de": "Exhaust Air Temperature",
         "fr": "Exhaust Air Temperature",
         "es": "Exhaust Air Temperature",
         "ar": "Exhaust Air Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Indoor exhaust air temperature before heat exchanger",
+        "tr": "Isı eşanjörü öncesi iç egzoz havası sıcaklığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Supply air temperature after heat recovery",
       "label_i18n": {
         "en": "Supply Air Temperature",
-        "tr": "Supply Air Temperature",
+        "tr": "Besleme havası sıcaklığı",
         "de": "Supply Air Temperature",
         "fr": "Supply Air Temperature",
         "es": "Supply Air Temperature",
         "ar": "Supply Air Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Supply air temperature after heat recovery",
+        "tr": "Isı geri kazanımı sonrası besleme havası sıcaklığı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Supply airflow rate",
       "label_i18n": {
         "en": "Airflow Rate",
-        "tr": "Airflow Rate",
+        "tr": "Hava akış hızı",
         "de": "Airflow Rate",
         "fr": "Airflow Rate",
         "es": "Airflow Rate",
         "ar": "Airflow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Supply airflow rate",
+        "tr": "Besleme havası akış hızı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Density of air",
       "label_i18n": {
         "en": "Air Density",
-        "tr": "Air Density",
+        "tr": "Hava Yoğunluğu",
         "de": "Air Density",
         "fr": "Air Density",
         "es": "Air Density",
         "ar": "Air Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of air",
+        "tr": "Havanın yoğunluğu"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Specific heat capacity of air",
       "label_i18n": {
         "en": "Specific Heat Capacity",
-        "tr": "Specific Heat Capacity",
+        "tr": "Özgül Isı Kapasitesi",
         "de": "Specific Heat Capacity",
         "fr": "Specific Heat Capacity",
         "es": "Specific Heat Capacity",
         "ar": "Specific Heat Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Specific heat capacity of air",
+        "tr": "Havanın özgül ısı kapasitesi"
       }
     }
   ],

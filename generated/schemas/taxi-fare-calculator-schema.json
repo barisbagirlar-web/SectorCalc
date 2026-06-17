@@ -10,11 +10,15 @@
       "businessContext": "Initial flag-drop or starting fee for taxi.",
       "label_i18n": {
         "en": "Base Fare",
-        "tr": "Base Fare",
+        "tr": "Taban ücret",
         "de": "Base Fare",
         "fr": "Base Fare",
         "es": "Base Fare",
         "ar": "Base Fare"
+      },
+      "businessContext_i18n": {
+        "en": "Initial flag-drop or starting fee for taxi.",
+        "tr": "Taksi için ilk açılış ücreti veya başlangıç ücreti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Rate charged per kilometer traveled.",
       "label_i18n": {
         "en": "Cost per Kilometer",
-        "tr": "Cost per Kilometer",
+        "tr": "Kilometre Başına Maliyet",
         "de": "Cost per Kilometer",
         "fr": "Cost per Kilometer",
         "es": "Cost per Kilometer",
         "ar": "Cost per Kilometer"
+      },
+      "businessContext_i18n": {
+        "en": "Rate charged per kilometer traveled.",
+        "tr": "Seyahat edilen kilometre başına uygulanan ücret"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Rate charged per minute for waiting or slow traffic.",
       "label_i18n": {
         "en": "Cost per Minute",
-        "tr": "Cost per Minute",
+        "tr": "Dakika başına maliyet",
         "de": "Cost per Minute",
         "fr": "Cost per Minute",
         "es": "Cost per Minute",
         "ar": "Cost per Minute"
+      },
+      "businessContext_i18n": {
+        "en": "Rate charged per minute for waiting or slow traffic.",
+        "tr": "Bekleme veya yavaş trafik için dakika başına uygulanan ücret"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total distance of the trip in kilometers.",
       "label_i18n": {
         "en": "Trip Distance",
-        "tr": "Trip Distance",
+        "tr": "Seyahat Mesafesi",
         "de": "Trip Distance",
         "fr": "Trip Distance",
         "es": "Trip Distance",
         "ar": "Trip Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance of the trip in kilometers.",
+        "tr": "Seyahatin kilometre cinsinden toplam mesafesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total duration of the trip in minutes.",
       "label_i18n": {
         "en": "Trip Time",
-        "tr": "Trip Time",
+        "tr": "Seyahat Süresi",
         "de": "Trip Time",
         "fr": "Trip Time",
         "es": "Trip Time",
         "ar": "Trip Time"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration of the trip in minutes.",
+        "tr": "Seyahatin dakika cinsinden toplam süresi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Any extra fees such as airport toll, night charge, etc.",
       "label_i18n": {
         "en": "Additional Surcharge",
-        "tr": "Additional Surcharge",
+        "tr": "Ek Ücret",
         "de": "Additional Surcharge",
         "fr": "Additional Surcharge",
         "es": "Additional Surcharge",
         "ar": "Additional Surcharge"
+      },
+      "businessContext_i18n": {
+        "en": "Any extra fees such as airport toll, night charge, etc.",
+        "tr": "Havalimanı geçiş ücreti, gece ücreti vb. gibi ek ücretler"
       }
     }
   ],

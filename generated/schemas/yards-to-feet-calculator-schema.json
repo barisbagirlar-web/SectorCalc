@@ -10,11 +10,15 @@
       "businessContext": "Length measured in yards to be converted to feet",
       "label_i18n": {
         "en": "Yards",
-        "tr": "Yards",
+        "tr": "Yarda",
         "de": "Yards",
         "fr": "Yards",
         "es": "Yards",
         "ar": "Yards"
+      },
+      "businessContext_i18n": {
+        "en": "Length measured in yards to be converted to feet",
+        "tr": "Feete dönüştürülecek yarda cinsinden uzunluk"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard conversion factor from yards to feet; 3 feet per yard",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Standard conversion factor from yards to feet; 3 feet per yard",
+        "tr": "Yarddan feete standart dönüşüm faktörü; yard başına 3 feet"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places to round the result; must be integer ≥ 0",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the result; must be integer ≥ 0",
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı; ≥ 0 tam sayı olmalı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = Standard round, 1 = Floor (round down), 2 = Ceil (round up)",
       "label_i18n": {
         "en": "Rounding Method",
-        "tr": "Rounding Method",
+        "tr": "Yuvarlama yöntemi",
         "de": "Rounding Method",
         "fr": "Rounding Method",
         "es": "Rounding Method",
         "ar": "Rounding Method"
+      },
+      "businessContext_i18n": {
+        "en": "0 = Standard round, 1 = Floor (round down), 2 = Ceil (round up)",
+        "tr": "0 = Standart yuvarlama, 1 = Taban (aşağı yuvarla), 2 = Tavan (yukarı yuvarla)"
       }
     }
   ],

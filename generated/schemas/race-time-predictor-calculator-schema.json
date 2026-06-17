@@ -10,11 +10,15 @@
       "businessContext": "Distance of a previous race in kilometers",
       "label_i18n": {
         "en": "Known Distance",
-        "tr": "Known Distance",
+        "tr": "Bilinen Mesafe",
         "de": "Known Distance",
         "fr": "Known Distance",
         "es": "Known Distance",
         "ar": "Known Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance of a previous race in kilometers",
+        "tr": "Önceki bir yarışın kilometre cinsinden mesafesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Finishing time for the known distance in minutes",
       "label_i18n": {
         "en": "Known Time",
-        "tr": "Known Time",
+        "tr": "Bilinen Süre",
         "de": "Known Time",
         "fr": "Known Time",
         "es": "Known Time",
         "ar": "Known Time"
+      },
+      "businessContext_i18n": {
+        "en": "Finishing time for the known distance in minutes",
+        "tr": "Bilinen mesafe için bitiş süresi (dakika cinsinden)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Distance of the race to predict in kilometers",
       "label_i18n": {
         "en": "Target Distance",
-        "tr": "Target Distance",
+        "tr": "Hedef Mesafe",
         "de": "Target Distance",
         "fr": "Target Distance",
         "es": "Target Distance",
         "ar": "Target Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Distance of the race to predict in kilometers",
+        "tr": "Tahmin edilecek yarışın kilometre cinsinden mesafesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fatigue factor per Riegel formula (default 1.06)",
       "label_i18n": {
         "en": "Fatigue Exponent",
-        "tr": "Fatigue Exponent",
+        "tr": "Yorgunluk Üssü",
         "de": "Fatigue Exponent",
         "fr": "Fatigue Exponent",
         "es": "Fatigue Exponent",
         "ar": "Fatigue Exponent"
+      },
+      "businessContext_i18n": {
+        "en": "Fatigue factor per Riegel formula (default 1.06)",
+        "tr": "Riegel formülüne göre yorgunluk faktörü (varsayılan 1.06)"
       }
     }
   ],

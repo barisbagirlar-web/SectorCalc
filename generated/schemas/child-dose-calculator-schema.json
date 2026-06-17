@@ -10,11 +10,15 @@
       "businessContext": "The standard adult dose of the medication in milligrams.",
       "label_i18n": {
         "en": "Adult Dose",
-        "tr": "Adult Dose",
+        "tr": "Yetişkin Dozu",
         "de": "Adult Dose",
         "fr": "Adult Dose",
         "es": "Adult Dose",
         "ar": "Adult Dose"
+      },
+      "businessContext_i18n": {
+        "en": "The standard adult dose of the medication in milligrams.",
+        "tr": "İlacın miligram cinsinden standart yetişkin dozu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age of the child in years.",
       "label_i18n": {
         "en": "Child Age",
-        "tr": "Child Age",
+        "tr": "Çocuk Yaşı",
         "de": "Child Age",
         "fr": "Child Age",
         "es": "Child Age",
         "ar": "Child Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the child in years.",
+        "tr": "Çocuğun yıl cinsinden yaşı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight of the child in kilograms.",
       "label_i18n": {
         "en": "Child Weight",
-        "tr": "Child Weight",
+        "tr": "Çocuk Ağırlığı",
         "de": "Child Weight",
         "fr": "Child Weight",
         "es": "Child Weight",
         "ar": "Child Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the child in kilograms.",
+        "tr": "Çocuğun kilogram cinsinden ağırlığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Height of the child in centimeters (required for body surface area calculation).",
       "label_i18n": {
         "en": "Child Height",
-        "tr": "Child Height",
+        "tr": "Çocuk Boyu",
         "de": "Child Height",
         "fr": "Child Height",
         "es": "Child Height",
         "ar": "Child Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the child in centimeters (required for body surface area calculation).",
+        "tr": "Çocuğun santimetre cinsinden boyu (vücut yüzey alanı hesaplaması için gereklidir)."
       }
     }
   ],

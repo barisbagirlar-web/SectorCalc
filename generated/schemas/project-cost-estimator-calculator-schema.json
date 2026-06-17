@@ -19,10 +19,12 @@
       "max": 100000,
       "businessContext": "Total planned direct labor hours for the project, based on work breakdown structure (WBS).",
       "label_i18n": {
-        "en": "Direct Labor Hours"
+        "en": "Direct Labor Hours",
+        "tr": "Direkt İşçilik Saatleri"
       },
       "businessContext_i18n": {
-        "en": "Total planned direct labor hours for the project, based on work breakdown structure (WBS)."
+        "en": "Total planned direct labor hours for the project, based on work breakdown structure (WBS).",
+        "tr": "İş kırılım yapısına (WBS) dayalı olarak proje için planlanan toplam direkt işçilik saati."
       }
     },
     {
@@ -35,10 +37,12 @@
       "max": 500,
       "businessContext": "Weighted average hourly rate including wages, benefits, and overhead per ISO 15686-5.",
       "label_i18n": {
-        "en": "Average Labor Rate"
+        "en": "Average Labor Rate",
+        "tr": "Ortalama İşçilik Ücreti"
       },
       "businessContext_i18n": {
-        "en": "Weighted average hourly rate including wages, benefits, and overhead per ISO 15686-5."
+        "en": "Weighted average hourly rate including wages, benefits, and overhead per ISO 15686-5.",
+        "tr": "Ücretler, yan haklar ve genel giderler dahil ağırlıklı ortalama saatlik ücret (ISO 15686-5'e göre)."
       }
     },
     {
@@ -51,10 +55,12 @@
       "max": 10000000,
       "businessContext": "Total cost of raw materials and purchased components, including procurement and logistics.",
       "label_i18n": {
-        "en": "Material Cost"
+        "en": "Material Cost",
+        "tr": "Malzeme Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Total cost of raw materials and purchased components, including procurement and logistics."
+        "en": "Total cost of raw materials and purchased components, including procurement and logistics.",
+        "tr": "Tedarik ve lojistik dahil hammadde ve satın alınan bileşenlerin toplam maliyeti."
       }
     },
     {
@@ -67,10 +73,12 @@
       "max": 5000000,
       "businessContext": "Cost of specialized machinery, tooling, and equipment depreciation or rental.",
       "label_i18n": {
-        "en": "Equipment & Tooling Cost"
+        "en": "Equipment & Tooling Cost",
+        "tr": "Ekipman & Takım Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost of specialized machinery, tooling, and equipment depreciation or rental."
+        "en": "Cost of specialized machinery, tooling, and equipment depreciation or rental.",
+        "tr": "Özel makine, takım ve ekipman amortismanı veya kiralama maliyeti."
       }
     },
     {
@@ -83,10 +91,12 @@
       "max": 100,
       "businessContext": "Indirect cost rate (facilities, utilities, management) as a percentage of direct costs, per standard cost accounting.",
       "label_i18n": {
-        "en": "Overhead Percentage"
+        "en": "Overhead Percentage",
+        "tr": "Genel Gider Yüzdesi"
       },
       "businessContext_i18n": {
-        "en": "Indirect cost rate (facilities, utilities, management) as a percentage of direct costs, per standard cost accounting."
+        "en": "Indirect cost rate (facilities, utilities, management) as a percentage of direct costs, per standard cost accounting.",
+        "tr": "Direkt maliyetlerin yüzdesi olarak endirekt maliyet oranı (tesis, yardımcı hizmetler, yönetim), standart maliyet muhasebesine göre."
       }
     },
     {
@@ -104,10 +114,12 @@
         "high"
       ],
       "label_i18n": {
-        "en": "Project Complexity Factor"
+        "en": "Project Complexity Factor",
+        "tr": "Proje Karmaşıklık Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Adjusts cost based on project complexity (low/medium/high) per PMI and Lean principles."
+        "en": "Adjusts cost based on project complexity (low/medium/high) per PMI and Lean principles.",
+        "tr": "Proje karmaşıklığına (düşük/orta/yüksek) göre maliyeti ayarlar, PMI ve Yalın prensiplerine göre."
       }
     },
     {
@@ -126,10 +138,12 @@
         "6"
       ],
       "label_i18n": {
-        "en": "Quality Level (Sigma)"
+        "en": "Quality Level (Sigma)",
+        "tr": "Kalite Seviyesi (Sigma)"
       },
       "businessContext_i18n": {
-        "en": "Target quality level based on Six Sigma; higher sigma reduces rework and hidden costs."
+        "en": "Target quality level based on Six Sigma; higher sigma reduces rework and hidden costs.",
+        "tr": "Altı Sigma'ya dayalı hedef kalite seviyesi; yüksek sigma, yeniden işleme ve görünmeyen maliyetleri azaltır."
       }
     },
     {
@@ -142,10 +156,12 @@
       "max": null,
       "businessContext": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material).",
       "label_i18n": {
-        "en": "Apply Lean Standardization"
+        "en": "Apply Lean Standardization",
+        "tr": "Yalın Standardizasyonu Uygula"
       },
       "businessContext_i18n": {
-        "en": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material)."
+        "en": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material).",
+        "tr": "Doğruysa, yalın israf azaltma faktörü uygular (örneğin, işçilik ve malzemede %5 azalma)."
       }
     }
   ],

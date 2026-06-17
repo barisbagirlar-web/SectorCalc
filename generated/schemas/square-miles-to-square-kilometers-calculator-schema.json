@@ -10,11 +10,15 @@
       "businessContext": "Area in square miles to convert.",
       "label_i18n": {
         "en": "Square Miles",
-        "tr": "Square Miles",
+        "tr": "Mil Kare",
         "de": "Square Miles",
         "fr": "Square Miles",
         "es": "Square Miles",
         "ar": "Square Miles"
+      },
+      "businessContext_i18n": {
+        "en": "Area in square miles to convert.",
+        "tr": "Dönüştürülecek mil kare cinsinden alan."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Override standard conversion factor if needed (international definition: 1 mile = 1.609344 km, so 1 sq mi = (1.609344)^2 = 2.589988110336 km²).",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Override standard conversion factor if needed (international definition: 1 mile = 1.609344 km, so 1 sq mi = (1.609344)^2 = 2.589988110336 km²).",
+        "tr": "Gerekirse standart dönüşüm faktörünü geçersiz kılın (uluslararası tanım: 1 mil = 1.609344 km, yani 1 sq mi = (1.609344)^2 = 2.589988110336 km²)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places for the output (0-10).",
       "label_i18n": {
         "en": "Decimal Places",
-        "tr": "Decimal Places",
+        "tr": "Ondalık Basamak",
         "de": "Decimal Places",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the output (0-10).",
+        "tr": "Çıktı için ondalık basamak sayısı (0-10)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiplier for areas in terms of scaling (e.g., if input is in thousands of sq mi, use 1000).",
       "label_i18n": {
         "en": "Scaling Factor",
-        "tr": "Scaling Factor",
+        "tr": "Ölçekleme Faktörü",
         "de": "Scaling Factor",
         "fr": "Scaling Factor",
         "es": "Scaling Factor",
         "ar": "Scaling Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for areas in terms of scaling (e.g., if input is in thousands of sq mi, use 1000).",
+        "tr": "Alanlar için ölçekleme çarpanı (örneğin, girdi binlerce sq mi ise 1000 kullanın)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additive constant to account for systematic measurement bias (e.g., survey calibration offset).",
       "label_i18n": {
         "en": "Calibration Constant",
-        "tr": "Calibration Constant",
+        "tr": "Kalibrasyon Sabiti",
         "de": "Calibration Constant",
         "fr": "Calibration Constant",
         "es": "Calibration Constant",
         "ar": "Calibration Constant"
+      },
+      "businessContext_i18n": {
+        "en": "Additive constant to account for systematic measurement bias (e.g., survey calibration offset).",
+        "tr": "Sistematik ölçüm yanlılığını hesaba katmak için eklenen sabit (örneğin, anket kalibrasyon ofseti)."
       }
     }
   ],

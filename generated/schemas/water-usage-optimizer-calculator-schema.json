@@ -21,10 +21,12 @@
       "max": 1000000,
       "businessContext": "Total volume of water entering the facility from all sources (municipal, well, recycled).",
       "label_i18n": {
-        "en": "Total Water Input (m³)"
+        "en": "Total Water Input (m³)",
+        "tr": "Toplam Su Girişi (m³)"
       },
       "businessContext_i18n": {
-        "en": "Total volume of water entering the facility from all sources (municipal, well, recycled)."
+        "en": "Total volume of water entering the facility from all sources (municipal, well, recycled).",
+        "tr": "Tesise tüm kaynaklardan (şebeke, kuyu, geri dönüştürülmüş) giren toplam su hacmi."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10000000,
       "businessContext": "Total number of units produced in the reporting period.",
       "label_i18n": {
-        "en": "Production Output (units)"
+        "en": "Production Output (units)",
+        "tr": "Üretim Çıktısı (birim)"
       },
       "businessContext_i18n": {
-        "en": "Total number of units produced in the reporting period."
+        "en": "Total number of units produced in the reporting period.",
+        "tr": "Raporlama döneminde üretilen toplam birim sayısı."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 1000000,
       "businessContext": "Water directly used in manufacturing processes (e.g., cooling, rinsing, chemical mixing).",
       "label_i18n": {
-        "en": "Process Water Used (m³)"
+        "en": "Process Water Used (m³)",
+        "tr": "Proses Suyu Kullanımı (m³)"
       },
       "businessContext_i18n": {
-        "en": "Water directly used in manufacturing processes (e.g., cooling, rinsing, chemical mixing)."
+        "en": "Water directly used in manufacturing processes (e.g., cooling, rinsing, chemical mixing).",
+        "tr": "İmalat proseslerinde doğrudan kullanılan su (ör. soğutma, durulama, kimyasal karıştırma)."
       }
     },
     {
@@ -69,10 +75,12 @@
       "max": 1000000,
       "businessContext": "Water added to cooling towers or closed-loop systems to compensate for evaporation and blowdown.",
       "label_i18n": {
-        "en": "Cooling Water Makeup (m³)"
+        "en": "Cooling Water Makeup (m³)",
+        "tr": "Soğutma Suyu Tamamlama (m³)"
       },
       "businessContext_i18n": {
-        "en": "Water added to cooling towers or closed-loop systems to compensate for evaporation and blowdown."
+        "en": "Water added to cooling towers or closed-loop systems to compensate for evaporation and blowdown.",
+        "tr": "Buharlaşma ve tahliyeyi telafi etmek için soğutma kulelerine veya kapalı devre sistemlere eklenen su."
       }
     },
     {
@@ -85,10 +93,12 @@
       "max": 1000000,
       "businessContext": "Volume of wastewater discharged to sewer or treatment facility.",
       "label_i18n": {
-        "en": "Wastewater Discharge (m³)"
+        "en": "Wastewater Discharge (m³)",
+        "tr": "Atık Su Deşarjı (m³)"
       },
       "businessContext_i18n": {
-        "en": "Volume of wastewater discharged to sewer or treatment facility."
+        "en": "Volume of wastewater discharged to sewer or treatment facility.",
+        "tr": "Kanalizasyona veya arıtma tesisine deşarj edilen atık su hacmi."
       }
     },
     {
@@ -101,10 +111,12 @@
       "max": 1000000,
       "businessContext": "Volume of water treated and reused within the facility.",
       "label_i18n": {
-        "en": "Recycled Water (m³)"
+        "en": "Recycled Water (m³)",
+        "tr": "Geri Dönüştürülmüş Su (m³)"
       },
       "businessContext_i18n": {
-        "en": "Volume of water treated and reused within the facility."
+        "en": "Volume of water treated and reused within the facility.",
+        "tr": "Tesis içinde arıtılıp yeniden kullanılan su hacmi."
       }
     },
     {
@@ -117,10 +129,12 @@
       "max": 1000000,
       "businessContext": "Estimated water lost through leaks in pipes, valves, and fixtures.",
       "label_i18n": {
-        "en": "Leakage Losses (m³)"
+        "en": "Leakage Losses (m³)",
+        "tr": "Sızıntı Kayıpları (m³)"
       },
       "businessContext_i18n": {
-        "en": "Estimated water lost through leaks in pipes, valves, and fixtures."
+        "en": "Estimated water lost through leaks in pipes, valves, and fixtures.",
+        "tr": "Boru, vana ve armatürlerdeki sızıntılardan kaynaklanan tahmini su kaybı."
       }
     },
     {
@@ -141,10 +155,12 @@
       ],
       "businessContext": "Industry classification used for benchmarking and normalization.",
       "label_i18n": {
-        "en": "Industry Type"
+        "en": "Industry Type",
+        "tr": "Sektör Türü"
       },
       "businessContext_i18n": {
-        "en": "Industry classification used for benchmarking and normalization."
+        "en": "Industry classification used for benchmarking and normalization.",
+        "tr": "Kıyaslama ve normalizasyon için kullanılan endüstri sınıflandırması."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Monthly base salary of the employee",
       "label_i18n": {
         "en": "Base Salary",
-        "tr": "Base Salary",
+        "tr": "Temel Maaş",
         "de": "Base Salary",
         "fr": "Base Salary",
         "es": "Base Salary",
         "ar": "Base Salary"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly base salary of the employee",
+        "tr": "Çalışanın aylık temel maaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of months' salary as Chinese New Year bonus (typically 1)",
       "label_i18n": {
         "en": "Bonus Months",
-        "tr": "Bonus Months",
+        "tr": "İkramiye Ayları",
         "de": "Bonus Months",
         "fr": "Bonus Months",
         "es": "Bonus Months",
         "ar": "Bonus Months"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months' salary as Chinese New Year bonus (typically 1)",
+        "tr": "Çin Yeni Yılı ikramiyesi olarak maaş ayı sayısı (genellikle 1)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total years of service for loyalty bonus calculation",
       "label_i18n": {
         "en": "Years of Service",
-        "tr": "Years of Service",
+        "tr": "Hizmet Yılı",
         "de": "Years of Service",
         "fr": "Years of Service",
         "es": "Years of Service",
         "ar": "Years of Service"
+      },
+      "businessContext_i18n": {
+        "en": "Total years of service for loyalty bonus calculation",
+        "tr": "Kıdem ikramiyesi hesaplaması için toplam hizmet yılı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of dependents for family allowance bonus",
       "label_i18n": {
         "en": "Dependents",
-        "tr": "Dependents",
+        "tr": "Bağımlı Kişi Sayısı",
         "de": "Dependents",
         "fr": "Dependents",
         "es": "Dependents",
         "ar": "Dependents"
+      },
+      "businessContext_i18n": {
+        "en": "Number of dependents for family allowance bonus",
+        "tr": "Aile yardımı ikramiyesi için bağımlı kişi sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Overtime hours worked in the bonus period",
       "label_i18n": {
         "en": "Overtime Hours",
-        "tr": "Overtime Hours",
+        "tr": "Fazla Mesai Saatleri",
         "de": "Overtime Hours",
         "fr": "Overtime Hours",
         "es": "Overtime Hours",
         "ar": "Overtime Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Overtime hours worked in the bonus period",
+        "tr": "İkramiye döneminde çalışılan fazla mesai saatleri"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Applicable tax rate as a decimal (e.g., 0.2 for 20%)",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable tax rate as a decimal (e.g., 0.2 for 20%)",
+        "tr": "Ondalık olarak uygulanabilir vergi oranı (ör. %20 için 0.2)"
       }
     }
   ],

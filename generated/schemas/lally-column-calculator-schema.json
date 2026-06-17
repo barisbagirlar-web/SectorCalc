@@ -10,11 +10,15 @@
       "businessContext": "Effective height of the lally column from base to top anchorage (unbraced length).",
       "label_i18n": {
         "en": "Column Height",
-        "tr": "Column Height",
+        "tr": "Kolon Yüksekliği",
         "de": "Column Height",
         "fr": "Column Height",
         "es": "Column Height",
         "ar": "Column Height"
+      },
+      "businessContext_i18n": {
+        "en": "Effective height of the lally column from base to top anchorage (unbraced length).",
+        "tr": "Lally kolonun tabandan üst ankraja kadar etkin yüksekliği (desteklenmeyen uzunluk)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Outer diameter of the steel pipe column.",
       "label_i18n": {
         "en": "Outer Diameter",
-        "tr": "Outer Diameter",
+        "tr": "Dış Çap",
         "de": "Outer Diameter",
         "fr": "Outer Diameter",
         "es": "Outer Diameter",
         "ar": "Outer Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Outer diameter of the steel pipe column.",
+        "tr": "Çelik boru kolonun dış çapı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Thickness of the steel pipe wall.",
       "label_i18n": {
         "en": "Wall Thickness",
-        "tr": "Wall Thickness",
+        "tr": "Duvar Kalınlığı (cm)",
         "de": "Wall Thickness",
         "fr": "Wall Thickness",
         "es": "Wall Thickness",
         "ar": "Wall Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the steel pipe wall.",
+        "tr": "Çelik boru et kalınlığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Minimum guaranteed yield stress of the steel material.",
       "label_i18n": {
         "en": "Steel Yield Strength",
-        "tr": "Steel Yield Strength",
+        "tr": "Çelik Akma Dayanımı",
         "de": "Steel Yield Strength",
         "fr": "Steel Yield Strength",
         "es": "Steel Yield Strength",
         "ar": "Steel Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum guaranteed yield stress of the steel material.",
+        "tr": "Çelik malzemenin minimum garanti edilen akma gerilmesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Buckling length coefficient depending on end conditions (1.0 for pinned-pinned, 0.5 for fixed-fixed, 2.0 for fixed-free).",
       "label_i18n": {
         "en": "Effective Length Factor K",
-        "tr": "Effective Length Factor K",
+        "tr": "Etkin Uzunluk Faktörü K",
         "de": "Effective Length Factor K",
         "fr": "Effective Length Factor K",
         "es": "Effective Length Factor K",
         "ar": "Effective Length Factor K"
+      },
+      "businessContext_i18n": {
+        "en": "Buckling length coefficient depending on end conditions (1.0 for pinned-pinned, 0.5 for fixed-fixed, 2.0 for fixed-free).",
+        "tr": "Uç koşullarına bağlı burkulma uzunluğu katsayısı (1.0 mafsallı-mafsallı, 0.5 ankastre-ankastre, 2.0 ankastre-serbest)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Design safety factor to ensure TÜV-compliant structural reliability.",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design safety factor to ensure TÜV-compliant structural reliability.",
+        "tr": "TÜV uyumlu yapısal güvenilirlik için tasarım güvenlik faktörü."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Modulus of elasticity of the steel (typically 200,000 MPa for structural steel).",
       "label_i18n": {
         "en": "Young's Modulus",
-        "tr": "Young's Modulus",
+        "tr": "Elastisite Modülü",
         "de": "Young's Modulus",
         "fr": "Young's Modulus",
         "es": "Young's Modulus",
         "ar": "Young's Modulus"
+      },
+      "businessContext_i18n": {
+        "en": "Modulus of elasticity of the steel (typically 200,000 MPa for structural steel).",
+        "tr": "Çeliğin elastisite modülü (yapısal çelik için tipik olarak 200.000 MPa)."
       }
     }
   ],

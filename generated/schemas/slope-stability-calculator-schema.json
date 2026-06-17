@@ -10,11 +10,15 @@
       "businessContext": "Angle of the slope face measured from horizontal",
       "label_i18n": {
         "en": "Slope Angle (θ)",
-        "tr": "Slope Angle (θ)",
+        "tr": "Eğim Açısı (θ)",
         "de": "Slope Angle (θ)",
         "fr": "Slope Angle (θ)",
         "es": "Slope Angle (θ)",
         "ar": "Slope Angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of the slope face measured from horizontal",
+        "tr": "Yataydan ölçülen şev yüzeyinin açısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Angle of internal friction of soil",
       "label_i18n": {
         "en": "Friction Angle (φ)",
-        "tr": "Friction Angle (φ)",
+        "tr": "Sürtünme Açısı (φ)",
         "de": "Friction Angle (φ)",
         "fr": "Friction Angle (φ)",
         "es": "Friction Angle (φ)",
         "ar": "Friction Angle (φ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle of internal friction of soil",
+        "tr": "Toprak içsel sürtünme açısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cohesive strength of soil",
       "label_i18n": {
         "en": "Cohesion (c)",
-        "tr": "Cohesion (c)",
+        "tr": "Kohezyon (c)",
         "de": "Cohesion (c)",
         "fr": "Cohesion (c)",
         "es": "Cohesion (c)",
         "ar": "Cohesion (c)"
+      },
+      "businessContext_i18n": {
+        "en": "Cohesive strength of soil",
+        "tr": "Zeminin kohezyon dayanımı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total unit weight of soil",
       "label_i18n": {
         "en": "Unit Weight (γ)",
-        "tr": "Unit Weight (γ)",
+        "tr": "Birim Hacim Ağırlık (γ)",
         "de": "Unit Weight (γ)",
         "fr": "Unit Weight (γ)",
         "es": "Unit Weight (γ)",
         "ar": "Unit Weight (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Total unit weight of soil",
+        "tr": "Zeminin toplam birim hacim ağırlığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Vertical depth from slope surface to potential failure plane (assuming parallel to slope)",
       "label_i18n": {
         "en": "Depth to Failure Plane (z)",
-        "tr": "Depth to Failure Plane (z)",
+        "tr": "Kırılma Düzlemi Derinliği (z)",
         "de": "Depth to Failure Plane (z)",
         "fr": "Depth to Failure Plane (z)",
         "es": "Depth to Failure Plane (z)",
         "ar": "Depth to Failure Plane (z)"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical depth from slope surface to potential failure plane (assuming parallel to slope)",
+        "tr": "Şev yüzeyinden potansiyel kırılma düzlemine düşey derinlik (şeve paralel olduğu varsayılır)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Ratio of pore water pressure to overburden stress (0 for dry, 0.25–0.5 for saturated)",
       "label_i18n": {
         "en": "Pore Pressure Ratio (rᵤ)",
-        "tr": "Pore Pressure Ratio (rᵤ)",
+        "tr": "Boşluk Suyu Basıncı Oranı (rᵤ)",
         "de": "Pore Pressure Ratio (rᵤ)",
         "fr": "Pore Pressure Ratio (rᵤ)",
         "es": "Pore Pressure Ratio (rᵤ)",
         "ar": "Pore Pressure Ratio (rᵤ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of pore water pressure to overburden stress (0 for dry, 0.25–0.5 for saturated)",
+        "tr": "Boşluk suyu basıncının örtü yüküne oranı (kuru için 0, doygun için 0.25–0.5)"
       }
     }
   ],

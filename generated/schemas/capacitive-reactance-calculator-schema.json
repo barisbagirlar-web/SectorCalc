@@ -10,11 +10,15 @@
       "businessContext": "Operating frequency of the AC signal",
       "label_i18n": {
         "en": "Frequency",
-        "tr": "Frequency",
+        "tr": "Frekans",
         "de": "Frequency",
         "fr": "Frequency",
         "es": "Frequency",
         "ar": "Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Operating frequency of the AC signal",
+        "tr": "AC sinyalin çalışma frekansı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Rated capacitance at 25°C",
       "label_i18n": {
         "en": "Nominal Capacitance",
-        "tr": "Nominal Capacitance",
+        "tr": "Nominal Kapasitans",
         "de": "Nominal Capacitance",
         "fr": "Nominal Capacitance",
         "es": "Nominal Capacitance",
         "ar": "Nominal Capacitance"
+      },
+      "businessContext_i18n": {
+        "en": "Rated capacitance at 25°C",
+        "tr": "25°C'de anma kapasitansı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Capacitance change per degree Celsius (ppm)",
       "label_i18n": {
         "en": "Temperature Coefficient",
-        "tr": "Temperature Coefficient",
+        "tr": "Sıcaklık Katsayısı",
         "de": "Temperature Coefficient",
         "fr": "Temperature Coefficient",
         "es": "Temperature Coefficient",
         "ar": "Temperature Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Capacitance change per degree Celsius (ppm)",
+        "tr": "Santigrat derece başına kapasitans değişimi (ppm)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Operating temperature",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ambient Temperature",
+        "tr": "Ortam Sıcaklığı",
         "de": "Ambient Temperature",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Operating temperature",
+        "tr": "Çalışma sıcaklığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "ESR of the capacitor",
       "label_i18n": {
         "en": "Equivalent Series Resistance",
-        "tr": "Equivalent Series Resistance",
+        "tr": "Eşdeğer Seri Direnç",
         "de": "Equivalent Series Resistance",
         "fr": "Equivalent Series Resistance",
         "es": "Equivalent Series Resistance",
         "ar": "Equivalent Series Resistance"
+      },
+      "businessContext_i18n": {
+        "en": "ESR of the capacitor",
+        "tr": "Kapasitörün ESR'si"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Design margin multiplier for reactance",
       "label_i18n": {
         "en": "Safety Factor",
-        "tr": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
         "de": "Safety Factor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Design margin multiplier for reactance",
+        "tr": "Reaktans için tasarım marjı çarpanı"
       }
     }
   ],

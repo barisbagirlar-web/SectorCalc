@@ -10,11 +10,15 @@
       "businessContext": "Number of words in the text",
       "label_i18n": {
         "en": "Word Count",
-        "tr": "Word Count",
+        "tr": "Kelime Sayısı",
         "de": "Word Count",
         "fr": "Word Count",
         "es": "Word Count",
         "ar": "Word Count"
+      },
+      "businessContext_i18n": {
+        "en": "Number of words in the text",
+        "tr": "Metindeki kelime sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average number of characters per word",
       "label_i18n": {
         "en": "Avg. Characters per Word",
-        "tr": "Avg. Characters per Word",
+        "tr": "Kelime Başına Ortalama Karakter",
         "de": "Avg. Characters per Word",
         "fr": "Avg. Characters per Word",
         "es": "Avg. Characters per Word",
         "ar": "Avg. Characters per Word"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of characters per word",
+        "tr": "Kelime başına ortalama karakter sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of punctuation marks",
       "label_i18n": {
         "en": "Punctuation Marks",
-        "tr": "Punctuation Marks",
+        "tr": "Noktalama İşaretleri",
         "de": "Punctuation Marks",
         "fr": "Punctuation Marks",
         "es": "Punctuation Marks",
         "ar": "Punctuation Marks"
+      },
+      "businessContext_i18n": {
+        "en": "Number of punctuation marks",
+        "tr": "Noktalama işareti sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of spaces",
       "label_i18n": {
         "en": "Spaces",
-        "tr": "Spaces",
+        "tr": "Boşluklar",
         "de": "Spaces",
         "fr": "Spaces",
         "es": "Spaces",
         "ar": "Spaces"
+      },
+      "businessContext_i18n": {
+        "en": "Number of spaces",
+        "tr": "Boşluk sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Any additional characters not accounted for",
       "label_i18n": {
         "en": "Extra Characters",
-        "tr": "Extra Characters",
+        "tr": "Ekstra Karakterler",
         "de": "Extra Characters",
         "fr": "Extra Characters",
         "es": "Extra Characters",
         "ar": "Extra Characters"
+      },
+      "businessContext_i18n": {
+        "en": "Any additional characters not accounted for",
+        "tr": "Hesaba katılmayan ek karakterler"
       }
     }
   ],

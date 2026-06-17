@@ -10,11 +10,15 @@
       "businessContext": "Total amount initially invested in the stock.",
       "label_i18n": {
         "en": "Initial Investment (USD)",
-        "tr": "Initial Investment (USD)",
+        "tr": "Başlangıç Yatırımı (USD)",
         "de": "Initial Investment (USD)",
         "fr": "Initial Investment (USD)",
         "es": "Initial Investment (USD)",
         "ar": "Initial Investment (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total amount initially invested in the stock.",
+        "tr": "Hisse senedine başlangıçta yatırılan toplam tutar."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual dividend yield as a percentage of stock price.",
       "label_i18n": {
         "en": "Annual Dividend Yield (%)",
-        "tr": "Annual Dividend Yield (%)",
+        "tr": "Yıllık Temettü Verimi (%)",
         "de": "Annual Dividend Yield (%)",
         "fr": "Annual Dividend Yield (%)",
         "es": "Annual Dividend Yield (%)",
         "ar": "Annual Dividend Yield (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual dividend yield as a percentage of stock price.",
+        "tr": "Hisse senedi fiyatının yüzdesi olarak yıllık temettü verimi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Expected annual growth rate of dividends.",
       "label_i18n": {
         "en": "Dividend Growth Rate (%)",
-        "tr": "Dividend Growth Rate (%)",
+        "tr": "Temettü Büyüme Oranı (%)",
         "de": "Dividend Growth Rate (%)",
         "fr": "Dividend Growth Rate (%)",
         "es": "Dividend Growth Rate (%)",
         "ar": "Dividend Growth Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual growth rate of dividends.",
+        "tr": "Temettülerin beklenen yıllık büyüme oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected annual growth rate of stock price.",
       "label_i18n": {
         "en": "Stock Price Growth Rate (%)",
-        "tr": "Stock Price Growth Rate (%)",
+        "tr": "Hisse Senedi Fiyatı Büyüme Oranı (%)",
         "de": "Stock Price Growth Rate (%)",
         "fr": "Stock Price Growth Rate (%)",
         "es": "Stock Price Growth Rate (%)",
         "ar": "Stock Price Growth Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual growth rate of stock price.",
+        "tr": "Hisse senedi fiyatının beklenen yıllık büyüme oranı."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Number of years the investment is held.",
       "label_i18n": {
         "en": "Investment Period (Years)",
-        "tr": "Investment Period (Years)",
+        "tr": "Yatırım Süresi (Yıl)",
         "de": "Investment Period (Years)",
         "fr": "Investment Period (Years)",
         "es": "Investment Period (Years)",
         "ar": "Investment Period (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the investment is held.",
+        "tr": "Yatırımın elde tutulduğu yıl sayısı."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Tax rate applied to dividends.",
       "label_i18n": {
         "en": "Dividend Tax Rate (%)",
-        "tr": "Dividend Tax Rate (%)",
+        "tr": "Temettü Vergi Oranı (%)",
         "de": "Dividend Tax Rate (%)",
         "fr": "Dividend Tax Rate (%)",
         "es": "Dividend Tax Rate (%)",
         "ar": "Dividend Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate applied to dividends.",
+        "tr": "Temettülere uygulanan vergi oranı."
       }
     }
   ],

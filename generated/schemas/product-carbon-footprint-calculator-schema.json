@@ -10,11 +10,15 @@
       "businessContext": "Carbon footprint from raw material extraction and processing",
       "label_i18n": {
         "en": "Raw Material Footprint",
-        "tr": "Raw Material Footprint",
+        "tr": "Hammadde Ayak İzi",
         "de": "Raw Material Footprint",
         "fr": "Raw Material Footprint",
         "es": "Raw Material Footprint",
         "ar": "Raw Material Footprint"
+      },
+      "businessContext_i18n": {
+        "en": "Carbon footprint from raw material extraction and processing",
+        "tr": "Hammadde çıkarma ve işlemeden kaynaklanan karbon ayak izi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Emissions from manufacturing process energy and waste",
       "label_i18n": {
         "en": "Manufacturing Footprint",
-        "tr": "Manufacturing Footprint",
+        "tr": "Üretim Ayak İzi",
         "de": "Manufacturing Footprint",
         "fr": "Manufacturing Footprint",
         "es": "Manufacturing Footprint",
         "ar": "Manufacturing Footprint"
+      },
+      "businessContext_i18n": {
+        "en": "Emissions from manufacturing process energy and waste",
+        "tr": "Üretim süreci enerjisi ve atıklarından kaynaklanan emisyonlar"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total distance transported over product lifecycle",
       "label_i18n": {
         "en": "Transport Distance",
-        "tr": "Transport Distance",
+        "tr": "Nakliye Mesafesi",
         "de": "Transport Distance",
         "fr": "Transport Distance",
         "es": "Transport Distance",
         "ar": "Transport Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance transported over product lifecycle",
+        "tr": "Ürün yaşam döngüsü boyunca taşınan toplam mesafe"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Emission factor per kilometer for transport mode",
       "label_i18n": {
         "en": "Transport Emission Factor",
-        "tr": "Transport Emission Factor",
+        "tr": "Taşıma Emisyon Faktörü",
         "de": "Transport Emission Factor",
         "fr": "Transport Emission Factor",
         "es": "Transport Emission Factor",
         "ar": "Transport Emission Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Emission factor per kilometer for transport mode",
+        "tr": "Taşıma modu için kilometre başına emisyon faktörü"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Energy consumed during product use phase",
       "label_i18n": {
         "en": "Use Phase Energy",
-        "tr": "Use Phase Energy",
+        "tr": "Kullanım Aşaması Enerjisi",
         "de": "Use Phase Energy",
         "fr": "Use Phase Energy",
         "es": "Use Phase Energy",
         "ar": "Use Phase Energy"
+      },
+      "businessContext_i18n": {
+        "en": "Energy consumed during product use phase",
+        "tr": "Ürün kullanım aşamasında tüketilen enerji"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Grid emission factor for use phase electricity",
       "label_i18n": {
         "en": "Use Phase Emission Factor",
-        "tr": "Use Phase Emission Factor",
+        "tr": "Kullanım Aşaması Emisyon Faktörü",
         "de": "Use Phase Emission Factor",
         "fr": "Use Phase Emission Factor",
         "es": "Use Phase Emission Factor",
         "ar": "Use Phase Emission Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Grid emission factor for use phase electricity",
+        "tr": "Kullanım aşaması elektriği için şebeke emisyon faktörü"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Emissions from disposal, recycling, or incineration",
       "label_i18n": {
         "en": "End-of-Life Footprint",
-        "tr": "End-of-Life Footprint",
+        "tr": "Kullanım Ömrü Sonu Ayak İzi",
         "de": "End-of-Life Footprint",
         "fr": "End-of-Life Footprint",
         "es": "End-of-Life Footprint",
         "ar": "End-of-Life Footprint"
+      },
+      "businessContext_i18n": {
+        "en": "Emissions from disposal, recycling, or incineration",
+        "tr": "Bertaraf, geri dönüşüm veya yakmadan kaynaklanan emisyonlar"
       }
     }
   ],

@@ -15,6 +15,10 @@
         "fr": "Yüzey Alanı",
         "es": "Yüzey Alanı",
         "ar": "Yüzey Alanı"
+      },
+      "businessContext_i18n": {
+        "en": "Stain-affected area in square meters.",
+        "tr": "Lekeden etkilenen alan (metrekare)."
       }
     },
     {
@@ -31,6 +35,10 @@
         "fr": "Leke Yoğunluğu",
         "es": "Leke Yoğunluğu",
         "ar": "Leke Yoğunluğu"
+      },
+      "businessContext_i18n": {
+        "en": "Stain intensity percentage (0-100). A higher value indicates a more concentrated stain.",
+        "tr": "Leke yoğunluğu yüzdesi (0-100). Daha yüksek değer daha konsantre lekeyi gösterir."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Kaplama Oranı",
         "es": "Kaplama Oranı",
         "ar": "Kaplama Oranı"
+      },
+      "businessContext_i18n": {
+        "en": "Surface area that 1 liter of cleaning solution can cover under ideal conditions.",
+        "tr": "1 litre temizlik solüsyonunun ideal koşullarda kaplayabileceği yüzey alanı."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "Temizlik Verimliliği",
         "es": "Temizlik Verimliliği",
         "ar": "Temizlik Verimliliği"
+      },
+      "businessContext_i18n": {
+        "en": "Real-world cleaning efficiency, accounting for losses like overspray or absorption.",
+        "tr": "Püskürtme kaybı veya emilim gibi kayıpları hesaba katan gerçek dünya temizlik verimliliği."
       }
     },
     {
@@ -79,6 +95,10 @@
         "fr": "Uygulama Katmanı",
         "es": "Uygulama Katmanı",
         "ar": "Uygulama Katmanı"
+      },
+      "businessContext_i18n": {
+        "en": "Number of application coats required to remove the stain completely.",
+        "tr": "Lekeyi tamamen çıkarmak için gereken uygulama katmanı sayısı."
       }
     }
   ],

@@ -15,6 +15,10 @@
         "fr": "True Value",
         "es": "True Value",
         "ar": "True Value"
+      },
+      "businessContext_i18n": {
+        "en": "Reference or standard value for comparison.",
+        "tr": "Karşılaştırma için referans veya standart değer."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Value obtained from the measurement.",
       "label_i18n": {
         "en": "Measured Value",
-        "tr": "Measured Value",
+        "tr": "Ölçülen Değer",
         "de": "Measured Value",
         "fr": "Measured Value",
         "es": "Measured Value",
         "ar": "Measured Value"
+      },
+      "businessContext_i18n": {
+        "en": "Value obtained from the measurement.",
+        "tr": "Ölçümden elde edilen değer."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "Full Scale",
         "es": "Full Scale",
         "ar": "Full Scale"
+      },
+      "businessContext_i18n": {
+        "en": "Full scale range of the instrument.",
+        "tr": "Cihazın tam ölçek aralığı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Maximum permissible absolute error for pass/fail.",
       "label_i18n": {
         "en": "Tolerance Limit",
-        "tr": "Tolerance Limit",
+        "tr": "Tolerans Limiti",
         "de": "Tolerance Limit",
         "fr": "Tolerance Limit",
         "es": "Tolerance Limit",
         "ar": "Tolerance Limit"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum permissible absolute error for pass/fail.",
+        "tr": "Geçer/kalır için izin verilen maksimum mutlak hata."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Known systematic error to correct the measured value.",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Known systematic error to correct the measured value.",
+        "tr": "Ölçülen değeri düzeltmek için bilinen sistematik hata."
       }
     }
   ],

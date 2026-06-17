@@ -15,6 +15,10 @@
         "fr": "Feet",
         "es": "Feet",
         "ar": "Feet"
+      },
+      "businessContext_i18n": {
+        "en": "Whole feet value",
+        "tr": "Tam feet değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Additional whole inches",
       "label_i18n": {
         "en": "Inches",
-        "tr": "Inches",
+        "tr": "İnç",
         "de": "Inches",
         "fr": "Inches",
         "es": "Inches",
         "ar": "Inches"
+      },
+      "businessContext_i18n": {
+        "en": "Additional whole inches",
+        "tr": "Ekstra tam inç"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Numerator for fractional inch (e.g., 1 for 1/2)",
       "label_i18n": {
         "en": "Fractional Inch Numerator",
-        "tr": "Fractional Inch Numerator",
+        "tr": "Kesirli İnç Payı",
         "de": "Fractional Inch Numerator",
         "fr": "Fractional Inch Numerator",
         "es": "Fractional Inch Numerator",
         "ar": "Fractional Inch Numerator"
+      },
+      "businessContext_i18n": {
+        "en": "Numerator for fractional inch (e.g., 1 for 1/2)",
+        "tr": "Kesirli inç için pay (ör. 1/2 için 1)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Denominator for fractional inch (e.g., 2 for 1/2)",
       "label_i18n": {
         "en": "Fractional Inch Denominator",
-        "tr": "Fractional Inch Denominator",
+        "tr": "Kesirli İnç Paydası",
         "de": "Fractional Inch Denominator",
         "fr": "Fractional Inch Denominator",
         "es": "Fractional Inch Denominator",
         "ar": "Fractional Inch Denominator"
+      },
+      "businessContext_i18n": {
+        "en": "Denominator for fractional inch (e.g., 2 for 1/2)",
+        "tr": "Kesirli inç için payda (ör. 1/2 için 2)"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Patient's age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient's age in years",
+        "tr": "Hastanın yaşı (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Body Mass Index",
       "label_i18n": {
         "en": "BMI",
-        "tr": "BMI",
+        "tr": "VKİ",
         "de": "BMI",
         "fr": "BMI",
         "es": "BMI",
         "ar": "BMI"
+      },
+      "businessContext_i18n": {
+        "en": "Body Mass Index",
+        "tr": "Vücut Kitle İndeksi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Waist measurement in centimeters",
       "label_i18n": {
         "en": "Waist Circumference",
-        "tr": "Waist Circumference",
+        "tr": "Bel Çevresi",
         "de": "Waist Circumference",
         "fr": "Waist Circumference",
         "es": "Waist Circumference",
         "ar": "Waist Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Waist measurement in centimeters",
+        "tr": "Bel ölçümü (cm)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fasting blood glucose level",
       "label_i18n": {
         "en": "Fasting Glucose",
-        "tr": "Fasting Glucose",
+        "tr": "Açlık Glukozu",
         "de": "Fasting Glucose",
         "fr": "Fasting Glucose",
         "es": "Fasting Glucose",
         "ar": "Fasting Glucose"
+      },
+      "businessContext_i18n": {
+        "en": "Fasting blood glucose level",
+        "tr": "Açlık kan şekeri seviyesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "High-density lipoprotein cholesterol",
       "label_i18n": {
         "en": "HDL Cholesterol",
-        "tr": "HDL Cholesterol",
+        "tr": "HDL Kolesterol",
         "de": "HDL Cholesterol",
         "fr": "HDL Cholesterol",
         "es": "HDL Cholesterol",
         "ar": "HDL Cholesterol"
+      },
+      "businessContext_i18n": {
+        "en": "High-density lipoprotein cholesterol",
+        "tr": "Yüksek yoğunluklu lipoprotein kolesterol"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Systolic blood pressure",
       "label_i18n": {
         "en": "Systolic BP",
-        "tr": "Systolic BP",
+        "tr": "Sistolik Kan Basıncı",
         "de": "Systolic BP",
         "fr": "Systolic BP",
         "es": "Systolic BP",
         "ar": "Systolic BP"
+      },
+      "businessContext_i18n": {
+        "en": "Systolic blood pressure",
+        "tr": "Sistolik kan basıncı"
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Refractive index of the lens material (dimensionless, typically 1.3-2.0).",
       "label_i18n": {
         "en": "Refractive Index",
-        "tr": "Refractive Index",
+        "tr": "Kırılma İndisi",
         "de": "Refractive Index",
         "fr": "Refractive Index",
         "es": "Refractive Index",
         "ar": "Refractive Index"
+      },
+      "businessContext_i18n": {
+        "en": "Refractive index of the lens material (dimensionless, typically 1.3-2.0).",
+        "tr": "Mercek malzemesinin kırılma indisi (boyutsuz, tipik olarak 1,3-2,0)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Radius of curvature of the first lens surface. Positive for convex, negative for concave.",
       "label_i18n": {
         "en": "Radius R1",
-        "tr": "Radius R1",
+        "tr": "Yarıçap R1",
         "de": "Radius R1",
         "fr": "Radius R1",
         "es": "Radius R1",
         "ar": "Radius R1"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of curvature of the first lens surface. Positive for convex, negative for concave.",
+        "tr": "İlk lens yüzeyinin eğrilik yarıçapı. Dışbükey için pozitif, içbükey için negatif."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Radius of curvature of the second lens surface. Positive for convex, negative for concave.",
       "label_i18n": {
         "en": "Radius R2",
-        "tr": "Radius R2",
+        "tr": "Yarıçap R2",
         "de": "Radius R2",
         "fr": "Radius R2",
         "es": "Radius R2",
         "ar": "Radius R2"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of curvature of the second lens surface. Positive for convex, negative for concave.",
+        "tr": "İkinci lens yüzeyinin eğrilik yarıçapı. Dışbükey için pozitif, içbükey için negatif."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Center thickness of the lens along the optical axis.",
       "label_i18n": {
         "en": "Center Thickness",
-        "tr": "Center Thickness",
+        "tr": "Merkez Kalınlığı",
         "de": "Center Thickness",
         "fr": "Center Thickness",
         "es": "Center Thickness",
         "ar": "Center Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Center thickness of the lens along the optical axis.",
+        "tr": "Lensin optik eksen boyunca merkez kalınlığı."
       }
     }
   ],

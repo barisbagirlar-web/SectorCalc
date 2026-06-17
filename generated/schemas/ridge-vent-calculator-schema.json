@@ -10,11 +10,15 @@
       "businessContext": "Total floor area of the attic space in square feet.",
       "label_i18n": {
         "en": "Attic Floor Area",
-        "tr": "Attic Floor Area",
+        "tr": "Çatı Katı Alanı",
         "de": "Attic Floor Area",
         "fr": "Attic Floor Area",
         "es": "Attic Floor Area",
         "ar": "Attic Floor Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total floor area of the attic space in square feet.",
+        "tr": "Çatı katı alanının toplam taban alanı (ft² cinsinden)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Required total net free area expressed as 1 square foot per X square feet of attic area. Common values: 150 for standard construction, 300 with certain vapor barriers.",
       "label_i18n": {
         "en": "Ventilation Ratio (1:X)",
-        "tr": "Ventilation Ratio (1:X)",
+        "tr": "Havalandırma Oranı (1:X)",
         "de": "Ventilation Ratio (1:X)",
         "fr": "Ventilation Ratio (1:X)",
         "es": "Ventilation Ratio (1:X)",
         "ar": "Ventilation Ratio (1:X)"
+      },
+      "businessContext_i18n": {
+        "en": "Required total net free area expressed as 1 square foot per X square feet of attic area. Common values: 150 for standard construction, 300 with certain vapor barriers.",
+        "tr": "Gerekli toplam net serbest alan, çatı katı alanının her X ft²'si için 1 ft² olarak ifade edilir. Yaygın değerler: standart yapı için 150, belirli buhar bariyerleri ile 300."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Net free area rating of the ridge vent product, in square inches per linear foot.",
       "label_i18n": {
         "en": "Ridge Vent NFA per Foot",
-        "tr": "Ridge Vent NFA per Foot",
+        "tr": "Mahya Havalandırması NFA/ft",
         "de": "Ridge Vent NFA per Foot",
         "fr": "Ridge Vent NFA per Foot",
         "es": "Ridge Vent NFA per Foot",
         "ar": "Ridge Vent NFA per Foot"
+      },
+      "businessContext_i18n": {
+        "en": "Net free area rating of the ridge vent product, in square inches per linear foot.",
+        "tr": "Mahya havalandırma ürününün net serbest alan değeri (in²/lineer ft cinsinden)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fraction of total ventilation area that should be provided by ridge exhaust. Typically 0.5 for balanced intake/exhaust.",
       "label_i18n": {
         "en": "Exhaust Split Factor",
-        "tr": "Exhaust Split Factor",
+        "tr": "Egzoz Bölme Faktörü",
         "de": "Exhaust Split Factor",
         "fr": "Exhaust Split Factor",
         "es": "Exhaust Split Factor",
         "ar": "Exhaust Split Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of total ventilation area that should be provided by ridge exhaust. Typically 0.5 for balanced intake/exhaust.",
+        "tr": "Mahya egzozu tarafından sağlanması gereken toplam havalandırma alanının oranı. Dengeli giriş/egzoz için tipik olarak 0,5."
       }
     }
   ],

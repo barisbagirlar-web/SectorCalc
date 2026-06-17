@@ -10,11 +10,15 @@
       "businessContext": "Patient age for risk assessment",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age for risk assessment",
+        "tr": "Risk değerlendirmesi için hasta yaşı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured from original hairline",
       "label_i18n": {
         "en": "Frontal Recession",
-        "tr": "Frontal Recession",
+        "tr": "Frontal Çekilme",
         "de": "Frontal Recession",
         "fr": "Frontal Recession",
         "es": "Frontal Recession",
         "ar": "Frontal Recession"
+      },
+      "businessContext_i18n": {
+        "en": "Measured from original hairline",
+        "tr": "Orijinal saç çizgisinden ölçülür"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of visible scalp on crown",
       "label_i18n": {
         "en": "Vertex Thinning",
-        "tr": "Vertex Thinning",
+        "tr": "Vertex İncelmesi",
         "de": "Vertex Thinning",
         "fr": "Vertex Thinning",
         "es": "Vertex Thinning",
         "ar": "Vertex Thinning"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of visible scalp on crown",
+        "tr": "Tepede görünür saç derisi yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage thinning at temples",
       "label_i18n": {
         "en": "Temporal Thinning",
-        "tr": "Temporal Thinning",
+        "tr": "Temporal İncelme",
         "de": "Temporal Thinning",
         "fr": "Temporal Thinning",
         "es": "Temporal Thinning",
         "ar": "Temporal Thinning"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage thinning at temples",
+        "tr": "Şakaklarda incelme yüzdesi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "0=none, 1=mild, 2=moderate, 3=strong",
       "label_i18n": {
         "en": "Family History Score",
-        "tr": "Family History Score",
+        "tr": "Aile Öyküsü Skoru",
         "de": "Family History Score",
         "fr": "Family History Score",
         "es": "Family History Score",
         "ar": "Family History Score"
+      },
+      "businessContext_i18n": {
+        "en": "0=none, 1=mild, 2=moderate, 3=strong",
+        "tr": "0=yok, 1=hafif, 2=orta, 3=güçlü"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Years since onset",
       "label_i18n": {
         "en": "Duration of Hair Loss",
-        "tr": "Duration of Hair Loss",
+        "tr": "Saç Dökülmesi Süresi",
         "de": "Duration of Hair Loss",
         "fr": "Duration of Hair Loss",
         "es": "Duration of Hair Loss",
         "ar": "Duration of Hair Loss"
+      },
+      "businessContext_i18n": {
+        "en": "Years since onset",
+        "tr": "Başlangıçtan bu yana geçen yıl"
       }
     }
   ],

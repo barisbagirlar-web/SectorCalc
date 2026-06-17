@@ -13,7 +13,7 @@ import {
   getOrCreateFeedbackSessionId,
   submitToolFeedback,
 } from "@/lib/feedback/feedback-service";
-import { resolveFreeToolFieldDisplay } from "@/lib/i18n/free-tool-form-i18n";
+import { resolveGeneratedFieldDisplay } from "@/lib/i18n/generated-field-display";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { BreakdownWasteDetailModal } from "@/components/tools/BreakdownWasteDetailModal";
 import { EnhancedBreakdownChart } from "@/components/tools/EnhancedBreakdownChart";
@@ -204,11 +204,7 @@ export function DynamicToolForm({
   const inputLabels = useMemo(() => {
     const labels: Record<string, string> = {};
     for (const input of schema.inputs) {
-      labels[input.id] = resolveFreeToolFieldDisplay(slug, input.id, locale, {
-        label: input.label,
-        placeholder: input.businessContext || input.label,
-        helper: input.businessContext,
-      }).label;
+      labels[input.id] = resolveGeneratedFieldDisplay(slug, input, locale).label;
     }
     return labels;
   }, [locale, schema.inputs, slug]);
@@ -221,22 +217,13 @@ export function DynamicToolForm({
   const breakdownFormValues = breakdownInputs ?? formValues;
 
   const resolveInputLabel = useCallback(
-    (input: GeneratedToolInput) =>
-      resolveFreeToolFieldDisplay(slug, input.id, locale, {
-        label: input.label,
-        placeholder: input.businessContext || input.label,
-        helper: input.businessContext,
-      }).label,
+    (input: GeneratedToolInput) => resolveGeneratedFieldDisplay(slug, input, locale).label,
     [locale, slug],
   );
 
   const resolveBusinessContext = useCallback(
     (input: GeneratedToolInput) =>
-      resolveFreeToolFieldDisplay(slug, input.id, locale, {
-        label: input.label,
-        placeholder: input.businessContext || input.label,
-        helper: input.businessContext,
-      }).helper ?? input.businessContext,
+      resolveGeneratedFieldDisplay(slug, input, locale).helper ?? input.businessContext,
     [locale, slug],
   );
 

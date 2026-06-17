@@ -30,10 +30,12 @@
       "max": 10000000,
       "businessContext": "Total upfront cost to acquire the asset if buying.",
       "label_i18n": {
-        "en": "Equipment Purchase Price"
+        "en": "Equipment Purchase Price",
+        "tr": "Ekipman Satın Alma Fiyatı"
       },
       "businessContext_i18n": {
-        "en": "Total upfront cost to acquire the asset if buying."
+        "en": "Total upfront cost to acquire the asset if buying.",
+        "tr": "Satın alma durumunda varlığı edinmek için toplam peşin maliyet."
       }
     },
     {
@@ -46,10 +48,12 @@
       "max": 120,
       "businessContext": "Duration of the lease agreement in months.",
       "label_i18n": {
-        "en": "Lease Term"
+        "en": "Lease Term",
+        "tr": "Kira Süresi"
       },
       "businessContext_i18n": {
-        "en": "Duration of the lease agreement in months."
+        "en": "Duration of the lease agreement in months.",
+        "tr": "Kira sözleşmesinin ay cinsinden süresi."
       }
     },
     {
@@ -62,10 +66,12 @@
       "max": 500000,
       "businessContext": "Fixed monthly payment under the lease contract.",
       "label_i18n": {
-        "en": "Monthly Lease Payment"
+        "en": "Monthly Lease Payment",
+        "tr": "Aylık Kira Ödemesi"
       },
       "businessContext_i18n": {
-        "en": "Fixed monthly payment under the lease contract."
+        "en": "Fixed monthly payment under the lease contract.",
+        "tr": "Kira sözleşmesi kapsamında sabit aylık ödeme."
       }
     },
     {
@@ -78,10 +84,12 @@
       "max": 5000000,
       "businessContext": "Estimated market value of the equipment at lease end (if buying, this is salvage value).",
       "label_i18n": {
-        "en": "Residual Value at End of Lease"
+        "en": "Residual Value at End of Lease",
+        "tr": "Kira Sonu Kalıntı Değer"
       },
       "businessContext_i18n": {
-        "en": "Estimated market value of the equipment at lease end (if buying, this is salvage value)."
+        "en": "Estimated market value of the equipment at lease end (if buying, this is salvage value).",
+        "tr": "Kira sonunda ekipmanın tahmini piyasa değeri (satın alınıyorsa hurda değeri)."
       }
     },
     {
@@ -94,10 +102,12 @@
       "max": 500000,
       "businessContext": "Expected yearly maintenance expense when owning the equipment.",
       "label_i18n": {
-        "en": "Annual Maintenance Cost (Buy)"
+        "en": "Annual Maintenance Cost (Buy)",
+        "tr": "Yıllık Bakım Maliyeti (Satın Alma)"
       },
       "businessContext_i18n": {
-        "en": "Expected yearly maintenance expense when owning the equipment."
+        "en": "Expected yearly maintenance expense when owning the equipment.",
+        "tr": "Ekipmana sahip olunduğunda beklenen yıllık bakım gideri."
       }
     },
     {
@@ -108,10 +118,12 @@
       "default": true,
       "businessContext": "Indicates whether the lease contract covers routine maintenance.",
       "label_i18n": {
-        "en": "Maintenance Included in Lease?"
+        "en": "Maintenance Included in Lease?",
+        "tr": "Bakım Kira Kapsamında mı?"
       },
       "businessContext_i18n": {
-        "en": "Indicates whether the lease contract covers routine maintenance."
+        "en": "Indicates whether the lease contract covers routine maintenance.",
+        "tr": "Kira sözleşmesinin rutin bakımı kapsayıp kapsamadığını belirtir."
       }
     },
     {
@@ -124,10 +136,12 @@
       "max": 30,
       "businessContext": "Weighted average cost of capital used to discount future cash flows.",
       "label_i18n": {
-        "en": "Discount Rate (WACC)"
+        "en": "Discount Rate (WACC)",
+        "tr": "İskonto Oranı (AOSM)"
       },
       "businessContext_i18n": {
-        "en": "Weighted average cost of capital used to discount future cash flows."
+        "en": "Weighted average cost of capital used to discount future cash flows.",
+        "tr": "Gelecekteki nakit akışlarını iskonto etmek için kullanılan ağırlıklı ortalama sermaye maliyeti."
       }
     },
     {
@@ -140,10 +154,12 @@
       "max": 100,
       "businessContext": "Percentage of time the equipment is expected to be productive.",
       "label_i18n": {
-        "en": "Expected Utilization Rate"
+        "en": "Expected Utilization Rate",
+        "tr": "Beklenen Kullanım Oranı"
       },
       "businessContext_i18n": {
-        "en": "Percentage of time the equipment is expected to be productive."
+        "en": "Percentage of time the equipment is expected to be productive.",
+        "tr": "Ekipmanın üretken olması beklenen zaman yüzdesi."
       }
     }
   ],

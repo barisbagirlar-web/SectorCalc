@@ -10,11 +10,15 @@
       "businessContext": "Total mass of the vehicle including propellant before burn.",
       "label_i18n": {
         "en": "Initial Mass (m0)",
-        "tr": "Initial Mass (m0)",
+        "tr": "Başlangıç Kütlesi (m0)",
         "de": "Initial Mass (m0)",
         "fr": "Initial Mass (m0)",
         "es": "Initial Mass (m0)",
         "ar": "Initial Mass (m0)"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of the vehicle including propellant before burn.",
+        "tr": "Yanma öncesi aracın yakıt dahil toplam kütlesi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass of the vehicle after propellant is expended.",
       "label_i18n": {
         "en": "Final Mass (mf)",
-        "tr": "Final Mass (mf)",
+        "tr": "Son Kütle (mf)",
         "de": "Final Mass (mf)",
         "fr": "Final Mass (mf)",
         "es": "Final Mass (mf)",
         "ar": "Final Mass (mf)"
+      },
+      "businessContext_i18n": {
+        "en": "Mass of the vehicle after propellant is expended.",
+        "tr": "Yakıt tükendikten sonra aracın kütlesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Measure of engine efficiency, thrust per weight flow rate.",
       "label_i18n": {
         "en": "Specific Impulse (Isp)",
-        "tr": "Specific Impulse (Isp)",
+        "tr": "Özgül İtki (Isp)",
         "de": "Specific Impulse (Isp)",
         "fr": "Specific Impulse (Isp)",
         "es": "Specific Impulse (Isp)",
         "ar": "Specific Impulse (Isp)"
+      },
+      "businessContext_i18n": {
+        "en": "Measure of engine efficiency, thrust per weight flow rate.",
+        "tr": "Motor verimliliğinin ölçüsü, birim ağırlık debisi başına itki."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Acceleration due to gravity at sea level, used to convert specific impulse to exhaust velocity.",
       "label_i18n": {
         "en": "Standard Gravity (g0)",
-        "tr": "Standard Gravity (g0)",
+        "tr": "Standart Yerçekimi (g0)",
         "de": "Standard Gravity (g0)",
         "fr": "Standard Gravity (g0)",
         "es": "Standard Gravity (g0)",
         "ar": "Standard Gravity (g0)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceleration due to gravity at sea level, used to convert specific impulse to exhaust velocity.",
+        "tr": "Deniz seviyesinde yerçekimi ivmesi, özgül itkiyi egzoz hızına dönüştürmek için kullanılır."
       }
     }
   ],

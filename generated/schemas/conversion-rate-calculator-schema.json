@@ -10,11 +10,15 @@
       "businessContext": "Amount of raw material entering the process",
       "label_i18n": {
         "en": "Raw Material Input",
-        "tr": "Raw Material Input",
+        "tr": "Hammadde Girdisi",
         "de": "Raw Material Input",
         "fr": "Raw Material Input",
         "es": "Raw Material Input",
         "ar": "Raw Material Input"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of raw material entering the process",
+        "tr": "Proses giren hammadde miktarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Amount of acceptable finished product output",
       "label_i18n": {
         "en": "Finished Product Output",
-        "tr": "Finished Product Output",
+        "tr": "Bitmiş Ürün Çıktısı",
         "de": "Finished Product Output",
         "fr": "Finished Product Output",
         "es": "Finished Product Output",
         "ar": "Finished Product Output"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of acceptable finished product output",
+        "tr": "Kabul edilebilir bitmiş ürün çıktısı miktarı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Product that needed rework but became acceptable",
       "label_i18n": {
         "en": "Rework Output",
-        "tr": "Rework Output",
+        "tr": "Yeniden İşlem Çıktısı",
         "de": "Rework Output",
         "fr": "Rework Output",
         "es": "Rework Output",
         "ar": "Rework Output"
+      },
+      "businessContext_i18n": {
+        "en": "Product that needed rework but became acceptable",
+        "tr": "Yeniden işlem gerektiren ancak kabul edilebilir hale gelen ürün"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Waste material that cannot be used",
       "label_i18n": {
         "en": "Scrap",
-        "tr": "Scrap",
+        "tr": "Fire",
         "de": "Scrap",
         "fr": "Scrap",
         "es": "Scrap",
         "ar": "Scrap"
+      },
+      "businessContext_i18n": {
+        "en": "Waste material that cannot be used",
+        "tr": "Kullanılamayan atık malzeme"
       }
     }
   ],

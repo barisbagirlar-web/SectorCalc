@@ -10,11 +10,15 @@
       "businessContext": "The maximum weight you can lift for one repetition.",
       "label_i18n": {
         "en": "1RM (One Rep Max)",
-        "tr": "1RM (One Rep Max)",
+        "tr": "1TM (Bir Tekrar Maksimumu)",
         "de": "1RM (One Rep Max)",
         "fr": "1RM (One Rep Max)",
         "es": "1RM (One Rep Max)",
         "ar": "1RM (One Rep Max)"
+      },
+      "businessContext_i18n": {
+        "en": "The maximum weight you can lift for one repetition.",
+        "tr": "Bir tekrarda kaldırabileceğiniz maksimum ağırlık."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of your 1RM that represents your 5-rep max. Typically 85%.",
       "label_i18n": {
         "en": "5RM % of 1RM",
-        "tr": "5RM % of 1RM",
+        "tr": "1TM'nin %5TM'si",
         "de": "5RM % of 1RM",
         "fr": "5RM % of 1RM",
         "es": "5RM % of 1RM",
         "ar": "5RM % of 1RM"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of your 1RM that represents your 5-rep max. Typically 85%.",
+        "tr": "5 tekrar maksimumunuzu temsil eden 1TM'nizin yüzdesi. Tipik olarak %85."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Percentage of your 5RM used for the volume day (5 sets of 5 reps).",
       "label_i18n": {
         "en": "Volume Day % of 5RM",
-        "tr": "Volume Day % of 5RM",
+        "tr": "5TM'nin Hacim Günü %'si",
         "de": "Volume Day % of 5RM",
         "fr": "Volume Day % of 5RM",
         "es": "Volume Day % of 5RM",
         "ar": "Volume Day % of 5RM"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of your 5RM used for the volume day (5 sets of 5 reps).",
+        "tr": "Hacim günü (5 set 5 tekrar) için kullanılan 5TM'nizin yüzdesi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Percentage of the volume day weight used for the light day (2 sets of 5 reps).",
       "label_i18n": {
         "en": "Light Day % of Volume",
-        "tr": "Light Day % of Volume",
+        "tr": "Hacmin Hafif Gün %'si",
         "de": "Light Day % of Volume",
         "fr": "Light Day % of Volume",
         "es": "Light Day % of Volume",
         "ar": "Light Day % of Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of the volume day weight used for the light day (2 sets of 5 reps).",
+        "tr": "Hafif gün (2 set 5 tekrar) için kullanılan hacim günü ağırlığının yüzdesi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Weight added to the previous week's intensity day weight for a new 5RM attempt. Set to 0 if not incrementing.",
       "label_i18n": {
         "en": "Intensity Day Increment",
-        "tr": "Intensity Day Increment",
+        "tr": "Yoğunluk Günü Artışı",
         "de": "Intensity Day Increment",
         "fr": "Intensity Day Increment",
         "es": "Intensity Day Increment",
         "ar": "Intensity Day Increment"
+      },
+      "businessContext_i18n": {
+        "en": "Weight added to the previous week's intensity day weight for a new 5RM attempt. Set to 0 if not incrementing.",
+        "tr": "Yeni bir 5TM denemesi için önceki haftanın yoğunluk günü ağırlığına eklenen ağırlık. Artırım yapılmıyorsa 0 olarak ayarlayın."
       }
     }
   ],

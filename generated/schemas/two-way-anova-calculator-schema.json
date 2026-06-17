@@ -10,11 +10,15 @@
       "businessContext": "Sum of squares for factor A (between rows)",
       "label_i18n": {
         "en": "Sum of Squares (Factor A)",
-        "tr": "Sum of Squares (Factor A)",
+        "tr": "Kareler Toplamı (Faktör A)",
         "de": "Sum of Squares (Factor A)",
         "fr": "Sum of Squares (Factor A)",
         "es": "Sum of Squares (Factor A)",
         "ar": "Sum of Squares (Factor A)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of squares for factor A (between rows)",
+        "tr": "Faktör A (satırlar arası) için kareler toplamı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Sum of squares for factor B (between columns)",
       "label_i18n": {
         "en": "Sum of Squares (Factor B)",
-        "tr": "Sum of Squares (Factor B)",
+        "tr": "Kareler Toplamı (Faktör B)",
         "de": "Sum of Squares (Factor B)",
         "fr": "Sum of Squares (Factor B)",
         "es": "Sum of Squares (Factor B)",
         "ar": "Sum of Squares (Factor B)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of squares for factor B (between columns)",
+        "tr": "Faktör B (sütunlar arası) için kareler toplamı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Sum of squares for the interaction between A and B",
       "label_i18n": {
         "en": "Sum of Squares (Interaction AxB)",
-        "tr": "Sum of Squares (Interaction AxB)",
+        "tr": "Kareler Toplamı (Etkileşim AxB)",
         "de": "Sum of Squares (Interaction AxB)",
         "fr": "Sum of Squares (Interaction AxB)",
         "es": "Sum of Squares (Interaction AxB)",
         "ar": "Sum of Squares (Interaction AxB)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of squares for the interaction between A and B",
+        "tr": "A ve B arasındaki etkileşim için kareler toplamı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Sum of squares for the error (within groups)",
       "label_i18n": {
         "en": "Error Sum of Squares",
-        "tr": "Error Sum of Squares",
+        "tr": "Hata Kareler Toplamı",
         "de": "Error Sum of Squares",
         "fr": "Error Sum of Squares",
         "es": "Error Sum of Squares",
         "ar": "Error Sum of Squares"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of squares for the error (within groups)",
+        "tr": "Hata (gruplar içi) için kareler toplamı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Degrees of freedom for factor A (r - 1)",
       "label_i18n": {
         "en": "Degrees of Freedom (Factor A)",
-        "tr": "Degrees of Freedom (Factor A)",
+        "tr": "Serbestlik Derecesi (Faktör A)",
         "de": "Degrees of Freedom (Factor A)",
         "fr": "Degrees of Freedom (Factor A)",
         "es": "Degrees of Freedom (Factor A)",
         "ar": "Degrees of Freedom (Factor A)"
+      },
+      "businessContext_i18n": {
+        "en": "Degrees of freedom for factor A (r - 1)",
+        "tr": "Faktör A için serbestlik derecesi (r - 1)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Degrees of freedom for factor B (c - 1)",
       "label_i18n": {
         "en": "Degrees of Freedom (Factor B)",
-        "tr": "Degrees of Freedom (Factor B)",
+        "tr": "Serbestlik Derecesi (Faktör B)",
         "de": "Degrees of Freedom (Factor B)",
         "fr": "Degrees of Freedom (Factor B)",
         "es": "Degrees of Freedom (Factor B)",
         "ar": "Degrees of Freedom (Factor B)"
+      },
+      "businessContext_i18n": {
+        "en": "Degrees of freedom for factor B (c - 1)",
+        "tr": "Faktör B için serbestlik derecesi (c - 1)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Degrees of freedom for interaction ((r-1)*(c-1))",
       "label_i18n": {
         "en": "Degrees of Freedom (Interaction)",
-        "tr": "Degrees of Freedom (Interaction)",
+        "tr": "Serbestlik Derecesi (Etkileşim)",
         "de": "Degrees of Freedom (Interaction)",
         "fr": "Degrees of Freedom (Interaction)",
         "es": "Degrees of Freedom (Interaction)",
         "ar": "Degrees of Freedom (Interaction)"
+      },
+      "businessContext_i18n": {
+        "en": "Degrees of freedom for interaction ((r-1)*(c-1))",
+        "tr": "Etkileşim için serbestlik derecesi ((r-1)*(c-1))"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Degrees of freedom for error (N - r*c)",
       "label_i18n": {
         "en": "Degrees of Freedom (Error)",
-        "tr": "Degrees of Freedom (Error)",
+        "tr": "Serbestlik Derecesi (Hata)",
         "de": "Degrees of Freedom (Error)",
         "fr": "Degrees of Freedom (Error)",
         "es": "Degrees of Freedom (Error)",
         "ar": "Degrees of Freedom (Error)"
+      },
+      "businessContext_i18n": {
+        "en": "Degrees of freedom for error (N - r*c)",
+        "tr": "Hata için serbestlik derecesi (N - r*c)"
       }
     }
   ],

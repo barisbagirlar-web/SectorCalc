@@ -10,11 +10,15 @@
       "businessContext": "Initial investment amount in U.S. dollars.",
       "label_i18n": {
         "en": "Principal Amount",
-        "tr": "Principal Amount",
+        "tr": "Anapara Tutarı",
         "de": "Principal Amount",
         "fr": "Principal Amount",
         "es": "Principal Amount",
         "ar": "Principal Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Initial investment amount in U.S. dollars.",
+        "tr": "ABD doları cinsinden ilk yatırım tutarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Fixed rate of return set at bond issuance, as a percentage.",
       "label_i18n": {
         "en": "Fixed Rate",
-        "tr": "Fixed Rate",
+        "tr": "Sabit Oran",
         "de": "Fixed Rate",
         "fr": "Fixed Rate",
         "es": "Fixed Rate",
         "ar": "Fixed Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed rate of return set at bond issuance, as a percentage.",
+        "tr": "Tahvil ihracında belirlenen yüzde cinsinden sabit getiri oranı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Inflation rate determined every six months, expressed as a percentage.",
       "label_i18n": {
         "en": "Semiannual Inflation Rate",
-        "tr": "Semiannual Inflation Rate",
+        "tr": "Altı Aylık Enflasyon Oranı",
         "de": "Semiannual Inflation Rate",
         "fr": "Semiannual Inflation Rate",
         "es": "Semiannual Inflation Rate",
         "ar": "Semiannual Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Inflation rate determined every six months, expressed as a percentage.",
+        "tr": "Her altı ayda bir belirlenen yüzde cinsinden enflasyon oranı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of years the bond is held until redemption.",
       "label_i18n": {
         "en": "Holding Period",
-        "tr": "Holding Period",
+        "tr": "Tutma Süresi",
         "de": "Holding Period",
         "fr": "Holding Period",
         "es": "Holding Period",
         "ar": "Holding Period"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years the bond is held until redemption.",
+        "tr": "Tahvilin itfaya kadar elde tutulduğu yıl sayısı."
       }
     }
   ],

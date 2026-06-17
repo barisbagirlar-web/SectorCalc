@@ -10,11 +10,15 @@
       "businessContext": "Child's age in months (for percentile interpretation, not used in BMI formula).",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Child's age in months (for percentile interpretation, not used in BMI formula).",
+        "tr": "Çocuğun ay cinsinden yaşı (persentil yorumu için, BMI formülünde kullanılmaz)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Biological sex (0 = female, 1 = male) for growth chart percentile lookup.",
       "label_i18n": {
         "en": "Sex",
-        "tr": "Sex",
+        "tr": "Cinsiyet",
         "de": "Sex",
         "fr": "Sex",
         "es": "Sex",
         "ar": "Sex"
+      },
+      "businessContext_i18n": {
+        "en": "Biological sex (0 = female, 1 = male) for growth chart percentile lookup.",
+        "tr": "Biyolojik cinsiyet (0 = kadın, 1 = erkek) büyüme çizelgesi persentil sorgulaması için."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Body weight in kilograms.",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms.",
+        "tr": "Vücut ağırlığı (kg)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standing height in centimeters.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Standing height in centimeters.",
+        "tr": "Ayakta boy (cm)."
       }
     }
   ],

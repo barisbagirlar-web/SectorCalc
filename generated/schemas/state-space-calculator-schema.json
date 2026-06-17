@@ -10,11 +10,15 @@
       "businessContext": "Number of discrete states in the system",
       "label_i18n": {
         "en": "Number of States",
-        "tr": "Number of States",
+        "tr": "Durum Sayısı",
         "de": "Number of States",
         "fr": "Number of States",
         "es": "Number of States",
         "ar": "Number of States"
+      },
+      "businessContext_i18n": {
+        "en": "Number of discrete states in the system",
+        "tr": "Sistemdeki ayrık durum sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Probability of transitioning from one state to another",
       "label_i18n": {
         "en": "Transition Probability",
-        "tr": "Transition Probability",
+        "tr": "Geçiş Olasılığı",
         "de": "Transition Probability",
         "fr": "Transition Probability",
         "es": "Transition Probability",
         "ar": "Transition Probability"
+      },
+      "businessContext_i18n": {
+        "en": "Probability of transitioning from one state to another",
+        "tr": "Bir durumdan diğerine geçme olasılığı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Starting state index (0-based)",
       "label_i18n": {
         "en": "Initial State Index",
-        "tr": "Initial State Index",
+        "tr": "Başlangıç Durum İndeksi",
         "de": "Initial State Index",
         "fr": "Initial State Index",
         "es": "Initial State Index",
         "ar": "Initial State Index"
+      },
+      "businessContext_i18n": {
+        "en": "Starting state index (0-based)",
+        "tr": "Başlangıç durum indeksi (0 tabanlı)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of time steps to simulate",
       "label_i18n": {
         "en": "Time Steps",
-        "tr": "Time Steps",
+        "tr": "Zaman Adımları",
         "de": "Time Steps",
         "fr": "Time Steps",
         "es": "Time Steps",
         "ar": "Time Steps"
+      },
+      "businessContext_i18n": {
+        "en": "Number of time steps to simulate",
+        "tr": "Simüle edilecek zaman adımı sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Reward obtained when in a state",
       "label_i18n": {
         "en": "Reward per State",
-        "tr": "Reward per State",
+        "tr": "Durum Başına Ödül",
         "de": "Reward per State",
         "fr": "Reward per State",
         "es": "Reward per State",
         "ar": "Reward per State"
+      },
+      "businessContext_i18n": {
+        "en": "Reward obtained when in a state",
+        "tr": "Bir durumdayken elde edilen ödül"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Discount factor for future rewards (0-1)",
       "label_i18n": {
         "en": "Discount Factor",
-        "tr": "Discount Factor",
+        "tr": "İndirim Faktörü",
         "de": "Discount Factor",
         "fr": "Discount Factor",
         "es": "Discount Factor",
         "ar": "Discount Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Discount factor for future rewards (0-1)",
+        "tr": "Gelecekteki ödüller için indirim faktörü (0-1)"
       }
     }
   ],

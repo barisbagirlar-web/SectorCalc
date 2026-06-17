@@ -10,11 +10,15 @@
       "businessContext": "Number of grocery items to purchase",
       "label_i18n": {
         "en": "Quantity",
-        "tr": "Quantity",
+        "tr": "Miktar",
         "de": "Quantity",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of grocery items to purchase",
+        "tr": "Satın alınacak market ürünü sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Price per item in your local currency",
       "label_i18n": {
         "en": "Unit Price",
-        "tr": "Unit Price",
+        "tr": "Birim Fiyat",
         "de": "Unit Price",
         "fr": "Unit Price",
         "es": "Unit Price",
         "ar": "Unit Price"
+      },
+      "businessContext_i18n": {
+        "en": "Price per item in your local currency",
+        "tr": "Yerel para biriminde ürün başına fiyat"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Applied discount rate (e.g., 10 for 10%)",
       "label_i18n": {
         "en": "Discount Percentage",
-        "tr": "Discount Percentage",
+        "tr": "İndirim Yüzdesi",
         "de": "Discount Percentage",
         "fr": "Discount Percentage",
         "es": "Discount Percentage",
         "ar": "Discount Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Applied discount rate (e.g., 10 for 10%)",
+        "tr": "Uygulanan indirim oranı (örn. %10 için 10)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Tax rate to be applied after discounts (e.g., 5 for 5%)",
       "label_i18n": {
         "en": "Tax Percentage",
-        "tr": "Tax Percentage",
+        "tr": "Vergi Yüzdesi",
         "de": "Tax Percentage",
         "fr": "Tax Percentage",
         "es": "Tax Percentage",
         "ar": "Tax Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Tax rate to be applied after discounts (e.g., 5 for 5%)",
+        "tr": "İndirimlerden sonra uygulanacak vergi oranı (örn. %5 için 5)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Additional shipping or delivery cost",
       "label_i18n": {
         "en": "Shipping Fee",
-        "tr": "Shipping Fee",
+        "tr": "Kargo Ücreti",
         "de": "Shipping Fee",
         "fr": "Shipping Fee",
         "es": "Shipping Fee",
         "ar": "Shipping Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Additional shipping or delivery cost",
+        "tr": "Ek kargo veya teslimat maliyeti"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Fixed amount discount from a coupon or voucher",
       "label_i18n": {
         "en": "Coupon Discount",
-        "tr": "Coupon Discount",
+        "tr": "Kupon İndirimi",
         "de": "Coupon Discount",
         "fr": "Coupon Discount",
         "es": "Coupon Discount",
         "ar": "Coupon Discount"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed amount discount from a coupon or voucher",
+        "tr": "Kupon veya fişten sabit tutarlı indirim"
       }
     }
   ],

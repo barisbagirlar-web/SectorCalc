@@ -10,11 +10,15 @@
       "businessContext": "Current quantity of items available in stock.",
       "label_i18n": {
         "en": "On-Hand Inventory",
-        "tr": "On-Hand Inventory",
+        "tr": "Eldeki Stok",
         "de": "On-Hand Inventory",
         "fr": "On-Hand Inventory",
         "es": "On-Hand Inventory",
         "ar": "On-Hand Inventory"
+      },
+      "businessContext_i18n": {
+        "en": "Current quantity of items available in stock.",
+        "tr": "Stokta bulunan mevcut ürün miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average number of units consumed per day.",
       "label_i18n": {
         "en": "Average Daily Usage",
-        "tr": "Average Daily Usage",
+        "tr": "Ortalama Günlük Kullanım",
         "de": "Average Daily Usage",
         "fr": "Average Daily Usage",
         "es": "Average Daily Usage",
         "ar": "Average Daily Usage"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of units consumed per day.",
+        "tr": "Günde tüketilen ortalama birim sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Buffer inventory held to prevent stockouts from variability.",
       "label_i18n": {
         "en": "Safety Stock",
-        "tr": "Safety Stock",
+        "tr": "Emniyet Stoku",
         "de": "Safety Stock",
         "fr": "Safety Stock",
         "es": "Safety Stock",
         "ar": "Safety Stock"
+      },
+      "businessContext_i18n": {
+        "en": "Buffer inventory held to prevent stockouts from variability.",
+        "tr": "Değişkenlik nedeniyle stok tükenmesini önlemek için tutulan tampon stok."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Average time (in days) from order placement to delivery.",
       "label_i18n": {
         "en": "Lead Time",
-        "tr": "Lead Time",
+        "tr": "Teslim Süresi",
         "de": "Lead Time",
         "fr": "Lead Time",
         "es": "Lead Time",
         "ar": "Lead Time"
+      },
+      "businessContext_i18n": {
+        "en": "Average time (in days) from order placement to delivery.",
+        "tr": "Siparişten teslimata kadar geçen ortalama süre (gün cinsinden)."
       }
     }
   ],

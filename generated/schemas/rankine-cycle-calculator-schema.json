@@ -10,11 +10,15 @@
       "businessContext": "Specific enthalpy of steam at turbine inlet (superheated conditions)",
       "label_i18n": {
         "en": "Turbine Inlet Enthalpy (h₁)",
-        "tr": "Turbine Inlet Enthalpy (h₁)",
+        "tr": "Türbin Giriş Entalpisi (h₁)",
         "de": "Turbine Inlet Enthalpy (h₁)",
         "fr": "Turbine Inlet Enthalpy (h₁)",
         "es": "Turbine Inlet Enthalpy (h₁)",
         "ar": "Turbine Inlet Enthalpy (h₁)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific enthalpy of steam at turbine inlet (superheated conditions)",
+        "tr": "Türbin girişinde buharın özgül entalpisi (kızgın buhar koşulları)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Specific enthalpy at turbine exit assuming isentropic expansion",
       "label_i18n": {
         "en": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
-        "tr": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
+        "tr": "İzantropik Türbin Çıkış Entalpisi (h₂ₛ)",
         "de": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
         "fr": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
         "es": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
         "ar": "Isentropic Turbine Exit Enthalpy (h₂ₛ)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific enthalpy at turbine exit assuming isentropic expansion",
+        "tr": "İzantropik genişleme varsayımıyla türbin çıkışındaki özgül entalpi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Specific enthalpy of saturated liquid leaving the condenser",
       "label_i18n": {
         "en": "Condenser Outlet Enthalpy (h₃)",
-        "tr": "Condenser Outlet Enthalpy (h₃)",
+        "tr": "Yoğuşturucu Çıkış Entalpisi (h₃)",
         "de": "Condenser Outlet Enthalpy (h₃)",
         "fr": "Condenser Outlet Enthalpy (h₃)",
         "es": "Condenser Outlet Enthalpy (h₃)",
         "ar": "Condenser Outlet Enthalpy (h₃)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific enthalpy of saturated liquid leaving the condenser",
+        "tr": "Yoğuşturucudan çıkan doymuş sıvının özgül entalpisi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Specific enthalpy at pump exit assuming isentropic compression",
       "label_i18n": {
         "en": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
-        "tr": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
+        "tr": "İzantropik Pompa Çıkış Entalpisi (h₄ₛ)",
         "de": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
         "fr": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
         "es": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
         "ar": "Isentropic Pump Exit Enthalpy (h₄ₛ)"
+      },
+      "businessContext_i18n": {
+        "en": "Specific enthalpy at pump exit assuming isentropic compression",
+        "tr": "İzantropik sıkıştırma varsayımıyla pompa çıkışındaki özgül entalpi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Ratio of actual turbine work to isentropic work (0–1)",
       "label_i18n": {
         "en": "Turbine Isentropic Efficiency (ηₜ)",
-        "tr": "Turbine Isentropic Efficiency (ηₜ)",
+        "tr": "Türbin İzantropik Verimi (ηₜ)",
         "de": "Turbine Isentropic Efficiency (ηₜ)",
         "fr": "Turbine Isentropic Efficiency (ηₜ)",
         "es": "Turbine Isentropic Efficiency (ηₜ)",
         "ar": "Turbine Isentropic Efficiency (ηₜ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of actual turbine work to isentropic work (0–1)",
+        "tr": "Gerçek türbin işinin izantropik işe oranı (0–1)"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Ratio of isentropic pump work to actual pump work (0–1)",
       "label_i18n": {
         "en": "Pump Isentropic Efficiency (ηₚ)",
-        "tr": "Pump Isentropic Efficiency (ηₚ)",
+        "tr": "Pompa İzantropik Verimi (ηₚ)",
         "de": "Pump Isentropic Efficiency (ηₚ)",
         "fr": "Pump Isentropic Efficiency (ηₚ)",
         "es": "Pump Isentropic Efficiency (ηₚ)",
         "ar": "Pump Isentropic Efficiency (ηₚ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of isentropic pump work to actual pump work (0–1)",
+        "tr": "İzantropik pompa işinin gerçek pompa işine oranı (0–1)"
       }
     }
   ],

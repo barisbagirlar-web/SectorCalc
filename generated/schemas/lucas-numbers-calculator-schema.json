@@ -10,11 +10,15 @@
       "businessContext": "Starting index of Lucas sequence (inclusive).",
       "label_i18n": {
         "en": "Start Index",
-        "tr": "Start Index",
+        "tr": "Başlangıç İndeksi",
         "de": "Start Index",
         "fr": "Start Index",
         "es": "Start Index",
         "ar": "Start Index"
+      },
+      "businessContext_i18n": {
+        "en": "Starting index of Lucas sequence (inclusive).",
+        "tr": "Lucas dizisinin başlangıç indeksi (dahil)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ending index of Lucas sequence (inclusive). Must be >= startIndex.",
       "label_i18n": {
         "en": "End Index",
-        "tr": "End Index",
+        "tr": "Bitiş İndeksi",
         "de": "End Index",
         "fr": "End Index",
         "es": "End Index",
         "ar": "End Index"
+      },
+      "businessContext_i18n": {
+        "en": "Ending index of Lucas sequence (inclusive). Must be >= startIndex.",
+        "tr": "Lucas dizisinin bitiş indeksi (dahil). startIndex'ten büyük veya eşit olmalıdır."
       }
     },
     {
@@ -47,6 +55,10 @@
         "fr": "L(0)",
         "es": "L(0)",
         "ar": "L(0)"
+      },
+      "businessContext_i18n": {
+        "en": "Value of Lucas number at index 0 (typically 2).",
+        "tr": "0 indeksindeki Lucas sayısının değeri (genellikle 2)."
       }
     },
     {
@@ -63,6 +75,10 @@
         "fr": "L(1)",
         "es": "L(1)",
         "ar": "L(1)"
+      },
+      "businessContext_i18n": {
+        "en": "Value of Lucas number at index 1 (typically 1).",
+        "tr": "1 indeksindeki Lucas sayısının değeri (genellikle 1)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Set to 1 to include the full sequence in breakdown, 0 for only start and end values.",
       "label_i18n": {
         "en": "Show Sequence",
-        "tr": "Show Sequence",
+        "tr": "Diziyi Göster",
         "de": "Show Sequence",
         "fr": "Show Sequence",
         "es": "Show Sequence",
         "ar": "Show Sequence"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to include the full sequence in breakdown, 0 for only start and end values.",
+        "tr": "Dökümde tam diziyi dahil etmek için 1, yalnızca başlangıç ve bitiş değerleri için 0."
       }
     }
   ],

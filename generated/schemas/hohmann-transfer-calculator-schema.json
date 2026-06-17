@@ -10,11 +10,15 @@
       "businessContext": "Radius of the central body (e.g., Earth radius = 6378 km)",
       "label_i18n": {
         "en": "Central Body Radius",
-        "tr": "Central Body Radius",
+        "tr": "Merkezi Cisim Yarıçapı",
         "de": "Central Body Radius",
         "fr": "Central Body Radius",
         "es": "Central Body Radius",
         "ar": "Central Body Radius"
+      },
+      "businessContext_i18n": {
+        "en": "Radius of the central body (e.g., Earth radius = 6378 km)",
+        "tr": "Merkezi cismin yarıçapı (ör. Dünya yarıçapı = 6378 km)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Altitude of initial circular orbit above the surface",
       "label_i18n": {
         "en": "Initial Altitude",
-        "tr": "Initial Altitude",
+        "tr": "Başlangıç Rakımı",
         "de": "Initial Altitude",
         "fr": "Initial Altitude",
         "es": "Initial Altitude",
         "ar": "Initial Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Altitude of initial circular orbit above the surface",
+        "tr": "İlk dairesel yörüngenin yüzeyden yüksekliği"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Altitude of final circular orbit above the surface",
       "label_i18n": {
         "en": "Final Altitude",
-        "tr": "Final Altitude",
+        "tr": "Son Rakım",
         "de": "Final Altitude",
         "fr": "Final Altitude",
         "es": "Final Altitude",
         "ar": "Final Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Altitude of final circular orbit above the surface",
+        "tr": "Son dairesel yörüngenin yüzeyden yüksekliği"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Standard gravitational parameter of the central body (Earth default)",
       "label_i18n": {
         "en": "Gravitational Parameter",
-        "tr": "Gravitational Parameter",
+        "tr": "Yerçekim Parametresi",
         "de": "Gravitational Parameter",
         "fr": "Gravitational Parameter",
         "es": "Gravitational Parameter",
         "ar": "Gravitational Parameter"
+      },
+      "businessContext_i18n": {
+        "en": "Standard gravitational parameter of the central body (Earth default)",
+        "tr": "Merkezi cismin standart yerçekimi parametresi (Dünya varsayılanı)"
       }
     }
   ],

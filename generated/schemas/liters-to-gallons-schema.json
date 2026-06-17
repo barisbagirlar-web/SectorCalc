@@ -10,11 +10,15 @@
       "businessContext": "Enter the volume in liters to convert to gallons.",
       "label_i18n": {
         "en": "Volume in Liters",
-        "tr": "Volume in Liters",
+        "tr": "Litre cinsinden hacim",
         "de": "Volume in Liters",
         "fr": "Volume in Liters",
         "es": "Volume in Liters",
         "ar": "Volume in Liters"
+      },
+      "businessContext_i18n": {
+        "en": "Enter the volume in liters to convert to gallons.",
+        "tr": "Galona dönüştürmek için litre cinsinden hacmi girin."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1 for US gallons, 2 for UK gallons.",
       "label_i18n": {
         "en": "Conversion Type",
-        "tr": "Conversion Type",
+        "tr": "Dönüştürme Türü",
         "de": "Conversion Type",
         "fr": "Conversion Type",
         "es": "Conversion Type",
         "ar": "Conversion Type"
+      },
+      "businessContext_i18n": {
+        "en": "1 for US gallons, 2 for UK gallons.",
+        "tr": "ABD galonu için 1, İngiltere galonu için 2."
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

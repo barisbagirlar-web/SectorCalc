@@ -10,11 +10,15 @@
       "businessContext": "Patient age in years",
       "label_i18n": {
         "en": "Age",
-        "tr": "Age",
+        "tr": "Yaş",
         "de": "Age",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Patient age in years",
+        "tr": "Hasta yaşı (yıl)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "1 if tonsillar exudate present, 0 otherwise",
       "label_i18n": {
         "en": "Tonsillar Exudate",
-        "tr": "Tonsillar Exudate",
+        "tr": "Tonsiller Eksüda",
         "de": "Tonsillar Exudate",
         "fr": "Tonsillar Exudate",
         "es": "Tonsillar Exudate",
         "ar": "Tonsillar Exudate"
+      },
+      "businessContext_i18n": {
+        "en": "1 if tonsillar exudate present, 0 otherwise",
+        "tr": "Tonsiller eksüda varsa 1, yoksa 0"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "1 if tender anterior cervical lymphadenopathy, 0 otherwise",
       "label_i18n": {
         "en": "Tender Anterior Cervical Lymph Nodes",
-        "tr": "Tender Anterior Cervical Lymph Nodes",
+        "tr": "Hassas Anterior Servikal Lenf Düğümleri",
         "de": "Tender Anterior Cervical Lymph Nodes",
         "fr": "Tender Anterior Cervical Lymph Nodes",
         "es": "Tender Anterior Cervical Lymph Nodes",
         "ar": "Tender Anterior Cervical Lymph Nodes"
+      },
+      "businessContext_i18n": {
+        "en": "1 if tender anterior cervical lymphadenopathy, 0 otherwise",
+        "tr": "Hassas anterior servikal lenfadenopati varsa 1, yoksa 0"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Body temperature in degrees Celsius",
       "label_i18n": {
         "en": "Fever Temperature",
-        "tr": "Fever Temperature",
+        "tr": "Ateş Sıcaklığı",
         "de": "Fever Temperature",
         "fr": "Fever Temperature",
         "es": "Fever Temperature",
         "ar": "Fever Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Body temperature in degrees Celsius",
+        "tr": "Santigrat derece cinsinden vücut sıcaklığı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "1 if cough present, 0 if absent",
       "label_i18n": {
         "en": "Cough",
-        "tr": "Cough",
+        "tr": "Öksürük",
         "de": "Cough",
         "fr": "Cough",
         "es": "Cough",
         "ar": "Cough"
+      },
+      "businessContext_i18n": {
+        "en": "1 if cough present, 0 if absent",
+        "tr": "Öksürük varsa 1, yoksa 0"
       }
     }
   ],

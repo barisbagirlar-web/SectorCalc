@@ -10,11 +10,15 @@
       "businessContext": "Highest power demand during peak hours",
       "label_i18n": {
         "en": "Peak Demand",
-        "tr": "Peak Demand",
+        "tr": "Pik Talep",
         "de": "Peak Demand",
         "fr": "Peak Demand",
         "es": "Peak Demand",
         "ar": "Peak Demand"
+      },
+      "businessContext_i18n": {
+        "en": "Highest power demand during peak hours",
+        "tr": "Gelecekteki büyüme veya belirsizlik için eklenen yüzde marj"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Power demand during off-peak hours",
       "label_i18n": {
         "en": "Off-Peak Demand",
-        "tr": "Off-Peak Demand",
+        "tr": "En Yüksek Talep",
         "de": "Off-Peak Demand",
         "fr": "Off-Peak Demand",
         "es": "Off-Peak Demand",
         "ar": "Off-Peak Demand"
+      },
+      "businessContext_i18n": {
+        "en": "Power demand during off-peak hours",
+        "tr": "En yüksek saatlerdeki en yüksek güç talebi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of peak hours per day",
       "label_i18n": {
         "en": "Peak Hours",
-        "tr": "Peak Hours",
+        "tr": "Düşük Talep",
         "de": "Peak Hours",
         "fr": "Peak Hours",
         "es": "Peak Hours",
         "ar": "Peak Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Number of peak hours per day",
+        "tr": "Düşük talep saatlerindeki güç talebi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of off-peak hours per day",
       "label_i18n": {
         "en": "Off-Peak Hours",
-        "tr": "Off-Peak Hours",
+        "tr": "En Yüksek Saatler",
         "de": "Off-Peak Hours",
         "fr": "Off-Peak Hours",
         "es": "Off-Peak Hours",
         "ar": "Off-Peak Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Number of off-peak hours per day",
+        "tr": "Günlük en yüksek saat sayısı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Electricity rate during peak hours",
       "label_i18n": {
         "en": "Peak Rate",
-        "tr": "Peak Rate",
+        "tr": "Düşük Saatler",
         "de": "Peak Rate",
         "fr": "Peak Rate",
         "es": "Peak Rate",
         "ar": "Peak Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Electricity rate during peak hours",
+        "tr": "Günlük düşük talep saat sayısı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Electricity rate during off-peak hours",
       "label_i18n": {
         "en": "Off-Peak Rate",
-        "tr": "Off-Peak Rate",
+        "tr": "En Yüksek Tarife",
         "de": "Off-Peak Rate",
         "fr": "Off-Peak Rate",
         "es": "Off-Peak Rate",
         "ar": "Off-Peak Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Electricity rate during off-peak hours",
+        "tr": "En yüksek saatlerdeki elektrik tarifesi"
       }
     }
   ],

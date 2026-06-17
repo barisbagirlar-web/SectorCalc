@@ -10,11 +10,15 @@
       "businessContext": "The count of carbon atoms in the molecular formula.",
       "label_i18n": {
         "en": "Number of Carbon Atoms",
-        "tr": "Number of Carbon Atoms",
+        "tr": "Karbon Atom Sayısı",
         "de": "Number of Carbon Atoms",
         "fr": "Number of Carbon Atoms",
         "es": "Number of Carbon Atoms",
         "ar": "Number of Carbon Atoms"
+      },
+      "businessContext_i18n": {
+        "en": "The count of carbon atoms in the molecular formula.",
+        "tr": "Moleküler formüldeki karbon atomlarının sayısı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The count of hydrogen atoms in the molecular formula.",
       "label_i18n": {
         "en": "Number of Hydrogen Atoms",
-        "tr": "Number of Hydrogen Atoms",
+        "tr": "Hidrojen Atomu Sayısı",
         "de": "Number of Hydrogen Atoms",
         "fr": "Number of Hydrogen Atoms",
         "es": "Number of Hydrogen Atoms",
         "ar": "Number of Hydrogen Atoms"
+      },
+      "businessContext_i18n": {
+        "en": "The count of hydrogen atoms in the molecular formula.",
+        "tr": "Moleküler formüldeki hidrojen atomlarının sayısı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Each nitrogen adds one to the degree of unsaturation count.",
       "label_i18n": {
         "en": "Number of Nitrogen Atoms",
-        "tr": "Number of Nitrogen Atoms",
+        "tr": "Azot Atomu Sayısı",
         "de": "Number of Nitrogen Atoms",
         "fr": "Number of Nitrogen Atoms",
         "es": "Number of Nitrogen Atoms",
         "ar": "Number of Nitrogen Atoms"
+      },
+      "businessContext_i18n": {
+        "en": "Each nitrogen adds one to the degree of unsaturation count.",
+        "tr": "Her azot, doymamışlık derecesi sayımına bir ekler."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Halogens behave like hydrogen in the unsaturation formula.",
       "label_i18n": {
         "en": "Number of Halogen Atoms (F, Cl, Br, I)",
-        "tr": "Number of Halogen Atoms (F, Cl, Br, I)",
+        "tr": "Halojen Atomu Sayısı (F, Cl, Br, I)",
         "de": "Number of Halogen Atoms (F, Cl, Br, I)",
         "fr": "Number of Halogen Atoms (F, Cl, Br, I)",
         "es": "Number of Halogen Atoms (F, Cl, Br, I)",
         "ar": "Number of Halogen Atoms (F, Cl, Br, I)"
+      },
+      "businessContext_i18n": {
+        "en": "Halogens behave like hydrogen in the unsaturation formula.",
+        "tr": "Halojenler, doymamışlık formülünde hidrojen gibi davranır."
       }
     }
   ],

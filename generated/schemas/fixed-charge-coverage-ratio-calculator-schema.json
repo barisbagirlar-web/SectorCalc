@@ -10,11 +10,15 @@
       "businessContext": "Earnings before interest, taxes, depreciation, and amortization for the period.",
       "label_i18n": {
         "en": "EBITDA",
-        "tr": "EBITDA",
+        "tr": "FAVÖK",
         "de": "EBITDA",
         "fr": "EBITDA",
         "es": "EBITDA",
         "ar": "EBITDA"
+      },
+      "businessContext_i18n": {
+        "en": "Earnings before interest, taxes, depreciation, and amortization for the period.",
+        "tr": "Döneme ait faiz, vergi, amortisman ve itfa öncesi kazanç."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total interest expense on all debt obligations for the period.",
       "label_i18n": {
         "en": "Interest Expense",
-        "tr": "Interest Expense",
+        "tr": "Faiz Gideri",
         "de": "Interest Expense",
         "fr": "Interest Expense",
         "es": "Interest Expense",
         "ar": "Interest Expense"
+      },
+      "businessContext_i18n": {
+        "en": "Total interest expense on all debt obligations for the period.",
+        "tr": "Dönem içindeki tüm borç yükümlülüklerine ait toplam faiz gideri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current portion of long-term debt and other scheduled principal repayments due within one year.",
       "label_i18n": {
         "en": "Current Debt Maturities",
-        "tr": "Current Debt Maturities",
+        "tr": "Cari Borç Vadeleri",
         "de": "Current Debt Maturities",
         "fr": "Current Debt Maturities",
         "es": "Current Debt Maturities",
         "ar": "Current Debt Maturities"
+      },
+      "businessContext_i18n": {
+        "en": "Current portion of long-term debt and other scheduled principal repayments due within one year.",
+        "tr": "Uzun vadeli borcun cari kısmı ve bir yıl içinde vadesi gelen diğer planlı anapara geri ödemeleri."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total operating lease payments for the period.",
       "label_i18n": {
         "en": "Lease Payments",
-        "tr": "Lease Payments",
+        "tr": "Kira Ödemeleri",
         "de": "Lease Payments",
         "fr": "Lease Payments",
         "es": "Lease Payments",
         "ar": "Lease Payments"
+      },
+      "businessContext_i18n": {
+        "en": "Total operating lease payments for the period.",
+        "tr": "Dönem için toplam faaliyet kiralaması ödemeleri."
       }
     }
   ],

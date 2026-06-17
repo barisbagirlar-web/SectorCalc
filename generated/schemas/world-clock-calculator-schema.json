@@ -10,11 +10,15 @@
       "businessContext": "The hour component of the local time (24-hour format)",
       "label_i18n": {
         "en": "Local Hour (0-23)",
-        "tr": "Local Hour (0-23)",
+        "tr": "Yerel Saat (0-23)",
         "de": "Local Hour (0-23)",
         "fr": "Local Hour (0-23)",
         "es": "Local Hour (0-23)",
         "ar": "Local Hour (0-23)"
+      },
+      "businessContext_i18n": {
+        "en": "The hour component of the local time (24-hour format)",
+        "tr": "Yerel saatin saat bileşeni (24 saat formatı)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The minute component of the local time",
       "label_i18n": {
         "en": "Local Minute (0-59)",
-        "tr": "Local Minute (0-59)",
+        "tr": "Yerel Dakika (0-59)",
         "de": "Local Minute (0-59)",
         "fr": "Local Minute (0-59)",
         "es": "Local Minute (0-59)",
         "ar": "Local Minute (0-59)"
+      },
+      "businessContext_i18n": {
+        "en": "The minute component of the local time",
+        "tr": "Yerel saatin dakika bileşeni"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "UTC offset of the source location in hours (e.g., 3 for UTC+3, -5 for UTC-5)",
       "label_i18n": {
         "en": "Source UTC Offset (hours)",
-        "tr": "Source UTC Offset (hours)",
+        "tr": "Kaynak UTC Farkı (saat)",
         "de": "Source UTC Offset (hours)",
         "fr": "Source UTC Offset (hours)",
         "es": "Source UTC Offset (hours)",
         "ar": "Source UTC Offset (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "UTC offset of the source location in hours (e.g., 3 for UTC+3, -5 for UTC-5)",
+        "tr": "Kaynak konumun UTC farkı saat cinsinden (örn. UTC+3 için 3, UTC-5 için -5)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "UTC offset of the target location in hours",
       "label_i18n": {
         "en": "Target UTC Offset (hours)",
-        "tr": "Target UTC Offset (hours)",
+        "tr": "Hedef UTC Farkı (saat)",
         "de": "Target UTC Offset (hours)",
         "fr": "Target UTC Offset (hours)",
         "es": "Target UTC Offset (hours)",
         "ar": "Target UTC Offset (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "UTC offset of the target location in hours",
+        "tr": "Hedef konumun UTC farkı saat cinsinden"
       }
     }
   ],

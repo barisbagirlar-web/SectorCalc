@@ -10,11 +10,15 @@
       "businessContext": "The expected score for a bogey golfer under normal course and weather conditions.",
       "label_i18n": {
         "en": "Bogey Rating",
-        "tr": "Bogey Rating",
+        "tr": "Boği Derecesi",
         "de": "Bogey Rating",
         "fr": "Bogey Rating",
         "es": "Bogey Rating",
         "ar": "Bogey Rating"
+      },
+      "businessContext_i18n": {
+        "en": "The expected score for a bogey golfer under normal course and weather conditions.",
+        "tr": "Normal saha ve hava koşullarında bir bogey golfçüsü için beklenen skor."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The expected score for a scratch golfer under normal course and weather conditions.",
       "label_i18n": {
         "en": "Scratch Course Rating",
-        "tr": "Scratch Course Rating",
+        "tr": "Sıfır Handikap Saha Derecesi",
         "de": "Scratch Course Rating",
         "fr": "Scratch Course Rating",
         "es": "Scratch Course Rating",
         "ar": "Scratch Course Rating"
+      },
+      "businessContext_i18n": {
+        "en": "The expected score for a scratch golfer under normal course and weather conditions.",
+        "tr": "Normal saha ve hava koşullarında bir sıfır handikap golfçüsü için beklenen skor."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Constant multiplier to convert rating difference to slope (5.381 for men, 4.24 for women).",
       "label_i18n": {
         "en": "Slope Factor",
-        "tr": "Slope Factor",
+        "tr": "Eğim Faktörü",
         "de": "Slope Factor",
         "fr": "Slope Factor",
         "es": "Slope Factor",
         "ar": "Slope Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Constant multiplier to convert rating difference to slope (5.381 for men, 4.24 for women).",
+        "tr": "Derece farkını eğime dönüştürmek için sabit çarpan (erkekler için 5,381, kadınlar için 4,24)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Actual strokes taken by the player in the round.",
       "label_i18n": {
         "en": "Gross Score",
-        "tr": "Gross Score",
+        "tr": "Brüt Skor",
         "de": "Gross Score",
         "fr": "Gross Score",
         "es": "Gross Score",
         "ar": "Gross Score"
+      },
+      "businessContext_i18n": {
+        "en": "Actual strokes taken by the player in the round.",
+        "tr": "Oyuncunun turda attığı gerçek vuruş sayısı."
       }
     }
   ],

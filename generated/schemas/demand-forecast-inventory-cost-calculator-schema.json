@@ -21,10 +21,12 @@
       "max": 1000000,
       "businessContext": "Average demand observed over the past 12 periods (ISO 9001:2015 data collection).",
       "label_i18n": {
-        "en": "Historical Demand Mean (units/period)"
+        "en": "Historical Demand Mean (units/period)",
+        "tr": "Geçmiş Talep Ortalaması (birim/dönem)"
       },
       "businessContext_i18n": {
-        "en": "Average demand observed over the past 12 periods (ISO 9001:2015 data collection)."
+        "en": "Average demand observed over the past 12 periods (ISO 9001:2015 data collection).",
+        "tr": "Son 12 dönemde gözlemlenen ortalama talep (ISO 9001:2015 veri toplama)."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 500000,
       "businessContext": "Standard deviation of demand, used for safety stock calculation (Lean Six Sigma DMAIC).",
       "label_i18n": {
-        "en": "Demand Standard Deviation (units)"
+        "en": "Demand Standard Deviation (units)",
+        "tr": "Talep Standart Sapması (birim)"
       },
       "businessContext_i18n": {
-        "en": "Standard deviation of demand, used for safety stock calculation (Lean Six Sigma DMAIC)."
+        "en": "Standard deviation of demand, used for safety stock calculation (Lean Six Sigma DMAIC).",
+        "tr": "Talebin standart sapması, emniyet stoğu hesaplaması için kullanılır (Yalın Altı Sigma DMAIC)."
       }
     },
     {
@@ -53,10 +57,12 @@
       "max": 365,
       "businessContext": "Average replenishment lead time from supplier (WERC DC Metrics).",
       "label_i18n": {
-        "en": "Lead Time (days)"
+        "en": "Lead Time (days)",
+        "tr": "Teslim Süresi (gün)"
       },
       "businessContext_i18n": {
-        "en": "Average replenishment lead time from supplier (WERC DC Metrics)."
+        "en": "Average replenishment lead time from supplier (WERC DC Metrics).",
+        "tr": "Tedarikçiden ortalama yenileme teslim süresi (WERC DC Metrikleri)."
       }
     },
     {
@@ -75,10 +81,12 @@
       "max": 0.99,
       "businessContext": "Probability of not stocking out during lead time (Six Sigma DPMO target).",
       "label_i18n": {
-        "en": "Target Service Level"
+        "en": "Target Service Level",
+        "tr": "Hedef Hizmet Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "Probability of not stocking out during lead time (Six Sigma DPMO target)."
+        "en": "Probability of not stocking out during lead time (Six Sigma DPMO target).",
+        "tr": "Teslim süresi boyunca stokta kalmama olasılığı (Altı Sigma DPMO hedefi)."
       }
     },
     {
@@ -91,10 +99,12 @@
       "max": 100000,
       "businessContext": "Purchase cost per unit (ISO 14051 material flow cost accounting).",
       "label_i18n": {
-        "en": "Unit Cost ($)"
+        "en": "Unit Cost ($)",
+        "tr": "Birim Maliyet ($)"
       },
       "businessContext_i18n": {
-        "en": "Purchase cost per unit (ISO 14051 material flow cost accounting)."
+        "en": "Purchase cost per unit (ISO 14051 material flow cost accounting).",
+        "tr": "Birim başına satın alma maliyeti (ISO 14051 malzeme akış maliyet muhasebesi)."
       }
     },
     {
@@ -107,10 +117,12 @@
       "max": 100,
       "businessContext": "Percentage of unit cost per year (WERC DC Measures, typical 20-30%).",
       "label_i18n": {
-        "en": "Annual Holding Cost Rate (%)"
+        "en": "Annual Holding Cost Rate (%)",
+        "tr": "Yıllık Elde Tutma Maliyeti Oranı (%)"
       },
       "businessContext_i18n": {
-        "en": "Percentage of unit cost per year (WERC DC Measures, typical 20-30%)."
+        "en": "Percentage of unit cost per year (WERC DC Measures, typical 20-30%).",
+        "tr": "Yıllık birim maliyet yüzdesi (WERC DC Ölçüleri, tipik %20-30)."
       }
     },
     {
@@ -123,10 +135,12 @@
       "max": 10000,
       "businessContext": "Fixed cost per purchase order (Lean transactional cost reduction).",
       "label_i18n": {
-        "en": "Ordering Cost ($/order)"
+        "en": "Ordering Cost ($/order)",
+        "tr": "Sipariş Maliyeti ($/sipariş)"
       },
       "businessContext_i18n": {
-        "en": "Fixed cost per purchase order (Lean transactional cost reduction)."
+        "en": "Fixed cost per purchase order (Lean transactional cost reduction).",
+        "tr": "Satın alma emri başına sabit maliyet (Yalın işlem maliyeti azaltma)."
       }
     },
     {
@@ -139,10 +153,12 @@
       "max": 100000,
       "businessContext": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality).",
       "label_i18n": {
-        "en": "Stockout Cost per Unit ($)"
+        "en": "Stockout Cost per Unit ($)",
+        "tr": "Stokta Olmama Maliyeti Birim Başına ($)"
       },
       "businessContext_i18n": {
-        "en": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality)."
+        "en": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality).",
+        "tr": "Karşılanamayan talep birimi başına kayıp kâr + ceza (Altı Sigma kalitesizlik maliyeti)."
       }
     }
   ],

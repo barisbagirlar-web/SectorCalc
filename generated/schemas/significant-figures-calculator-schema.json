@@ -10,11 +10,15 @@
       "businessContext": "The number to be rounded to the specified significant figures.",
       "label_i18n": {
         "en": "Number",
-        "tr": "Number",
+        "tr": "Sayı",
         "de": "Number",
         "fr": "Number",
         "es": "Number",
         "ar": "Number"
+      },
+      "businessContext_i18n": {
+        "en": "The number to be rounded to the specified significant figures.",
+        "tr": "Belirtilen anlamlı basamaklara yuvarlanacak sayı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of significant digits desired in the result.",
       "label_i18n": {
         "en": "Significant Figures",
-        "tr": "Significant Figures",
+        "tr": "Anlamlı Basamaklar",
         "de": "Significant Figures",
         "fr": "Significant Figures",
         "es": "Significant Figures",
         "ar": "Significant Figures"
+      },
+      "businessContext_i18n": {
+        "en": "Number of significant digits desired in the result.",
+        "tr": "Sonuçta istenen anlamlı basamak sayısı."
       }
     },
     {
@@ -38,7 +46,7 @@
       "label": "auto_input_3",
       "label_i18n": {
         "en": "auto_input_3",
-        "tr": "auto_input_3",
+        "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
         "fr": "auto_input_3",
         "es": "auto_input_3",
@@ -50,7 +58,7 @@
       "businessContext": "Auto-generated input 3.",
       "businessContext_i18n": {
         "en": "Auto-generated input 3.",
-        "tr": "Auto-generated input 3.",
+        "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Auto-generated input 3.",
         "fr": "Auto-generated input 3.",
         "es": "Auto-generated input 3.",

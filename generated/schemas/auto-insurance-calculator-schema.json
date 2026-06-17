@@ -10,11 +10,15 @@
       "businessContext": "Current market value of the vehicle in USD.",
       "label_i18n": {
         "en": "Vehicle Value",
-        "tr": "Vehicle Value",
+        "tr": "Araç Değeri",
         "de": "Vehicle Value",
         "fr": "Vehicle Value",
         "es": "Vehicle Value",
         "ar": "Vehicle Value"
+      },
+      "businessContext_i18n": {
+        "en": "Current market value of the vehicle in USD.",
+        "tr": "Aracın USD cinsinden güncel piyasa değeri."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Age of the primary driver (18-100).",
       "label_i18n": {
         "en": "Driver Age",
-        "tr": "Driver Age",
+        "tr": "Sürücü Yaşı",
         "de": "Driver Age",
         "fr": "Driver Age",
         "es": "Driver Age",
         "ar": "Driver Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the primary driver (18-100).",
+        "tr": "Ana sürücünün yaşı (18-100)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total years of driving experience.",
       "label_i18n": {
         "en": "Driving Experience",
-        "tr": "Driving Experience",
+        "tr": "Sürüş Deneyimi",
         "de": "Driving Experience",
         "fr": "Driving Experience",
         "es": "Driving Experience",
         "ar": "Driving Experience"
+      },
+      "businessContext_i18n": {
+        "en": "Total years of driving experience.",
+        "tr": "Toplam sürüş deneyimi yılı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Coverage type: 1 = Liability only, 2 = Standard, 3 = Comprehensive. Acts as multiplier.",
       "label_i18n": {
         "en": "Coverage Level",
-        "tr": "Coverage Level",
+        "tr": "Teminat Seviyesi",
         "de": "Coverage Level",
         "fr": "Coverage Level",
         "es": "Coverage Level",
         "ar": "Coverage Level"
+      },
+      "businessContext_i18n": {
+        "en": "Coverage type: 1 = Liability only, 2 = Standard, 3 = Comprehensive. Acts as multiplier.",
+        "tr": "Teminat türü: 1 = Sadece sorumluluk, 2 = Standart, 3 = Kapsamlı. Çarpan olarak çalışır."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Amount the insured pays out-of-pocket before coverage kicks in.",
       "label_i18n": {
         "en": "Deductible Amount",
-        "tr": "Deductible Amount",
+        "tr": "Muafiyet Tutarı",
         "de": "Deductible Amount",
         "fr": "Deductible Amount",
         "es": "Deductible Amount",
         "ar": "Deductible Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Amount the insured pays out-of-pocket before coverage kicks in.",
+        "tr": "Teminat devreye girmeden önce sigortalının cepten ödediği tutar."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Age of the vehicle from manufacturing year.",
       "label_i18n": {
         "en": "Vehicle Age",
-        "tr": "Vehicle Age",
+        "tr": "Araç Yaşı",
         "de": "Vehicle Age",
         "fr": "Vehicle Age",
         "es": "Vehicle Age",
         "ar": "Vehicle Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the vehicle from manufacturing year.",
+        "tr": "Aracın üretim yılından itibaren yaşı."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Estimated distance driven per year in kilometers.",
       "label_i18n": {
         "en": "Annual Mileage",
-        "tr": "Annual Mileage",
+        "tr": "Yıllık Kilometre",
         "de": "Annual Mileage",
         "fr": "Annual Mileage",
         "es": "Annual Mileage",
         "ar": "Annual Mileage"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated distance driven per year in kilometers.",
+        "tr": "Yıllık tahmini sürüş mesafesi (kilometre)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Total mass of iron ore fed into the process",
       "label_i18n": {
         "en": "Ore Mass",
-        "tr": "Ore Mass",
+        "tr": "Cevher Kütlesi",
         "de": "Ore Mass",
         "fr": "Ore Mass",
         "es": "Ore Mass",
         "ar": "Ore Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of iron ore fed into the process",
+        "tr": "Proses beslenen toplam demir cevheri kütlesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Mass percentage of iron in the ore",
       "label_i18n": {
         "en": "Iron Concentration",
-        "tr": "Iron Concentration",
+        "tr": "Demir Konsantrasyonu",
         "de": "Iron Concentration",
         "fr": "Iron Concentration",
         "es": "Iron Concentration",
         "ar": "Iron Concentration"
+      },
+      "businessContext_i18n": {
+        "en": "Mass percentage of iron in the ore",
+        "tr": "Cevherdeki demir kütle yüzdesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Moisture mass percentage in the ore",
       "label_i18n": {
         "en": "Moisture Content",
-        "tr": "Moisture Content",
+        "tr": "Nem İçeriği",
         "de": "Moisture Content",
         "fr": "Moisture Content",
         "es": "Moisture Content",
         "ar": "Moisture Content"
+      },
+      "businessContext_i18n": {
+        "en": "Moisture mass percentage in the ore",
+        "tr": "Cevherdeki nem kütle yüzdesi"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Expected percentage of iron recovered from ore after processing",
       "label_i18n": {
         "en": "Recovery Rate",
-        "tr": "Recovery Rate",
+        "tr": "Geri Kazanım Oranı",
         "de": "Recovery Rate",
         "fr": "Recovery Rate",
         "es": "Recovery Rate",
         "ar": "Recovery Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage of iron recovered from ore after processing",
+        "tr": "İşleme sonrası cevherden geri kazanılan beklenen demir yüzdesi"
       }
     }
   ],

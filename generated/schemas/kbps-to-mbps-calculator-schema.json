@@ -15,6 +15,10 @@
         "fr": "Kilobits per second (kbps)",
         "es": "Kilobits per second (kbps)",
         "ar": "Kilobits per second (kbps)"
+      },
+      "businessContext_i18n": {
+        "en": "Data transfer rate in kilobits per second.",
+        "tr": "Saniyede kilobit cinsinden veri aktarım hızı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Select the base for kilo to mega conversion. 0 for SI (1000), 1 for binary (1024).",
       "label_i18n": {
         "en": "Conversion Standard",
-        "tr": "Conversion Standard",
+        "tr": "Dönüşüm Standardı",
         "de": "Conversion Standard",
         "fr": "Conversion Standard",
         "es": "Conversion Standard",
         "ar": "Conversion Standard"
+      },
+      "businessContext_i18n": {
+        "en": "Select the base for kilo to mega conversion. 0 for SI (1000), 1 for binary (1024).",
+        "tr": "Kilo'dan Mega'ya dönüşüm tabanını seçin. 0 SI (1000), 1 binary (1024)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Additional overhead percentage to add to the rate. E.g., 5 for 5% overhead.",
       "label_i18n": {
         "en": "Network Overhead (%)",
-        "tr": "Network Overhead (%)",
+        "tr": "Ağ Yükü (%)",
         "de": "Network Overhead (%)",
         "fr": "Network Overhead (%)",
         "es": "Network Overhead (%)",
         "ar": "Network Overhead (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional overhead percentage to add to the rate. E.g., 5 for 5% overhead.",
+        "tr": "Hıza eklenecek ek yük yüzdesi. Örn: %5 yük için 5."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of decimal places in the result.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places in the result.",
+        "tr": "Sonuçtaki ondalık basamak sayısı."
       }
     }
   ],

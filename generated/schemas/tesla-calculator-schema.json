@@ -10,11 +10,15 @@
       "businessContext": "Total number of wire turns in the solenoid coil",
       "label_i18n": {
         "en": "Number of Turns",
-        "tr": "Number of Turns",
+        "tr": "Sarım Sayısı",
         "de": "Number of Turns",
         "fr": "Number of Turns",
         "es": "Number of Turns",
         "ar": "Number of Turns"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of wire turns in the solenoid coil",
+        "tr": "Solenoid bobindeki toplam tel sarım sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Current flowing through the coil",
       "label_i18n": {
         "en": "Current",
-        "tr": "Current",
+        "tr": "Akım",
         "de": "Current",
         "fr": "Current",
         "es": "Current",
         "ar": "Current"
+      },
+      "businessContext_i18n": {
+        "en": "Current flowing through the coil",
+        "tr": "Bobinden geçen akım"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Length of the solenoid coil",
       "label_i18n": {
         "en": "Coil Length",
-        "tr": "Coil Length",
+        "tr": "Bobin Uzunluğu",
         "de": "Coil Length",
         "fr": "Coil Length",
         "es": "Coil Length",
         "ar": "Coil Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the solenoid coil",
+        "tr": "Solenoid bobinin uzunluğu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Relative magnetic permeability of the core material (1 for air/vacuum)",
       "label_i18n": {
         "en": "Relative Permeability",
-        "tr": "Relative Permeability",
+        "tr": "Bağıl Geçirgenlik",
         "de": "Relative Permeability",
         "fr": "Relative Permeability",
         "es": "Relative Permeability",
         "ar": "Relative Permeability"
+      },
+      "businessContext_i18n": {
+        "en": "Relative magnetic permeability of the core material (1 for air/vacuum)",
+        "tr": "Çekirdek malzemesinin bağıl manyetik geçirgenliği (hava/vakum için 1)"
       }
     }
   ],

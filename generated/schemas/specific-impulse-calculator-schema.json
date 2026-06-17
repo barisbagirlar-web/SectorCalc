@@ -10,11 +10,15 @@
       "businessContext": "The thrust force produced by the engine.",
       "label_i18n": {
         "en": "Thrust (F)",
-        "tr": "Thrust (F)",
+        "tr": "İtki (F)",
         "de": "Thrust (F)",
         "fr": "Thrust (F)",
         "es": "Thrust (F)",
         "ar": "Thrust (F)"
+      },
+      "businessContext_i18n": {
+        "en": "The thrust force produced by the engine.",
+        "tr": "Motor tarafından üretilen itki kuvveti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The rate at which propellant mass is expelled.",
       "label_i18n": {
         "en": "Mass Flow Rate (ṁ)",
-        "tr": "Mass Flow Rate (ṁ)",
+        "tr": "Kütle Akış Hızı (ṁ)",
         "de": "Mass Flow Rate (ṁ)",
         "fr": "Mass Flow Rate (ṁ)",
         "es": "Mass Flow Rate (ṁ)",
         "ar": "Mass Flow Rate (ṁ)"
+      },
+      "businessContext_i18n": {
+        "en": "The rate at which propellant mass is expelled.",
+        "tr": "İtici kütlenin dışarı atılma hızı."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard acceleration due to gravity (9.80665 m/s²).",
       "label_i18n": {
         "en": "Standard Gravity (g₀)",
-        "tr": "Standard Gravity (g₀)",
+        "tr": "Standart Yerçekimi (g₀)",
         "de": "Standard Gravity (g₀)",
         "fr": "Standard Gravity (g₀)",
         "es": "Standard Gravity (g₀)",
         "ar": "Standard Gravity (g₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard acceleration due to gravity (9.80665 m/s²).",
+        "tr": "Standart yerçekimi ivmesi (9,80665 m/s²)."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Nominal capacity of the battery in ampere-hours",
       "label_i18n": {
         "en": "Battery Capacity",
-        "tr": "Battery Capacity",
+        "tr": "Pil Kapasitesi",
         "de": "Battery Capacity",
         "fr": "Battery Capacity",
         "es": "Battery Capacity",
         "ar": "Battery Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal capacity of the battery in ampere-hours",
+        "tr": "Pilin amper-saat cinsinden nominal kapasitesi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Average or nominal voltage of the battery cell or pack",
       "label_i18n": {
         "en": "Nominal Voltage",
-        "tr": "Nominal Voltage",
+        "tr": "Nominal Gerilim",
         "de": "Nominal Voltage",
         "fr": "Nominal Voltage",
         "es": "Nominal Voltage",
         "ar": "Nominal Voltage"
+      },
+      "businessContext_i18n": {
+        "en": "Average or nominal voltage of the battery cell or pack",
+        "tr": "Pil hücresinin veya paketinin ortalama veya nominal voltajı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total mass of the battery including packaging",
       "label_i18n": {
         "en": "Mass",
-        "tr": "Mass",
+        "tr": "Kütle",
         "de": "Mass",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of the battery including packaging",
+        "tr": "Pil dahil olmak üzere toplam kütle"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Total volume of the battery including packaging",
       "label_i18n": {
         "en": "Volume",
-        "tr": "Volume",
+        "tr": "Hacim",
         "de": "Volume",
         "fr": "Volume",
         "es": "Volume",
         "ar": "Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of the battery including packaging",
+        "tr": "Pil dahil olmak üzere toplam hacim"
       }
     }
   ],

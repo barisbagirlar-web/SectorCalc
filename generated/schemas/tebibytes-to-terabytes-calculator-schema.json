@@ -10,11 +10,15 @@
       "businessContext": "The data volume in tebibytes (binary prefix, 2^40 bytes).",
       "label_i18n": {
         "en": "Tebibytes (TiB)",
-        "tr": "Tebibytes (TiB)",
+        "tr": "Tebibayt (TiB)",
         "de": "Tebibytes (TiB)",
         "fr": "Tebibytes (TiB)",
         "es": "Tebibytes (TiB)",
         "ar": "Tebibytes (TiB)"
+      },
+      "businessContext_i18n": {
+        "en": "The data volume in tebibytes (binary prefix, 2^40 bytes).",
+        "tr": "Tebibayt cinsinden veri hacmi (ikili önek, 2^40 bayt)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Exact conversion factor: 1 TiB = 2^40 bytes, 1 TB = 10^12 bytes, so factor = 2^40 / 10^12 = 1.099511627776. Adjust for custom conversion if needed.",
       "label_i18n": {
         "en": "Conversion Factor (TiB to TB)",
-        "tr": "Conversion Factor (TiB to TB)",
+        "tr": "Dönüşüm Faktörü (TiB - TB)",
         "de": "Conversion Factor (TiB to TB)",
         "fr": "Conversion Factor (TiB to TB)",
         "es": "Conversion Factor (TiB to TB)",
         "ar": "Conversion Factor (TiB to TB)"
+      },
+      "businessContext_i18n": {
+        "en": "Exact conversion factor: 1 TiB = 2^40 bytes, 1 TB = 10^12 bytes, so factor = 2^40 / 10^12 = 1.099511627776. Adjust for custom conversion if needed.",
+        "tr": "Kesin dönüşüm faktörü: 1 TiB = 2^40 bayt, 1 TB = 10^12 bayt, dolayısıyla faktör = 2^40 / 10^12 = 1.099511627776. Gerekirse özel dönüşüm için ayarlayın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of decimal places to round the output terabytes.",
       "label_i18n": {
         "en": "Decimal Precision",
-        "tr": "Decimal Precision",
+        "tr": "Ondalık Hassasiyet",
         "de": "Decimal Precision",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places to round the output terabytes.",
+        "tr": "Çıktı terabaytlarının yuvarlanacağı ondalık basamak sayısı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Multiply the converted terabytes by this factor for aggregated or scaled calculations.",
       "label_i18n": {
         "en": "Output Multiplier",
-        "tr": "Output Multiplier",
+        "tr": "Çıktı Çarpanı",
         "de": "Output Multiplier",
         "fr": "Output Multiplier",
         "es": "Output Multiplier",
         "ar": "Output Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiply the converted terabytes by this factor for aggregated or scaled calculations.",
+        "tr": "Toplu veya ölçekli hesaplamalar için dönüştürülen terabaytları bu faktörle çarpın."
       }
     }
   ],

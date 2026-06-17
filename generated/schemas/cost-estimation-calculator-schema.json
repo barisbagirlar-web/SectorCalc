@@ -10,11 +10,15 @@
       "businessContext": "Cost of raw materials",
       "label_i18n": {
         "en": "Material Cost",
-        "tr": "Material Cost",
+        "tr": "Malzeme Maliyeti",
         "de": "Material Cost",
         "fr": "Material Cost",
         "es": "Material Cost",
         "ar": "Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw materials",
+        "tr": "Hammadde maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total labor cost for production",
       "label_i18n": {
         "en": "Labor Cost",
-        "tr": "Labor Cost",
+        "tr": "İşçilik Maliyeti",
         "de": "Labor Cost",
         "fr": "Labor Cost",
         "es": "Labor Cost",
         "ar": "Labor Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total labor cost for production",
+        "tr": "Üretim için toplam işçilik maliyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of machine operation",
       "label_i18n": {
         "en": "Machine Cost",
-        "tr": "Machine Cost",
+        "tr": "Makine Maliyeti",
         "de": "Machine Cost",
         "fr": "Machine Cost",
         "es": "Machine Cost",
         "ar": "Machine Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of machine operation",
+        "tr": "Makine işletme maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Overhead as percentage of direct costs",
       "label_i18n": {
         "en": "Overhead %",
-        "tr": "Overhead %",
+        "tr": "Genel Gider %",
         "de": "Overhead %",
         "fr": "Overhead %",
         "es": "Overhead %",
         "ar": "Overhead %"
+      },
+      "businessContext_i18n": {
+        "en": "Overhead as percentage of direct costs",
+        "tr": "Doğrudan maliyetlerin yüzdesi olarak genel gider"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Profit markup percentage on total cost",
       "label_i18n": {
         "en": "Markup %",
-        "tr": "Markup %",
+        "tr": "Kar Marjı %",
         "de": "Markup %",
         "fr": "Markup %",
         "es": "Markup %",
         "ar": "Markup %"
+      },
+      "businessContext_i18n": {
+        "en": "Profit markup percentage on total cost",
+        "tr": "Toplam maliyet üzerinden kar marjı yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Total units produced",
       "label_i18n": {
         "en": "Number of Units",
-        "tr": "Number of Units",
+        "tr": "Birim Sayısı",
         "de": "Number of Units",
         "fr": "Number of Units",
         "es": "Number of Units",
         "ar": "Number of Units"
+      },
+      "businessContext_i18n": {
+        "en": "Total units produced",
+        "tr": "Üretilen toplam birim"
       }
     }
   ],

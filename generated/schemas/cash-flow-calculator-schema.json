@@ -10,11 +10,15 @@
       "businessContext": "Initial cash outflow at time 0",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Initial cash outflow at time 0",
+        "tr": "0. zamandaki ilk nakit çıkışı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Net cash generated each period",
       "label_i18n": {
         "en": "Periodic Cash Flow",
-        "tr": "Periodic Cash Flow",
+        "tr": "Dönemsel Nakit Akışı",
         "de": "Periodic Cash Flow",
         "fr": "Periodic Cash Flow",
         "es": "Periodic Cash Flow",
         "ar": "Periodic Cash Flow"
+      },
+      "businessContext_i18n": {
+        "en": "Net cash generated each period",
+        "tr": "Her dönemde üretilen net nakit"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of time periods (e.g., years)",
       "label_i18n": {
         "en": "Number of Periods",
-        "tr": "Number of Periods",
+        "tr": "Dönem Sayısı",
         "de": "Number of Periods",
         "fr": "Number of Periods",
         "es": "Number of Periods",
         "ar": "Number of Periods"
+      },
+      "businessContext_i18n": {
+        "en": "Number of time periods (e.g., years)",
+        "tr": "Zaman dönemi sayısı (örneğin, yıl)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Cost of capital or required rate of return",
       "label_i18n": {
         "en": "Discount Rate",
-        "tr": "Discount Rate",
+        "tr": "İndirim Oranı",
         "de": "Discount Rate",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of capital or required rate of return",
+        "tr": "Sermaye maliyeti veya gerekli getiri oranı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Cash value at end of project",
       "label_i18n": {
         "en": "Salvage Value",
-        "tr": "Salvage Value",
+        "tr": "Hurda Değeri",
         "de": "Salvage Value",
         "fr": "Salvage Value",
         "es": "Salvage Value",
         "ar": "Salvage Value"
+      },
+      "businessContext_i18n": {
+        "en": "Cash value at end of project",
+        "tr": "Proje sonundaki nakit değeri"
       }
     }
   ],

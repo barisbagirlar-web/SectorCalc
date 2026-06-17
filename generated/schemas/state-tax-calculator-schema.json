@@ -10,11 +10,15 @@
       "businessContext": "Annual gross income before taxes",
       "label_i18n": {
         "en": "Gross Income",
-        "tr": "Gross Income",
+        "tr": "Brüt Gelir",
         "de": "Gross Income",
         "fr": "Gross Income",
         "es": "Gross Income",
         "ar": "Gross Income"
+      },
+      "businessContext_i18n": {
+        "en": "Annual gross income before taxes",
+        "tr": "Vergi öncesi yıllık brüt gelir"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Applicable state income tax rate",
       "label_i18n": {
         "en": "State Tax Rate",
-        "tr": "State Tax Rate",
+        "tr": "Eyalet Vergi Oranı",
         "de": "State Tax Rate",
         "fr": "State Tax Rate",
         "es": "State Tax Rate",
         "ar": "State Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable state income tax rate",
+        "tr": "Geçerli eyalet gelir vergisi oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard deduction amount for the tax year",
       "label_i18n": {
         "en": "Standard Deduction",
-        "tr": "Standard Deduction",
+        "tr": "Standart Kesinti",
         "de": "Standard Deduction",
         "fr": "Standard Deduction",
         "es": "Standard Deduction",
         "ar": "Standard Deduction"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deduction amount for the tax year",
+        "tr": "Vergi yılı için standart kesinti tutarı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Other deductions (e.g., mortgage interest, charitable contributions)",
       "label_i18n": {
         "en": "Additional Deductions",
-        "tr": "Additional Deductions",
+        "tr": "Ek Kesintiler",
         "de": "Additional Deductions",
         "fr": "Additional Deductions",
         "es": "Additional Deductions",
         "ar": "Additional Deductions"
+      },
+      "businessContext_i18n": {
+        "en": "Other deductions (e.g., mortgage interest, charitable contributions)",
+        "tr": "Diğer kesintiler (ör. ipotek faizi, bağışlar)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Non-refundable tax credits to reduce tax liability",
       "label_i18n": {
         "en": "Tax Credits",
-        "tr": "Tax Credits",
+        "tr": "Vergi Kredileri",
         "de": "Tax Credits",
         "fr": "Tax Credits",
         "es": "Tax Credits",
         "ar": "Tax Credits"
+      },
+      "businessContext_i18n": {
+        "en": "Non-refundable tax credits to reduce tax liability",
+        "tr": "Vergi borcunu azaltmak için iade edilmeyen vergi kredileri"
       }
     }
   ],

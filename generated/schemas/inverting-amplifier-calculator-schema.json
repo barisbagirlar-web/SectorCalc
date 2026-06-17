@@ -10,11 +10,15 @@
       "businessContext": "AC or DC signal voltage at input",
       "label_i18n": {
         "en": "Input Voltage (Vin)",
-        "tr": "Input Voltage (Vin)",
+        "tr": "Giriş voltajı (Vin)",
         "de": "Input Voltage (Vin)",
         "fr": "Input Voltage (Vin)",
         "es": "Input Voltage (Vin)",
         "ar": "Input Voltage (Vin)"
+      },
+      "businessContext_i18n": {
+        "en": "AC or DC signal voltage at input",
+        "tr": "Girişteki AC veya DC sinyal gerilimi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Resistance between input and inverting terminal",
       "label_i18n": {
         "en": "Input Resistor (Rin)",
-        "tr": "Input Resistor (Rin)",
+        "tr": "Giriş Direnci (Rin)",
         "de": "Input Resistor (Rin)",
         "fr": "Input Resistor (Rin)",
         "es": "Input Resistor (Rin)",
         "ar": "Input Resistor (Rin)"
+      },
+      "businessContext_i18n": {
+        "en": "Resistance between input and inverting terminal",
+        "tr": "Giriş ile eviren terminal arasındaki direnç"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Resistance between output and inverting terminal",
       "label_i18n": {
         "en": "Feedback Resistor (Rf)",
-        "tr": "Feedback Resistor (Rf)",
+        "tr": "Geri Besleme Direnci (Rf)",
         "de": "Feedback Resistor (Rf)",
         "fr": "Feedback Resistor (Rf)",
         "es": "Feedback Resistor (Rf)",
         "ar": "Feedback Resistor (Rf)"
+      },
+      "businessContext_i18n": {
+        "en": "Resistance between output and inverting terminal",
+        "tr": "Çıkış ile eviren terminal arasındaki direnç"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Op-amp positive power supply voltage",
       "label_i18n": {
         "en": "Positive Supply (Vcc+)",
-        "tr": "Positive Supply (Vcc+)",
+        "tr": "Pozitif Besleme (Vcc+)",
         "de": "Positive Supply (Vcc+)",
         "fr": "Positive Supply (Vcc+)",
         "es": "Positive Supply (Vcc+)",
         "ar": "Positive Supply (Vcc+)"
+      },
+      "businessContext_i18n": {
+        "en": "Op-amp positive power supply voltage",
+        "tr": "Op-amp pozitif güç kaynağı gerilimi"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Op-amp negative power supply voltage",
       "label_i18n": {
         "en": "Negative Supply (Vcc-)",
-        "tr": "Negative Supply (Vcc-)",
+        "tr": "Negatif Besleme (Vcc-)",
         "de": "Negative Supply (Vcc-)",
         "fr": "Negative Supply (Vcc-)",
         "es": "Negative Supply (Vcc-)",
         "ar": "Negative Supply (Vcc-)"
+      },
+      "businessContext_i18n": {
+        "en": "Op-amp negative power supply voltage",
+        "tr": "Op-amp negatif güç kaynağı gerilimi"
       }
     }
   ],

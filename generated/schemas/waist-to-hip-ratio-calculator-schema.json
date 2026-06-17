@@ -10,11 +10,15 @@
       "businessContext": "Measured at the midpoint between the lower margin of the last palpable rib and the top of the iliac crest, according to WHO protocol",
       "label_i18n": {
         "en": "Waist Circumference",
-        "tr": "Waist Circumference",
+        "tr": "Bel Çevresi",
         "de": "Waist Circumference",
         "fr": "Waist Circumference",
         "es": "Waist Circumference",
         "ar": "Waist Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Measured at the midpoint between the lower margin of the last palpable rib and the top of the iliac crest, according to WHO protocol",
+        "tr": "WHO protokolüne göre son palpe edilebilir kaburganın alt kenarı ile iliak krestin üstü arasındaki orta noktadan ölçülür"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Measured at the greatest circumference around the buttocks",
       "label_i18n": {
         "en": "Hip Circumference",
-        "tr": "Hip Circumference",
+        "tr": "Kalça Çevresi",
         "de": "Hip Circumference",
         "fr": "Hip Circumference",
         "es": "Hip Circumference",
         "ar": "Hip Circumference"
+      },
+      "businessContext_i18n": {
+        "en": "Measured at the greatest circumference around the buttocks",
+        "tr": "Kalçaların etrafındaki en geniş çevreden ölçülür"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standing height without shoes, used for waist-to-height ratio and BMI",
       "label_i18n": {
         "en": "Height",
-        "tr": "Height",
+        "tr": "Boy",
         "de": "Height",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Standing height without shoes, used for waist-to-height ratio and BMI",
+        "tr": "Ayakta, ayakkabısız boy; bel-boy oranı ve BMI için kullanılır"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Body weight in kilograms, used for BMI calculation",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight in kilograms, used for BMI calculation",
+        "tr": "Kilogram cinsinden vücut ağırlığı, BMI hesaplaması için kullanılır"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Biological sex for WHR risk threshold interpretation (0: female, 1: male)",
       "label_i18n": {
         "en": "Gender (0=Female, 1=Male)",
-        "tr": "Gender (0=Female, 1=Male)",
+        "tr": "Cinsiyet (0=Kadın, 1=Erkek)",
         "de": "Gender (0=Female, 1=Male)",
         "fr": "Gender (0=Female, 1=Male)",
         "es": "Gender (0=Female, 1=Male)",
         "ar": "Gender (0=Female, 1=Male)"
+      },
+      "businessContext_i18n": {
+        "en": "Biological sex for WHR risk threshold interpretation (0: female, 1: male)",
+        "tr": "Biyolojik cinsiyet, WHR risk eşiği yorumlaması için (0: kadın, 1: erkek)"
       }
     }
   ],

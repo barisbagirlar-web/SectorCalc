@@ -10,11 +10,15 @@
       "businessContext": "Mach number before the expansion fan",
       "label_i18n": {
         "en": "Upstream Mach Number (M1)",
-        "tr": "Upstream Mach Number (M1)",
+        "tr": "Yukarı Akış Mach Sayısı (M1)",
         "de": "Upstream Mach Number (M1)",
         "fr": "Upstream Mach Number (M1)",
         "es": "Upstream Mach Number (M1)",
         "ar": "Upstream Mach Number (M1)"
+      },
+      "businessContext_i18n": {
+        "en": "Mach number before the expansion fan",
+        "tr": "Genleşme fanı öncesi Mach sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Ratio of specific heats for the gas (e.g., 1.4 for air)",
       "label_i18n": {
         "en": "Specific Heat Ratio (γ)",
-        "tr": "Specific Heat Ratio (γ)",
+        "tr": "Özgül Isı Oranı (γ)",
         "de": "Specific Heat Ratio (γ)",
         "fr": "Specific Heat Ratio (γ)",
         "es": "Specific Heat Ratio (γ)",
         "ar": "Specific Heat Ratio (γ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of specific heats for the gas (e.g., 1.4 for air)",
+        "tr": "Gazın özgül ısı oranı (örneğin hava için 1.4)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Angle through which the flow is turned (positive for expansion)",
       "label_i18n": {
         "en": "Flow Deflection Angle (θ)",
-        "tr": "Flow Deflection Angle (θ)",
+        "tr": "Akış Sapma Açısı (θ)",
         "de": "Flow Deflection Angle (θ)",
         "fr": "Flow Deflection Angle (θ)",
         "es": "Flow Deflection Angle (θ)",
         "ar": "Flow Deflection Angle (θ)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle through which the flow is turned (positive for expansion)",
+        "tr": "Akışın döndürüldüğü açı (genleşme için pozitif)"
       }
     }
   ],

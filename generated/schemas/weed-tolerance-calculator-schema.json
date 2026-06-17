@@ -10,11 +10,15 @@
       "businessContext": "Nominal dimension before welding",
       "label_i18n": {
         "en": "Base Length (mm)",
-        "tr": "Base Length (mm)",
+        "tr": "Temel Uzunluk (mm)",
         "de": "Base Length (mm)",
         "fr": "Base Length (mm)",
         "es": "Base Length (mm)",
         "ar": "Base Length (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal dimension before welding",
+        "tr": "Kaynak öncesi nominal boyut"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of weld joints",
       "label_i18n": {
         "en": "Number of Welds",
-        "tr": "Number of Welds",
+        "tr": "Kaynak Sayısı",
         "de": "Number of Welds",
         "fr": "Number of Welds",
         "es": "Number of Welds",
         "ar": "Number of Welds"
+      },
+      "businessContext_i18n": {
+        "en": "Number of weld joints",
+        "tr": "Kaynak bağlantı sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average number of passes per joint",
       "label_i18n": {
         "en": "Weld Passes per Joint",
-        "tr": "Weld Passes per Joint",
+        "tr": "Bağlantı Başına Kaynak Pasosu",
         "de": "Weld Passes per Joint",
         "fr": "Weld Passes per Joint",
         "es": "Weld Passes per Joint",
         "ar": "Weld Passes per Joint"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of passes per joint",
+        "tr": "Bağlantı başına ortalama paso sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Shrinkage per meter per pass (e.g., steel = 0.5)",
       "label_i18n": {
         "en": "Material Shrinkage Factor",
-        "tr": "Material Shrinkage Factor",
+        "tr": "Malzeme Büzülme Faktörü",
         "de": "Material Shrinkage Factor",
         "fr": "Material Shrinkage Factor",
         "es": "Material Shrinkage Factor",
         "ar": "Material Shrinkage Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Shrinkage per meter per pass (e.g., steel = 0.5)",
+        "tr": "Metre başına paso başına büzülme (ör. çelik = 0,5)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Temperature for thermal expansion adjustment",
       "label_i18n": {
         "en": "Ambient Temperature (°C)",
-        "tr": "Ambient Temperature (°C)",
+        "tr": "Ortam Sıcaklığı (°C)",
         "de": "Ambient Temperature (°C)",
         "fr": "Ambient Temperature (°C)",
         "es": "Ambient Temperature (°C)",
         "ar": "Ambient Temperature (°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature for thermal expansion adjustment",
+        "tr": "Termal genleşme ayarı için sıcaklık"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Coefficient of thermal expansion for the material",
       "label_i18n": {
         "en": "Thermal Expansion Coeff (µm/m·°C)",
-        "tr": "Thermal Expansion Coeff (µm/m·°C)",
+        "tr": "Termal Genleşme Katsayısı (µm/m·°C)",
         "de": "Thermal Expansion Coeff (µm/m·°C)",
         "fr": "Thermal Expansion Coeff (µm/m·°C)",
         "es": "Thermal Expansion Coeff (µm/m·°C)",
         "ar": "Thermal Expansion Coeff (µm/m·°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of thermal expansion for the material",
+        "tr": "Malzemenin termal genleşme katsayısı"
       }
     }
   ],

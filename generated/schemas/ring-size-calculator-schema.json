@@ -10,11 +10,15 @@
       "businessContext": "The inner diameter of the ring in millimeters.",
       "label_i18n": {
         "en": "Inside Diameter (mm)",
-        "tr": "Inside Diameter (mm)",
+        "tr": "İç Çap (mm)",
         "de": "Inside Diameter (mm)",
         "fr": "Inside Diameter (mm)",
         "es": "Inside Diameter (mm)",
         "ar": "Inside Diameter (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "The inner diameter of the ring in millimeters.",
+        "tr": "Halkanın iç çapı (milimetre cinsinden)."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The inner circumference of the ring in millimeters.",
       "label_i18n": {
         "en": "Inside Circumference (mm)",
-        "tr": "Inside Circumference (mm)",
+        "tr": "İç Çevre (mm)",
         "de": "Inside Circumference (mm)",
         "fr": "Inside Circumference (mm)",
         "es": "Inside Circumference (mm)",
         "ar": "Inside Circumference (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "The inner circumference of the ring in millimeters.",
+        "tr": "Halkanın iç çevresi (milimetre cinsinden)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The inner diameter of the ring in inches.",
       "label_i18n": {
         "en": "Inside Diameter (inches)",
-        "tr": "Inside Diameter (inches)",
+        "tr": "İç Çap (inç)",
         "de": "Inside Diameter (inches)",
         "fr": "Inside Diameter (inches)",
         "es": "Inside Diameter (inches)",
         "ar": "Inside Diameter (inches)"
+      },
+      "businessContext_i18n": {
+        "en": "The inner diameter of the ring in inches.",
+        "tr": "Halkanın iç çapı (inç cinsinden)."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The inner circumference of the ring in inches.",
       "label_i18n": {
         "en": "Inside Circumference (inches)",
-        "tr": "Inside Circumference (inches)",
+        "tr": "İç Çevre (inç)",
         "de": "Inside Circumference (inches)",
         "fr": "Inside Circumference (inches)",
         "es": "Inside Circumference (inches)",
         "ar": "Inside Circumference (inches)"
+      },
+      "businessContext_i18n": {
+        "en": "The inner circumference of the ring in inches.",
+        "tr": "Halkanın inç cinsinden iç çevresi."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "A multiplier to adjust the calculated size (e.g., for different temperature or manufacturing tolerance).",
       "label_i18n": {
         "en": "Calibration Factor",
-        "tr": "Calibration Factor",
+        "tr": "Kalibrasyon Faktörü",
         "de": "Calibration Factor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
+      },
+      "businessContext_i18n": {
+        "en": "A multiplier to adjust the calculated size (e.g., for different temperature or manufacturing tolerance).",
+        "tr": "Hesaplanan boyutu ayarlamak için çarpan (örneğin, farklı sıcaklık veya üretim toleransı için)."
       }
     }
   ],

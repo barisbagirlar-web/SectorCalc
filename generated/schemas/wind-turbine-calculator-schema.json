@@ -10,11 +10,15 @@
       "businessContext": "The overall diameter of the rotor swept area, a primary design parameter affecting power capture.",
       "label_i18n": {
         "en": "Rotor Diameter",
-        "tr": "Rotor Diameter",
+        "tr": "Rotor Çapı",
         "de": "Rotor Diameter",
         "fr": "Rotor Diameter",
         "es": "Rotor Diameter",
         "ar": "Rotor Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "The overall diameter of the rotor swept area, a primary design parameter affecting power capture.",
+        "tr": "Rotor süpürme alanının toplam çapı, güç yakalamayı etkileyen birincil tasarım parametresi."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Standard sea-level air density; can vary with altitude and temperature.",
       "label_i18n": {
         "en": "Air Density",
-        "tr": "Air Density",
+        "tr": "Hava Yoğunluğu",
         "de": "Air Density",
         "fr": "Air Density",
         "es": "Air Density",
         "ar": "Air Density"
+      },
+      "businessContext_i18n": {
+        "en": "Standard sea-level air density; can vary with altitude and temperature.",
+        "tr": "Standart deniz seviyesi hava yoğunluğu; rakım ve sıcaklığa göre değişebilir."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Mean wind speed at hub height; typically the rated wind speed of the turbine.",
       "label_i18n": {
         "en": "Wind Speed",
-        "tr": "Wind Speed",
+        "tr": "Rüzgar Hızı",
         "de": "Wind Speed",
         "fr": "Wind Speed",
         "es": "Wind Speed",
         "ar": "Wind Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Mean wind speed at hub height; typically the rated wind speed of the turbine.",
+        "tr": "Göbek yüksekliğindeki ortalama rüzgar hızı; tipik olarak türbinin nominal rüzgar hızı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Turbine power coefficient, limited by the Betz limit (~0.593); accounts for aerodynamic losses.",
       "label_i18n": {
         "en": "Power Coefficient (Cp)",
-        "tr": "Power Coefficient (Cp)",
+        "tr": "Güç Katsayısı (Cp)",
         "de": "Power Coefficient (Cp)",
         "fr": "Power Coefficient (Cp)",
         "es": "Power Coefficient (Cp)",
         "ar": "Power Coefficient (Cp)"
+      },
+      "businessContext_i18n": {
+        "en": "Turbine power coefficient, limited by the Betz limit (~0.593); accounts for aerodynamic losses.",
+        "tr": "Türbin güç katsayısı, Betz limiti (~0,593) ile sınırlıdır; aerodinamik kayıpları hesaba katar."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Combined mechanical and electrical efficiency of the gearbox and generator.",
       "label_i18n": {
         "en": "Drive‑Train Efficiency",
-        "tr": "Drive‑Train Efficiency",
+        "tr": "Tahrik Sistemi Verimliliği",
         "de": "Drive‑Train Efficiency",
         "fr": "Drive‑Train Efficiency",
         "es": "Drive‑Train Efficiency",
         "ar": "Drive‑Train Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Combined mechanical and electrical efficiency of the gearbox and generator.",
+        "tr": "Dişli kutusu ve jeneratörün birleşik mekanik ve elektrik verimliliği."
       }
     }
   ],

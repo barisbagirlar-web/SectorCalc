@@ -10,11 +10,15 @@
       "businessContext": "Measured length of existing beard in millimeters.",
       "label_i18n": {
         "en": "Current Beard Length",
-        "tr": "Current Beard Length",
+        "tr": "Mevcut Sakal Uzunluğu",
         "de": "Current Beard Length",
         "fr": "Current Beard Length",
         "es": "Current Beard Length",
         "ar": "Current Beard Length"
+      },
+      "businessContext_i18n": {
+        "en": "Measured length of existing beard in millimeters.",
+        "tr": "Mevcut sakalın milimetre cinsinden ölçülen uzunluğu."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Target beard length in millimeters.",
       "label_i18n": {
         "en": "Desired Beard Length",
-        "tr": "Desired Beard Length",
+        "tr": "Hedef Sakal Uzunluğu",
         "de": "Desired Beard Length",
         "fr": "Desired Beard Length",
         "es": "Desired Beard Length",
         "ar": "Desired Beard Length"
+      },
+      "businessContext_i18n": {
+        "en": "Target beard length in millimeters.",
+        "tr": "Milimetre cinsinden hedef sakal uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Average beard growth rate per day. Typical range 0.3-0.5 mm/day.",
       "label_i18n": {
         "en": "Average Daily Growth Rate",
-        "tr": "Average Daily Growth Rate",
+        "tr": "Ortalama Günlük Büyüme Hızı",
         "de": "Average Daily Growth Rate",
         "fr": "Average Daily Growth Rate",
         "es": "Average Daily Growth Rate",
         "ar": "Average Daily Growth Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average beard growth rate per day. Typical range 0.3-0.5 mm/day.",
+        "tr": "Günlük ortalama sakal büyüme hızı. Tipik aralık 0.3-0.5 mm/gün."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of days per month when beard does not grow (e.g., due to shaving cycles or rest phases).",
       "label_i18n": {
         "en": "Resting Days per Month",
-        "tr": "Resting Days per Month",
+        "tr": "Aylık Dinlenme Günleri",
         "de": "Resting Days per Month",
         "fr": "Resting Days per Month",
         "es": "Resting Days per Month",
         "ar": "Resting Days per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days per month when beard does not grow (e.g., due to shaving cycles or rest phases).",
+        "tr": "Sakalın uzamadığı aylık gün sayısı (örneğin tıraş döngüleri veya dinlenme evreleri nedeniyle)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Factor accounting for genetic variations (1.0 = average, >1 faster growth).",
       "label_i18n": {
         "en": "Genetic Growth Factor",
-        "tr": "Genetic Growth Factor",
+        "tr": "Genetik Büyüme Faktörü",
         "de": "Genetic Growth Factor",
         "fr": "Genetic Growth Factor",
         "es": "Genetic Growth Factor",
         "ar": "Genetic Growth Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor accounting for genetic variations (1.0 = average, >1 faster growth).",
+        "tr": "Genetik varyasyonları hesaba katan faktör (1.0 = ortalama, >1 daha hızlı büyüme)."
       }
     }
   ],

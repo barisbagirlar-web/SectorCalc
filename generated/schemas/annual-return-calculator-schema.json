@@ -10,11 +10,15 @@
       "businessContext": "The amount of money initially invested.",
       "label_i18n": {
         "en": "Initial Investment",
-        "tr": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
         "de": "Initial Investment",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "The amount of money initially invested.",
+        "tr": "Başlangıçta yatırılan para miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "The total value of the investment at the end of the period.",
       "label_i18n": {
         "en": "Final Value",
-        "tr": "Final Value",
+        "tr": "Nihai Değer",
         "de": "Final Value",
         "fr": "Final Value",
         "es": "Final Value",
         "ar": "Final Value"
+      },
+      "businessContext_i18n": {
+        "en": "The total value of the investment at the end of the period.",
+        "tr": "Dönem sonunda yatırımın toplam değeri."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "The duration of the investment in years.",
       "label_i18n": {
         "en": "Investment Period",
-        "tr": "Investment Period",
+        "tr": "Yatırım Süresi",
         "de": "Investment Period",
         "fr": "Investment Period",
         "es": "Investment Period",
         "ar": "Investment Period"
+      },
+      "businessContext_i18n": {
+        "en": "The duration of the investment in years.",
+        "tr": "Yatırımın yıl cinsinden süresi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "The annual inflation rate to adjust for real return.",
       "label_i18n": {
         "en": "Inflation Rate",
-        "tr": "Inflation Rate",
+        "tr": "Enflasyon Oranı",
         "de": "Inflation Rate",
         "fr": "Inflation Rate",
         "es": "Inflation Rate",
         "ar": "Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The annual inflation rate to adjust for real return.",
+        "tr": "Reel getiriyi hesaplamak için yıllık enflasyon oranı."
       }
     }
   ],

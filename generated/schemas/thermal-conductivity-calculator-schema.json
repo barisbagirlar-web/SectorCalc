@@ -29,10 +29,12 @@
       ],
       "businessContext": "Select the material category to apply appropriate thermal conductivity ranges and correction factors per ISO 8301.",
       "label_i18n": {
-        "en": "Material Type"
+        "en": "Material Type",
+        "tr": "Malzeme Türü"
       },
       "businessContext_i18n": {
-        "en": "Select the material category to apply appropriate thermal conductivity ranges and correction factors per ISO 8301."
+        "en": "Select the material category to apply appropriate thermal conductivity ranges and correction factors per ISO 8301.",
+        "tr": "Uygun termal iletkenlik aralıklarını ve ISO 8301'e göre düzeltme faktörlerini uygulamak için malzeme kategorisini seçin."
       }
     },
     {
@@ -45,10 +47,12 @@
       "max": 2000,
       "businessContext": "Mean temperature of the material during operation. Affects phonon scattering and electron transport in solids.",
       "label_i18n": {
-        "en": "Operating Temperature"
+        "en": "Operating Temperature",
+        "tr": "Çalışma Sıcaklığı"
       },
       "businessContext_i18n": {
-        "en": "Mean temperature of the material during operation. Affects phonon scattering and electron transport in solids."
+        "en": "Mean temperature of the material during operation. Affects phonon scattering and electron transport in solids.",
+        "tr": "Çalışma sırasında malzemenin ortalama sıcaklığı. Katılarda fonon saçılmasını ve elektron taşınımını etkiler."
       }
     },
     {
@@ -61,10 +65,12 @@
       "max": 1,
       "businessContext": "Material thickness in the direction of heat flow. Used for thermal resistance calculation.",
       "label_i18n": {
-        "en": "Thickness"
+        "en": "Thickness",
+        "tr": "Kalınlık"
       },
       "businessContext_i18n": {
-        "en": "Material thickness in the direction of heat flow. Used for thermal resistance calculation."
+        "en": "Material thickness in the direction of heat flow. Used for thermal resistance calculation.",
+        "tr": "Isı akışı yönünde malzeme kalınlığı. Termal direnç hesaplaması için kullanılır."
       }
     },
     {
@@ -77,10 +83,12 @@
       "max": 100,
       "businessContext": "Area perpendicular to heat flow. Critical for heat flux density calculations.",
       "label_i18n": {
-        "en": "Cross-Sectional Area"
+        "en": "Cross-Sectional Area",
+        "tr": "Kesit Alanı"
       },
       "businessContext_i18n": {
-        "en": "Area perpendicular to heat flow. Critical for heat flux density calculations."
+        "en": "Area perpendicular to heat flow. Critical for heat flux density calculations.",
+        "tr": "Isı akışına dik alan. Isı akısı yoğunluğu hesaplamaları için kritiktir."
       }
     },
     {
@@ -93,10 +101,12 @@
       "max": 100000,
       "businessContext": "Steady-state heat transfer rate through the material. Measured via calorimeter or heat flux sensor.",
       "label_i18n": {
-        "en": "Heat Flow Rate"
+        "en": "Heat Flow Rate",
+        "tr": "Isı Akış Hızı"
       },
       "businessContext_i18n": {
-        "en": "Steady-state heat transfer rate through the material. Measured via calorimeter or heat flux sensor."
+        "en": "Steady-state heat transfer rate through the material. Measured via calorimeter or heat flux sensor.",
+        "tr": "Malzeme boyunca kararlı durum ısı transfer hızı. Kalorimetre veya ısı akısı sensörü ile ölçülür."
       }
     },
     {
@@ -109,10 +119,12 @@
       "max": 500,
       "businessContext": "Temperature gradient across the material thickness. Drives conductive heat transfer.",
       "label_i18n": {
-        "en": "Temperature Difference"
+        "en": "Temperature Difference",
+        "tr": "Sıcaklık Farkı"
       },
       "businessContext_i18n": {
-        "en": "Temperature gradient across the material thickness. Drives conductive heat transfer."
+        "en": "Temperature gradient across the material thickness. Drives conductive heat transfer.",
+        "tr": "Malzeme kalınlığı boyunca sıcaklık gradyanı. İletim yoluyla ısı transferini yönlendirir."
       }
     },
     {
@@ -125,10 +137,12 @@
       "max": 100,
       "businessContext": "Percentage of moisture by volume. Increases effective thermal conductivity in porous materials (WERC guidelines).",
       "label_i18n": {
-        "en": "Moisture Content"
+        "en": "Moisture Content",
+        "tr": "Nem İçeriği"
       },
       "businessContext_i18n": {
-        "en": "Percentage of moisture by volume. Increases effective thermal conductivity in porous materials (WERC guidelines)."
+        "en": "Percentage of moisture by volume. Increases effective thermal conductivity in porous materials (WERC guidelines).",
+        "tr": "Hacimce nem yüzdesi. Gözenekli malzemelerde etkin termal iletkenliği artırır (WERC yönergeleri)."
       }
     },
     {
@@ -141,10 +155,12 @@
       "max": 2,
       "businessContext": "Multiplier accounting for material degradation over time. Based on Six Sigma aging studies.",
       "label_i18n": {
-        "en": "Aging Factor"
+        "en": "Aging Factor",
+        "tr": "Yaşlanma Faktörü"
       },
       "businessContext_i18n": {
-        "en": "Multiplier accounting for material degradation over time. Based on Six Sigma aging studies."
+        "en": "Multiplier accounting for material degradation over time. Based on Six Sigma aging studies.",
+        "tr": "Zamanla malzeme bozulmasını hesaba katan çarpan. Altı Sigma yaşlanma çalışmalarına dayanır."
       }
     }
   ],

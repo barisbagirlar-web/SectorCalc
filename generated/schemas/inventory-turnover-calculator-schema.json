@@ -10,11 +10,15 @@
       "businessContext": "Total cost of goods sold during the period",
       "label_i18n": {
         "en": "Cost of Goods Sold",
-        "tr": "Cost of Goods Sold",
+        "tr": "Satılan Malın Maliyeti",
         "de": "Cost of Goods Sold",
         "fr": "Cost of Goods Sold",
         "es": "Cost of Goods Sold",
         "ar": "Cost of Goods Sold"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of goods sold during the period",
+        "tr": "Dönem boyunca satılan malların toplam maliyeti"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Inventory value at the start of the period",
       "label_i18n": {
         "en": "Beginning Inventory",
-        "tr": "Beginning Inventory",
+        "tr": "Başlangıç Envanteri",
         "de": "Beginning Inventory",
         "fr": "Beginning Inventory",
         "es": "Beginning Inventory",
         "ar": "Beginning Inventory"
+      },
+      "businessContext_i18n": {
+        "en": "Inventory value at the start of the period",
+        "tr": "Dönem başındaki stok değeri"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Inventory value at the end of the period",
       "label_i18n": {
         "en": "Ending Inventory",
-        "tr": "Ending Inventory",
+        "tr": "Bitiş Envanteri",
         "de": "Ending Inventory",
         "fr": "Ending Inventory",
         "es": "Ending Inventory",
         "ar": "Ending Inventory"
+      },
+      "businessContext_i18n": {
+        "en": "Inventory value at the end of the period",
+        "tr": "Dönem sonundaki stok değeri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of days in the period (e.g., 365 for annual)",
       "label_i18n": {
         "en": "Days in Period",
-        "tr": "Days in Period",
+        "tr": "Dönemdeki Gün Sayısı",
         "de": "Days in Period",
         "fr": "Days in Period",
         "es": "Days in Period",
         "ar": "Days in Period"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days in the period (e.g., 365 for annual)",
+        "tr": "Dönemdeki gün sayısı (örneğin, yıllık için 365)"
       }
     }
   ],

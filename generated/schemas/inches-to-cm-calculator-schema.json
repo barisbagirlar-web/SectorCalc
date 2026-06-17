@@ -10,11 +10,15 @@
       "businessContext": "Length in inches, e.g., from machine dimensions or product specs",
       "label_i18n": {
         "en": "Inches",
-        "tr": "Inches",
+        "tr": "İnç",
         "de": "Inches",
         "fr": "Inches",
         "es": "Inches",
         "ar": "Inches"
+      },
+      "businessContext_i18n": {
+        "en": "Length in inches, e.g., from machine dimensions or product specs",
+        "tr": "İnç cinsinden uzunluk, örn. makine boyutları veya ürün özelliklerinden"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Systematic measurement instrument offset in inches",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Calibration Offset",
+        "tr": "Kalibrasyon Ofseti",
         "de": "Calibration Offset",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Systematic measurement instrument offset in inches",
+        "tr": "Sistematik ölçüm aleti ofseti (inç)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Relative uncertainty (k=2) to compute expanded uncertainty in cm",
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
-        "tr": "Measurement Uncertainty (%)",
+        "tr": "Ölçüm Belirsizliği (%)",
         "de": "Measurement Uncertainty (%)",
         "fr": "Measurement Uncertainty (%)",
         "es": "Measurement Uncertainty (%)",
         "ar": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Relative uncertainty (k=2) to compute expanded uncertainty in cm",
+        "tr": "Genişletilmiş belirsizliği cm cinsinden hesaplamak için bağıl belirsizlik (k=2)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Fixed factor: 1 inch = 2.54 cm (ISO 80000-3)",
       "label_i18n": {
         "en": "Conversion Factor",
-        "tr": "Conversion Factor",
+        "tr": "Dönüşüm Faktörü",
         "de": "Conversion Factor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed factor: 1 inch = 2.54 cm (ISO 80000-3)",
+        "tr": "Sabit faktör: 1 inç = 2,54 cm (ISO 80000-3)"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Acceptable deviation in mm, e.g., ISO 2768-m",
       "label_i18n": {
         "en": "Tolerance (±)",
-        "tr": "Tolerance (±)",
+        "tr": "Tolerans (±)",
         "de": "Tolerance (±)",
         "fr": "Tolerance (±)",
         "es": "Tolerance (±)",
         "ar": "Tolerance (±)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceptable deviation in mm, e.g., ISO 2768-m",
+        "tr": "mm cinsinden kabul edilebilir sapma, örn. ISO 2768-m"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Temperature during measurement for steel (CTE ~11.5e-6/K)",
       "label_i18n": {
         "en": "Measurement Temperature",
-        "tr": "Measurement Temperature",
+        "tr": "Ölçüm Sıcaklığı",
         "de": "Measurement Temperature",
         "fr": "Measurement Temperature",
         "es": "Measurement Temperature",
         "ar": "Measurement Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature during measurement for steel (CTE ~11.5e-6/K)",
+        "tr": "Çelik için ölçüm sırasındaki sıcaklık (CTE ~11,5e-6/K)"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Linear CTE for material (steel ~11.5e-6, aluminum ~23e-6)",
       "label_i18n": {
         "en": "Thermal Expansion Coefficient",
-        "tr": "Thermal Expansion Coefficient",
+        "tr": "Termal Genleşme Katsayısı",
         "de": "Thermal Expansion Coefficient",
         "fr": "Thermal Expansion Coefficient",
         "es": "Thermal Expansion Coefficient",
         "ar": "Thermal Expansion Coefficient"
+      },
+      "businessContext_i18n": {
+        "en": "Linear CTE for material (steel ~11.5e-6, aluminum ~23e-6)",
+        "tr": "Malzeme için doğrusal CTE (çelik ~11,5e-6, alüminyum ~23e-6)"
       }
     },
     {
@@ -122,11 +150,15 @@
       "businessContext": "Reference for material dimensions (typically 20°C)",
       "label_i18n": {
         "en": "Reference Temperature",
-        "tr": "Reference Temperature",
+        "tr": "Referans Sıcaklık",
         "de": "Reference Temperature",
         "fr": "Reference Temperature",
         "es": "Reference Temperature",
         "ar": "Reference Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Reference for material dimensions (typically 20°C)",
+        "tr": "Malzeme boyutları için referans (tipik olarak 20°C)"
       }
     }
   ],

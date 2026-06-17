@@ -10,11 +10,15 @@
       "businessContext": "Dry-bulb air temperature in degrees Celsius",
       "label_i18n": {
         "en": "Air Temperature",
-        "tr": "Air Temperature",
+        "tr": "Hava Sıcaklığı",
         "de": "Air Temperature",
         "fr": "Air Temperature",
         "es": "Air Temperature",
         "ar": "Air Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Dry-bulb air temperature in degrees Celsius",
+        "tr": "Kuru termometre hava sıcaklığı (derece Celsius)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Relative humidity of air (0-100%)",
       "label_i18n": {
         "en": "Relative Humidity",
-        "tr": "Relative Humidity",
+        "tr": "Bağıl Nem",
         "de": "Relative Humidity",
         "fr": "Relative Humidity",
         "es": "Relative Humidity",
         "ar": "Relative Humidity"
+      },
+      "businessContext_i18n": {
+        "en": "Relative humidity of air (0-100%)",
+        "tr": "Havanın bağıl nemi (%0-100)"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Empirical constant a for Magnus formula (17.27 for water, 21.875 for ice)",
       "label_i18n": {
         "en": "Magnus Constant a",
-        "tr": "Magnus Constant a",
+        "tr": "Magnus Sabiti a",
         "de": "Magnus Constant a",
         "fr": "Magnus Constant a",
         "es": "Magnus Constant a",
         "ar": "Magnus Constant a"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical constant a for Magnus formula (17.27 for water, 21.875 for ice)",
+        "tr": "Magnus formülü için ampirik sabit a (su için 17.27, buz için 21.875)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Empirical constant b (237.7 °C for water, 265.5 °C for ice)",
       "label_i18n": {
         "en": "Magnus Constant b",
-        "tr": "Magnus Constant b",
+        "tr": "Magnus Sabiti b",
         "de": "Magnus Constant b",
         "fr": "Magnus Constant b",
         "es": "Magnus Constant b",
         "ar": "Magnus Constant b"
+      },
+      "businessContext_i18n": {
+        "en": "Empirical constant b (237.7 °C for water, 265.5 °C for ice)",
+        "tr": "Ampirik sabit b (su için 237.7 °C, buz için 265.5 °C)"
       }
     }
   ],

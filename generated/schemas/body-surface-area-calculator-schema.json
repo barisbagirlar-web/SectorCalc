@@ -10,11 +10,15 @@
       "businessContext": "Enter body weight in kilograms. If not available, use weight in pounds instead.",
       "label_i18n": {
         "en": "Weight (kg)",
-        "tr": "Weight (kg)",
+        "tr": "Ağırlık (kg)",
         "de": "Weight (kg)",
         "fr": "Weight (kg)",
         "es": "Weight (kg)",
         "ar": "Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter body weight in kilograms. If not available, use weight in pounds instead.",
+        "tr": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Enter body height in centimeters. If not available, use height in inches instead.",
       "label_i18n": {
         "en": "Height (cm)",
-        "tr": "Height (cm)",
+        "tr": "Boy (cm)",
         "de": "Height (cm)",
         "fr": "Height (cm)",
         "es": "Height (cm)",
         "ar": "Height (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Enter body height in centimeters. If not available, use height in inches instead.",
+        "tr": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Alternative: enter body weight in pounds. Ignored if weight in kg is provided.",
       "label_i18n": {
         "en": "Weight (lb)",
-        "tr": "Weight (lb)",
+        "tr": "Ağırlık (lb)",
         "de": "Weight (lb)",
         "fr": "Weight (lb)",
         "es": "Weight (lb)",
         "ar": "Weight (lb)"
+      },
+      "businessContext_i18n": {
+        "en": "Alternative: enter body weight in pounds. Ignored if weight in kg is provided.",
+        "tr": "Alternatif: vücut ağırlığını pound cinsinden girin. Kg cinsinden ağırlık sağlanırsa yok sayılır."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Alternative: enter body height in inches. Ignored if height in cm is provided.",
       "label_i18n": {
         "en": "Height (in)",
-        "tr": "Height (in)",
+        "tr": "Boy (inç)",
         "de": "Height (in)",
         "fr": "Height (in)",
         "es": "Height (in)",
         "ar": "Height (in)"
+      },
+      "businessContext_i18n": {
+        "en": "Alternative: enter body height in inches. Ignored if height in cm is provided.",
+        "tr": "Alternatif: vücut boyunu inç cinsinden girin. Cm cinsinden boy sağlanırsa yok sayılır."
       }
     }
   ],

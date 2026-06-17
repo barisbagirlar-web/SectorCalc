@@ -10,11 +10,15 @@
       "businessContext": "Total market value of all assets in the estate",
       "label_i18n": {
         "en": "Estate Value",
-        "tr": "Estate Value",
+        "tr": "Emlak Değeri",
         "de": "Estate Value",
         "fr": "Estate Value",
         "es": "Estate Value",
         "ar": "Estate Value"
+      },
+      "businessContext_i18n": {
+        "en": "Total market value of all assets in the estate",
+        "tr": "Emlaktaki tüm varlıkların toplam piyasa değeri"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Funeral and burial expenses deductible from the estate",
       "label_i18n": {
         "en": "Funeral Expenses",
-        "tr": "Funeral Expenses",
+        "tr": "Cenaze Masrafları",
         "de": "Funeral Expenses",
         "fr": "Funeral Expenses",
         "es": "Funeral Expenses",
         "ar": "Funeral Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Funeral and burial expenses deductible from the estate",
+        "tr": "Emlaktan düşülebilecek cenaze ve defin masrafları"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Outstanding debts and liabilities of the deceased",
       "label_i18n": {
         "en": "Debts and Liabilities",
-        "tr": "Debts and Liabilities",
+        "tr": "Borçlar ve Yükümlülükler",
         "de": "Debts and Liabilities",
         "fr": "Debts and Liabilities",
         "es": "Debts and Liabilities",
         "ar": "Debts and Liabilities"
+      },
+      "businessContext_i18n": {
+        "en": "Outstanding debts and liabilities of the deceased",
+        "tr": "Merhumun ödenmemiş borçları ve yükümlülükleri"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Tax-free threshold or nil-rate band",
       "label_i18n": {
         "en": "Tax-Free Allowance",
-        "tr": "Tax-Free Allowance",
+        "tr": "Vergiden Muaf Tutar",
         "de": "Tax-Free Allowance",
         "fr": "Tax-Free Allowance",
         "es": "Tax-Free Allowance",
         "ar": "Tax-Free Allowance"
+      },
+      "businessContext_i18n": {
+        "en": "Tax-free threshold or nil-rate band",
+        "tr": "Vergisiz eşik veya sıfır oranlı bant"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Effective inheritance tax rate in percentage",
       "label_i18n": {
         "en": "Tax Rate",
-        "tr": "Tax Rate",
+        "tr": "Vergi Oranı",
         "de": "Tax Rate",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Effective inheritance tax rate in percentage",
+        "tr": "Etkin veraset vergisi oranı yüzde olarak"
       }
     }
   ],

@@ -21,10 +21,12 @@
       "max": 1000000,
       "businessContext": "Total number of items in the inspection lot per ISO 2859-1.",
       "label_i18n": {
-        "en": "Lot Size (N)"
+        "en": "Lot Size (N)",
+        "tr": "Parti Büyüklüğü (N)"
       },
       "businessContext_i18n": {
-        "en": "Total number of items in the inspection lot per ISO 2859-1."
+        "en": "Total number of items in the inspection lot per ISO 2859-1.",
+        "tr": "ISO 2859-1'e göre muayene partisindeki toplam ürün sayısı."
       }
     },
     {
@@ -37,10 +39,12 @@
       "max": 10,
       "businessContext": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average.",
       "label_i18n": {
-        "en": "AQL (%)"
+        "en": "AQL (%)",
+        "tr": "AKK (%)"
       },
       "businessContext_i18n": {
-        "en": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average."
+        "en": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average.",
+        "tr": "Kabul Edilebilir Kalite Seviyesi – proses ortalaması olarak kabul edilebilir maksimum kusurlu yüzdesi."
       }
     },
     {
@@ -62,10 +66,12 @@
       ],
       "businessContext": "General or special inspection level per ISO 2859-1. Level II is normal.",
       "label_i18n": {
-        "en": "Inspection Level"
+        "en": "Inspection Level",
+        "tr": "Muayene Seviyesi"
       },
       "businessContext_i18n": {
-        "en": "General or special inspection level per ISO 2859-1. Level II is normal."
+        "en": "General or special inspection level per ISO 2859-1. Level II is normal.",
+        "tr": "ISO 2859-1'e göre genel veya özel muayene seviyesi. Seviye II normaldir."
       }
     },
     {
@@ -83,10 +89,12 @@
       ],
       "businessContext": "Switching rules for severity of sampling per ISO 2859-1.",
       "label_i18n": {
-        "en": "Sampling Plan Type"
+        "en": "Sampling Plan Type",
+        "tr": "Numune Alma Planı Türü"
       },
       "businessContext_i18n": {
-        "en": "Switching rules for severity of sampling per ISO 2859-1."
+        "en": "Switching rules for severity of sampling per ISO 2859-1.",
+        "tr": "ISO 2859-1'e göre numune alma şiddeti için geçiş kuralları."
       }
     },
     {
@@ -99,10 +107,12 @@
       "max": 100000,
       "businessContext": "Cost per unit item (production or purchase cost).",
       "label_i18n": {
-        "en": "Unit Cost"
+        "en": "Unit Cost",
+        "tr": "Birim Maliyet"
       },
       "businessContext_i18n": {
-        "en": "Cost per unit item (production or purchase cost)."
+        "en": "Cost per unit item (production or purchase cost).",
+        "tr": "Birim başına maliyet (üretim veya satın alma maliyeti)."
       }
     },
     {
@@ -115,10 +125,12 @@
       "max": 1000000,
       "businessContext": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill).",
       "label_i18n": {
-        "en": "Defect Cost per Unit"
+        "en": "Defect Cost per Unit",
+        "tr": "Birim Kusur Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill)."
+        "en": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill).",
+        "tr": "Kusurlu bir birimin müşteriye ulaşması durumunda ortaya çıkan maliyet (yeniden işleme, garanti, iyi niyet kaybı)."
       }
     },
     {
@@ -131,10 +143,12 @@
       "max": 1000,
       "businessContext": "Cost to inspect one unit (labor, equipment, overhead).",
       "label_i18n": {
-        "en": "Inspection Cost per Unit"
+        "en": "Inspection Cost per Unit",
+        "tr": "Birim Muayene Maliyeti"
       },
       "businessContext_i18n": {
-        "en": "Cost to inspect one unit (labor, equipment, overhead)."
+        "en": "Cost to inspect one unit (labor, equipment, overhead).",
+        "tr": "Bir birimi muayene etme maliyeti (işçilik, ekipman, genel giderler)."
       }
     },
     {
@@ -147,10 +161,12 @@
       "max": 100,
       "businessContext": "Estimated true defect rate in the lot (from historical data or process capability).",
       "label_i18n": {
-        "en": "Actual Defect Rate (p)"
+        "en": "Actual Defect Rate (p)",
+        "tr": "Gerçek Kusur Oranı (p)"
       },
       "businessContext_i18n": {
-        "en": "Estimated true defect rate in the lot (from historical data or process capability)."
+        "en": "Estimated true defect rate in the lot (from historical data or process capability).",
+        "tr": "Partideki tahmini gerçek kusur oranı (geçmiş verilerden veya proses yeteneğinden)."
       }
     }
   ],

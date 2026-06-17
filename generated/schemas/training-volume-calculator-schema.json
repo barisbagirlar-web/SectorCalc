@@ -10,11 +10,15 @@
       "businessContext": "Number of sets performed",
       "label_i18n": {
         "en": "Sets",
-        "tr": "Sets",
+        "tr": "Setler",
         "de": "Sets",
         "fr": "Sets",
         "es": "Sets",
         "ar": "Sets"
+      },
+      "businessContext_i18n": {
+        "en": "Number of sets performed",
+        "tr": "Yapılan set sayısı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Number of repetitions per set",
       "label_i18n": {
         "en": "Repetitions",
-        "tr": "Repetitions",
+        "tr": "Tekrar Sayısı",
         "de": "Repetitions",
         "fr": "Repetitions",
         "es": "Repetitions",
         "ar": "Repetitions"
+      },
+      "businessContext_i18n": {
+        "en": "Number of repetitions per set",
+        "tr": "Set başına tekrar sayısı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Weight lifted per repetition in kilograms",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Weight lifted per repetition in kilograms",
+        "tr": "Tekrar başına kaldırılan ağırlık (kg)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Intensity factor accounting for exercise difficulty (1.0 = standard)",
       "label_i18n": {
         "en": "Intensity Factor",
-        "tr": "Intensity Factor",
+        "tr": "Yoğunluk Faktörü",
         "de": "Intensity Factor",
         "fr": "Intensity Factor",
         "es": "Intensity Factor",
         "ar": "Intensity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Intensity factor accounting for exercise difficulty (1.0 = standard)",
+        "tr": "Egzersiz zorluğunu hesaba katan yoğunluk faktörü (1.0 = standart)"
       }
     }
   ],

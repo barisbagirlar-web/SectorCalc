@@ -10,11 +10,15 @@
       "businessContext": "Standard rebar diameter in millimeters, used to auto‑calculate weight per meter if custom weight is not provided.",
       "label_i18n": {
         "en": "Rebar Diameter (mm)",
-        "tr": "Rebar Diameter (mm)",
+        "tr": "İnşaat Demiri Çapı (mm)",
         "de": "Rebar Diameter (mm)",
         "fr": "Rebar Diameter (mm)",
         "es": "Rebar Diameter (mm)",
         "ar": "Rebar Diameter (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard rebar diameter in millimeters, used to auto‑calculate weight per meter if custom weight is not provided.",
+        "tr": "Milimetre cinsinden standart inşaat demiri çapı; özel ağırlık sağlanmazsa metre başına ağırlığı otomatik hesaplamak için kullanılır."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Typical standard factory bar length before any laps or cuts.",
       "label_i18n": {
         "en": "Length per Bar (m)",
-        "tr": "Length per Bar (m)",
+        "tr": "Çubuk Başına Uzunluk (m)",
         "de": "Length per Bar (m)",
         "fr": "Length per Bar (m)",
         "es": "Length per Bar (m)",
         "ar": "Length per Bar (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Typical standard factory bar length before any laps or cuts.",
+        "tr": "Herhangi bir bindirme veya kesimden önce tipik standart fabrika çubuk uzunluğu."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Total quantity of bars required for the project.",
       "label_i18n": {
         "en": "Number of Bars",
-        "tr": "Number of Bars",
+        "tr": "Çubuk Sayısı",
         "de": "Number of Bars",
         "fr": "Number of Bars",
         "es": "Number of Bars",
         "ar": "Number of Bars"
+      },
+      "businessContext_i18n": {
+        "en": "Total quantity of bars required for the project.",
+        "tr": "Proje için gereken toplam çubuk miktarı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Additional splicing length added per bar for overlap joints.",
       "label_i18n": {
         "en": "Lap Length (m)",
-        "tr": "Lap Length (m)",
+        "tr": "Bindirme Uzunluğu (m)",
         "de": "Lap Length (m)",
         "fr": "Lap Length (m)",
         "es": "Lap Length (m)",
         "ar": "Lap Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional splicing length added per bar for overlap joints.",
+        "tr": "Bindirmeli ek yerleri için çubuk başına eklenen ek birleştirme uzunluğu."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percentage overage for cutting waste, bending loss and site damage.",
       "label_i18n": {
         "en": "Wastage (%)",
-        "tr": "Wastage (%)",
+        "tr": "Fire (%)",
         "de": "Wastage (%)",
         "fr": "Wastage (%)",
         "es": "Wastage (%)",
         "ar": "Wastage (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage overage for cutting waste, bending loss and site damage.",
+        "tr": "Kesim atığı, bükme kaybı ve saha hasarı için yüzde fazlalık."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Optional override for the theoretical weight; if 0 or blank, weight is calculated from diameter using the formula 0.006165 × d².",
       "label_i18n": {
         "en": "Custom Weight per Meter (kg/m)",
-        "tr": "Custom Weight per Meter (kg/m)",
+        "tr": "Metre Başına Özel Ağırlık (kg/m)",
         "de": "Custom Weight per Meter (kg/m)",
         "fr": "Custom Weight per Meter (kg/m)",
         "es": "Custom Weight per Meter (kg/m)",
         "ar": "Custom Weight per Meter (kg/m)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional override for the theoretical weight; if 0 or blank, weight is calculated from diameter using the formula 0.006165 × d².",
+        "tr": "Teorik ağırlık için isteğe bağlı geçersiz kılma; 0 veya boş ise ağırlık, 0.006165 × d² formülü kullanılarak çaptan hesaplanır."
       }
     }
   ],

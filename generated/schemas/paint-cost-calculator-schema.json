@@ -10,11 +10,15 @@
       "businessContext": "Total paintable surface area in square meters",
       "label_i18n": {
         "en": "Surface Area",
-        "tr": "Surface Area",
+        "tr": "Yüzey Alanı",
         "de": "Surface Area",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total paintable surface area in square meters",
+        "tr": "Toplam boyanabilir yüzey alanı (metrekare)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Area covered by one liter of paint",
       "label_i18n": {
         "en": "Paint Coverage",
-        "tr": "Paint Coverage",
+        "tr": "Boya Kaplama",
         "de": "Paint Coverage",
         "fr": "Paint Coverage",
         "es": "Paint Coverage",
         "ar": "Paint Coverage"
+      },
+      "businessContext_i18n": {
+        "en": "Area covered by one liter of paint",
+        "tr": "Bir litre boyanın kapladığı alan"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Cost of one liter of paint",
       "label_i18n": {
         "en": "Paint Price per Liter",
-        "tr": "Paint Price per Liter",
+        "tr": "Litre Başına Boya Fiyatı",
         "de": "Paint Price per Liter",
         "fr": "Paint Price per Liter",
         "es": "Paint Price per Liter",
         "ar": "Paint Price per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of one liter of paint",
+        "tr": "Bir litre boyanın maliyeti"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "How many layers of paint to apply",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Number of Coats",
+        "tr": "Kat Sayısı",
         "de": "Number of Coats",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
+      },
+      "businessContext_i18n": {
+        "en": "How many layers of paint to apply",
+        "tr": "Kaç kat boya uygulanacak"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Total labor hours required for the job",
       "label_i18n": {
         "en": "Labor Hours",
-        "tr": "Labor Hours",
+        "tr": "İşçilik Saati",
         "de": "Labor Hours",
         "fr": "Labor Hours",
         "es": "Labor Hours",
         "ar": "Labor Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total labor hours required for the job",
+        "tr": "İş için gereken toplam işçilik saati"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Hourly labor cost",
       "label_i18n": {
         "en": "Labor Rate",
-        "tr": "Labor Rate",
+        "tr": "İşçilik ücreti",
         "de": "Labor Rate",
         "fr": "Labor Rate",
         "es": "Labor Rate",
         "ar": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly labor cost",
+        "tr": "Saatlik işçilik maliyeti"
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Extra paint needed due to spillage, overspray, etc.",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Waste Factor (%)",
+        "tr": "Fire Faktörü (%)",
         "de": "Waste Factor (%)",
         "fr": "Waste Factor (%)",
         "es": "Waste Factor (%)",
         "ar": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Extra paint needed due to spillage, overspray, etc.",
+        "tr": "Dökülme, fazla püskürtme vb. nedeniyle ihtiyaç duyulan ekstra boya"
       }
     }
   ],

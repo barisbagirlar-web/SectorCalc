@@ -10,11 +10,15 @@
       "businessContext": "The cat's weight in kilograms.",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Weight",
+        "tr": "Ağırlık",
         "de": "Weight",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "The cat's weight in kilograms.",
+        "tr": "Kedinin kilogram cinsinden ağırlığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Activity level from 1 (sedentary) to 5 (highly active).",
       "label_i18n": {
         "en": "Activity Level",
-        "tr": "Activity Level",
+        "tr": "Aktivite Seviyesi",
         "de": "Activity Level",
         "fr": "Activity Level",
         "es": "Activity Level",
         "ar": "Activity Level"
+      },
+      "businessContext_i18n": {
+        "en": "Activity level from 1 (sedentary) to 5 (highly active).",
+        "tr": "1 (hareketsiz) ile 5 (çok aktif) arasında aktivite seviyesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Life stage: 1 for kitten, 2 for adult, 3 for senior.",
       "label_i18n": {
         "en": "Life Stage",
-        "tr": "Life Stage",
+        "tr": "Yaşam Evresi",
         "de": "Life Stage",
         "fr": "Life Stage",
         "es": "Life Stage",
         "ar": "Life Stage"
+      },
+      "businessContext_i18n": {
+        "en": "Life stage: 1 for kitten, 2 for adult, 3 for senior.",
+        "tr": "Yaşam evresi: 1 yavru, 2 yetişkin, 3 yaşlı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Neutered status: 0 for intact, 1 for neutered/spayed.",
       "label_i18n": {
         "en": "Neutered Status",
-        "tr": "Neutered Status",
+        "tr": "Kısırlaştırma Durumu",
         "de": "Neutered Status",
         "fr": "Neutered Status",
         "es": "Neutered Status",
         "ar": "Neutered Status"
+      },
+      "businessContext_i18n": {
+        "en": "Neutered status: 0 for intact, 1 for neutered/spayed.",
+        "tr": "Kısırlaştırma durumu: 0 sağlam, 1 kısırlaştırılmış."
       }
     }
   ],

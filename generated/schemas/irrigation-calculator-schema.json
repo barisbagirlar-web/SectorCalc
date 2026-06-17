@@ -10,11 +10,15 @@
       "businessContext": "Irrigated land area in hectares",
       "label_i18n": {
         "en": "Area",
-        "tr": "Area",
+        "tr": "Alan",
         "de": "Area",
         "fr": "Area",
         "es": "Area",
         "ar": "Area"
+      },
+      "businessContext_i18n": {
+        "en": "Irrigated land area in hectares",
+        "tr": "Sulanan arazi alanı (hektar)"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Daily water need of the crop from evapotranspiration data",
       "label_i18n": {
         "en": "Crop Water Requirement",
-        "tr": "Crop Water Requirement",
+        "tr": "Bitki Su İhtiyacı",
         "de": "Crop Water Requirement",
         "fr": "Crop Water Requirement",
         "es": "Crop Water Requirement",
         "ar": "Crop Water Requirement"
+      },
+      "businessContext_i18n": {
+        "en": "Daily water need of the crop from evapotranspiration data",
+        "tr": "Evapotranspirasyon verilerinden bitkinin günlük su ihtiyacı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Application efficiency of the irrigation system (sprinkler, drip, etc.)",
       "label_i18n": {
         "en": "Application Efficiency",
-        "tr": "Application Efficiency",
+        "tr": "Uygulama Verimliliği",
         "de": "Application Efficiency",
         "fr": "Application Efficiency",
         "es": "Application Efficiency",
         "ar": "Application Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Application efficiency of the irrigation system (sprinkler, drip, etc.)",
+        "tr": "Sulama sisteminin uygulama verimliliği (yağmurlama, damla vb.)"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Peak multiplier for hot/dry periods",
       "label_i18n": {
         "en": "Peak Factor",
-        "tr": "Peak Factor",
+        "tr": "Tepe Faktörü",
         "de": "Peak Factor",
         "fr": "Peak Factor",
         "es": "Peak Factor",
         "ar": "Peak Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Peak multiplier for hot/dry periods",
+        "tr": "Sıcak/kurak dönemler için tepe çarpanı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Percent water loss due to leaks, evaporation, etc.",
       "label_i18n": {
         "en": "System Losses",
-        "tr": "System Losses",
+        "tr": "Sistem Kayıpları",
         "de": "System Losses",
         "fr": "System Losses",
         "es": "System Losses",
         "ar": "System Losses"
+      },
+      "businessContext_i18n": {
+        "en": "Percent water loss due to leaks, evaporation, etc.",
+        "tr": "Sızıntı, buharlaşma vb. nedeniyle su kaybı yüzdesi"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Hours per day the irrigation system operates",
       "label_i18n": {
         "en": "Operating Hours",
-        "tr": "Operating Hours",
+        "tr": "Çalışma Saatleri",
         "de": "Operating Hours",
         "fr": "Operating Hours",
         "es": "Operating Hours",
         "ar": "Operating Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Hours per day the irrigation system operates",
+        "tr": "Sulama sisteminin günde çalıştığı saat"
       }
     }
   ],

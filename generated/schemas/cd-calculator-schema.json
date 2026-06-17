@@ -10,11 +10,15 @@
       "businessContext": "Amount of money initially deposited into the CD.",
       "label_i18n": {
         "en": "Initial Deposit",
-        "tr": "Initial Deposit",
+        "tr": "Başlangıç Mevduatı",
         "de": "Initial Deposit",
         "fr": "Initial Deposit",
         "es": "Initial Deposit",
         "ar": "Initial Deposit"
+      },
+      "businessContext_i18n": {
+        "en": "Amount of money initially deposited into the CD.",
+        "tr": "Mevduat hesabına başlangıçta yatırılan para miktarı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Annual percentage yield (APY) offered by the CD.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Annual Interest Rate",
+        "tr": "Yıllık Faiz Oranı",
         "de": "Annual Interest Rate",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual percentage yield (APY) offered by the CD.",
+        "tr": "Mevduat sertifikası tarafından sunulan yıllık yüzde getiri (APY)."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Duration of the CD in months.",
       "label_i18n": {
         "en": "Term Length",
-        "tr": "Term Length",
+        "tr": "Vade Süresi",
         "de": "Term Length",
         "fr": "Term Length",
         "es": "Term Length",
         "ar": "Term Length"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the CD in months.",
+        "tr": "Mevduat sertifikasının ay cinsinden süresi."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Number of times interest is compounded per year (e.g., 12 for monthly).",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Compounding Frequency",
+        "tr": "Bileşik Sıklığı",
         "de": "Compounding Frequency",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times interest is compounded per year (e.g., 12 for monthly).",
+        "tr": "Yıllık bileşik faiz sayısı (örneğin, aylık için 12)."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Optional additional deposit made each month.",
       "label_i18n": {
         "en": "Additional Monthly Deposit",
-        "tr": "Additional Monthly Deposit",
+        "tr": "Ek Aylık Para Yatırma",
         "de": "Additional Monthly Deposit",
         "fr": "Additional Monthly Deposit",
         "es": "Additional Monthly Deposit",
         "ar": "Additional Monthly Deposit"
+      },
+      "businessContext_i18n": {
+        "en": "Optional additional deposit made each month.",
+        "tr": "Her ay yatırılan isteğe bağlı ek para."
       }
     }
   ],

@@ -10,11 +10,15 @@
       "businessContext": "Astronomical distance input",
       "label_i18n": {
         "en": "Distance in Light-Years",
-        "tr": "Distance in Light-Years",
+        "tr": "Mesafe (ışık yılı)",
         "de": "Distance in Light-Years",
         "fr": "Distance in Light-Years",
         "es": "Distance in Light-Years",
         "ar": "Distance in Light-Years"
+      },
+      "businessContext_i18n": {
+        "en": "Astronomical distance input",
+        "tr": "Astronomik mesafe girişi"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Precision for output formatting",
       "label_i18n": {
         "en": "Significant Digits",
-        "tr": "Significant Digits",
+        "tr": "Anlamlı Basamaklar",
         "de": "Significant Digits",
         "fr": "Significant Digits",
         "es": "Significant Digits",
         "ar": "Significant Digits"
+      },
+      "businessContext_i18n": {
+        "en": "Precision for output formatting",
+        "tr": "Çıktı biçimlendirme hassasiyeti"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "0 = standard, 1 = scientific notation",
       "label_i18n": {
         "en": "Output Format",
-        "tr": "Output Format",
+        "tr": "Çıktı Formatı",
         "de": "Output Format",
         "fr": "Output Format",
         "es": "Output Format",
         "ar": "Output Format"
+      },
+      "businessContext_i18n": {
+        "en": "0 = standard, 1 = scientific notation",
+        "tr": "0 = standart, 1 = bilimsel gösterim"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0 = half-up, 1 = floor, 2 = ceiling",
       "label_i18n": {
         "en": "Rounding Mode",
-        "tr": "Rounding Mode",
+        "tr": "Yuvarlama Modu",
         "de": "Rounding Mode",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
+      },
+      "businessContext_i18n": {
+        "en": "0 = half-up, 1 = floor, 2 = ceiling",
+        "tr": "0 = yarım yukarı, 1 = taban, 2 = tavan"
       }
     }
   ],

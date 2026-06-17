@@ -10,11 +10,15 @@
       "businessContext": "Principal amount in Turkish Lira",
       "label_i18n": {
         "en": "Loan Amount (TL)",
-        "tr": "Loan Amount (TL)",
+        "tr": "Kredi Tutarı (TL)",
         "de": "Loan Amount (TL)",
         "fr": "Loan Amount (TL)",
         "es": "Loan Amount (TL)",
         "ar": "Loan Amount (TL)"
+      },
+      "businessContext_i18n": {
+        "en": "Principal amount in Turkish Lira",
+        "tr": "Türk Lirası cinsinden anapara tutarı"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Nominal annual interest rate",
       "label_i18n": {
         "en": "Annual Interest Rate (%)",
-        "tr": "Annual Interest Rate (%)",
+        "tr": "Yıllık Faiz Oranı (%)",
         "de": "Annual Interest Rate (%)",
         "fr": "Annual Interest Rate (%)",
         "es": "Annual Interest Rate (%)",
         "ar": "Annual Interest Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal annual interest rate",
+        "tr": "Nominal yıllık faiz oranı"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Number of monthly installments",
       "label_i18n": {
         "en": "Loan Term (Months)",
-        "tr": "Loan Term (Months)",
+        "tr": "Kredi Vadesi (Ay)",
         "de": "Loan Term (Months)",
         "fr": "Loan Term (Months)",
         "es": "Loan Term (Months)",
         "ar": "Loan Term (Months)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of monthly installments",
+        "tr": "Aylık taksit sayısı"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Banking and Insurance Transaction Tax rate on interest",
       "label_i18n": {
         "en": "BSMV Rate (%)",
-        "tr": "BSMV Rate (%)",
+        "tr": "BSMV Oranı (%)",
         "de": "BSMV Rate (%)",
         "fr": "BSMV Rate (%)",
         "es": "BSMV Rate (%)",
         "ar": "BSMV Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Banking and Insurance Transaction Tax rate on interest",
+        "tr": "Faiz üzerinden alınan Banka ve Sigorta Muameleleri Vergisi oranı"
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Resource Utilization Support Fund rate on interest",
       "label_i18n": {
         "en": "KKDF Rate (%)",
-        "tr": "KKDF Rate (%)",
+        "tr": "KKDF Oranı (%)",
         "de": "KKDF Rate (%)",
         "fr": "KKDF Rate (%)",
         "es": "KKDF Rate (%)",
         "ar": "KKDF Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Resource Utilization Support Fund rate on interest",
+        "tr": "Faiz üzerinden alınan Kaynak Kullanımını Destekleme Fonu oranı"
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "One-time fee added to loan principal",
       "label_i18n": {
         "en": "Arrangement Fee (TL)",
-        "tr": "Arrangement Fee (TL)",
+        "tr": "Düzenleme Ücreti (TL)",
         "de": "Arrangement Fee (TL)",
         "fr": "Arrangement Fee (TL)",
         "es": "Arrangement Fee (TL)",
         "ar": "Arrangement Fee (TL)"
+      },
+      "businessContext_i18n": {
+        "en": "One-time fee added to loan principal",
+        "tr": "Kredi anaparasına eklenen tek seferlik ücret"
       }
     }
   ],

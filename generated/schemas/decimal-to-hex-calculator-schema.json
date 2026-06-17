@@ -10,11 +10,15 @@
       "businessContext": "The decimal integer to convert to hexadecimal. Non-negative, integer.",
       "label_i18n": {
         "en": "Decimal Number",
-        "tr": "Decimal Number",
+        "tr": "Ondalık Sayı",
         "de": "Decimal Number",
         "fr": "Decimal Number",
         "es": "Decimal Number",
         "ar": "Decimal Number"
+      },
+      "businessContext_i18n": {
+        "en": "The decimal integer to convert to hexadecimal. Non-negative, integer.",
+        "tr": "Ondalık tam sayıyı onaltılıya dönüştürün. Negatif olmayan, tam sayı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Minimum number of hexadecimal digits. Pads with leading zeros if result is shorter.",
       "label_i18n": {
         "en": "Minimum Length",
-        "tr": "Minimum Length",
+        "tr": "Minimum Uzunluk",
         "de": "Minimum Length",
         "fr": "Minimum Length",
         "es": "Minimum Length",
         "ar": "Minimum Length"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum number of hexadecimal digits. Pads with leading zeros if result is shorter.",
+        "tr": "Minimum onaltılı basamak sayısı. Sonuç daha kısaysa başa sıfır ekler."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Set to 1 to output uppercase letters (A-F), 0 for lowercase (a-f).",
       "label_i18n": {
         "en": "Uppercase",
-        "tr": "Uppercase",
+        "tr": "Büyük Harf",
         "de": "Uppercase",
         "fr": "Uppercase",
         "es": "Uppercase",
         "ar": "Uppercase"
+      },
+      "businessContext_i18n": {
+        "en": "Set to 1 to output uppercase letters (A-F), 0 for lowercase (a-f).",
+        "tr": "Büyük harf (A-F) çıktısı için 1, küçük harf (a-f) için 0."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "0: no prefix; 1: prefix '0x'; 2: prefix '0X'.",
       "label_i18n": {
         "en": "Prefix",
-        "tr": "Prefix",
+        "tr": "Ön Ek",
         "de": "Prefix",
         "fr": "Prefix",
         "es": "Prefix",
         "ar": "Prefix"
+      },
+      "businessContext_i18n": {
+        "en": "0: no prefix; 1: prefix '0x'; 2: prefix '0X'.",
+        "tr": "0: ön ek yok; 1: '0x' ön eki; 2: '0X' ön eki."
       }
     }
   ],

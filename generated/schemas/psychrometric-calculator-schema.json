@@ -10,11 +10,15 @@
       "businessContext": "Ambient air temperature measured by a standard thermometer.",
       "label_i18n": {
         "en": "Dry Bulb Temperature",
-        "tr": "Dry Bulb Temperature",
+        "tr": "Kuru Termometre Sıcaklığı",
         "de": "Dry Bulb Temperature",
         "fr": "Dry Bulb Temperature",
         "es": "Dry Bulb Temperature",
         "ar": "Dry Bulb Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Ambient air temperature measured by a standard thermometer.",
+        "tr": "Standart bir termometre ile ölçülen ortam hava sıcaklığı."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Percentage of water vapor in the air relative to saturation.",
       "label_i18n": {
         "en": "Relative Humidity",
-        "tr": "Relative Humidity",
+        "tr": "Bağıl Nem",
         "de": "Relative Humidity",
         "fr": "Relative Humidity",
         "es": "Relative Humidity",
         "ar": "Relative Humidity"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of water vapor in the air relative to saturation.",
+        "tr": "Havadaki su buharının doygunluğa göre yüzdesi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Standard sea-level atmospheric pressure.",
       "label_i18n": {
         "en": "Atmospheric Pressure",
-        "tr": "Atmospheric Pressure",
+        "tr": "Atmosfer Basıncı",
         "de": "Atmospheric Pressure",
         "fr": "Atmospheric Pressure",
         "es": "Atmospheric Pressure",
         "ar": "Atmospheric Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Standard sea-level atmospheric pressure.",
+        "tr": "Standart deniz seviyesi atmosfer basıncı."
       }
     }
   ],

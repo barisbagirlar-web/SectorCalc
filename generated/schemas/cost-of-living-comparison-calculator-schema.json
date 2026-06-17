@@ -10,11 +10,15 @@
       "businessContext": "Average monthly rent for a 1-bedroom apartment in the base city.",
       "label_i18n": {
         "en": "Base City Rent",
-        "tr": "Base City Rent",
+        "tr": "Temel Şehir Kira",
         "de": "Base City Rent",
         "fr": "Base City Rent",
         "es": "Base City Rent",
         "ar": "Base City Rent"
+      },
+      "businessContext_i18n": {
+        "en": "Average monthly rent for a 1-bedroom apartment in the base city.",
+        "tr": "Temel şehirde 1 yatak odalı bir daire için ortalama aylık kira."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Monthly cost of basic utilities (electricity, water, heating, garbage) for a standard apartment.",
       "label_i18n": {
         "en": "Base City Utilities",
-        "tr": "Base City Utilities",
+        "tr": "Temel Şehir Faturaları",
         "de": "Base City Utilities",
         "fr": "Base City Utilities",
         "es": "Base City Utilities",
         "ar": "Base City Utilities"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly cost of basic utilities (electricity, water, heating, garbage) for a standard apartment.",
+        "tr": "Standart bir daire için temel faturaların (elektrik, su, ısınma, çöp) aylık maliyeti."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Monthly grocery bill for a single person in the base city.",
       "label_i18n": {
         "en": "Base City Groceries",
-        "tr": "Base City Groceries",
+        "tr": "Temel Şehir Market Alışverişi",
         "de": "Base City Groceries",
         "fr": "Base City Groceries",
         "es": "Base City Groceries",
         "ar": "Base City Groceries"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly grocery bill for a single person in the base city.",
+        "tr": "Temel şehirde tek kişi için aylık market faturası."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Monthly public transport pass or equivalent fuel costs in the base city.",
       "label_i18n": {
         "en": "Base City Transportation",
-        "tr": "Base City Transportation",
+        "tr": "Temel Şehir Ulaşım",
         "de": "Base City Transportation",
         "fr": "Base City Transportation",
         "es": "Base City Transportation",
         "ar": "Base City Transportation"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly public transport pass or equivalent fuel costs in the base city.",
+        "tr": "Temel şehirde aylık toplu taşıma kartı veya eşdeğer yakıt maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Other monthly living expenses (entertainment, clothing, personal care) in the base city.",
       "label_i18n": {
         "en": "Base City Misc. Expenses",
-        "tr": "Base City Misc. Expenses",
+        "tr": "Temel Şehir Diğer Giderler",
         "de": "Base City Misc. Expenses",
         "fr": "Base City Misc. Expenses",
         "es": "Base City Misc. Expenses",
         "ar": "Base City Misc. Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Other monthly living expenses (entertainment, clothing, personal care) in the base city.",
+        "tr": "Temel şehirde diğer aylık yaşam giderleri (eğlence, giyim, kişisel bakım)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Cost of living index of the target city, relative to base city = 100. A value above 100 means it is more expensive.",
       "label_i18n": {
         "en": "Target City Cost of Living Index",
-        "tr": "Target City Cost of Living Index",
+        "tr": "Hedef Şehir Yaşam Maliyeti Endeksi",
         "de": "Target City Cost of Living Index",
         "fr": "Target City Cost of Living Index",
         "es": "Target City Cost of Living Index",
         "ar": "Target City Cost of Living Index"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of living index of the target city, relative to base city = 100. A value above 100 means it is more expensive.",
+        "tr": "Hedef şehrin yaşam maliyeti endeksi, temel şehir = 100. 100'ün üzeri daha pahalı olduğunu gösterir."
       }
     }
   ],

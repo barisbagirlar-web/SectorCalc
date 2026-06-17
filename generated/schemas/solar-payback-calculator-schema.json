@@ -10,11 +10,15 @@
       "businessContext": "Total upfront cost of solar system installation",
       "label_i18n": {
         "en": "System Cost",
-        "tr": "System Cost",
+        "tr": "Sistem Maliyeti",
         "de": "System Cost",
         "fr": "System Cost",
         "es": "System Cost",
         "ar": "System Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total upfront cost of solar system installation",
+        "tr": "Güneş enerjisi sistemi kurulumunun toplam peşin maliyeti."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Estimated annual electricity generation from the solar system",
       "label_i18n": {
         "en": "Annual Production",
-        "tr": "Annual Production",
+        "tr": "Yıllık Üretim",
         "de": "Annual Production",
         "fr": "Annual Production",
         "es": "Annual Production",
         "ar": "Annual Production"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated annual electricity generation from the solar system",
+        "tr": "Güneş enerjisi sisteminden tahmini yıllık elektrik üretimi."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Current electricity price per kWh",
       "label_i18n": {
         "en": "Electricity Price",
-        "tr": "Electricity Price",
+        "tr": "Elektrik Fiyatı",
         "de": "Electricity Price",
         "fr": "Electricity Price",
         "es": "Electricity Price",
         "ar": "Electricity Price"
+      },
+      "businessContext_i18n": {
+        "en": "Current electricity price per kWh",
+        "tr": "kWh başına mevcut elektrik fiyatı."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Annual maintenance and operation cost",
       "label_i18n": {
         "en": "Annual Maintenance Cost",
-        "tr": "Annual Maintenance Cost",
+        "tr": "Yıllık Bakım Maliyeti",
         "de": "Annual Maintenance Cost",
         "fr": "Annual Maintenance Cost",
         "es": "Annual Maintenance Cost",
         "ar": "Annual Maintenance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Annual maintenance and operation cost",
+        "tr": "Yıllık bakım ve işletme maliyeti."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Applicable tax credit percentage (e.g., 26% federal ITC in the US)",
       "label_i18n": {
         "en": "Tax Credit",
-        "tr": "Tax Credit",
+        "tr": "Vergi Kredisi",
         "de": "Tax Credit",
         "fr": "Tax Credit",
         "es": "Tax Credit",
         "ar": "Tax Credit"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable tax credit percentage (e.g., 26% federal ITC in the US)",
+        "tr": "Uygulanabilir vergi kredisi yüzdesi (örneğin, ABD'de %26 federal ITC)."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Annual degradation rate of solar panels (e.g., 0.005 for 0.5%)",
       "label_i18n": {
         "en": "Degradation Rate",
-        "tr": "Degradation Rate",
+        "tr": "Bozunma Oranı",
         "de": "Degradation Rate",
         "fr": "Degradation Rate",
         "es": "Degradation Rate",
         "ar": "Degradation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual degradation rate of solar panels (e.g., 0.005 for 0.5%)",
+        "tr": "Güneş panellerinin yıllık bozunma oranı (örneğin, %0,5 için 0,005)."
       }
     },
     {
@@ -106,11 +130,15 @@
       "businessContext": "Annual electricity price escalation rate (e.g., 0.03 for 3%)",
       "label_i18n": {
         "en": "Escalation Rate",
-        "tr": "Escalation Rate",
+        "tr": "Artış Oranı",
         "de": "Escalation Rate",
         "fr": "Escalation Rate",
         "es": "Escalation Rate",
         "ar": "Escalation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual electricity price escalation rate (e.g., 0.03 for 3%)",
+        "tr": "Yıllık elektrik fiyat artış oranı (örneğin, %3 için 0.03)"
       }
     }
   ],

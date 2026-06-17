@@ -10,11 +10,15 @@
       "businessContext": "Serum sodium concentration for osmolality calculation.",
       "label_i18n": {
         "en": "Sodium (Na⁺)",
-        "tr": "Sodium (Na⁺)",
+        "tr": "Sodyum (Na⁺)",
         "de": "Sodium (Na⁺)",
         "fr": "Sodium (Na⁺)",
         "es": "Sodium (Na⁺)",
         "ar": "Sodium (Na⁺)"
+      },
+      "businessContext_i18n": {
+        "en": "Serum sodium concentration for osmolality calculation.",
+        "tr": "Osmolalite hesaplaması için serum sodyum konsantrasyonu"
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Blood glucose level contributing to osmolality.",
       "label_i18n": {
         "en": "Glucose",
-        "tr": "Glucose",
+        "tr": "Glukoz",
         "de": "Glucose",
         "fr": "Glucose",
         "es": "Glucose",
         "ar": "Glucose"
+      },
+      "businessContext_i18n": {
+        "en": "Blood glucose level contributing to osmolality.",
+        "tr": "Osmolaliteye katkıda bulunan kan glukoz seviyesi"
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "BUN concentration affecting osmolality.",
       "label_i18n": {
         "en": "Blood Urea Nitrogen (BUN)",
-        "tr": "Blood Urea Nitrogen (BUN)",
+        "tr": "Kan Üre Azotu (BUN)",
         "de": "Blood Urea Nitrogen (BUN)",
         "fr": "Blood Urea Nitrogen (BUN)",
         "es": "Blood Urea Nitrogen (BUN)",
         "ar": "Blood Urea Nitrogen (BUN)"
+      },
+      "businessContext_i18n": {
+        "en": "BUN concentration affecting osmolality.",
+        "tr": "Osmolaliteyi etkileyen BUN konsantrasyonu"
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Measured serum osmolality for osmolar gap calculation; leave 0 if not available.",
       "label_i18n": {
         "en": "Measured Osmolality (optional)",
-        "tr": "Measured Osmolality (optional)",
+        "tr": "Ölçülen Osmolarite (opsiyonel)",
         "de": "Measured Osmolality (optional)",
         "fr": "Measured Osmolality (optional)",
         "es": "Measured Osmolality (optional)",
         "ar": "Measured Osmolality (optional)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured serum osmolality for osmolar gap calculation; leave 0 if not available.",
+        "tr": "Ozmolar açıklık hesaplaması için ölçülen serum ozmolaritesi; mevcut değilse 0 bırakın."
       }
     }
   ],

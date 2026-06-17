@@ -29,10 +29,12 @@
       ],
       "businessContext": "Material selection directly impacts tool wear, cutting speed, and cost per part.",
       "label_i18n": {
-        "en": "Material Type"
+        "en": "Material Type",
+        "tr": "Malzeme Türü"
       },
       "businessContext_i18n": {
-        "en": "Material selection directly impacts tool wear, cutting speed, and cost per part."
+        "en": "Material selection directly impacts tool wear, cutting speed, and cost per part.",
+        "tr": "Malzeme seçimi takım aşınmasını, kesme hızını ve parça başına maliyeti doğrudan etkiler."
       }
     },
     {
@@ -45,10 +47,12 @@
       "max": 500,
       "businessContext": "Weight of the finished part, used to calculate raw material cost and scrap.",
       "label_i18n": {
-        "en": "Part Weight (kg)"
+        "en": "Part Weight (kg)",
+        "tr": "Parça Ağırlığı (kg)"
       },
       "businessContext_i18n": {
-        "en": "Weight of the finished part, used to calculate raw material cost and scrap."
+        "en": "Weight of the finished part, used to calculate raw material cost and scrap.",
+        "tr": "Bitmiş parçanın ağırlığı, hammadde maliyeti ve fire hesaplamasında kullanılır."
       }
     },
     {
@@ -61,10 +65,12 @@
       "max": 100000,
       "businessContext": "Volume of raw material block before machining, determines material usage.",
       "label_i18n": {
-        "en": "Stock Volume (cm³)"
+        "en": "Stock Volume (cm³)",
+        "tr": "Stok Hacmi (cm³)"
       },
       "businessContext_i18n": {
-        "en": "Volume of raw material block before machining, determines material usage."
+        "en": "Volume of raw material block before machining, determines material usage.",
+        "tr": "Talaşlı imalat öncesi hammadde bloğunun hacmi, malzeme kullanımını belirler."
       }
     },
     {
@@ -77,10 +83,12 @@
       "max": 1440,
       "businessContext": "Total cycle time per part including cutting, tool changes, and rapid moves.",
       "label_i18n": {
-        "en": "Machining Time (minutes)"
+        "en": "Machining Time (minutes)",
+        "tr": "İşleme Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Total cycle time per part including cutting, tool changes, and rapid moves."
+        "en": "Total cycle time per part including cutting, tool changes, and rapid moves.",
+        "tr": "Kesme, takım değişimi ve hızlı hareketler dahil parça başına toplam çevrim süresi."
       }
     },
     {
@@ -93,10 +101,12 @@
       "max": 480,
       "businessContext": "Time to fixture, align, and program the machine for the batch.",
       "label_i18n": {
-        "en": "Setup Time (minutes)"
+        "en": "Setup Time (minutes)",
+        "tr": "Kurulum Süresi (dakika)"
       },
       "businessContext_i18n": {
-        "en": "Time to fixture, align, and program the machine for the batch."
+        "en": "Time to fixture, align, and program the machine for the batch.",
+        "tr": "Parti için makinenin fikstürlenmesi, hizalanması ve programlanması süresi."
       }
     },
     {
@@ -109,10 +119,12 @@
       "max": 100000,
       "businessContext": "Number of identical parts produced in one production run.",
       "label_i18n": {
-        "en": "Batch Size (parts)"
+        "en": "Batch Size (parts)",
+        "tr": "Parti Büyüklüğü (parça)"
       },
       "businessContext_i18n": {
-        "en": "Number of identical parts produced in one production run."
+        "en": "Number of identical parts produced in one production run.",
+        "tr": "Bir üretim partisinde üretilen aynı parça sayısı."
       }
     },
     {
@@ -125,10 +137,12 @@
       "max": 500,
       "businessContext": "Fully burdened machine cost including depreciation, maintenance, and energy.",
       "label_i18n": {
-        "en": "Machine Hourly Rate ($/hr)"
+        "en": "Machine Hourly Rate ($/hr)",
+        "tr": "Makine Saatlik Ücreti ($/saat)"
       },
       "businessContext_i18n": {
-        "en": "Fully burdened machine cost including depreciation, maintenance, and energy."
+        "en": "Fully burdened machine cost including depreciation, maintenance, and energy.",
+        "tr": "Amortisman, bakım ve enerji dahil tam yüklü makine maliyeti."
       }
     },
     {
@@ -141,10 +155,12 @@
       "max": 150,
       "businessContext": "Operator wage including overhead and benefits.",
       "label_i18n": {
-        "en": "Labor Hourly Rate ($/hr)"
+        "en": "Labor Hourly Rate ($/hr)",
+        "tr": "İşçilik Saatlik Ücreti ($/saat)"
       },
       "businessContext_i18n": {
-        "en": "Operator wage including overhead and benefits."
+        "en": "Operator wage including overhead and benefits.",
+        "tr": "Genel giderler ve yan haklar dahil operatör ücreti."
       }
     }
   ],

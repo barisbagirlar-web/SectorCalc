@@ -10,11 +10,15 @@
       "businessContext": "Angle between the sun and the vertical. 0° means sun directly overhead.",
       "label_i18n": {
         "en": "Solar Zenith Angle",
-        "tr": "Solar Zenith Angle",
+        "tr": "Güneş Zenit Açısı",
         "de": "Solar Zenith Angle",
         "fr": "Solar Zenith Angle",
         "es": "Solar Zenith Angle",
         "ar": "Solar Zenith Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between the sun and the vertical. 0° means sun directly overhead.",
+        "tr": "Güneş ile dikey arasındaki açı. 0° güneşin tam tepede olduğu anlamına gelir."
       }
     },
     {
@@ -26,11 +30,15 @@
       "businessContext": "Total ozone column in Dobson Units. Typical range 200–500 DU.",
       "label_i18n": {
         "en": "Ozone Column Thickness",
-        "tr": "Ozone Column Thickness",
+        "tr": "Ozon Kolon Kalınlığı",
         "de": "Ozone Column Thickness",
         "fr": "Ozone Column Thickness",
         "es": "Ozone Column Thickness",
         "ar": "Ozone Column Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Total ozone column in Dobson Units. Typical range 200–500 DU.",
+        "tr": "Dobson Birimi cinsinden toplam ozon kolonu. Tipik aralık 200–500 DU."
       }
     },
     {
@@ -42,11 +50,15 @@
       "businessContext": "Elevation above sea level in meters.",
       "label_i18n": {
         "en": "Altitude",
-        "tr": "Altitude",
+        "tr": "Rakım",
         "de": "Altitude",
         "fr": "Altitude",
         "es": "Altitude",
         "ar": "Altitude"
+      },
+      "businessContext_i18n": {
+        "en": "Elevation above sea level in meters.",
+        "tr": "Deniz seviyesinden metre cinsinden yükseklik."
       }
     },
     {
@@ -58,11 +70,15 @@
       "businessContext": "Reflectivity of the ground surface, between 0 and 1. Typical grass: 0.03, snow: 0.8.",
       "label_i18n": {
         "en": "Surface Albedo",
-        "tr": "Surface Albedo",
+        "tr": "Yüzey Albedosu",
         "de": "Surface Albedo",
         "fr": "Surface Albedo",
         "es": "Surface Albedo",
         "ar": "Surface Albedo"
+      },
+      "businessContext_i18n": {
+        "en": "Reflectivity of the ground surface, between 0 and 1. Typical grass: 0.03, snow: 0.8.",
+        "tr": "Zemin yüzeyinin yansıtıcılığı, 0 ile 1 arasında. Tipik çimen: 0,03, kar: 0,8."
       }
     },
     {
@@ -74,11 +90,15 @@
       "businessContext": "Aerosol optical depth at 550 nm. Clear atmosphere: 0.05–0.1, polluted: >0.5.",
       "label_i18n": {
         "en": "Aerosol Optical Depth",
-        "tr": "Aerosol Optical Depth",
+        "tr": "Aerosol Optik Derinlik",
         "de": "Aerosol Optical Depth",
         "fr": "Aerosol Optical Depth",
         "es": "Aerosol Optical Depth",
         "ar": "Aerosol Optical Depth"
+      },
+      "businessContext_i18n": {
+        "en": "Aerosol optical depth at 550 nm. Clear atmosphere: 0.05–0.1, polluted: >0.5.",
+        "tr": "550 nm'de aerosol optik derinlik. Temiz atmosfer: 0,05–0,1, kirli: >0,5."
       }
     },
     {
@@ -90,11 +110,15 @@
       "businessContext": "Fraction of sky covered by clouds, 0 (clear) to 1 (overcast).",
       "label_i18n": {
         "en": "Cloud Cover Fraction",
-        "tr": "Cloud Cover Fraction",
+        "tr": "Bulut Örtüsü Oranı",
         "de": "Cloud Cover Fraction",
         "fr": "Cloud Cover Fraction",
         "es": "Cloud Cover Fraction",
         "ar": "Cloud Cover Fraction"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of sky covered by clouds, 0 (clear) to 1 (overcast).",
+        "tr": "Gökyüzünün bulutlarla kaplı oranı, 0 (açık) ile 1 (kapalı) arasında."
       }
     }
   ],
