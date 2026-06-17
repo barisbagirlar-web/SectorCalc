@@ -4,6 +4,7 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { stripVercelExportMarkers } from "./lib/strip-vercel-export-markers.mjs";
 
 const ROOT = process.cwd();
 const NEXT = join(ROOT, ".next");
@@ -67,7 +68,8 @@ function main() {
   ensure500StaticFiles();
 
   // Firebase Hosting expects export markers; Vercel App Router must stay serverless.
-  // Fake export markers on Vercel trigger `next export` routing and www NOT_FOUND.
+  // Stale cached export-marker.json on Vercel triggers static-export routing → www NOT_FOUND.
+  stripVercelExportMarkers(NEXT);
   if (process.env.VERCEL !== "1") {
     ensureExportMarker();
     ensureExportDetail();

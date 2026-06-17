@@ -15,6 +15,7 @@ import {
   describeGeneratedArtifactState,
   registryParityOk,
 } from "./generated-artifact-parity.mjs";
+import { stripVercelExportMarkers } from "../lib/strip-vercel-export-markers.mjs";
 
 const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
@@ -115,6 +116,9 @@ function main() {
 
   try {
     ensureHealthyNextCache();
+    if (process.env.VERCEL === "1") {
+      stripVercelExportMarkers(NEXT_DIR);
+    }
 
     const shouldCleanNext =
       process.env.VERCEL === "1" && !envEnabled("SECTORCALC_KEEP_NEXT_CACHE", true);
