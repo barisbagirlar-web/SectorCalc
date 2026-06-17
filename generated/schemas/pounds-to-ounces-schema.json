@@ -71,10 +71,13 @@
       "roundedOunces = Math.round(ounces * 10 ** decimalPlaces) / 10 ** decimalPlaces"
     ]
   },
-  "category": "Üretim & İmalat",
-  "sector": "Üretim & İmalat",
+  "category": "Dönüşüm & Ölçüm",
+  "sector": "Diğer",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "technology-ai-cloud-cyber",
+  "sectorId": "diger",
+  "profession": "Genel Uzman",
+  "categoryId": "conversion"
 }

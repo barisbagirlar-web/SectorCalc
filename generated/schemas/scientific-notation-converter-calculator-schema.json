@@ -97,10 +97,13 @@
       "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent"
     ]
   },
-  "category": "Kalite & Laboratuvar",
-  "sector": "Kalite, SPC & Altı Sigma",
+  "category": "Dönüşüm & Ölçüm",
+  "sector": "Diğer",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "quality-six-sigma"
+  "categorySlug": "quality-six-sigma",
+  "sectorId": "diger",
+  "profession": "Genel Uzman",
+  "categoryId": "conversion"
 }

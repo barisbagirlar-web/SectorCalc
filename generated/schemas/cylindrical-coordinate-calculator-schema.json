@@ -117,10 +117,13 @@
       "direction === 0 ? `Step 3: y = r·sin(θ_rad) = ${r} × sin(${thetaRad.toFixed(4)}) = ${yResult.toFixed(4)}` : `Step 3: Z-coordinate remains unchanged: z = ${z.toFixed(4)}`"
     ]
   },
-  "category": "Kalite & Laboratuvar",
-  "sector": "Kalite, SPC & Altı Sigma",
+  "category": "Dönüşüm & Ölçüm",
+  "sector": "Diğer",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "quality-six-sigma"
+  "categorySlug": "quality-six-sigma",
+  "sectorId": "diger",
+  "profession": "Genel Uzman",
+  "categoryId": "conversion"
 }

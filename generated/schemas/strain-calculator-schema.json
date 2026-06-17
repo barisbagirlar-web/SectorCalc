@@ -57,10 +57,13 @@
       "Stress: ${elastic_modulus > 0 ? stressMpa.toFixed(2) + ' MPa' : 'N/A'}"
     ]
   },
-  "category": "Makine & Tasarım",
-  "sector": "Teknik & Mühendislik",
+  "category": "Teknik & Mühendislik",
+  "sector": "Metal & Sac İşleme",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "cnc-additive-manufacturing",
+  "sectorId": "metal",
+  "profession": "Sac Teknisyeni",
+  "categoryId": "engineering"
 }

@@ -85,10 +85,13 @@
       "Efficiency relative to ${baseSleepHours}h monophasic: ${efficiencyPercent.toFixed(1)}% (lower means less sleep)."
     ]
   },
-  "category": "Kalite & Laboratuvar",
-  "sector": "Kalite, SPC & Altı Sigma",
+  "category": "Verimlilik & OEE",
+  "sector": "Diğer",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "quality-six-sigma"
+  "categorySlug": "quality-six-sigma",
+  "sectorId": "diger",
+  "profession": "Genel Uzman",
+  "categoryId": "efficiency"
 }

@@ -112,10 +112,13 @@
       "'p-value: ' + pValue.toFixed(4) + (pValue < alpha ? ' (significant)' : ' (not significant)')"
     ]
   },
-  "category": "Kalite & Laboratuvar",
-  "sector": "Kalite, SPC & Altı Sigma",
+  "category": "Dönüşüm & Ölçüm",
+  "sector": "Makine & Ekipman",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "quality-six-sigma"
+  "categorySlug": "quality-six-sigma",
+  "sectorId": "makine",
+  "profession": "CNC Operatörü",
+  "categoryId": "conversion"
 }

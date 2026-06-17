@@ -82,10 +82,13 @@
       "\"Final pure product: \" + (totalMaterial * concentration / 100 * recoveryRate / 100 * targetPurity / 100) + \" kg\""
     ]
   },
-  "category": "Malzeme & Metalurji",
-  "sector": "Teknik & Mühendislik",
+  "category": "Verimlilik & OEE",
+  "sector": "Gıda & İçecek",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "metal-plastics-forming"
+  "categorySlug": "metal-plastics-forming",
+  "sectorId": "gida",
+  "profession": "Üretim Mühendisi",
+  "categoryId": "efficiency"
 }
