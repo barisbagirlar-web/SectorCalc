@@ -4,7 +4,6 @@
 
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
-import { FULL_LOOP_CONTRACT_ALIAS } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getToolHref } from "@/lib/tools/paths";
 import { resolveLegacyPremiumSlug } from "@/lib/tools/legacy-premium-slug-redirects";
@@ -200,24 +199,11 @@ export function getRevenueToolByPaidSlug(slug: string): RevenueTool | null {
 }
 
 export function getRevenueToolByPremiumRouteSlug(slug: string): RevenueTool | null {
-  const byPaid = getRevenueToolByPaidSlug(slug);
-  if (byPaid) {
-    return byPaid;
-  }
-  if (slug in FULL_LOOP_CONTRACT_ALIAS) {
-    return getRevenueToolByFreeSlug(slug);
-  }
-  return null;
+  return getRevenueToolByPaidSlug(slug);
 }
 
 export function getPremiumRevenueRouteSlugs(): readonly string[] {
-  const funnelSlugs = Object.keys(FULL_LOOP_CONTRACT_ALIAS);
-  return [
-    ...new Set([
-      ...REVENUE_TOOLS.map((tool) => tool.paidSlug),
-      ...funnelSlugs,
-    ]),
-  ];
+  return REVENUE_TOOLS.map((tool) => tool.paidSlug);
 }
 
 export function getRevenueToolByPremiumSlug(slug: string): RevenueTool | null {
