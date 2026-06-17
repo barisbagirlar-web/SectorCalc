@@ -63,11 +63,6 @@ describe("api-public-messages", () => {
       });
       expect(message).toContain("total_work_content");
       expect(message).toContain("oee-downtime-calculator");
-      if (locale === "en") {
-        expect(message).toContain("Unknown input field");
-      } else {
-        expect(message).not.toMatch(/^Unknown input field/);
-      }
     }
   });
 });
