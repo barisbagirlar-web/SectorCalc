@@ -41,10 +41,12 @@ function toAlternateLinks(
     return undefined;
   }
 
-  return Object.entries(alternates.languages).map(([hreflang, href]) => ({
-    hreflang,
-    href,
-  }));
+  return Object.entries(alternates.languages)
+    .filter((entry): entry is [string, string] => typeof entry[1] === "string" && entry[1].length > 0)
+    .map(([hreflang, href]) => ({
+      hreflang,
+      href,
+    }));
 }
 
 function manifestItemToEntry(
@@ -52,13 +54,14 @@ function manifestItemToEntry(
   locale: SupportedLocale,
   fallback: Date,
   caseStudyLastMod: ReadonlyMap<string, Date>,
+  baseUrl: string = SITE_BASE_URL,
 ): MetadataRoute.Sitemap[number] {
   return {
-    url: buildLocalizedUrl(item.path, locale, SITE_BASE_URL),
+    url: buildLocalizedUrl(item.path, locale, baseUrl),
     lastModified: resolveSitemapLastModified(item.path, fallback, caseStudyLastMod),
     changeFrequency: item.changeFrequency,
     priority: item.priority,
-    alternates: buildAlternates(item.path, item.locales, SITE_BASE_URL),
+    alternates: buildAlternates(item.path, item.locales, baseUrl),
   };
 }
 
@@ -68,14 +71,15 @@ function firestoreCaseStudyItem(
   locales: readonly SupportedLocale[],
   fallback: Date,
   caseStudyLastMod: ReadonlyMap<string, Date>,
+  baseUrl: string = SITE_BASE_URL,
 ): MetadataRoute.Sitemap[number] {
   const path = `/case-studies/${slug}`;
   return {
-    url: buildLocalizedUrl(path, locale, SITE_BASE_URL),
+    url: buildLocalizedUrl(path, locale, baseUrl),
     lastModified: caseStudyLastMod.get(slug) ?? fallback,
     changeFrequency: "monthly",
     priority: 0.72,
-    alternates: buildAlternates(path, locales, SITE_BASE_URL),
+    alternates: buildAlternates(path, locales, baseUrl),
   };
 }
 
@@ -94,6 +98,7 @@ function dedupeAndSortEntries(entries: MetadataRoute.Sitemap): MetadataRoute.Sit
 export async function buildLocaleSitemapEntries(
   locale: SupportedLocale,
   now = new Date(),
+  baseUrl: string = SITE_BASE_URL,
 ): Promise<MetadataRoute.Sitemap> {
   const manifest = getSitemapManifest();
   const caseStudyLastMod = await getCaseStudyLastModMap();
@@ -104,7 +109,7 @@ export async function buildLocaleSitemapEntries(
     if (!item.locales.includes(locale)) {
       continue;
     }
-    entries.push(manifestItemToEntry(item, locale, now, caseStudyLastMod));
+    entries.push(manifestItemToEntry(item, locale, now, caseStudyLastMod, baseUrl));
   }
 
   const locales = getActiveSitemapLocales();
@@ -113,7 +118,7 @@ export async function buildLocaleSitemapEntries(
     if (manifestPaths.has(path)) {
       continue;
     }
-    entries.push(firestoreCaseStudyItem(slug, locale, locales, now, caseStudyLastMod));
+    entries.push(firestoreCaseStudyItem(slug, locale, locales, now, caseStudyLastMod, baseUrl));
   }
 
   return dedupeAndSortEntries(entries);
@@ -122,14 +127,38 @@ export async function buildLocaleSitemapEntries(
 export async function buildLocaleSitemapUrlRecords(
   locale: SupportedLocale,
   now = new Date(),
+  baseUrl: string = SITE_BASE_URL,
 ): Promise<SitemapUrlRecord[]> {
-  const entries = await buildLocaleSitemapEntries(locale, now);
+  const entries = await buildLocaleSitemapEntries(locale, now, baseUrl);
   return entries.map((entry) => ({
     url: entry.url,
     lastModified: entry.lastModified instanceof Date ? entry.lastModified : new Date(entry.lastModified ?? now),
     changeFrequency: normalizeChangeFrequency(entry.changeFrequency, "weekly"),
     priority: entry.priority ?? 0.5,
     alternates: toAlternateLinks(entry.alternates),
+  }));
+}
+
+function remapSitemapRecordsBaseUrl(
+  records: readonly SitemapUrlRecord[],
+  baseUrl: string,
+): SitemapUrlRecord[] {
+  const fromOrigin = SITE_BASE_URL.replace(/\/$/, "");
+  const toOrigin = baseUrl.replace(/\/$/, "");
+  if (fromOrigin === toOrigin) {
+    return [...records];
+  }
+
+  const replaceOrigin = (value: string): string =>
+    value.startsWith(fromOrigin) ? `${toOrigin}${value.slice(fromOrigin.length)}` : value;
+
+  return records.map((record) => ({
+    ...record,
+    url: replaceOrigin(record.url),
+    alternates: record.alternates?.map((link) => ({
+      ...link,
+      href: replaceOrigin(link.href),
+    })),
   }));
 }
 
@@ -149,12 +178,13 @@ async function tryReadCachedLocaleRecords(locale: SupportedLocale): Promise<Site
 }
 
 /** Production route handler entry — uses ISR cache when Next runtime is available. */
-export async function getLocaleSitemapUrlRecords(locale: SupportedLocale): Promise<SitemapUrlRecord[]> {
+export async function getLocaleSitemapUrlRecords(
+  locale: SupportedLocale,
+  baseUrl: string = SITE_BASE_URL,
+): Promise<SitemapUrlRecord[]> {
   const cached = await tryReadCachedLocaleRecords(locale);
-  if (cached) {
-    return cached;
-  }
-  return buildLocaleSitemapUrlRecords(locale);
+  const records = cached ?? (await buildLocaleSitemapUrlRecords(locale));
+  return remapSitemapRecordsBaseUrl(records, baseUrl);
 }
 
 export async function getLocaleSitemapShardLastModified(locale: SupportedLocale): Promise<Date> {
@@ -171,8 +201,9 @@ export async function getLocaleSitemapShardLastModified(locale: SupportedLocale)
 
 export async function getSitemapIndexEntries(
   now = new Date(),
+  baseUrl: string = SITE_BASE_URL,
 ): Promise<readonly { url: string; lastModified: Date }[]> {
-  const base = SITE_BASE_URL.replace(/\/$/, "");
+  const base = baseUrl.replace(/\/$/, "");
   const locales = getActiveSitemapLocales();
 
   return Promise.all(

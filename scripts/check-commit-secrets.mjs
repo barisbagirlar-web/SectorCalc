@@ -19,6 +19,14 @@ const ENV_EXAMPLE_PUBLIC_FLAG_LINE =
 const ENV_EXAMPLE_PUBLIC_SITE_URL_LINE =
   /^\s*#?\s*NEXT_PUBLIC_SITE_URL\s*=\s*https:\/\/[^\s#]+\s*$/;
 
+/** Public calculate API rate-limit template (no secrets). */
+const ENV_EXAMPLE_PUBLIC_CALCULATE_LINE =
+  /^\s*#?\s*PUBLIC_CALCULATE_[A-Z0-9_]+\s*=/;
+
+/** Upstash REST template placeholders (empty in .env.example). */
+const ENV_EXAMPLE_UPSTASH_LINE =
+  /^\s*#?\s*UPSTASH_REDIS_REST_[A-Z0-9_]+\s*=/;
+
 const DIFF_SECRET_PATTERNS = [
   /BEGIN PRIVATE KEY/,
   /BEGIN RSA PRIVATE KEY/,
@@ -77,7 +85,12 @@ function checkEnvExampleDiff() {
       continue;
     }
 
-    if (!ENV_EXAMPLE_PUBLIC_FLAG_LINE.test(trimmed) && !ENV_EXAMPLE_PUBLIC_SITE_URL_LINE.test(trimmed)) {
+    if (
+      !ENV_EXAMPLE_PUBLIC_FLAG_LINE.test(trimmed) &&
+      !ENV_EXAMPLE_PUBLIC_SITE_URL_LINE.test(trimmed) &&
+      !ENV_EXAMPLE_PUBLIC_CALCULATE_LINE.test(trimmed) &&
+      !ENV_EXAMPLE_UPSTASH_LINE.test(trimmed)
+    ) {
       violations.push(trimmed);
     }
   }

@@ -20,6 +20,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildFAQJsonLd } from "@/lib/seo/schema-mesh";
 import { AnswerBlock } from "@/components/tools/AnswerBlock";
 import { buildGeneratedToolFeaturedCopy } from "@/lib/semantic/build-generated-tool-featured-copy";
+import { buildGeneratedToolCalculateActionJsonLd } from "@/lib/semantic/build-generated-tool-calculate-action-jsonld";
 import { buildGeneratedToolProductJsonLd } from "@/lib/semantic/build-generated-tool-product-jsonld";
 import { buildGeneratedToolWebPageJsonLd } from "@/lib/semantic/build-generated-tool-webpage-jsonld";
 import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
@@ -95,14 +96,21 @@ export default async function GeneratedToolRoutePage({
     locale,
     schema,
   });
+  const toolCalculateActionJsonLd = buildGeneratedToolCalculateActionJsonLd({
+    toolName: displayName,
+    description: displayDescription,
+    slug,
+    locale,
+    schema,
+  });
   const featuredCopy = buildGeneratedToolFeaturedCopy(displayName, displayDescription, locale);
   const categoryId = inferFreeTrafficCategory(slug);
   const tCatalog = await getTranslations("freeTrafficCatalog");
   const aboutContent = resolveGeneratedToolAboutContent(slug, schema, locale);
   const faqJsonLd = buildFAQJsonLd(aboutContent.faqs);
   const jsonLd = faqJsonLd
-    ? [toolWebPageJsonLd, toolProductJsonLd, faqJsonLd]
-    : [toolWebPageJsonLd, toolProductJsonLd];
+    ? [toolWebPageJsonLd, toolProductJsonLd, toolCalculateActionJsonLd, faqJsonLd]
+    : [toolWebPageJsonLd, toolProductJsonLd, toolCalculateActionJsonLd];
 
   return (
     <PageLayout>

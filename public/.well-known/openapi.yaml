@@ -1,0 +1,179 @@
+openapi: 3.1.0
+info:
+  title: SectorCalc Public Calculator API
+  version: "1.0.0"
+  description: |
+    Machine-readable calculator API for AI agents and automation.
+    Deterministic calculation only — no LLM inference on this endpoint.
+  contact:
+    name: SectorCalc
+    url: https://www.sectorcalc.com
+    email: hello@sectorcalc.com
+servers:
+  - url: https://www.sectorcalc.com
+    description: Production
+tags:
+  - name: calculate
+    description: Run a sector calculator with validated inputs
+  - name: discovery
+    description: Bot-readable tool documentation
+paths:
+  /api-public/calculate/{slug}:
+    post:
+      operationId: calculateTool
+      tags: [calculate]
+      summary: Run a calculator by slug
+      description: |
+        Validates inputs with Zod (generated from tool schema), runs the deterministic
+        calculator engine, and returns structured results.
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          description: Calculator slug (e.g. oee-downtime-calculator)
+          schema:
+            type: string
+            pattern: "^[a-z0-9-]+$"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CalculateRequest"
+            examples:
+              oeeDowntime:
+                summary: OEE & Downtime Calculator
+                value:
+                  inputs:
+                    planned_production_time: 480
+                    downtime_minutes: 60
+                    ideal_cycle_time: 0.5
+                    total_parts_produced: 800
+                    defective_parts: 20
+                    shift_type: day
+                    include_micro_stops: true
+      responses:
+        "200":
+          description: Calculation succeeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CalculateSuccessResponse"
+        "400":
+          description: Malformed request body
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Tool or calculator engine not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "422":
+          description: Input validation failed (invalid or hallucinated parameters)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ValidationErrorResponse"
+        "429":
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /api-public/bot-md/{slug}:
+    get:
+      operationId: getToolBotMarkdown
+      tags: [discovery]
+      summary: Bot-readable markdown documentation for a tool
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: "^[a-z0-9-]+$"
+      responses:
+        "200":
+          description: Markdown tool documentation
+          content:
+            text/markdown:
+              schema:
+                type: string
+        "404":
+          description: Tool not found
+          content:
+            text/markdown:
+              schema:
+                type: string
+components:
+  schemas:
+    CalculateRequest:
+      type: object
+      required: [inputs]
+      properties:
+        inputs:
+          type: object
+          additionalProperties: true
+          description: Tool-specific input fields (see bot-md or tool schema)
+    CalculateSuccessResponse:
+      type: object
+      required: [success, result, tool]
+      properties:
+        success:
+          type: boolean
+          const: true
+        result:
+          type: object
+          additionalProperties: true
+        tool:
+          type: object
+          required: [slug, name]
+          properties:
+            slug:
+              type: string
+            name:
+              type: string
+        validations:
+          type: array
+          items:
+            type: string
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        code:
+          type: integer
+        message:
+          type: string
+    ValidationErrorResponse:
+      allOf:
+        - $ref: "#/components/schemas/ErrorResponse"
+        - type: object
+          properties:
+            details:
+              type: array
+              items:
+                type: object
+                required: [field, message]
+                properties:
+                  field:
+                    type: string
+                  message:
+                    type: string
+            expected_format:
+              type: object
+              properties:
+                inputs:
+                  type: object
+                  additionalProperties:
+                    type: string

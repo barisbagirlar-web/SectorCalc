@@ -51,10 +51,12 @@ const MIDDLEWARE_EXCLUDED_EXACT = new Set([
   "/services-products.txt",
   "/faq-knowledge.txt",
   "/manifest.json",
+  "/.well-known/openapi.yaml",
 ]);
 
 const MIDDLEWARE_EXCLUDED_PREFIXES = [
   "/api",
+  "/api-public",
   "/admin",
   "/_next",
   "/assets",
@@ -64,7 +66,7 @@ const MIDDLEWARE_EXCLUDED_PREFIXES = [
 ] as const;
 
 const STATIC_FILE_EXTENSION =
-  /\.(?:ico|png|jpe?g|gif|webp|svg|txt|xml|json|jsonl|woff2?|ttf|eot|css|js|map)$/i;
+  /\.(?:ico|png|jpe?g|gif|webp|svg|txt|xml|yaml|yml|json|jsonl|woff2?|ttf|eot|css|js|map)$/i;
 
 export const LOCALE_LESS_PUBLIC_ROUTES = [
   "/free-tools",

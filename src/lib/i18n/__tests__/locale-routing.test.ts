@@ -60,14 +60,18 @@ describe("locale-routing", () => {
     );
   });
 
-  test('getLegacyEnRedirectPath("/en/tools/free/area-converter") => "/tools/free/area-converter"', () => {
+  test('getLegacyEnRedirectPath("/en/tools/free/area-converter") => "/tools/generated/area-converter"', () => {
     expect(getLegacyEnRedirectPath("/en/tools/free/area-converter")).toBe(
-      "/tools/free/area-converter",
+      "/tools/generated/area-converter",
     );
   });
 
   test("isMiddlewareExcludedPath /api true", () => {
     expect(isMiddlewareExcludedPath("/api/billing/webhook")).toBe(true);
+  });
+
+  test("isMiddlewareExcludedPath /api-public true", () => {
+    expect(isMiddlewareExcludedPath("/api-public/calculate/z-score-calculator")).toBe(true);
   });
 
   test("isMiddlewareExcludedPath /sitemap.xml true", () => {

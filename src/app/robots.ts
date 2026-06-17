@@ -30,6 +30,8 @@ const PRIVATE_DISALLOW = [
 ];
 
 const AI_INDEX_ALLOW = [
+  "/api-public/",
+  "/.well-known/openapi.yaml",
   "/llms.txt",
   "/ai.txt",
   "/ai-tool-index.json",
@@ -42,6 +44,7 @@ const AI_INDEX_ALLOW = [
   "/services-products.txt",
   "/faq-knowledge.txt",
   "/sitemap.xml",
+  "/sitemap/",
 ];
 
 const AI_BOT_AGENTS = [
