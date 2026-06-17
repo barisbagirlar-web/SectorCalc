@@ -51,11 +51,11 @@ const GRID_VARIANT_STYLES: Record<
     active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
   },
   premium: {
-    icon: "text-[#C45A2C]",
-    iconHover: "group-hover:text-[#9a3412]",
-    hoverBorder: "hover:border-[#C45A2C]",
-    focusRing: "focus-visible:ring-orange-400",
-    active: "border-orange-400 bg-orange-50/70 ring-2 ring-orange-100",
+    icon: "text-[#8B2635]",
+    iconHover: "group-hover:text-[#6B1D28]",
+    hoverBorder: "hover:border-[#8B2635]",
+    focusRing: "focus-visible:ring-[#8B2635]",
+    active: "border-[#8B2635] bg-red-50/70 ring-2 ring-red-100",
   },
 };
 

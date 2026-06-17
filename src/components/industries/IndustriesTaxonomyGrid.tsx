@@ -1,7 +1,9 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import type { LucideIcon } from "lucide-react";
 import { Link } from "@/i18n/routing";
+import { getTaxonomySectorIcon } from "@/lib/catalog/taxonomy-sector-icon-map";
 import { cn } from "@/lib/cn";
 import type { TaxonomySectorCard } from "@/lib/tools/build-taxonomy-sector-cards";
 
@@ -18,32 +20,40 @@ type IndustriesTaxonomyGridProps = {
 const GRID_VARIANT_STYLES: Record<
   SectorTaxonomyGridVariant,
   {
+    readonly icon: string;
+    readonly iconHover: string;
     readonly hoverBorder: string;
     readonly focusRing: string;
     readonly active: string;
   }
 > = {
   industry: {
+    icon: "text-[var(--sc-navy)]",
+    iconHover: "group-hover:text-blue-800",
     hoverBorder: "hover:border-blue-400",
     focusRing: "focus-visible:ring-blue-500",
     active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
   },
   free: {
+    icon: "text-[var(--sc-navy)]",
+    iconHover: "group-hover:text-blue-800",
     hoverBorder: "hover:border-blue-400",
     focusRing: "focus-visible:ring-blue-500",
     active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
   },
   premium: {
-    hoverBorder: "hover:border-[#C45A2C]",
-    focusRing: "focus-visible:ring-orange-400",
-    active: "border-orange-400 bg-orange-50/70 ring-2 ring-orange-100",
+    icon: "text-[#8B2635]",
+    iconHover: "group-hover:text-[#6B1D28]",
+    hoverBorder: "hover:border-[#8B2635]",
+    focusRing: "focus-visible:ring-[#8B2635]",
+    active: "border-[#8B2635] bg-red-50/70 ring-2 ring-red-100",
   },
 };
 
 function TaxonomySectorTile({
   href,
   active,
-  icon,
+  Icon,
   label,
   countLabel,
   professions,
@@ -51,7 +61,7 @@ function TaxonomySectorTile({
 }: {
   readonly href: string;
   readonly active: boolean;
-  readonly icon: string;
+  readonly Icon: LucideIcon;
   readonly label: string;
   readonly countLabel: string;
   readonly professions?: readonly string[];
@@ -70,12 +80,11 @@ function TaxonomySectorTile({
         active ? tone.active : "border-slate-200",
       )}
     >
-      <span
-        className="mb-3 flex h-12 w-12 items-center justify-center text-[2.5rem] leading-none transition group-hover:scale-105"
+      <Icon
+        className={cn("mb-3 h-12 w-12 transition", tone.icon, tone.iconHover)}
         aria-hidden="true"
-      >
-        {icon}
-      </span>
+        strokeWidth={1.5}
+      />
       <span className="line-clamp-2 text-sm font-bold text-gray-800">{label}</span>
       <span className="mt-2 text-xs font-medium text-slate-500">{countLabel}</span>
       {professions && professions.length > 0 ? (
@@ -117,13 +126,14 @@ export function IndustriesTaxonomyGrid({
           : active
             ? basePath
             : `${basePath}?sector=${encodeURIComponent(sector.id)}`;
+        const Icon = getTaxonomySectorIcon(sector.id);
 
         return (
           <TaxonomySectorTile
             key={sector.id}
             href={href}
             active={active}
-            icon={sector.icon}
+            Icon={Icon}
             label={label}
             countLabel={countLabel}
             professions={isAllCard ? undefined : sector.professions}

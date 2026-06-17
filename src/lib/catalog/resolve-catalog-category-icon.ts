@@ -2,6 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import { Calculator, LayoutGrid } from "lucide-react";
 import { getCategoryIcon } from "@/lib/catalog/category-icon-map";
 import { getIndustrySlugIcon } from "@/lib/catalog/industry-slug-icon-map";
+import { isTaxonomySectorIconSlug, getTaxonomySectorIcon } from "@/lib/catalog/taxonomy-sector-icon-map";
 import { LEGACY_CATALOG_ICON_ALIASES } from "@/lib/catalog/legacy-catalog-icon-aliases";
 import { SCHEMA_CATALOG_ICON_OVERRIDES } from "@/lib/catalog/schema-catalog-icon-overrides";
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
@@ -26,6 +27,10 @@ export function resolveCatalogCategoryIcon(slug: string, depth = 0): LucideIcon 
 
   if (slug === "all") {
     return LayoutGrid;
+  }
+
+  if (isTaxonomySectorIconSlug(slug)) {
+    return getTaxonomySectorIcon(slug);
   }
 
   const schemaOverride = SCHEMA_CATALOG_ICON_OVERRIDES[slug];

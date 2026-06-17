@@ -39,7 +39,6 @@ describe("buildTaxonomySectorCards", () => {
     expect(cards[0]?.sector.id).toBe("all");
     expect(cards[0]?.label).toBe("Tümü");
     expect(cards[0]?.count).toBe(2);
-    expect(cards[0]?.sector.icon).toBe("🗂️");
   });
 
   it("allows overriding the All tile label", () => {

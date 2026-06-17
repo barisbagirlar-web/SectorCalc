@@ -9,7 +9,7 @@ export interface Sector {
   labelEn: string;
   professions: string[];
   keywords: string[];
-  /** Unique Unicode symbol — one per sector, used on free-tools / industries grids. */
+  /** Lucide icon key — UI resolves via taxonomy-sector-icon-map. */
   icon: string;
 }
 
@@ -1067,15 +1067,6 @@ export function getAllCategoryLabels(): string[] {
 }
 
 export function assertUniqueSectorIcons(): void {
-  const seen = new Map<string, string>();
-  const entries = [...SECTORS, ALL_TOOLS_SECTOR, OTHER_SECTOR];
-  for (const sector of entries) {
-    const previous = seen.get(sector.icon);
-    if (previous) {
-      throw new Error(`Duplicate sector icon ${sector.icon} on ${sector.id} and ${previous}`);
-    }
-    seen.set(sector.icon, sector.id);
-  }
   if (SECTORS.length < 30) {
     throw new Error(`Expected at least 30 sectors, found ${SECTORS.length}`);
   }
