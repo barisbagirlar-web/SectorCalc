@@ -43,7 +43,7 @@ export function useTraceChat(mode: TraceChatMode) {
     {
       id: nextId(),
       role: "assistant",
-      text: mode === "pro" ? t("welcomePro") : t("welcome"),
+      text: t("welcome"),
     },
   ]);
   const [input, setInput] = useState("");
@@ -151,8 +151,7 @@ export function useTraceChat(mode: TraceChatMode) {
       freeTagline: t("freeTagline"),
       freeTaglineLink: t("freeTaglineLink"),
       disclaimer: t("disclaimer"),
-      title: mode === "pro" ? t("titlePro") : t("title"),
-      sectorAssistant: t("sectorAssistant"),
+      title: t("title"),
       tagline: t("tagline"),
     },
     isPremium,

@@ -32,7 +32,6 @@ type TraceChatPanelProps = {
     readonly freeTaglineLink: string;
     readonly disclaimer: string;
     readonly title: string;
-    readonly sectorAssistant: string;
     readonly tagline: string;
   };
   readonly showUpsell: boolean;
@@ -69,7 +68,6 @@ export function TraceChatPanel({
           )}
           <div className="sc-trace__header-copy">
             <span className="sc-trace__header-title">{labels.title}</span>
-            <span className="sc-trace__header-meta">{labels.sectorAssistant}</span>
           </div>
         </div>
         {onClose ? (
