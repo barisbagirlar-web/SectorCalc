@@ -7,13 +7,9 @@ import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxono
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
 import { SchemaToolsCatalogExplorer } from "@/components/tools/SchemaToolsCatalogExplorer";
-import { Container } from "@/components/ui/Container";
-import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
-import { buildFreeToolsCrawlGroups, buildCoreHubCrawlGroups } from "@/lib/seo/crawl-index";
-import { shouldRenderCrawlIndexForLocale } from "@/lib/i18n/catalog-labels-i18n";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 import { getFreeTools } from "@/lib/tools/all-tools-data";
@@ -106,16 +102,6 @@ export default async function FreeToolsPage({ params }: PageProps) {
           </ToolsPageLayout>
         </ToolsPageSearchProvider>
       </section>
-
-      {shouldRenderCrawlIndexForLocale(locale) ? (
-        <section className="sc-pro-section sc-pro-section--border">
-          <Container className="sc-pro-container">
-            <CrawlIndexLinkList
-              groups={[...buildCoreHubCrawlGroups(), ...buildFreeToolsCrawlGroups()]}
-            />
-          </Container>
-        </section>
-      ) : null}
     </PageLayout>
   );
 }

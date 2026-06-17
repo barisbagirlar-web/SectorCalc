@@ -94,7 +94,7 @@ export function IndustriesTaxonomyGrid({
 
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-      {visibleSectors.map(({ sector, label, countLabel }) => {
+      {visibleSectors.map(({ sector, label, countLabel, professionLabels }) => {
         const isAllCard = sector.id === "all";
         const active = isAllCard ? isAllSelected : selectedSectorId === sector.id;
         const href = isAllCard
@@ -114,7 +114,7 @@ export function IndustriesTaxonomyGrid({
             Icon={Icon}
             label={label}
             countLabel={countLabel}
-            professions={isAllCard ? undefined : sector.professions}
+            professions={isAllCard ? undefined : professionLabels}
             tone={tone}
             variant={variant}
           />
