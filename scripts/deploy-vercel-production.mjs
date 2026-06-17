@@ -23,6 +23,16 @@ const SMOKE_URLS = [
   "https://www.sectorcalc.com/tr",
   "https://www.sectorcalc.com/en/tools",
 ];
+const CASE_STUDIES_SMOKE_URLS = [
+  "https://www.sectorcalc.com/case-studies",
+  "https://www.sectorcalc.com/tr/case-studies",
+  "https://www.sectorcalc.com/de/case-studies",
+  "https://www.sectorcalc.com/fr/case-studies",
+  "https://www.sectorcalc.com/es/case-studies",
+  "https://www.sectorcalc.com/ar/case-studies",
+  "https://www.sectorcalc.com/tr/case-studies/muller-prazision-5s-optimization",
+  "https://www.sectorcalc.com/data/case-studies.csv",
+];
 const DEPLOY_POLL_MS = 30_000;
 const DEPLOY_MAX_WAIT_MS = 45 * 60_000;
 
@@ -182,7 +192,7 @@ function smokeProduction() {
   console.log("deploy-vercel-production: smoke-checking production URLs…");
   let failed = false;
 
-  for (const url of SMOKE_URLS) {
+  for (const url of [...SMOKE_URLS, ...CASE_STUDIES_SMOKE_URLS]) {
     const result = spawnSync("curl", ["-sL", "-o", "/dev/null", "-w", "%{http_code}", url], {
       encoding: "utf8",
     });
@@ -195,6 +205,39 @@ function smokeProduction() {
   }
 
   if (failed) {
+    rollbackProduction();
+    process.exit(1);
+  }
+}
+
+function verifyCaseStudiesAcademicSurface() {
+  console.log("deploy-vercel-production: verifying academic case-studies surface…");
+  let failed = false;
+
+  for (const url of CASE_STUDIES_SMOKE_URLS) {
+    if (url.endsWith(".csv")) {
+      continue;
+    }
+
+    const result = spawnSync(
+      "curl",
+      ["-sL", "-H", "x-vercel-skip-cache: 1", url],
+      { encoding: "utf8" },
+    );
+    const html = result.stdout ?? "";
+    const isDetail = url.includes("/case-studies/");
+    const hasAcademic = html.includes("academic-database");
+    const hasTable = isDetail ? html.includes("record-meta-table") : html.includes("data-table");
+    const ok = html.length > 1000 && hasAcademic && hasTable;
+
+    console.log(`  ${ok ? "✓" : "✗"} ${url} (academic=${hasAcademic}, table=${hasTable})`);
+    if (!ok) {
+      failed = true;
+    }
+  }
+
+  if (failed) {
+    console.error("deploy-vercel-production: academic case-studies verification failed.");
     rollbackProduction();
     process.exit(1);
   }
@@ -300,6 +343,7 @@ try {
   }
 
   smokeProduction();
+  verifyCaseStudiesAcademicSurface();
   verifyHomepageToolCounts();
   console.log("deploy-vercel-production: done.");
 } finally {
