@@ -8,7 +8,7 @@
  * - Prefer: commit + push to origin/main (Git integration) OR deploy from a clean worktree.
  */
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdtempSync, rmSync } from "node:fs";
+import { cpSync, existsSync, mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -95,6 +95,13 @@ function createOriginWorktree() {
     rmSync(dir, { recursive: true, force: true });
     process.exit(1);
   }
+
+  const vercelDir = join(ROOT, ".vercel");
+  if (existsSync(vercelDir)) {
+    cpSync(vercelDir, join(dir, ".vercel"), { recursive: true });
+    console.log("deploy-vercel-production: copied .vercel project link into worktree.");
+  }
+
   return dir;
 }
 
