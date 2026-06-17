@@ -56,7 +56,7 @@ export default async function HomePage({ params }: PageProps) {
       <div className="sc-home-omni">
         <HeroSection searchEntries={searchEntries} />
         <TraceIntroSection />
-        <CategoryGrid />
+        <CategoryGrid locale={locale} />
         <LossGrid />
         <CompareCards />
         <PopularTools />
