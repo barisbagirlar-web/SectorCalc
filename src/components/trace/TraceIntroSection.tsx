@@ -1,10 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { TraceIntro } from "@/components/trace/TraceIntro";
-import { getHomepageCatalogToolCounts } from "@/lib/home/homepage-stats";
 
 export async function TraceIntroSection() {
   const t = await getTranslations("trace");
-  const { freeCount, premiumCount } = getHomepageCatalogToolCounts();
+  const tHome = await getTranslations("home");
 
   return (
     <TraceIntro
@@ -13,8 +12,8 @@ export async function TraceIntroSection() {
         badge: t("intro.badge"),
         title: t("intro.title"),
         description: t("intro.description"),
-        feature1: t("intro.feature1", { count: freeCount }),
-        feature2: t("intro.feature2", { count: premiumCount }),
+        feature1: tHome("stats.free"),
+        feature2: tHome("stats.premium"),
         cta: t("intro.cta"),
       }}
     />
