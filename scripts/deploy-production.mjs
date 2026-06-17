@@ -14,7 +14,7 @@ import {
 import { join } from "node:path";
 
 const ROOT = process.cwd();
-const LOCK_PATH = join(ROOT, ".next-deploy.lock");
+const DEPLOY_LOCK_PATH = join(ROOT, ".next-deploy.lock");
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
 const NEXT_BIN_PATH = join(ROOT, "node_modules/.bin/next");
 const NEXT_BIN_BACKUP_PATH = join(ROOT, "node_modules/.bin/next.firebase-backup");
@@ -33,9 +33,9 @@ function run(command, args, options = {}) {
   return result.status ?? 1;
 }
 
-function acquireLock() {
+function acquireDeployLock() {
   try {
-    const fd = openSync(LOCK_PATH, "wx");
+    const fd = openSync(DEPLOY_LOCK_PATH, "wx");
     closeSync(fd);
     return true;
   } catch {
@@ -43,9 +43,9 @@ function acquireLock() {
   }
 }
 
-function releaseLock() {
+function releaseDeployLock() {
   try {
-    unlinkSync(LOCK_PATH);
+    unlinkSync(DEPLOY_LOCK_PATH);
   } catch {
     // ignore
   }
@@ -100,13 +100,27 @@ function restoreNextBin() {
     // ignore
   }
 
-  symlinkSync("../next/dist/bin/next", NEXT_BIN_PATH);
+  try {
+    symlinkSync("../next/dist/bin/next", NEXT_BIN_PATH);
+  } catch {
+    copyFileSync(NEXT_DIST_BIN_PATH, NEXT_BIN_PATH);
+    chmodSync(NEXT_BIN_PATH, 0o755);
+  }
+
   console.log("deploy-production: restored original Next.js binary.");
   return true;
 }
 
-if (!acquireLock()) {
-  console.error("deploy-production: another deploy/build is already running (.next-deploy.lock).");
+function ensureBuildReady() {
+  if (run("node", ["scripts/finalize-next-build.mjs"]) !== 0) {
+    return false;
+  }
+  return run("node", ["scripts/validate-next-build.mjs"]) === 0;
+}
+
+if (!acquireDeployLock()) {
+  console.error("deploy-production: another deploy is already running (.next-deploy.lock).");
+  console.error("deploy-production: run npm run stop:builds if the lock is stale.");
   process.exit(1);
 }
 
@@ -119,16 +133,18 @@ try {
   const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
 
   if (!hasBuild) {
-    console.log("deploy-production: building with fallback wrapper…");
-    run("node", ["scripts/next-build-with-500-fallback.mjs"]);
-    if (!existsSync(BUILD_ID_PATH)) {
+    console.log("deploy-production: running full npm run build pipeline…");
+    if (run("npm", ["run", "build"]) !== 0) {
       console.error("deploy-production: build failed.");
       process.exit(1);
     }
-    run("node", ["scripts/ensure-500-export.mjs"]);
   } else {
     console.log(`deploy-production: reusing existing build (${readFileSync(BUILD_ID_PATH, "utf8").trim()}).`);
-    run("node", ["scripts/ensure-500-export.mjs"]);
+  }
+
+  if (!ensureBuildReady()) {
+    console.error("deploy-production: .next output invalid — rerun with DEPLOY_FORCE_REBUILD=1");
+    process.exit(1);
   }
 
   installNextBuildShim();
@@ -153,5 +169,5 @@ try {
   if (shimInstalled) {
     restoreNextBin();
   }
-  releaseLock();
+  releaseDeployLock();
 }
