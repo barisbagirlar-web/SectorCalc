@@ -2,12 +2,12 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 import { withSentryConfig } from "@sentry/nextjs";
 import path from "node:path";
+import { LOCALE_REWRITE_EXCLUDE } from "./src/lib/i18n/locale-rewrite-exclude";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** Paths that must not be rewritten to /en/* (static assets + locale/admin/api). */
-const LOCALE_REWRITE_EXCLUDE =
-  "tr(?:/|$)|de(?:/|$)|fr(?:/|$)|es(?:/|$)|ar(?:/|$)|en(?:/|$)|admin(?:/|$)|api(?:/|$)|_next(?:/|$)|img(?:/|$)|images(?:/|$)|icons(?:/|$)|.*\\.[^/]+$";
+const LOCALE_REWRITE_EXCLUDE_PATTERN = LOCALE_REWRITE_EXCLUDE;
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -92,7 +92,7 @@ const nextConfig: NextConfig = {
         },
         { source: "/", destination: "/en" },
         {
-          source: `/:path((?!${LOCALE_REWRITE_EXCLUDE}).*)`,
+          source: `/:path((?!${LOCALE_REWRITE_EXCLUDE_PATTERN}).*)`,
           destination: "/en/:path",
         },
       ],
