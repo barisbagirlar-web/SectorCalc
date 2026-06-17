@@ -6,14 +6,10 @@ import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxono
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
 import { SchemaToolsCatalogExplorer } from "@/components/tools/SchemaToolsCatalogExplorer";
-import { Container } from "@/components/ui/Container";
-import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
-import { buildCoreHubCrawlGroups, buildFreeToolsCrawlGroups, buildSeoHubCrawlGroups } from "@/lib/seo/crawl-index";
-import { shouldRenderCrawlIndexForLocale } from "@/lib/i18n/catalog-labels-i18n";
 import { getAllTools } from "@/lib/tools/all-tools-data";
 import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
 import type { AppLocale } from "@/i18n/routing";
@@ -100,20 +96,6 @@ export default async function IndustriesPage({ params }: PageProps) {
           </ToolsPageLayout>
         </ToolsPageSearchProvider>
       </section>
-
-      {shouldRenderCrawlIndexForLocale(locale) ? (
-        <section className="sc-pro-section sc-pro-section--border">
-          <Container className="sc-pro-container">
-            <CrawlIndexLinkList
-              groups={[
-                ...buildCoreHubCrawlGroups(),
-                ...buildFreeToolsCrawlGroups(),
-                ...buildSeoHubCrawlGroups(),
-              ]}
-            />
-          </Container>
-        </section>
-      ) : null}
     </PageLayout>
   );
 }
