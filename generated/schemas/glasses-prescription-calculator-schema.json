@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Sphere (D)",
         "tr": "Küre (D)",
-        "de": "Sphere (D)",
+        "de": "Sphäre (dpt)",
         "fr": "Sphere (D)",
         "es": "Sphere (D)",
         "ar": "Sphere (D)"
       },
       "businessContext_i18n": {
         "en": "The spherical refractive error in diopters. Negative for myopia, positive for hyperopia.",
-        "tr": "Diyoptri cinsinden küresel kırma kusuru. Miyopi için negatif, hipermetropi için pozitif."
+        "tr": "Diyoptri cinsinden küresel kırma kusuru. Miyopi için negatif, hipermetropi için pozitif.",
+        "de": "Der sphärische Brechungsfehler in Dioptrien. Negativ für Myopie, positiv für Hyperopie."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cylinder (D)",
         "tr": "Silindir (D)",
-        "de": "Cylinder (D)",
+        "de": "Zylinder (dpt)",
         "fr": "Cylinder (D)",
         "es": "Cylinder (D)",
         "ar": "Cylinder (D)"
       },
       "businessContext_i18n": {
         "en": "The cylindrical component in diopters, typically in minus cylinder notation. Represents astigmatism.",
-        "tr": "Diyoptri cinsinden silindirik bileşen, tipik olarak eksi silindir notasyonunda. Astigmatizmayı temsil eder."
+        "tr": "Diyoptri cinsinden silindirik bileşen, tipik olarak eksi silindir notasyonunda. Astigmatizmayı temsil eder.",
+        "de": "Die zylindrische Komponente in Dioptrien, typischerweise in Minus-Zylinder-Schreibweise. Stellt Astigmatismus dar."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Axis (deg)",
         "tr": "Eksen (derece)",
-        "de": "Axis (deg)",
+        "de": "Achse (Grad)",
         "fr": "Axis (deg)",
         "es": "Axis (deg)",
         "ar": "Axis (deg)"
       },
       "businessContext_i18n": {
         "en": "The orientation of the cylinder axis in degrees, from 0 to 180.",
-        "tr": "Silindir ekseninin derece cinsinden yönü, 0 ile 180 arasında."
+        "tr": "Silindir ekseninin derece cinsinden yönü, 0 ile 180 arasında.",
+        "de": "Die Ausrichtung der Zylinderachse in Grad, von 0 bis 180."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Vertex Distance (mm)",
         "tr": "Köşe Mesafesi (mm)",
-        "de": "Vertex Distance (mm)",
+        "de": "Scheitelabstand (mm)",
         "fr": "Vertex Distance (mm)",
         "es": "Vertex Distance (mm)",
         "ar": "Vertex Distance (mm)"
       },
       "businessContext_i18n": {
         "en": "The distance from the back vertex of the spectacle lens to the cornea, typically 12-14 mm. Used to correct the prescription for the spectacle plane.",
-        "tr": "Gözlük camının arka tepe noktasından korneaya olan mesafe, tipik olarak 12-14 mm. Reçeteyi gözlük düzlemine göre düzeltmek için kullanılır."
+        "tr": "Gözlük camının arka tepe noktasından korneaya olan mesafe, tipik olarak 12-14 mm. Reçeteyi gözlük düzlemine göre düzeltmek için kullanılır.",
+        "de": "Der Abstand vom hinteren Scheitelpunkt des Brillenglases zur Hornhaut, typischerweise 12-14 mm. Wird verwendet, um die Verschreibung für die Brillenebene zu korrigieren."
       }
     }
   ],

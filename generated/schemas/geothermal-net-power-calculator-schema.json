@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Mass Flow Rate",
         "tr": "Kütlesel Debi",
-        "de": "Mass Flow Rate",
+        "de": "Massenstrom",
         "fr": "Mass Flow Rate",
         "es": "Mass Flow Rate",
         "ar": "Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "The mass flow rate of geothermal fluid from the production well.",
-        "tr": "Üretim kuyusundan gelen jeotermal akışkanın kütlesel debisi."
+        "tr": "Üretim kuyusundan gelen jeotermal akışkanın kütlesel debisi.",
+        "de": "Der Massenstrom des geothermischen Fluids aus der Förderbohrung."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the geothermal fluid (water).",
-        "tr": "Jeotermal akışkanın (su) özgül ısı kapasitesi."
+        "tr": "Jeotermal akışkanın (su) özgül ısı kapasitesi.",
+        "de": "Spezifische Wärmekapazität des geothermischen Fluids (Wasser)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Inlet Temperature",
         "tr": "Giriş Sıcaklığı",
-        "de": "Inlet Temperature",
+        "de": "Eintrittstemperatur",
         "fr": "Inlet Temperature",
         "es": "Inlet Temperature",
         "ar": "Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the geothermal fluid at the wellhead.",
-        "tr": "Jeotermal akışkanın kuyu başındaki sıcaklığı."
+        "tr": "Jeotermal akışkanın kuyu başındaki sıcaklığı.",
+        "de": "Temperatur des geothermischen Fluids am Bohrlochkopf."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Outlet Temperature",
         "tr": "Çıkış Sıcaklığı",
-        "de": "Outlet Temperature",
+        "de": "Austrittstemperatur",
         "fr": "Outlet Temperature",
         "es": "Outlet Temperature",
         "ar": "Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the geothermal fluid after heat extraction (reinjection temperature).",
-        "tr": "Isı çekimi sonrası jeotermal akışkanın sıcaklığı (re-enjeksiyon sıcaklığı)."
+        "tr": "Isı çekimi sonrası jeotermal akışkanın sıcaklığı (re-enjeksiyon sıcaklığı).",
+        "de": "Temperatur des geothermischen Fluids nach der Wärmeextraktion (Reinjektionstemperatur)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Conversion Efficiency",
         "tr": "Dönüşüm Verimliliği",
-        "de": "Conversion Efficiency",
+        "de": "Umwandlungswirkungsgrad",
         "fr": "Conversion Efficiency",
         "es": "Conversion Efficiency",
         "ar": "Conversion Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of converting thermal energy to electricity (typical binary plant 10-15%).",
-        "tr": "Termal enerjinin elektriğe dönüşüm verimliliği (tipik ikili santral %10-15)."
+        "tr": "Termal enerjinin elektriğe dönüşüm verimliliği (tipik ikili santral %10-15).",
+        "de": "Effizienz der Umwandlung von thermischer Energie in Elektrizität (typisches Binary-Kraftwerk 10-15%)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Parasitic Load",
         "tr": "Parazit Yük",
-        "de": "Parasitic Load",
+        "de": "Eigenverbrauch",
         "fr": "Parasitic Load",
         "es": "Parasitic Load",
         "ar": "Parasitic Load"
       },
       "businessContext_i18n": {
         "en": "Power consumed by pumps and auxiliary equipment.",
-        "tr": "Pompalar ve yardımcı ekipman tarafından tüketilen güç."
+        "tr": "Pompalar ve yardımcı ekipman tarafından tüketilen güç.",
+        "de": "Von Pumpen und Hilfsgeräten verbrauchte Leistung."
       }
     }
   ],

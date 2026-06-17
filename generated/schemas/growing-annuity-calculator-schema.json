@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Payment (P)",
         "tr": "İlk Ödeme (P)",
-        "de": "Initial Payment (P)",
+        "de": "Anfangszahlung (P)",
         "fr": "Initial Payment (P)",
         "es": "Initial Payment (P)",
         "ar": "Initial Payment (P)"
       },
       "businessContext_i18n": {
         "en": "The payment amount at the end of the first period.",
-        "tr": "İlk dönem sonundaki ödeme tutarı."
+        "tr": "İlk dönem sonundaki ödeme tutarı.",
+        "de": "Der Zahlungsbetrag am Ende der ersten Periode."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Growth Rate (g)",
         "tr": "Büyüme Oranı (g)",
-        "de": "Growth Rate (g)",
+        "de": "Wachstumsrate (g)",
         "fr": "Growth Rate (g)",
         "es": "Growth Rate (g)",
         "ar": "Growth Rate (g)"
       },
       "businessContext_i18n": {
         "en": "The rate at which the payment grows each period. Enter as decimal (e.g., 0.03 for 3%).",
-        "tr": "Ödemenin her dönem büyüdüğü oran. Ondalık olarak girin (örneğin, %3 için 0,03)."
+        "tr": "Ödemenin her dönem büyüdüğü oran. Ondalık olarak girin (örneğin, %3 için 0,03).",
+        "de": "Die Rate, mit der die Zahlung pro Periode wächst. Als Dezimalzahl eingeben (z. B. 0,03 für 3 %)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Discount Rate (r)",
         "tr": "İskonto Oranı (r)",
-        "de": "Discount Rate (r)",
+        "de": "Diskontsatz (r)",
         "fr": "Discount Rate (r)",
         "es": "Discount Rate (r)",
         "ar": "Discount Rate (r)"
       },
       "businessContext_i18n": {
         "en": "The interest rate per period used for discounting. Enter as decimal.",
-        "tr": "İskonto için kullanılan dönem başına faiz oranı. Ondalık olarak girin."
+        "tr": "İskonto için kullanılan dönem başına faiz oranı. Ondalık olarak girin.",
+        "de": "Der Zinssatz pro Periode, der für die Abzinsung verwendet wird. Als Dezimalzahl eingeben."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Periods (n)",
         "tr": "Dönem Sayısı (n)",
-        "de": "Number of Periods (n)",
+        "de": "Anzahl der Perioden (n)",
         "fr": "Number of Periods (n)",
         "es": "Number of Periods (n)",
         "ar": "Number of Periods (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of payment periods.",
-        "tr": "Toplam ödeme dönemi sayısı."
+        "tr": "Toplam ödeme dönemi sayısı.",
+        "de": "Gesamtzahl der Zahlungsperioden."
       }
     }
   ],

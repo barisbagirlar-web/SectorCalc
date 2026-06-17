@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Heat Duty",
         "tr": "Isı Yükü",
-        "de": "Heat Duty",
+        "de": "Wärmeleistung",
         "fr": "Heat Duty",
         "es": "Heat Duty",
         "ar": "Heat Duty"
       },
       "businessContext_i18n": {
         "en": "Required thermal power to be transferred",
-        "tr": "Aktarılması gereken gerekli termal güç"
+        "tr": "Aktarılması gereken gerekli termal güç",
+        "de": "Erforderliche thermische Leistung zur Übertragung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Overall Heat Transfer Coefficient",
         "tr": "Toplam Isı Transfer Katsayısı",
-        "de": "Overall Heat Transfer Coefficient",
+        "de": "Gesamtwärmeübergangskoeffizient",
         "fr": "Overall Heat Transfer Coefficient",
         "es": "Overall Heat Transfer Coefficient",
         "ar": "Overall Heat Transfer Coefficient"
       },
       "businessContext_i18n": {
         "en": "Combined conductive and convective heat transfer coefficient",
-        "tr": "Birleşik iletim ve taşınım ısı transfer katsayısı"
+        "tr": "Birleşik iletim ve taşınım ısı transfer katsayısı",
+        "de": "Kombinierter Wärmeleitungs- und Konvektionskoeffizient"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Hot Fluid Inlet Temperature",
         "tr": "Sıcak Akışkan Giriş Sıcaklığı",
-        "de": "Hot Fluid Inlet Temperature",
+        "de": "Heißfluid-Eintrittstemperatur",
         "fr": "Hot Fluid Inlet Temperature",
         "es": "Hot Fluid Inlet Temperature",
         "ar": "Hot Fluid Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of hot fluid entering the exchanger",
-        "tr": "Isı değiştiriciye giren sıcak akışkanın sıcaklığı"
+        "tr": "Isı değiştiriciye giren sıcak akışkanın sıcaklığı",
+        "de": "Temperatur des in den Wärmetauscher eintretenden Heißfluids"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Hot Fluid Outlet Temperature",
         "tr": "Sıcak Akışkan Çıkış Sıcaklığı",
-        "de": "Hot Fluid Outlet Temperature",
+        "de": "Heißfluid-Austrittstemperatur",
         "fr": "Hot Fluid Outlet Temperature",
         "es": "Hot Fluid Outlet Temperature",
         "ar": "Hot Fluid Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of hot fluid leaving the exchanger",
-        "tr": "Isı değiştiriciden çıkan sıcak akışkanın sıcaklığı"
+        "tr": "Isı değiştiriciden çıkan sıcak akışkanın sıcaklığı",
+        "de": "Temperatur des den Wärmetauscher verlassenden Heißfluids"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Cold Fluid Inlet Temperature",
         "tr": "Soğuk Akışkan Giriş Sıcaklığı",
-        "de": "Cold Fluid Inlet Temperature",
+        "de": "Kaltfluid-Eintrittstemperatur",
         "fr": "Cold Fluid Inlet Temperature",
         "es": "Cold Fluid Inlet Temperature",
         "ar": "Cold Fluid Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of cold fluid entering the exchanger",
-        "tr": "Isı değiştiriciye giren soğuk akışkanın sıcaklığı"
+        "tr": "Isı değiştiriciye giren soğuk akışkanın sıcaklığı",
+        "de": "Temperatur des in den Wärmetauscher eintretenden Kaltfluids"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Cold Fluid Outlet Temperature",
         "tr": "Soğuk Akışkan Çıkış Sıcaklığı",
-        "de": "Cold Fluid Outlet Temperature",
+        "de": "Kaltfluid-Austrittstemperatur",
         "fr": "Cold Fluid Outlet Temperature",
         "es": "Cold Fluid Outlet Temperature",
         "ar": "Cold Fluid Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of cold fluid leaving the exchanger",
-        "tr": "Isı değiştiriciden çıkan soğuk akışkanın sıcaklığı"
+        "tr": "Isı değiştiriciden çıkan soğuk akışkanın sıcaklığı",
+        "de": "Temperatur des den Wärmetauscher verlassenden Kaltfluids"
       }
     }
   ],

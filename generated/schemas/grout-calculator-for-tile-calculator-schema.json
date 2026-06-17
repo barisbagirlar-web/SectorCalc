@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Tile Length",
         "tr": "Fayans Uzunluğu",
-        "de": "Tile Length",
+        "de": "Fliesenlänge",
         "fr": "Tile Length",
         "es": "Tile Length",
         "ar": "Tile Length"
       },
       "businessContext_i18n": {
         "en": "Nominal tile length in mm",
-        "tr": "Nominal fayans uzunluğu (mm)"
+        "tr": "Nominal fayans uzunluğu (mm)",
+        "de": "Nennlänge der Fliese in mm"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Nominal tile width in mm",
-        "tr": "Nominal fayans genişliği (mm)"
+        "tr": "Nominal fayans genişliği (mm)",
+        "de": "Nennbreite der Fliese in mm"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Grout joint width in mm",
-        "tr": "Derz aralığı genişliği (mm)"
+        "tr": "Derz aralığı genişliği (mm)",
+        "de": "Fugenbreite in mm"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Tile Thickness",
         "tr": "Fayans Kalınlığı",
-        "de": "Tile Thickness",
+        "de": "Fliesendicke",
         "fr": "Tile Thickness",
         "es": "Tile Thickness",
         "ar": "Tile Thickness"
       },
       "businessContext_i18n": {
         "en": "Tile thickness in mm",
-        "tr": "Fayans kalınlığı (mm)"
+        "tr": "Fayans kalınlığı (mm)",
+        "de": "Fliesendicke in mm"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Area to Tile",
         "tr": "Fayans Döşenecek Alan",
-        "de": "Area to Tile",
+        "de": "Zu fliesende Fläche",
         "fr": "Area to Tile",
         "es": "Area to Tile",
         "ar": "Area to Tile"
       },
       "businessContext_i18n": {
         "en": "Total floor/wall area to be tiled",
-        "tr": "Fayans döşenecek toplam zemin/duvar alanı"
+        "tr": "Fayans döşenecek toplam zemin/duvar alanı",
+        "de": "Gesamte Boden-/Wandfläche, die gefliest werden soll"
       }
     },
     {
@@ -118,7 +123,8 @@
       },
       "businessContext_i18n": {
         "en": "Multiplier for cuts, breakage (e.g., 20% = 1.2)",
-        "tr": "Kesim, kırılma için çarpan (örn. %20 = 1,2)"
+        "tr": "Kesim, kırılma için çarpan (örn. %20 = 1,2)",
+        "de": "Multiplikator für Verschnitt, Bruch (z. B. 20 % = 1,2)"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Grout Density",
         "tr": "Derz Yoğunluğu",
-        "de": "Grout Density",
+        "de": "Fugenmörteldichte",
         "fr": "Grout Density",
         "es": "Grout Density",
         "ar": "Grout Density"
       },
       "businessContext_i18n": {
         "en": "Density of grout mix (typically 1.6 - 2.0 kg/L)",
-        "tr": "Harç karışımının yoğunluğu (genellikle 1,6 - 2,0 kg/L)"
+        "tr": "Harç karışımının yoğunluğu (genellikle 1,6 - 2,0 kg/L)",
+        "de": "Dichte der Fugenmörtelmischung (typischerweise 1,6–2,0 kg/L)"
       }
     }
   ],

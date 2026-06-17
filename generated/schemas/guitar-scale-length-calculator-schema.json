@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Distance from nut to bridge saddle in millimeters.",
-        "tr": "Somundan köprü eşiğine milimetre cinsinden mesafe."
+        "tr": "Somundan köprü eşiğine milimetre cinsinden mesafe.",
+        "de": "Abstand von Sattel zu Steg in Millimetern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Frets",
         "tr": "Perde Sayısı",
-        "de": "Number of Frets",
+        "de": "Anzahl der Bünde",
         "fr": "Number of Frets",
         "es": "Number of Frets",
         "ar": "Number of Frets"
       },
       "businessContext_i18n": {
         "en": "Total number of frets on the fretboard (used for context).",
-        "tr": "Klavyedeki toplam perde sayısı (bağlam için kullanılır)."
+        "tr": "Klavyedeki toplam perde sayısı (bağlam için kullanılır).",
+        "de": "Gesamtzahl der Bünde auf dem Griffbrett (für Kontext)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Target Fret Number",
         "tr": "Hedef Perde Numarası",
-        "de": "Target Fret Number",
+        "de": "Zielbundnummer",
         "fr": "Target Fret Number",
         "es": "Target Fret Number",
         "ar": "Target Fret Number"
       },
       "businessContext_i18n": {
         "en": "The fret number for which to calculate the distance from the nut.",
-        "tr": "Somundan mesafenin hesaplanacağı perde numarası."
+        "tr": "Somundan mesafenin hesaplanacağı perde numarası.",
+        "de": "Die Bundnummer, für die der Abstand zum Sattel berechnet werden soll."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "String Gauge",
         "tr": "Tel Kalınlığı",
-        "de": "String Gauge",
+        "de": "Saitenstärke",
         "fr": "String Gauge",
         "es": "String Gauge",
         "ar": "String Gauge"
       },
       "businessContext_i18n": {
         "en": "Diameter of the string in inches (e.g., .010 for high E).",
-        "tr": "Tel çapı (inç cinsinden, örn. yüksek E için .010)."
+        "tr": "Tel çapı (inç cinsinden, örn. yüksek E için .010).",
+        "de": "Durchmesser der Saite in Zoll (z. B. .010 für hohes E)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Tuning Frequency",
         "tr": "Akort Frekansı",
-        "de": "Tuning Frequency",
+        "de": "Stimmfrequenz",
         "fr": "Tuning Frequency",
         "es": "Tuning Frequency",
         "ar": "Tuning Frequency"
       },
       "businessContext_i18n": {
         "en": "Target frequency for the string (e.g., E4 = 329.63 Hz).",
-        "tr": "Tel için hedef frekans (örn. E4 = 329.63 Hz)."
+        "tr": "Tel için hedef frekans (örn. E4 = 329.63 Hz).",
+        "de": "Zielfrequenz der Saite (z. B. E4 = 329,63 Hz)."
       }
     }
   ],

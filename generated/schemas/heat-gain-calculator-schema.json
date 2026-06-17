@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Area of external walls exposed to outdoors.",
-        "tr": "Dış ortama maruz kalan dış duvar alanı."
+        "tr": "Dış ortama maruz kalan dış duvar alanı.",
+        "de": "Fläche der Außenwände, die dem Freien ausgesetzt sind."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Wall U-Value",
         "tr": "Duvar Isı İletim Katsayısı",
-        "de": "Wall U-Value",
+        "de": "Wand-U-Wert",
         "fr": "Wall U-Value",
         "es": "Wall U-Value",
         "ar": "Wall U-Value"
       },
       "businessContext_i18n": {
         "en": "Thermal transmittance of wall.",
-        "tr": "Duvarın termal geçirgenliği."
+        "tr": "Duvarın termal geçirgenliği.",
+        "de": "Wärmedurchgangskoeffizient der Wand."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Temperature Difference",
         "tr": "Sıcaklık Farkı",
-        "de": "Temperature Difference",
+        "de": "Temperaturdifferenz",
         "fr": "Temperature Difference",
         "es": "Temperature Difference",
         "ar": "Temperature Difference"
       },
       "businessContext_i18n": {
         "en": "Indoor-outdoor temperature difference.",
-        "tr": "İç-dış sıcaklık farkı."
+        "tr": "İç-dış sıcaklık farkı.",
+        "de": "Temperaturdifferenz innen-außen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Window Area",
         "tr": "Pencere Alanı",
-        "de": "Window Area",
+        "de": "Fensterfläche",
         "fr": "Window Area",
         "es": "Window Area",
         "ar": "Window Area"
       },
       "businessContext_i18n": {
         "en": "Area of windows.",
-        "tr": "Pencerelerin alanı."
+        "tr": "Pencerelerin alanı.",
+        "de": "Fläche der Fenster."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Window U-Value",
         "tr": "Pencere Isı İletim Katsayısı",
-        "de": "Window U-Value",
+        "de": "Fenster-U-Wert",
         "fr": "Window U-Value",
         "es": "Window U-Value",
         "ar": "Window U-Value"
       },
       "businessContext_i18n": {
         "en": "Thermal transmittance of window.",
-        "tr": "Pencerenin termal geçirgenliği."
+        "tr": "Pencerenin termal geçirgenliği.",
+        "de": "Wärmedurchgangskoeffizient des Fensters."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Window SHGC",
         "tr": "Pencere SHGC",
-        "de": "Window SHGC",
+        "de": "SHGC des Fensters",
         "fr": "Window SHGC",
         "es": "Window SHGC",
         "ar": "Window SHGC"
       },
       "businessContext_i18n": {
         "en": "Solar Heat Gain Coefficient.",
-        "tr": "Güneş Isı Kazanç Katsayısı."
+        "tr": "Güneş Isı Kazanç Katsayısı.",
+        "de": "Solarenergie-Gewinnkoeffizient."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Solar Radiation",
         "tr": "Güneş Radyasyonu",
-        "de": "Solar Radiation",
+        "de": "Solare Einstrahlung",
         "fr": "Solar Radiation",
         "es": "Solar Radiation",
         "ar": "Solar Radiation"
       },
       "businessContext_i18n": {
         "en": "Incident solar radiation on window.",
-        "tr": "Pencereye gelen güneş radyasyonu."
+        "tr": "Pencereye gelen güneş radyasyonu.",
+        "de": "Einfallende solare Strahlung auf das Fenster."
       }
     }
   ],

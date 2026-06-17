@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Start Index",
         "tr": "Başlangıç İndeksi",
-        "de": "Start Index",
+        "de": "Startindex",
         "fr": "Start Index",
         "es": "Start Index",
         "ar": "Start Index"
       },
       "businessContext_i18n": {
         "en": "Starting index for the summation in the harmonic series.",
-        "tr": "Harmonik seride toplamanın başlangıç indeksi."
+        "tr": "Harmonik seride toplamanın başlangıç indeksi.",
+        "de": "Startindex für die Summation in der harmonischen Reihe."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "End Index",
         "tr": "Bitiş İndeksi",
-        "de": "End Index",
+        "de": "Endindex",
         "fr": "End Index",
         "es": "End Index",
         "ar": "End Index"
       },
       "businessContext_i18n": {
         "en": "Ending index for the summation.",
-        "tr": "Toplamanın bitiş indeksi."
+        "tr": "Toplamanın bitiş indeksi.",
+        "de": "Endindex für die Summation."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Exponent for the denominator term; use 1 for the standard harmonic series (1/k^p).",
-        "tr": "Payda terimi için üs; standart harmonik seri (1/k^p) için 1 kullanın."
+        "tr": "Payda terimi için üs; standart harmonik seri (1/k^p) için 1 kullanın.",
+        "de": "Exponent für den Nennerterm; verwenden Sie 1 für die Standard-Harmonische-Reihe (1/k^p)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Increment",
         "tr": "Artış Miktarı",
-        "de": "Increment",
+        "de": "Schrittweite",
         "fr": "Increment",
         "es": "Increment",
         "ar": "Increment"
       },
       "businessContext_i18n": {
         "en": "Step size between successive indices in the summation.",
-        "tr": "Toplamada ardışık indeksler arasındaki adım boyutu."
+        "tr": "Toplamada ardışık indeksler arasındaki adım boyutu.",
+        "de": "Schrittgröße zwischen aufeinanderfolgenden Indizes in der Summation."
       }
     },
     {
@@ -98,7 +102,8 @@
       },
       "businessContext_i18n": {
         "en": "Constant added to the index inside the denominator before exponentiation.",
-        "tr": "Üs alma öncesinde payda içindeki indekse eklenen sabit."
+        "tr": "Üs alma öncesinde payda içindeki indekse eklenen sabit.",
+        "de": "Konstante, die vor der Potenzierung zum Index im Nenner addiert wird."
       }
     },
     {
@@ -118,7 +123,8 @@
       },
       "businessContext_i18n": {
         "en": "Scaling factor applied to each term of the series.",
-        "tr": "Serinin her terimine uygulanan ölçekleme faktörü."
+        "tr": "Serinin her terimine uygulanan ölçekleme faktörü.",
+        "de": "Skalierungsfaktor, der auf jeden Term der Reihe angewendet wird."
       }
     }
   ],

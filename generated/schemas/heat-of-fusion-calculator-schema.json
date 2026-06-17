@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Total mass of substance undergoing phase change",
-        "tr": "Faz değişimine uğrayan maddenin toplam kütlesi"
+        "tr": "Faz değişimine uğrayan maddenin toplam kütlesi",
+        "de": "Gesamtmasse des Stoffes, der den Phasenwechsel durchläuft"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the substance (e.g., water: 4180 J/(kg·K))",
-        "tr": "Maddenin özgül ısı kapasitesi (örneğin su: 4180 J/(kg·K))"
+        "tr": "Maddenin özgül ısı kapasitesi (örneğin su: 4180 J/(kg·K))",
+        "de": "Spezifische Wärmekapazität des Stoffes (z. B. Wasser: 4180 J/(kg·K))"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Starting temperature of the substance, must be ≤ melting point",
-        "tr": "Maddenin başlangıç sıcaklığı, erime noktasından ≤ olmalıdır"
+        "tr": "Maddenin başlangıç sıcaklığı, erime noktasından ≤ olmalıdır",
+        "de": "Starttemperatur des Stoffes, muss ≤ Schmelzpunkt sein"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Melting Temperature",
         "tr": "Erime Sıcaklığı",
-        "de": "Melting Temperature",
+        "de": "Schmelztemperatur",
         "fr": "Melting Temperature",
         "es": "Melting Temperature",
         "ar": "Melting Temperature"
       },
       "businessContext_i18n": {
         "en": "Melting point of the substance (e.g., ice: 0°C)",
-        "tr": "Maddenin erime noktası (örneğin buz: 0°C)"
+        "tr": "Maddenin erime noktası (örneğin buz: 0°C)",
+        "de": "Schmelzpunkt des Stoffes (z. B. Eis: 0°C)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Latent Heat of Fusion",
         "tr": "Erime Gizli Isısı",
-        "de": "Latent Heat of Fusion",
+        "de": "Latente Schmelzwärme",
         "fr": "Latent Heat of Fusion",
         "es": "Latent Heat of Fusion",
         "ar": "Latent Heat of Fusion"
       },
       "businessContext_i18n": {
         "en": "Energy per unit mass to change phase from solid to liquid (e.g., water: 334 kJ/kg)",
-        "tr": "Katıdan sıvıya faz değişimi için birim kütle başına enerji (örneğin su: 334 kJ/kg)"
+        "tr": "Katıdan sıvıya faz değişimi için birim kütle başına enerji (örneğin su: 334 kJ/kg)",
+        "de": "Energie pro Masseneinheit für den Phasenwechsel von fest zu flüssig (z. B. Wasser: 334 kJ/kg)"
       }
     }
   ],

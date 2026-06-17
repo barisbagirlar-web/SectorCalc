@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Blood Glucose",
         "tr": "Kan Şekeri",
-        "de": "Blood Glucose",
+        "de": "Blutzucker",
         "fr": "Blood Glucose",
         "es": "Blood Glucose",
         "ar": "Blood Glucose"
       },
       "businessContext_i18n": {
         "en": "Measured blood glucose concentration for diabetes management",
-        "tr": "Diyabet yönetimi için ölçülen kan şekeri konsantrasyonu"
+        "tr": "Diyabet yönetimi için ölçülen kan şekeri konsantrasyonu",
+        "de": "Gemessene Blutzuckerkonzentration für das Diabetesmanagement"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Conversion constant from mg/dL to mmol/L used in laboratory reporting",
-        "tr": "Laboratuvar raporlamasında mg/dL'den mmol/L'ye dönüşüm sabiti"
+        "tr": "Laboratuvar raporlamasında mg/dL'den mmol/L'ye dönüşüm sabiti",
+        "de": "Umrechnungskonstante von mg/dL in mmol/L, verwendet in der Laborberichterstattung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Time Since Last Meal",
         "tr": "Son Yemekten Bu Yana Geçen Süre",
-        "de": "Time Since Last Meal",
+        "de": "Zeit seit letzter Mahlzeit",
         "fr": "Time Since Last Meal",
         "es": "Time Since Last Meal",
         "ar": "Time Since Last Meal"
       },
       "businessContext_i18n": {
         "en": "Time elapsed since last meal to adjust for postprandial variation",
-        "tr": "Tokluk değişimini ayarlamak için son yemekten bu yana geçen süre"
+        "tr": "Tokluk değişimini ayarlamak için son yemekten bu yana geçen süre",
+        "de": "Verstrichene Zeit seit letzter Mahlzeit zur Anpassung an postprandiale Schwankungen"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Target Low Glucose",
         "tr": "Hedef Düşük Glukoz",
-        "de": "Target Low Glucose",
+        "de": "Zielwert niedriger Blutzucker",
         "fr": "Target Low Glucose",
         "es": "Target Low Glucose",
         "ar": "Target Low Glucose"
       },
       "businessContext_i18n": {
         "en": "Lower therapeutic target for glucose level in gestational diabetes",
-        "tr": "Gestasyonel diyabette glukoz seviyesi için alt terapötik hedef"
+        "tr": "Gestasyonel diyabette glukoz seviyesi için alt terapötik hedef",
+        "de": "Unterer therapeutischer Zielwert für den Blutzuckerspiegel bei Schwangerschaftsdiabetes"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Target High Glucose",
         "tr": "Hedef Yüksek Glukoz",
-        "de": "Target High Glucose",
+        "de": "Zielwert hoher Blutzucker",
         "fr": "Target High Glucose",
         "es": "Target High Glucose",
         "ar": "Target High Glucose"
       },
       "businessContext_i18n": {
         "en": "Upper therapeutic target for glucose level in gestational diabetes",
-        "tr": "Gestasyonel diyabette glukoz seviyesi için üst terapötik hedef"
+        "tr": "Gestasyonel diyabette glukoz seviyesi için üst terapötik hedef",
+        "de": "Oberer therapeutischer Zielwert für den Blutzuckerspiegel bei Schwangerschaftsdiabetes"
       }
     }
   ],

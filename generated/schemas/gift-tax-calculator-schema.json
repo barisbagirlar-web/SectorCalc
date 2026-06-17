@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gift Amount",
         "tr": "Hediye Tutarı",
-        "de": "Gift Amount",
+        "de": "Geschenkbetrag",
         "fr": "Gift Amount",
         "es": "Gift Amount",
         "ar": "Gift Amount"
       },
       "businessContext_i18n": {
         "en": "Total value of the gift given to the recipient.",
-        "tr": "Alıcıya verilen hediyenin toplam değeri."
+        "tr": "Alıcıya verilen hediyenin toplam değeri.",
+        "de": "Gesamtwert des dem Empfänger gegebenen Geschenks."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Exclusion",
         "tr": "Yıllık İstisna",
-        "de": "Annual Exclusion",
+        "de": "Jährlicher Freibetrag",
         "fr": "Annual Exclusion",
         "es": "Annual Exclusion",
         "ar": "Annual Exclusion"
       },
       "businessContext_i18n": {
         "en": "Maximum amount that can be gifted per person per year without using lifetime exemption.",
-        "tr": "Ömür boyu istisnayı kullanmadan kişi başına yılda hediye edilebilecek azami tutar."
+        "tr": "Ömür boyu istisnayı kullanmadan kişi başına yılda hediye edilebilecek azami tutar.",
+        "de": "Maximaler Betrag, der pro Person und Jahr ohne Nutzung des lebenslangen Freibetrags verschenkt werden kann."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Total Lifetime Exemption",
         "tr": "Toplam Ömür Boyu İstisna",
-        "de": "Total Lifetime Exemption",
+        "de": "Lebenslanger Freibetrag gesamt",
         "fr": "Total Lifetime Exemption",
         "es": "Total Lifetime Exemption",
         "ar": "Total Lifetime Exemption"
       },
       "businessContext_i18n": {
         "en": "Total amount that can be gifted over a lifetime without incurring gift tax, as per current law.",
-        "tr": "Mevcut yasaya göre, hediye vergisine tabi olmadan ömür boyu hediye edilebilecek toplam tutar."
+        "tr": "Mevcut yasaya göre, hediye vergisine tabi olmadan ömür boyu hediye edilebilecek toplam tutar.",
+        "de": "Gesamtbetrag, der lebenslang steuerfrei verschenkt werden kann, gemäß aktueller Gesetzgebung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Lifetime Exemption Used",
         "tr": "Kullanılan Ömür Boyu İstisna",
-        "de": "Lifetime Exemption Used",
+        "de": "Genutzter Lebenszeitfreibetrag",
         "fr": "Lifetime Exemption Used",
         "es": "Lifetime Exemption Used",
         "ar": "Lifetime Exemption Used"
       },
       "businessContext_i18n": {
         "en": "Portion of the lifetime exemption already utilized from previous gifts.",
-        "tr": "Önceki hediyelerden halihazırda kullanılmış olan ömür boyu istisna kısmı."
+        "tr": "Önceki hediyelerden halihazırda kullanılmış olan ömür boyu istisna kısmı.",
+        "de": "Bereits durch frühere Schenkungen genutzter Teil des Lebenszeitfreibetrags."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Gift Tax Rate",
         "tr": "Hediye Vergisi Oranı",
-        "de": "Gift Tax Rate",
+        "de": "Schenkungssteuersatz",
         "fr": "Gift Tax Rate",
         "es": "Gift Tax Rate",
         "ar": "Gift Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Flat tax rate applied on taxable amount exceeding exemptions.",
-        "tr": "İstisnaları aşan vergiye tabi tutara uygulanan sabit vergi oranı."
+        "tr": "İstisnaları aşan vergiye tabi tutara uygulanan sabit vergi oranı.",
+        "de": "Pauschaler Steuersatz, der auf den steuerpflichtigen Betrag nach Abzug der Freibeträge angewendet wird."
       }
     }
   ],

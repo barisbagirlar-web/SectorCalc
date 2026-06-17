@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Club Speed",
         "tr": "Sopa Hızı",
-        "de": "Club Speed",
+        "de": "Schlägerkopfgeschwindigkeit",
         "fr": "Club Speed",
         "es": "Club Speed",
         "ar": "Club Speed"
       },
       "businessContext_i18n": {
         "en": "Club head speed at impact, typically 70-130 mph for amateur golfers",
-        "tr": "Çarpma anında sopa başı hızı, amatör golfçüler için tipik olarak 70-130 mph"
+        "tr": "Çarpma anında sopa başı hızı, amatör golfçüler için tipik olarak 70-130 mph",
+        "de": "Schlägerkopfgeschwindigkeit beim Treffmoment, typischerweise 70-130 mph bei Amateurgolfern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Smash Factor",
         "tr": "Çarpma Faktörü",
-        "de": "Smash Factor",
+        "de": "Smash-Faktor",
         "fr": "Smash Factor",
         "es": "Smash Factor",
         "ar": "Smash Factor"
       },
       "businessContext_i18n": {
         "en": "Ball speed divided by club speed, typically 1.35-1.5 for drivers",
-        "tr": "Top hızının sopa hızına bölümü, sürücüler için tipik olarak 1.35-1.5"
+        "tr": "Top hızının sopa hızına bölümü, sürücüler için tipik olarak 1.35-1.5",
+        "de": "Ballgeschwindigkeit geteilt durch Schlägerkopfgeschwindigkeit, typischerweise 1,35-1,5 bei Drivern."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Initial vertical angle of ball flight, optimal around 10-15 degrees",
-        "tr": "Top uçuşunun ilk dikey açısı, optimum 10-15 derece civarı"
+        "tr": "Top uçuşunun ilk dikey açısı, optimum 10-15 derece civarı",
+        "de": "Vertikaler Abflugwinkel"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Spin Rate",
         "tr": "Dönüş Hızı",
-        "de": "Spin Rate",
+        "de": "Anfänglicher vertikaler Winkel des Ballflugs, optimal etwa 10-15 Grad.",
         "fr": "Spin Rate",
         "es": "Spin Rate",
         "ar": "Spin Rate"
       },
       "businessContext_i18n": {
         "en": "Backspin rate, typical driver spin 2000-3000 rpm",
-        "tr": "Geri dönüş hızı, tipik sürücü dönüşü 2000-3000 rpm"
+        "tr": "Geri dönüş hızı, tipik sürücü dönüşü 2000-3000 rpm",
+        "de": "Spinrate"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Wind Speed",
         "tr": "Rüzgar Hızı",
-        "de": "Wind Speed",
+        "de": "Windgeschwindigkeit",
         "fr": "Wind Speed",
         "es": "Wind Speed",
         "ar": "Wind Speed"
       },
       "businessContext_i18n": {
         "en": "Positive for tailwind, negative for headwind",
-        "tr": "Pozitif rüzgar arkadan, negatif rüzgar karşıdan"
+        "tr": "Pozitif rüzgar arkadan, negatif rüzgar karşıdan",
+        "de": "Rückwärtsdrall, typische Driver-Spinrate 2000-3000 U/min."
       }
     },
     {
@@ -118,7 +123,8 @@
       },
       "businessContext_i18n": {
         "en": "Elevation above sea level, higher altitude reduces air density",
-        "tr": "Deniz seviyesinden yükseklik, daha yüksek irtifa hava yoğunluğunu azaltır"
+        "tr": "Deniz seviyesinden yükseklik, daha yüksek irtifa hava yoğunluğunu azaltır",
+        "de": "Positiv für Rückenwind, negativ für Gegenwind."
       }
     }
   ],

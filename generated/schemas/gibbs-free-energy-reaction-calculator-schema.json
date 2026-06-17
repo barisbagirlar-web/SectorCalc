@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Sıcaklık (T)",
         "tr": "Sıcaklık (T)",
-        "de": "Sıcaklık (T)",
+        "de": "Temperatur (T)",
         "fr": "Sıcaklık (T)",
         "es": "Sıcaklık (T)",
         "ar": "Sıcaklık (T)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden).",
-        "tr": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden)."
+        "tr": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden).",
+        "de": "Absolute Temperatur, bei der die Reaktion stattfindet (in Kelvin)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Entalpi Değişimi (ΔH)",
         "tr": "Entalpi Değişimi (ΔH)",
-        "de": "Entalpi Değişimi (ΔH)",
+        "de": "Enthalpieänderung (ΔH)",
         "fr": "Entalpi Değişimi (ΔH)",
         "es": "Entalpi Değişimi (ΔH)",
         "ar": "Entalpi Değişimi (ΔH)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı).",
-        "tr": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı)."
+        "tr": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı).",
+        "de": "Standard-Enthalpieänderung der Reaktion (Summe der Bildungsenthalpien der Produkte minus Summe der Bildungsenthalpien der Reaktanten)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Ürünlerin Toplam Entropisi",
         "tr": "Ürünlerin Toplam Entropisi",
-        "de": "Ürünlerin Toplam Entropisi",
+        "de": "Gesamtentropie der Produkte",
         "fr": "Ürünlerin Toplam Entropisi",
         "es": "Ürünlerin Toplam Entropisi",
         "ar": "Ürünlerin Toplam Entropisi"
       },
       "businessContext_i18n": {
         "en": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri.",
-        "tr": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri."
+        "tr": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri.",
+        "de": "Summe der absoluten Entropien der in der Reaktion gebildeten Produkte."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Reaktantların Toplam Entropisi",
         "tr": "Reaktantların Toplam Entropisi",
-        "de": "Reaktantların Toplam Entropisi",
+        "de": "Gesamtentropie der Reaktanten",
         "fr": "Reaktantların Toplam Entropisi",
         "es": "Reaktantların Toplam Entropisi",
         "ar": "Reaktantların Toplam Entropisi"
       },
       "businessContext_i18n": {
         "en": "Reaksiyona giren reaktantların toplam mutlak entropileri.",
-        "tr": "Reaksiyona giren reaktantların toplam mutlak entropileri."
+        "tr": "Reaksiyona giren reaktantların toplam mutlak entropileri.",
+        "de": "Summe der absoluten Entropien der an der Reaktion beteiligten Reaktanten."
       }
     }
   ],

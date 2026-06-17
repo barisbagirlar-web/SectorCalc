@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Internal Energy (U)",
         "tr": "İç enerji (U)",
-        "de": "Internal Energy (U)",
+        "de": "Innere Energie (U)",
         "fr": "Internal Energy (U)",
         "es": "Internal Energy (U)",
         "ar": "Internal Energy (U)"
       },
       "businessContext_i18n": {
         "en": "Total internal energy of the thermodynamic system.",
-        "tr": "Termodinamik sistemin toplam iç enerjisi."
+        "tr": "Termodinamik sistemin toplam iç enerjisi.",
+        "de": "Gesamte innere Energie des thermodynamischen Systems."
       }
     },
     {
@@ -52,14 +53,15 @@
       "label_i18n": {
         "en": "Entropy (S)",
         "tr": "Entropi (S)",
-        "de": "Entropy (S)",
+        "de": "Entropie (S)",
         "fr": "Entropy (S)",
         "es": "Entropy (S)",
         "ar": "Entropy (S)"
       },
       "businessContext_i18n": {
         "en": "Entropy of the system.",
-        "tr": "Sistemin entropisi."
+        "tr": "Sistemin entropisi.",
+        "de": "Entropie des Systems."
       }
     },
     {
@@ -72,14 +74,15 @@
       "label_i18n": {
         "en": "Amount of Substance (n)",
         "tr": "Madde miktarı (n)",
-        "de": "Amount of Substance (n)",
+        "de": "Stoffmenge (n)",
         "fr": "Amount of Substance (n)",
         "es": "Amount of Substance (n)",
         "ar": "Amount of Substance (n)"
       },
       "businessContext_i18n": {
         "en": "Amount of substance in moles. Default is 1 for total system calculations.",
-        "tr": "Mol cinsinden madde miktarı. Toplam sistem hesaplamaları için varsayılan 1'dir."
+        "tr": "Mol cinsinden madde miktarı. Toplam sistem hesaplamaları için varsayılan 1'dir.",
+        "de": "Stoffmenge in Mol. Standardmäßig 1 für Gesamtsystemberechnungen."
       }
     }
   ],

@@ -1,4 +1,5 @@
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
+import { getPremiumToolContract } from "@/lib/tools/premium-tool-contracts";
 import {
   isPremiumSchemaExtendedProductionSlug,
 } from "@/lib/formula-governance/oracle/premium-schema-extended-production-locators";
@@ -226,6 +227,9 @@ function isMixedLocaleLabel(label: string, locale: SupportedLocale): boolean {
 
 function hasFormulaContract(slug: string): boolean {
   if (getFormulaContractBySlug(slug)) {
+    return true;
+  }
+  if (getPremiumToolContract(slug)) {
     return true;
   }
   const aliasSlug = resolveFullLoopContractSlug(slug);

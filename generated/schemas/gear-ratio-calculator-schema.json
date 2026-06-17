@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Driving Gear Teeth",
         "tr": "Tahrik Eden Dişli Diş Sayısı",
-        "de": "Driving Gear Teeth",
+        "de": "Treibende Zähnezahl",
         "fr": "Driving Gear Teeth",
         "es": "Driving Gear Teeth",
         "ar": "Driving Gear Teeth"
       },
       "businessContext_i18n": {
         "en": "Number of teeth on the driving (input) gear.",
-        "tr": "Tahrik eden (giriş) dişlideki diş sayısı."
+        "tr": "Tahrik eden (giriş) dişlideki diş sayısı.",
+        "de": "Anzahl der Zähne des treibenden (Eingangs-)Zahnrads."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Driven Gear Teeth",
         "tr": "Tahrik Edilen Dişli Diş Sayısı",
-        "de": "Driven Gear Teeth",
+        "de": "Getriebene Zähnezahl",
         "fr": "Driven Gear Teeth",
         "es": "Driven Gear Teeth",
         "ar": "Driven Gear Teeth"
       },
       "businessContext_i18n": {
         "en": "Number of teeth on the driven (output) gear.",
-        "tr": "Tahrik edilen (çıkış) dişlideki diş sayısı."
+        "tr": "Tahrik edilen (çıkış) dişlideki diş sayısı.",
+        "de": "Anzahl der Zähne des getriebenen (Ausgangs-)Zahnrads."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Input Speed",
         "tr": "Giriş Hızı",
-        "de": "Input Speed",
+        "de": "Eingangsdrehzahl",
         "fr": "Input Speed",
         "es": "Input Speed",
         "ar": "Input Speed"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the driving gear in revolutions per minute.",
-        "tr": "Tahrik eden dişlinin dakikadaki devir cinsinden dönüş hızı."
+        "tr": "Tahrik eden dişlinin dakikadaki devir cinsinden dönüş hızı.",
+        "de": "Drehzahl des treibenden Zahnrads in Umdrehungen pro Minute."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Input Torque",
         "tr": "Giriş Torku",
-        "de": "Input Torque",
+        "de": "Eingangsdrehmoment",
         "fr": "Input Torque",
         "es": "Input Torque",
         "ar": "Input Torque"
       },
       "businessContext_i18n": {
         "en": "Torque applied to the driving gear in Newton-meters.",
-        "tr": "Tahrik eden dişliye uygulanan Newton-metre cinsinden tork."
+        "tr": "Tahrik eden dişliye uygulanan Newton-metre cinsinden tork.",
+        "de": "Auf das treibende Zahnrad wirkendes Drehmoment in Newtonmetern."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Efficiency",
         "tr": "Verim",
-        "de": "Efficiency",
+        "de": "Wirkungsgrad",
         "fr": "Efficiency",
         "es": "Efficiency",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the gear pair in percentage (0-100). If not provided, assumes 100% (ideal).",
-        "tr": "Dişli çiftinin yüzde cinsinden verimi (0-100). Belirtilmezse %100 (ideal) varsayılır."
+        "tr": "Dişli çiftinin yüzde cinsinden verimi (0-100). Belirtilmezse %100 (ideal) varsayılır.",
+        "de": "Wirkungsgrad des Zahnradpaares in Prozent (0-100). Falls nicht angegeben, wird 100 % (ideal) angenommen."
       }
     }
   ],

@@ -6252,8 +6252,10 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   display: grid;
   place-items: center;
   isolation: isolate;
+  overflow: visible;
   transform: translateZ(0);
-  animation: sc-trace-organism-float 5.8s ease-in-out infinite;
+  animation: sc-trace-organism-float 4.2s ease-in-out infinite;
+  will-change: transform;
 }
 .sc-trace-living--sm {
   width: 1.25rem;
@@ -6271,35 +6273,58 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 .sc-trace-living--fab {
   width: 100%;
   height: 100%;
+  animation-duration: 3.4s;
+}
+.sc-trace-living--fab .sc-trace-living__ripple {
+  animation-duration: 2.8s;
 }
 .sc-trace-living__aura {
   position: absolute;
-  inset: -18%;
+  inset: -22%;
   z-index: -1;
-  border-radius: 50%;
+  border-radius: 63% 37% 56% 44% / 42% 58% 39% 61%;
   background: radial-gradient(
     circle,
-    rgba(34, 230, 255, 0.42) 0%,
-    rgba(11, 120, 255, 0.22) 38%,
+    rgba(34, 230, 255, 0.52) 0%,
+    rgba(11, 120, 255, 0.28) 38%,
     transparent 72%
   );
-  animation: sc-trace-organism-aura-pulse 3.4s ease-in-out infinite alternate;
-  filter: blur(8px);
+  animation:
+    sc-trace-organism-aura-pulse 2.8s ease-in-out infinite alternate,
+    sc-trace-organism-jelly 5.6s ease-in-out infinite alternate;
+  filter: blur(10px);
   pointer-events: none;
+}
+.sc-trace-living__aura--alt {
+  inset: -14%;
+  opacity: 0.65;
+  background: radial-gradient(
+    circle,
+    rgba(123, 92, 255, 0.28) 0%,
+    rgba(34, 230, 255, 0.18) 42%,
+    transparent 70%
+  );
+  animation:
+    sc-trace-organism-aura-pulse 3.6s ease-in-out infinite alternate-reverse,
+    sc-trace-organism-orbit 11s linear infinite;
+  filter: blur(14px);
 }
 .sc-trace-living--sm .sc-trace-living__aura {
   inset: -8%;
   filter: blur(3px);
 }
+.sc-trace-living--sm .sc-trace-living__aura--alt {
+  display: none;
+}
 .sc-trace-living__ripple {
   position: absolute;
-  inset: 2%;
+  inset: 0;
   z-index: -1;
   border-radius: 63% 37% 56% 44% / 42% 58% 39% 61%;
-  border: 2px solid rgba(34, 230, 255, 0.55);
+  border: 2.5px solid rgba(34, 230, 255, 0.65);
   opacity: 0;
   pointer-events: none;
-  animation: sc-trace-organism-ripple 3.6s ease-out infinite;
+  animation: sc-trace-organism-ripple 3.2s ease-out infinite;
 }
 .sc-trace-living__ripple--2 {
   animation-delay: 1.2s;
@@ -6310,183 +6335,41 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 .sc-trace-living--sm .sc-trace-living__ripple {
   display: none;
 }
-.sc-trace-living__blob {
-  position: absolute;
-  inset: 6%;
-  z-index: 0;
-  border-radius: 63% 37% 56% 44% / 42% 58% 39% 61%;
-  animation:
-    sc-trace-organism-orbit 12s linear infinite,
-    sc-trace-organism-jelly 4.8s ease-in-out infinite alternate;
-  transform-origin: 48% 52%;
-  will-change: transform, border-radius;
-}
-.sc-trace-living--sm .sc-trace-living__blob {
-  inset: 0;
-  animation-duration: 16s, 6.5s;
-}
-.sc-trace-living__blob-core {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 72% 22%, #116cff 0%, rgba(17, 108, 255, 0.82) 18%, transparent 42%),
-    radial-gradient(circle at 18% 78%, rgba(123, 92, 255, 0.35) 0%, transparent 40%),
-    linear-gradient(135deg, #031331 0%, #05245e 32%, #004dff 58%, #19d8ff 82%, #7b5cff 100%);
-  background-size: 180% 180%, 160% 160%, 280% 280%;
-  animation:
-    sc-trace-organism-tide 7.5s ease-in-out infinite alternate,
-    sc-trace-organism-hue 9s linear infinite,
-    sc-trace-organism-jelly-stretch 4.8s ease-in-out infinite alternate;
-  box-shadow:
-    inset -8px -10px 22px rgba(0, 0, 0, 0.34),
-    inset 8px 8px 20px rgba(58, 201, 255, 0.22),
-    0 14px 32px rgba(0, 35, 110, 0.32);
-}
-.sc-trace-living__blob-core::before {
-  content: "";
-  position: absolute;
-  inset: -35%;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 0deg,
-    rgba(3, 19, 49, 0.15) 0deg,
-    rgba(0, 77, 255, 0.65) 60deg,
-    rgba(25, 216, 255, 0.85) 110deg,
-    rgba(123, 92, 255, 0.55) 170deg,
-    rgba(52, 211, 153, 0.45) 230deg,
-    rgba(0, 35, 110, 0.35) 290deg,
-    rgba(3, 19, 49, 0.15) 360deg
-  );
-  animation: sc-trace-organism-orbit 8s linear infinite reverse;
-  mix-blend-mode: screen;
-  opacity: 0.82;
-}
-.sc-trace-living__blob-depth {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    ellipse 85% 70% at 28% 78%,
-    rgba(0, 8, 28, 0.72) 0%,
-    transparent 58%
-  );
-  animation: sc-trace-organism-depth 5.8s ease-in-out infinite alternate;
-  mix-blend-mode: multiply;
-  opacity: 0.9;
-}
-.sc-trace-living__blob-shimmer {
-  position: absolute;
-  inset: -8%;
-  border-radius: inherit;
-  background: linear-gradient(
-    118deg,
-    transparent 12%,
-    rgba(109, 240, 255, 0.32) 38%,
-    rgba(255, 255, 255, 0.22) 50%,
-    rgba(11, 120, 255, 0.28) 62%,
-    rgba(167, 139, 250, 0.18) 72%,
-    transparent 88%
-  );
-  background-size: 260% 260%;
-  animation: sc-trace-organism-shimmer 3.8s ease-in-out infinite;
-  mix-blend-mode: soft-light;
-  opacity: 0.92;
-}
-.sc-trace-living__blob-shimmer--alt {
-  inset: -14%;
-  background: linear-gradient(
-    62deg,
-    transparent 20%,
-    rgba(52, 211, 153, 0.16) 44%,
-    rgba(34, 230, 255, 0.24) 58%,
-    transparent 80%
-  );
-  background-size: 220% 220%;
-  animation: sc-trace-organism-shimmer 5.2s ease-in-out infinite reverse;
-  mix-blend-mode: color-dodge;
-  opacity: 0.55;
-}
-.sc-trace-living__cyan-rim {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 18deg,
-    transparent 0deg,
-    transparent 18deg,
-    rgba(36, 231, 255, 0.98) 58deg,
-    rgba(9, 103, 255, 0.98) 98deg,
-    rgba(123, 92, 255, 0.75) 138deg,
-    rgba(25, 216, 255, 0.65) 168deg,
-    rgba(52, 211, 153, 0.55) 198deg,
-    transparent 228deg,
-    transparent 360deg
-  );
-  animation: sc-trace-organism-orbit 6.5s linear infinite;
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  padding: 6px;
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.96;
-  filter: drop-shadow(0 0 14px rgba(34, 230, 255, 0.52));
-}
-.sc-trace-living--sm .sc-trace-living__cyan-rim {
-  padding: 2px;
-}
-.sc-trace-living__caustics {
-  position: absolute;
-  inset: 10%;
-  border-radius: inherit;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(34, 230, 255, 0.38) 0%, transparent 34%),
-    radial-gradient(circle at 78% 68%, rgba(0, 77, 255, 0.32) 0%, transparent 38%),
-    radial-gradient(circle at 55% 45%, rgba(167, 139, 250, 0.22) 0%, transparent 30%);
-  animation: sc-trace-organism-caustics 4.6s ease-in-out infinite alternate;
-  mix-blend-mode: color-dodge;
-  opacity: 0.68;
-  pointer-events: none;
-}
-.sc-trace-living__droplet {
-  position: absolute;
-  top: 8%;
-  right: 14%;
-  width: 22%;
-  height: 22%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 35% 30%,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(109, 240, 255, 0.45) 28%,
-    transparent 68%
-  );
-  animation: sc-trace-organism-droplet-highlight 4.2s ease-in-out infinite;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-.sc-trace-living--sm .sc-trace-living__droplet {
-  display: none;
-}
-.sc-trace-living__glyph {
+.sc-trace-living__stage {
   position: relative;
-  z-index: 2;
-  width: 88%;
-  height: 88%;
-  overflow: visible;
-}
-.sc-trace-living__glyph-orbit {
-  transform-origin: 58% 54%;
-  animation: sc-trace-organism-glyph-orbit 16s linear infinite;
-}
-.sc-trace-living--sm .sc-trace-living__glyph {
+  z-index: 1;
   width: 100%;
   height: 100%;
+  overflow: visible;
+}
+.sc-trace-living--sm .sc-trace-living__stage {
+  width: 100%;
+  height: 100%;
+}
+.sc-trace-living__liquid-orbit {
+  transform-origin: 60px 58px;
+}
+.sc-trace-living__liquid-body {
+  filter: drop-shadow(0 10px 24px rgba(0, 35, 110, 0.38));
+}
+.sc-trace-living__liquid-sheen {
+  mix-blend-mode: screen;
+  opacity: 0.72;
+}
+.sc-trace-living__liquid-highlight {
+  mix-blend-mode: screen;
+  animation: sc-trace-organism-droplet-highlight 3.6s ease-in-out infinite;
+}
+.sc-trace-living__liquid-depth {
+  mix-blend-mode: multiply;
+  animation: sc-trace-organism-depth 4.8s ease-in-out infinite alternate;
+}
+.sc-trace-living__glyph {
+  transform-origin: 58% 54%;
+  animation: sc-trace-organism-glyph-float 5.4s ease-in-out infinite;
+}
+.sc-trace-living--sm .sc-trace-living__glyph {
+  animation-duration: 7s;
 }
 .sc-trace-living__bubble {
   transform-origin: 58% 58%;
@@ -6515,13 +6398,16 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 @keyframes sc-trace-organism-float {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
   }
-  35% {
-    transform: translate3d(0, -5px, 0) scale(1.05);
+  28% {
+    transform: translate3d(0, -7px, 0) scale(1.07) rotate(-2deg);
   }
-  68% {
-    transform: translate3d(0, 2px, 0) scale(0.97);
+  55% {
+    transform: translate3d(2px, 3px, 0) scale(0.96) rotate(1.5deg);
+  }
+  78% {
+    transform: translate3d(-2px, -2px, 0) scale(1.04) rotate(-1deg);
   }
 }
 @keyframes sc-trace-organism-aura-pulse {
@@ -6536,14 +6422,16 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 }
 @keyframes sc-trace-organism-ripple {
   0% {
-    transform: scale(0.78) rotate(0deg);
-    opacity: 0.75;
-    border-color: rgba(34, 230, 255, 0.65);
+    transform: scale(0.72) rotate(0deg);
+    border-radius: 63% 37% 56% 44% / 42% 58% 39% 61%;
+    opacity: 0.85;
+    border-color: rgba(34, 230, 255, 0.75);
   }
   100% {
-    transform: scale(1.55) rotate(18deg);
+    transform: scale(1.72) rotate(28deg);
+    border-radius: 48% 52% 64% 36% / 58% 39% 61% 42%;
     opacity: 0;
-    border-color: rgba(123, 92, 255, 0.15);
+    border-color: rgba(123, 92, 255, 0.12);
   }
 }
 @keyframes sc-trace-organism-orbit {
@@ -6677,21 +6565,16 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
     opacity: 0.95;
   }
 }
-@keyframes sc-trace-organism-glyph-orbit {
-  0% {
-    transform: rotate(-8deg) scale(1);
-  }
-  25% {
-    transform: rotate(2deg) scale(1.04);
-  }
-  50% {
-    transform: rotate(12deg) scale(0.96);
-  }
-  75% {
-    transform: rotate(4deg) scale(1.02);
-  }
+@keyframes sc-trace-organism-glyph-float {
+  0%,
   100% {
-    transform: rotate(-8deg) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(0, -2px, 0) scale(1.03);
+  }
+  66% {
+    transform: translate3d(1px, 1px, 0) scale(0.98);
   }
 }
 @keyframes sc-trace-organism-bubble-breathe {
@@ -6752,15 +6635,9 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   }
   .sc-trace-living__aura,
   .sc-trace-living__ripple,
-  .sc-trace-living__blob,
-  .sc-trace-living__blob-core,
-  .sc-trace-living__blob-core::before,
-  .sc-trace-living__blob-depth,
-  .sc-trace-living__blob-shimmer,
-  .sc-trace-living__cyan-rim,
-  .sc-trace-living__caustics,
-  .sc-trace-living__droplet,
-  .sc-trace-living__glyph-orbit,
+  .sc-trace-living__liquid-highlight,
+  .sc-trace-living__liquid-depth,
+  .sc-trace-living__glyph,
   .sc-trace-living__bubble,
   .sc-trace-living__wave-group,
   .sc-trace-living__wave,
@@ -6781,6 +6658,11 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   flex-direction: column;
   align-items: flex-end;
   gap: 1rem;
+  overflow: visible;
+  pointer-events: none;
+}
+.sc-trace > * {
+  pointer-events: auto;
 }
 .sc-trace__fab {
   position: relative;
@@ -6796,6 +6678,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   color: #ffffff;
   cursor: pointer;
   isolation: isolate;
+  overflow: visible;
   transform: translateZ(0);
   transition:
     transform 220ms ease,
@@ -6822,8 +6705,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   inset: 0;
   z-index: 0;
 }
-.sc-trace__fab--open .sc-trace-living__glyph,
-.sc-trace__fab--open .sc-trace-living__glyph-orbit {
+.sc-trace__fab--open .sc-trace-living__glyph {
   opacity: 0;
   transform: scale(0.82);
   transition: opacity 180ms ease, transform 180ms ease;

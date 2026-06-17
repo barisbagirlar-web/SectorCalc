@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Spot Price",
         "tr": "Spot Fiyat",
-        "de": "Spot Price",
+        "de": "Kassapreis",
         "fr": "Spot Price",
         "es": "Spot Price",
         "ar": "Spot Price"
       },
       "businessContext_i18n": {
         "en": "Current market price of the underlying asset per unit.",
-        "tr": "Dayanak varlığın birim başına güncel piyasa fiyatı."
+        "tr": "Dayanak varlığın birim başına güncel piyasa fiyatı.",
+        "de": "Aktueller Marktpreis des Basiswerts pro Einheit."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Futures Price",
         "tr": "Vadeli İşlem Fiyatı",
-        "de": "Futures Price",
+        "de": "Terminpreis",
         "fr": "Futures Price",
         "es": "Futures Price",
         "ar": "Futures Price"
       },
       "businessContext_i18n": {
         "en": "Futures contract price for delivery at a future date.",
-        "tr": "Gelecekteki bir teslimat için vadeli işlem sözleşme fiyatı."
+        "tr": "Gelecekteki bir teslimat için vadeli işlem sözleşme fiyatı.",
+        "de": "Terminkontraktpreis für Lieferung zu einem zukünftigen Zeitpunkt."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Spot Volatility (σ)",
         "tr": "Spot Volatilite (σ)",
-        "de": "Spot Volatility (σ)",
+        "de": "Kassavolatilität (σ)",
         "fr": "Spot Volatility (σ)",
         "es": "Spot Volatility (σ)",
         "ar": "Spot Volatility (σ)"
       },
       "businessContext_i18n": {
         "en": "Annualized standard deviation of spot price returns.",
-        "tr": "Spot fiyat getirilerinin yıllıklandırılmış standart sapması."
+        "tr": "Spot fiyat getirilerinin yıllıklandırılmış standart sapması.",
+        "de": "Annualisierte Standardabweichung der Kassapreisrenditen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Futures Volatility (σ)",
         "tr": "Vadeli İşlem Volatilitesi (σ)",
-        "de": "Futures Volatility (σ)",
+        "de": "Terminvolatilität (σ)",
         "fr": "Futures Volatility (σ)",
         "es": "Futures Volatility (σ)",
         "ar": "Futures Volatility (σ)"
       },
       "businessContext_i18n": {
         "en": "Annualized standard deviation of futures price returns.",
-        "tr": "Vadeli işlem fiyat getirilerinin yıllıklandırılmış standart sapması."
+        "tr": "Vadeli işlem fiyat getirilerinin yıllıklandırılmış standart sapması.",
+        "de": "Annualisierte Standardabweichung der Terminpreisrenditen."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Correlation",
         "tr": "Korelasyon",
-        "de": "Correlation",
+        "de": "Korrelation",
         "fr": "Correlation",
         "es": "Correlation",
         "ar": "Correlation"
       },
       "businessContext_i18n": {
         "en": "Correlation coefficient between spot and futures returns.",
-        "tr": "Spot ve vadeli işlem getirileri arasındaki korelasyon katsayısı."
+        "tr": "Spot ve vadeli işlem getirileri arasındaki korelasyon katsayısı.",
+        "de": "Korrelationskoeffizient zwischen Kassakurs- und Terminrenditen."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Exposure (Units)",
         "tr": "Maruziyet (Birim)",
-        "de": "Exposure (Units)",
+        "de": "Exposition (Einheiten)",
         "fr": "Exposure (Units)",
         "es": "Exposure (Units)",
         "ar": "Exposure (Units)"
       },
       "businessContext_i18n": {
         "en": "Total quantity of the asset to hedge (e.g., bushels, barrels).",
-        "tr": "Korunacak varlığın toplam miktarı (ör. kile, varil)."
+        "tr": "Korunacak varlığın toplam miktarı (ör. kile, varil).",
+        "de": "Gesamtmenge des abzusichernden Vermögenswerts (z. B. Scheffel, Barrel)."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Contract Size",
         "tr": "Sözleşme Büyüklüğü",
-        "de": "Contract Size",
+        "de": "Kontraktgröße",
         "fr": "Contract Size",
         "es": "Contract Size",
         "ar": "Contract Size"
       },
       "businessContext_i18n": {
         "en": "Number of units of the underlying asset per futures contract.",
-        "tr": "Vadeli işlem sözleşmesi başına dayanak varlığın birim sayısı."
+        "tr": "Vadeli işlem sözleşmesi başına dayanak varlığın birim sayısı.",
+        "de": "Anzahl der Einheiten des Basiswerts pro Terminkontrakt."
       }
     }
   ],

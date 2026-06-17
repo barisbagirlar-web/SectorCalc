@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Counted Hairs",
         "tr": "Sayılan Tüyler",
-        "de": "Counted Hairs",
+        "de": "Gezählte Haare",
         "fr": "Counted Hairs",
         "es": "Counted Hairs",
         "ar": "Counted Hairs"
       },
       "businessContext_i18n": {
         "en": "Number of hairs observed in the sample area.",
-        "tr": "Numune alanında gözlemlenen tüy sayısı."
+        "tr": "Numune alanında gözlemlenen tüy sayısı.",
+        "de": "Anzahl der im Probenbereich beobachteten Haare."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sample Area",
         "tr": "Numune Alanı",
-        "de": "Sample Area",
+        "de": "Probenfläche",
         "fr": "Sample Area",
         "es": "Sample Area",
         "ar": "Sample Area"
       },
       "businessContext_i18n": {
         "en": "Area of the sample region in square centimeters.",
-        "tr": "Numune bölgesinin santimetrekare cinsinden alanı."
+        "tr": "Numune bölgesinin santimetrekare cinsinden alanı.",
+        "de": "Fläche des Probenbereichs in Quadratzentimetern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Magnification",
         "tr": "Büyütme",
-        "de": "Magnification",
+        "de": "Vergrößerung",
         "fr": "Magnification",
         "es": "Magnification",
         "ar": "Magnification"
       },
       "businessContext_i18n": {
         "en": "Magnification factor of the optical device (1 for no magnification).",
-        "tr": "Optik cihazın büyütme faktörü (büyütme yoksa 1)."
+        "tr": "Optik cihazın büyütme faktörü (büyütme yoksa 1).",
+        "de": "Vergrößerungsfaktor des optischen Geräts (1 für keine Vergrößerung)."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Device-specific calibration coefficient to correct the measurement.",
-        "tr": "Ölçümü düzeltmek için cihaza özgü kalibrasyon katsayısı."
+        "tr": "Ölçümü düzeltmek için cihaza özgü kalibrasyon katsayısı.",
+        "de": "Gerätespezifischer Kalibrierungskoeffizient zur Korrektur der Messung."
       }
     }
   ],

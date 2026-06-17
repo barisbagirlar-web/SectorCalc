@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Design Speed",
         "tr": "Tasarım Hızı",
-        "de": "Design Speed",
+        "de": "Entwurfsgeschwindigkeit",
         "fr": "Design Speed",
         "es": "Design Speed",
         "ar": "Design Speed"
       },
       "businessContext_i18n": {
         "en": "The design speed of the highway segment, typically between 40-140 km/h.",
-        "tr": "Otoyol bölümünün tasarım hızı, tipik olarak 40-140 km/s arası."
+        "tr": "Otoyol bölümünün tasarım hızı, tipik olarak 40-140 km/s arası.",
+        "de": "Die Entwurfsgeschwindigkeit des Autobahnabschnitts, typischerweise zwischen 40-140 km/h."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Maximum Superelevation Rate",
         "tr": "Maksimum Dever Oranı",
-        "de": "Maximum Superelevation Rate",
+        "de": "Maximale Überhöhungsrate",
         "fr": "Maximum Superelevation Rate",
         "es": "Maximum Superelevation Rate",
         "ar": "Maximum Superelevation Rate"
       },
       "businessContext_i18n": {
         "en": "The maximum superelevation (cross-slope) rate applied to the curve, usually 4%-12%.",
-        "tr": "Viraja uygulanan maksimum dever (enine eğim) oranı, genellikle %4-%12."
+        "tr": "Viraja uygulanan maksimum dever (enine eğim) oranı, genellikle %4-%12.",
+        "de": "Die maximale Überhöhung (Querneigung) der Kurve, normalerweise 4%-12%."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Side Friction Factor",
         "tr": "Yanal Sürtünme Katsayısı",
-        "de": "Side Friction Factor",
+        "de": "Seitenreibungsbeiwert",
         "fr": "Side Friction Factor",
         "es": "Side Friction Factor",
         "ar": "Side Friction Factor"
       },
       "businessContext_i18n": {
         "en": "The allowable side friction factor depending on design speed and surface conditions (e.g., 0.17 for low speeds, 0.10 for high speeds).",
-        "tr": "Tasarım hızına ve yüzey koşullarına bağlı olarak izin verilen yanal sürtünme katsayısı (örneğin, düşük hızlar için 0.17, yüksek hızlar için 0.10)."
+        "tr": "Tasarım hızına ve yüzey koşullarına bağlı olarak izin verilen yanal sürtünme katsayısı (örneğin, düşük hızlar için 0.17, yüksek hızlar için 0.10).",
+        "de": "Der zulässige Seitenreibungsbeiwert in Abhängigkeit von Entwurfsgeschwindigkeit und Oberflächenbedingungen (z. B. 0,17 für niedrige Geschwindigkeiten, 0,10 für hohe Geschwindigkeiten)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Desired Curve Radius",
         "tr": "İstenen Viraj Yarıçapı",
-        "de": "Desired Curve Radius",
+        "de": "Gewünschter Kurvenradius",
         "fr": "Desired Curve Radius",
         "es": "Desired Curve Radius",
         "ar": "Desired Curve Radius"
       },
       "businessContext_i18n": {
         "en": "The actual or desired radius of the horizontal curve. Set to 0 if unknown; otherwise used to compute required friction demand.",
-        "tr": "Yatay virajın gerçek veya istenen yarıçapı. Bilinmiyorsa 0 olarak ayarlayın; aksi takdirde gerekli sürtünme talebini hesaplamak için kullanılır."
+        "tr": "Yatay virajın gerçek veya istenen yarıçapı. Bilinmiyorsa 0 olarak ayarlayın; aksi takdirde gerekli sürtünme talebini hesaplamak için kullanılır.",
+        "de": "Der tatsächliche oder gewünschte Radius der horizontalen Kurve. Auf 0 setzen, wenn unbekannt; andernfalls zur Berechnung des erforderlichen Reibungsbedarfs verwenden."
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gradians",
         "tr": "Gradyan",
-        "de": "Gradians",
+        "de": "Gon",
         "fr": "Gradians",
         "es": "Gradians",
         "ar": "Gradians"
       },
       "businessContext_i18n": {
         "en": "Enter the angle in gradians (gon). Leave 0 if not using this input. Only one input should be non-zero.",
-        "tr": "Açıyı gradyan (gon) cinsinden girin. Bu girdi kullanılmıyorsa 0 bırakın. Yalnızca bir girdi sıfırdan farklı olmalıdır."
+        "tr": "Açıyı gradyan (gon) cinsinden girin. Bu girdi kullanılmıyorsa 0 bırakın. Yalnızca bir girdi sıfırdan farklı olmalıdır.",
+        "de": "Geben Sie den Winkel in Gon ein. Lassen Sie 0, wenn diese Eingabe nicht verwendet wird. Nur eine Eingabe sollte ungleich Null sein."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Enter the angle in degrees. Leave 0 if not using this input. Only one input should be non-zero.",
-        "tr": "Açıyı derece cinsinden girin. Bu girdi kullanılmıyorsa 0 bırakın. Yalnızca bir girdi sıfırdan farklı olmalıdır."
+        "tr": "Açıyı derece cinsinden girin. Bu girdi kullanılmıyorsa 0 bırakın. Yalnızca bir girdi sıfırdan farklı olmalıdır.",
+        "de": "Geben Sie den Winkel in Grad ein. Lassen Sie 0, wenn diese Eingabe nicht verwendet wird. Nur eine Eingabe sollte ungleich Null sein."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Radians",
         "tr": "Radyan",
-        "de": "Radians",
+        "de": "Bogenmaß",
         "fr": "Radians",
         "es": "Radians",
         "ar": "Radians"
       },
       "businessContext_i18n": {
         "en": "Enter the angle in radians. Leave 0 if not using this input. Only one input should be non-zero.",
-        "tr": "Açıyı radyan cinsinden girin. Bu girdi kullanılmıyorsa 0 bırakın. Yalnızca bir girdi sıfırdan farklı olmalıdır."
+        "tr": "Açıyı radyan cinsinden girin. Bu girdi kullanılmıyorsa 0 bırakın. Yalnızca bir girdi sıfırdan farklı olmalıdır.",
+        "de": "Geben Sie den Winkel in Bogenmaß ein. Lassen Sie 0, wenn diese Eingabe nicht verwendet wird. Nur eine Eingabe sollte ungleich Null sein."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Optional multiplier for scaling the angle (e.g., multiple rotations). Default is 1.",
-        "tr": "Açıyı ölçeklemek için isteğe bağlı çarpan (örneğin, birden çok dönüş). Varsayılan 1'dir."
+        "tr": "Açıyı ölçeklemek için isteğe bağlı çarpan (örneğin, birden çok dönüş). Varsayılan 1'dir.",
+        "de": "Optionaler Multiplikator zur Skalierung des Winkels (z. B. mehrere Umdrehungen). Standard ist 1."
       }
     }
   ],

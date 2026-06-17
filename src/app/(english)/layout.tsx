@@ -1,4 +1,4 @@
-import "./site-styles";
+import "../site-styles";
 import "../globals.css";
 import { LocaleDocumentLayout } from "@/components/layout/LocaleDocumentLayout";
 

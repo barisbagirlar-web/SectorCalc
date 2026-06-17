@@ -39,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Total number of sentences. Must be greater than 0.",
-        "tr": "Toplam cümle sayısı. 0'dan büyük olmalıdır."
+        "tr": "Toplam cümle sayısı. 0'dan büyük olmalıdır.",
+        "de": "Gesamtzahl der Sätze. Muss größer als 0 sein."
       }
     },
     {
@@ -52,14 +53,15 @@
       "label_i18n": {
         "en": "Complex Words",
         "tr": "Karmaşık Kelimeler",
-        "de": "Complex Words",
+        "de": "Komplexe Wörter",
         "fr": "Complex Words",
         "es": "Complex Words",
         "ar": "Complex Words"
       },
       "businessContext_i18n": {
         "en": "Number of words with 3 or more syllables (excluding proper nouns, common suffixes, etc. if exempt).",
-        "tr": "3 veya daha fazla heceli kelime sayısı (uygun isimler, yaygın ekler vb. hariç tutulursa)."
+        "tr": "3 veya daha fazla heceli kelime sayısı (uygun isimler, yaygın ekler vb. hariç tutulursa).",
+        "de": "Anzahl der Wörter mit 3 oder mehr Silben (ausgenommen Eigennamen, gebräuchliche Suffixe usw., falls befreit)."
       }
     },
     {
@@ -72,14 +74,15 @@
       "label_i18n": {
         "en": "Exempt Words",
         "tr": "Muaf Kelimeler",
-        "de": "Exempt Words",
+        "de": "Ausgenommene Wörter",
         "fr": "Exempt Words",
         "es": "Exempt Words",
         "ar": "Exempt Words"
       },
       "businessContext_i18n": {
         "en": "Number of complex words that are exempt from counting (e.g., proper nouns, compound words). Typically 0 if using simplified counting.",
-        "tr": "Sayımdan muaf tutulan karmaşık kelime sayısı (örneğin, özel isimler, bileşik kelimeler). Basitleştirilmiş sayım kullanılıyorsa genellikle 0."
+        "tr": "Sayımdan muaf tutulan karmaşık kelime sayısı (örneğin, özel isimler, bileşik kelimeler). Basitleştirilmiş sayım kullanılıyorsa genellikle 0.",
+        "de": "Anzahl der komplexen Wörter, die von der Zählung ausgenommen sind (z. B. Eigennamen, zusammengesetzte Wörter). Typischerweise 0 bei vereinfachter Zählung."
       }
     }
   ],

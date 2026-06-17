@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Number of grocery items to purchase",
-        "tr": "Satın alınacak market ürünü sayısı"
+        "tr": "Satın alınacak market ürünü sayısı",
+        "de": "Anzahl der zu kaufenden Lebensmittelartikel"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Unit Price",
         "tr": "Birim Fiyat",
-        "de": "Unit Price",
+        "de": "Stückpreis",
         "fr": "Unit Price",
         "es": "Unit Price",
         "ar": "Unit Price"
       },
       "businessContext_i18n": {
         "en": "Price per item in your local currency",
-        "tr": "Yerel para biriminde ürün başına fiyat"
+        "tr": "Yerel para biriminde ürün başına fiyat",
+        "de": "Preis pro Artikel in Ihrer Landeswährung"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Applied discount rate (e.g., 10 for 10%)",
-        "tr": "Uygulanan indirim oranı (örn. %10 için 10)"
+        "tr": "Uygulanan indirim oranı (örn. %10 için 10)",
+        "de": "Angewandter Rabattsatz (z. B. 10 für 10%)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Tax Percentage",
         "tr": "Vergi Yüzdesi",
-        "de": "Tax Percentage",
+        "de": "Steuerprozentsatz",
         "fr": "Tax Percentage",
         "es": "Tax Percentage",
         "ar": "Tax Percentage"
       },
       "businessContext_i18n": {
         "en": "Tax rate to be applied after discounts (e.g., 5 for 5%)",
-        "tr": "İndirimlerden sonra uygulanacak vergi oranı (örn. %5 için 5)"
+        "tr": "İndirimlerden sonra uygulanacak vergi oranı (örn. %5 için 5)",
+        "de": "Steuersatz nach Rabatten (z. B. 5 für 5%)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Shipping Fee",
         "tr": "Kargo Ücreti",
-        "de": "Shipping Fee",
+        "de": "Versandkosten",
         "fr": "Shipping Fee",
         "es": "Shipping Fee",
         "ar": "Shipping Fee"
       },
       "businessContext_i18n": {
         "en": "Additional shipping or delivery cost",
-        "tr": "Ek kargo veya teslimat maliyeti"
+        "tr": "Ek kargo veya teslimat maliyeti",
+        "de": "Zusätzliche Versand- oder Lieferkosten"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Coupon Discount",
         "tr": "Kupon İndirimi",
-        "de": "Coupon Discount",
+        "de": "Coupon-Rabatt",
         "fr": "Coupon Discount",
         "es": "Coupon Discount",
         "ar": "Coupon Discount"
       },
       "businessContext_i18n": {
         "en": "Fixed amount discount from a coupon or voucher",
-        "tr": "Kupon veya fişten sabit tutarlı indirim"
+        "tr": "Kupon veya fişten sabit tutarlı indirim",
+        "de": "Festbetragsrabatt von einem Coupon oder Gutschein"
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Life Expectancy at Birth (years)",
         "tr": "Doğumda Beklenen Yaşam Süresi (yıl)",
-        "de": "Life Expectancy at Birth (years)",
+        "de": "Lebenserwartung bei Geburt (Jahre)",
         "fr": "Life Expectancy at Birth (years)",
         "es": "Life Expectancy at Birth (years)",
         "ar": "Life Expectancy at Birth (years)"
       },
       "businessContext_i18n": {
         "en": "Total expected years of life from birth based on current mortality rates.",
-        "tr": "Mevcut ölüm oranlarına göre doğumdan itibaren beklenen toplam yaşam yılı."
+        "tr": "Mevcut ölüm oranlarına göre doğumdan itibaren beklenen toplam yaşam yılı.",
+        "de": "Gesamte erwartete Lebensjahre ab Geburt basierend auf aktuellen Sterblichkeitsraten."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Prevalence of Severe Activity Limitation",
         "tr": "Şiddetli Aktivite Kısıtlılığı Yaygınlığı",
-        "de": "Prevalence of Severe Activity Limitation",
+        "de": "Prävalenz schwerer Aktivitätseinschränkung",
         "fr": "Prevalence of Severe Activity Limitation",
         "es": "Prevalence of Severe Activity Limitation",
         "ar": "Prevalence of Severe Activity Limitation"
       },
       "businessContext_i18n": {
         "en": "Proportion of population with severe long-standing activity limitation, expressed as a decimal (0-1).",
-        "tr": "Uzun süreli şiddetli aktivite kısıtlılığı olan nüfus oranı, ondalık olarak ifade edilir (0-1)."
+        "tr": "Uzun süreli şiddetli aktivite kısıtlılığı olan nüfus oranı, ondalık olarak ifade edilir (0-1).",
+        "de": "Anteil der Bevölkerung mit schwerer langfristiger Aktivitätseinschränkung, ausgedrückt als Dezimalzahl (0-1)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Prevalence of Moderate Activity Limitation",
         "tr": "Orta Dereceli Aktivite Kısıtlılığı Yaygınlığı",
-        "de": "Prevalence of Moderate Activity Limitation",
+        "de": "Prävalenz moderater Aktivitätseinschränkung",
         "fr": "Prevalence of Moderate Activity Limitation",
         "es": "Prevalence of Moderate Activity Limitation",
         "ar": "Prevalence of Moderate Activity Limitation"
       },
       "businessContext_i18n": {
         "en": "Proportion of population with moderate activity limitation, expressed as a decimal (0-1).",
-        "tr": "Orta dereceli aktivite kısıtlılığı olan nüfus oranı, ondalık olarak ifade edilir (0-1)."
+        "tr": "Orta dereceli aktivite kısıtlılığı olan nüfus oranı, ondalık olarak ifade edilir (0-1).",
+        "de": "Anteil der Bevölkerung mit moderater Aktivitätseinschränkung, ausgedrückt als Dezimalzahl (0-1)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Disability Weight for Severe Limitation",
         "tr": "Şiddetli Kısıtlılık için Engellilik Ağırlığı",
-        "de": "Disability Weight for Severe Limitation",
+        "de": "Behinderungsgewicht für schwere Einschränkung",
         "fr": "Disability Weight for Severe Limitation",
         "es": "Disability Weight for Severe Limitation",
         "ar": "Disability Weight for Severe Limitation"
       },
       "businessContext_i18n": {
         "en": "Health loss weight for severe state (0 = full health, 1 = worst possible health).",
-        "tr": "Sağlık kaybı ağırlığı - şiddetli durum (0 = tam sağlık, 1 = mümkün olan en kötü sağlık)."
+        "tr": "Sağlık kaybı ağırlığı - şiddetli durum (0 = tam sağlık, 1 = mümkün olan en kötü sağlık).",
+        "de": "Gesundheitsverlustgewicht für schweren Zustand (0 = volle Gesundheit, 1 = schlechtest mögliche Gesundheit)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Disability Weight for Moderate Limitation",
         "tr": "Orta Dereceli Kısıtlama için Engellilik Ağırlığı",
-        "de": "Disability Weight for Moderate Limitation",
+        "de": "Behinderungsgewicht für moderate Einschränkung",
         "fr": "Disability Weight for Moderate Limitation",
         "es": "Disability Weight for Moderate Limitation",
         "ar": "Disability Weight for Moderate Limitation"
       },
       "businessContext_i18n": {
         "en": "Health loss weight for moderate state (0 = full health, 1 = worst possible health).",
-        "tr": "Sağlık kaybı ağırlığı - orta durum (0 = tam sağlık, 1 = mümkün olan en kötü sağlık)."
+        "tr": "Sağlık kaybı ağırlığı - orta durum (0 = tam sağlık, 1 = mümkün olan en kötü sağlık).",
+        "de": "Gesundheitsverlustgewicht für moderaten Zustand (0 = volle Gesundheit, 1 = schlechtest mögliche Gesundheit)."
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gigabytes",
         "tr": "Gigabayt",
-        "de": "Gigabytes",
+        "de": "Gigabyte",
         "fr": "Gigabytes",
         "es": "Gigabytes",
         "ar": "Gigabytes"
       },
       "businessContext_i18n": {
         "en": "Amount of data in gigabytes to convert.",
-        "tr": "Dönüştürülecek gigabayt cinsinden veri miktarı."
+        "tr": "Dönüştürülecek gigabayt cinsinden veri miktarı.",
+        "de": "Datenmenge in Gigabyte, die umgerechnet werden soll."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in the result.",
-        "tr": "Sonuçtaki ondalık basamak sayısı."
+        "tr": "Sonuçtaki ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen im Ergebnis."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Use Binary (1024)",
         "tr": "İkili (1024) kullan",
-        "de": "Use Binary (1024)",
+        "de": "Binär (1024) verwenden",
         "fr": "Use Binary (1024)",
         "es": "Use Binary (1024)",
         "ar": "Use Binary (1024)"
       },
       "businessContext_i18n": {
         "en": "1 for binary conversion (1 TB = 1024 GB), 0 for decimal (1 TB = 1000 GB).",
-        "tr": "İkili dönüşüm için 1 (1 TB = 1024 GB), ondalık için 0 (1 TB = 1000 GB)."
+        "tr": "İkili dönüşüm için 1 (1 TB = 1024 GB), ondalık için 0 (1 TB = 1000 GB).",
+        "de": "1 für binäre Umrechnung (1 TB = 1024 GB), 0 für dezimale (1 TB = 1000 GB)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Expected TB",
         "tr": "Beklenen TB",
-        "de": "Expected TB",
+        "de": "Erwartete TB",
         "fr": "Expected TB",
         "es": "Expected TB",
         "ar": "Expected TB"
       },
       "businessContext_i18n": {
         "en": "Optional known correct value in terabytes for verification.",
-        "tr": "Doğrulama için isteğe bağlı bilinen doğru değer (terabayt cinsinden)."
+        "tr": "Doğrulama için isteğe bağlı bilinen doğru değer (terabayt cinsinden).",
+        "de": "Optionaler bekannter korrekter Wert in Terabyte zur Überprüfung."
       }
     }
   ],

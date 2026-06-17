@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Vertices (V)",
         "tr": "Köşe Sayısı (V)",
-        "de": "Number of Vertices (V)",
+        "de": "Anzahl der Knoten (V)",
         "fr": "Number of Vertices (V)",
         "es": "Number of Vertices (V)",
         "ar": "Number of Vertices (V)"
       },
       "businessContext_i18n": {
         "en": "Total graph vertices count",
-        "tr": "Toplam grafik köşe sayısı"
+        "tr": "Toplam grafik köşe sayısı",
+        "de": "Gesamtzahl der Knoten im Graphen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Edges (E)",
         "tr": "Kenar Sayısı (E)",
-        "de": "Number of Edges (E)",
+        "de": "Anzahl der Kanten (E)",
         "fr": "Number of Edges (E)",
         "es": "Number of Edges (E)",
         "ar": "Number of Edges (E)"
       },
       "businessContext_i18n": {
         "en": "Total graph edges count",
-        "tr": "Toplam grafik kenar sayısı"
+        "tr": "Toplam grafik kenar sayısı",
+        "de": "Gesamtzahl der Kanten im Graphen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Faces (F)",
         "tr": "Yüz Sayısı (F)",
-        "de": "Number of Faces (F)",
+        "de": "Anzahl der Flächen (F)",
         "fr": "Number of Faces (F)",
         "es": "Number of Faces (F)",
         "ar": "Number of Faces (F)"
       },
       "businessContext_i18n": {
         "en": "Planar graph faces count (including outer face)",
-        "tr": "Düzlemsel grafik yüz sayısı (dış yüz dahil)"
+        "tr": "Düzlemsel grafik yüz sayısı (dış yüz dahil)",
+        "de": "Anzahl der Flächen des planaren Graphen (einschließlich Außenfläche)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Components (C)",
         "tr": "Bileşen Sayısı (C)",
-        "de": "Number of Components (C)",
+        "de": "Anzahl der Komponenten (C)",
         "fr": "Number of Components (C)",
         "es": "Number of Components (C)",
         "ar": "Number of Components (C)"
       },
       "businessContext_i18n": {
         "en": "Connected components in the graph",
-        "tr": "Grafikteki bağlı bileşenler"
+        "tr": "Grafikteki bağlı bileşenler",
+        "de": "Zusammenhängende Komponenten im Graphen"
       }
     }
   ],

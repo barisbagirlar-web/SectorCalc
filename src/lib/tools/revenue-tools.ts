@@ -10,6 +10,7 @@ import { getToolHref } from "@/lib/tools/paths";
 import { resolveLegacyPremiumSlug } from "@/lib/tools/legacy-premium-slug-redirects";
 import { additionalRevenueTools } from "@/lib/tools/revenue-tools-additional";
 import { legacyRevenueToolsCore } from "@/lib/tools/legacy-revenue-tools-core";
+import { revenueLegalDisclaimer } from "@/lib/tools/revenue-legal-disclaimer";
 import premiumSlugs from "../../../premium-slugs.json";
 
 export type RevenueSector = IndustrySlug;
@@ -59,8 +60,7 @@ export type RevenueToolRegistry = {
   tools: RevenueTool[];
 };
 
-export const revenueLegalDisclaimer =
-  "This is a technical simulation and decision-support output. It is not financial, legal or engineering advice. Verify all results before making business decisions.";
+export { revenueLegalDisclaimer } from "@/lib/tools/revenue-legal-disclaimer";
 
 export const sectorCalcProPricing = {
   planName: "SectorCalc Pro",

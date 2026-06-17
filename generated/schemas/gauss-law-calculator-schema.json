@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Charge (Q)",
         "tr": "Toplam Yük (Q)",
-        "de": "Total Charge (Q)",
+        "de": "Gesamtladung (Q)",
         "fr": "Total Charge (Q)",
         "es": "Total Charge (Q)",
         "ar": "Total Charge (Q)"
       },
       "businessContext_i18n": {
         "en": "Total electric charge enclosed by the Gaussian surface",
-        "tr": "Gauss yüzeyi tarafından çevrelenen toplam elektrik yükü"
+        "tr": "Gauss yüzeyi tarafından çevrelenen toplam elektrik yükü",
+        "de": "Gesamte elektrische Ladung, die von der Gaußschen Oberfläche eingeschlossen wird"
       }
     },
     {
@@ -31,7 +32,7 @@
       "label_i18n": {
         "en": "Permittivity (ε)",
         "tr": "Geçirgenlik (ε)",
-        "de": "Permittivity (ε)",
+        "de": "Permittivität (ε)",
         "fr": "Permittivity (ε)",
         "es": "Permittivity (ε)",
         "ar": "Permittivity (ε)"
@@ -59,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Radius of the spherical Gaussian surface",
-        "tr": "Küresel Gauss yüzeyinin yarıçapı"
+        "tr": "Küresel Gauss yüzeyinin yarıçapı",
+        "de": "Radius der kugelförmigen Gaußschen Oberfläche"
       }
     },
     {
@@ -79,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Angle between electric field and area vector (0 for perpendicular)",
-        "tr": "Elektrik alanı ile alan vektörü arasındaki açı (dik için 0)"
+        "tr": "Elektrik alanı ile alan vektörü arasındaki açı (dik için 0)",
+        "de": "Winkel zwischen elektrischem Feld und Flächenvektor (0 für senkrecht)"
       }
     }
   ],

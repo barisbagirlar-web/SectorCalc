@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Process measurement to evaluate",
-        "tr": "Değerlendirilecek proses ölçümü"
+        "tr": "Değerlendirilecek proses ölçümü",
+        "de": "Zu bewertende Prozessmessgröße"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Target Value",
         "tr": "Hedef Değer",
-        "de": "Target Value",
+        "de": "Zielwert",
         "fr": "Target Value",
         "es": "Target Value",
         "ar": "Target Value"
       },
       "businessContext_i18n": {
         "en": "Nominal target value",
-        "tr": "Nominal hedef değer"
+        "tr": "Nominal hedef değer",
+        "de": "Nominaler Zielwert"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Lower Specification Limit",
         "tr": "Alt Spesifikasyon Limiti",
-        "de": "Lower Specification Limit",
+        "de": "Untere Spezifikationsgrenze",
         "fr": "Lower Specification Limit",
         "es": "Lower Specification Limit",
         "ar": "Lower Specification Limit"
       },
       "businessContext_i18n": {
         "en": "Minimum acceptable value",
-        "tr": "Minimum kabul edilebilir değer"
+        "tr": "Minimum kabul edilebilir değer",
+        "de": "Minimal akzeptabler Wert"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Upper Specification Limit",
         "tr": "Üst Spesifikasyon Limiti",
-        "de": "Upper Specification Limit",
+        "de": "Obere Spezifikationsgrenze",
         "fr": "Upper Specification Limit",
         "es": "Upper Specification Limit",
         "ar": "Upper Specification Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum acceptable value",
-        "tr": "Maksimum kabul edilebilir değer"
+        "tr": "Maksimum kabul edilebilir değer",
+        "de": "Maximal akzeptabler Wert"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Warning Zone Fraction",
         "tr": "Uyarı Bölgesi Kesri",
-        "de": "Warning Zone Fraction",
+        "de": "Warnzonenanteil",
         "fr": "Warning Zone Fraction",
         "es": "Warning Zone Fraction",
         "ar": "Warning Zone Fraction"
       },
       "businessContext_i18n": {
         "en": "Fraction of spec half-range defining green zone around target (0-1)",
-        "tr": "Hedef etrafındaki yeşil bölgeyi tanımlayan spesifikasyon yarı aralığının kesri (0-1)"
+        "tr": "Hedef etrafındaki yeşil bölgeyi tanımlayan spesifikasyon yarı aralığının kesri (0-1)",
+        "de": "Anteil des Spezifikationshalbbereichs, der die grüne Zone um den Zielwert definiert (0-1)"
       }
     }
   ],

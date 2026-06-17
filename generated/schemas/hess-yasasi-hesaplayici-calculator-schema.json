@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Adım Sayısı",
         "tr": "Adım Sayısı",
-        "de": "Adım Sayısı",
+        "de": "Anzahl der Schritte",
         "fr": "Adım Sayısı",
         "es": "Adım Sayısı",
         "ar": "Adım Sayısı"
       },
       "businessContext_i18n": {
         "en": "Hess Yasası ile toplam entalpi değişimini hesaplamak için kullanılacak reaksiyon adımı sayısı (en fazla 4).",
-        "tr": "Hess Yasası ile toplam entalpi değişimini hesaplamak için kullanılacak reaksiyon adımı sayısı (en fazla 4)."
+        "tr": "Hess Yasası ile toplam entalpi değişimini hesaplamak için kullanılacak reaksiyon adımı sayısı (en fazla 4).",
+        "de": "Anzahl der Reaktionsschritte (maximal 4) zur Berechnung der Gesamtenthalpieänderung nach dem Hess'schen Gesetz."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "1. Adım ΔH",
         "tr": "1. Adım ΔH",
-        "de": "1. Adım ΔH",
+        "de": "ΔH Schritt 1",
         "fr": "1. Adım ΔH",
         "es": "1. Adım ΔH",
         "ar": "1. Adım ΔH"
       },
       "businessContext_i18n": {
         "en": "Birinci reaksiyon adımının entalpi değişimi.",
-        "tr": "Birinci reaksiyon adımının entalpi değişimi."
+        "tr": "Birinci reaksiyon adımının entalpi değişimi.",
+        "de": "Enthalpieänderung des ersten Reaktionsschritts."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "2. Adım ΔH",
         "tr": "2. Adım ΔH",
-        "de": "2. Adım ΔH",
+        "de": "ΔH Schritt 2",
         "fr": "2. Adım ΔH",
         "es": "2. Adım ΔH",
         "ar": "2. Adım ΔH"
       },
       "businessContext_i18n": {
         "en": "İkinci reaksiyon adımının entalpi değişimi.",
-        "tr": "İkinci reaksiyon adımının entalpi değişimi."
+        "tr": "İkinci reaksiyon adımının entalpi değişimi.",
+        "de": "Enthalpieänderung des zweiten Reaktionsschritts."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "3. Adım ΔH",
         "tr": "3. Adım ΔH",
-        "de": "3. Adım ΔH",
+        "de": "ΔH Schritt 3",
         "fr": "3. Adım ΔH",
         "es": "3. Adım ΔH",
         "ar": "3. Adım ΔH"
       },
       "businessContext_i18n": {
         "en": "Üçüncü reaksiyon adımının entalpi değişimi.",
-        "tr": "Üçüncü reaksiyon adımının entalpi değişimi."
+        "tr": "Üçüncü reaksiyon adımının entalpi değişimi.",
+        "de": "Enthalpieänderung des dritten Reaktionsschritts."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "4. Adım ΔH",
         "tr": "4. Adım ΔH",
-        "de": "4. Adım ΔH",
+        "de": "ΔH Schritt 4",
         "fr": "4. Adım ΔH",
         "es": "4. Adım ΔH",
         "ar": "4. Adım ΔH"
       },
       "businessContext_i18n": {
         "en": "Dördüncü reaksiyon adımının entalpi değişimi.",
-        "tr": "Dördüncü reaksiyon adımının entalpi değişimi."
+        "tr": "Dördüncü reaksiyon adımının entalpi değişimi.",
+        "de": "Enthalpieänderung des vierten Reaktionsschritts."
       }
     }
   ],

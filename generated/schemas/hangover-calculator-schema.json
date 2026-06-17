@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Alkol Miktarı",
         "tr": "Alkol Miktarı",
-        "de": "Alkol Miktarı",
+        "de": "Alkoholmenge",
         "fr": "Alkol Miktarı",
         "es": "Alkol Miktarı",
         "ar": "Alkol Miktarı"
       },
       "businessContext_i18n": {
         "en": "Toplam tüketilen alkol miktarı (gram)",
-        "tr": "Toplam tüketilen alkol miktarı (gram)"
+        "tr": "Toplam tüketilen alkol miktarı (gram)",
+        "de": "Gesamte konsumierte Alkoholmenge (Gramm)"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Kişinin vücut ağırlığı",
-        "tr": "Kişinin vücut ağırlığı"
+        "tr": "Kişinin vücut ağırlığı",
+        "de": "Körpergewicht der Person"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "İçki Süresi",
         "tr": "İçki Süresi",
-        "de": "İçki Süresi",
+        "de": "Trinkdauer",
         "fr": "İçki Süresi",
         "es": "İçki Süresi",
         "ar": "İçki Süresi"
       },
       "businessContext_i18n": {
         "en": "İçki içme süresi",
-        "tr": "İçki içme süresi"
+        "tr": "İçki içme süresi",
+        "de": "Dauer des Alkoholkonsums"
       }
     },
     {
@@ -92,14 +95,15 @@
       "label_i18n": {
         "en": "Yemek Tüketimi",
         "tr": "Yemek Tüketimi",
-        "de": "Yemek Tüketimi",
+        "de": "Nahrungsaufnahme",
         "fr": "Yemek Tüketimi",
         "es": "Yemek Tüketimi",
         "ar": "Yemek Tüketimi"
       },
       "businessContext_i18n": {
         "en": "Yemek tüketimi (0: aç karnına, 1: tok)",
-        "tr": "Yemek tüketimi (0: aç karnına, 1: tok)"
+        "tr": "Yemek tüketimi (0: aç karnına, 1: tok)",
+        "de": "Nahrungsaufnahme (0: nüchtern, 1: nach dem Essen)"
       }
     },
     {
@@ -112,14 +116,15 @@
       "label_i18n": {
         "en": "Hidrasyon Durumu",
         "tr": "Hidrasyon Durumu",
-        "de": "Hidrasyon Durumu",
+        "de": "Hydratationsstatus",
         "fr": "Hidrasyon Durumu",
         "es": "Hidrasyon Durumu",
         "ar": "Hidrasyon Durumu"
       },
       "businessContext_i18n": {
         "en": "Hidrasyon seviyesi (0: susuz, 1: tam hidrasyon)",
-        "tr": "Hidrasyon seviyesi (0: susuz, 1: tam hidrasyon)"
+        "tr": "Hidrasyon seviyesi (0: susuz, 1: tam hidrasyon)",
+        "de": "Hydrationsniveau (0: dehydriert, 1: voll hydriert)"
       }
     }
   ],

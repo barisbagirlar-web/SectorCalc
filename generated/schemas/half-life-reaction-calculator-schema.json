@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "The initial mass or amount of substance at time zero.",
-        "tr": "Sıfır zamanındaki başlangıç kütlesi veya miktarı."
+        "tr": "Sıfır zamanındaki başlangıç kütlesi veya miktarı.",
+        "de": "Die Anfangsmasse oder -menge des Stoffes zum Zeitpunkt Null"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Measurement uncertainty or tolerance percentage applied to the initial quantity (e.g., ±5%).",
-        "tr": "Başlangıç miktarına uygulanan ölçüm belirsizliği veya tolerans yüzdesi (örn. ±%5)."
+        "tr": "Başlangıç miktarına uygulanan ölçüm belirsizliği veya tolerans yüzdesi (örn. ±%5).",
+        "de": "Messunsicherheit oder Toleranzprozentsatz, angewendet auf die Anfangsmenge (z. B. ±5 %)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Half-Life",
         "tr": "Yarılanma Süresi",
-        "de": "Half-Life",
+        "de": "Halbwertszeit",
         "fr": "Half-Life",
         "es": "Half-Life",
         "ar": "Half-Life"
       },
       "businessContext_i18n": {
         "en": "The half-life of the substance in consistent time units.",
-        "tr": "Maddenin tutarlı zaman birimleri cinsinden yarılanma süresi."
+        "tr": "Maddenin tutarlı zaman birimleri cinsinden yarılanma süresi.",
+        "de": "Die Halbwertszeit des Stoffes in konsistenten Zeiteinheiten"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Elapsed Time",
         "tr": "Geçen Süre",
-        "de": "Elapsed Time",
+        "de": "Verstrichene Zeit",
         "fr": "Elapsed Time",
         "es": "Elapsed Time",
         "ar": "Elapsed Time"
       },
       "businessContext_i18n": {
         "en": "The total elapsed time since start, in the same time unit as half-life.",
-        "tr": "Başlangıçtan bu yana geçen toplam süre, yarılanma süresi ile aynı zaman biriminde."
+        "tr": "Başlangıçtan bu yana geçen toplam süre, yarılanma süresi ile aynı zaman biriminde.",
+        "de": "Die gesamte verstrichene Zeit seit Beginn, in derselben Zeiteinheit wie die Halbwertszeit"
       }
     }
   ],

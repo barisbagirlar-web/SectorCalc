@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Home Value",
         "tr": "Ev değeri",
-        "de": "Home Value",
+        "de": "Hauswert",
         "fr": "Home Value",
         "es": "Home Value",
         "ar": "Home Value"
       },
       "businessContext_i18n": {
         "en": "Current appraised market value of the property",
-        "tr": "Mülkün güncel piyasa değeri"
+        "tr": "Mülkün güncel piyasa değeri",
+        "de": "Aktueller geschätzter Marktwert der Immobilie"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Mortgage Balance",
         "tr": "Mortgage bakiyesi",
-        "de": "Mortgage Balance",
+        "de": "Hypothekensaldo",
         "fr": "Mortgage Balance",
         "es": "Mortgage Balance",
         "ar": "Mortgage Balance"
       },
       "businessContext_i18n": {
         "en": "Outstanding balance on the first mortgage",
-        "tr": "İlk ipotekteki kalan bakiye"
+        "tr": "İlk ipotekteki kalan bakiye",
+        "de": "Ausstehender Saldo der ersten Hypothek"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "LTV Limit",
         "tr": "LTV Sınırı",
-        "de": "LTV Limit",
+        "de": "LTV-Grenze",
         "fr": "LTV Limit",
         "es": "LTV Limit",
         "ar": "LTV Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum combined loan-to-value ratio allowed by lender",
-        "tr": "Borç verenin izin verdiği maksimum birleşik kredi-değer oranı"
+        "tr": "Borç verenin izin verdiği maksimum birleşik kredi-değer oranı",
+        "de": "Maximales kombiniertes Beleihungsverhältnis, das vom Kreditgeber zugelassen wird"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Annual interest rate on the HELOC",
-        "tr": "HELOC'un yıllık faiz oranı"
+        "tr": "HELOC'un yıllık faiz oranı",
+        "de": "Jährlicher Zinssatz für die HELOC"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Draw Amount",
         "tr": "Çekim Tutarı",
-        "de": "Draw Amount",
+        "de": "Abhebungsbetrag",
         "fr": "Draw Amount",
         "es": "Draw Amount",
         "ar": "Draw Amount"
       },
       "businessContext_i18n": {
         "en": "Amount you plan to draw from the HELOC",
-        "tr": "HELOC'tan çekmeyi planladığınız tutar"
+        "tr": "HELOC'tan çekmeyi planladığınız tutar",
+        "de": "Betrag, den Sie von der HELOC abheben möchten"
       }
     },
     {
@@ -118,7 +123,8 @@
       },
       "businessContext_i18n": {
         "en": "Repayment period for the HELOC",
-        "tr": "HELOC için geri ödeme süresi"
+        "tr": "HELOC için geri ödeme süresi",
+        "de": "Rückzahlungszeitraum für die HELOC"
       }
     }
   ],

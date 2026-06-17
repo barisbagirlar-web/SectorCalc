@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gross Weight (g)",
         "tr": "Brüt Ağırlık (g)",
-        "de": "Gross Weight (g)",
+        "de": "Bruttogewicht (g)",
         "fr": "Gross Weight (g)",
         "es": "Gross Weight (g)",
         "ar": "Gross Weight (g)"
       },
       "businessContext_i18n": {
         "en": "Total measured weight including container or packaging",
-        "tr": "Dara dahil toplam ölçülen ağırlık"
+        "tr": "Dara dahil toplam ölçülen ağırlık",
+        "de": "Gesamtes gemessenes Gewicht inklusive Behälter oder Verpackung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Tare Weight (g)",
         "tr": "Dara Ağırlığı (g)",
-        "de": "Tare Weight (g)",
+        "de": "Taragewicht (g)",
         "fr": "Tare Weight (g)",
         "es": "Tare Weight (g)",
         "ar": "Tare Weight (g)"
       },
       "businessContext_i18n": {
         "en": "Weight of empty container or packaging",
-        "tr": "Boş kap veya ambalajın ağırlığı"
+        "tr": "Boş kap veya ambalajın ağırlığı",
+        "de": "Gewicht des leeren Behälters oder der Verpackung"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the final net weight output",
-        "tr": "Nihai net ağırlık çıktısı için ondalık basamak sayısı"
+        "tr": "Nihai net ağırlık çıktısı için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die endgültige Nettogewichtsausgabe"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "0 = standard rounding, 1 = floor, 2 = ceil",
-        "tr": "0 = standart yuvarlama, 1 = taban, 2 = tavan"
+        "tr": "0 = standart yuvarlama, 1 = taban, 2 = tavan",
+        "de": "0 = Standardrundung, 1 = Abrunden, 2 = Aufrunden"
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gradians",
         "tr": "Gradyan",
-        "de": "Gradians",
+        "de": "Gon",
         "fr": "Gradians",
         "es": "Gradians",
         "ar": "Gradians"
       },
       "businessContext_i18n": {
         "en": "Angle measured in gradians to be converted to degrees.",
-        "tr": "Dereceye dönüştürülecek gradyan cinsinden ölçülen açı."
+        "tr": "Dereceye dönüştürülecek gradyan cinsinden ölçülen açı.",
+        "de": "In Grad gemessener Winkel, der in Grad umgerechnet werden soll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Instrument Gain",
         "tr": "Enstrüman Kazancı",
-        "de": "Instrument Gain",
+        "de": "Instrumentenverstärkung",
         "fr": "Instrument Gain",
         "es": "Instrument Gain",
         "ar": "Instrument Gain"
       },
       "businessContext_i18n": {
         "en": "Calibration gain (multiplicative factor) for the conversion. Default 0.9 represents the standard gradians-to-degrees ratio.",
-        "tr": "Dönüşüm için kalibrasyon kazancı (çarpma faktörü). Varsayılan 0.9, standart gradyan-derece oranını temsil eder."
+        "tr": "Dönüşüm için kalibrasyon kazancı (çarpma faktörü). Varsayılan 0.9, standart gradyan-derece oranını temsil eder.",
+        "de": "Kalibrierungsverstärkung (Multiplikationsfaktor) für die Umrechnung. Standard 0,9 repräsentiert das Standardverhältnis von Grad zu Grad."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Instrument Offset",
         "tr": "Enstrüman Ofseti",
-        "de": "Instrument Offset",
+        "de": "Instrumentenoffset",
         "fr": "Instrument Offset",
         "es": "Instrument Offset",
         "ar": "Instrument Offset"
       },
       "businessContext_i18n": {
         "en": "Calibration offset in degrees added after conversion to correct systematic error.",
-        "tr": "Sistematik hatayı düzeltmek için dönüşümden sonra derece cinsinden eklenen kalibrasyon ofseti."
+        "tr": "Sistematik hatayı düzeltmek için dönüşümden sonra derece cinsinden eklenen kalibrasyon ofseti.",
+        "de": "Kalibrierungsoffset in Grad, der nach der Umrechnung hinzugefügt wird, um systematische Fehler zu korrigieren."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Rounding Decimals",
         "tr": "Yuvarlama Ondalık Basamakları",
-        "de": "Rounding Decimals",
+        "de": "Rundungsdezimalstellen",
         "fr": "Rounding Decimals",
         "es": "Rounding Decimals",
         "ar": "Rounding Decimals"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the final degrees output. e.g., 2 results in two decimal places.",
-        "tr": "Nihai derece çıktısı için ondalık basamak sayısı. Örneğin, 2 iki ondalık basamak anlamına gelir."
+        "tr": "Nihai derece çıktısı için ondalık basamak sayısı. Örneğin, 2 iki ondalık basamak anlamına gelir.",
+        "de": "Anzahl der Dezimalstellen für die endgültige Gradausgabe. Z.B. 2 ergibt zwei Dezimalstellen."
       }
     }
   ],

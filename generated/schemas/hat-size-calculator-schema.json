@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Measured circumference around widest part of head.",
-        "tr": "Başın en geniş kısmı etrafında ölçülen çevre."
+        "tr": "Başın en geniş kısmı etrafında ölçülen çevre.",
+        "de": "Gemessener Umfang an der breitesten Stelle des Kopfes."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "0 for metric input in cm, 1 for imperial input in inches.",
-        "tr": "Metrik giriş için 0 (cm), emperyal giriş için 1 (inç)."
+        "tr": "Metrik giriş için 0 (cm), emperyal giriş için 1 (inç).",
+        "de": "0 für metrische Eingabe in cm, 1 für imperiale Eingabe in Zoll."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Hair Thickness Allowance",
         "tr": "Saç Kalınlığı Payı",
-        "de": "Hair Thickness Allowance",
+        "de": "Haardickenzugabe",
         "fr": "Hair Thickness Allowance",
         "es": "Hair Thickness Allowance",
         "ar": "Hair Thickness Allowance"
       },
       "businessContext_i18n": {
         "en": "Extra centimeters to add for thick hair (0 for none).",
-        "tr": "Kalın saç için eklenecek ekstra santimetre (yoksa 0)."
+        "tr": "Kalın saç için eklenecek ekstra santimetre (yoksa 0).",
+        "de": "Zusätzliche Zentimeter für dickes Haar (0 für keine)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fit Preference",
         "tr": "Uyum Tercihi",
-        "de": "Fit Preference",
+        "de": "Passformpräferenz",
         "fr": "Fit Preference",
         "es": "Fit Preference",
         "ar": "Fit Preference"
       },
       "businessContext_i18n": {
         "en": "0 for tight fit (subtract 0.5 cm), 1 for standard, 2 for loose fit (add 0.5 cm).",
-        "tr": "Sıkı uyum için 0 (0,5 cm çıkar), standart için 1, gevşek uyum için 2 (0,5 cm ekle)."
+        "tr": "Sıkı uyum için 0 (0,5 cm çıkar), standart için 1, gevşek uyum için 2 (0,5 cm ekle).",
+        "de": "0 für enge Passform (0,5 cm abziehen), 1 für Standard, 2 für lockere Passform (0,5 cm hinzufügen)."
       }
     }
   ],

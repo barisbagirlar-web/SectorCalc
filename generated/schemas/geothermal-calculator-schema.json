@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Reservoir Temperature (°C)",
         "tr": "Rezervuar Sıcaklığı (°C)",
-        "de": "Reservoir Temperature (°C)",
+        "de": "Reservoirtemperatur (°C)",
         "fr": "Reservoir Temperature (°C)",
         "es": "Reservoir Temperature (°C)",
         "ar": "Reservoir Temperature (°C)"
       },
       "businessContext_i18n": {
         "en": "Temperature of the geothermal reservoir",
-        "tr": "Jeotermal rezervuarın sıcaklığı"
+        "tr": "Jeotermal rezervuarın sıcaklığı",
+        "de": "Temperatur des geothermischen Reservoirs"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Ambient temperature at the surface",
-        "tr": "Yüzeydeki ortam sıcaklığı"
+        "tr": "Yüzeydeki ortam sıcaklığı",
+        "de": "Umgebungstemperatur an der Oberfläche"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Flow Rate (kg/s)",
         "tr": "Debi (kg/s)",
-        "de": "Flow Rate (kg/s)",
+        "de": "Durchflussrate (kg/s)",
         "fr": "Flow Rate (kg/s)",
         "es": "Flow Rate (kg/s)",
         "ar": "Flow Rate (kg/s)"
       },
       "businessContext_i18n": {
         "en": "Mass flow rate of geothermal fluid",
-        "tr": "Jeotermal akışkanın kütlesel debisi"
+        "tr": "Jeotermal akışkanın kütlesel debisi",
+        "de": "Massenstrom des geothermischen Fluids"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Specific Heat Capacity (kJ/kg·K)",
         "tr": "Özgül Isı Kapasitesi (kJ/kg·K)",
-        "de": "Specific Heat Capacity (kJ/kg·K)",
+        "de": "Spezifische Wärmekapazität (kJ/kg·K)",
         "fr": "Specific Heat Capacity (kJ/kg·K)",
         "es": "Specific Heat Capacity (kJ/kg·K)",
         "ar": "Specific Heat Capacity (kJ/kg·K)"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the geothermal fluid",
-        "tr": "Jeotermal akışkanın özgül ısı kapasitesi"
+        "tr": "Jeotermal akışkanın özgül ısı kapasitesi",
+        "de": "Spezifische Wärmekapazität des geothermischen Fluids"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Conversion Efficiency (%)",
         "tr": "Dönüşüm Verimliliği (%)",
-        "de": "Conversion Efficiency (%)",
+        "de": "Umwandlungswirkungsgrad (%)",
         "fr": "Conversion Efficiency (%)",
         "es": "Conversion Efficiency (%)",
         "ar": "Conversion Efficiency (%)"
       },
       "businessContext_i18n": {
         "en": "Efficiency of converting thermal energy to electricity",
-        "tr": "Termal enerjinin elektriğe dönüşüm verimliliği"
+        "tr": "Termal enerjinin elektriğe dönüşüm verimliliği",
+        "de": "Wirkungsgrad der Umwandlung von Wärmeenergie in Elektrizität"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Capacity Factor (%)",
         "tr": "Kapasite Faktörü (%)",
-        "de": "Capacity Factor (%)",
+        "de": "Kapazitätsfaktor (%)",
         "fr": "Capacity Factor (%)",
         "es": "Capacity Factor (%)",
         "ar": "Capacity Factor (%)"
       },
       "businessContext_i18n": {
         "en": "Fraction of time the plant operates at full capacity",
-        "tr": "Santralin tam kapasitede çalıştığı sürenin oranı"
+        "tr": "Santralin tam kapasitede çalıştığı sürenin oranı",
+        "de": "Anteil der Zeit, in der die Anlage mit voller Kapazität arbeitet"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Operating Hours per Year (hours)",
         "tr": "Yıllık Çalışma Saati (saat)",
-        "de": "Operating Hours per Year (hours)",
+        "de": "Betriebsstunden pro Jahr (h)",
         "fr": "Operating Hours per Year (hours)",
         "es": "Operating Hours per Year (hours)",
         "ar": "Operating Hours per Year (hours)"
       },
       "businessContext_i18n": {
         "en": "Total operating hours per year",
-        "tr": "Yıllık toplam çalışma saati"
+        "tr": "Yıllık toplam çalışma saati",
+        "de": "Gesamtbetriebsstunden pro Jahr"
       }
     }
   ],

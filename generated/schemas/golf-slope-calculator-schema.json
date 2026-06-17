@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "The expected score for a bogey golfer under normal course and weather conditions.",
-        "tr": "Normal saha ve hava koşullarında bir bogey golfçüsü için beklenen skor."
+        "tr": "Normal saha ve hava koşullarında bir bogey golfçüsü için beklenen skor.",
+        "de": "Die erwartete Punktzahl eines Bogey-Golfers unter normalen Platz- und Wetterbedingungen."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "The expected score for a scratch golfer under normal course and weather conditions.",
-        "tr": "Normal saha ve hava koşullarında bir sıfır handikap golfçüsü için beklenen skor."
+        "tr": "Normal saha ve hava koşullarında bir sıfır handikap golfçüsü için beklenen skor.",
+        "de": "Die erwartete Punktzahl eines Scratch-Golfers unter normalen Platz- und Wetterbedingungen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Slope Factor",
         "tr": "Eğim Faktörü",
-        "de": "Slope Factor",
+        "de": "Slope-Faktor",
         "fr": "Slope Factor",
         "es": "Slope Factor",
         "ar": "Slope Factor"
       },
       "businessContext_i18n": {
         "en": "Constant multiplier to convert rating difference to slope (5.381 for men, 4.24 for women).",
-        "tr": "Derece farkını eğime dönüştürmek için sabit çarpan (erkekler için 5,381, kadınlar için 4,24)."
+        "tr": "Derece farkını eğime dönüştürmek için sabit çarpan (erkekler için 5,381, kadınlar için 4,24).",
+        "de": "Konstanter Multiplikator zur Umrechnung der Rating-Differenz in Slope (5,381 für Männer, 4,24 für Frauen)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gross Score",
         "tr": "Brüt Skor",
-        "de": "Gross Score",
+        "de": "Bruttopunktzahl",
         "fr": "Gross Score",
         "es": "Gross Score",
         "ar": "Gross Score"
       },
       "businessContext_i18n": {
         "en": "Actual strokes taken by the player in the round.",
-        "tr": "Oyuncunun turda attığı gerçek vuruş sayısı."
+        "tr": "Oyuncunun turda attığı gerçek vuruş sayısı.",
+        "de": "Tatsächliche Schläge des Spielers in der Runde."
       }
     }
   ],

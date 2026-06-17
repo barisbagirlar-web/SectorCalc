@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Tracked Days",
         "tr": "İzlenen Günler",
-        "de": "Tracked Days",
+        "de": "Verfolgte Tage",
         "fr": "Tracked Days",
         "es": "Tracked Days",
         "ar": "Tracked Days"
       },
       "businessContext_i18n": {
         "en": "Number of days in which the habit was actively tracked.",
-        "tr": "Alışkanlığın aktif olarak izlendiği gün sayısı."
+        "tr": "Alışkanlığın aktif olarak izlendiği gün sayısı.",
+        "de": "Anzahl der Tage, an denen die Gewohnheit aktiv verfolgt wurde."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Successful Days",
         "tr": "Başarılı Günler",
-        "de": "Successful Days",
+        "de": "Erfolgreiche Tage",
         "fr": "Successful Days",
         "es": "Successful Days",
         "ar": "Successful Days"
       },
       "businessContext_i18n": {
         "en": "Number of days the habit was successfully performed.",
-        "tr": "Alışkanlığın başarıyla gerçekleştirildiği gün sayısı."
+        "tr": "Alışkanlığın başarıyla gerçekleştirildiği gün sayısı.",
+        "de": "Anzahl der Tage, an denen die Gewohnheit erfolgreich ausgeführt wurde."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Target Days",
         "tr": "Hedef Günler",
-        "de": "Target Days",
+        "de": "Zieltage",
         "fr": "Target Days",
         "es": "Target Days",
         "ar": "Target Days"
       },
       "businessContext_i18n": {
         "en": "Target number of successful days within the tracking period.",
-        "tr": "İzleme dönemi içinde hedeflenen başarılı gün sayısı."
+        "tr": "İzleme dönemi içinde hedeflenen başarılı gün sayısı.",
+        "de": "Zielanzahl erfolgreicher Tage innerhalb des Verfolgungszeitraums."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Total Period Days",
         "tr": "Toplam Dönem Günleri",
-        "de": "Total Period Days",
+        "de": "Gesamtzeitraum (Tage)",
         "fr": "Total Period Days",
         "es": "Total Period Days",
         "ar": "Total Period Days"
       },
       "businessContext_i18n": {
         "en": "Total number of days in the evaluation period.",
-        "tr": "Değerlendirme dönemindeki toplam gün sayısı."
+        "tr": "Değerlendirme dönemindeki toplam gün sayısı.",
+        "de": "Gesamtzahl der Tage im Bewertungszeitraum."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Current Streak",
         "tr": "Mevcut Seri",
-        "de": "Current Streak",
+        "de": "Aktuelle Serie",
         "fr": "Current Streak",
         "es": "Current Streak",
         "ar": "Current Streak"
       },
       "businessContext_i18n": {
         "en": "Consecutive days the habit has been successfully performed.",
-        "tr": "Alışkanlığın başarıyla gerçekleştirildiği ardışık günler."
+        "tr": "Alışkanlığın başarıyla gerçekleştirildiği ardışık günler.",
+        "de": "Aufeinanderfolgende Tage, an denen die Gewohnheit erfolgreich ausgeführt wurde."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Best Streak",
         "tr": "En İyi Seri",
-        "de": "Best Streak",
+        "de": "Beste Serie",
         "fr": "Best Streak",
         "es": "Best Streak",
         "ar": "Best Streak"
       },
       "businessContext_i18n": {
         "en": "Longest streak of consecutive successful days ever achieved.",
-        "tr": "Şimdiye kadar elde edilen en uzun ardışık başarılı gün serisi."
+        "tr": "Şimdiye kadar elde edilen en uzun ardışık başarılı gün serisi.",
+        "de": "Längste jemals erreichte Serie aufeinanderfolgender erfolgreicher Tage."
       }
     }
   ],

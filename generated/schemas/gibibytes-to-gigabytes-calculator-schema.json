@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gibibytes (GiB)",
         "tr": "Gibibytes (GiB)",
-        "de": "Gibibytes (GiB)",
+        "de": "Gibibyte (GiB)",
         "fr": "Gibibytes (GiB)",
         "es": "Gibibytes (GiB)",
         "ar": "Gibibytes (GiB)"
       },
       "businessContext_i18n": {
         "en": "Input value in gibibytes.",
-        "tr": "Gibibytes cinsinden giriş değeri."
+        "tr": "Gibibytes cinsinden giriş değeri.",
+        "de": "Eingabewert in Gibibyte."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Conversion Factor (GB per GiB)",
         "tr": "Dönüşüm Faktörü (GB/GiB)",
-        "de": "Conversion Factor (GB per GiB)",
+        "de": "Umrechnungsfaktor (GB pro GiB)",
         "fr": "Conversion Factor (GB per GiB)",
         "es": "Conversion Factor (GB per GiB)",
         "ar": "Conversion Factor (GB per GiB)"
       },
       "businessContext_i18n": {
         "en": "Factor for converting GiB to GB (fixed, but overridable for calibration).",
-        "tr": "GiB'yi GB'ye dönüştürme faktörü (sabittir, ancak kalibrasyon için değiştirilebilir)."
+        "tr": "GiB'yi GB'ye dönüştürme faktörü (sabittir, ancak kalibrasyon için değiştirilebilir).",
+        "de": "Faktor zur Umrechnung von GiB in GB (fest, aber zur Kalibrierung überschreibbar)."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Number of decimal digits for output rounding.",
-        "tr": "Çıktı yuvarlaması için ondalık basamak sayısı."
+        "tr": "Çıktı yuvarlaması için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Safety Factor (%)",
         "tr": "Güvenlik Faktörü (%)",
-        "de": "Safety Factor (%)",
+        "de": "Sicherheitsfaktor (%)",
         "fr": "Safety Factor (%)",
         "es": "Safety Factor (%)",
         "ar": "Safety Factor (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage added to result as safety margin, e.g., 10 means increase by 10%.",
-        "tr": "Sonuca güvenlik marjı olarak eklenen yüzde; örn. 10, %10 artış anlamına gelir."
+        "tr": "Sonuca güvenlik marjı olarak eklenen yüzde; örn. 10, %10 artış anlamına gelir.",
+        "de": "Prozentsatz, der als Sicherheitsmarge zum Ergebnis addiert wird, z. B. 10 bedeutet Erhöhung um 10%."
       }
     }
   ],

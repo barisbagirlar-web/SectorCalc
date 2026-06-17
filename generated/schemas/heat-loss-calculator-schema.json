@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "External Wall Area",
         "tr": "Dış Duvar Alanı",
-        "de": "External Wall Area",
+        "de": "Außenwandfläche",
         "fr": "External Wall Area",
         "es": "External Wall Area",
         "ar": "External Wall Area"
       },
       "businessContext_i18n": {
         "en": "Total external wall area excluding windows",
-        "tr": "Pencereler hariç toplam dış duvar alanı"
+        "tr": "Pencereler hariç toplam dış duvar alanı",
+        "de": "Gesamte Außenwandfläche ohne Fenster"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Window Area",
         "tr": "Pencere Alanı",
-        "de": "Window Area",
+        "de": "Fensterfläche",
         "fr": "Window Area",
         "es": "Window Area",
         "ar": "Window Area"
       },
       "businessContext_i18n": {
         "en": "Total window area",
-        "tr": "Toplam pencere alanı"
+        "tr": "Toplam pencere alanı",
+        "de": "Gesamte Fensterfläche"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Roof Area",
         "tr": "Çatı Alanı",
-        "de": "Roof Area",
+        "de": "Dachfläche",
         "fr": "Roof Area",
         "es": "Roof Area",
         "ar": "Roof Area"
       },
       "businessContext_i18n": {
         "en": "Total roof or ceiling area exposed to exterior",
-        "tr": "Dış ortama maruz kalan toplam çatı veya tavan alanı"
+        "tr": "Dış ortama maruz kalan toplam çatı veya tavan alanı",
+        "de": "Gesamte Dach- oder Deckenfläche, die dem Außenbereich ausgesetzt ist"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "U-Value Wall",
         "tr": "Duvar U-Değeri",
-        "de": "U-Value Wall",
+        "de": "U-Wert Wand",
         "fr": "U-Value Wall",
         "es": "U-Value Wall",
         "ar": "U-Value Wall"
       },
       "businessContext_i18n": {
         "en": "Thermal transmittance of walls",
-        "tr": "Duvarların ısıl geçirgenlik katsayısı"
+        "tr": "Duvarların ısıl geçirgenlik katsayısı",
+        "de": "Wärmedurchgangskoeffizient der Wände"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "U-Value Window",
         "tr": "Pencere U-Değeri",
-        "de": "U-Value Window",
+        "de": "U-Wert Fenster",
         "fr": "U-Value Window",
         "es": "U-Value Window",
         "ar": "U-Value Window"
       },
       "businessContext_i18n": {
         "en": "Thermal transmittance of windows",
-        "tr": "Pencerelerin ısıl geçirgenlik katsayısı"
+        "tr": "Pencerelerin ısıl geçirgenlik katsayısı",
+        "de": "Wärmedurchgangskoeffizient der Fenster"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "U-Value Roof",
         "tr": "Çatı U-Değeri",
-        "de": "U-Value Roof",
+        "de": "U-Wert Dach",
         "fr": "U-Value Roof",
         "es": "U-Value Roof",
         "ar": "U-Value Roof"
       },
       "businessContext_i18n": {
         "en": "Thermal transmittance of roof/ceiling",
-        "tr": "Çatı/tavanın ısıl geçirgenlik katsayısı"
+        "tr": "Çatı/tavanın ısıl geçirgenlik katsayısı",
+        "de": "Wärmedurchgangskoeffizient von Dach/Decke"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Indoor Temperature",
         "tr": "İç Ortam Sıcaklığı",
-        "de": "Indoor Temperature",
+        "de": "Innentemperatur",
         "fr": "Indoor Temperature",
         "es": "Indoor Temperature",
         "ar": "Indoor Temperature"
       },
       "businessContext_i18n": {
         "en": "Design indoor air temperature",
-        "tr": "Tasarım iç hava sıcaklığı"
+        "tr": "Tasarım iç hava sıcaklığı",
+        "de": "Auslegungs-Innenlufttemperatur"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Outdoor Temperature",
         "tr": "Dış Ortam Sıcaklığı",
-        "de": "Outdoor Temperature",
+        "de": "Außentemperatur",
         "fr": "Outdoor Temperature",
         "es": "Outdoor Temperature",
         "ar": "Outdoor Temperature"
       },
       "businessContext_i18n": {
         "en": "Design outdoor air temperature",
-        "tr": "Tasarım dış hava sıcaklığı"
+        "tr": "Tasarım dış hava sıcaklığı",
+        "de": "Auslegungs-Außenlufttemperatur"
       }
     }
   ],

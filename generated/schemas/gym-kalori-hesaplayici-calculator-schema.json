@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Egzersiz Süresi",
         "tr": "Egzersiz Süresi",
-        "de": "Egzersiz Süresi",
+        "de": "Trainingsdauer",
         "fr": "Egzersiz Süresi",
         "es": "Egzersiz Süresi",
         "ar": "Egzersiz Süresi"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının günlük egzersiz süresi (dakika)",
-        "tr": "Kullanıcının günlük egzersiz süresi (dakika)"
+        "tr": "Kullanıcının günlük egzersiz süresi (dakika)",
+        "de": "Tägliche Trainingsdauer des Benutzers (Minuten)"
       }
     },
     {
@@ -52,14 +53,15 @@
       "label_i18n": {
         "en": "Aktivite MET Değeri",
         "tr": "Aktivite MET Değeri",
-        "de": "Aktivite MET Değeri",
+        "de": "Aktivitäts-MET-Wert",
         "fr": "Aktivite MET Değeri",
         "es": "Aktivite MET Değeri",
         "ar": "Aktivite MET Değeri"
       },
       "businessContext_i18n": {
         "en": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)",
-        "tr": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)"
+        "tr": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)",
+        "de": "Metabolisches Äquivalent der Aktivität (1 MET = 3,5 ml O2/kg/min)"
       }
     },
     {
@@ -72,14 +74,15 @@
       "label_i18n": {
         "en": "Yoğunluk Faktörü",
         "tr": "Yoğunluk Faktörü",
-        "de": "Yoğunluk Faktörü",
+        "de": "Intensitätsfaktor",
         "fr": "Yoğunluk Faktörü",
         "es": "Yoğunluk Faktörü",
         "ar": "Yoğunluk Faktörü"
       },
       "businessContext_i18n": {
         "en": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)",
-        "tr": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)"
+        "tr": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)",
+        "de": "Korrekturkoeffizient für Trainingsintensität (1 = normal, >1 hohe Intensität)"
       }
     }
   ],

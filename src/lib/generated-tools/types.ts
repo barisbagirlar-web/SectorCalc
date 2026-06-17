@@ -102,10 +102,6 @@ export type GeneratedToolSchema = {
   };
   readonly premiumFeatures: readonly string[];
   readonly premiumRequired: boolean;
-  readonly cbam?: {
-    readonly enabled: boolean;
-    readonly description?: string;
-  };
   readonly about?: GeneratedToolAboutContent;
 };
 

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Ağırlık (g)",
         "tr": "Ağırlık (g)",
-        "de": "Ağırlık (g)",
+        "de": "Gewicht (g)",
         "fr": "Ağırlık (g)",
         "es": "Ağırlık (g)",
         "ar": "Ağırlık (g)"
       },
       "businessContext_i18n": {
         "en": "Malzemenin gram cinsinden ağırlığı.",
-        "tr": "Malzemenin gram cinsinden ağırlığı."
+        "tr": "Malzemenin gram cinsinden ağırlığı.",
+        "de": "Gewicht des Materials in Gramm."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Yoğunluk (g/mL)",
         "tr": "Yoğunluk (g/mL)",
-        "de": "Yoğunluk (g/mL)",
+        "de": "Dichte (g/mL)",
         "fr": "Yoğunluk (g/mL)",
         "es": "Yoğunluk (g/mL)",
         "ar": "Yoğunluk (g/mL)"
       },
       "businessContext_i18n": {
         "en": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0.",
-        "tr": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0."
+        "tr": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0.",
+        "de": "Dichte des Materials (Gramm/Milliliter). Für Mehl etwa 0,59, für Zucker 0,85, für Wasser 1,0."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Bardak Hacmi (mL)",
         "tr": "Bardak Hacmi (mL)",
-        "de": "Bardak Hacmi (mL)",
+        "de": "Bechervolumen (mL)",
         "fr": "Bardak Hacmi (mL)",
         "es": "Bardak Hacmi (mL)",
         "ar": "Bardak Hacmi (mL)"
       },
       "businessContext_i18n": {
         "en": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL.",
-        "tr": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL."
+        "tr": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL.",
+        "de": "Volumen des verwendeten Standardbechers in Millilitern. In den USA üblich 240 mL, im metrischen System 250 mL."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun).",
-        "tr": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun)."
+        "tr": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun).",
+        "de": "Faktor, der angibt, wie stark das Material verdichtet ist (1 = normal, >1 dichter)."
       }
     }
   ],

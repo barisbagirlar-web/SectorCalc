@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Adjusted Gross Score",
         "tr": "Düzeltilmiş Brüt Skor",
-        "de": "Adjusted Gross Score",
+        "de": "Bereinigtes Bruttoergebnis",
         "fr": "Adjusted Gross Score",
         "es": "Adjusted Gross Score",
         "ar": "Adjusted Gross Score"
       },
       "businessContext_i18n": {
         "en": "Player's adjusted gross score for the round (actual strokes taken after any adjustments).",
-        "tr": "Oyuncunun tur için düzeltilmiş brüt skoru (herhangi bir düzeltmeden sonra atılan gerçek vuruşlar)."
+        "tr": "Oyuncunun tur için düzeltilmiş brüt skoru (herhangi bir düzeltmeden sonra atılan gerçek vuruşlar).",
+        "de": "Bereinigtes Bruttoergebnis des Spielers für die Runde (tatsächliche Schläge nach etwaigen Anpassungen)."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Course rating from scorecard, representing difficulty for a scratch golfer.",
-        "tr": "Skor kartından saha derecesi, sıfır handikaplı golfçü için zorluğu temsil eder."
+        "tr": "Skor kartından saha derecesi, sıfır handikaplı golfçü için zorluğu temsil eder.",
+        "de": "Course Rating vom Scorecard, das den Schwierigkeitsgrad für einen Scratch-Golfer angibt."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Slope rating from scorecard (typically 55-155), indicating relative difficulty for bogey golfers.",
-        "tr": "Skor kartından eğim derecesi (genellikle 55-155), boği golfçüler için göreceli zorluğu gösterir."
+        "tr": "Skor kartından eğim derecesi (genellikle 55-155), boği golfçüler için göreceli zorluğu gösterir.",
+        "de": "Slope Rating vom Scorecard (typischerweise 55-155), das den relativen Schwierigkeitsgrad für Bogey-Golfer angibt."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Par for the course, used in course handicap calculation.",
-        "tr": "Sahanın parı, saha handikap hesaplamasında kullanılır."
+        "tr": "Sahanın parı, saha handikap hesaplamasında kullanılır.",
+        "de": "Par des Platzes, wird bei der Berechnung des Course Handicaps verwendet."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Handicap Index",
         "tr": "Handikap İndeksi",
-        "de": "Handicap Index",
+        "de": "Handicap-Index",
         "fr": "Handicap Index",
         "es": "Handicap Index",
         "ar": "Handicap Index"
       },
       "businessContext_i18n": {
         "en": "Player's current Handicap Index (for course handicap calculation; set to 0 if unknown).",
-        "tr": "Oyuncunun mevcut Handikap İndeksi (saha handikap hesaplaması için; bilinmiyorsa 0 olarak ayarlayın)."
+        "tr": "Oyuncunun mevcut Handikap İndeksi (saha handikap hesaplaması için; bilinmiyorsa 0 olarak ayarlayın).",
+        "de": "Aktueller Handicap-Index des Spielers (für die Course-Handicap-Berechnung; auf 0 setzen, falls unbekannt)."
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Raw Material Cost (per kg)",
         "tr": "Hammadde Maliyeti (kg başına)",
-        "de": "Raw Material Cost (per kg)",
+        "de": "Rohmaterialkosten (pro kg)",
         "fr": "Raw Material Cost (per kg)",
         "es": "Raw Material Cost (per kg)",
         "ar": "Raw Material Cost (per kg)"
       },
       "businessContext_i18n": {
         "en": "Cost of raw ham per kilogram",
-        "tr": "Kilogram başına çiğ jambon maliyeti"
+        "tr": "Kilogram başına çiğ jambon maliyeti",
+        "de": "Kosten für rohen Schinken pro Kilogramm"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Processing Time (per kg)",
         "tr": "İşleme Süresi (kg başına)",
-        "de": "Processing Time (per kg)",
+        "de": "Verarbeitungszeit (pro kg)",
         "fr": "Processing Time (per kg)",
         "es": "Processing Time (per kg)",
         "ar": "Processing Time (per kg)"
       },
       "businessContext_i18n": {
         "en": "Time required to process one kilogram of ham",
-        "tr": "Bir kilogram jambonu işlemek için gereken süre"
+        "tr": "Bir kilogram jambonu işlemek için gereken süre",
+        "de": "Zeit zur Verarbeitung eines Kilogramms Schinken"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Hourly wage for processing labor",
-        "tr": "İşçilik için saatlik ücret"
+        "tr": "İşçilik için saatlik ücret",
+        "de": "Stundenlohn für Verarbeitungsarbeit"
       }
     },
     {
@@ -71,7 +74,7 @@
       "label_i18n": {
         "en": "Energy Cost per kWh",
         "tr": "kWh başına Enerji Maliyeti",
-        "de": "Energy Cost per kWh",
+        "de": "Energiekosten pro kWh",
         "fr": "Energy Cost per kWh",
         "es": "Energy Cost per kWh",
         "ar": "Energy Cost per kWh"
@@ -92,14 +95,15 @@
       "label_i18n": {
         "en": "Energy Consumption per kg",
         "tr": "kg başına Enerji Tüketimi",
-        "de": "Energy Consumption per kg",
+        "de": "Energieverbrauch pro kg",
         "fr": "Energy Consumption per kg",
         "es": "Energy Consumption per kg",
         "ar": "Energy Consumption per kg"
       },
       "businessContext_i18n": {
         "en": "Energy used to process one kilogram of ham",
-        "tr": "Bir kilogram jambonu işlemek için kullanılan enerji"
+        "tr": "Bir kilogram jambonu işlemek için kullanılan enerji",
+        "de": "Energie zur Verarbeitung eines Kilogramms Schinken"
       }
     },
     {
@@ -112,14 +116,15 @@
       "label_i18n": {
         "en": "Yield Percentage",
         "tr": "Verim Yüzdesi",
-        "de": "Yield Percentage",
+        "de": "Ausbeuteprozentsatz",
         "fr": "Yield Percentage",
         "es": "Yield Percentage",
         "ar": "Yield Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of usable ham after processing",
-        "tr": "İşlem sonrası kullanılabilir jambon yüzdesi"
+        "tr": "İşlem sonrası kullanılabilir jambon yüzdesi",
+        "de": "Prozentsatz des verwertbaren Schinkens nach der Verarbeitung"
       }
     },
     {
@@ -132,14 +137,15 @@
       "label_i18n": {
         "en": "Packaging Cost per kg",
         "tr": "kg başına Paketleme Maliyeti",
-        "de": "Packaging Cost per kg",
+        "de": "Verpackungskosten pro kg",
         "fr": "Packaging Cost per kg",
         "es": "Packaging Cost per kg",
         "ar": "Packaging Cost per kg"
       },
       "businessContext_i18n": {
         "en": "Cost of packaging per kilogram of finished ham",
-        "tr": "Bitmiş jambonun kilogramı başına paketleme maliyeti"
+        "tr": "Bitmiş jambonun kilogramı başına paketleme maliyeti",
+        "de": "Verpackungskosten pro Kilogramm fertigen Schinken"
       }
     },
     {
@@ -159,7 +165,8 @@
       },
       "businessContext_i18n": {
         "en": "Overhead costs as a percentage of direct costs",
-        "tr": "Doğrudan maliyetlerin yüzdesi olarak genel gider maliyetleri"
+        "tr": "Doğrudan maliyetlerin yüzdesi olarak genel gider maliyetleri",
+        "de": "Gemeinkosten als Prozentsatz der direkten Kosten"
       }
     }
   ],

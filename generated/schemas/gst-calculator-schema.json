@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Amount (excl. GST)",
         "tr": "Tutar (KDV hariç)",
-        "de": "Amount (excl. GST)",
+        "de": "Betrag (exkl. MwSt.)",
         "fr": "Amount (excl. GST)",
         "es": "Amount (excl. GST)",
         "ar": "Amount (excl. GST)"
       },
       "businessContext_i18n": {
         "en": "Original price before GST",
-        "tr": "KDV öncesi orijinal fiyat"
+        "tr": "KDV öncesi orijinal fiyat",
+        "de": "Ursprünglicher Preis vor MwSt."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "GST Rate (%)",
         "tr": "KDV Oranı (%)",
-        "de": "GST Rate (%)",
+        "de": "MwSt.-Satz (%)",
         "fr": "GST Rate (%)",
         "es": "GST Rate (%)",
         "ar": "GST Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Applicable GST percentage (e.g., 5, 10, 12, 18)",
-        "tr": "Geçerli KDV yüzdesi (ör. 5, 10, 12, 18)"
+        "tr": "Geçerli KDV yüzdesi (ör. 5, 10, 12, 18)",
+        "de": "Anwendbarer MwSt.-Prozentsatz (z. B. 5, 10, 12, 18)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Country",
         "tr": "Ülke",
-        "de": "Country",
+        "de": "Land",
         "fr": "Country",
         "es": "Country",
         "ar": "Country"
       },
       "businessContext_i18n": {
         "en": "1=Australia, 2=Canada, 3=India",
-        "tr": "1=Avustralya, 2=Kanada, 3=Hindistan"
+        "tr": "1=Avustralya, 2=Kanada, 3=Hindistan",
+        "de": "1=Australien, 2=Kanada, 3=Indien"
       }
     }
   ],

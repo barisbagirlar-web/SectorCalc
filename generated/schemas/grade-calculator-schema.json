@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Elevation",
         "tr": "Başlangıç Yüksekliği",
-        "de": "Initial Elevation",
+        "de": "Anfangshöhe",
         "fr": "Initial Elevation",
         "es": "Initial Elevation",
         "ar": "Initial Elevation"
       },
       "businessContext_i18n": {
         "en": "The elevation at the starting point.",
-        "tr": "Başlangıç noktasındaki yükseklik."
+        "tr": "Başlangıç noktasındaki yükseklik.",
+        "de": "Die Höhe am Startpunkt."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Final Elevation",
         "tr": "Bitiş Yüksekliği",
-        "de": "Final Elevation",
+        "de": "Endhöhe",
         "fr": "Final Elevation",
         "es": "Final Elevation",
         "ar": "Final Elevation"
       },
       "businessContext_i18n": {
         "en": "The elevation at the ending point.",
-        "tr": "Bitiş noktasındaki yükseklik."
+        "tr": "Bitiş noktasındaki yükseklik.",
+        "de": "Die Höhe am Endpunkt."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "The horizontal distance between the two points.",
-        "tr": "İki nokta arasındaki yatay mesafe."
+        "tr": "İki nokta arasındaki yatay mesafe.",
+        "de": "Die horizontale Distanz zwischen den beiden Punkten."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the output values.",
-        "tr": "Çıktı değerlerinin yuvarlanacağı ondalık basamak sayısı."
+        "tr": "Çıktı değerlerinin yuvarlanacağı ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden der Ausgabewerte."
       }
     }
   ],

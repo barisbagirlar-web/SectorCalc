@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "pKa",
         "tr": "pKa",
-        "de": "pKa",
+        "de": "pKs",
         "fr": "pKa",
         "es": "pKa",
         "ar": "pKa"
       },
       "businessContext_i18n": {
         "en": "Negative logarithm of the acid dissociation constant (Ka) of the weak acid.",
-        "tr": "Zayıf asidin asit ayrışma sabitinin (Ka) negatif logaritması."
+        "tr": "Zayıf asidin asit ayrışma sabitinin (Ka) negatif logaritması.",
+        "de": "Negativer Logarithmus der Säuredissoziationskonstante (Ks) der schwachen Säure."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Concentration of Acid (HA)",
         "tr": "Asit (HA) Konsantrasyonu",
-        "de": "Concentration of Acid (HA)",
+        "de": "Konzentration der Säure (HA)",
         "fr": "Concentration of Acid (HA)",
         "es": "Concentration of Acid (HA)",
         "ar": "Concentration of Acid (HA)"
       },
       "businessContext_i18n": {
         "en": "Molar concentration of the weak acid species in the buffer.",
-        "tr": "Tampondaki zayıf asit türünün molar konsantrasyonu."
+        "tr": "Tampondaki zayıf asit türünün molar konsantrasyonu.",
+        "de": "Molare Konzentration der schwachen Säure im Puffer."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Concentration of Conjugate Base (A⁻)",
         "tr": "Konjuge Baz (A⁻) Konsantrasyonu",
-        "de": "Concentration of Conjugate Base (A⁻)",
+        "de": "Konzentration der konjugierten Base (A⁻)",
         "fr": "Concentration of Conjugate Base (A⁻)",
         "es": "Concentration of Conjugate Base (A⁻)",
         "ar": "Concentration of Conjugate Base (A⁻)"
       },
       "businessContext_i18n": {
         "en": "Molar concentration of the conjugate base species in the buffer.",
-        "tr": "Tampondaki konjuge baz türünün molar konsantrasyonu."
+        "tr": "Tampondaki konjuge baz türünün molar konsantrasyonu.",
+        "de": "Molare Konzentration der konjugierten Base im Puffer."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Temperature of the buffer solution; ensure the provided pKa corresponds to this temperature.",
-        "tr": "Tampon çözeltisinin sıcaklığı; sağlanan pKa'nın bu sıcaklığa karşılık geldiğinden emin olun."
+        "tr": "Tampon çözeltisinin sıcaklığı; sağlanan pKa'nın bu sıcaklığa karşılık geldiğinden emin olun.",
+        "de": "Temperatur der Pufferlösung; stellen Sie sicher, dass der angegebene pKs dieser Temperatur entspricht."
       }
     }
   ],

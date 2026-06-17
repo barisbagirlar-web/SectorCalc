@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Amount",
         "tr": "Başlangıç Miktarı",
-        "de": "Initial Amount",
+        "de": "Anfangsmenge",
         "fr": "Initial Amount",
         "es": "Initial Amount",
         "ar": "Initial Amount"
       },
       "businessContext_i18n": {
         "en": "Initial quantity of substance before decay begins",
-        "tr": "Bozunma başlamadan önceki madde miktarı"
+        "tr": "Bozunma başlamadan önceki madde miktarı",
+        "de": "Anfangsmenge des Stoffes vor Beginn des Zerfalls"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Half-Life",
         "tr": "Yarılanma Süresi",
-        "de": "Half-Life",
+        "de": "Halbwertszeit",
         "fr": "Half-Life",
         "es": "Half-Life",
         "ar": "Half-Life"
       },
       "businessContext_i18n": {
         "en": "Time required for half of the substance to decay",
-        "tr": "Maddenin yarısının bozunması için gereken süre"
+        "tr": "Maddenin yarısının bozunması için gereken süre",
+        "de": "Zeit, die benötigt wird, damit die Hälfte des Stoffes zerfällt"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Elapsed Time",
         "tr": "Geçen Süre",
-        "de": "Elapsed Time",
+        "de": "Verstrichene Zeit",
         "fr": "Elapsed Time",
         "es": "Elapsed Time",
         "ar": "Elapsed Time"
       },
       "businessContext_i18n": {
         "en": "Time passed since initial measurement",
-        "tr": "İlk ölçümden bu yana geçen süre"
+        "tr": "İlk ölçümden bu yana geçen süre",
+        "de": "Zeit seit der ersten Messung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Target Amount",
         "tr": "Hedef Miktar",
-        "de": "Target Amount",
+        "de": "Zielmenge",
         "fr": "Target Amount",
         "es": "Target Amount",
         "ar": "Target Amount"
       },
       "businessContext_i18n": {
         "en": "Desired remaining quantity to compute required time",
-        "tr": "Gerekli süreyi hesaplamak için istenen kalan miktar"
+        "tr": "Gerekli süreyi hesaplamak için istenen kalan miktar",
+        "de": "Gewünschte Restmenge zur Berechnung der benötigten Zeit"
       }
     }
   ],

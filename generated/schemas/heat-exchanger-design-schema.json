@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Hot Fluid Mass Flow Rate",
         "tr": "Sıcak Akışkan Kütlesel Debisi",
-        "de": "Hot Fluid Mass Flow Rate",
+        "de": "Massenstrom des Heißfluids",
         "fr": "Hot Fluid Mass Flow Rate",
         "es": "Hot Fluid Mass Flow Rate",
         "ar": "Hot Fluid Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Mass flow rate of the hot fluid entering the heat exchanger.",
-        "tr": "Isı değiştiriciye giren sıcak akışkanın kütlesel debisi."
+        "tr": "Isı değiştiriciye giren sıcak akışkanın kütlesel debisi.",
+        "de": "Massenstrom des in den Wärmetauscher eintretenden Heißfluids"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Hot Fluid Specific Heat",
         "tr": "Sıcak Akışkan Özgül Isısı",
-        "de": "Hot Fluid Specific Heat",
+        "de": "Spezifische Wärmekapazität des Heißfluids",
         "fr": "Hot Fluid Specific Heat",
         "es": "Hot Fluid Specific Heat",
         "ar": "Hot Fluid Specific Heat"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the hot fluid.",
-        "tr": "Sıcak akışkanın özgül ısı kapasitesi."
+        "tr": "Sıcak akışkanın özgül ısı kapasitesi.",
+        "de": "Spezifische Wärmekapazität des Heißfluids"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Hot Fluid Inlet Temperature",
         "tr": "Sıcak Akışkan Giriş Sıcaklığı",
-        "de": "Hot Fluid Inlet Temperature",
+        "de": "Heißfluid-Eintrittstemperatur",
         "fr": "Hot Fluid Inlet Temperature",
         "es": "Hot Fluid Inlet Temperature",
         "ar": "Hot Fluid Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Inlet temperature of the hot fluid.",
-        "tr": "Sıcak akışkanın giriş sıcaklığı."
+        "tr": "Sıcak akışkanın giriş sıcaklığı.",
+        "de": "Eintrittstemperatur des Heißfluids"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Hot Fluid Outlet Temperature",
         "tr": "Sıcak Akışkan Çıkış Sıcaklığı",
-        "de": "Hot Fluid Outlet Temperature",
+        "de": "Heißfluid-Austrittstemperatur",
         "fr": "Hot Fluid Outlet Temperature",
         "es": "Hot Fluid Outlet Temperature",
         "ar": "Hot Fluid Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Desired outlet temperature of the hot fluid.",
-        "tr": "Sıcak akışkan için istenen çıkış sıcaklığı."
+        "tr": "Sıcak akışkan için istenen çıkış sıcaklığı.",
+        "de": "Gewünschte Austrittstemperatur des Heißfluids"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Cold Fluid Mass Flow Rate",
         "tr": "Soğuk Akışkan Kütlesel Debisi",
-        "de": "Cold Fluid Mass Flow Rate",
+        "de": "Massenstrom des Kaltfluids",
         "fr": "Cold Fluid Mass Flow Rate",
         "es": "Cold Fluid Mass Flow Rate",
         "ar": "Cold Fluid Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Mass flow rate of the cold fluid.",
-        "tr": "Soğuk akışkanın kütlesel debisi."
+        "tr": "Soğuk akışkanın kütlesel debisi.",
+        "de": "Massenstrom des Kaltfluids"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Cold Fluid Specific Heat",
         "tr": "Soğuk Akışkan Özgül Isısı",
-        "de": "Cold Fluid Specific Heat",
+        "de": "Spezifische Wärmekapazität des Kaltmediums",
         "fr": "Cold Fluid Specific Heat",
         "es": "Cold Fluid Specific Heat",
         "ar": "Cold Fluid Specific Heat"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the cold fluid.",
-        "tr": "Soğuk akışkanın özgül ısı kapasitesi."
+        "tr": "Soğuk akışkanın özgül ısı kapasitesi.",
+        "de": "Spezifische Wärmekapazität des Kaltmediums."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Cold Fluid Inlet Temperature",
         "tr": "Soğuk Akışkan Giriş Sıcaklığı",
-        "de": "Cold Fluid Inlet Temperature",
+        "de": "Kaltfluid-Eintrittstemperatur",
         "fr": "Cold Fluid Inlet Temperature",
         "es": "Cold Fluid Inlet Temperature",
         "ar": "Cold Fluid Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Inlet temperature of the cold fluid.",
-        "tr": "Soğuk akışkanın giriş sıcaklığı."
+        "tr": "Soğuk akışkanın giriş sıcaklığı.",
+        "de": "Eintrittstemperatur des Kaltmediums."
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Overall Heat Transfer Coefficient",
         "tr": "Toplam Isı Transfer Katsayısı",
-        "de": "Overall Heat Transfer Coefficient",
+        "de": "Gesamtwärmeübergangskoeffizient",
         "fr": "Overall Heat Transfer Coefficient",
         "es": "Overall Heat Transfer Coefficient",
         "ar": "Overall Heat Transfer Coefficient"
       },
       "businessContext_i18n": {
         "en": "Overall heat transfer coefficient of the heat exchanger.",
-        "tr": "Isı değiştiricinin toplam ısı transfer katsayısı."
+        "tr": "Isı değiştiricinin toplam ısı transfer katsayısı.",
+        "de": "Wärmedurchgangskoeffizient des Wärmetauschers."
       }
     }
   ],

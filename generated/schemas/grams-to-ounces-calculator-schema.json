@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gram Miktarı",
         "tr": "Gram Miktarı",
-        "de": "Gram Miktarı",
+        "de": "Gramm-Menge",
         "fr": "Gram Miktarı",
         "es": "Gram Miktarı",
         "ar": "Gram Miktarı"
       },
       "businessContext_i18n": {
         "en": "Ölçülecek maddenin gram cinsinden ağırlığı",
-        "tr": "Ölçülecek maddenin gram cinsinden ağırlığı"
+        "tr": "Ölçülecek maddenin gram cinsinden ağırlığı",
+        "de": "Gewicht der zu messenden Substanz in Gramm"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Dönüşüm Faktörü (oz/g)",
         "tr": "Dönüşüm Faktörü (oz/g)",
-        "de": "Dönüşüm Faktörü (oz/g)",
+        "de": "Umrechnungsfaktor (oz/g)",
         "fr": "Dönüşüm Faktörü (oz/g)",
         "es": "Dönüşüm Faktörü (oz/g)",
         "ar": "Dönüşüm Faktörü (oz/g)"
       },
       "businessContext_i18n": {
         "en": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer.",
-        "tr": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer."
+        "tr": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer.",
+        "de": "Umrechnungskoeffizient von Gramm in Unzen, Standard-Internationalwert."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Parti Miktarı (adet)",
         "tr": "Parti Miktarı (adet)",
-        "de": "Parti Miktarı (adet)",
+        "de": "Chargenmenge (Stück)",
         "fr": "Parti Miktarı (adet)",
         "es": "Parti Miktarı (adet)",
         "ar": "Parti Miktarı (adet)"
       },
       "businessContext_i18n": {
         "en": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır.",
-        "tr": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır."
+        "tr": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır.",
+        "de": "Anzahl der Teile mit gleichem Gewicht; wird für die Gesamt-Unzen-Berechnung verwendet."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Sonucun yuvarlanacağı ondalık basamak sayısı",
-        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı"
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses"
       }
     }
   ],

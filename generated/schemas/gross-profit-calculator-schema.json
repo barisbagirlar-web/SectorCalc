@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gross Sales",
         "tr": "Brüt Satışlar",
-        "de": "Gross Sales",
+        "de": "Bruttoumsatz",
         "fr": "Gross Sales",
         "es": "Gross Sales",
         "ar": "Gross Sales"
       },
       "businessContext_i18n": {
         "en": "Total revenue from sales before deductions",
-        "tr": "Kesintilerden önceki toplam satış geliri"
+        "tr": "Kesintilerden önceki toplam satış geliri",
+        "de": "Gesamterlös aus Verkäufen vor Abzügen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sales Returns",
         "tr": "Satış İadeleri",
-        "de": "Sales Returns",
+        "de": "Retouren",
         "fr": "Sales Returns",
         "es": "Sales Returns",
         "ar": "Sales Returns"
       },
       "businessContext_i18n": {
         "en": "Value of returned goods",
-        "tr": "İade edilen malların değeri"
+        "tr": "İade edilen malların değeri",
+        "de": "Wert der zurückgesendeten Waren"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Sales Discounts",
         "tr": "Satış İndirimleri",
-        "de": "Sales Discounts",
+        "de": "Verkaufsrabatte",
         "fr": "Sales Discounts",
         "es": "Sales Discounts",
         "ar": "Sales Discounts"
       },
       "businessContext_i18n": {
         "en": "Discounts given to customers",
-        "tr": "Müşterilere verilen indirimler"
+        "tr": "Müşterilere verilen indirimler",
+        "de": "Rabatte, die Kunden gewährt werden"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Sales Allowances",
         "tr": "Satış İzinleri",
-        "de": "Sales Allowances",
+        "de": "Verkaufsvergütungen",
         "fr": "Sales Allowances",
         "es": "Sales Allowances",
         "ar": "Sales Allowances"
       },
       "businessContext_i18n": {
         "en": "Allowances for damaged goods or price reductions",
-        "tr": "Hasarlı mallar veya fiyat indirimleri için ödenekler"
+        "tr": "Hasarlı mallar veya fiyat indirimleri için ödenekler",
+        "de": "Vergütungen für beschädigte Ware oder Preisnachlässe"
       }
     },
     {
@@ -98,7 +102,8 @@
       },
       "businessContext_i18n": {
         "en": "Direct costs attributable to production of sold goods",
-        "tr": "Satılan malların üretimine atfedilebilen doğrudan maliyetler"
+        "tr": "Satılan malların üretimine atfedilebilen doğrudan maliyetler",
+        "de": "Direkte Kosten, die der Produktion der verkauften Waren zuzurechnen sind"
       }
     }
   ],

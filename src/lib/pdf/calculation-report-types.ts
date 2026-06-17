@@ -25,6 +25,10 @@ export type CalculationReportProps = {
   readonly primaryResult: string;
   readonly breakdownRows: readonly CalculationReportRow[];
   readonly generatedAt: string;
+  readonly trustTrace?: {
+    readonly hash: string;
+    readonly verifyUrl: string;
+  };
 };
 
 export function buildCalculationReportFileName(toolName: string): string {

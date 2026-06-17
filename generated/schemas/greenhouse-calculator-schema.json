@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Total electricity used in kWh per period (e.g., monthly or annual).",
-        "tr": "Dönem başına (örneğin aylık veya yıllık) kullanılan toplam elektrik (kWh)."
+        "tr": "Dönem başına (örneğin aylık veya yıllık) kullanılan toplam elektrik (kWh).",
+        "de": "Gesamter Stromverbrauch in kWh pro Periode (z. B. monatlich oder jährlich)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Emission Factor (Electricity)",
         "tr": "Emisyon Faktörü (Elektrik)",
-        "de": "Emission Factor (Electricity)",
+        "de": "Emissionsfaktor (Strom)",
         "fr": "Emission Factor (Electricity)",
         "es": "Emission Factor (Electricity)",
         "ar": "Emission Factor (Electricity)"
       },
       "businessContext_i18n": {
         "en": "CO2 equivalent per kWh, depends on grid mix. Default: EU average.",
-        "tr": "kWh başına CO2 eşdeğeri, şebeke karışımına bağlıdır. Varsayılan: AB ortalaması."
+        "tr": "kWh başına CO2 eşdeğeri, şebeke karışımına bağlıdır. Varsayılan: AB ortalaması.",
+        "de": "CO₂-Äquivalent pro kWh, abhängig vom Strommix. Standard: EU-Durchschnitt."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Volume of natural gas combusted.",
-        "tr": "Yakılan doğal gaz hacmi."
+        "tr": "Yakılan doğal gaz hacmi.",
+        "de": "Menge des verbrannten Erdgases."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Emission Factor (Natural Gas)",
         "tr": "Emisyon Faktörü (Doğal Gaz)",
-        "de": "Emission Factor (Natural Gas)",
+        "de": "Emissionsfaktor (Erdgas)",
         "fr": "Emission Factor (Natural Gas)",
         "es": "Emission Factor (Natural Gas)",
         "ar": "Emission Factor (Natural Gas)"
       },
       "businessContext_i18n": {
         "en": "CO2 equivalent per m³ of natural gas.",
-        "tr": "m³ doğal gaz başına CO2 eşdeğeri."
+        "tr": "m³ doğal gaz başına CO2 eşdeğeri.",
+        "de": "CO₂-Äquivalent pro m³ Erdgas."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Fuel Oil Consumption",
         "tr": "Akaryakıt Tüketimi",
-        "de": "Fuel Oil Consumption",
+        "de": "Heizölverbrauch",
         "fr": "Fuel Oil Consumption",
         "es": "Fuel Oil Consumption",
         "ar": "Fuel Oil Consumption"
       },
       "businessContext_i18n": {
         "en": "Volume of fuel oil (e.g., diesel) combusted.",
-        "tr": "Yakılan akaryakıt (örn. dizel) hacmi."
+        "tr": "Yakılan akaryakıt (örn. dizel) hacmi.",
+        "de": "Menge des verbrannten Heizöls (z. B. Diesel)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Emission Factor (Fuel Oil)",
         "tr": "Emisyon Faktörü (Akaryakıt)",
-        "de": "Emission Factor (Fuel Oil)",
+        "de": "Emissionsfaktor (Heizöl)",
         "fr": "Emission Factor (Fuel Oil)",
         "es": "Emission Factor (Fuel Oil)",
         "ar": "Emission Factor (Fuel Oil)"
       },
       "businessContext_i18n": {
         "en": "CO2 equivalent per litre of fuel oil.",
-        "tr": "Litre akaryakıt başına CO2 eşdeğeri."
+        "tr": "Litre akaryakıt başına CO2 eşdeğeri.",
+        "de": "CO₂-Äquivalent pro Liter Heizöl."
       }
     }
   ],

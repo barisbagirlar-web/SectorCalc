@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Age of the individual in years, used to estimate maximum heart rate if not explicitly provided",
-        "tr": "Bireyin yaşı (yıl olarak); açıkça belirtilmezse maksimum kalp atış hızını tahmin etmek için kullanılır"
+        "tr": "Bireyin yaşı (yıl olarak); açıkça belirtilmezse maksimum kalp atış hızını tahmin etmek için kullanılır",
+        "de": "Alter der Person in Jahren, wird zur Schätzung der maximalen Herzfrequenz verwendet, falls nicht explizit angegeben"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Resting heart rate measured in the morning before any activity, in beats per minute",
-        "tr": "Sabah herhangi bir aktiviteden önce ölçülen dinlenme kalp atış hızı (atım/dakika)"
+        "tr": "Sabah herhangi bir aktiviteden önce ölçülen dinlenme kalp atış hızı (atım/dakika)",
+        "de": "Ruhepuls am Morgen vor jeder Aktivität, in Schlägen pro Minute"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Maximum heart rate in beats per minute; if set to 0, it is estimated as 220 minus age",
-        "tr": "Maksimum kalp atış hızı (atım/dakika); 0 girilirse 220 eksi yaş olarak tahmin edilir"
+        "tr": "Maksimum kalp atış hızı (atım/dakika); 0 girilirse 220 eksi yaş olarak tahmin edilir",
+        "de": "Maximale Herzfrequenz in Schlägen pro Minute; bei 0 wird sie als 220 minus Alter geschätzt"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Training Intensity",
         "tr": "Antrenman Yoğunluğu",
-        "de": "Training Intensity",
+        "de": "Trainingsintensität",
         "fr": "Training Intensity",
         "es": "Training Intensity",
         "ar": "Training Intensity"
       },
       "businessContext_i18n": {
         "en": "Desired training intensity as a percentage of heart rate reserve (Karvonen method)",
-        "tr": "Kalp atış hızı rezervinin yüzdesi olarak istenen antrenman yoğunluğu (Karvonen yöntemi)"
+        "tr": "Kalp atış hızı rezervinin yüzdesi olarak istenen antrenman yoğunluğu (Karvonen yöntemi)",
+        "de": "Gewünschte Trainingsintensität als Prozentsatz der Herzfrequenzreserve (Karvonen-Methode)"
       }
     }
   ],

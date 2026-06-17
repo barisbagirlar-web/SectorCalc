@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Length",
         "tr": "Toplam Uzunluk",
-        "de": "Total Length",
+        "de": "Gesamtlänge",
         "fr": "Total Length",
         "es": "Total Length",
         "ar": "Total Length"
       },
       "businessContext_i18n": {
         "en": "The total length of the segment to be divided in golden ratio",
-        "tr": "Altın orana bölünecek parçanın toplam uzunluğu"
+        "tr": "Altın orana bölünecek parçanın toplam uzunluğu",
+        "de": "Die Gesamtlänge des zu teilenden Segments im Goldenen Schnitt"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Long Segment",
         "tr": "Uzun Parça",
-        "de": "Long Segment",
+        "de": "Langes Segment",
         "fr": "Long Segment",
         "es": "Long Segment",
         "ar": "Long Segment"
       },
       "businessContext_i18n": {
         "en": "The longer segment (approximately 0.618 of total)",
-        "tr": "Daha uzun parça (toplamın yaklaşık 0.618'i)"
+        "tr": "Daha uzun parça (toplamın yaklaşık 0.618'i)",
+        "de": "Das längere Segment (ca. 0,618 der Gesamtlänge)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Short Segment",
         "tr": "Kısa Parça",
-        "de": "Short Segment",
+        "de": "Kurzes Segment",
         "fr": "Short Segment",
         "es": "Short Segment",
         "ar": "Short Segment"
       },
       "businessContext_i18n": {
         "en": "The shorter segment (approximately 0.382 of total)",
-        "tr": "Daha kısa parça (toplamın yaklaşık 0.382'si)"
+        "tr": "Daha kısa parça (toplamın yaklaşık 0.382'si)",
+        "de": "Das kürzere Segment (ca. 0,382 der Gesamtlänge)"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Allowed deviation for golden ratio check",
-        "tr": "Altın oran kontrolü için izin verilen sapma"
+        "tr": "Altın oran kontrolü için izin verilen sapma",
+        "de": "Zulässige Abweichung für die Prüfung des Goldenen Schnitts"
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Grains",
         "tr": "Grains",
-        "de": "Grains",
+        "de": "Körner",
         "fr": "Grains",
         "es": "Grains",
         "ar": "Grains"
       },
       "businessContext_i18n": {
         "en": "Enter the mass in grains to be converted to grams.",
-        "tr": "Gram'a dönüştürülecek kütleyi grain cinsinden girin."
+        "tr": "Gram'a dönüştürülecek kütleyi grain cinsinden girin.",
+        "de": "Geben Sie die Masse in Körnern ein, die in Gramm umgerechnet werden soll."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from grains to grams. Change for custom conversions.",
-        "tr": "Grain'den gram'a standart dönüşüm faktörü. Özel dönüşümler için değiştirin."
+        "tr": "Grain'den gram'a standart dönüşüm faktörü. Özel dönüşümler için değiştirin.",
+        "de": "Standardumrechnungsfaktor von Körnern in Gramm. Ändern Sie ihn für benutzerdefinierte Umrechnungen."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output; ensures adherence to quality tolerances.",
-        "tr": "Çıktıdaki ondalık basamak sayısı; kalite toleranslarına uygunluğu sağlar."
+        "tr": "Çıktıdaki ondalık basamak sayısı; kalite toleranslarına uygunluğu sağlar.",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe; stellt die Einhaltung von Qualitätstoleranzen sicher."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "If converting for multiple batches, enter the batch quantity for total mass.",
-        "tr": "Birden fazla parti için dönüşüm yapılıyorsa, toplam kütle için parti miktarını girin."
+        "tr": "Birden fazla parti için dönüşüm yapılıyorsa, toplam kütle için parti miktarını girin.",
+        "de": "Wenn für mehrere Chargen umgerechnet wird, geben Sie die Chargenmenge für die Gesamtmasse ein."
       }
     }
   ],

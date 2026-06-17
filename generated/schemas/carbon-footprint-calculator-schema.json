@@ -116,7 +116,7 @@
     "waterCO2": "water_m3 * 0.3"
   },
   "outputs": {
-    "primary": "totalCO2",
+    "primary": "waterCO2",
     "breakdown": [
       "Electricity: {{electricityCO2}} kg CO2/year",
       "Natural Gas: {{naturalGasCO2}} kg CO2/year",
@@ -134,10 +134,6 @@
   "category": "Enerji & Karbon",
   "sector": "Çevre & Sürdürülebilirlik",
   "premiumRequired": false,
-  "cbam": {
-    "enabled": true,
-    "description": "CBAM uyum raporu oluşturur."
-  },
   "catalogCategory": "ecology-environment",
   "sectorSlug": "energy-carbon",
   "categorySlug": "sustainability-resource-esg",

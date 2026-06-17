@@ -1,3 +1,4 @@
+import { revenueLegalDisclaimer } from "@/lib/tools/revenue-legal-disclaimer";
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
 
 export const legacyRevenueToolsCore: RevenueTool[] = [

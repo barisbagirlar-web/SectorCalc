@@ -31,8 +31,6 @@ const PRIVATE_DISALLOW = [
 
 const AI_INDEX_ALLOW = [
   "/api-public/",
-  "/premium/",
-  "/premium-tools/",
   "/.well-known/openapi.yaml",
   "/llms.txt",
   "/ai.txt",
@@ -57,7 +55,6 @@ const AI_BOT_AGENTS = [
   "Google-Extended",
   "Googlebot",
   "Bingbot",
-  "ClaudeBot",
 ] as const;
 
 export default function robots(): MetadataRoute.Robots {
@@ -70,11 +67,11 @@ export default function robots(): MetadataRoute.Robots {
       },
       ...AI_BOT_AGENTS.map((userAgent) => ({
         userAgent,
-        allow: ["/", ...AI_INDEX_ALLOW, "/api/public/"],
-        disallow: PRIVATE_DISALLOW.filter((rule) => rule !== "/api/"),
+        allow: ["/", ...AI_INDEX_ALLOW],
+        disallow: PRIVATE_DISALLOW,
       })),
       {
-        userAgent: ["Applebot"],
+        userAgent: ["Applebot", "ClaudeBot"],
         allow: "/",
         disallow: PRIVATE_DISALLOW,
       },

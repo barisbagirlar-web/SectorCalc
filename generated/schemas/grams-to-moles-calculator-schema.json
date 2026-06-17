@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Mass (g)",
         "tr": "Kütle (g)",
-        "de": "Mass (g)",
+        "de": "Masse (g)",
         "fr": "Mass (g)",
         "es": "Mass (g)",
         "ar": "Mass (g)"
       },
       "businessContext_i18n": {
         "en": "Mass of the substance in grams. Ensure unit consistency; if using kg or mg, convert to g first.",
-        "tr": "Maddenin gram cinsinden kütlesi. Birim tutarlılığını sağlayın; kg veya mg kullanılıyorsa önce g'ye dönüştürün."
+        "tr": "Maddenin gram cinsinden kütlesi. Birim tutarlılığını sağlayın; kg veya mg kullanılıyorsa önce g'ye dönüştürün.",
+        "de": "Masse der Substanz in Gramm. Achten Sie auf Einheitenkonsistenz; bei Verwendung von kg oder mg zuerst in g umrechnen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Molecular Weight",
         "tr": "Molekül Ağırlığı",
-        "de": "Molecular Weight",
+        "de": "Molekulargewicht",
         "fr": "Molecular Weight",
         "es": "Molecular Weight",
         "ar": "Molecular Weight"
       },
       "businessContext_i18n": {
         "en": "Molar mass in grams per mole. Obtain from periodic table or material datasheet. Default: water (18.015 g/mol).",
-        "tr": "Gram/mol cinsinden molar kütle. Periyodik tablodan veya malzeme veri sayfasından alın. Varsayılan: su (18,015 g/mol)."
+        "tr": "Gram/mol cinsinden molar kütle. Periyodik tablodan veya malzeme veri sayfasından alın. Varsayılan: su (18,015 g/mol).",
+        "de": "Molmasse in Gramm pro Mol. Aus dem Periodensystem oder dem Datenblatt des Materials entnehmen. Standard: Wasser (18,015 g/mol)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Purity (%)",
         "tr": "Saflık (%)",
-        "de": "Purity (%)",
+        "de": "Reinheit (%)",
         "fr": "Purity (%)",
         "es": "Purity (%)",
         "ar": "Purity (%)"
       },
       "businessContext_i18n": {
         "en": "Substance purity as percentage. Adjust for impure samples; 100% ideal. Used to calculate effective mass.",
-        "tr": "Yüzde olarak madde saflığı. Saf olmayan numuneler için ayarlayın; %100 idealdir. Efektif kütleyi hesaplamak için kullanılır."
+        "tr": "Yüzde olarak madde saflığı. Saf olmayan numuneler için ayarlayın; %100 idealdir. Efektif kütleyi hesaplamak için kullanılır.",
+        "de": "Reinheit der Substanz in Prozent. Für unreine Proben anpassen; 100 % ideal. Wird zur Berechnung der effektiven Masse verwendet."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Process Yield (%)",
         "tr": "Proses Verimi (%)",
-        "de": "Process Yield (%)",
+        "de": "Prozessausbeute (%)",
         "fr": "Process Yield (%)",
         "es": "Process Yield (%)",
         "ar": "Process Yield (%)"
       },
       "businessContext_i18n": {
         "en": "Process yield efficiency (actual output / theoretical). 100% means no loss. Affects final mole quantity.",
-        "tr": "Proses verimliliği (gerçek çıktı / teorik). %100 kayıp yok demektir. Nihai mol miktarını etkiler."
+        "tr": "Proses verimliliği (gerçek çıktı / teorik). %100 kayıp yok demektir. Nihai mol miktarını etkiler.",
+        "de": "Prozessausbeute (tatsächliche Ausgabe / theoretische). 100 % bedeutet kein Verlust. Beeinflusst die endgültige Molmenge."
       }
     }
   ],

@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Mass of the substance to be vaporized.",
-        "tr": "Buharlaştırılacak maddenin kütlesi."
+        "tr": "Buharlaştırılacak maddenin kütlesi.",
+        "de": "Masse des zu verdampfenden Stoffes."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Starting temperature of the liquid before heating.",
-        "tr": "Isıtmadan önce sıvının başlangıç sıcaklığı."
+        "tr": "Isıtmadan önce sıvının başlangıç sıcaklığı.",
+        "de": "Starttemperatur der Flüssigkeit vor dem Erhitzen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Boiling Point",
         "tr": "Kaynama Noktası",
-        "de": "Boiling Point",
+        "de": "Siedepunkt",
         "fr": "Boiling Point",
         "es": "Boiling Point",
         "ar": "Boiling Point"
       },
       "businessContext_i18n": {
         "en": "Boiling point of the liquid at the given pressure.",
-        "tr": "Verilen basınçta sıvının kaynama noktası."
+        "tr": "Verilen basınçta sıvının kaynama noktası.",
+        "de": "Siedepunkt der Flüssigkeit bei gegebenem Druck."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the liquid phase (constant pressure).",
-        "tr": "Sıvı fazın özgül ısı kapasitesi (sabit basınç)."
+        "tr": "Sıvı fazın özgül ısı kapasitesi (sabit basınç).",
+        "de": "Spezifische Wärmekapazität der flüssigen Phase (konstanter Druck)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Latent Heat of Vaporization",
         "tr": "Buharlaşma Gizli Isısı",
-        "de": "Latent Heat of Vaporization",
+        "de": "Verdampfungswärme",
         "fr": "Latent Heat of Vaporization",
         "es": "Latent Heat of Vaporization",
         "ar": "Latent Heat of Vaporization"
       },
       "businessContext_i18n": {
         "en": "Energy required to vaporize one kilogram of the liquid at boiling point.",
-        "tr": "Kaynama noktasında bir kilogram sıvıyı buharlaştırmak için gereken enerji."
+        "tr": "Kaynama noktasında bir kilogram sıvıyı buharlaştırmak için gereken enerji.",
+        "de": "Energie, die benötigt wird, um ein Kilogramm der Flüssigkeit am Siedepunkt zu verdampfen."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Heating Efficiency",
         "tr": "Isıtma Verimliliği",
-        "de": "Heating Efficiency",
+        "de": "Heizwirkungsgrad",
         "fr": "Heating Efficiency",
         "es": "Heating Efficiency",
         "ar": "Heating Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the heating system (100% means no losses).",
-        "tr": "Isıtma sisteminin verimliliği (%100 kayıp olmadığı anlamına gelir)."
+        "tr": "Isıtma sisteminin verimliliği (%100 kayıp olmadığı anlamına gelir).",
+        "de": "Wirkungsgrad des Heizsystems (100% bedeutet keine Verluste)."
       }
     },
     {
@@ -138,7 +144,8 @@
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for design margins or uncertainties.",
-        "tr": "Tasarım payları veya belirsizlikleri hesaba katmak için çarpan."
+        "tr": "Tasarım payları veya belirsizlikleri hesaba katmak için çarpan.",
+        "de": "Multiplikator zur Berücksichtigung von Auslegungsspielräumen oder Unsicherheiten."
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Basic X (Nominal)",
         "tr": "Temel X (Nominal)",
-        "de": "Basic X (Nominal)",
+        "de": "Grundmaß X (Nennmaß)",
         "fr": "Basic X (Nominal)",
         "es": "Basic X (Nominal)",
         "ar": "Basic X (Nominal)"
       },
       "businessContext_i18n": {
         "en": "Theoretical exact X coordinate from drawing",
-        "tr": "Çizimden teorik tam X koordinatı"
+        "tr": "Çizimden teorik tam X koordinatı",
+        "de": "Theoretisches exaktes X-Koordinate aus der Zeichnung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Basic Y (Nominal)",
         "tr": "Temel Y (Nominal)",
-        "de": "Basic Y (Nominal)",
+        "de": "Grundmaß Y (Nennmaß)",
         "fr": "Basic Y (Nominal)",
         "es": "Basic Y (Nominal)",
         "ar": "Basic Y (Nominal)"
       },
       "businessContext_i18n": {
         "en": "Theoretical exact Y coordinate from drawing",
-        "tr": "Çizimden teorik tam Y koordinatı"
+        "tr": "Çizimden teorik tam Y koordinatı",
+        "de": "Theoretisches exaktes Y-Koordinate aus der Zeichnung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Measured X",
         "tr": "Ölçülen X",
-        "de": "Measured X",
+        "de": "Gemessenes X",
         "fr": "Measured X",
         "es": "Measured X",
         "ar": "Measured X"
       },
       "businessContext_i18n": {
         "en": "Actual measured X coordinate",
-        "tr": "Gerçek ölçülen X koordinatı"
+        "tr": "Gerçek ölçülen X koordinatı",
+        "de": "Tatsächlich gemessene X-Koordinate"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Measured Y",
         "tr": "Ölçülen Y",
-        "de": "Measured Y",
+        "de": "Gemessenes Y",
         "fr": "Measured Y",
         "es": "Measured Y",
         "ar": "Measured Y"
       },
       "businessContext_i18n": {
         "en": "Actual measured Y coordinate",
-        "tr": "Gerçek ölçülen Y koordinatı"
+        "tr": "Gerçek ölçülen Y koordinatı",
+        "de": "Tatsächlich gemessene Y-Koordinate"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Hole Diameter (Nominal)",
         "tr": "Delik Çapı (Nominal)",
-        "de": "Hole Diameter (Nominal)",
+        "de": "Lochdurchmesser (Nennmaß)",
         "fr": "Hole Diameter (Nominal)",
         "es": "Hole Diameter (Nominal)",
         "ar": "Hole Diameter (Nominal)"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the hole",
-        "tr": "Deliğin nominal çapı"
+        "tr": "Deliğin nominal çapı",
+        "de": "Nenndurchmesser des Lochs"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Lower Tolerance (MMC)",
         "tr": "Alt Tolerans (MMC)",
-        "de": "Lower Tolerance (MMC)",
+        "de": "Untere Toleranz (MMC)",
         "fr": "Lower Tolerance (MMC)",
         "es": "Lower Tolerance (MMC)",
         "ar": "Lower Tolerance (MMC)"
       },
       "businessContext_i18n": {
         "en": "Absolute deviation from nominal to smallest permissible size (e.g., 0.1 for hole at MMC = nominal - 0.1)",
-        "tr": "Nominalden izin verilen en küçük boyuta mutlak sapma (örneğin, MMC'de delik için 0,1 = nominal - 0,1)"
+        "tr": "Nominalden izin verilen en küçük boyuta mutlak sapma (örneğin, MMC'de delik için 0,1 = nominal - 0,1)",
+        "de": "Absolute Abweichung vom Nennmaß zur kleinsten zulässigen Größe (z. B. 0,1 für Loch bei MMC = Nennmaß - 0,1)"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Actual Hole Diameter",
         "tr": "Gerçek Delik Çapı",
-        "de": "Actual Hole Diameter",
+        "de": "Tatsächlicher Lochdurchmesser",
         "fr": "Actual Hole Diameter",
         "es": "Actual Hole Diameter",
         "ar": "Actual Hole Diameter"
       },
       "businessContext_i18n": {
         "en": "Measured diameter of the produced hole",
-        "tr": "Üretilen deliğin ölçülen çapı"
+        "tr": "Üretilen deliğin ölçülen çapı",
+        "de": "Gemessener Durchmesser des gefertigten Lochs"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Specified Position Tolerance",
         "tr": "Belirtilen Konum Toleransı",
-        "de": "Specified Position Tolerance",
+        "de": "Spezifizierte Positionstoleranz",
         "fr": "Specified Position Tolerance",
         "es": "Specified Position Tolerance",
         "ar": "Specified Position Tolerance"
       },
       "businessContext_i18n": {
         "en": "Position tolerance value from the drawing feature control frame",
-        "tr": "Çizim özellik kontrol çerçevesinden konum toleransı değeri"
+        "tr": "Çizim özellik kontrol çerçevesinden konum toleransı değeri",
+        "de": "Positionstoleranzwert aus dem Merkmalrahmen der Zeichnung"
       }
     }
   ],

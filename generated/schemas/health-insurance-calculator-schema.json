@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Age of the primary insured",
-        "tr": "Ana sigortalının yaşı"
+        "tr": "Ana sigortalının yaşı",
+        "de": "Alter der versicherten Hauptperson"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sum Insured",
         "tr": "Sigorta Tutarı",
-        "de": "Sum Insured",
+        "de": "Versicherungssumme",
         "fr": "Sum Insured",
         "es": "Sum Insured",
         "ar": "Sum Insured"
       },
       "businessContext_i18n": {
         "en": "Total coverage amount",
-        "tr": "Toplam teminat miktarı"
+        "tr": "Toplam teminat miktarı",
+        "de": "Gesamtdeckungssumme"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Family Members",
         "tr": "Aile Üyesi Sayısı",
-        "de": "Number of Family Members",
+        "de": "Anzahl der Familienmitglieder",
         "fr": "Number of Family Members",
         "es": "Number of Family Members",
         "ar": "Number of Family Members"
       },
       "businessContext_i18n": {
         "en": "Total insured family members including primary",
-        "tr": "Birincil dahil toplam sigortalı aile üyeleri"
+        "tr": "Birincil dahil toplam sigortalı aile üyeleri",
+        "de": "Versicherte Familienmitglieder insgesamt, einschließlich Hauptperson"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Smoker Status",
         "tr": "Sigara İçme Durumu",
-        "de": "Smoker Status",
+        "de": "Raucherstatus",
         "fr": "Smoker Status",
         "es": "Smoker Status",
         "ar": "Smoker Status"
       },
       "businessContext_i18n": {
         "en": "0 for non-smoker, 1 for smoker",
-        "tr": "0 içmiyor, 1 içiyor"
+        "tr": "0 içmiyor, 1 içiyor",
+        "de": "0 für Nichtraucher, 1 für Raucher"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Pre-existing Conditions",
         "tr": "Önceden Var Olan Hastalıklar",
-        "de": "Pre-existing Conditions",
+        "de": "Vorerkrankungen",
         "fr": "Pre-existing Conditions",
         "es": "Pre-existing Conditions",
         "ar": "Pre-existing Conditions"
       },
       "businessContext_i18n": {
         "en": "0 for none, 1 for pre-existing conditions",
-        "tr": "0 yok, 1 var"
+        "tr": "0 yok, 1 var",
+        "de": "0 für keine, 1 für Vorerkrankungen"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Occupation Risk Factor",
         "tr": "Meslek Risk Faktörü",
-        "de": "Occupation Risk Factor",
+        "de": "Berufsrisikofaktor",
         "fr": "Occupation Risk Factor",
         "es": "Occupation Risk Factor",
         "ar": "Occupation Risk Factor"
       },
       "businessContext_i18n": {
         "en": "Risk factor based on occupation (1.0 = low risk, up to 2.0 high risk)",
-        "tr": "Mesleğe göre risk faktörü (1.0 = düşük risk, 2.0'a kadar yüksek risk)"
+        "tr": "Mesleğe göre risk faktörü (1.0 = düşük risk, 2.0'a kadar yüksek risk)",
+        "de": "Risikofaktor basierend auf dem Beruf (1,0 = niedriges Risiko, bis zu 2,0 hohes Risiko)"
       }
     }
   ],

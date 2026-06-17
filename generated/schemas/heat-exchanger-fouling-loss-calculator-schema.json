@@ -22,11 +22,13 @@
       "businessContext": "Clean design UA from manufacturer datasheet or initial commissioning test (ISO 50001:2018, Annex B).",
       "label_i18n": {
         "en": "Design Overall Heat Transfer Coefficient × Area (UA_design)",
-        "tr": "Tasarım Toplam Isı Transfer Katsayısı × Alan (UA_tasarım)"
+        "tr": "Tasarım Toplam Isı Transfer Katsayısı × Alan (UA_tasarım)",
+        "de": "Auslegungs-Wärmedurchgangskoeffizient × Fläche (UA_Auslegung)"
       },
       "businessContext_i18n": {
         "en": "Clean design UA from manufacturer datasheet or initial commissioning test (ISO 50001:2018, Annex B).",
-        "tr": "Üretici veri sayfasından veya ilk devreye alma testinden temiz tasarım UA değeri (ISO 50001:2018, Ek B)."
+        "tr": "Üretici veri sayfasından veya ilk devreye alma testinden temiz tasarım UA değeri (ISO 50001:2018, Ek B).",
+        "de": "Reine Auslegungs-UA aus Herstellerdatenblatt oder Erstinbetriebnahmetest (ISO 50001:2018, Anhang B)."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Current measured UA from process data (temperature, flow) using heat balance. Indicates fouling severity.",
       "label_i18n": {
         "en": "Actual Overall Heat Transfer Coefficient × Area (UA_actual)",
-        "tr": "Gerçek Toplam Isı Transfer Katsayısı × Alan (UA_gerçek)"
+        "tr": "Gerçek Toplam Isı Transfer Katsayısı × Alan (UA_gerçek)",
+        "de": "Tatsächlicher Wärmedurchgangskoeffizient × Fläche (UA_ist)"
       },
       "businessContext_i18n": {
         "en": "Current measured UA from process data (temperature, flow) using heat balance. Indicates fouling severity.",
-        "tr": "Proses verilerinden (sıcaklık, debi) ısı dengesi kullanılarak ölçülen mevcut UA. Kirlenme şiddetini gösterir."
+        "tr": "Proses verilerinden (sıcaklık, debi) ısı dengesi kullanılarak ölçülen mevcut UA. Kirlenme şiddetini gösterir.",
+        "de": "Aktuelle gemessene UA aus Prozessdaten (Temperatur, Durchfluss) mittels Wärmebilanz. Zeigt Verschmutzungsgrad an."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Temperature of hot process stream entering the heat exchanger.",
       "label_i18n": {
         "en": "Hot Fluid Inlet Temperature",
-        "tr": "Sıcak Akışkan Giriş Sıcaklığı"
+        "tr": "Sıcak Akışkan Giriş Sıcaklığı",
+        "de": "Heißfluid-Eintrittstemperatur"
       },
       "businessContext_i18n": {
         "en": "Temperature of hot process stream entering the heat exchanger.",
-        "tr": "Isı değiştiriciye giren sıcak proses akışının sıcaklığı."
+        "tr": "Isı değiştiriciye giren sıcak proses akışının sıcaklığı.",
+        "de": "Temperatur des heißen Prozessstroms am Eintritt des Wärmetauschers."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Temperature of cooling or heating utility entering the exchanger.",
       "label_i18n": {
         "en": "Cold Fluid Inlet Temperature",
-        "tr": "Soğuk Akışkan Giriş Sıcaklığı"
+        "tr": "Soğuk Akışkan Giriş Sıcaklığı",
+        "de": "Kaltfluid-Eintrittstemperatur"
       },
       "businessContext_i18n": {
         "en": "Temperature of cooling or heating utility entering the exchanger.",
-        "tr": "Isı değiştiriciye giren soğutma veya ısıtma yardımcı akışkanının sıcaklığı."
+        "tr": "Isı değiştiriciye giren soğutma veya ısıtma yardımcı akışkanının sıcaklığı.",
+        "de": "Temperatur des Kühl- oder Heizmediums am Eintritt des Wärmetauschers."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Mass flow rate of the hot process stream.",
       "label_i18n": {
         "en": "Hot Fluid Mass Flow Rate",
-        "tr": "Sıcak Akışkan Kütlesel Debisi"
+        "tr": "Sıcak Akışkan Kütlesel Debisi",
+        "de": "Massenstrom des Heißfluids"
       },
       "businessContext_i18n": {
         "en": "Mass flow rate of the hot process stream.",
-        "tr": "Sıcak proses akışının kütlesel debisi."
+        "tr": "Sıcak proses akışının kütlesel debisi.",
+        "de": "Massenstrom des heißen Prozessstroms."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Average specific heat of hot fluid over operating temperature range.",
       "label_i18n": {
         "en": "Hot Fluid Specific Heat Capacity",
-        "tr": "Sıcak Akışkan Özgül Isı Kapasitesi"
+        "tr": "Sıcak Akışkan Özgül Isı Kapasitesi",
+        "de": "Spezifische Wärmekapazität des Heißmediums"
       },
       "businessContext_i18n": {
         "en": "Average specific heat of hot fluid over operating temperature range.",
-        "tr": "Çalışma sıcaklık aralığında sıcak akışkanın ortalama özgül ısısı."
+        "tr": "Çalışma sıcaklık aralığında sıcak akışkanın ortalama özgül ısısı.",
+        "de": "Mittlere spezifische Wärme des Heißmediums im Betriebstemperaturbereich."
       }
     },
     {
@@ -130,11 +142,13 @@
       "businessContext": "Cost of thermal energy (steam, hot water, or electricity for pumping).",
       "label_i18n": {
         "en": "Energy Cost",
-        "tr": "Enerji Maliyeti"
+        "tr": "Enerji Maliyeti",
+        "de": "Energiekosten"
       },
       "businessContext_i18n": {
         "en": "Cost of thermal energy (steam, hot water, or electricity for pumping).",
-        "tr": "Termal enerji maliyeti (buhar, sıcak su veya pompalama için elektrik)."
+        "tr": "Termal enerji maliyeti (buhar, sıcak su veya pompalama için elektrik).",
+        "de": "Kosten der thermischen Energie (Dampf, Heißwasser oder Strom für Pumpen)."
       }
     },
     {
@@ -153,7 +167,8 @@
       },
       "businessContext_i18n": {
         "en": "Annual operating hours of the heat exchanger.",
-        "tr": "Isı değiştiricinin yıllık çalışma saati."
+        "tr": "Isı değiştiricinin yıllık çalışma saati.",
+        "de": "Jährliche Betriebsstunden des Wärmetauschers."
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "İlk Nakit Akışı",
         "tr": "İlk Nakit Akışı",
-        "de": "İlk Nakit Akışı",
+        "de": "Erster Cashflow",
         "fr": "İlk Nakit Akışı",
         "es": "İlk Nakit Akışı",
         "ar": "İlk Nakit Akışı"
       },
       "businessContext_i18n": {
         "en": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)",
-        "tr": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)"
+        "tr": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)",
+        "de": "Erwarteter Cashflow am Ende der ersten Periode (normalerweise nächstes Jahr)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "İskonto Oranı",
         "tr": "İskonto Oranı",
-        "de": "İskonto Oranı",
+        "de": "Diskontsatz",
         "fr": "İskonto Oranı",
         "es": "İskonto Oranı",
         "ar": "İskonto Oranı"
       },
       "businessContext_i18n": {
         "en": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır",
-        "tr": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır"
+        "tr": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır",
+        "de": "Erwartete Rendite des Investors oder Kapitalkosten, verwendet als Diskontsatz"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Büyüme Oranı",
         "tr": "Büyüme Oranı",
-        "de": "Büyüme Oranı",
+        "de": "Wachstumsrate",
         "fr": "Büyüme Oranı",
         "es": "Büyüme Oranı",
         "ar": "Büyüme Oranı"
       },
       "businessContext_i18n": {
         "en": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır",
-        "tr": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır"
+        "tr": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır",
+        "de": "Konstante Wachstumsrate der Cashflows pro Periode, muss kleiner als der Diskontsatz sein"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Ödeme Zamanlaması",
         "tr": "Ödeme Zamanlaması",
-        "de": "Ödeme Zamanlaması",
+        "de": "Zahlungszeitpunkt",
         "fr": "Ödeme Zamanlaması",
         "es": "Ödeme Zamanlaması",
         "ar": "Ödeme Zamanlaması"
       },
       "businessContext_i18n": {
         "en": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir",
-        "tr": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir"
+        "tr": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir",
+        "de": "Gibt an, ob Cashflows am Ende (0) oder am Anfang (1) der Periode anfallen"
       }
     }
   ],

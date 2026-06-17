@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Heat transfer surface area",
-        "tr": "Isı transfer yüzey alanı"
+        "tr": "Isı transfer yüzey alanı",
+        "de": "Wärmeübertragungsfläche"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Thickness of the wall material",
-        "tr": "Duvar malzemesinin kalınlığı"
+        "tr": "Duvar malzemesinin kalınlığı",
+        "de": "Dicke des Wandmaterials"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Thermal conductivity of wall material",
-        "tr": "Duvar malzemesinin termal iletkenliği"
+        "tr": "Duvar malzemesinin termal iletkenliği",
+        "de": "Wärmeleitfähigkeit des Wandmaterials"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Inside Convection Coefficient",
         "tr": "İç Konveksiyon Katsayısı",
-        "de": "Inside Convection Coefficient",
+        "de": "Innerer Konvektionskoeffizient",
         "fr": "Inside Convection Coefficient",
         "es": "Inside Convection Coefficient",
         "ar": "Inside Convection Coefficient"
       },
       "businessContext_i18n": {
         "en": "Convective heat transfer coefficient on the hot side",
-        "tr": "Sıcak taraftaki konvektif ısı transfer katsayısı"
+        "tr": "Sıcak taraftaki konvektif ısı transfer katsayısı",
+        "de": "Konvektiver Wärmeübergangskoeffizient auf der heißen Seite"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Outside Convection Coefficient",
         "tr": "Dış Konveksiyon Katsayısı",
-        "de": "Outside Convection Coefficient",
+        "de": "Äußerer Konvektionskoeffizient",
         "fr": "Outside Convection Coefficient",
         "es": "Outside Convection Coefficient",
         "ar": "Outside Convection Coefficient"
       },
       "businessContext_i18n": {
         "en": "Convective heat transfer coefficient on the cold side",
-        "tr": "Soğuk taraftaki konvektif ısı transfer katsayısı"
+        "tr": "Soğuk taraftaki konvektif ısı transfer katsayısı",
+        "de": "Konvektiver Wärmeübergangskoeffizient auf der kalten Seite"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Inside Temperature",
         "tr": "İç Sıcaklık",
-        "de": "Inside Temperature",
+        "de": "Innentemperatur",
         "fr": "Inside Temperature",
         "es": "Inside Temperature",
         "ar": "Inside Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the hot fluid",
-        "tr": "Sıcak akışkanın sıcaklığı"
+        "tr": "Sıcak akışkanın sıcaklığı",
+        "de": "Temperatur des heißen Fluids"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Outside Temperature",
         "tr": "Dış Sıcaklık",
-        "de": "Outside Temperature",
+        "de": "Außentemperatur",
         "fr": "Outside Temperature",
         "es": "Outside Temperature",
         "ar": "Outside Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the cold fluid",
-        "tr": "Soğuk akışkanın sıcaklığı"
+        "tr": "Soğuk akışkanın sıcaklığı",
+        "de": "Temperatur des kalten Fluids"
       }
     }
   ],

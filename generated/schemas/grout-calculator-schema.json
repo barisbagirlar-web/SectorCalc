@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Tile Length",
         "tr": "Fayans Uzunluğu",
-        "de": "Tile Length",
+        "de": "Fliesenlänge",
         "fr": "Tile Length",
         "es": "Tile Length",
         "ar": "Tile Length"
       },
       "businessContext_i18n": {
         "en": "Tile length in millimeters.",
-        "tr": "Fayans uzunluğu milimetre cinsinden."
+        "tr": "Fayans uzunluğu milimetre cinsinden.",
+        "de": "Fliesenlänge in Millimetern."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Tile width in millimeters.",
-        "tr": "Fayans genişliği milimetre cinsinden."
+        "tr": "Fayans genişliği milimetre cinsinden.",
+        "de": "Fliesenbreite in Millimetern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Grout Joint Width",
         "tr": "Derz Aralığı Genişliği",
-        "de": "Grout Joint Width",
+        "de": "Fugenbreite",
         "fr": "Grout Joint Width",
         "es": "Grout Joint Width",
         "ar": "Grout Joint Width"
       },
       "businessContext_i18n": {
         "en": "Width of the grout joint between tiles.",
-        "tr": "Fayanslar arasındaki derz aralığının genişliği."
+        "tr": "Fayanslar arasındaki derz aralığının genişliği.",
+        "de": "Breite der Fuge zwischen den Fliesen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Grout Joint Depth",
         "tr": "Derz Aralığı Derinliği",
-        "de": "Grout Joint Depth",
+        "de": "Fugentiefe",
         "fr": "Grout Joint Depth",
         "es": "Grout Joint Depth",
         "ar": "Grout Joint Depth"
       },
       "businessContext_i18n": {
         "en": "Depth of the grout joint (tile thickness).",
-        "tr": "Derz aralığının derinliği (fayans kalınlığı)."
+        "tr": "Derz aralığının derinliği (fayans kalınlığı).",
+        "de": "Tiefe der Fuge (Fliesendicke)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Total Tiled Area",
         "tr": "Toplam Fayans Alanı",
-        "de": "Total Tiled Area",
+        "de": "Gesamtfläche",
         "fr": "Total Tiled Area",
         "es": "Total Tiled Area",
         "ar": "Total Tiled Area"
       },
       "businessContext_i18n": {
         "en": "Total surface area covered with tiles.",
-        "tr": "Fayanslarla kaplanan toplam yüzey alanı."
+        "tr": "Fayanslarla kaplanan toplam yüzey alanı.",
+        "de": "Gesamte mit Fliesen bedeckte Oberfläche."
       }
     },
     {
@@ -118,7 +123,8 @@
       },
       "businessContext_i18n": {
         "en": "Percentage of extra grout to account for waste and spillage.",
-        "tr": "Atık ve dökülme için ek harç yüzdesi."
+        "tr": "Atık ve dökülme için ek harç yüzdesi.",
+        "de": "Prozentsatz zusätzlichen Fugenmörtels für Abfall und Verschütten."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Bag Yield",
         "tr": "Torba Verimi",
-        "de": "Bag Yield",
+        "de": "Sackertrag",
         "fr": "Bag Yield",
         "es": "Bag Yield",
         "ar": "Bag Yield"
       },
       "businessContext_i18n": {
         "en": "Volume of grout one bag produces when mixed.",
-        "tr": "Bir torba harç karıştırıldığında üretilen hacim."
+        "tr": "Bir torba harç karıştırıldığında üretilen hacim.",
+        "de": "Volumen an Fugenmörtel, das ein Sack beim Anmischen ergibt."
       }
     }
   ],
