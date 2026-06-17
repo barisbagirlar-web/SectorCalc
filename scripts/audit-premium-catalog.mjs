@@ -43,16 +43,28 @@ const forbiddenPublic = [
   "Omni Calculator",
 ];
 
-if (premiumPage.includes("PremiumCatalogSearch") && premiumPage.includes("listPremiumCatalogCategories")) {
+if (
+  premiumPage.includes("IndustriesTaxonomyGrid") &&
+  premiumPage.includes("buildTaxonomySectorCards") &&
+  premiumPage.includes("getPremiumTools")
+) {
+  pass("/premium-tools uses taxonomy sector grid + getPremiumTools");
+} else if (premiumPage.includes("PremiumCatalogSearch") && premiumPage.includes("listPremiumCatalogCategories")) {
   pass("/premium-tools uses PremiumCatalogSearch + global category resolver");
 } else {
-  fail("/premium-tools missing PremiumCatalogSearch category grid wiring");
+  fail("/premium-tools missing taxonomy sector grid wiring");
 }
 
-if (!premiumPage.includes("SectorCatalogExplorer") && !premiumPage.includes("SchemaToolsCatalogExplorer")) {
+if (
+  premiumPage.includes("SchemaToolsCatalogExplorer") &&
+  premiumPage.includes('filterBy="sector"') &&
+  premiumPage.includes("hideBrowseSection")
+) {
+  pass("/premium-tools uses sector-filtered SchemaToolsCatalogExplorer without legacy browse cards");
+} else if (!premiumPage.includes("SectorCatalogExplorer") && !premiumPage.includes("SchemaToolsCatalogExplorer")) {
   pass("/premium-tools no longer dumps SchemaToolsCatalogExplorer flat listing");
 } else {
-  fail("/premium-tools still uses SchemaToolsCatalogExplorer flat listing");
+  fail("/premium-tools missing sector-filtered catalog explorer wiring");
 }
 
 if (!premiumPage.includes("getPremiumSchemaCatalogItems")) {
@@ -93,10 +105,13 @@ for (const term of forbiddenPublic) {
   }
 }
 
-if (premiumPage.includes("listPremiumCatalogCategories")) {
-  pass("premium hub reads category resolver");
+if (
+  premiumPage.includes("IndustriesTaxonomyGrid") ||
+  premiumPage.includes("listPremiumCatalogCategories")
+) {
+  pass("premium hub reads taxonomy or category resolver");
 } else {
-  fail("premium hub missing listPremiumCatalogCategories");
+  fail("premium hub missing taxonomy/category resolver");
 }
 
 if (categoryPage.includes("generateStaticParams")) {

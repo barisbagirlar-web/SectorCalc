@@ -98,10 +98,16 @@ if (cssWithoutMedia.includes("repeat(3")) {
   pass("no repeat(3) outside tablet/mobile breakpoints");
 }
 
-if (premiumPage.includes("CategoryCardGrid") || premiumPage.includes("PremiumCatalogSearch")) {
+if (
+  premiumPage.includes("IndustriesTaxonomyGrid") &&
+  premiumPage.includes("buildTaxonomySectorCards") &&
+  premiumPage.includes('filterBy="sector"')
+) {
+  pass("premium page uses taxonomy sector grid + sector filter explorer");
+} else if (premiumPage.includes("CategoryCardGrid") || premiumPage.includes("PremiumCatalogSearch")) {
   pass("premium category card grid wired through PremiumCatalogSearch");
 } else {
-  fail("premium page missing category card grid explorer");
+  fail("premium page missing taxonomy sector grid explorer");
 }
 
 if (card.includes("sc-premium-category-card") && card.includes("getCategoryIcon")) {
