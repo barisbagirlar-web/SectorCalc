@@ -29,7 +29,11 @@ export function inferFreeTrafficCategory(slug: string): FreeTrafficCategory {
   ) {
     return "manufacturing-workshop";
   }
-  if (/mortgage|loan|tax|margin|roi|npv|apy|salary|discount|interest|break-even|compound/.test(slug)) {
+  if (
+    /mortgage|loan|tax|margin|roi|npv|apy|salary|discount|interest|break-even|compound|1031|exchange|capital-gains|depreciation|amortization/.test(
+      slug,
+    )
+  ) {
     return "finance-business";
   }
   if (/concrete|beam|pipe|reynolds|wind|voltage|thermal|deflection|flow/.test(slug)) {

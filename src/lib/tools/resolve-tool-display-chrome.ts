@@ -17,9 +17,22 @@ import {
 export type ToolDisplayChrome = {
   readonly summary: string;
   readonly keywordTags: readonly string[];
-  readonly categoryId: FreeTrafficCategory;
+  readonly categoryId: string;
   readonly icon: LucideIcon;
 };
+
+function isFormulaOutputKey(value: string, schema: GeneratedToolSchema): boolean {
+  const trimmed = value.trim();
+  if (!trimmed || isSnakeCaseTechnicalKey(trimmed)) {
+    return Boolean(trimmed);
+  }
+
+  const formulaKeys = new Set([
+    ...Object.keys(schema.formulas ?? {}),
+    ...Object.keys(schema.outputs.breakdown ?? {}),
+  ]);
+  return formulaKeys.has(trimmed);
+}
 
 function resolveOneLineSummary(
   slug: string,
@@ -27,7 +40,12 @@ function resolveOneLineSummary(
   locale: string,
 ): string {
   const primary = schema.outputs.primary.trim();
-  if (primary.length > 0 && primary.length <= 120 && !isSnakeCaseTechnicalKey(primary)) {
+  if (
+    primary.length > 0 &&
+    primary.length <= 120 &&
+    !isSnakeCaseTechnicalKey(primary) &&
+    !isFormulaOutputKey(primary, schema)
+  ) {
     return primary;
   }
 
@@ -69,12 +87,23 @@ export function resolveToolKeywordTags(
   return unique.slice(0, limit);
 }
 
+function resolveDisplayCategoryId(
+  slug: string,
+  schema: GeneratedToolSchema,
+): FreeTrafficCategory | string {
+  const catalogCategory = schema.catalogCategory?.trim();
+  if (catalogCategory) {
+    return catalogCategory;
+  }
+  return inferFreeTrafficCategory(slug);
+}
+
 export function resolveToolDisplayChrome(
   slug: string,
   schema: GeneratedToolSchema,
   locale: string,
 ): ToolDisplayChrome {
-  const categoryId = inferFreeTrafficCategory(slug);
+  const categoryId = resolveDisplayCategoryId(slug, schema);
   const icon = getCategoryCardIcon(categoryId).icon;
 
   return {

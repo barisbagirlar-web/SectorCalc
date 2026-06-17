@@ -1,3 +1,4 @@
+import { Calculator, CircleHelp } from "lucide-react";
 import { describe, expect, it, vi } from "vitest";
 import { resolveCatalogCategoryIcon } from "@/lib/catalog/resolve-catalog-category-icon";
 import { listGlobalCategorySlugs } from "@/lib/catalog/global-tool-category-taxonomy";
@@ -32,6 +33,14 @@ describe("resolveCatalogCategoryIcon", () => {
     for (const slug of Object.keys(LEGACY_CATALOG_ICON_ALIASES)) {
       expect(resolveCatalogCategoryIcon(slug)).toBeDefined();
     }
+  });
+
+  it("resolves free-traffic category slugs to sector icons (not question-mark fallback)", () => {
+    const financeIcon = resolveCatalogCategoryIcon("finance-business");
+    const unknownIcon = resolveCatalogCategoryIcon("unknown-slug-xyz");
+    expect(financeIcon).not.toBe(CircleHelp);
+    expect(unknownIcon).toBe(Calculator);
+    expect(financeIcon).not.toBe(unknownIcon);
   });
 
   it("returns fallback for unknown slugs instead of throwing", () => {

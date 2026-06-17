@@ -86,6 +86,33 @@ describe("resolve-tool-display-chrome", () => {
     expect(tags[1]).toBe("Takım Ömrü (Parça/Takım)");
     expect(tags[2]).toBe("Değiştirme Süresi");
   });
+
+  it("skips camelCase formula keys like totalBoot in summary", () => {
+    const exchangeSchema = {
+      toolName: "1031 Exchange Calculator",
+      inputs: [
+        {
+          id: "salePrice",
+          label: "Sale Price of Relinquished Property",
+          type: "number",
+          unit: "$",
+          businessContext: "The selling price of the property you are giving up",
+        },
+      ],
+      formulas: {
+        totalBoot: "cashBoot + mortgageBoot",
+      },
+      outputs: {
+        primary: "totalBoot",
+        breakdown: { netProceeds: "netProceeds" },
+      },
+      catalogCategory: "finance-business",
+    } as unknown as GeneratedToolSchema;
+
+    const chrome = resolveToolDisplayChrome("1031-exchange-calculator", exchangeSchema, "tr");
+    expect(chrome.summary).not.toBe("totalBoot");
+    expect(chrome.summary.length).toBeGreaterThan(10);
+  });
 });
 
 describe("resolveFreeToolFieldDisplay", () => {
