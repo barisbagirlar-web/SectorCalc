@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
+import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { SchemaToolsCatalogExplorer } from "@/components/tools/SchemaToolsCatalogExplorer";
 import { Container } from "@/components/ui/Container";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
@@ -37,6 +37,7 @@ export default async function IndustriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
+  const tPage = await getTranslations("sector");
   const tools = getAllTools(locale);
 
   const jsonLd = [
@@ -60,13 +61,13 @@ export default async function IndustriesPage({ params }: PageProps) {
   return (
     <PageLayout>
       <JsonLd data={jsonLd} />
-      <CatalogPageHero
-        title={t("industries.title")}
-        subtitle={t("industries.subtitle")}
-      />
-
       <section className="sc-pro-section sc-pro-section--border">
-        <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+        <ToolsPageLayout
+          title={tPage("title")}
+          subtitle={tPage("subtitle")}
+          searchPlaceholder={tPage("searchPlaceholder")}
+          categoryTitle={tPage("categoryTitle")}
+        >
           <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
             <SchemaToolsCatalogExplorer
               tools={tools}
@@ -74,7 +75,7 @@ export default async function IndustriesPage({ params }: PageProps) {
               variant="industries"
             />
           </Suspense>
-        </Container>
+        </ToolsPageLayout>
       </section>
 
       {shouldRenderCrawlIndexForLocale(locale) ? (

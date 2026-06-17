@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
@@ -8,6 +8,7 @@ import { CategoryCardGrid, resolveCategoryCardGridVariant } from "@/components/c
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
 import type { ToolData } from "@/lib/tools/all-tools-data";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
+import { useToolsPageSearch } from "@/components/tools/tools-page-search-context";
 import type { Tool } from "@/data/tools";
 
 type CatalogFilterMode = "category" | "sector";
@@ -57,7 +58,7 @@ export function SchemaToolsCatalogExplorer({
   const tBrowse = useTranslations("premiumCategoryCatalog");
   const locale = useLocale();
   const searchParams = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState("");
+  const { searchQuery, setSearchQuery, hideExplorerChrome } = useToolsPageSearch();
   const filterParamKey = resolveFilterParamKey(filterBy);
   const rawFilter = searchParams?.get(filterParamKey) ?? "";
   const selectedFilter = rawFilter === "all" ? "" : rawFilter;
@@ -135,32 +136,34 @@ export function SchemaToolsCatalogExplorer({
 
   return (
     <div className="sc-catalog-explorer-stack flex min-w-0 flex-col gap-6">
-      <div className="relative">
-        <Search
-          className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-body-charcoal"
-          aria-hidden="true"
-        />
-        <input
-          type="search"
-          value={searchQuery}
-          onChange={(event) => setSearchQuery(event.target.value)}
-          placeholder={t(`search.placeholder.${variant}`)}
-          aria-label={t("search.label")}
-          className="w-full min-h-[44px] rounded border border-technical-gray bg-white py-2.5 pl-10 pr-10 text-sm text-premium-velvet placeholder:text-body-charcoal focus:border-sc-copper focus:outline-none"
-        />
-        {isSearching ? (
-          <button
-            type="button"
-            onClick={() => setSearchQuery("")}
-            aria-label={t("search.clearSearch")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 rounded p-0.5 text-body-charcoal hover:text-premium-velvet focus:outline-none"
-          >
-            <X className="h-4 w-4" aria-hidden="true" />
-          </button>
-        ) : null}
-      </div>
+      {!hideExplorerChrome ? (
+        <div className="relative">
+          <Search
+            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-body-charcoal"
+            aria-hidden="true"
+          />
+          <input
+            type="search"
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
+            placeholder={t(`search.placeholder.${variant}`)}
+            aria-label={t("search.label")}
+            className="w-full min-h-[44px] rounded border border-technical-gray bg-white py-2.5 pl-10 pr-10 text-sm text-premium-velvet placeholder:text-body-charcoal focus:border-sc-copper focus:outline-none"
+          />
+          {isSearching ? (
+            <button
+              type="button"
+              onClick={() => setSearchQuery("")}
+              aria-label={t("search.clearSearch")}
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded p-0.5 text-body-charcoal hover:text-premium-velvet focus:outline-none"
+            >
+              <X className="h-4 w-4" aria-hidden="true" />
+            </button>
+          ) : null}
+        </div>
+      ) : null}
 
-      {!isSearching ? (
+      {!hideExplorerChrome && !isSearching ? (
         <section aria-labelledby="schema-catalog-browse-heading">
           <h2
             id="schema-catalog-browse-heading"
@@ -168,6 +171,18 @@ export function SchemaToolsCatalogExplorer({
           >
             {tBrowse("browseByCategory")}
           </h2>
+          <CategoryCardGrid
+            items={categoryCards}
+            formatCount={formatCardCount}
+            filterParamKey={filterParamKey}
+            allFilterValue="all"
+            variant={resolveCategoryCardGridVariant(variant)}
+          />
+        </section>
+      ) : null}
+
+      {hideExplorerChrome && !isSearching ? (
+        <section aria-label={tBrowse("browseByCategory")}>
           <CategoryCardGrid
             items={categoryCards}
             formatCount={formatCardCount}
