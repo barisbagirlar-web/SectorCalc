@@ -1,11 +1,14 @@
-import HomePage, { generateMetadata } from "@/app/[locale]/page";
-
-export { generateMetadata };
+import type { Metadata } from "next";
+import HomePage, { generateMetadata as generateHomeMetadata } from "@/app/[locale]/page";
 
 export const dynamic = "force-static";
 
 const englishParams = Promise.resolve({ locale: "en" });
 
-export default function EnglishRootHomePage() {
+export async function generateMetadata(): Promise<Metadata> {
+  return generateHomeMetadata({ params: englishParams });
+}
+
+export default async function EnglishRootHomePage() {
   return HomePage({ params: englishParams });
 }
