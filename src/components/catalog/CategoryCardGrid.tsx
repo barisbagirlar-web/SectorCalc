@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
+import { CATALOG_GRID_VARIANT_STYLES } from "@/lib/catalog/catalog-grid-variant-styles";
 import type { CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
 import { cn } from "@/lib/cn";
 import { scrollToToolsList } from "@/lib/navigation/scroll-to-tools-list";
@@ -24,39 +25,6 @@ type Props = {
   readonly formatCount?: (count: number) => string;
   readonly countSuffix?: string;
   readonly variant?: CategoryCardGridVariant;
-};
-
-const GRID_VARIANT_STYLES: Record<
-  CategoryCardGridVariant,
-  {
-    readonly icon: string;
-    readonly iconHover: string;
-    readonly hoverBorder: string;
-    readonly focusRing: string;
-    readonly active: string;
-  }
-> = {
-  free: {
-    icon: "text-[var(--sc-navy)]",
-    iconHover: "group-hover:text-blue-800",
-    hoverBorder: "hover:border-blue-400",
-    focusRing: "focus-visible:ring-blue-500",
-    active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
-  },
-  industry: {
-    icon: "text-[var(--sc-navy)]",
-    iconHover: "group-hover:text-blue-800",
-    hoverBorder: "hover:border-blue-400",
-    focusRing: "focus-visible:ring-blue-500",
-    active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
-  },
-  premium: {
-    icon: "text-[#8B2635]",
-    iconHover: "group-hover:text-[#6B1D28]",
-    hoverBorder: "hover:border-[#8B2635]",
-    focusRing: "focus-visible:ring-[#8B2635]",
-    active: "border-[#8B2635] bg-red-50/70 ring-2 ring-red-100",
-  },
 };
 
 export function resolveCategoryCardGridVariant(
@@ -86,7 +54,7 @@ export function CategoryCardGrid({
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const tone = GRID_VARIANT_STYLES[variant];
+  const tone = CATALOG_GRID_VARIANT_STYLES[variant];
   const useLinks = onSelect == null;
 
   const handleFilterClick = (slug: string, active: boolean) => {

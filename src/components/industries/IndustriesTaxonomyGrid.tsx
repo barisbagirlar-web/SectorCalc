@@ -3,51 +3,22 @@
 import { useSearchParams } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "@/i18n/routing";
+import {
+  CATALOG_GRID_VARIANT_STYLES,
+  type CatalogGridVariant,
+} from "@/lib/catalog/catalog-grid-variant-styles";
 import { getTaxonomySectorIcon } from "@/lib/catalog/taxonomy-sector-icon-map";
 import { cn } from "@/lib/cn";
 import type { TaxonomySectorCard } from "@/lib/tools/build-taxonomy-sector-cards";
 
 export type { TaxonomySectorCard };
 
-export type SectorTaxonomyGridVariant = "industry" | "free" | "premium";
+export type SectorTaxonomyGridVariant = CatalogGridVariant;
 
 type IndustriesTaxonomyGridProps = {
   readonly basePath: "/industries" | "/free-tools" | "/premium-tools";
   readonly sectors: readonly TaxonomySectorCard[];
   readonly variant?: SectorTaxonomyGridVariant;
-};
-
-const GRID_VARIANT_STYLES: Record<
-  SectorTaxonomyGridVariant,
-  {
-    readonly icon: string;
-    readonly iconHover: string;
-    readonly hoverBorder: string;
-    readonly focusRing: string;
-    readonly active: string;
-  }
-> = {
-  industry: {
-    icon: "text-[var(--sc-navy)]",
-    iconHover: "group-hover:text-blue-800",
-    hoverBorder: "hover:border-blue-400",
-    focusRing: "focus-visible:ring-blue-500",
-    active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
-  },
-  free: {
-    icon: "text-[var(--sc-navy)]",
-    iconHover: "group-hover:text-blue-800",
-    hoverBorder: "hover:border-blue-400",
-    focusRing: "focus-visible:ring-blue-500",
-    active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
-  },
-  premium: {
-    icon: "text-[#8B2635]",
-    iconHover: "group-hover:text-[#6B1D28]",
-    hoverBorder: "hover:border-[#8B2635]",
-    focusRing: "focus-visible:ring-[#8B2635]",
-    active: "border-[#8B2635] bg-red-50/70 ring-2 ring-red-100",
-  },
 };
 
 function TaxonomySectorTile({
@@ -65,7 +36,7 @@ function TaxonomySectorTile({
   readonly label: string;
   readonly countLabel: string;
   readonly professions?: readonly string[];
-  readonly tone: (typeof GRID_VARIANT_STYLES)[SectorTaxonomyGridVariant];
+  readonly tone: (typeof CATALOG_GRID_VARIANT_STYLES)[CatalogGridVariant];
 }) {
   return (
     <Link
@@ -108,7 +79,7 @@ export function IndustriesTaxonomyGrid({
   const visibleSectors = sectors.filter(
     (entry) => entry.sector.id === "all" || entry.count > 0,
   );
-  const tone = GRID_VARIANT_STYLES[variant];
+  const tone = CATALOG_GRID_VARIANT_STYLES[variant];
 
   if (visibleSectors.length === 0) {
     return null;
