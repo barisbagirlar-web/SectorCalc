@@ -57,9 +57,9 @@ export function RiskSensitivityTable({ rows, className = "" }: RiskSensitivityTa
  <td className="px-4 py-3 text-right font-mono text-text-secondary">
  {row.deltaAmount}
  </td>
- <td className="px-4 py-3 text-right font-mono font-semibold text-premium-velvet">
- {row.p90Adjusted}
- </td>
+        <td className="sc-result-nowrap px-4 py-3 text-right font-mono font-semibold text-premium-velvet">
+          {row.p90Adjusted}
+        </td>
  </tr>
  ))}
  </tbody>
