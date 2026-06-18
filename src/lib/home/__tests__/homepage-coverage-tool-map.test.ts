@@ -31,16 +31,16 @@ describe("homepage-coverage-tool-map", () => {
     }
   });
 
-  it("counts tools by category or sector key", () => {
+  it("counts tools by category key only (no sector-key cross-match)", () => {
     const tools = [
-      makeTool({ categoryKey: "malzeme-fire-oee", sectorKey: "diger" }),
-      makeTool({ categoryKey: "diger", sectorKey: "atolye-tamir" }),
-      makeTool({ categoryKey: "finans-ik", sectorKey: "diger" }),
+      makeTool({ categoryKey: "quality-six-sigma", sectorKey: "diger" }),
+      makeTool({ categoryKey: "diger", sectorKey: "daily-renovation" }),
+      makeTool({ categoryKey: "finance-sales-working-capital", sectorKey: "diger" }),
     ];
 
-    expect(countToolsForHomepageCoverage("production", tools)).toBe(1);
-    expect(countToolsForHomepageCoverage("industrial", tools)).toBe(1);
-    expect(countToolsForHomepageCoverage("finance", tools)).toBe(1);
+    expect(countToolsForHomepageCoverage("production", tools)).toBe(1);   // quality-six-sigma
+    expect(countToolsForHomepageCoverage("construction", tools)).toBe(0); // daily-renovation is sectorKey, not categoryKey
+    expect(countToolsForHomepageCoverage("finance", tools)).toBe(1);      // finance-sales-working-capital
     expect(countToolsForHomepageCoverage("foodRetail", tools)).toBe(0);
   });
 });
