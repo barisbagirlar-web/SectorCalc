@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { PremiumFieldPanel, ToleranceStatus } from "@/lib/premium/premium-architecture";
 import type { PremiumSeverity } from "@/lib/tools/premium-tool-contract";
 
@@ -30,8 +31,9 @@ export interface IndustrialFieldPanelProps {
  * Shop-floor panel — readable in ~3 seconds with gloves and noise.
  */
 export function IndustrialFieldPanel({ panel, verdictSeverity }: IndustrialFieldPanelProps) {
+  const a11y = useTranslations("a11y");
   return (
-    <section className="sc-ledger-report sc-premium-report sc-ledger-letterpress" aria-label="Industrial decision panel">
+    <section className="sc-ledger-report sc-premium-report sc-ledger-letterpress" aria-label={a11y("industrialPanel")}>
       <div className="sc-premium-report-section flex flex-wrap items-center justify-between gap-2">
         <span className="sc-craft-eyebrow">{panel.familyBadge}</span>
         <span className="font-mono text-[10px] uppercase tracking-wide text-body-charcoal">

@@ -120,6 +120,13 @@ function resolveCategoryKey(
   normalized: GeneratedToolSchema | null,
   _categorySlugFromIndex?: string,
 ): string {
+  // Prefer canonical global category slug (e.g. "project-construction-management")
+  // over generic categoryId (e.g. "engineering") for consistent taxonomy matching.
+  const categorySlug = resolveCategorySlugFallback(slug, raw, normalized, _categorySlugFromIndex);
+  if (categorySlug) {
+    return categorySlug;
+  }
+
   const categoryId = asString(raw.categoryId) || normalized?.categoryId;
   if (categoryId && categoryId !== "diger") {
     return categoryId;
@@ -130,11 +137,6 @@ function resolveCategoryKey(
     return resolveSchemaCategoryKey(schemaCategory);
   }
 
-  const categorySlug = resolveCategorySlugFallback(slug, raw, normalized, _categorySlugFromIndex);
-  if (categorySlug) {
-    return categorySlug;
-  }
-
   return categoryId || "diger";
 }
 
@@ -143,14 +145,16 @@ function resolveSectorKey(
   raw: RawSchemaRecord,
   normalized: GeneratedToolSchema | null,
 ): string {
-  const schemaSectorId = asString(raw.sectorId) || normalized?.sectorId;
-  if (schemaSectorId) {
-    return schemaSectorId;
-  }
-
+  // Prefer sectorSlug (e.g. "cnc-manufacturing") over generic sectorId
+  // (e.g. "makine") for consistent taxonomy matching.
   const sectorSlug = resolveSectorSlugFallback(slug, raw, normalized);
   if (sectorSlug) {
     return sectorSlug;
+  }
+
+  const schemaSectorId = asString(raw.sectorId) || normalized?.sectorId;
+  if (schemaSectorId) {
+    return schemaSectorId;
   }
 
   const schemaSector = asString(raw.sector);

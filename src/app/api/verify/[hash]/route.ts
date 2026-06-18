@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getApprovedReportByHash } from "@/lib/trust-trace/approved-report-service";
 import { buildPublicReportSummary } from "@/lib/trust-trace/public-summary";
+import { createCalculationHash } from "@/lib/trust-trace/hash";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -47,9 +48,32 @@ export async function GET(
     });
   }
 
+  // ── Cryptographic integrity check ──
+  // Recompute hash from stored data to verify it hasn't been tampered with
+  const recomputePayload = {
+    reportId: report.reportId,
+    toolSlug: report.toolSlug,
+    formulaVersion: report.formulaVersion,
+    formulaContractId: report.formulaContractId ?? null,
+    inputSnapshot: report.inputSnapshot,
+    resultSnapshot: report.resultSnapshot,
+  };
+  const computedHash = await createCalculationHash(recomputePayload);
+
+  if (computedHash !== hash) {
+    return NextResponse.json({
+      verified: false,
+      status: "hash_mismatch",
+      message:
+        "Cryptographic hash does not match stored report data. The report may have been tampered with.",
+      hash,
+      reportId: report.reportId,
+      timestamp: report.issuedAt,
+    });
+  }
+
   return NextResponse.json({
     verified: true,
-    message: "Bu rapor SectorCalc Trust Trace ile doğrulanmıştır.",
     hash,
     reportId: report.reportId,
     toolSlug: report.toolSlug,

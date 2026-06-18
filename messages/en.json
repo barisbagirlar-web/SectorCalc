@@ -4,7 +4,60 @@
     "mainContent": "Main content",
     "mainNavigation": "Main navigation",
     "logoHome": "SectorCalc home",
-    "logoAlt": "SectorCalc"
+    "logoAlt": "SectorCalc",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu",
+    "mobileNavigation": "Mobile",
+    "closeDialog": "Close dialog",
+    "regionLanguage": "Region and language",
+    "trustCompliance": "Trust and compliance signals",
+    "industrialPanel": "Industrial decision panel"
+  },
+  "leadCapture": {
+    "eyebrow": "Lead capture",
+    "title": "Request access or talk to us",
+    "description": "UI-only contract — no backend wiring, no API keys, no secrets. Submissions are not stored.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@company.com",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Optional",
+    "intentLabel": "Intent",
+    "submitButton": "Request early access",
+    "successMessage": "Thank you. This preview form does not transmit data. Connect your lead pipeline when ready."
+  },
+  "toolDiscovery": {
+    "sectorFallback": "Sector",
+    "measures": "Measures:",
+    "exampleOutput": "Example output:",
+    "viewCalculator": "View calculator →",
+    "openCalculator": "Open calculator →"
+  },
+  "leadIntent": {
+    "closeDialog": "Close dialog",
+    "closeButton": "Close",
+    "tellUsDescription": "Tell us what you need. Premium unlock and export are not live yet — we record your intent for the next release.",
+    "verdictUnlockDescription": "Enter your email to receive checkout access for the full margin verdict — safe price, leak breakdown and recommended action.",
+    "paywallDescription": "Premium report unlock is being rebuilt. Browse pricing or continue with free tools until the new analyzer pages are live.",
+    "viewPricing": "View pricing",
+    "successMessage": "Thanks. We recorded your report request. In the next release, premium report unlock and export will be available directly inside SectorCalc.",
+    "continueExploring": "Continue exploring tools",
+    "emailLabel": "Email",
+    "verdictEmailPlaceholder": "Send my verdict to this email",
+    "redirectingToCheckout": "Redirecting to checkout…",
+    "continueToCheckout": "Continue to checkout",
+    "checkoutLegalNote": "You may be asked to sign in before secure payment. Digital product — estimates only.",
+    "nameLabel": "Name",
+    "companyLabel": "Company / Business name",
+    "industryLabel": "Industry",
+    "selectIndustry": "Select industry",
+    "toolRequestedLabel": "Tool / Report requested",
+    "selectTool": "Select tool or report",
+    "intendedUseLabel": "Intended use",
+    "selectIntendedUse": "Select intended use",
+    "messageLabel": "Message (optional)",
+    "messagePlaceholder": "Timeline, client context, or questions (max 500 characters)",
+    "submitting": "Submitting…",
+    "submitRequest": "Submit request"
   },
   "nav": {
     "freeCalculators": "Free Calculators",
@@ -1832,7 +1885,11 @@
     "networkError": "Connection failed. Check your network and try again.",
     "accessDenied": "You need premium access for this report.",
     "notFound": "This page or tool could not be found.",
-    "generic": "Something went wrong. Please try again."
+    "generic": "Something went wrong. Please try again.",
+    "errorPageTitle": "Something went wrong",
+    "errorPageDescription": "This page hit an unexpected error. You can retry or return to the calculator library.",
+    "pageTryAgain": "Try again",
+    "calculatorLibraryLink": "Calculator library"
   },
   "seo": {
     "homeTitle": "SectorCalc — Sector calculators and decision reports",
@@ -3275,7 +3332,7 @@
     "representativeNote": "Representative case study — modeled exposure, not a verified customer outcome.",
     "viewRelatedTool": "Open the related calculator",
     "database": {
-      "metaTitle": "Success Stories Index | SectorCalc",
+      "metaTitle": "Success Stories: Real Business Savings & Efficiency | SectorCalc",
       "metaDescription": "Efficiency and cost savings cases documented in an academic database format. VDI 2067, ECMI Guidelines, ISO 15663.",
       "headerTitle": "SectorCalc / Success Stories Index",
       "breadcrumbHome": "Home",
@@ -3436,6 +3493,7 @@
     "buyCreditsCta": "Buy credits",
     "creditsLoading": "Loading credit balance…",
     "primaryResult": "Primary result",
+    "resultUnit": "Unit: {unit}",
     "clickToCompute": "Click calculate to see results",
     "breakdownTitle": "Loss breakdown",
     "breakdownFootnote": "Monetary value (percentage) of each component within the total breakdown.",
@@ -3536,7 +3594,9 @@
       "reportSuccess": "Your issue report has been submitted. Thank you.",
       "reportClose": "Close",
       "reportMessageTooShort": "Please enter at least 10 characters.",
-      "reportSubmitFailed": "Could not submit your report. Please try again."
+      "reportSubmitFailed": "Could not submit your report. Please try again.",
+      "voteCorrectMessage": "Quick operator vote: calculation result appears correct.",
+      "voteIncorrectMessage": "Quick operator vote: calculation result appears incorrect."
     },
     "freeForm": {
       "defaultDescription": "Quick sector calculation — enter inputs to see results.",
@@ -3563,7 +3623,8 @@
       "reportSuccess": "Your report has been submitted. Thank you.",
       "reportClose": "Close",
       "reportMessageTooShort": "Please enter at least 10 characters.",
-      "reportSubmitFailed": "Could not submit your report. Please try again."
+      "reportSubmitFailed": "Could not submit your report. Please try again.",
+      "unitSuffix": "{label} unit"
     },
     "aboutTool": {
       "sectionLabel": "About this tool",
@@ -67047,7 +67108,9 @@
       "high": "High confidence",
       "medium": "Medium confidence",
       "low": "Low confidence"
-    }
+    },
+    "networkError": "Network error. Please check your connection and try again.",
+    "aiAnalysisLabel": "AI-assisted engineering analysis"
   },
   "developerShowcase": {
     "meta": {
@@ -67353,6 +67416,9 @@
     "notFoundHash": "Hash: {hash}",
     "revokedMessage": "This report has been revoked.",
     "revokedHelp": "A revoked report is no longer considered valid. Contact the issuer for an updated report.",
+    "hashMismatchBadge": "INTEGRITY BREACH",
+    "hashMismatchMessage": "Cryptographic hash does not match stored report data. The report may have been tampered with or the data is corrupted.",
+    "hashMismatchHelp": "This indicates the stored calculation data does not match its original cryptographic seal. The report cannot be verified. Contact the issuer for an authentic report.",
     "errorTitle": "Verification Error",
     "errorMessage": "Verification service is currently unavailable. Please try again later.",
     "errorRetry": "Retry verification",
@@ -67397,6 +67463,36 @@
     "signInToSave": "Sign in to save decision summaries.",
     "saveFailed": "Could not save summary. Please try again.",
     "saving": "Saving…",
-    "calcId": "Calculation ID"
+    "calcId": "Calculation ID",
+    "glossaryUi": {
+      "enterErpWebhookUrl": "Enter ERP Webhook URL",
+      "preparingPdf": "Preparing PDF…",
+      "downloadPdf": "Download PDF",
+      "sending": "Sending…",
+      "sendToErp": "Send to ERP",
+      "sentToErp": "Sent to ERP",
+      "sendFailed": "Send failed",
+      "cbamComplianceSummary": "CBAM Compliance Summary",
+      "carbonFootprint": "Carbon Footprint",
+      "cbamAdjustment": "CBAM Adjustment",
+      "status": "Status",
+      "sectorcalcCalculationReport": "SectorCalc Calculation Report",
+      "trustTrace": "Trust Trace",
+      "toolLabel": "Tool:",
+      "reportIdLabel": "Report ID:",
+      "validationStamp": "Validation Stamp:",
+      "primaryResultLabel": "Primary Result:",
+      "verifyQrCode": "Verify QR Code",
+      "verificationHash": "Verification Hash",
+      "verifyWithReportIdAt": "Verify with Report ID at",
+      "productCarbonFootprint": "Product Carbon Footprint",
+      "cbam": "CBAM",
+      "metric": "Metric",
+      "value": "Value",
+      "technicalSimulationOnly": "Technical simulation only. Not financial, legal, or engineering advice.",
+      "sectorSpecificCalculator": "Sector-specific calculator — enter inputs to see results.",
+      "calculatorModuleNotFound": "Calculator module not found.",
+      "failedToLoadCalculator": "Failed to load calculator."
+    }
   }
 }

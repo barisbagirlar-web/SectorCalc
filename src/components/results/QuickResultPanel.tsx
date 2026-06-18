@@ -23,7 +23,7 @@ export function QuickResultPanel({
         <div>
           <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Result</p>
           <p className="text-2xl font-semibold text-slate-900">{headline}</p>
-          {unitLabel ? <p className="text-sm text-slate-600">{unitLabel}</p> : null}
+          {unitLabel ? <p className="text-sm font-medium text-slate-600">Unit: {unitLabel}</p> : null}
         </div>
       ) : null}
       {summary ? <p className="text-sm leading-relaxed text-slate-700">{summary}</p> : null}

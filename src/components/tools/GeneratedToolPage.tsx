@@ -90,6 +90,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
   const title = resolveGeneratedToolTitle(slug, schema, locale);
   const primaryKey = resolvePrimaryOutputKey(schema);
   const hasDiagram = Boolean(diagramSrc);
+  const primaryUnit = resolvePrimaryOutputUnit(schema);
 
   const primaryValue = useMemo(() => {
     if (!result) {
@@ -210,6 +211,11 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
               <p className="font-mono text-3xl font-semibold text-premium-velvet">
                 {formatPrimaryValue(primaryValue, primaryKey, locale, schema)}
               </p>
+              {primaryUnit && primaryUnit !== "—" ? (
+                <p className="text-xs font-medium uppercase tracking-wider text-body-charcoal/70">
+                  {t("resultUnit", { unit: primaryUnit })}
+                </p>
+              ) : null}
               <p className="text-sm text-body-charcoal">
                 {resolveGeneratedPrimaryOutputCaption(
                   primaryKey,

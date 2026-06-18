@@ -40,10 +40,19 @@ type VerifyApiRevoked = {
   timestamp?: string;
 };
 
-type VerifyApiResult = VerifyApiSuccess | VerifyApiNotFound | VerifyApiRevoked;
+type VerifyApiHashMismatch = {
+  verified: false;
+  status: "hash_mismatch";
+  message?: string;
+  hash: string;
+  reportId: string;
+  timestamp: string;
+};
+
+type VerifyApiResult = VerifyApiSuccess | VerifyApiNotFound | VerifyApiRevoked | VerifyApiHashMismatch;
 
 type StatusBadgeProps = {
-  readonly variant: "verified" | "not_found" | "revoked" | "loading";
+  readonly variant: "verified" | "not_found" | "revoked" | "hash_mismatch" | "loading";
   readonly label: string;
 };
 
@@ -54,6 +63,7 @@ function StatusBadge({ variant, label }: StatusBadgeProps) {
     verified: { icon: ShieldCheck, bg: "bg-emerald-50 border-emerald-300", text: "text-emerald-800" },
     not_found: { icon: ShieldAlert, bg: "bg-amber-50 border-amber-300", text: "text-amber-800" },
     revoked: { icon: ShieldX, bg: "bg-red-50 border-red-300", text: "text-red-800" },
+    hash_mismatch: { icon: ShieldX, bg: "bg-red-50 border-red-300", text: "text-red-800" },
     loading: { icon: ShieldCheck, bg: "bg-gray-50 border-gray-200", text: "text-gray-500" },
   } as const;
 
@@ -192,6 +202,34 @@ export function TrustTraceVerificationCard({ hash }: TrustTraceVerificationCardP
               {t("actionManualVerify")}
             </Link>
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  /* ── HASH MISMATCH ── */
+  if (result.verified === false && "status" in result && result.status === "hash_mismatch") {
+    return (
+      <div className="mx-auto max-w-lg">
+        <div className="rounded-xl border border-red-200 bg-white p-6 shadow-sm">
+          <div className="mb-4 flex items-center gap-3">
+            <StatusBadge variant="hash_mismatch" label={t("hashMismatchBadge")} />
+          </div>
+          <div className="rounded-lg border border-red-200 bg-red-50 p-4">
+            <p className="text-sm font-semibold text-red-900">
+              {result.message ?? t("hashMismatchMessage")}
+            </p>
+          </div>
+          <div className="mt-4 divide-y divide-gray-100 border-t border-b border-gray-100">
+            <MetaRow icon={FileText} label={t("labelReportId")} value={result.reportId} />
+            <MetaRow icon={Hash} label={t("labelHash", { hash: result.hash })} value={result.hash} />
+          </div>
+          {result.timestamp ? (
+            <MetaRow icon={Calendar} label={t("originallyIssued")} value={new Date(result.timestamp).toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" })} />
+          ) : null}
+          <p className="mt-4 text-xs leading-relaxed text-gray-500">
+            {t("hashMismatchHelp")}
+          </p>
         </div>
       </div>
     );

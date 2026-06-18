@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Link from "@/lib/navigation/next-link";
 import { revenueTools } from "@/lib/tools/revenue-tools";
 import { getIndustryDisplayName } from "@/lib/tools/industry-registry";
@@ -13,16 +14,17 @@ interface PremiumToolsGridProps {
 }
 
 export function PremiumToolsGrid({ isActive }: PremiumToolsGridProps) {
+ const t = useTranslations("premiumToolsGrid");
  return (
  <section className="min-w-0">
- <h2 className="text-lg font-bold text-text-primary">Premium decision tools</h2>
+ <h2 className="text-lg font-bold text-text-primary">{t("title")}</h2>
  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
- Sector-specific analyzers for pricing, bid and margin decisions.
+ {t("description")}
  </p>
  <ul className="mt-5 grid min-w-0 gap-4">
  {revenueTools.map((tool) => {
  const href = isActive ? getPremiumToolHref(tool) : getPricingHref(tool);
- const ctaLabel = isActive ? "Open calculator" : "Unlock Pro";
+ const ctaLabel = isActive ? t("openCalculator") : t("unlockPro");
 
  return (
  <li key={tool.paidSlug}>

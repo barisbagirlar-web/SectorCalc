@@ -42,9 +42,9 @@ const nextConfig: NextConfig = {
     },
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
     staticGenerationRetryCount: 2,
-    cpus: 4,
+    // Avoid SSG worker batching races (missing page.js) on large locale trees.
     workerThreads: false,
-    staticGenerationMaxConcurrency: 4,
+    staticGenerationMaxConcurrency: 1,
     staticGenerationMinPagesPerWorker: 1,
   },
   async headers() {

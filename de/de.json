@@ -324,7 +324,7 @@
             "metaReadTime": "Lesezeit",
             "metaRecordId": "Datensatz-ID",
             "metaRelatedTool": "Zugehöriges Tool",
-            "metaTitle": "Erfolgsgeschichten-Index | SectorCalc",
+            "metaTitle": "Erfolgsgeschichten: Echte Einsparungen & Effizienzsteigerung | SectorCalc",
             "noResults": "Keine Fälle entsprechen diesen Filtern.",
             "representativeLabel": "Repräsentatives Szenario (kein verifiziertes Kundenergebnis)",
             "resultsMetric": "Kennzahl",
@@ -540,7 +540,7 @@
                 "industries": "Branchen-Rechner suchen...",
                 "premium-tools": "Premium-Rechner suchen..."
             },
-            "showingLimited": "%1$s von %1$s Rechnern werden angezeigt. Nutzen Sie Branchenfilter oder die Suche, um die Liste einzugrenzen."
+            "showingLimited": "%1$s von %1$s Rechnern werden angezeigt. Nutzen Sie Branchenfilter oder Suche, um die Liste einzugrenzen."
         }
     },
     "categories": {
@@ -741,6 +741,22 @@
             "title": "Noch keine gespeicherten Berichte",
             "viewReport": "Bericht ansehen"
         }
+    },
+    "engineeringInterpretation": {
+        "confidence": {
+            "high": "Hohe Zuverlässigkeit",
+            "low": "Niedrige Zuverlässigkeit",
+            "medium": "Mittlere Zuverlässigkeit"
+        },
+        "executiveSummary": "Zusammenfassung",
+        "fieldNotes": "Feldnotizen",
+        "generating": "Technischer Kommentar wird erstellt…",
+        "outputAnalyses": "Ergebnisanalyse",
+        "recommendations": "Empfehlungen",
+        "retry": "Wiederholen",
+        "riskAssessment": "Risikobewertung",
+        "tabLabel": "Technischer Kommentar",
+        "unavailable": "Technischer Kommentar nicht verfügbar"
     },
     "enterprise": {
         "approvedReports": {
@@ -63652,6 +63668,7 @@
             "quoteNumber": "Angebotsnummer",
             "title": "Angebot & Preisgestaltung"
         },
+        "resultUnit": "Einheit: %1$s",
         "scenarioComparison": {
             "calculateAll": "Alle Szenarien berechnen",
             "comparisonTitle": "Vergleichsergebnisse",
@@ -63703,6 +63720,36 @@
         "subtitle": "Schema-gesteuerte Branchenrechner mit dynamischen Eingaben, SVG-Diagrammen und sofortigen Browser-Ergebnissen.",
         "subtitleCompact": "Finden Sie den passenden Rechner nach Branche.",
         "title": "Generierte Rechner"
+    },
+    "glossaryUi": {
+        "calculatorModuleNotFound": "Rechnermodul nicht gefunden.",
+        "carbonFootprint": "CO2-Fußabdruck",
+        "cbam": "CBAM",
+        "cbamAdjustment": "CBAM-Anpassung",
+        "cbamComplianceSummary": "CBAM-Konformitätsübersicht",
+        "downloadPdf": "PDF herunterladen",
+        "enterErpWebhookUrl": "ERP-Webhook-URL eingeben",
+        "failedToLoadCalculator": "Rechner konnte nicht geladen werden.",
+        "metric": "Kennzahl",
+        "preparingPdf": "PDF wird erstellt…",
+        "primaryResultLabel": "Primärergebnis:",
+        "productCarbonFootprint": "Produkt-CO2-Fußabdruck",
+        "reportIdLabel": "Berichts-ID:",
+        "sectorSpecificCalculator": "Branchenspezifischer Rechner — Eingaben eingeben, um Ergebnisse zu sehen.",
+        "sectorcalcCalculationReport": "SectorCalc Berechnungsbericht",
+        "sendFailed": "Senden fehlgeschlagen",
+        "sendToErp": "An ERP senden",
+        "sending": "Wird gesendet…",
+        "sentToErp": "An ERP gesendet",
+        "status": "Status",
+        "technicalSimulationOnly": "Nur technische Simulation. Keine Finanz-, Rechts- oder Ingenieurberatung.",
+        "toolLabel": "Werkzeug:",
+        "trustTrace": "Trust Trace",
+        "validationStamp": "Validierungsstempel:",
+        "value": "Wert",
+        "verificationHash": "Verifizierungs-Hash",
+        "verifyQrCode": "QR-Code verifizieren",
+        "verifyWithReportIdAt": "Mit Berichts-ID verifizieren unter"
     },
     "guidance": {
         "inputGuide": {
@@ -66259,6 +66306,8 @@
     "resultLayers": {
         "deepTab": "Detailed Trace",
         "deepTitle": "Detailed Explanation",
+        "interpretationTab": "Technischer Kommentar",
+        "interpretationTitle": "Technische Bewertung",
         "quickTab": "Quick Result"
     },
     "runtimeReadiness": {
@@ -67754,6 +67803,68 @@
         "timeDesc": "Rüstzeit, Verzögerungen und OEE-ähnliche Effizienzrisiken.",
         "timeTr": "Zeitverlust",
         "title": "Vier Verlustdimensionen — eine Plattform"
+    },
+    "verify": {
+        "actionManualVerify": "Berichts-ID manuell eingeben",
+        "actionRetry": "Erneut versuchen",
+        "actionVerifyAnother": "Anderen Bericht verifizieren",
+        "calcId": "Berechnungs-ID",
+        "calcSummary": "Berechnungsübersicht",
+        "copied": "Kopiert!",
+        "copyReportId": "Berichts-ID kopieren",
+        "description": "Verifizierung der Authentizität und Integrität des Berechnungsberichts mittels SHA-256-Hash gegen das SectorCalc-geprüfte Register.",
+        "downloadCsv": "CSV herunterladen",
+        "downloadHtml": "PDF\/HTML herunterladen",
+        "downloadWord": "Word herunterladen",
+        "errorMessage": "Der Verifizierungsdienst ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut.",
+        "errorRetry": "Erneut versuchen",
+        "errorTitle": "Verifizierungsfehler",
+        "eyebrow": "Trust Trace",
+        "footerNote": "Die öffentliche Verifizierung gibt nur begrenzte Metadaten zurück. Vollständige Eingabe- und Ergebnis-Snapshots werden niemals offengelegt. Dies ist eine technische Simulation und Entscheidungsunterstützungsausgabe. Verifizieren Sie alle Ergebnisse, bevor Sie Geschäftsentscheidungen treffen.",
+        "formCalcHash": "Berechnungs-Hash (optional)",
+        "formChecking": "Wird geprüft…",
+        "formFootnote": "Die öffentliche Verifizierung gibt nur begrenzte Metadaten zurück. Vollständige Eingabe- und Ergebnis-Snapshots werden auf dieser Seite nie angezeigt.",
+        "formHashMismatch": "Bericht gefunden, aber der Berechnungs-Hash stimmt nicht überein.",
+        "formHashPlaceholder": "64-stelliger SHA-256-Hash",
+        "formNotFound": "Bericht nicht gefunden oder ungültig.",
+        "formReportId": "Berichts-ID",
+        "formReportIdPlaceholder": "SC-YYYYMMTT-TOOL-ID",
+        "formReportIdRequired": "Berichts-ID ist erforderlich.",
+        "formRevoked": "Dieser Bericht existiert, wurde jedoch widerrufen.",
+        "formServiceUnavailable": "Verifizierungsdienst derzeit nicht verfügbar. Bitte versuchen Sie es erneut.",
+        "formUnableToVerify": "Dieser Bericht kann nicht verifiziert werden.",
+        "formValidApproved": "Bericht ist gültig und bestätigt.",
+        "formVerifyBtn": "Bericht verifizieren",
+        "issued": "Ausgestellt",
+        "labelFormulaVersion": "Formelversion",
+        "labelHash": "SHA-256: %1$s",
+        "labelIssuedAt": "Ausgestellt am",
+        "labelReportId": "Berichts-ID",
+        "labelTool": "Werkzeug",
+        "labelValidationStamp": "Prüfstempel",
+        "loading": "WIRD VERIFIZIERT...",
+        "metaDescription": "Kryptografische Verifizierung eines SectorCalc Premium-Berechnungsberichts. Überprüfen Sie Authentizität, Integrität und Ausstellungsstatus.",
+        "metaTitle": "Berechnungsbericht verifizieren — SectorCalc Trust Trace",
+        "notFoundBadge": "EINTRAG NICHT GEFUNDEN",
+        "notFoundHash": "Hash: %1$s",
+        "notFoundHelp": "Dieser Hash ist noch keiner verifizierten Berechnung zugeordnet. Berichte werden zum Zeitpunkt des Exports einer Premium-Berechnung registriert. Wenn Sie einen QR-Code von einem gültigen Bericht gescannt haben, stellen Sie bitte sicher, dass der gesamte Hash korrekt erfasst wurde.",
+        "notFoundMessage": "Im SectorCalc-Register wurde kein übereinstimmender geprüfter Bericht gefunden.",
+        "originallyIssued": "Ursprünglich ausgestellt",
+        "premiumSummary": "Premium-Entscheidungsübersicht",
+        "print": "Drucken",
+        "revokedBadge": "BERICHT WIDERRUFEN",
+        "revokedHelp": "Ein widerrufener Bericht gilt nicht mehr als gültig. Kontaktieren Sie den Aussteller für einen aktualisierten Bericht.",
+        "revokedMessage": "Dieser Bericht wurde widerrufen.",
+        "saveFailed": "Übersicht konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+        "saveSummary": "Entscheidungsübersicht speichern",
+        "saveSummaryDesc": "Speichern Sie diese Berechnung mit Eingaben und Ergebnissen für Ihre Unterlagen.",
+        "saving": "Wird gespeichert…",
+        "signInToSave": "Melden Sie sich an, um Entscheidungsübersichten zu speichern.",
+        "summaryDisclaimer": "Technische Simulation. Keine Finanz-, Rechts- oder Ingenieurberatung. Haftungsausschluss v%1$s.",
+        "title": "Kryptografische Verifizierung",
+        "upgradeToSave": "Upgrade auf Pro, um detaillierte Berechnungsübersichten zu speichern.",
+        "verifiedBadge": "TRUST TRACE VERIFIZIERT",
+        "verifiedMessage": "Dieser Bericht wurde vom SectorCalc Trust Trace-System kryptografisch verifiziert. Der Berechnungsdatensatz ist authentisch und wurde nicht manipuliert."
     },
     "wasteTypes": {
         "defects": "Fehler \/ Ausschuss",

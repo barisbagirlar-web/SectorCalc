@@ -320,7 +320,7 @@
             "metaReadTime": "Okuma süresi",
             "metaRecordId": "Kayıt No",
             "metaRelatedTool": "İlgili araç",
-            "metaTitle": "Başarı Hikayeleri Dizini | SectorCalc",
+            "metaTitle": "Başarı Hikayeleri: Gerçek İşletmelerde Tasarruf & Verimlilik | SectorCalc",
             "noResults": "Bu kriterlerde vaka bulunamadı.",
             "representativeLabel": "Temsilî senaryo (doğrulanmış müşteri sonucu değildir)",
             "resultsMetric": "Metrik",
@@ -535,7 +535,8 @@
                 "homepage": "Sektör, maliyet veya teknik hesap ara...",
                 "industries": "Sektör hesaplayıcısı ara...",
                 "premium-tools": "Premium hesaplayıcı ara..."
-            }
+            },
+            "showingLimited": "Toplam %1$s hesaplayıcıdan %1$s tanesi gösteriliyor. Listeyi daraltmak için sektör filtresi veya arama kullanın."
         }
     },
     "categories": {
@@ -736,6 +737,22 @@
             "title": "Henüz kayıtlı rapor yok",
             "viewReport": "Raporu görüntüle"
         }
+    },
+    "engineeringInterpretation": {
+        "confidence": {
+            "high": "Yüksek güven",
+            "low": "Düşük güven",
+            "medium": "Orta güven"
+        },
+        "executiveSummary": "Yönetici özeti",
+        "fieldNotes": "Saha notları",
+        "generating": "Mühendislik yorumu hazırlanıyor…",
+        "outputAnalyses": "Çıktı analizi",
+        "recommendations": "Öneriler",
+        "retry": "Tekrar dene",
+        "riskAssessment": "Risk değerlendirmesi",
+        "tabLabel": "Mühendislik Yorumu",
+        "unavailable": "Mühendislik yorumu kullanılamıyor"
     },
     "enterprise": {
         "approvedReports": {
@@ -63630,6 +63647,7 @@
             "quoteNumber": "Teklif no",
             "title": "Teklif ve fiyatlandırma"
         },
+        "resultUnit": "Birim: %1$s",
         "scenarioComparison": {
             "calculateAll": "Tüm senaryoları hesapla",
             "comparisonTitle": "Karşılaştırma sonuçları",
@@ -63681,6 +63699,36 @@
         "subtitle": "Dinamik formlar, diyagramlar ve anında tarayıcı hesaplaması ile şema tabanlı sektör hesaplayıcıları.",
         "subtitleCompact": "Sektörüne göre ihtiyacın olan hesaplayıcıyı bul.",
         "title": "Üretilmiş Hesaplayıcılar"
+    },
+    "glossaryUi": {
+        "calculatorModuleNotFound": "Hesaplama modülü bulunamadı.",
+        "carbonFootprint": "Karbon Ayak İzi",
+        "cbam": "CBAM",
+        "cbamAdjustment": "CBAM Düzeltmesi",
+        "cbamComplianceSummary": "CBAM Uyum Özeti",
+        "downloadPdf": "PDF İndir",
+        "enterErpWebhookUrl": "ERP Webhook URL'sini girin",
+        "failedToLoadCalculator": "Hesap makinesi yüklenemedi.",
+        "metric": "Metrik",
+        "preparingPdf": "PDF hazırlanıyor…",
+        "primaryResultLabel": "Birincil Sonuç:",
+        "productCarbonFootprint": "Ürün Karbon Ayak İzi",
+        "reportIdLabel": "Rapor No:",
+        "sectorSpecificCalculator": "Sektöre özel hesap makinesi — sonuçları görmek için girdileri girin.",
+        "sectorcalcCalculationReport": "SectorCalc Hesaplama Raporu",
+        "sendFailed": "Gönderilemedi",
+        "sendToErp": "ERP'ye Gönder",
+        "sending": "Gönderiliyor…",
+        "sentToErp": "ERP'ye gönderildi",
+        "status": "Durum",
+        "technicalSimulationOnly": "Yalnızca teknik simülasyon. Finansal, hukuki veya mühendislik tavsiyesi değildir.",
+        "toolLabel": "Araç:",
+        "trustTrace": "Trust Trace",
+        "validationStamp": "Doğrulama Damgası:",
+        "value": "Değer",
+        "verificationHash": "Doğrulama Karması",
+        "verifyQrCode": "QR Kodunu Doğrula",
+        "verifyWithReportIdAt": "Rapor No ile şu adreste doğrula:"
     },
     "guidance": {
         "inputGuide": {
@@ -66237,6 +66285,8 @@
     "resultLayers": {
         "deepTab": "Detaylı iz",
         "deepTitle": "Detaylı açıklama",
+        "interpretationTab": "Mühendislik Yorumu",
+        "interpretationTitle": "Mühendislik Değerlendirmesi",
         "quickTab": "Hızlı sonuç"
     },
     "runtimeReadiness": {
@@ -67732,6 +67782,68 @@
         "timeDesc": "Kurulum, gecikme, mola pencereleri ve OEE tarzı verimlilik riski.",
         "timeTr": "Zaman kaybı",
         "title": "Dört kayıp boyutu — tek platform"
+    },
+    "verify": {
+        "actionManualVerify": "Rapor kimliğini manuel gir",
+        "actionRetry": "Tekrar dene",
+        "actionVerifyAnother": "Başka bir rapor doğrula",
+        "calcId": "Hesaplama Kimliği",
+        "calcSummary": "Hesaplama Özeti",
+        "copied": "Kopyalandı!",
+        "copyReportId": "Rapor Kimliğini Kopyala",
+        "description": "SHA-256 hash ile SectorCalc onaylı kayıt defterine karşı hesaplama raporunun orijinalliği ve bütünlüğü doğrulanıyor.",
+        "downloadCsv": "CSV İndir",
+        "downloadHtml": "PDF\/HTML İndir",
+        "downloadWord": "Word İndir",
+        "errorMessage": "Doğrulama hizmeti şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.",
+        "errorRetry": "Tekrar dene",
+        "errorTitle": "Doğrulama Hatası",
+        "eyebrow": "Trust Trace",
+        "footerNote": "Genel doğrulama yalnızca sınırlı meta veri döndürür. Tam girdi ve sonuç anlık görüntüleri asla açıklanmaz. Bu, teknik bir simülasyon ve karar destek çıktısıdır. Ticari kararlar almadan önce tüm sonuçları doğrulayın.",
+        "formCalcHash": "Hesaplama hash (isteğe bağlı)",
+        "formChecking": "Kontrol ediliyor…",
+        "formFootnote": "Genel doğrulama yalnızca sınırlı meta veri döndürür. Tam girdi ve sonuç görüntüleri bu sayfada asla gösterilmez.",
+        "formHashMismatch": "Rapor bulundu ancak hesaplama hash'i eşleşmiyor.",
+        "formHashPlaceholder": "64 karakterli SHA-256 hash",
+        "formNotFound": "Rapor bulunamadı veya geçersiz.",
+        "formReportId": "Rapor Kimliği",
+        "formReportIdPlaceholder": "SC-YYYYAA GG-ARAC-KIMLIK",
+        "formReportIdRequired": "Rapor kimliği zorunludur.",
+        "formRevoked": "Bu rapor mevcut ancak iptal edilmiş.",
+        "formServiceUnavailable": "Doğrulama hizmeti şu anda kullanılamıyor. Kısa süre sonra tekrar deneyin.",
+        "formUnableToVerify": "Bu rapor doğrulanamıyor.",
+        "formValidApproved": "Rapor geçerli ve onaylı.",
+        "formVerifyBtn": "Raporu doğrula",
+        "issued": "Yayın tarihi",
+        "labelFormulaVersion": "Formül sürümü",
+        "labelHash": "SHA-256: %1$s",
+        "labelIssuedAt": "Yayın tarihi",
+        "labelReportId": "Rapor Kimliği",
+        "labelTool": "Araç",
+        "labelValidationStamp": "Doğrulama damgası",
+        "loading": "DOĞRULANIYOR...",
+        "metaDescription": "SectorCalc premium hesaplama raporunun kriptografik doğrulaması. Raporun orijinalliğini, bütünlüğünü ve yayın durumunu doğrulayın.",
+        "metaTitle": "Hesaplama Raporu Doğrulama — SectorCalc Trust Trace",
+        "notFoundBadge": "KAYIT BULUNAMADI",
+        "notFoundHash": "Hash: %1$s",
+        "notFoundHelp": "Bu hash henüz doğrulanmış bir hesaplamaya bağlı değil. Raporlar, premium hesaplama dışa aktarımı sırasında kaydedilir. Geçerli bir rapordaki QR kodu taradıysanız, hash'in tamamının doğru okunduğundan emin olun.",
+        "notFoundMessage": "SectorCalc kayıt defterinde eşleşen onaylı rapor bulunamadı.",
+        "originallyIssued": "İlk yayın tarihi",
+        "premiumSummary": "Premium Karar Özeti",
+        "print": "Yazdır",
+        "revokedBadge": "RAPOR İPTAL EDİLDİ",
+        "revokedHelp": "İptal edilmiş bir rapor artık geçerli sayılmaz. Güncel bir rapor için düzenleyen kişiyle iletişime geçin.",
+        "revokedMessage": "Bu rapor iptal edilmiştir.",
+        "saveFailed": "Özet kaydedilemedi. Lütfen tekrar deneyin.",
+        "saveSummary": "Karar Özetini Kaydet",
+        "saveSummaryDesc": "Bu hesaplamayı girdiler ve sonuçlarla birlikte kayıtlarınız için saklayın.",
+        "saving": "Kaydediliyor…",
+        "signInToSave": "Karar özetlerini kaydetmek için giriş yapın.",
+        "summaryDisclaimer": "Teknik simülasyon. Finansal, hukuki veya mühendislik tavsiyesi niteliği taşımaz. Sorumluluk reddi s%1$s.",
+        "title": "Kriptografik Doğrulama",
+        "upgradeToSave": "Detaylı hesaplama özetlerini kaydetmek için Pro'ya yükseltin.",
+        "verifiedBadge": "TRUST TRACE DOĞRULANDI",
+        "verifiedMessage": "Bu rapor SectorCalc Trust Trace sistemi tarafından kriptografik olarak doğrulanmıştır. Hesaplama kaydı orijinaldir ve üzerinde değişiklik yapılmamıştır."
     },
     "wasteTypes": {
         "defects": "Hata \/ fire",

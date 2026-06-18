@@ -252,7 +252,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
         shouldFetch
       />
     );
-  }, [interpretationRequest, displayName, schema.id, submitted]);
+  }, [interpretationRequest, schema.id, submitted]);
 
   const schemaGuidanceFields = useMemo(
     () =>

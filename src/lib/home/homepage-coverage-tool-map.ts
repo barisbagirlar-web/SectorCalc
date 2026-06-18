@@ -12,13 +12,22 @@ export const HOMEPAGE_COVERAGE_TOOL_MATCHERS: Readonly<
     "cnc-manufacturing",
     "cnc-additive-manufacturing",
     "metal-plastics-forming",
+    "quality-six-sigma",
+    "textile-print-lab",
   ],
-  industrial: ["atolye-tamir", "auto-repair-shop", "maintenance-reliability"],
+  industrial: [
+    "atolye-tamir",
+    "auto-repair-shop",
+    "maintenance-reliability",
+    "hse-ergonomics",
+  ],
   technical: [
     "teknik-muhendislik",
     "olcum-donusum",
     "electrical-power-systems",
     "mechanical-hvac-energy-loss",
+    "technology-ai-cloud-cyber",
+    "process-chemical",
   ],
   construction: [
     "insaat-saha",

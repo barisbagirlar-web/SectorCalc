@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { SiteLogo } from "@/components/brand/SiteLogo";
 import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { DesktopHeaderNav } from "@/components/layout/HeaderNav";
@@ -8,6 +9,7 @@ import { RegionSelector } from "@/components/layout/RegionSelector";
 import { SkipToMainLink } from "@/components/layout/SkipToMainLink";
 
 export function SiteHeader() {
+  const a11y = useTranslations("a11y");
   return (
     <>
       <SkipToMainLink />
@@ -22,7 +24,7 @@ export function SiteHeader() {
 
         <div className="apple-nav__utilities">
           <div className="sc-header-util-compact hidden lg:flex">
-            <div className="sc-header-locale-group" aria-label="Region and language">
+            <div className="sc-header-locale-group" aria-label={a11y("regionLanguage")}>
               <div className="hidden xl:block">
                 <RegionSelector className="sc-header-locale-control" variant="compact" />
               </div>

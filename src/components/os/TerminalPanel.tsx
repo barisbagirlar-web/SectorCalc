@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 import type { ExpertCalcResult, ExpertCalcTier, ExpertFieldSpec } from "@/lib/os/core/formulas/expert-calc";
 import type { VerdictSeverity } from "@/lib/types/margincore-engine";
 
@@ -52,6 +53,7 @@ export function TerminalPanel({
   onCalculate,
   onReset,
 }: TerminalPanelProps) {
+  const t = useTranslations("terminalPanel");
   const initialDraft = useMemo(() => {
     const draft: Record<string, string> = {};
     for (const field of fields) {
@@ -73,15 +75,15 @@ export function TerminalPanel({
         const raw = draft[field.key]?.trim() ?? "";
         const value = Number(raw);
         if (!raw || !Number.isFinite(value)) {
-          nextErrors[field.key] = "Numeric value required.";
+          nextErrors[field.key] = t("numericValueRequired");
           continue;
         }
         if (field.kind === "rate" && value <= 0) {
-          nextErrors[field.key] = "Must be > 0.";
+          nextErrors[field.key] = t("mustBeGreaterThanZero");
           continue;
         }
         if (field.kind === "actual" && value < 0) {
-          nextErrors[field.key] = "Cannot be negative.";
+          nextErrors[field.key] = t("cannotBeNegative");
           continue;
         }
         parsed[field.key] = value;
@@ -161,7 +163,7 @@ export function TerminalPanel({
               className="terminal-panel__btn terminal-panel__btn--calc"
             >
               <CalcIcon />
-              {pending ? "…" : "Calculate"}
+              {pending ? "…" : t("calculate")}
             </button>
             {onReset ? (
               <button
@@ -170,7 +172,7 @@ export function TerminalPanel({
                 className="terminal-panel__btn terminal-panel__btn--ghost"
               >
                 <ResetIcon />
-                Reset
+                {t("reset")}
               </button>
             ) : null}
           </div>
@@ -181,19 +183,19 @@ export function TerminalPanel({
             <>
               <div className="terminal-panel__metrics">
                 <div>
-                  <span className="terminal-panel__metric-label">Variance</span>
+                  <span className="terminal-panel__metric-label">{t("variance")}</span>
                   <span className="terminal-panel__metric-value">{result.variancePct}%</span>
                 </div>
                 <div>
-                  <span className="terminal-panel__metric-label">Efficiency</span>
+                  <span className="terminal-panel__metric-label">{t("efficiency")}</span>
                   <span className="terminal-panel__metric-value">{result.efficiencyScore}</span>
                 </div>
                 <div>
-                  <span className="terminal-panel__metric-label">Impact</span>
+                  <span className="terminal-panel__metric-label">{t("impact")}</span>
                   <span className="terminal-panel__metric-value">{result.totalImpactFormatted}</span>
                 </div>
                 <div>
-                  <span className="terminal-panel__metric-label">Tier</span>
+                  <span className="terminal-panel__metric-label">{t("tier")}</span>
                   <span className="terminal-panel__metric-value">{tier.toUpperCase()}</span>
                 </div>
               </div>
@@ -205,7 +207,7 @@ export function TerminalPanel({
 
               {tier === "premium" && result.premium ? (
                 <>
-                  <div className="terminal-panel__logic" aria-label="Expert logic breakdown">
+                  <div className="terminal-panel__logic" aria-label={t("expertLogicBreakdown")}>
                     {result.premium.logicTerms.map((term) => (
                       <div key={term.id} className="terminal-panel__logic-row">
                         <span className="terminal-panel__logic-id">{term.id}</span>
@@ -218,7 +220,7 @@ export function TerminalPanel({
                   </div>
 
                   {result.premium.hiddenVariables.length > 0 ? (
-                    <div className="terminal-panel__hidden" aria-label="Hidden variables">
+                    <div className="terminal-panel__hidden" aria-label={t("hiddenVariables")}>
                       {result.premium.hiddenVariables.map((item) => (
                         <div key={item.id} className="terminal-panel__hidden-row">
                           <span>{item.label}</span>
@@ -233,7 +235,7 @@ export function TerminalPanel({
               ) : null}
             </>
           ) : (
-            <p className="terminal-panel__meta">Enter parameters and run calculation.</p>
+            <p className="terminal-panel__meta">{t("emptyState")}</p>
           )}
         </div>
       </form>

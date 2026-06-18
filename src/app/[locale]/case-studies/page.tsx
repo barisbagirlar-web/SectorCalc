@@ -22,7 +22,7 @@ import { addLocaleToPath } from "@/lib/i18n/locale-routing";
 import { getLocalizedDuration } from "@/lib/case-studies/academic-format";
 import "@/styles/academic-case-studies-database.css";
 
-export const revalidate = 60;
+export const revalidate = 86400;
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -38,15 +38,21 @@ function isSavingsBand(value: string | undefined): value is CaseStudySavingsBand
   return value === "0-100k" || value === "100k-500k" || value === "500k-1m" || value === "1m+";
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const query = await searchParams;
+  const hasFilters = query.industry || query.country || query.year || query.savings;
   const t = await getTranslations({ locale, namespace: "caseStudies.database" });
-  return createPageMetadata({
+  const meta = createPageMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
     path: "/case-studies",
     locale: locale as AppLocale,
   });
+  if (hasFilters) {
+    meta.robots = { index: false, follow: true };
+  }
+  return meta;
 }
 
 export default async function CaseStudiesPage({ params, searchParams }: PageProps) {
@@ -95,18 +101,11 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
         <div className="header-line" />
       </header>
 
-      <div className="breadcrumb">
+      <nav aria-label="Breadcrumb" className="breadcrumb">
         <Link href="/">{t("breadcrumbHome")}</Link>
         <span className="sep">/</span>
         <span>{t("breadcrumbCurrent")}</span>
-      </div>
-
-      <div className="authority-bar">
-        <div className="authority-line-1">{t("authorityLine1")}</div>
-        <div className="authority-line-2">
-          {t("authorityLine2", { date: updatedOn, total: totalCases })}
-        </div>
-      </div>
+      </nav>
 
       <div className="filter-area">
         <form
@@ -178,9 +177,9 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
       </div>
 
       <section className="index-snippet-summary" aria-labelledby="case-studies-snippet-heading">
-        <h2 id="case-studies-snippet-heading" className="index-snippet-heading">
+        <h1 id="case-studies-snippet-heading" className="index-snippet-heading">
           {t("indexSummaryHeading")}
-        </h2>
+        </h1>
         <p className="sc-featured-answer__answer index-snippet-intro">{t("indexSummaryIntro")}</p>
         <ul className="sc-featured-answer__list index-snippet-list">
           {studies.map((study) => (
@@ -208,13 +207,12 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
               <th>{t("colSavings")}</th>
               <th>{t("colYear")}</th>
               <th>{t("colDetail")}</th>
-              <th>{t("colPdf")}</th>
             </tr>
           </thead>
           <tbody>
             {filteredStudies.length === 0 ? (
               <tr>
-                <td colSpan={12} className="empty-row">
+                <td colSpan={11} className="empty-row">
                   {t("noResults")}
                 </td>
               </tr>
@@ -241,7 +239,6 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
                         {t("detailLink")}
                       </Link>
                     </td>
-                    <td>{t("emDash")}</td>
                   </tr>
                 );
               })
@@ -251,6 +248,13 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
       </div>
 
       <JsonLd data={buildCaseStudyIndexJsonLd(studies, locale, t("indexSummaryHeading"))} />
+
+      <div className="authority-bar">
+        <div className="authority-line-1">{t("authorityLine1")}</div>
+        <div className="authority-line-2">
+          {t("authorityLine2", { date: updatedOn, total: totalCases })}
+        </div>
+      </div>
 
       <footer className="footer">
         <div className="footer-line" />

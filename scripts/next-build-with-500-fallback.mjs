@@ -155,7 +155,7 @@ function runNextBuild() {
     cwd: ROOT,
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=16384",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=20480",
       FORCE_COLOR: "0",
     },
     stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],
@@ -260,7 +260,7 @@ function shouldRetryWithFullClean(result) {
   return ssgPageModuleRaceFailure(output) || interruptedBuild(output, status);
 }
 
-const MAX_ATTEMPTS = process.env.VERCEL === "1" ? 5 : 3;
+const MAX_ATTEMPTS = process.env.VERCEL === "1" ? 5 : 1;
 let lastOutput = "";
 
 try {

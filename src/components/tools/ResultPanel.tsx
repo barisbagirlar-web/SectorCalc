@@ -91,13 +91,16 @@ function formatPrimaryDisplayValue(
     }).format(value);
   }
 
+  if (unit && unit !== "—") {
+    const formatted = new Intl.NumberFormat(locale, {
+      maximumFractionDigits: Math.abs(value) >= 1000 ? 0 : 2,
+    }).format(value);
+    return `${formatted} ${unit}`;
+  }
+
   return new Intl.NumberFormat(locale, {
     maximumFractionDigits: Math.abs(value) >= 1000 ? 0 : 2,
   }).format(value);
-}
-
-function shouldShowSeparateUnit(unit: string): boolean {
-  return unit !== "—" && unit !== "%" && unit !== "USD" && unit !== "EUR" && unit !== "TRY";
 }
 
 function downloadBlob(content: string, filename: string, mimeType: string) {
@@ -366,7 +369,6 @@ export function ResultPanel({
       ? formatPrimaryDisplayValue(primaryValue, primaryOutputKey, unit, locale)
       : null;
   const breakdown = result.breakdown ?? null;
-  const showUnitLine = shouldShowSeparateUnit(unit);
 
   let breakdownSection: ReactNode = null;
   if (breakdown && Object.keys(breakdown).length > 0) {
@@ -405,9 +407,6 @@ export function ResultPanel({
       <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
         <div className="sc-premium-dtf-result__title">{titleLabel}</div>
         <div className="sc-premium-dtf-result__value result-value">{formattedPrimary}</div>
-        {showUnitLine ? (
-          <p className="mt-1 text-sm text-text-secondary">{unit}</p>
-        ) : null}
         {statusLabel ? (
           <div className="sc-premium-dtf-result__status">{statusLabel}</div>
         ) : null}

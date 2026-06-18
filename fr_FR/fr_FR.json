@@ -324,7 +324,7 @@
             "metaReadTime": "Temps de lecture",
             "metaRecordId": "ID d'enregistrement",
             "metaRelatedTool": "Outil associé",
-            "metaTitle": "Index des histoires de réussite | SectorCalc",
+            "metaTitle": "Success Stories: Économies Réelles & Efficacité | SectorCalc",
             "noResults": "Aucun cas ne correspond à ces filtres.",
             "representativeLabel": "Scénario représentatif (résultat client non vérifié)",
             "resultsMetric": "Indicateur",
@@ -539,7 +539,8 @@
                 "homepage": "Rechercher secteur, coût ou calcul technique...",
                 "industries": "Rechercher des calculateurs sectoriels...",
                 "premium-tools": "Rechercher des calculateurs premium..."
-            }
+            },
+            "showingLimited": "Affichage de %1$s sur %1$s calculateurs. Utilisez les filtres de secteur ou la recherche pour affiner la liste."
         }
     },
     "categories": {
@@ -740,6 +741,22 @@
             "title": "Pas encore de rapports enregistrés",
             "viewReport": "Voir le rapport"
         }
+    },
+    "engineeringInterpretation": {
+        "confidence": {
+            "high": "Haute confiance",
+            "low": "Faible confiance",
+            "medium": "Confiance moyenne"
+        },
+        "executiveSummary": "Résumé exécutif",
+        "fieldNotes": "Notes de terrain",
+        "generating": "Génération du commentaire technique…",
+        "outputAnalyses": "Analyse des résultats",
+        "recommendations": "Recommandations",
+        "retry": "Réessayer",
+        "riskAssessment": "Évaluation des risques",
+        "tabLabel": "Commentaire technique",
+        "unavailable": "Commentaire technique indisponible"
     },
     "enterprise": {
         "approvedReports": {
@@ -63686,6 +63703,36 @@
         "subtitleCompact": "Trouvez le calculateur adapté à votre secteur.",
         "title": "Calculateurs générés"
     },
+    "glossaryUi": {
+        "calculatorModuleNotFound": "Module de calcul introuvable.",
+        "carbonFootprint": "Empreinte carbone",
+        "cbam": "CBAM",
+        "cbamAdjustment": "Ajustement CBAM",
+        "cbamComplianceSummary": "Résumé de conformité CBAM",
+        "downloadPdf": "Télécharger le PDF",
+        "enterErpWebhookUrl": "Saisir l'URL du webhook ERP",
+        "failedToLoadCalculator": "Échec du chargement du calculateur.",
+        "metric": "Métrique",
+        "preparingPdf": "Préparation du PDF…",
+        "primaryResultLabel": "Résultat principal :",
+        "productCarbonFootprint": "Empreinte carbone du produit",
+        "reportIdLabel": "ID du rapport :",
+        "sectorSpecificCalculator": "Calculateur sectoriel — saisissez les données pour voir les résultats.",
+        "sectorcalcCalculationReport": "Rapport de calcul SectorCalc",
+        "sendFailed": "Échec de l'envoi",
+        "sendToErp": "Envoyer à l'ERP",
+        "sending": "Envoi en cours…",
+        "sentToErp": "Envoyé à l'ERP",
+        "status": "Statut",
+        "technicalSimulationOnly": "Simulation technique uniquement. Pas un conseil financier, juridique ou d'ingénierie.",
+        "toolLabel": "Outil :",
+        "trustTrace": "Trust Trace",
+        "validationStamp": "Cachet de validation :",
+        "value": "Valeur",
+        "verificationHash": "Hash de vérification",
+        "verifyQrCode": "Vérifier le code QR",
+        "verifyWithReportIdAt": "Vérifier avec l'ID du rapport sur"
+    },
     "guidance": {
         "inputGuide": {
             "activeField": "Champ actif : %1$s",
@@ -63789,6 +63836,7 @@
         "hero": {
             "trustStrip": "%1$s sectors · Free calculators · Premium reports · Expart logic · No ERP required"
         },
+        "heroPrivacyNote": "Vos données ne sont pas stockées. Chaque calcul s'exécute instantanément et ne laisse aucune trace.",
         "heroSub1": "Testez gratuitement les calculs de coûts, pertes, énergie, perte de temps et OEE.",
         "heroSub2": "Lorsque vous souhaitez aller plus loin, comparez vos résultats avec les outils premium.",
         "heroTitle": "Si vous produisez, gérez tous vos calculs métier en un seul endroit.",
@@ -66240,6 +66288,8 @@
     "resultLayers": {
         "deepTab": "Trace détaillée",
         "deepTitle": "Explication détaillée",
+        "interpretationTab": "Commentaire technique",
+        "interpretationTitle": "Analyse technique",
         "quickTab": "Résultat rapide"
     },
     "runtimeReadiness": {
@@ -66264,7 +66314,7 @@
     "sector": {
         "categoryTitle": "PARCOURIR PAR SECTEUR",
         "searchPlaceholder": "Rechercher un secteur, un métier ou un outil...",
-        "subtitle": "Trouvez des outils de calcul par secteur, métier et modèle d’entreprise.",
+        "subtitle": "Trouvez des outils de calcul par secteur, métier et modèle d'entreprise.",
         "title": "Calculateurs Sectoriels"
     },
     "sectorCard": {
@@ -67735,6 +67785,68 @@
         "timeDesc": "Temps de réglage, retards et risque d'efficacité type OEE.",
         "timeTr": "Zeitverlust",
         "title": "Quatre dimensions de perte — une plateforme"
+    },
+    "verify": {
+        "actionManualVerify": "Saisir manuellement l'ID du rapport",
+        "actionRetry": "Réessayer",
+        "actionVerifyAnother": "Vérifier un autre rapport",
+        "calcId": "ID de calcul",
+        "calcSummary": "Résumé du calcul",
+        "copied": "Copié !",
+        "copyReportId": "Copier l'ID du rapport",
+        "description": "Vérification de l'authenticité et de l'intégrité du rapport de calcul via le hachage SHA-256 par rapport au registre approuvé SectorCalc.",
+        "downloadCsv": "Télécharger CSV",
+        "downloadHtml": "Télécharger PDF\/HTML",
+        "downloadWord": "Télécharger Word",
+        "errorMessage": "Le service de vérification est actuellement indisponible. Veuillez réessayer plus tard.",
+        "errorRetry": "Réessayer",
+        "errorTitle": "Erreur de vérification",
+        "eyebrow": "Trust Trace",
+        "footerNote": "La vérification publique ne renvoie que des métadonnées limitées. Les instantanés complets des entrées et des résultats ne sont jamais exposés. Ceci est une simulation technique et un résultat d'aide à la décision. Vérifiez tous les résultats avant de prendre des décisions commerciales.",
+        "formCalcHash": "Hash de calcul (optionnel)",
+        "formChecking": "Vérification…",
+        "formFootnote": "La vérification publique ne renvoie que des métadonnées limitées. Les instantanés complets des entrées et résultats ne sont jamais exposés sur cette page.",
+        "formHashMismatch": "Rapport trouvé, mais le hash de calcul ne correspond pas.",
+        "formHashPlaceholder": "Hash SHA-256 de 64 caractères",
+        "formNotFound": "Rapport introuvable ou invalide.",
+        "formReportId": "ID du rapport",
+        "formReportIdPlaceholder": "SC-AAAA MMJJ-OUTIL-ID",
+        "formReportIdRequired": "L'ID du rapport est requis.",
+        "formRevoked": "Ce rapport existe mais a été révoqué.",
+        "formServiceUnavailable": "Le service de vérification est actuellement indisponible. Réessayez sous peu.",
+        "formUnableToVerify": "Impossible de vérifier ce rapport.",
+        "formValidApproved": "Le rapport est valide et approuvé.",
+        "formVerifyBtn": "Vérifier le rapport",
+        "issued": "Émis le",
+        "labelFormulaVersion": "Version de la formule",
+        "labelHash": "SHA-256 : %1$s",
+        "labelIssuedAt": "Émis le",
+        "labelReportId": "ID du rapport",
+        "labelTool": "Outil",
+        "labelValidationStamp": "Cachet de validation",
+        "loading": "VÉRIFICATION...",
+        "metaDescription": "Vérification cryptographique d'un rapport de calcul premium SectorCalc. Vérifiez l'authenticité, l'intégrité et le statut d'émission.",
+        "metaTitle": "Vérifier le rapport de calcul — SectorCalc Trust Trace",
+        "notFoundBadge": "ENREGISTREMENT INTROUVABLE",
+        "notFoundHash": "Hachage : %1$s",
+        "notFoundHelp": "Ce hachage n'est pas encore lié à un calcul vérifié. Les rapports sont enregistrés au moment de l'exportation d'un calcul premium. Si vous avez scanné un code QR provenant d'un rapport valide, assurez-vous que le hachage entier a été correctement capturé.",
+        "notFoundMessage": "Aucun rapport approuvé correspondant trouvé dans le registre SectorCalc.",
+        "originallyIssued": "Émis à l'origine",
+        "premiumSummary": "Résumé de décision Premium",
+        "print": "Imprimer",
+        "revokedBadge": "RAPPORT RÉVOQUÉ",
+        "revokedHelp": "Un rapport révoqué n'est plus considéré comme valide. Contactez l'émetteur pour obtenir un rapport mis à jour.",
+        "revokedMessage": "Ce rapport a été révoqué.",
+        "saveFailed": "Impossible d'enregistrer le résumé. Veuillez réessayer.",
+        "saveSummary": "Enregistrer le résumé de décision",
+        "saveSummaryDesc": "Enregistrez ce calcul avec les entrées et résultats pour vos archives.",
+        "saving": "Enregistrement…",
+        "signInToSave": "Connectez-vous pour enregistrer des résumés de décision.",
+        "summaryDisclaimer": "Simulation technique. Pas un conseil financier, juridique ou technique. Clause de non-responsabilité v%1$s.",
+        "title": "Vérification cryptographique",
+        "upgradeToSave": "Passez à Pro pour enregistrer des résumés de calcul détaillés.",
+        "verifiedBadge": "TRUST TRACE VERIFIÉ",
+        "verifiedMessage": "Ce rapport a été vérifié cryptographiquement par le système Trust Trace de SectorCalc. L'enregistrement de calcul est authentique et n'a pas été altéré."
     },
     "wasteTypes": {
         "defects": "Défauts \/ rebuts",
