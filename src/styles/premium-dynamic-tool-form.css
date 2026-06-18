@@ -85,6 +85,8 @@
   flex-direction: column;
   gap: 1rem;
   min-width: 0;
+  overflow-wrap: anywhere;
+  overflow: hidden;
 }
 
 /* Legacy workspace alias — kept for imports; layout uses card+columns */
@@ -309,6 +311,8 @@
   line-height: 1.15;
   margin-bottom: 0.35rem;
   word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: none;
 }
 
 .sc-premium-dtf-result__status {
@@ -335,6 +339,18 @@
   justify-content: space-between;
   gap: 0.5rem;
   margin-bottom: 0.35rem;
+}
+
+.sc-premium-dtf-result__breakdown > div > span:last-child {
+  white-space: nowrap;
+  overflow-wrap: anywhere;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.sc-premium-dtf-result__breakdown > div > span:first-child {
+  overflow-wrap: anywhere;
+  hyphens: none;
 }
 
 .sc-premium-dtf-operator-bar {
@@ -528,6 +544,25 @@
   margin-top: 0.65rem;
   font-size: 0.8125rem;
   color: var(--sc-danger, #991b1b);
+}
+
+/*
+ * Global utility: prevent result numbers and formatted values from breaking.
+ * Apply to any inline element that must not wrap mid-token.
+ * All result panels and breakdown values must use one of these classes.
+ */
+.sc-result-nowrap,
+.sc-premium-dtf-result__breakdown > div > span:last-child {
+  white-space: nowrap;
+  overflow-wrap: anywhere;
+  hyphens: none;
+}
+
+/* Safe guard for the entire result area — last resort fallback */
+.sc-premium-dtf-result {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: none;
 }
 
 /* Omni Calculator–style compact tool meta */

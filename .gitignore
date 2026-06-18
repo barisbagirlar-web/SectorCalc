@@ -35,6 +35,9 @@ ai-repair-history.jsonl
 *.private.json
 credentials.json
 
+# Build artifacts — regenerated every build (timestamp noise)
+steelcore-validation-report.json
+
 # logs
 npm-debug.log*
 yarn-debug.log*
@@ -61,6 +64,12 @@ tsconfig.tsbuildinfo
 # DeepSeek batch runner progress (local only)
 .batch-progress*.json
 scripts/data/omni-batch.pid
+
+# AI index files (regenerated every prebuild — timestamp noise)
+public/ai-categories.json
+public/ai-tool-index.json
+public/ai-tool-index.txt
+public/ai-tool-routes.json
 
 # Build-time sitemap shards (prebuild: generate:sitemap-static)
 public/sitemap/*.xml
