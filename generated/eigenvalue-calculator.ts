@@ -24,8 +24,6 @@ function evaluateAllFormulas(input: Eigenvalue_calculatorInput): Record<string, 
   const results: Record<string, number | string> = {};
   try { const v = input.a + input.d; results["trace"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["trace"] = 0; }
   try { const v = input.a * input.d - input.b * input.c; results["determinant"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["determinant"] = 0; }
-  try { const v = input.a + input.d; results["a___d"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["a___d"] = 0; }
-  try { const v = input.a * input.d - input.b * input.c; results["a___d___b___c"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["a___d___b___c"] = 0; }
   return results;
 }
 
@@ -36,7 +34,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateEigenvalue_calculator(input: Eigenvalue_calculatorInput): Eigenvalue_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["a___d___b___c"]);
+  const totalWasteCost = toNumericFormulaValue(values["determinant"]);
   const breakdown = {
     
   };

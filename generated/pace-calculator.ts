@@ -22,8 +22,10 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Pace_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.distanceKm; results["breakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.distanceKm; results["breakdown_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = input.hours + input.minutes/60 + input.seconds/3600; results["totalHours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalHours"] = 0; }
+  try { const v = input.distanceKm / (asFormulaNumber(results["totalHours"])); results["speedKmh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speedKmh"] = 0; }
+  try { const v = (asFormulaNumber(results["totalHours"])) * 60 / input.distanceKm; results["pacePerKm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pacePerKm"] = 0; }
+  try { const v = (asFormulaNumber(results["pacePerKm"])) * 1.60934; results["pacePerMile"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pacePerMile"] = 0; }
   return results;
 }
 
@@ -34,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculatePace_calculator(input: Pace_calculatorInput): Pace_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["speedKmh"]);
   const breakdown = {
     
   };

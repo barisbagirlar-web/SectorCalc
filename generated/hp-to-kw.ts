@@ -28,6 +28,7 @@ function evaluateAllFormulas(input: Hp_to_kwInput): Record<string, number | stri
   const results: Record<string, number | string> = {};
   try { const v = input.horsepower * 0.7457; results["mechanicalPowerKW"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mechanicalPowerKW"] = 0; }
   try { const v = (asFormulaNumber(results["mechanicalPowerKW"])) * (input.efficiency / 100); results["outputPowerKW"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["outputPowerKW"] = 0; }
+  try { const v = input.voltage * input.current * input.powerFactor * (input.phases == 1 ? 1 : 1.732) / 1000; results["electricalPowerKW"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["electricalPowerKW"] = 0; }
   try { const v = (asFormulaNumber(results["mechanicalPowerKW"])) - (asFormulaNumber(results["outputPowerKW"])); results["lossesKW"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["lossesKW"] = 0; }
   return results;
 }

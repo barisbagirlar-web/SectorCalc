@@ -3865,7 +3865,18 @@
       "colSource": "Fuente / Referencia",
       "badgeDefault": "Análisis de Ingeniería"
     },
-    "downloadPdfReport": "⬇ Descargar informe PDF Premium"
+    "downloadPdfReport": "⬇ Descargar informe PDF Premium",
+    "csvHeaders": {
+      "reportLabel": "Informe de herramienta generada",
+      "tool": "Herramienta",
+      "slug": "Identificador",
+      "primaryOutput": "Salida principal",
+      "input": "Entrada",
+      "value": "Valor",
+      "breakdown": "Desglose",
+      "lossDrivers": "Factores de pérdida",
+      "suggestedActions": "Acciones sugeridas"
+    }
   },
   "generatedToolCatalog": {
     "eyebrow": "Calculadoras basadas en esquema",
@@ -68741,5 +68752,34 @@
     "saving": "Guardando…",
     "saved": "Guardado en tus informes",
     "saveToReports": "Guardar en Mis Informes"
+  },
+  "toolPageShell": {
+    "premiumVerdicts": "Dictámenes Premium",
+    "freePreChecks": "Pre-verificaciones gratuitas",
+    "marginLeakPreCheck": "Pre-verificación de fuga de margen",
+    "home": "Inicio",
+    "assumptionsTitle": "Supuestos y orientación",
+    "assumptionsFallback": "Revise sus entradas contra contratos reales, facturas y datos operativos. Los resultados de SectorCalc son indicativos y no reemplazan la contabilidad profesional, la revisión legal o las estimaciones certificadas.",
+    "calcRegeneration": "Regeneración de la calculadora en curso. El análisis de esquema restaurará esta herramienta.",
+    "ctaUnlockTitle": "Desbloquear todas las herramientas de decisión",
+    "ctaUnlockSubtitle": "SectorCalc Pro desbloque herramientas de decisión premium en todos los sectores — $19/mes, cancele en cualquier momento.",
+    "ctaContinueTitle": "Continuar con herramientas sectoriales",
+    "ctaContinueSubtitle": "Realice otra verificación rápida o desbloquee la herramienta de decisión cuando el número afecte el margen, el precio o el riesgo.",
+    "ctaViewPro": "Ver SectorCalc Pro",
+    "ctaBrowseIndustries": "Explorar industrias",
+    "ctaBrowseFree": "Explorar herramientas gratuitas",
+    "ctaViewPricing": "Ver precios"
+  },
+  "riskVerdictCard": {
+    "verdict": "Dictamen de riesgo"
+  },
+  "premiumTeaserPanel": {
+    "nextLayer": "Siguiente capa"
+  },
+  "freeToolUpgradePanel": {
+    "notIncluded": "No incluido en la verificación gratuita"
+  },
+  "freeToolPrivacyNote": {
+    "privacy": "Privacidad:"
   }
 }

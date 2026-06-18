@@ -3887,7 +3887,18 @@
       "colSource": "المصدر / المرجع",
       "badgeDefault": "تحليل هندسي"
     },
-    "downloadPdfReport": "⬇ تحميل تقرير PDF المميز"
+    "downloadPdfReport": "⬇ تحميل تقرير PDF المميز",
+    "csvHeaders": {
+      "reportLabel": "تقرير الأداة المُنشأة",
+      "tool": "أداة",
+      "slug": "المعرف",
+      "primaryOutput": "المخرج الرئيسي",
+      "input": "الإدخال",
+      "value": "القيمة",
+      "breakdown": "التفصيل",
+      "lossDrivers": "محركات الخسارة",
+      "suggestedActions": "الإجراءات المقترحة"
+    }
   },
   "generatedToolCatalog": {
     "eyebrow": "حاسبات قائمة على المخطط",
@@ -68736,5 +68747,34 @@
     "saving": "جارٍ الحفظ…",
     "saved": "تم الحفظ في تقاريرك",
     "saveToReports": "حفظ في تقاريري"
+  },
+  "toolPageShell": {
+    "premiumVerdicts": "الأحكام المميزة",
+    "freePreChecks": "الفحوصات الأولية المجانية",
+    "marginLeakPreCheck": "فحص أولي لتسرب الهامش",
+    "home": "الرئيسية",
+    "assumptionsTitle": "الافتراضات والتوجيه",
+    "assumptionsFallback": "راجع مدخلاتك مقابل العقود الحقيقية والفواتير والبيانات التشغيلية. مخرجات SectorCalc إرشادية ولا تحل محل المحاسبة المهنية أو المراجعة القانونية أو التقديرات المعتمدة.",
+    "calcRegeneration": "إعادة توليد الآلة الحاسبة قيد التقدم. سيعيد فحص المخطط هذه الأداة.",
+    "ctaUnlockTitle": "فتح جميع أدوات القرار",
+    "ctaUnlockSubtitle": "SectorCalc Pro يفتح أدوات القرار المميزة عبر جميع القطاعات — 19 دولارًا شهريًا، يمكنك الإلغاء في أي وقت.",
+    "ctaContinueTitle": "استمر مع أدوات القطاع",
+    "ctaContinueSubtitle": "قم بتشغيل فحص سريع آخر أو افتح أداة القرار عندما يؤثر الرقم على الهامش أو التسعير أو المخاطر.",
+    "ctaViewPro": "عرض SectorCalc Pro",
+    "ctaBrowseIndustries": "تصفح القطاعات",
+    "ctaBrowseFree": "تصفح الأدوات المجانية",
+    "ctaViewPricing": "عرض الأسعار"
+  },
+  "riskVerdictCard": {
+    "verdict": "حكم المخاطر"
+  },
+  "premiumTeaserPanel": {
+    "nextLayer": "الطبقة التالية"
+  },
+  "freeToolUpgradePanel": {
+    "notIncluded": "غير مدرج في الفحص المجاني"
+  },
+  "freeToolPrivacyNote": {
+    "privacy": "الخصوصية:"
   }
 }

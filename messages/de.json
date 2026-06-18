@@ -3865,7 +3865,18 @@
       "colSource": "Quelle / Referenz",
       "badgeDefault": "Ingenieuranalyse"
     },
-    "downloadPdfReport": "⬇ Premium-PDF-Bericht herunterladen"
+    "downloadPdfReport": "⬇ Premium-PDF-Bericht herunterladen",
+    "csvHeaders": {
+      "reportLabel": "Generierter Werkzeugbericht",
+      "tool": "Werkzeug",
+      "slug": "Kurzname",
+      "primaryOutput": "Primäre Ausgabe",
+      "input": "Eingabe",
+      "value": "Wert",
+      "breakdown": "Aufschlüsselung",
+      "lossDrivers": "Verlusttreiber",
+      "suggestedActions": "Empfohlene Maßnahmen"
+    }
   },
   "generatedToolCatalog": {
     "eyebrow": "Schema-gesteuerte Rechner",
@@ -68758,5 +68769,34 @@
     "saving": "Speichern…",
     "saved": "In Ihren Berichten gespeichert",
     "saveToReports": "In Meine Berichte speichern"
+  },
+  "toolPageShell": {
+    "premiumVerdicts": "Premium-Urteile",
+    "freePreChecks": "Kostenlose Vorabprüfungen",
+    "marginLeakPreCheck": "Margenleck-Vorprüfung",
+    "home": "Startseite",
+    "assumptionsTitle": "Annahmen und Leitlinien",
+    "assumptionsFallback": "Überprüfen Sie Ihre Eingaben anhand von echten Verträgen, Rechnungen und Betriebsdaten. SectorCalc-Ergebnisse sind indikativ und ersetzen keine professionelle Buchhaltung, Rechtsprüfung oder zertifizierte Schätzungen.",
+    "calcRegeneration": "Taschenrechner-Regeneration läuft. Der Schema-Scan wird dieses Tool wiederherstellen.",
+    "ctaUnlockTitle": "Alle Entscheidungstools freischalten",
+    "ctaUnlockSubtitle": "SectorCalc Pro schaltet Premium-Entscheidungstools in allen Branchen frei — 19 $/Monat, jederzeit kündbar.",
+    "ctaContinueTitle": "Mit Branchentools fortfahren",
+    "ctaContinueSubtitle": "Führen Sie eine weitere schnelle Prüfung durch oder schalten Sie das Entscheidungstool frei, wenn die Zahl Marge, Preisgestaltung oder Risiko betrifft.",
+    "ctaViewPro": "SectorCalc Pro anzeigen",
+    "ctaBrowseIndustries": "Branchen durchsuchen",
+    "ctaBrowseFree": "Kostenlose Tools durchsuchen",
+    "ctaViewPricing": "Preise anzeigen"
+  },
+  "riskVerdictCard": {
+    "verdict": "Risikourteil"
+  },
+  "premiumTeaserPanel": {
+    "nextLayer": "Nächste Ebene"
+  },
+  "freeToolUpgradePanel": {
+    "notIncluded": "Nicht im kostenlosen Check enthalten"
+  },
+  "freeToolPrivacyNote": {
+    "privacy": "Datenschutz:"
   }
 }

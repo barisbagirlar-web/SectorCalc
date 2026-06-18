@@ -5,6 +5,62 @@ import { buildHomeSoftwareApplicationSchema } from "@/lib/semantic/build-softwar
 import { absoluteLocalizedUrl, absoluteUrl, SITE_URL } from "@/lib/semantic/site-url";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
 
+const CATALOG_NAMES: Record<string, Record<string, string>> = {
+  en: {
+    main: "SectorCalc calculator catalog",
+    free: "Free calculators",
+    premium: "Premium analyzers",
+    showcase: "Developer showcase",
+    llm: "LLM index",
+    sitemap: "Sitemap",
+  },
+  tr: {
+    main: "SectorCalc hesap makinesi kataloğu",
+    free: "Ücretsiz hesap makineleri",
+    premium: "Premium analiz araçları",
+    showcase: "Geliştirici vitrini",
+    llm: "LLM dizini",
+    sitemap: "Site haritası",
+  },
+  de: {
+    main: "SectorCalc-Rechner-Katalog",
+    free: "Kostenlose Rechner",
+    premium: "Premium-Analysatoren",
+    showcase: "Entwickler-Schaufenster",
+    llm: "LLM-Index",
+    sitemap: "Sitemap",
+  },
+  fr: {
+    main: "Catalogue de calculatrices SectorCalc",
+    free: "Calculatrices gratuites",
+    premium: "Analyseurs premium",
+    showcase: "Vitrine développeur",
+    llm: "Index LLM",
+    sitemap: "Plan du site",
+  },
+  es: {
+    main: "Catálogo de calculadoras SectorCalc",
+    free: "Calculadoras gratuitas",
+    premium: "Analizadores premium",
+    showcase: "Escaparate de desarrolladores",
+    llm: "Índice LLM",
+    sitemap: "Mapa del sitio",
+  },
+  ar: {
+    main: "كتالوج آلات حاسبة SectorCalc",
+    free: "آلات حاسبة مجانية",
+    premium: "محللات مميزة",
+    showcase: "واجهة المطورين",
+    llm: "فهرس LLM",
+    sitemap: "خريطة الموقع",
+  },
+};
+
+function catalogLabel(locale: string, key: string): string {
+  const base = locale.split("-")[0];
+  return CATALOG_NAMES[base]?.[key] ?? CATALOG_NAMES.en[key];
+}
+
 export function buildWebsiteSchema(locale: string): JsonLdRecord {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
@@ -33,32 +89,32 @@ export function buildHomeOfferCatalogSchema(locale: string): JsonLdRecord {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
-    name: "SectorCalc calculator catalog",
+    name: catalogLabel(locale, "main"),
     url: absoluteLocalizedUrl(locale, "/calculator-library"),
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Free calculators",
+        name: catalogLabel(locale, "free"),
         url: absoluteLocalizedUrl(locale, "/free-tools"),
       },
       {
         "@type": "Offer",
-        name: "Premium analyzers",
+        name: catalogLabel(locale, "premium"),
         url: absoluteLocalizedUrl(locale, "/premium-tools"),
       },
       {
         "@type": "Offer",
-        name: "Developer showcase",
+        name: catalogLabel(locale, "showcase"),
         url: absoluteLocalizedUrl(locale, "/developer-showcase"),
       },
       {
         "@type": "Offer",
-        name: "LLM index",
+        name: catalogLabel(locale, "llm"),
         url: absoluteUrl("/llms.txt"),
       },
       {
         "@type": "Offer",
-        name: "Sitemap",
+        name: catalogLabel(locale, "sitemap"),
         url: absoluteUrl("/sitemap.xml"),
       },
     ],

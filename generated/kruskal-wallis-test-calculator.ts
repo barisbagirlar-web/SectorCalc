@@ -27,6 +27,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Kruskal_wallis_test_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.n1 + input.n2 + input.n3; results["N"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["N"] = 0; }
+  try { const v = (input.R1*input.R1/input.n1) + (input.R2*input.R2/input.n2) + (input.R3*input.R3/input.n3); results["sum_R2_n"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sum_R2_n"] = 0; }
+  try { const v = (12/((asFormulaNumber(results["N"]))*((asFormulaNumber(results["N"]))+1))) * (asFormulaNumber(results["sum_R2_n"])) - 3*((asFormulaNumber(results["N"]))+1); results["H"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["H"] = 0; }
   try { const v = 3 - 1; results["df"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["df"] = 0; }
   return results;
 }
@@ -38,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateKruskal_wallis_test_calculator(input: Kruskal_wallis_test_calculatorInput): Kruskal_wallis_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["df"]);
+  const totalWasteCost = toNumericFormulaValue(values["H"]);
   const breakdown = {
     
   };

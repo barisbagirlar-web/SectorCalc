@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateHelical_gear_calculator(input: Helical_gear_calculatorInput): Helical_gear_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["normalCircularPitch_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["normalCircularPitch"]);
   const breakdown = {
     
   };

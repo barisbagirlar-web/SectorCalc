@@ -23,8 +23,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Graph_theory_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.vertices - input.edges + input.faces; results["eulerCharacteristic"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["eulerCharacteristic"] = 0; }
-  try { const v = 1 + input.components; results["expectedEuler"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expectedEuler"] = 0; }
-  try { const v = (input.vertices - input.edges + input.faces) - (1 + input.components); results["eulerError"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["eulerError"] = 0; }
+  try { const v = input.vertices - input.edges + input.faces; results["expectedEuler"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expectedEuler"] = 0; }
+  try { const v = (input.vertices - input.edges + input.faces) - (input.vertices - input.edges + input.faces); results["eulerError"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["eulerError"] = 0; }
   try { const v = 3 * input.vertices - 6; results["maxEdgesPlanar"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxEdgesPlanar"] = 0; }
   return results;
 }

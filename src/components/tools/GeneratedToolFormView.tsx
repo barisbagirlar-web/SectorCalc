@@ -152,7 +152,6 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           slug={slug}
           schema={schema}
           result={result}
-          inputs={lastInputs}
           onOpenFullReport={handlePrintPremiumReport}
         />
       ) : null}

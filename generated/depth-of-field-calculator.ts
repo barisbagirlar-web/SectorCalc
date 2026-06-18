@@ -22,8 +22,10 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Depth_of_field_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.subjectDistance * 1000; results["subjectDistanceMM"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["subjectDistanceMM"] = 0; }
-  try { const v = input.subjectDistance * 1000; results["subjectDistanceMM_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["subjectDistanceMM_aux"] = 0; }
+  try { const v = (input.focalLength * input.focalLength) / (input.aperture * input.circleOfConfusion) / 1000; results["hyperfocalDistance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["hyperfocalDistance"] = 0; }
+  try { const v = ((asFormulaNumber(results["hyperfocalDistance"])) * input.subjectDistance) / ((asFormulaNumber(results["hyperfocalDistance"])) + input.subjectDistance); results["nearFocusLimit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["nearFocusLimit"] = 0; }
+  try { const v = ((asFormulaNumber(results["hyperfocalDistance"])) * input.subjectDistance) / ((asFormulaNumber(results["hyperfocalDistance"])) - input.subjectDistance); results["farFocusLimit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["farFocusLimit"] = 0; }
+  try { const v = (asFormulaNumber(results["farFocusLimit"])) - (asFormulaNumber(results["nearFocusLimit"])); results["totalDoF"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDoF"] = 0; }
   return results;
 }
 
@@ -34,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateDepth_of_field_calculator(input: Depth_of_field_calculatorInput): Depth_of_field_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["subjectDistanceMM_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["totalDoF"]);
   const breakdown = {
     
   };

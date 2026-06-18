@@ -26,8 +26,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Internet_cost_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.monthlyBaseFee; results["temelUcret"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["temelUcret"] = 0; }
-  try { const v = input.monthlyBaseFee; results["temelUcret_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["temelUcret_aux"] = 0; }
+  try { const v = input.monthlyBaseFee * input.discountPercent / 100; results["discountAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["discountAmount"] = 0; }
+  try { const v = input.monthlyBaseFee * input.discountPercent / 100; results["discountAmount_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["discountAmount_aux"] = 0; }
   return results;
 }
 
@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateInternet_cost_calculator(input: Internet_cost_calculatorInput): Internet_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["temelUcret_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["discountAmount_aux"]);
   const breakdown = {
     
   };

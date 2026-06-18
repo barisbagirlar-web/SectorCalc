@@ -2,6 +2,7 @@ import { buildToolReferenceCreatorAuthorRef } from "@/lib/semantic/build-tool-cr
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
 import { absoluteImageUrl, absoluteLocalizedUrl } from "@/lib/semantic/site-url";
 import { pickLocaleText } from "@/lib/semantic/semantic-locale-utils";
+import { organizationDescriptionForLocale } from "@/config/organization-trust";
 import type { SemanticToolContract } from "@/lib/semantic/tool-semantic-types";
 
 function buildPotentialAction(canonicalUrl: string): JsonLdRecord {
@@ -50,8 +51,7 @@ export function buildHomeSoftwareApplicationSchema(locale: string): JsonLdRecord
     inLanguage: locale,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    description:
-      "Sector calculators for production, industry and business decisions.",
+    description: organizationDescriptionForLocale(locale),
     image: absoluteImageUrl("/img/brand/sectorcalc-logo.png"),
     potentialAction: buildPotentialAction(canonicalUrl),
   }) as JsonLdRecord;

@@ -24,8 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Pallet_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
+  try { const v = input.itemsPerLayer * input.layersPerPallet; results["itemsPerPalletActual"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["itemsPerPalletActual"] = 0; }
   try { const v = input.totalItems * input.itemWeight; results["totalWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = input.totalItems * input.itemWeight; results["totalWeight_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWeight_aux"] = 0; }
   return results;
 }
 
@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculatePallet_calculator(input: Pallet_calculatorInput): Pallet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalWeight_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["totalWeight"]);
   const breakdown = {
     
   };

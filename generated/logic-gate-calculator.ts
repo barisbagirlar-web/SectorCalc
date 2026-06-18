@@ -30,6 +30,8 @@ function evaluateAllFormulas(input: Logic_gate_calculatorInput): Record<string, 
   try { const v = (asFormulaNumber(results["sum"])) > 0 ? 1 : 0; results["orResult"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["orResult"] = 0; }
   try { const v = 1 - (asFormulaNumber(results["andResult"])); results["nandResult"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["nandResult"] = 0; }
   try { const v = 1 - (asFormulaNumber(results["orResult"])); results["norResult"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["norResult"] = 0; }
+  try { const v = (input.A + input.B + input.C + input.D) % 2; results["xorResult"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["xorResult"] = 0; }
+  try { const v = 1 - (asFormulaNumber(results["xorResult"])); results["xnorResult"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["xnorResult"] = 0; }
   return results;
 }
 

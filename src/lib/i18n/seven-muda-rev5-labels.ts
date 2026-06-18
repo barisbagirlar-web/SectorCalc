@@ -445,26 +445,51 @@ const TR_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], strin
 const SEVEN_MUDA_WARNING_MESSAGES: ReadonlyArray<{
   readonly en: string;
   readonly tr: string;
+  readonly de: string;
+  readonly fr: string;
+  readonly es: string;
+  readonly ar: string;
 }> = [
   {
     en: "Analysis period exceeds annual working days. Annualized result may be inversely scaled.",
     tr: "Analiz dönemi yıllık çalışma gününden büyük. Yıllıklandırılmış sonuç ters ölçeklenebilir.",
+    de: "Analysezeitraum überschreitet Arbeitstage pro Jahr. Jahresergebnis kann umgekehrt skaliert sein.",
+    fr: "La période d'analyse dépasse les jours ouvrables annuels. Le résultat annualisé peut être inversement proportionnel.",
+    es: "El período de análisis supera los días laborables anuales. El resultado anualizado puede escalarse inversamente.",
+    ar: "فترة التحليل تتجاوز أيام العمل السنوية. قد تكون النتيجة السنوية معكوسة.",
   },
   {
     en: "Manual opportunity cost mode selected but hourly opportunity cost is zero. Waiting cost assumed zero.",
     tr: "Manuel fırsat maliyeti modu seçildi ancak saatlik fırsat maliyeti sıfır. Bekleme maliyeti sıfır kabul edilir.",
+    de: "Manueller Opportunitätskostenmodus gewählt, aber stündliche Opportunitätskosten sind null. Wartekosten werden als null angenommen.",
+    fr: "Mode de coût d'opportunité manuel sélectionné mais le coût d'opportunité horaire est nul. Le coût d'attente est considéré comme nul.",
+    es: "Modo de costo de oportunidad manual seleccionado pero el costo de oportunidad por hora es cero. El costo de espera se asume como cero.",
+    ar: "تم تحديد وضع التكلفة البديلة اليدوية ولكن التكلفة البديلة للساعة صفر. تُفترض تكلفة الانتظار صفر.",
   },
 ];
 
-const WARNING_EN_TO_TR = new Map(
-  SEVEN_MUDA_WARNING_MESSAGES.map((message) => [message.en, message.tr] as const),
-);
+const WARNING_MESSAGE_MAP: Record<string, Map<string, string>> = {
+  en: new Map(),
+  tr: new Map(),
+  de: new Map(),
+  fr: new Map(),
+  es: new Map(),
+  ar: new Map(),
+};
+
+for (const msg of SEVEN_MUDA_WARNING_MESSAGES) {
+  for (const locale of ["en", "tr", "de", "fr", "es", "ar"] as const) {
+    WARNING_MESSAGE_MAP[locale].set(msg.en, msg[locale]);
+  }
+}
 
 function createResolveWarningMessage(locale: string): (rawWarning: string) => string {
-  if (normalizeLocale(locale) !== "tr") {
-    return (rawWarning) => rawWarning;
+  const normalized = normalizeLocale(locale);
+  const map = WARNING_MESSAGE_MAP[normalized];
+  if (map) {
+    return (rawWarning) => map.get(rawWarning) ?? rawWarning;
   }
-  return (rawWarning) => WARNING_EN_TO_TR.get(rawWarning) ?? rawWarning;
+  return (rawWarning) => rawWarning;
 }
 
 function withWarningResolver(labels: SevenMudaRev5LabelCore, locale: string): SevenMudaRev5Labels {

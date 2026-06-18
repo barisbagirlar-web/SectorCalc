@@ -25,7 +25,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Fixed_annuity_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.annualInterestRate / 100; results["periodicRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["periodicRate"] = 0; }
-  try { const v = input.annualInterestRate / 100; results["periodicRate_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["periodicRate_aux"] = 0; }
+  try { const v = input.presentValue * (asFormulaNumber(results["periodicRate"])) * (1 + (asFormulaNumber(results["periodicRate"])))^input.numberOfPeriods / ((1 + (asFormulaNumber(results["periodicRate"])))^input.numberOfPeriods - 1) * (1 + input.paymentType * (asFormulaNumber(results["periodicRate"]))); results["paymentAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["paymentAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["paymentAmount"])) * input.numberOfPeriods; results["totalPaid"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPaid"] = 0; }
+  try { const v = (asFormulaNumber(results["totalPaid"])) - input.presentValue; results["totalInterest"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalInterest"] = 0; }
   return results;
 }
 
@@ -36,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateFixed_annuity_calculator(input: Fixed_annuity_calculatorInput): Fixed_annuity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["periodicRate"]);
+  const totalWasteCost = toNumericFormulaValue(values["paymentAmount"]);
   const breakdown = {
     
   };

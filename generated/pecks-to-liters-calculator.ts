@@ -28,6 +28,8 @@ function evaluateAllFormulas(input: Pecks_to_liters_calculatorInput): Record<str
   const results: Record<string, number | string> = {};
   try { const v = input.peckType == 0 ? 8.80977 : 9.09218; results["conversionFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["conversionFactor"] = 0; }
   try { const v = input.peckQuantity * (asFormulaNumber(results["conversionFactor"])); results["liters"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["liters"] = 0; }
+  try { const v = (asFormulaNumber(results["liters"])) * input.uncertaintyMargin / 100; results["uncertaintyLiters"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["uncertaintyLiters"] = 0; }
+  try { const v = (asFormulaNumber(results["liters"])) + (asFormulaNumber(results["uncertaintyLiters"])); results["finalLiters"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalLiters"] = 0; }
   return results;
 }
 
@@ -38,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculatePecks_to_liters_calculator(input: Pecks_to_liters_calculatorInput): Pecks_to_liters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["liters"]);
+  const totalWasteCost = toNumericFormulaValue(values["finalLiters"]);
   const breakdown = {
     
   };

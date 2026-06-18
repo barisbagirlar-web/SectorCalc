@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateGable_roof_calculator(input: Gable_roof_calculatorInput): Gable_roof_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["ridgeLength_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["ridgeLength"]);
   const breakdown = {
     
   };

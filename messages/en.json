@@ -3933,7 +3933,18 @@
       "colSource": "Source / Reference",
       "badgeDefault": "Engineering Analysis"
     },
-    "downloadPdfReport": "⬇ Download Premium PDF Report"
+    "downloadPdfReport": "⬇ Download Premium PDF Report",
+    "csvHeaders": {
+      "reportLabel": "Generated Tool Report",
+      "tool": "Tool",
+      "slug": "Slug",
+      "primaryOutput": "Primary output",
+      "input": "Input",
+      "value": "Value",
+      "breakdown": "Breakdown",
+      "lossDrivers": "Loss drivers",
+      "suggestedActions": "Suggested actions"
+    }
   },
   "generatedToolCatalog": {
     "eyebrow": "Schema-driven calculators",
@@ -68330,5 +68341,34 @@
     "saving": "Saving…",
     "saved": "Saved to your reports",
     "saveToReports": "Save to My Reports"
+  },
+  "toolPageShell": {
+    "premiumVerdicts": "Premium Verdicts",
+    "freePreChecks": "Free Pre-Checks",
+    "marginLeakPreCheck": "Margin leak pre-check",
+    "home": "Home",
+    "assumptionsTitle": "Assumptions and guidance",
+    "assumptionsFallback": "Review your inputs against real contracts, invoices and operational data. SectorCalc outputs are indicative and do not replace professional accounting, legal review or certified estimates.",
+    "calcRegeneration": "Calculator regeneration in progress. Schema scan will restore this tool.",
+    "ctaUnlockTitle": "Unlock all decision tools",
+    "ctaUnlockSubtitle": "SectorCalc Pro unlocks premium decision tools across all sectors — $19/month, cancel anytime.",
+    "ctaContinueTitle": "Continue with sector tools",
+    "ctaContinueSubtitle": "Run another quick check or unlock the decision tool when the number affects margin, pricing or risk.",
+    "ctaViewPro": "View SectorCalc Pro",
+    "ctaBrowseIndustries": "Browse industries",
+    "ctaBrowseFree": "Browse free tools",
+    "ctaViewPricing": "View pricing"
+  },
+  "riskVerdictCard": {
+    "verdict": "Risk verdict"
+  },
+  "premiumTeaserPanel": {
+    "nextLayer": "Next layer"
+  },
+  "freeToolUpgradePanel": {
+    "notIncluded": "Not included in free check"
+  },
+  "freeToolPrivacyNote": {
+    "privacy": "Privacy:"
   }
 }

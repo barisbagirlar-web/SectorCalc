@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateHip_roof_calculator(input: Hip_roof_calculatorInput): Hip_roof_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["roof_angle_rad"]);
+  const totalWasteCost = toNumericFormulaValue(values["roof_angle_rad_aux"]);
   const breakdown = {
     
   };

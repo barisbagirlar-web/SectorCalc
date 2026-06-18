@@ -28,6 +28,7 @@ export function GeneratedToolExportActions({
 }: GeneratedToolExportActionsProps) {
   const locale = useLocale();
   const t = useTranslations("generatedTool.export");
+  const csvT = useTranslations("generatedTool.csvHeaders");
   const { isPro, loading } = useSubscription();
   const exportLocked = schema.premiumRequired && !isPro;
 
@@ -35,7 +36,18 @@ export function GeneratedToolExportActions({
     if (exportLocked) {
       return;
     }
-    const csv = serializeGeneratedToolCsv({ slug, title, schema, inputs, result });
+    const csvHeaders = {
+      reportLabel: csvT("reportLabel"),
+      tool: csvT("tool"),
+      slug: csvT("slug"),
+      primaryOutput: csvT("primaryOutput"),
+      input: csvT("input"),
+      value: csvT("value"),
+      breakdown: csvT("breakdown"),
+      lossDrivers: csvT("lossDrivers"),
+      suggestedActions: csvT("suggestedActions"),
+    };
+    const csv = serializeGeneratedToolCsv({ slug, title, schema, inputs, result }, csvHeaders);
     downloadGeneratedToolCsv(`${slug}-report.csv`, csv);
   }, [exportLocked, inputs, result, schema, slug, title]);
 

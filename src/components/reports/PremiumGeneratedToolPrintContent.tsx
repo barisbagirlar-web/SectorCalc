@@ -127,7 +127,6 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
           100,
         )
       : 45;
-  const riskColor = riskScore <= 30 ? "#22C55E" : riskScore <= 60 ? "#F59E0B" : "#EF4444";
   const riskLabelKey = riskScore <= 30 ? "riskLow" : riskScore <= 60 ? "riskMedium" : "riskHigh";
   const gaugeCircumference = Math.PI * 40;
   const gaugeOffset = gaugeCircumference * (1 - riskScore / 100);

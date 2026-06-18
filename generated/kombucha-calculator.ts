@@ -23,9 +23,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Kombucha_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.waterVolume + input.starterVolume; results["finalVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalVolume"] = 0; }
-  try { const v = input.sugarMass / (input.waterVolume + input.starterVolume); results["sugarConcentration"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sugarConcentration"] = 0; }
-  try { const v = input.teaMass / (input.waterVolume + input.starterVolume); results["teaConcentration"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["teaConcentration"] = 0; }
-  try { const v = input.starterVolume / (input.waterVolume + input.starterVolume); results["starterRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["starterRatio"] = 0; }
+  try { const v = input.sugarMass / (input.waterVolume + input.starterVolume) * 100; results["sugarConcentration"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sugarConcentration"] = 0; }
+  try { const v = input.teaMass / (input.waterVolume + input.starterVolume) * 100; results["teaConcentration"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["teaConcentration"] = 0; }
+  try { const v = input.starterVolume / (input.waterVolume + input.starterVolume) * 100; results["starterRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["starterRatio"] = 0; }
   return results;
 }
 

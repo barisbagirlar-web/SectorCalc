@@ -10,6 +10,7 @@ import {
   resolvePremiumSchemaPainStatement,
 } from "@/lib/i18n/premium-schema-display-i18n";
 import { fillLocaleRecord } from "@/lib/semantic/semantic-locale-utils";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import { isFinanceLikeTool } from "@/lib/ai/is-finance-like-tool";
 import { getCategorizedToolBySlug } from "@/lib/catalog/build-categorized-tool-index";
 import type {
@@ -75,10 +76,15 @@ function resolvePremiumInputCopy(
 function buildDefaultOutput(title: SemanticToolContract["title"], key = "result"): SemanticOutputParameter {
   return {
     key,
-    label: fillLocaleRecord((locale) => `${title[locale] ?? title.en} result`),
+    label: fillLocaleRecord((locale) => {
+      const translated = translateCalculatorPhrase("result", locale);
+      return `${title[locale] ?? title.en} ${translated}`;
+    }),
     description: fillLocaleRecord((locale) => title[locale] ?? title.en),
   };
 }
+
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 
 function buildTrafficInputs(tool: FreeTrafficTool): SemanticInputParameter[] {
   return tool.inputs.map((input) => ({

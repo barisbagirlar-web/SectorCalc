@@ -3865,7 +3865,18 @@
       "colSource": "Source / Référence",
       "badgeDefault": "Analyse d'Ingénierie"
     },
-    "downloadPdfReport": "⬇ Télécharger le rapport PDF Premium"
+    "downloadPdfReport": "⬇ Télécharger le rapport PDF Premium",
+    "csvHeaders": {
+      "reportLabel": "Rapport d'outil généré",
+      "tool": "Outil",
+      "slug": "Identifiant",
+      "primaryOutput": "Sortie principale",
+      "input": "Entrée",
+      "value": "Valeur",
+      "breakdown": "Répartition",
+      "lossDrivers": "Facteurs de perte",
+      "suggestedActions": "Actions suggérées"
+    }
   },
   "generatedToolCatalog": {
     "eyebrow": "Calculateurs pilotés par schéma",
@@ -68741,5 +68752,34 @@
     "saving": "Enregistrement…",
     "saved": "Enregistré dans vos rapports",
     "saveToReports": "Enregistrer dans Mes Rapports"
+  },
+  "toolPageShell": {
+    "premiumVerdicts": "Avis Premium",
+    "freePreChecks": "Pré-vérifications gratuites",
+    "marginLeakPreCheck": "Pré-vérification de fuite de marge",
+    "home": "Accueil",
+    "assumptionsTitle": "Hypothèses et orientations",
+    "assumptionsFallback": "Vérifiez vos entrées par rapport aux contrats, factures et données opérationnelles réels. Les résultats SectorCalc sont indicatifs et ne remplacent pas une comptabilité professionnelle, un examen juridique ou des estimations certifiées.",
+    "calcRegeneration": "Régénération de la calculatrice en cours. L'analyse du schéma restaurera cet outil.",
+    "ctaUnlockTitle": "Débloquer tous les outils de décision",
+    "ctaUnlockSubtitle": "SectorCalc Pro débloque des outils de décision premium dans tous les secteurs — 19 $/mois, annulez à tout moment.",
+    "ctaContinueTitle": "Continuer avec les outils sectoriels",
+    "ctaContinueSubtitle": "Effectuez un autre contrôle rapide ou débloquez l'outil de décision lorsque le nombre affecte la marge, le prix ou le risque.",
+    "ctaViewPro": "Voir SectorCalc Pro",
+    "ctaBrowseIndustries": "Parcourir les secteurs",
+    "ctaBrowseFree": "Parcourir les outils gratuits",
+    "ctaViewPricing": "Voir les tarifs"
+  },
+  "riskVerdictCard": {
+    "verdict": "Avis de risque"
+  },
+  "premiumTeaserPanel": {
+    "nextLayer": "Prochaine couche"
+  },
+  "freeToolUpgradePanel": {
+    "notIncluded": "Non inclus dans la vérification gratuite"
+  },
+  "freeToolPrivacyNote": {
+    "privacy": "Confidentialité:"
   }
 }

@@ -26,8 +26,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Flood_insurance_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
+  try { const v = input.propertyValue * input.floodZoneFactor * input.buildingTypeFactor; results["basePremium"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["basePremium"] = 0; }
   try { const v = input.deductible * 0.02; results["deductibleCredit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["deductibleCredit"] = 0; }
-  try { const v = input.deductible * 0.02; results["deductibleCredit_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["deductibleCredit_aux"] = 0; }
+  try { const v = 1 - (input.ageOfBuilding * 0.005); results["depreciationFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["depreciationFactor"] = 0; }
+  try { const v = (asFormulaNumber(results["basePremium"])) * (asFormulaNumber(results["depreciationFactor"])); results["adjustedPremium"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustedPremium"] = 0; }
+  try { const v = (asFormulaNumber(results["adjustedPremium"])) - (asFormulaNumber(results["deductibleCredit"])); results["finalPremium"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalPremium"] = 0; }
   return results;
 }
 
@@ -38,7 +41,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateFlood_insurance_calculator(input: Flood_insurance_calculatorInput): Flood_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["deductibleCredit_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["finalPremium"]);
   const breakdown = {
     
   };

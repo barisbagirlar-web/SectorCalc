@@ -43,13 +43,20 @@ export function resolveGeneratedToolDescription(
   schema: GeneratedToolSchema,
   locale: string,
 ): string {
+  // 1. Check the descriptions i18n bundle FIRST (primary source for all tools).
+  //    Covers both slug and slug+"-calculator" key formats.
+  const bundleDesc = resolveGeneratedToolDisplayDescription(
+    slug,
+    schema.toolName,
+    locale,
+  );
+  if (bundleDesc && bundleDesc.trim()) {
+    return bundleDesc.trim();
+  }
+
+  // 2. Schema-level about.description.long_i18n (used by ~0 schemas currently).
   const aboutLong = schema.about?.description.long.trim();
   if (aboutLong) {
-    const bundleDesc = resolveGeneratedToolDisplayDescription(slug, aboutLong, locale);
-    if (bundleDesc && bundleDesc.trim() !== aboutLong) {
-      return bundleDesc.trim();
-    }
-
     const localizedLong = schema.about?.description.long_i18n
       ? resolveGeneratedI18nText(schema.about.description.long_i18n, locale, aboutLong)
       : aboutLong;
@@ -58,10 +65,13 @@ export function resolveGeneratedToolDescription(
     }
   }
 
+  // 3. Premium pain statement (premium-schema-i18n override)
   const premiumPain = resolvePremiumSchemaPainStatement(slug, "", locale);
   if (premiumPain.trim()) {
     return premiumPain;
   }
+
+  // 4. Input business contexts (first two, localized)
   const contexts = schema.inputs
     .map((input) =>
       resolveGeneratedI18nText(
@@ -75,6 +85,8 @@ export function resolveGeneratedToolDescription(
   if (contexts.length > 0) {
     return contexts.join(" ");
   }
+
+  // 5. Ultimate fallback
   return translateCalculatorPhrase(
     "Sector-specific calculator — enter inputs to see results.",
     locale,

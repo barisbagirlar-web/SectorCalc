@@ -24,8 +24,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Oat_score_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
+  try { const v = input.torqueReading * input.calibrationFactor; results["torqueScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["torqueScore"] = 0; }
+  try { const v = input.vibrationLevel * 10; results["vibrationImpact"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vibrationImpact"] = 0; }
   try { const v = input.defectCount * 5; results["defectPenalty"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["defectPenalty"] = 0; }
-  try { const v = input.defectCount * 5; results["defectPenalty_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["defectPenalty_aux"] = 0; }
+  try { const v = (asFormulaNumber(results["torqueScore"])) - (asFormulaNumber(results["vibrationImpact"])) - (asFormulaNumber(results["defectPenalty"])); results["rawScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawScore"] = 0; }
+  try { const v = (asFormulaNumber(results["rawScore"])) / input.angleReading; results["oatScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["oatScore"] = 0; }
   return results;
 }
 
@@ -36,7 +39,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateOat_score_calculator(input: Oat_score_calculatorInput): Oat_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["defectPenalty_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["oatScore"]);
   const breakdown = {
     
   };

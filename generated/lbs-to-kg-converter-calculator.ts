@@ -26,8 +26,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Lbs_to_kg_converter_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.mass_lbs * (input.measurement_uncertainty_pct / 100); results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.mass_lbs * (input.measurement_uncertainty_pct / 100); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.mass_lbs * 0.45359237; results["mass_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mass_kg"] = 0; }
+  try { const v = (asFormulaNumber(results["mass_kg"])) * (input.measurement_uncertainty_pct / 100); results["uncertainty_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["uncertainty_kg"] = 0; }
   return results;
 }
 
@@ -38,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateLbs_to_kg_converter_calculator(input: Lbs_to_kg_converter_calculatorInput): Lbs_to_kg_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["uncertainty_kg"]);
   const breakdown = {
     
   };

@@ -25,7 +25,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Inhg_to_psi_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.pressure_inhg * input.conversion_factor; results["pressure_psi_raw"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pressure_psi_raw"] = 0; }
-  try { const v = input.pressure_inhg * input.conversion_factor; results["pressure_psi_raw___pressure_inhg___conve"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pressure_psi_raw___pressure_inhg___conve"] = 0; }
+  try { const v = input.pressure_inhg * input.conversion_factor; results["pressure_psi_raw_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pressure_psi_raw_aux"] = 0; }
   return results;
 }
 
@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateInhg_to_psi_calculator(input: Inhg_to_psi_calculatorInput): Inhg_to_psi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["pressure_psi_raw___pressure_inhg___conve"]);
+  const totalWasteCost = toNumericFormulaValue(values["pressure_psi_raw_aux"]);
   const breakdown = {
     
   };

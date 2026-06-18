@@ -35,7 +35,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateEigenvector_calculator(input: Eigenvector_calculatorInput): Eigenvector_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["trace"]);
+  const totalWasteCost = toNumericFormulaValue(values["disc"]);
   const breakdown = {
     
   };

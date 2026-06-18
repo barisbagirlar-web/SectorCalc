@@ -82,11 +82,10 @@ export type PremiumResultSummaryProps = {
   readonly slug: string;
   readonly schema: GeneratedToolSchema;
   readonly result: GeneratedToolResult;
-  readonly inputs: Record<string, unknown>;
   readonly onOpenFullReport: () => void;
 };
 
-export function PremiumResultSummary({ slug, schema, result, inputs, onOpenFullReport }: PremiumResultSummaryProps) {
+export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }: PremiumResultSummaryProps) {
   const locale = useLocale();
   const t = useTranslations("generatedTool.reportSummary");
   const title = resolveGeneratedToolTitle(slug, schema, locale);
@@ -99,10 +98,12 @@ export function PremiumResultSummary({ slug, schema, result, inputs, onOpenFullR
     ? formatGeneratedNumericValue(primaryRaw as number, primaryOutputKey, locale, primaryUnit !== "—" ? primaryUnit : undefined)
     : String(primaryRaw ?? "—");
 
-  const breakdown = result.breakdown ?? {};
   const breakdownEntries = useMemo(
-    () => Object.entries(breakdown).filter((e): e is [string, number] => typeof e[1] === "number" && Number.isFinite(e[1])),
-    [breakdown],
+    () => {
+      const b = result.breakdown ?? {};
+      return Object.entries(b).filter((e): e is [string, number] => typeof e[1] === "number" && Number.isFinite(e[1]));
+    },
+    [result.breakdown],
   );
 
   const riskScore =
@@ -115,8 +116,14 @@ export function PremiumResultSummary({ slug, schema, result, inputs, onOpenFullR
   const riskLabel = t(riskLabelKey);
   const riskBadgeVariant: "green" | "amber" | "red" = riskScore <= 30 ? "green" : riskScore <= 60 ? "amber" : "red";
 
-  const hiddenDrivers: readonly string[] = Array.isArray(result.hiddenLossDrivers) ? result.hiddenLossDrivers : [];
-  const suggestedActions: readonly string[] = Array.isArray(result.suggestedActions) ? result.suggestedActions : [];
+  const hiddenDrivers = useMemo(
+    () => (Array.isArray(result.hiddenLossDrivers) ? result.hiddenLossDrivers : []),
+    [result.hiddenLossDrivers],
+  );
+  const suggestedActions = useMemo(
+    () => (Array.isArray(result.suggestedActions) ? result.suggestedActions : []),
+    [result.suggestedActions],
+  );
 
   const miniCards = useMemo(() => {
     const cards: Array<{ label: string; value: string; sub: string; highlight: boolean }> = [];

@@ -24,8 +24,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Honor_roll_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
+  try { const v = 100 - input.defectRate; results["defectScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["defectScore"] = 0; }
   try { const v = input.onTimeDelivery; results["deliveryScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["deliveryScore"] = 0; }
-  try { const v = input.onTimeDelivery; results["deliveryScore_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["deliveryScore_aux"] = 0; }
+  try { const v = (input.productivity / input.targetProductivity) * 100; results["productivityScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["productivityScore"] = 0; }
+  try { const v = 100 - (input.safetyIncidents * 10); results["safetyScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["safetyScore"] = 0; }
+  try { const v = ((asFormulaNumber(results["defectScore"])) + (asFormulaNumber(results["deliveryScore"])) + (asFormulaNumber(results["productivityScore"])) + (asFormulaNumber(results["safetyScore"]))) / 4; results["honorScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["honorScore"] = 0; }
   return results;
 }
 
@@ -36,7 +39,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateHonor_roll_calculator(input: Honor_roll_calculatorInput): Honor_roll_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["deliveryScore_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["honorScore"]);
   const breakdown = {
     
   };

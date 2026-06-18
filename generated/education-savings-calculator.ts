@@ -30,8 +30,11 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Education_savings_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.childAge; results["breakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.childAge; results["breakdown_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = input.annualCost * (1 + input.inflationRate/100)^input.yearsUntilCollege; results["futureAnnualCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["futureAnnualCost"] = 0; }
+  try { const v = (asFormulaNumber(results["futureAnnualCost"])) * input.durationOfStudy; results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.currentSavings * (1 + input.returnRate/100)^input.yearsUntilCollege + input.monthlyContribution * 12 * (((1 + input.returnRate/100)^input.yearsUntilCollege - 1) / (input.returnRate/100)); results["futureValueSavings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["futureValueSavings"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCost"])) - (asFormulaNumber(results["futureValueSavings"])); results["shortfall"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shortfall"] = 0; }
+  try { const v = (asFormulaNumber(results["shortfall"])) / (12 * (((1 + input.returnRate/100)^input.yearsUntilCollege - 1) / (input.returnRate/100))); results["requiredMonthlyContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["requiredMonthlyContribution"] = 0; }
   return results;
 }
 
@@ -42,7 +45,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateEducation_savings_calculator(input: Education_savings_calculatorInput): Education_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["breakdown_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["shortfall"]);
   const breakdown = {
     
   };

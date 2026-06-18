@@ -24,8 +24,9 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Linoleum_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = 1 + input.wastePercentage / 100; results["wasteFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wasteFactor"] = 0; }
-  try { const v = 1 + input.wastePercentage / 100; results["wasteFactor_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wasteFactor_aux"] = 0; }
+  try { const v = input.roomLength * input.roomWidth; results["areaBeforeWaste"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["areaBeforeWaste"] = 0; }
+  try { const v = (asFormulaNumber(results["areaBeforeWaste"])) * (1 + input.wastePercentage / 100); results["areaWithWaste"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["areaWithWaste"] = 0; }
+  try { const v = (asFormulaNumber(results["areaWithWaste"])) * input.pricePerSqM; results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 
@@ -36,7 +37,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateLinoleum_calculator(input: Linoleum_calculatorInput): Linoleum_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["wasteFactor_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };

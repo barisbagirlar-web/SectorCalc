@@ -43,7 +43,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateHcg_level_calculator(input: Hcg_level_calculatorInput): Hcg_level_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalMass"]);
+  const totalWasteCost = toNumericFormulaValue(values["hcg"]);
   const breakdown = {
     
   };

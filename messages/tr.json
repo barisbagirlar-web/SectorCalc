@@ -3941,7 +3941,18 @@
       "colSource": "Standart / Kaynak",
       "badgeDefault": "Mühendislik Analizi"
     },
-    "downloadPdfReport": "⬇ Premium PDF Raporu İndir"
+    "downloadPdfReport": "⬇ Premium PDF Raporu İndir",
+    "csvHeaders": {
+      "reportLabel": "Oluşturulan Araç Raporu",
+      "tool": "Araç",
+      "slug": "Kısa ad",
+      "primaryOutput": "Birincil çıktı",
+      "input": "Girdi",
+      "value": "Değer",
+      "breakdown": "Kırılım",
+      "lossDrivers": "Kayıp sürücüleri",
+      "suggestedActions": "Önerilen aksiyonlar"
+    }
   },
   "generatedToolCatalog": {
     "eyebrow": "Şema tabanlı hesaplayıcılar",
@@ -68740,5 +68751,34 @@
     "saving": "Kaydediliyor…",
     "saved": "Raporlarınıza kaydedildi",
     "saveToReports": "Raporlarıma Kaydet"
+  },
+  "toolPageShell": {
+    "premiumVerdicts": "Premium Kararlar",
+    "freePreChecks": "Ücretsiz Ön Kontroller",
+    "marginLeakPreCheck": "Marj kaçağı ön kontrol",
+    "home": "Ana Sayfa",
+    "assumptionsTitle": "Varsayımlar ve yönlendirme",
+    "assumptionsFallback": "Girdilerinizi gerçek sözleşmeler, faturalar ve operasyonel verilerle karşılaştırın. SectorCalc çıktıları gösterge niteliğindedir ve profesyonel muhasebe, hukuki inceleme veya sertifikalı tahminlerin yerini almaz.",
+    "calcRegeneration": "Hesap makinesi yenileniyor. Şema taraması bu aracı geri yükleyecek.",
+    "ctaUnlockTitle": "Tüm karar araçlarının kilidini aç",
+    "ctaUnlockSubtitle": "SectorCalc Pro, tüm sektörlerdeki premium karar araçlarının kilidini açar — $19/ay, dilediğiniz zaman iptal edin.",
+    "ctaContinueTitle": "Sektör araçlarıyla devam et",
+    "ctaContinueSubtitle": "Başka bir hızlı kontrol yapın veya sayı marj, fiyatlandırma veya riski etkilediğinde karar aracının kilidini açın.",
+    "ctaViewPro": "SectorCalc Pro'yu Görüntüle",
+    "ctaBrowseIndustries": "Sektörleri keşfet",
+    "ctaBrowseFree": "Ücretsiz araçları keşfet",
+    "ctaViewPricing": "Fiyatlandırmayı gör"
+  },
+  "riskVerdictCard": {
+    "verdict": "Risk kararı"
+  },
+  "premiumTeaserPanel": {
+    "nextLayer": "Sonraki katman"
+  },
+  "freeToolUpgradePanel": {
+    "notIncluded": "Ücretsiz kontrole dahil değil"
+  },
+  "freeToolPrivacyNote": {
+    "privacy": "Gizlilik:"
   }
 }

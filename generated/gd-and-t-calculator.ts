@@ -30,8 +30,13 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Gd_and_t_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
+  try { const v = input.actualX - input.basicX; results["dx"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dx"] = 0; }
+  try { const v = input.actualY - input.basicY; results["dy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dy"] = 0; }
   try { const v = input.holeDiaNom - input.holeDiaTolLower; results["MMC"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["MMC"] = 0; }
-  try { const v = input.holeDiaNom - input.holeDiaTolLower; results["MMC_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["MMC_aux"] = 0; }
+  try { const v = input.holeDiaActual - (asFormulaNumber(results["MMC"])); results["bonus"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bonus"] = 0; }
+  try { const v = input.positionTol + (asFormulaNumber(results["bonus"])); results["totalTol"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalTol"] = 0; }
+  try { const v = (asFormulaNumber(results["bonus"])); results["bonusMsg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bonusMsg"] = 0; }
+  try { const v = (asFormulaNumber(results["totalTol"])); results["totalTolMsg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalTolMsg"] = 0; }
   return results;
 }
 
@@ -42,7 +47,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateGd_and_t_calculator(input: Gd_and_t_calculatorInput): Gd_and_t_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["MMC_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["totalTolMsg"]);
   const breakdown = {
     
   };
