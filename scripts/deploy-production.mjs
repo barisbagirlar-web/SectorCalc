@@ -163,6 +163,9 @@ try {
       NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
       FIREBASE_FRAMEWORKS_BUILD_TARGET: "production",
       SECTORCALC_FIREBASE_REUSE_BUILD: "1",
+      // Limit SSG on Firebase deploy — ~20k page tree exceeds build timeout.
+      // Remaining pages render on first visit via ISR (revalidate=3600).
+      SECTORCALC_FAST_PREVIEW_STATIC: "1",
     },
   });
   process.exit(deployStatus);

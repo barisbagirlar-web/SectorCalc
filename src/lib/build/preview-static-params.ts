@@ -105,6 +105,13 @@ export function shouldUsePreviewStaticParams(): boolean {
     return true;
   }
 
+  // Firebase Hosting (Next.js frameworks): cap SSG for the same reason.
+  // GCLOUD_PROJECT is set during firebase deploy; FIREBASE_CONFIG is set in
+  // the CF runtime. Both indicate a Firebase build environment.
+  if (process.env.GCLOUD_PROJECT === "sectorcalc-bf412" || process.env.FIREBASE_CONFIG) {
+    return true;
+  }
+
   return false;
 }
 

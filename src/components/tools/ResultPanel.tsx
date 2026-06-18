@@ -16,11 +16,7 @@ import {
 } from "@/lib/generated-tools/resolve-output-unit";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
 import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
-import {
-  buildQrCodeImageUrl,
-  generateQRData,
-  generateVerificationHash,
-} from "@/lib/trust-trace/verification";
+import { buildQrCodeImageUrl } from "@/lib/trust-trace/verification";
 
 type ApprovedReportApiResponse =
   | {
@@ -243,16 +239,7 @@ export function ResultPanel({
         }
       }
 
-      if (!hash) {
-        hash = await generateVerificationHash({
-          toolSlug: slug,
-          result,
-          locale,
-        });
-        verifyUrl = generateQRData(hash);
-      }
-
-      const qrImageUrl = buildQrCodeImageUrl(verifyUrl, 140);
+      const qrImageUrl = hash ? buildQrCodeImageUrl(verifyUrl, 140) : "";
       const primaryValue = resolvePrimaryNumericValue(result, primaryOutputKey);
       const unit = resolvePrimaryOutputUnit(schema);
       const primaryDisplay =
@@ -278,13 +265,15 @@ export function ResultPanel({
           ? `<p><strong>${translateCalculatorPhrase("Validation Stamp:", locale)}</strong> <span class='mono'>${escapeHtml(validationStampId)}</span></p>`
           : "") +
         `<p><strong>${translateCalculatorPhrase("Primary Result:", locale)}</strong> ${escapeHtml(primaryDisplay)}</p>` +
-        `<div class='trust'><img src='${escapeHtml(qrImageUrl)}' alt='${translateCalculatorPhrase("Verify QR Code", locale)}' width='140' height='140' />` +
-        `<div><p><strong>${translateCalculatorPhrase("Verification Hash", locale)}</strong></p><p class='mono'>${escapeHtml(hash)}</p>` +
-        `<p><a href='${escapeHtml(verifyUrl)}'>${escapeHtml(verifyUrl)}</a></p>` +
-        (reportId
-          ? `<p style='font-size:12px;margin-top:8px'>${translateCalculatorPhrase("Verify with Report ID at", locale)} ${escapeHtml(typeof window !== "undefined" ? `${window.location.origin}/verify` : "/verify")}</p>`
+        (hash
+          ? `<div class='trust'><img src='${escapeHtml(qrImageUrl)}' alt='${translateCalculatorPhrase("Verify QR Code", locale)}' width='140' height='140' />` +
+            `<div><p><strong>${translateCalculatorPhrase("Verification Hash", locale)}</strong></p><p class='mono'>${escapeHtml(hash)}</p>` +
+            `<p><a href='${escapeHtml(verifyUrl)}'>${escapeHtml(verifyUrl)}</a></p>` +
+            (reportId
+              ? `<p style='font-size:12px;margin-top:8px'>${translateCalculatorPhrase("Verify with Report ID at", locale)} ${escapeHtml(typeof window !== "undefined" ? `${window.location.origin}/verify` : "/verify")}</p>`
+              : "") +
+            `</div></div>`
           : "") +
-        `</div></div>` +
         (cbamReport
           ? `<h2>${translateCalculatorPhrase("CBAM", locale)}</h2><table><tr><th>${translateCalculatorPhrase("Metric", locale)}</th><th>${translateCalculatorPhrase("Value", locale)}</th></tr>` +
             `<tr><td>${translateCalculatorPhrase("Product Carbon Footprint", locale)}</td><td>${cbamReport.productCarbonFootprint.toFixed(2)} kg CO2e</td></tr>` +
