@@ -24,9 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Pediatric_dose_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = (input.childAge / (input.childAge + 12)) * input.adultDose; results["youngDose"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["youngDose"] = 0; }
-  try { const v = (asFormulaNumber(results["youngDose"])) / input.concentration; results["volumeYoung"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumeYoung"] = 0; }
   try { const v = input.maxDosePerKg * input.childWeight; results["maxAllowedDose"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxAllowedDose"] = 0; }
+  try { const v = input.maxDosePerKg * input.childWeight; results["maxAllowedDose_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxAllowedDose_aux"] = 0; }
   return results;
 }
 
@@ -37,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculatePediatric_dose_calculator(input: Pediatric_dose_calculatorInput): Pediatric_dose_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["youngDose"]);
+  const totalWasteCost = toNumericFormulaValue(values["maxAllowedDose_aux"]);
   const breakdown = {
     
   };

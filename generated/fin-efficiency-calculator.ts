@@ -25,8 +25,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Fin_efficiency_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.finLength + input.finThickness / 2; results["correctedLength"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["correctedLength"] = 0; }
-  try { const v = input.finWidth * input.finThickness; results["crossSectionArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["crossSectionArea"] = 0; }
-  try { const v = 2 * (input.finWidth + input.finThickness); results["perimeter"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["perimeter"] = 0; }
+  try { const v = input.finLength + input.finThickness / 2; results["correctedLength_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["correctedLength_aux"] = 0; }
   return results;
 }
 
@@ -37,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateFin_efficiency_calculator(input: Fin_efficiency_calculatorInput): Fin_efficiency_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["perimeter"]);
+  const totalWasteCost = toNumericFormulaValue(values["correctedLength_aux"]);
   const breakdown = {
     
   };

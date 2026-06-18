@@ -123,22 +123,26 @@
     }
   ],
   "formulas": {
-    "result": "drumDiameter + headThickness + headDensity",
-    "result_aux": "drumDiameter + headThickness + headDensity"
+    "normalized_product": "drumDiameter * headThickness * headDensity * tension",
+    "result": "drumDiameter * headThickness * headDensity * tension * (densityAdjustment)",
+    "adjustment_factor": "densityAdjustment"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
-      "fundamentalFrequency",
-      "firstOvertone",
-      "secondOvertone"
+      "normalized_product",
+      "adjustment_factor"
     ],
-    "hiddenLossDrivers": [],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
     "suggestedActions": [
-      "Review inputs and verify results against site standards."
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
     ],
-    "dataConfidenceAdjusted": "fundamentalFrequency",
-    "unit": "Hz"
+    "dataConfidenceAdjusted": "result",
+    "unit": "units"
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

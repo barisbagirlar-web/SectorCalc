@@ -24,9 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Network_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = ((input.ip1 << 24) >>> 0) + (input.ip2 << 16) + (input.ip3 << 8) + input.ip4; results["ipInt"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ipInt"] = 0; }
   try { const v = input.cidr === 0 ? 0 : (4294967295 << (32 - input.cidr)) >>> 0; results["maskInt"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maskInt"] = 0; }
-  try { const v = input.cidr === 32 ? 1 : (1 << (32 - input.cidr)) - 2; results["hostCount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["hostCount"] = 0; }
+  try { const v = input.cidr === 0 ? 0 : (4294967295 << (32 - input.cidr)) >>> 0; results["maskInt_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maskInt_aux"] = 0; }
   return results;
 }
 
@@ -37,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateNetwork_calculator(input: Network_calculatorInput): Network_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["hostCount"]);
+  const totalWasteCost = toNumericFormulaValue(values["maskInt_aux"]);
   const breakdown = {
     
   };

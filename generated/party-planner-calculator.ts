@@ -31,8 +31,8 @@ function evaluateAllFormulas(input: Party_planner_calculatorInput): Record<strin
   try { const v = input.foodCostPerPerson * input.guests; results["totalFoodCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalFoodCost"] = 0; }
   try { const v = input.drinkCostPerPerson * input.guests; results["totalDrinkCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDrinkCost"] = 0; }
   try { const v = input.venueCost + input.decorationsCost + input.entertainmentCost + input.miscCost; results["fixedCosts"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fixedCosts"] = 0; }
-  try { const v = (asFormulaNumber(results["totalFoodCost"])) + (asFormulaNumber(results["totalDrinkCost"])) + (asFormulaNumber(results["fixedCosts"])); results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / input.guests; results["costPerGuest"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["costPerGuest"] = 0; }
+  try { const v = input.foodCostPerPerson * input.guests + input.drinkCostPerPerson * input.guests + input.venueCost + input.decorationsCost + input.entertainmentCost + input.miscCost; results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (input.foodCostPerPerson * input.guests + input.drinkCostPerPerson * input.guests + input.venueCost + input.decorationsCost + input.entertainmentCost + input.miscCost) / input.guests; results["costPerGuest"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["costPerGuest"] = 0; }
   return results;
 }
 

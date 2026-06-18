@@ -22,7 +22,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Kelvin_to_fahrenheit_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.kelvin - 273.15; results["celsius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["celsius"] = 0; }
+  try { const v = input.kelvin + input.calibrationOffset; results["effectiveKelvin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["effectiveKelvin"] = 0; }
+  try { const v = (asFormulaNumber(results["effectiveKelvin"])) - 273.15; results["celsius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["celsius"] = 0; }
   try { const v = (asFormulaNumber(results["celsius"])) * 9/5 + 32; results["fahrenheitUnrounded"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fahrenheitUnrounded"] = 0; }
   return results;
 }

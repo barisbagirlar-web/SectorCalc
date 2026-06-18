@@ -26,8 +26,6 @@ function evaluateAllFormulas(input: Paneling_calculatorInput): Record<string, nu
   const results: Record<string, number | string> = {};
   try { const v = input.panelWidth / 100; results["panelWidthM"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["panelWidthM"] = 0; }
   try { const v = input.panelHeight / 100; results["panelHeightM"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["panelHeightM"] = 0; }
-  try { const v = input.roomWidth * input.roomHeight; results["roomArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["roomArea"] = 0; }
-  try { const v = (asFormulaNumber(results["panelWidthM"])) * (asFormulaNumber(results["panelHeightM"])); results["panelArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["panelArea"] = 0; }
   return results;
 }
 
@@ -38,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculatePaneling_calculator(input: Paneling_calculatorInput): Paneling_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["panelArea"]);
+  const totalWasteCost = toNumericFormulaValue(values["panelHeightM"]);
   const breakdown = {
     
   };

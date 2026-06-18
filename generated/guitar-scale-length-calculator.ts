@@ -25,8 +25,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Guitar_scale_length_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.scaleLength / 25.4; results["scaleLengthInches"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["scaleLengthInches"] = 0; }
-  try { const v = (input.stringGauge * 0.001 * 2.54 * input.tuningFrequency * (asFormulaNumber(results["scaleLengthInches"])) * 2.54 * 0.001 * 0.001 * 0.453592 * 9.80665 * 0.224809) / (4 * 9.80665 * 0.224809); results["tensionLbs"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tensionLbs"] = 0; }
-  try { const v = (asFormulaNumber(results["tensionLbs"])) * 0.453592; results["tensionKg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tensionKg"] = 0; }
+  try { const v = input.scaleLength / 25.4; results["scaleLengthInches_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["scaleLengthInches_aux"] = 0; }
   return results;
 }
 
@@ -37,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateGuitar_scale_length_calculator(input: Guitar_scale_length_calculatorInput): Guitar_scale_length_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["tensionKg"]);
+  const totalWasteCost = toNumericFormulaValue(values["scaleLengthInches_aux"]);
   const breakdown = {
     
   };

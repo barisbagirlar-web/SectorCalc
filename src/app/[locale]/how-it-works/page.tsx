@@ -110,7 +110,7 @@ export default async function HowItWorksPage({ params }: PageProps) {
             </article>
           </div>
           <div className="mt-8 space-y-4">
-            <FreeToolPrivacyNote />
+            <FreeToolPrivacyNote locale={locale} />
             <DecisionToolLegalDisclaimer variant="paid" />
           </div>
         </Container>

@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateInverse_trig_calculator(input: Inverse_trig_calculatorInput): Inverse_trig_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["inputDisplay_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["inputDisplay"]);
   const breakdown = {
     
   };

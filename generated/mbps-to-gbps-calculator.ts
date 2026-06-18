@@ -24,8 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Mbps_to_gbps_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.mbpsValue; results["adjustedMbps"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustedMbps"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedMbps"])) / input.conversionFactor; results["rawGbps"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawGbps"] = 0; }
+  try { const v = input.mbpsValue + input.calibrationOffset; results["adjustedMbps"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustedMbps"] = 0; }
+  try { const v = (input.mbpsValue + input.calibrationOffset) / input.conversionFactor; results["rawGbps"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawGbps"] = 0; }
   return results;
 }
 

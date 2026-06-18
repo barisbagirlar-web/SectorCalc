@@ -23,12 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Operating_lease_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.interestRate / 100 / 12; results["monthlyInterestRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyInterestRate"] = 0; }
-  try { const v = input.assetCost - input.residualValue; results["depreciation"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["depreciation"] = 0; }
-  try { const v = (asFormulaNumber(results["depreciation"])) / input.leaseTerm; results["monthlyDepreciation"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyDepreciation"] = 0; }
-  try { const v = (input.assetCost - input.residualValue) * (asFormulaNumber(results["monthlyInterestRate"])); results["monthlyInterest"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyInterest"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyDepreciation"])) + (asFormulaNumber(results["monthlyInterest"])); results["monthlyLeasePayment"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyLeasePayment"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyLeasePayment"])) * input.leaseTerm; results["totalLeaseCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalLeaseCost"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyInterest"])) * input.leaseTerm; results["totalInterest"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalInterest"] = 0; }
+  try { const v = input.interestRate / 100 / 12; results["monthlyInterestRate_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyInterestRate_aux"] = 0; }
   return results;
 }
 
@@ -39,7 +34,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateOperating_lease_calculator(input: Operating_lease_calculatorInput): Operating_lease_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["monthlyLeasePayment"]);
+  const totalWasteCost = toNumericFormulaValue(values["monthlyInterestRate_aux"]);
   const breakdown = {
     
   };

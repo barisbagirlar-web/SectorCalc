@@ -25,7 +25,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Fermentation_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.initialSugar / 17; results["potentialABV"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["potentialABV"] = 0; }
-  try { const v = input.initialSugar / input.fermentationTime * (1 + 0.1 * (input.temperature - 20)); results["fermentationRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fermentationRate"] = 0; }
+  try { const v = input.initialSugar * 0.5 * input.batchVolume; results["co2Mass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["co2Mass"] = 0; }
   return results;
 }
 
@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateFermentation_calculator(input: Fermentation_calculatorInput): Fermentation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["fermentationRate"]);
+  const totalWasteCost = toNumericFormulaValue(values["co2Mass"]);
   const breakdown = {
     
   };

@@ -28,7 +28,6 @@ function evaluateAllFormulas(input: Home_equity_loan_calculatorInput): Record<st
   const results: Record<string, number | string> = {};
   try { const v = input.interestRate / 100 / 12; results["monthlyRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyRate"] = 0; }
   try { const v = input.loanTerm * 12; results["numPayments"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["numPayments"] = 0; }
-  try { const v = input.homeValue * input.maxLTV / 100 - input.remainingMortgage; results["maxLoan"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxLoan"] = 0; }
   return results;
 }
 
@@ -39,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateHome_equity_loan_calculator(input: Home_equity_loan_calculatorInput): Home_equity_loan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["maxLoan"]);
+  const totalWasteCost = toNumericFormulaValue(values["numPayments"]);
   const breakdown = {
     
   };

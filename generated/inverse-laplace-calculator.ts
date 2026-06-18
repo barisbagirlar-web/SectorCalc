@@ -15,7 +15,7 @@ export interface Inverse_laplace_calculatorInput {
 export const Inverse_laplace_calculatorInputSchema = z.object({
   F_s: z.number().default(1),
   numerator_order: z.number().default(0),
-  denominator_coeffs: z.number(),
+  denominator_coeffs: z.number().default(1),
   denominator_order: z.number().default(1),
   time_value: z.number().default(1),
   damping_ratio: z.number().default(0.5),
@@ -28,9 +28,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Inverse_laplace_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.F_s * input.numerator_order * input.denominator_coeffs * input.denominator_order; results["normalized_product"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.F_s * input.numerator_order * input.denominator_coeffs * input.denominator_order * (input.time_value * input.damping_ratio * input.natural_frequency); results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.time_value * input.damping_ratio * input.natural_frequency; results["adjustment_factor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.F_s; results["breakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = input.F_s; results["breakdown_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown_aux"] = 0; }
   return results;
 }
 
@@ -41,12 +40,12 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateInverse_laplace_calculator(input: Inverse_laplace_calculatorInput): Inverse_laplace_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["breakdown"]);
   const breakdown = {
     
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)

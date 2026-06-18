@@ -23,10 +23,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Meditation_timer_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.preparationTime + input.totalMeditationTime + input.coolDownTime; results["totalSessionDuration"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalSessionDuration"] = 0; }
-  try { const v = 'Preparation: ' + input.preparationTime + ' dk'; results["preparationInfo"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["preparationInfo"] = 0; }
-  try { const v = 'Cool-down: ' + input.coolDownTime + ' dk'; results["cooldownInfo"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cooldownInfo"] = 0; }
-  try { const v = 'Meditation: ' + input.totalMeditationTime + ' dk'; results["meditationInfo"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["meditationInfo"] = 0; }
-  try { const v = input.totalMeditationTime / input.bellInterval; results["bellSchedule"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bellSchedule"] = 0; }
+  try { const v = 'Hazırlık: ' + input.preparationTime + ' dk'; results["preparationInfo"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["preparationInfo"] = 0; }
+  try { const v = 'Soğuma: ' + input.coolDownTime + ' dk'; results["cooldownInfo"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cooldownInfo"] = 0; }
   return results;
 }
 

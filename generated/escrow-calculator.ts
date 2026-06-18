@@ -24,8 +24,8 @@ function evaluateAllFormulas(input: Escrow_calculatorInput): Record<string, numb
   const results: Record<string, number | string> = {};
   try { const v = (input.annualPropertyTax + input.annualInsurancePremium) / input.monthsPerYear; results["monthlyEscrowPayment"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyEscrowPayment"] = 0; }
   try { const v = input.annualPropertyTax + input.annualInsurancePremium; results["totalAnnualEscrow"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalAnnualEscrow"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyEscrowPayment"])) * input.cushionMonths; results["cushionAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cushionAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyEscrowPayment"])) * (1 + input.cushionMonths); results["initialDeposit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["initialDeposit"] = 0; }
+  try { const v = (input.annualPropertyTax + input.annualInsurancePremium) / input.monthsPerYear * input.cushionMonths; results["cushionAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cushionAmount"] = 0; }
+  try { const v = (input.annualPropertyTax + input.annualInsurancePremium) / input.monthsPerYear * (1 + input.cushionMonths); results["initialDeposit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["initialDeposit"] = 0; }
   return results;
 }
 

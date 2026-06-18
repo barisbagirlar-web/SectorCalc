@@ -51,7 +51,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateLimit_calculator(input: Limit_calculatorInput): Limit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["primary"]);
+  const totalWasteCost = toNumericFormulaValue(values["breakdown_1"]);
   const breakdown = {
     
   };

@@ -25,8 +25,8 @@ function evaluateAllFormulas(input: Negative_predictive_value_calculatorInput): 
   try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : 0; results["npv"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["npv"] = 0; }
   try { const v = input.tn; results["tn"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tn"] = 0; }
   try { const v = input.fn; results["fn"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fn"] = 0; }
-  try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : 0; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
   try { const v = input.tn + input.fn; results["tn___fn"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tn___fn"] = 0; }
+  try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : 0; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 

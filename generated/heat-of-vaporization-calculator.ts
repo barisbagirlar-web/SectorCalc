@@ -28,10 +28,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Heat_of_vaporization_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.mass * input.specificHeat * (input.boilingPoint - input.initialTemp); results["heatingEnergy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["heatingEnergy"] = 0; }
   try { const v = input.mass * input.latentHeat; results["vaporizationEnergy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vaporizationEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["heatingEnergy"])) + (asFormulaNumber(results["vaporizationEnergy"])); results["totalTheoretical"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalTheoretical"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTheoretical"])) * input.safetyFactor / (input.efficiency / 100); results["totalRequired"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalRequired"] = 0; }
+  try { const v = input.mass * input.latentHeat; results["vaporizationEnergy_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vaporizationEnergy_aux"] = 0; }
   return results;
 }
 
@@ -42,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateHeat_of_vaporization_calculator(input: Heat_of_vaporization_calculatorInput): Heat_of_vaporization_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalRequired"]);
+  const totalWasteCost = toNumericFormulaValue(values["vaporizationEnergy_aux"]);
   const breakdown = {
     
   };
