@@ -406,7 +406,7 @@ export function ResultPanel({
     <div className="sc-premium-dtf-result-panel sc-premium-dtf-feedback-area">
       <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
         <div className="sc-premium-dtf-result__title">{titleLabel}</div>
-        <div className="sc-premium-dtf-result__value result-value">{formattedPrimary}</div>
+        <div className="sc-premium-dtf-result__value sc-result-nowrap result-value">{formattedPrimary}</div>
         {statusLabel ? (
           <div className="sc-premium-dtf-result__status">{statusLabel}</div>
         ) : null}
@@ -419,11 +419,11 @@ export function ResultPanel({
             <dl className="mt-2 space-y-1 text-slate-600">
               <div className="flex justify-between gap-3">
                 <dt>{translateCalculatorPhrase("Carbon Footprint", locale)}</dt>
-                <dd>{cbamReport.productCarbonFootprint.toFixed(0)} kg CO2e</dd>
+                <dd className="sc-result-nowrap">{cbamReport.productCarbonFootprint.toFixed(0)} kg CO2e</dd>
               </div>
               <div className="flex justify-between gap-3">
                 <dt>{translateCalculatorPhrase("CBAM Adjustment", locale)}</dt>
-                <dd>
+                <dd className="sc-result-nowrap">
                   {new Intl.NumberFormat(locale, {
                     style: "currency",
                     currency: "EUR",
@@ -433,7 +433,7 @@ export function ResultPanel({
               </div>
               <div className="flex justify-between gap-3">
                 <dt>{translateCalculatorPhrase("Status", locale)}</dt>
-                <dd className="capitalize">{cbamReport.complianceStatus}</dd>
+                <dd className="sc-result-nowrap capitalize">{cbamReport.complianceStatus}</dd>
               </div>
             </dl>
             {cbamReport.recommendations.length > 0 ? (

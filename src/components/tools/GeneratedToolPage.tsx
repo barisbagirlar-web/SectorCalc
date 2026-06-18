@@ -202,7 +202,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
               <p className="text-xs font-semibold uppercase tracking-wide text-body-charcoal">
                 {t("primaryResult")}
               </p>
-              <p className="font-mono text-3xl font-semibold text-premium-velvet">
+              <p className="sc-result-nowrap font-mono text-3xl font-semibold text-premium-velvet">
                 {formatPrimaryValue(primaryValue, primaryKey, locale, schema)}
               </p>
               {primaryUnit && primaryUnit !== "—" ? (
