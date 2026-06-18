@@ -5,6 +5,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
+import { CategoryCompactGrid } from "@/components/categories/CategoryCompactGrid";
 import { FreeToolsCategoryGroupedContent } from "@/components/free-tools/FreeToolsCategoryGroupedContent";
 import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -12,6 +13,7 @@ import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { createPageMetadata } from "@/lib/metadata";
 import { getFreeTools } from "@/lib/tools/all-tools-data";
+import { buildTaxonomyCategoryCards } from "@/lib/tools/build-taxonomy-category-cards";
 import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
 import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
 import type { AppLocale } from "@/i18n/routing";
@@ -39,8 +41,9 @@ export default async function FreeToolsPage({ params }: PageProps) {
   setRequestLocale(locale);
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tPage = await getTranslations({ locale, namespace: "freeTools" });
-  const tools = getFreeTools(locale);
-  const taxonomySectorCards = withTaxonomyCountLabels(
+          const tools = getFreeTools(locale);
+          const categoryCards = buildTaxonomyCategoryCards(locale);
+          const taxonomySectorCards = withTaxonomyCountLabels(
     buildTaxonomySectorCards(tools, locale, {
       allLabel: tCatalog("labels.free-tools.allLabel"),
     }),
@@ -89,8 +92,15 @@ export default async function FreeToolsPage({ params }: PageProps) {
               </Suspense>
             </div>
 
-            <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-              <FreeToolsCategoryGroupedContent locale={locale} tools={tools} />
+            <Suspense fallback={<div className="min-h-[20rem] animate-pulse rounded bg-gray-50" aria-hidden="true" />}>
+              <CategoryCompactGrid
+                basePath="/free-tools"
+                categories={categoryCards}
+                tools={tools}
+                variant="free"
+                locale={locale}
+                pageVariant="free-tools"
+              />
             </Suspense>
 
           </ToolsPageLayout>

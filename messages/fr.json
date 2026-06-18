@@ -330,7 +330,15 @@
     "unlockVerdictTitle": "Débloquer l'analyse complète",
     "unlockVerdictBody": "Voir le prix sûr P90, la fuite de marge et l'action recommandée — réservé au niveau premium.",
     "unlockVerdictCta": "Débloquer l'analyse complète",
-    "unlockVerdictLoading": "Vérification de l'accès…"
+    "unlockVerdictLoading": "Vérification de l'accès…",
+    "lockedVerdictItems": [
+      "Prix sûr P90",
+      "Répartition des fuites de marge",
+      "Action recommandée",
+      "Matrice de sensibilité"
+    ],
+    "withheldFromFree": "Masqué dans la version gratuite",
+    "proBadge": "Pro"
   },
   "catalogExplorer": {
     "categories": {
@@ -465,6 +473,11 @@
     "discoveryFooter": {
       "freeToolsLead": "Besoin d'un calcul plus détaillé ?",
       "freeToolsCta": "Voir les calculateurs premium"
+    },
+    "compactGrid": {
+      "categories": "Catégories",
+      "allTools": "Tous les outils",
+      "searchPlaceholder": "Rechercher des catégories..."
     },
     "functionCategories": {
       "oee-productivity": {
@@ -3835,7 +3848,8 @@
       "colValue": "Valeur",
       "colUnit": "Unité",
       "colSource": "Source / Référence"
-    }
+    },
+    "downloadPdfReport": "⬇ Télécharger le rapport PDF Premium"
   },
   "generatedToolCatalog": {
     "eyebrow": "Calculateurs pilotés par schéma",

@@ -330,7 +330,15 @@
     "unlockVerdictTitle": "Ver dictamen completo",
     "unlockVerdictBody": "Precio seguro P90, cálculo de fugas de margen y acción recomendada — no incluido en la versión gratuita.",
     "unlockVerdictCta": "Ver dictamen",
-    "unlockVerdictLoading": "Comprobando acceso…"
+    "unlockVerdictLoading": "Comprobando acceso…",
+    "lockedVerdictItems": [
+      "Precio seguro P90",
+      "Desglose de fuga de margen",
+      "Acción recomendada",
+      "Matriz de sensibilidad"
+    ],
+    "withheldFromFree": "Oculto en la versión gratuita",
+    "proBadge": "Pro"
   },
   "catalogExplorer": {
     "categories": {
@@ -465,6 +473,11 @@
     "discoveryFooter": {
       "freeToolsLead": "¿Necesita un cálculo más detallado?",
       "freeToolsCta": "Ver calculadoras premium"
+    },
+    "compactGrid": {
+      "categories": "Categorías",
+      "allTools": "Todas las herramientas",
+      "searchPlaceholder": "Buscar categorías..."
     },
     "functionCategories": {
       "oee-productivity": {
@@ -3835,7 +3848,8 @@
       "colValue": "Valor",
       "colUnit": "Unidad",
       "colSource": "Fuente / Referencia"
-    }
+    },
+    "downloadPdfReport": "⬇ Descargar informe PDF Premium"
   },
   "generatedToolCatalog": {
     "eyebrow": "Calculadoras basadas en esquema",

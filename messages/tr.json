@@ -325,7 +325,15 @@
     "unlockVerdictTitle": "Tam kararı aç",
     "unlockVerdictBody": "P90 güvenli fiyat, marj sızıntısı kırılımı ve önerilen eylem — ücretsiz katmanda gizli.",
     "unlockVerdictCta": "Tam kararı aç",
-    "unlockVerdictLoading": "Erişim kontrol ediliyor…"
+    "unlockVerdictLoading": "Erişim kontrol ediliyor…",
+    "lockedVerdictItems": [
+      "P90 güvenli fiyat",
+      "Marj kaybı kırılımı",
+      "Önerilen aksiyon",
+      "Duyarlılık matrisi"
+    ],
+    "withheldFromFree": "Ücretsiz kullanımdan gizlendi",
+    "proBadge": "Pro"
   },
   "catalogExplorer": {
     "categories": {
@@ -460,6 +468,11 @@
     "discoveryFooter": {
       "freeToolsLead": "Daha detaylı hesaplama mı gerekiyor?",
       "freeToolsCta": "Premium hesaplayıcıları görüntüle"
+    },
+    "compactGrid": {
+      "categories": "Kategoriler",
+      "allTools": "Tüm Araçlar",
+      "searchPlaceholder": "Kategorilerde ara..."
     },
     "functionCategories": {
       "oee-productivity": {
@@ -3911,7 +3924,8 @@
       "colValue": "Değer",
       "colUnit": "Birim",
       "colSource": "Standart / Kaynak"
-    }
+    },
+    "downloadPdfReport": "⬇ Premium PDF Raporu İndir"
   },
   "generatedToolCatalog": {
     "eyebrow": "Şema tabanlı hesaplayıcılar",

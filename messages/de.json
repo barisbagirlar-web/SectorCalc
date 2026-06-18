@@ -330,7 +330,15 @@
     "unlockVerdictTitle": "Vollständiges Urteil ansehen",
     "unlockVerdictBody": "P90-Sicherpreis, Margenleck-Berechnung und empfohlene Maßnahme — in der Gratis-Stufe ausgeblendet.",
     "unlockVerdictCta": "Urteil ansehen",
-    "unlockVerdictLoading": "Zugang wird geprüft…"
+    "unlockVerdictLoading": "Zugang wird geprüft…",
+    "lockedVerdictItems": [
+      "P90-Sicherheitspreis",
+      "Margenverlustaufschlüsselung",
+      "Empfohlene Maßnahme",
+      "Sensitivitätsmatrix"
+    ],
+    "withheldFromFree": "Nicht in der kostenlosen Version",
+    "proBadge": "Pro"
   },
   "catalogExplorer": {
     "categories": {
@@ -465,6 +473,11 @@
     "discoveryFooter": {
       "freeToolsLead": "Brauchen Sie eine tiefere Berechnung?",
       "freeToolsCta": "Premium-Rechner ansehen"
+    },
+    "compactGrid": {
+      "categories": "Kategorien",
+      "allTools": "Alle Tools",
+      "searchPlaceholder": "Kategorien durchsuchen..."
     },
     "functionCategories": {
       "oee-productivity": {
@@ -3835,7 +3848,8 @@
       "colValue": "Wert",
       "colUnit": "Einheit",
       "colSource": "Quelle / Referenz"
-    }
+    },
+    "downloadPdfReport": "⬇ Premium-PDF-Bericht herunterladen"
   },
   "generatedToolCatalog": {
     "eyebrow": "Schema-gesteuerte Rechner",

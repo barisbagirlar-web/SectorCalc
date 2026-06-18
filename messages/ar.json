@@ -325,7 +325,15 @@
     "unlockVerdictTitle": "افتح الحكم الكامل",
     "unlockVerdictBody": "See P90 safe السعر, margin leak breakdown and the recommended action — withheld from the free tier.",
     "unlockVerdictCta": "افتح الحكم الكامل",
-    "unlockVerdictLoading": "جارٍ التحقق من الوصول…"
+    "unlockVerdictLoading": "جارٍ التحقق من الوصول…",
+    "lockedVerdictItems": [
+      "سعر الأمان P90",
+      "تفصيل تسرب الهامش",
+      "الإجراء الموصى به",
+      "مصفوفة الحساسية"
+    ],
+    "withheldFromFree": "مخفي عن النسخة المجانية",
+    "proBadge": "محترف"
   },
   "catalogExplorer": {
     "categories": {
@@ -460,6 +468,11 @@
     "discoveryFooter": {
       "freeToolsLead": "هل تحتاج حسابًا أعمق؟",
       "freeToolsCta": "عرض الحاسبات المميزة"
+    },
+    "compactGrid": {
+      "categories": "الفئات",
+      "allTools": "جميع الأدوات",
+      "searchPlaceholder": "البحث في الفئات..."
     },
     "functionCategories": {
       "oee-productivity": {
@@ -3857,7 +3870,8 @@
       "colValue": "القيمة",
       "colUnit": "الوحدة",
       "colSource": "المصدر / المرجع"
-    }
+    },
+    "downloadPdfReport": "⬇ تحميل تقرير PDF المميز"
   },
   "generatedToolCatalog": {
     "eyebrow": "حاسبات قائمة على المخطط",

@@ -3,18 +3,17 @@ import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
-import { CategoriesHubGrid } from "@/components/categories/CategoriesHubGrid";
+import { CategoryCompactGrid } from "@/components/categories/CategoryCompactGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { CatalogHubToolsClientPanel } from "@/components/tools/CatalogHubToolsClientPanel";
 import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { getAllTools } from "@/lib/tools/all-tools-data";
-import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
 import { buildTaxonomyCategoryCards } from "@/lib/tools/build-taxonomy-category-cards";
+import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
 import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -96,24 +95,16 @@ export default async function IndustriesPage({ params }: PageProps) {
               </Suspense>
             </div>
 
-            {/* Category grid — premium category tiles with field/domain/social purpose */}
-            <div className="mb-8">
-              <h2 className="mb-4 text-lg font-bold text-gray-800">
-                {t("functionTitle")}
-              </h2>
-              <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-                <CategoriesHubGrid
-                  basePath="/industries"
-                  categories={categoryCards}
-                  locale={locale}
-                  variant="industry"
-                />
-              </Suspense>
-            </div>
-
-            {/* Full tool list */}
-            <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-              <CatalogHubToolsClientPanel locale={locale} tools={tools} variant="industries" />
+            {/* Compact category grid with tabs + search */}
+            <Suspense fallback={<div className="min-h-[20rem] animate-pulse rounded bg-gray-50" aria-hidden="true" />}>
+              <CategoryCompactGrid
+                basePath="/industries"
+                categories={categoryCards}
+                tools={tools}
+                variant="industry"
+                locale={locale}
+                pageVariant="industries"
+              />
             </Suspense>
           </ToolsPageLayout>
         </ToolsPageSearchProvider>

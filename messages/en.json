@@ -325,7 +325,15 @@
     "unlockVerdictTitle": "Unlock full verdict",
     "unlockVerdictBody": "See P90 safe price, margin leak breakdown and the recommended action — withheld from the free tier.",
     "unlockVerdictCta": "Unlock full verdict",
-    "unlockVerdictLoading": "Checking access…"
+    "unlockVerdictLoading": "Checking access…",
+    "lockedVerdictItems": [
+      "P90 safe price",
+      "Margin leak breakdown",
+      "Recommended action",
+      "Sensitivity matrix"
+    ],
+    "withheldFromFree": "Withheld from free tier",
+    "proBadge": "Pro"
   },
   "catalogExplorer": {
     "categories": {
@@ -460,6 +468,11 @@
     "discoveryFooter": {
       "freeToolsLead": "Need a deeper calculation?",
       "freeToolsCta": "View premium calculators"
+    },
+    "compactGrid": {
+      "categories": "Categories",
+      "allTools": "All Tools",
+      "searchPlaceholder": "Search categories..."
     },
     "functionCategories": {
       "oee-productivity": {
@@ -3903,7 +3916,8 @@
       "colValue": "Value",
       "colUnit": "Unit",
       "colSource": "Source / Reference"
-    }
+    },
+    "downloadPdfReport": "⬇ Download Premium PDF Report"
   },
   "generatedToolCatalog": {
     "eyebrow": "Schema-driven calculators",

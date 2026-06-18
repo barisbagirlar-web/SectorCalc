@@ -5,10 +5,11 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { PremiumCategoryGrid } from "@/components/premium/PremiumCategorySection";
+import { CategoryCompactGrid } from "@/components/categories/CategoryCompactGrid";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumTools } from "@/lib/tools/all-tools-data";
+import { buildTaxonomyCategoryCards } from "@/lib/tools/build-taxonomy-category-cards";
 import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
@@ -39,6 +40,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tPage = await getTranslations({ locale, namespace: "premiumTools" });
   const tools = getPremiumTools(locale);
+  const categoryCards = buildTaxonomyCategoryCards(locale);
   const taxonomySectorCards = withTaxonomyCountLabels(
     buildTaxonomySectorCards(tools, locale, {
       allLabel: tCatalog("labels.premium-tools.allLabel"),
@@ -85,11 +87,15 @@ export default async function PremiumToolsPage({ params }: PageProps) {
               </Suspense>
             </div>
 
-            {/* ── Premium category sections ────── */}
+            {/* ── Compact category grid ────── */}
             <Suspense fallback={<div className="min-h-[20rem] animate-pulse rounded bg-gray-50" aria-hidden="true" />}>
-              <PremiumCategoryGrid
+              <CategoryCompactGrid
+                basePath="/premium-tools"
+                categories={categoryCards}
                 tools={tools}
+                variant="premium"
                 locale={locale}
+                pageVariant="premium-tools"
               />
             </Suspense>
           </ToolsPageLayout>
