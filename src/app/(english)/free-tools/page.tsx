@@ -4,7 +4,7 @@ import FreeToolsPage, {
 } from "@/app/[locale]/free-tools/page";
 
 export const revalidate = 3600;
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 const englishParams = Promise.resolve({ locale: "en" });
 

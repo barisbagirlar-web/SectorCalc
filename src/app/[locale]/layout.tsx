@@ -9,7 +9,6 @@ import { createPageMetadata } from "@/lib/metadata";
 import { routing, type AppLocale } from "@/i18n/routing";
 
 export const metadata: Metadata = createPageMetadata();
-export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
