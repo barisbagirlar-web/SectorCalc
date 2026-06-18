@@ -53,6 +53,37 @@ const CASE_STUDIES_LOCALE_HEADINGS = [
 const DEPLOY_POLL_MS = 30_000;
 const DEPLOY_MAX_WAIT_MS = 45 * 60_000;
 
+/** @param {string} url @param {string} locale */
+function fetchProductionLocaleHtml(url, locale) {
+  const cookies = [`sectorcalc_locale=${locale}`, `NEXT_LOCALE=${locale}`];
+  if (locale === "en") {
+    cookies.push("sectorcalc_locale_manual=1");
+  }
+
+  const result = spawnSync(
+    "curl",
+    [
+      "-sL",
+      "-H",
+      "x-vercel-skip-cache: 1",
+      "-H",
+      `Cookie: ${cookies.join("; ")}`,
+      "-H",
+      `Accept-Language: ${locale}`,
+      url,
+    ],
+    { encoding: "utf8" },
+  );
+
+  return result.stdout ?? "";
+}
+
+/** @param {string} url */
+function resolveLocaleFromProductionUrl(url) {
+  const match = url.match(/sectorcalc\.com\/(tr|de|fr|es|ar)(?:\/|$)/);
+  return match?.[1] ?? "en";
+}
+
 /** @param {string} command @param {string[]} args @param {{ cwd?: string }} [options] */
 function run(command, args, options = {}) {
   const result = spawnSync(command, args, {
@@ -236,12 +267,8 @@ function verifyCaseStudiesAcademicSurface() {
       continue;
     }
 
-    const result = spawnSync(
-      "curl",
-      ["-sL", "-H", "x-vercel-skip-cache: 1", url],
-      { encoding: "utf8" },
-    );
-    const html = result.stdout ?? "";
+    const locale = resolveLocaleFromProductionUrl(url);
+    const html = fetchProductionLocaleHtml(url, locale);
     const isDetail = url.includes("/case-studies/");
     const hasAcademic = html.includes("academic-database");
     const hasTable = isDetail ? html.includes("record-meta-table") : html.includes("data-table");
@@ -265,12 +292,8 @@ function verifyCaseStudiesLocaleHeadings() {
   let failed = false;
 
   for (const { url, marker } of CASE_STUDIES_LOCALE_HEADINGS) {
-    const result = spawnSync(
-      "curl",
-      ["-sL", "-H", "x-vercel-skip-cache: 1", url],
-      { encoding: "utf8" },
-    );
-    const html = result.stdout ?? "";
+    const locale = resolveLocaleFromProductionUrl(url);
+    const html = fetchProductionLocaleHtml(url, locale);
     const hasRawI18nKey = /caseStudies\.database\.[A-Za-z]+/.test(html);
     const ok = html.includes(marker) && !hasRawI18nKey;
     console.log(
