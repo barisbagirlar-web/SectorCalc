@@ -151,7 +151,7 @@
     "Estimate": "Tahmin",
     "Estimated": "Tahmini",
     "Needed": "Gereken",
-    "Required": "Gerekli",
+    "Required": "Bu alan zorunludur",
     "Adjusted": "Düzeltilmiş",
     "Adjusted volume": "Düzeltilmiş hacim",
     "Total pour volume": "Toplam döküm hacmi",
@@ -742,7 +742,6 @@
     "Value B": "Değer B",
     "Margin error": "Marj Hata",
     "Proportion": "Prokısım",
-    "Required": "Bu alan zorunludur",
     "Expected number, received nan": "Geçerli bir sayı giriniz",
     "Number must be greater than or equal to {{VAL}}": "Değer {{VAL}} değerinden büyük veya eşit olmalıdır",
     "Number must be less than or equal to {{VAL}}": "Değer {{VAL}} değerinden küçük veya eşit olmalıdır",
@@ -799,7 +798,9 @@
     "CBAM": "CBAM",
     "Metric": "Metrik",
     "Trust Trace": "Trust Trace",
-    "Value": "Değer"
+    "compliant": "Uyumlu",
+    "warning": "Uyarı",
+    "non-compliant": "Uyumsuz"
   },
   "de": {
     "Concrete bags": "Betonsäcke",
@@ -1204,7 +1205,9 @@
     "CBAM": "CBAM",
     "Metric": "Kennzahl",
     "Trust Trace": "Trust Trace",
-    "Value": "Wert"
+    "compliant": "Konform",
+    "warning": "Warnung",
+    "non-compliant": "Nicht konform"
   },
   "fr": {
     "Concrete bags": "Sacs de béton",
@@ -1574,7 +1577,9 @@
     "CBAM": "CBAM",
     "Metric": "Métrique",
     "Trust Trace": "Trust Trace",
-    "Value": "Valeur"
+    "compliant": "Conforme",
+    "warning": "Avertissement",
+    "non-compliant": "Non conforme"
   },
   "es": {
     "Concrete bags": "Sacos de hormigón",
@@ -1944,7 +1949,9 @@
     "CBAM": "CBAM",
     "Metric": "Métrica",
     "Trust Trace": "Trust Trace",
-    "Value": "Valor"
+    "compliant": "Cumplido",
+    "warning": "Advertencia",
+    "non-compliant": "No cumplido"
   },
   "ar": {
     "Concrete bags": "أكياس الخرسانة",
@@ -2310,6 +2317,8 @@
     "CBAM": "CBAM",
     "Metric": "المقياس",
     "Trust Trace": "Trust Trace",
-    "Value": "القيمة"
+    "compliant": "متوافق",
+    "warning": "تحذير",
+    "non-compliant": "غير متوافق"
   }
 }

@@ -278,7 +278,7 @@ export function ResultPanel({
           ? `<h2>${translateCalculatorPhrase("CBAM", locale)}</h2><table><tr><th>${translateCalculatorPhrase("Metric", locale)}</th><th>${translateCalculatorPhrase("Value", locale)}</th></tr>` +
             `<tr><td>${translateCalculatorPhrase("Product Carbon Footprint", locale)}</td><td>${cbamReport.productCarbonFootprint.toFixed(2)} kg CO2e</td></tr>` +
             `<tr><td>${translateCalculatorPhrase("CBAM Adjustment", locale)}</td><td>€${cbamReport.cbamAdjustment.toFixed(2)}</td></tr>` +
-            `<tr><td>${translateCalculatorPhrase("Status", locale)}</td><td>${escapeHtml(cbamReport.complianceStatus)}</td></tr></table>`
+            `<tr><td>${translateCalculatorPhrase("Status", locale)}</td><td>${escapeHtml(translateCalculatorPhrase(cbamReport.complianceStatus, locale))}</td></tr></table>`
           : "") +
         `<p style='font-size:11px;color:#6b7280;margin-top:24px'>${translateCalculatorPhrase("Technical simulation only. Not financial, legal, or engineering advice.", locale)}</p>` +
         "</body></html>";
@@ -422,7 +422,7 @@ export function ResultPanel({
               </div>
               <div className="flex justify-between gap-3">
                 <dt>{translateCalculatorPhrase("Status", locale)}</dt>
-                <dd className="sc-result-nowrap capitalize">{cbamReport.complianceStatus}</dd>
+                <dd className="sc-result-nowrap capitalize">{translateCalculatorPhrase(cbamReport.complianceStatus, locale)}</dd>
               </div>
             </dl>
             {cbamReport.recommendations.length > 0 ? (
