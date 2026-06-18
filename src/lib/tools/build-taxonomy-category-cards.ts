@@ -31,12 +31,18 @@ export type TierFilter = "free" | "premium" | "all";
  * When tierFilter is "premium", only premium/premium-schema tools are counted.
  * When tierFilter is "free", only free tools are counted.
  * When "all" (default), all tools are counted.
+ *
+ * When `visibleSlugs` is provided, only tools whose slug exists in the set
+ * are counted. This ensures category card counts match the displayed tool
+ * listing (e.g. getFreeTools / getPremiumTools / getAllTools).
+ *
  * Only includes categories that have at least one tool mapped.
  * Categories are sorted by their `order` field.
  */
 export function buildTaxonomyCategoryCards(
   locale: string,
   tierFilter: TierFilter = "all",
+  visibleSlugs?: ReadonlySet<string>,
 ): CategoryCard[] {
   const index = buildCategorizedToolIndex();
 
@@ -47,6 +53,9 @@ export function buildTaxonomyCategoryCards(
       (tierFilter === "premium" && (item.tier === "premium" || item.tier === "premium-schema")) ||
       (tierFilter === "free" && item.tier === "free");
     if (!matchesFilter) continue;
+
+    // When visibleSlugs is provided, only count tools that exist in the display set
+    if (visibleSlugs && !visibleSlugs.has(item.slug)) continue;
 
     const entry = categoryCounts.get(item.categorySlug) ?? { total: 0, premium: 0, free: 0 };
     entry.total++;

@@ -41,7 +41,8 @@ export default async function FreeToolsPage({ params }: PageProps) {
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tPage = await getTranslations({ locale, namespace: "freeTools" });
           const tools = getFreeTools(locale);
-          const categoryCards = buildTaxonomyCategoryCards(locale, "free");
+          const toolSlugs = new Set(tools.map(t => t.slug));
+          const categoryCards = buildTaxonomyCategoryCards(locale, "free", toolSlugs);
           const taxonomySectorCards = withTaxonomyCountLabels(
     buildTaxonomySectorCards(tools, locale, {
       allLabel: tCatalog("labels.free-tools.allLabel"),

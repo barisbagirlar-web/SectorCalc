@@ -42,6 +42,7 @@ export default async function IndustriesPage({ params }: PageProps) {
   const t = await getTranslations({ locale, namespace: "industries" });
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tools = getAllTools(locale);
+  const toolSlugs = new Set(tools.map(t => t.slug));
   const taxonomySectorCards = withTaxonomyCountLabels(
     buildTaxonomySectorCards(tools, locale, {
       allLabel: tCatalog("labels.industries.allLabel"),
@@ -50,7 +51,7 @@ export default async function IndustriesPage({ params }: PageProps) {
   );
 
   // Build category cards with premium metadata (field, domain, social purpose)
-  const categoryCards = buildTaxonomyCategoryCards(locale);
+  const categoryCards = buildTaxonomyCategoryCards(locale, "all", toolSlugs);
 
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
