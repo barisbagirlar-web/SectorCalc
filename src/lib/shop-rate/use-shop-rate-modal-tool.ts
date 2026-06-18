@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { loadGeneratedCalculator } from "@/lib/generated-tools/calculator-registry";
+import { loadClientCalculator } from "@/lib/generated-tools/client-calculator-loader";
 import type { GeneratedCalculatorModule, GeneratedToolSchema } from "@/lib/generated-tools/types";
 import { SHOP_RATE_MODAL_CALCULATOR } from "@/lib/shop-rate/modal-calculator";
 import {
@@ -41,7 +41,7 @@ async function loadShopRateSchema(): Promise<GeneratedToolSchema> {
 }
 
 async function resolveShopRateCalculator(): Promise<GeneratedCalculatorModule> {
-  const generated = await loadGeneratedCalculator(SHOP_RATE_MODAL_SLUG);
+  const generated = await loadClientCalculator(SHOP_RATE_MODAL_SLUG);
   return generated ?? SHOP_RATE_MODAL_CALCULATOR;
 }
 

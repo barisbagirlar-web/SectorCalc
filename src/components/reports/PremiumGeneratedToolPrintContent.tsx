@@ -14,6 +14,11 @@ import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-tex
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
 import { normalizeLocale } from "@/lib/format/localization";
+import {
+  resolvePrimaryPrintValue,
+  buildMethodologyDescription,
+  findReferenceStandards,
+} from "@/lib/reports/resolve-print-values";
 
 export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const locale = useLocale();
@@ -95,11 +100,11 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const primaryOutputKey = resolvePrimaryOutputKey(schema);
   const primaryUnit = resolvePrimaryOutputUnit(schema);
 
-  const primaryRaw = result[primaryOutputKey];
-  const formattedPrimary =
-    typeof primaryRaw === "number" && Number.isFinite(primaryRaw)
-      ? formatGeneratedNumericValue(primaryRaw, primaryOutputKey, locale, primaryUnit !== "—" ? primaryUnit : undefined)
-      : String(primaryRaw ?? "—");
+  const primaryResolved = resolvePrimaryPrintValue(result, primaryOutputKey);
+  const primaryIsNumber = primaryResolved !== null;
+  const formattedPrimary = primaryIsNumber
+    ? formatGeneratedNumericValue(primaryResolved as number, primaryOutputKey, locale, primaryUnit !== "—" ? primaryUnit : undefined)
+    : "—";
 
   const hiddenDrivers: readonly string[] = Array.isArray(result.hiddenLossDrivers) ? result.hiddenLossDrivers : [];
   const suggestedActions: readonly string[] = Array.isArray(result.suggestedActions) ? result.suggestedActions : [];
@@ -116,12 +121,11 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const trustTraceId = `TT-${slugUpper.slice(0, 4)}-${now.toISOString().slice(0, 10).replace(/-/g, "")}-0001`;
   const docId = `SC-${now.getFullYear()}-${slugUpper.slice(0, 6)}-0001`;
 
-  const primaryIsNumber = typeof primaryRaw === "number" && Number.isFinite(primaryRaw);
   const riskScore =
-    typeof result.dataConfidenceAdjusted === "number" && primaryIsNumber && (primaryRaw as number) !== 0
+    typeof result.dataConfidenceAdjusted === "number" && primaryIsNumber && primaryResolved !== 0
       ? Math.min(
           Math.max(
-            Math.round((1 - result.dataConfidenceAdjusted / ((primaryRaw as number) * 2)) * 100),
+            Math.round((1 - result.dataConfidenceAdjusted / (primaryResolved * 2)) * 100),
             0,
           ),
           100,
@@ -130,6 +134,10 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const riskLabelKey = riskScore <= 30 ? "riskLow" : riskScore <= 60 ? "riskMedium" : "riskHigh";
   const gaugeCircumference = Math.PI * 40;
   const gaugeOffset = gaugeCircumference * (1 - riskScore / 100);
+
+  const references = findReferenceStandards(schema.validation.rules);
+  const methodologyDesc = buildMethodologyDescription(schema.inputs, schema.formulas, locale);
+  const formulaEntries = Object.entries(schema.formulas).slice(0, 2);
 
   return (
     <>
@@ -158,7 +166,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
         <div className="cover-hero">
           <div className="tool-badge">{t("badgeDefault")}</div>
           <h1 className="report-title">{title}</h1>
-          <p className="report-subtitle">{t("methodologyNote")}</p>
+          <p className="report-subtitle">{methodologyDesc}</p>
           <div className="primary-result-card">
             <div className="prc-accent" />
             <div className="prc-content">
@@ -179,7 +187,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
           </div>
           <div className="meta-item">
             <div className="meta-key">{t("metaStandard")}</div>
-            <div className="meta-val"><span className="iso-tag">ISO 8688-1</span></div>
+            <div className="meta-val"><span className="iso-tag">{references.length > 0 ? references[0] : t("metaStandard")}</span></div>
           </div>
           <div className="meta-item">
             <div className="meta-key">{t("metaType")}</div>
@@ -241,15 +249,23 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
               <span className="sl-title">{t("sectionMethodology")}</span>
             </div>
             <div className="formula-box">
-              C<sub>loss</sub> = Q<sub>daily</sub> × r<sub>scrap</sub> × C<sub>unit</sub> + C<sub>rework</sub>
-              <div className="f-desc">{t("methodologyFormula")}</div>
+              {formulaEntries.length > 0 ? (
+                formulaEntries.map(([key, expr]) => (
+                  <div key={key} style={{ marginBottom: formulaEntries.length > 1 ? 8 : 0 }}>
+                    <code style={{ fontSize: 11 }}>{expr}</code>
+                    <div className="f-desc">{key}</div>
+                  </div>
+                ))
+              ) : (
+                <span>{t("methodologyFormula")}</span>
+              )}
             </div>
             <div style={{ marginTop: 10 }}>
               <div className="callout info">
                 <div className="callout-icon">ℹ</div>
                 <div>
                   <div className="callout-title">{t("sectionMethodology")}</div>
-                  <div className="callout-body">{t("methodologyNote")}</div>
+                  <div className="callout-body">{methodologyDesc}</div>
                 </div>
               </div>
             </div>
@@ -425,13 +441,25 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
               <span className="sl-title">{t("sectionFindings")}</span>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              <div className="callout warning">
-                <div className="callout-icon">⚠</div>
-                <div>
-                  <div className="callout-title">{t("findingSurface")}</div>
-                  <div className="callout-body">{t("findingSurfaceText")}</div>
+              {hiddenDrivers.length > 0 ? (
+                hiddenDrivers.slice(0, 3).map((driver, idx) => (
+                  <div className="callout warning" key={idx}>
+                    <div className="callout-icon">⚠</div>
+                    <div>
+                      <div className="callout-title">{t("hiddenLoss")} #{idx + 1}</div>
+                      <div className="callout-body">{driver}</div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="callout success">
+                  <div className="callout-icon">✓</div>
+                  <div>
+                    <div className="callout-title">{t("calculationComplete")}</div>
+                    <div className="callout-body">{t("confidenceNote")}</div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </section>
 

@@ -267,7 +267,7 @@ function shouldRetryWithFullClean(result) {
   return ssgPageModuleRaceFailure(output) || interruptedBuild(output, status);
 }
 
-const MAX_ATTEMPTS = process.env.VERCEL === "1" ? 5 : 2;
+const MAX_ATTEMPTS = 5;
 let lastOutput = "";
 
 try {
@@ -349,6 +349,13 @@ try {
     }
 
     if (attempt < MAX_ATTEMPTS) {
+      // Check if the build log exists — it may have the actual error even if result.output is empty.
+      const fullLog = existsSync(BUILD_LOG) ? readBuildLogTail(4000) : "";
+      if (recoverableManifestFailure(fullLog) || result.status === 1) {
+        console.warn("next-build-with-500-fallback: manifest race — stubbing and retrying without full clean…");
+        ensureNextTypeAndBuildManifestStubs();
+        continue;
+      }
       console.warn("next-build-with-500-fallback: full clean before next attempt…");
       preserveBuildLogForDiagnostics();
       cleanNextArtifacts();

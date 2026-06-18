@@ -9,6 +9,8 @@ export const BRAND_ASSETS = {
  /** Header/LCP — 2× display size; master PNGs kept for schema and print. */
  headerDefault: "/img/brand/sectorcalc-logo-header.png",
  headerOnDark: "/img/brand/sectorcalc-logo-on-dark-header.png",
+ /** SVG symbol/icon logo. */
+ symbolSvg: "/img/brand/sectorcalc-logo.svg",
  /** Intrinsic asset dimensions (PNG master). */
  width: 1024,
  height: 268,
@@ -18,6 +20,11 @@ export const BRAND_ASSETS = {
  /** Max rendered size in header — used for Next/Image `sizes` and layout. */
  displayWidth: 260,
  displayHeight: 68,
+ /** SVG symbol display size — rendered via native <img>. */
+ symbolWidth: 512,
+ symbolHeight: 512,
+ displaySymbolWidth: 64,
+ displaySymbolHeight: 64,
  },
  favicon: {
  master: "/img/brand/sectorcalc-favicon.png",

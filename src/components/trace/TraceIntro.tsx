@@ -2,7 +2,7 @@
 
 import { ArrowRight, Route, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { TraceLivingAvatar } from "@/components/trace/TraceLivingAvatar";
+import { BRAND_ASSETS } from "@/config/brand";
 
 export function openTraceChat(): void {
   if (typeof window === "undefined") {
@@ -41,7 +41,13 @@ export function TraceIntro({ copy }: TraceIntroProps) {
         <div className="sc-trace-intro__card">
           <div className="sc-trace-intro__inner">
             <div className="sc-trace-intro__avatar-wrap" aria-label={copy.avatarAlt}>
-              <TraceLivingAvatar size="lg" className="sc-trace-intro__avatar-living" />
+              <img
+                src={BRAND_ASSETS.logo.symbolSvg}
+                alt=""
+                className="sc-trace-intro__avatar-living"
+                loading="eager"
+                decoding="async"
+              />
             </div>
 
             <div className="sc-trace-intro__copy">

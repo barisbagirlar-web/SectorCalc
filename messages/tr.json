@@ -68532,117 +68532,117 @@
   },
   "howItWorks": {
     "meta": {
-      "title": "How It Works — Methodology & Limitations",
-      "description": "How SectorCalc free margin checks and premium verdict reports work: inputs, risk signals, safe price logic, limitations, privacy and disclaimers."
+      "title": "Nasıl Çalışır — Metodoloji ve Sınırlamalar",
+      "description": "SectorCalc ücretsiz marj kontrolleri ve premium karar raporlarının nasıl çalıştığı: girdiler, risk sinyalleri, güvenli fiyat mantığı, sınırlamalar, gizlilik ve feragatnameler."
     },
-    "eyebrow": "How it works",
-    "title": "Methodology, outputs and limitations",
-    "lead": "SectorCalc is a sector-specific measurement and decision platform. Free checks build trust; premium verdicts deliver the decision layer operators need before quoting.",
-    "privacyNote": "Free checks run without ERP setup. Business data is not sold.",
+    "eyebrow": "Nasıl çalışır",
+    "title": "Metodoloji, çıktılar ve sınırlamalar",
+    "lead": "SectorCalc, sektöre özel bir ölçüm ve karar platformudur. Ücretsiz kontroller güven oluşturur; premium kararlar, operatörlerin teklif vermeden önce ihtiyaç duyduğu karar katmanını sağlar.",
+    "privacyNote": "Ücretsiz kontroller ERP kurulumu gerektirmez. İş verileri satılmaz.",
     "sections": [
       {
         "id": "free-check",
-        "title": "What the free check shows",
-        "body": "Free sector checks use 3–5 structured inputs per industry. Outputs include a visible risk level (LOW / MEDIUM / HIGH), a plain-language headline and summary of cost exposure. Free checks run in your browser without an account. They do not show minimum safe price, accept/reject verdict strings or PDF export.",
+        "title": "Ücretsiz kontrolün gösterdikleri",
+        "body": "Ücretsiz sektör kontrolleri, sektör başına 3-5 yapılandırılmış girdi kullanır. Çıktılar, görünür bir risk seviyesi (DÜŞÜK / ORTA / YÜKSEK), sade bir dille başlık ve maliyet maruziyet özeti içerir. Ücretsiz kontroller hesap gerektirmeden tarayıcınızda çalışır. Minimum güvenli fiyat, kabul/ret karar metinleri veya PDF dışa aktarma göstermezler.",
         "bullets": [
-          "Visible risk signal only",
-          "Directional cost exposure summary",
-          "No minimum safe price floor",
-          "No final verdict or saved report"
+          "Yalnızca görünür risk sinyali",
+          "Yönlü maliyet maruziyet özeti",
+          "Minimum güvenli fiyat tabanı yok",
+          "Nihai karar veya kayıtlı rapor yok"
         ]
       },
       {
         "id": "premium-verdict",
-        "title": "What the premium verdict adds",
-        "body": "Premium analyzers use expanded input sets (typically 5–9 fields) to produce a decision verdict: minimum safe price where applicable, margin leak drivers, scenario comparison and a suggested action (accept, reprice, renegotiate or do not accept). Subscribers can save reports and export PDF copies.",
+        "title": "Premium kararın ekledikleri",
+        "body": "Premium analizörler, genişletilmiş girdi setleri (tipik olarak 5-9 alan) kullanarak bir karar üretir: uygun olduğunda minimum güvenli fiyat, marj sızıntısı sürücüleri, senaryo karşılaştırması ve önerilen bir aksiyon (kabul et, yeniden fiyatlandır, yeniden müzakere et veya kabul etme). Aboneler raporları kaydedebilir ve PDF kopyalarını dışa aktarabilir.",
         "bullets": [
-          "Minimum safe price or bid floor",
-          "Margin leak breakdown",
-          "Accept / reprice / reject verdict",
-          "PDF-ready report and saved history (Pro)"
+          "Minimum güvenli fiyat veya teklif tabanı",
+          "Marj sızıntısı dökümü",
+          "Kabul / yeniden fiyatlandır / ret kararı",
+          "PDF hazır rapor ve kayıtlı geçmiş (Pro)"
         ]
       },
       {
         "id": "inputs",
-        "title": "Inputs used",
-        "body": "Each sector pack defines validated input fields — machine time, labor, material, margin targets, delay days and similar operating variables. Labels and helper text explain what belongs in each field. Premium analyzers may require additional fields not shown on the free tier.",
+        "title": "Kullanılan girdiler",
+        "body": "Her sektör paketi, doğrulanmış girdi alanlarını tanımlar — makine süresi, işçilik, malzeme, marj hedefleri, gecikme günleri ve benzer operasyonel değişkenler. Etiketler ve yardım metinleri, her alana neyin girileceğini açıklar. Premium analizörler, ücretsiz kademede gösterilmeyen ek alanlar gerektirebilir.",
         "bullets": [
-          "Sector-specific field sets per tool",
-          "Visible labels and helper text",
-          "No raw formula sheets exposed to users",
-          "Inputs are illustrative simulations — verify before quoting"
+          "Araç başına sektöre özel alan setleri",
+          "Görünür etiketler ve yardım metinleri",
+          "Kullanıcılara açık ham formül sayfaları yok",
+          "Girdiler açıklayıcı simülasyonlardır — teklif vermeden önce doğrulayın"
         ]
       },
       {
         "id": "risk-signals",
-        "title": "Risk signals",
-        "body": "Risk levels combine input ratios, sector thresholds and margin targets configured per industry pack. HIGH risk means the quote or change may erode margin under stated assumptions — not a guarantee of loss, but a signal to reprice or reduce scope before committing.",
+        "title": "Risk sinyalleri",
+        "body": "Risk seviyeleri, sektör paketi başına yapılandırılan girdi oranlarını, sektör eşiklerini ve marj hedeflerini birleştirir. YÜKSEK risk, belirtilen varsayımlar altında teklifin veya değişikliğin marjı aşındırabileceği anlamına gelir — bir kayıp garantisi değil, taahhütte bulunmadan önce yeniden fiyatlandırma veya kapsamı azaltma sinyalidir.",
         "bullets": [
-          "LOW / MEDIUM / HIGH visible on free tier",
-          "Premium adds verdict labels and leak drivers",
-          "Risk is text + level — not color alone",
-          "Signals are decision-support, not certified audit"
+          "DÜŞÜK / ORTA / YÜKSEK ücretsiz kademede görünür",
+          "Premium, karar etiketleri ve sızıntı sürücüleri ekler",
+          "Risk metin + seviyedir — yalnızca renk değil",
+          "Sinyaller karar destek amaçlıdır, sertifikalı denetim değildir"
         ]
       },
       {
         "id": "safe-price",
-        "title": "Safe price logic",
-        "body": "Where applicable, premium calculators compute a minimum safe price or bid floor from direct cost, target margin and sector-specific buffers (setup, scrap, tooling, delay). The exact model varies by sector — CNC machine shops, construction change orders and cleaning contracts use different drivers.",
+        "title": "Güvenli fiyat mantığı",
+        "body": "Uygun olduğunda, premium hesaplayıcılar doğrudan maliyet, hedef marj ve sektöre özel tamponlardan (kurulum, fire, takım, gecikme) minimum güvenli fiyat veya teklif tabanı hesaplar. Kesin model sektöre göre değişir — CNC makine atölyeleri, inşaat değişiklik emirleri ve temizlik sözleşmeleri farklı sürücüler kullanır.",
         "bullets": [
-          "Target margin applied to loaded direct cost",
-          "Sector buffers for setup, scrap or delay",
-          "Scenario rows at multiple margin targets",
-          "Safe price withheld on free tier intentionally"
+          "Yüklenmiş doğrudan maliyete uygulanan hedef marj",
+          "Kurulum, fire veya gecikme için sektör tamponları",
+          "Birden çok marj hedefinde senaryo satırları",
+          "Güvenli fiyat ücretsiz kademede kasıtlı olarak gizlenir"
         ]
       },
       {
         "id": "limitations",
-        "title": "Report limitations",
-        "body": "All outputs are technical simulations and decision-support estimates. They are not financial, legal, engineering or tax advice. SectorCalc does not replace professional estimating, cost accounting or contractual review.",
+        "title": "Rapor sınırlamaları",
+        "body": "Tüm çıktılar teknik simülasyonlar ve karar destek tahminleridir. Finansal, yasal, mühendislik veya vergi tavsiyesi değildir. SectorCalc, profesyonel maliyet muhasebesi, maliyet tahmini veya sözleşme incelemesinin yerini almaz.",
         "bullets": [
-          "Not certified financial or engineering advice",
-          "Verify all numbers before commercial commitments",
-          "Models simplify real-world variability",
-          "Subscription does not guarantee business outcomes"
+          "Sertifikalı finansal veya mühendislik tavsiyesi değildir",
+          "Ticari taahhütlerden önce tüm sayıları doğrulayın",
+          "Modeller gerçek dünya değişkenliğini basitleştirir",
+          "Abonelik iş sonuçlarını garanti etmez"
         ]
       },
       {
         "id": "privacy",
-        "title": "Data privacy",
-        "body": "Free checks run without ERP setup and without requiring an enterprise rollout. Business data is not sold. Saved reports and account data are linked to your SectorCalc login when you choose to save or subscribe.",
+        "title": "Veri gizliliği",
+        "body": "Ücretsiz kontroller ERP kurulumu veya kurumsal dağıtım gerektirmeden çalışır. İş verileri satılmaz. Kaydedilen raporlar ve hesap verileri, kaydetmeyi veya abone olmayı seçtiğinizde SectorCalc girişinize bağlanır.",
         "bullets": [
-          "Free checks run without ERP setup",
-          "Business data is not sold",
-          "Stripe handles subscription billing securely",
-          "See Privacy Policy for retention details"
+          "Ücretsiz kontroller ERP kurulumu olmadan çalışır",
+          "İş verileri satılmaz",
+          "Stripe abonelik faturalandırmasını güvenli şekilde yönetir",
+          "Saklama ayrıntıları için Gizlilik Politikası'na bakın"
         ]
       },
       {
         "id": "disclaimer",
-        "title": "Disclaimer",
+        "title": "Feragatname",
         "body": "DISCLAIMER_TEXT",
         "bullets": []
       }
     ],
-    "compareTitle": "Free vs premium at a glance",
-    "freeTitle": "Free check",
+    "compareTitle": "Ücretsiz ve premium bir bakışta",
+    "freeTitle": "Ücretsiz kontrol",
     "freeItems": [
-      "Visible risk level and summary",
-      "Browser-side processing",
-      "No PDF export",
-      "No minimum safe price"
+      "Görünür risk seviyesi ve özet",
+      "Tarayıcı taraflı işleme",
+      "PDF dışa aktarma yok",
+      "Minimum güvenli fiyat yok"
     ],
-    "premiumTitle": "Premium verdict",
+    "premiumTitle": "Premium karar",
     "premiumItems": [
-      "Full calculator inputs",
-      "Verdict label and suggested action",
-      "PDF export for saved reports",
-      "Single Verdict ($9) or Pro ($19/month)"
+      "Tam hesaplayıcı girdileri",
+      "Karar etiketi ve önerilen aksiyon",
+      "Kaydedilmiş raporlar için PDF dışa aktarma",
+      "Tek Karar (9$) veya Pro (19$/ay)"
     ],
-    "linksFree": "Run a free check →",
-    "linksSample": "View sample verdict report →",
-    "linksPremium": "Browse premium calculators →",
-    "linksPricing": "View pricing →"
+    "linksFree": "Ücretsiz kontrol çalıştır →",
+    "linksSample": "Örnek karar raporunu görüntüle →",
+    "linksPremium": "Premium hesaplayıcılara göz at →",
+    "linksPricing": "Fiyatlandırmayı görüntüle →"
   },
   "loginPage": {
     "meta": {

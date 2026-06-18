@@ -2,12 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { z } from "zod";
-import { loadGeneratedCalculator } from "@/lib/generated-tools/load-generated-calculator";
-import type {
-  GeneratedCalculatorModule,
-  GeneratedToolResult,
-  GeneratedToolSchema,
-} from "@/lib/generated-tools/types";
+import { loadClientCalculatorWithOverride } from "@/lib/generated-tools/client-calculator-loader";
+import type { GeneratedCalculatorModule, GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
 
 export type UseToolSchemaState = {
   readonly loading: boolean;
@@ -27,11 +23,11 @@ export function useToolSchema(slug: string, _schema: GeneratedToolSchema): UseTo
     setLoading(true);
     setError(null);
 
-    void loadGeneratedCalculator(slug)
+    // Client-side only: direct dynamic import bypasses the 269KB server registry.
+    // The server registry (calculator-registry.ts) is used only for SSG/ISR.
+    loadClientCalculatorWithOverride(slug)
       .then((mod) => {
-        if (cancelled) {
-          return;
-        }
+        if (cancelled) return;
         if (!mod) {
           setCalculator(null);
           setError("Calculator module not found.");
@@ -40,17 +36,13 @@ export function useToolSchema(slug: string, _schema: GeneratedToolSchema): UseTo
         setCalculator(mod);
       })
       .catch((err: unknown) => {
-        if (cancelled) {
-          return;
-        }
+        if (cancelled) return;
         const message = err instanceof Error ? err.message : "Failed to load calculator.";
         setError(message);
         setCalculator(null);
       })
       .finally(() => {
-        if (!cancelled) {
-          setLoading(false);
-        }
+        if (!cancelled) setLoading(false);
       });
 
     return () => {
