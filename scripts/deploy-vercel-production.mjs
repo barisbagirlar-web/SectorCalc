@@ -271,8 +271,11 @@ function verifyCaseStudiesLocaleHeadings() {
       { encoding: "utf8" },
     );
     const html = result.stdout ?? "";
-    const ok = html.includes(marker);
-    console.log(`  ${ok ? "✓" : "✗"} ${url} (marker=${marker.slice(0, 24)}…)`);
+    const hasRawI18nKey = /caseStudies\.database\.[A-Za-z]+/.test(html);
+    const ok = html.includes(marker) && !hasRawI18nKey;
+    console.log(
+      `  ${ok ? "✓" : "✗"} ${url} (marker=${marker.slice(0, 24)}…, rawKey=${hasRawI18nKey})`,
+    );
     if (!ok) {
       failed = true;
     }

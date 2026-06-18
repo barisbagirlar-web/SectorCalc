@@ -6,8 +6,11 @@ import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
+export const revalidate = 3600;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "aboutPage" });
   return createPageMetadata({
     title: t("seoTitle"),
@@ -21,5 +24,5 @@ export default async function AboutUsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <AboutDetailContent />;
+  return <AboutDetailContent locale={locale} />;
 }
