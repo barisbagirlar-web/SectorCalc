@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
+import { CategoriesHubGrid } from "@/components/categories/CategoriesHubGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
 import { CatalogHubToolsClientPanel } from "@/components/tools/CatalogHubToolsClientPanel";
@@ -13,6 +14,7 @@ import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { getAllTools } from "@/lib/tools/all-tools-data";
 import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
+import { buildTaxonomyCategoryCards } from "@/lib/tools/build-taxonomy-category-cards";
 import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -48,6 +50,9 @@ export default async function IndustriesPage({ params }: PageProps) {
     (count) => tCatalog("labels.industries.countLabel", { count }),
   );
 
+  // Build category cards with premium metadata (field, domain, social purpose)
+  const categoryCards = buildTaxonomyCategoryCards(locale);
+
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
       [
@@ -80,6 +85,7 @@ export default async function IndustriesPage({ params }: PageProps) {
             searchPlaceholder={t("searchPlaceholder")}
             categoryTitle={t("categoryTitle")}
           >
+            {/* Sector grid — existing */}
             <div className="mb-8">
               <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
                 <IndustriesTaxonomyGrid
@@ -90,6 +96,22 @@ export default async function IndustriesPage({ params }: PageProps) {
               </Suspense>
             </div>
 
+            {/* Category grid — premium category tiles with field/domain/social purpose */}
+            <div className="mb-8">
+              <h2 className="mb-4 text-lg font-bold text-gray-800">
+                {t("categoryTitle")}
+              </h2>
+              <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
+                <CategoriesHubGrid
+                  basePath="/industries"
+                  categories={categoryCards}
+                  locale={locale}
+                  variant="industry"
+                />
+              </Suspense>
+            </div>
+
+            {/* Full tool list */}
             <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
               <CatalogHubToolsClientPanel locale={locale} tools={tools} variant="industries" />
             </Suspense>

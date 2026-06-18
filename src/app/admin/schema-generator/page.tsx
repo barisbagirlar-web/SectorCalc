@@ -5,6 +5,9 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
 import { createPageMetadata } from "@/lib/metadata";
 
+// Admin page — runtime-rendered; not pre-built to avoid SSG module-not-found.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   ...createPageMetadata({
     title: "Schema Generator (Admin)",

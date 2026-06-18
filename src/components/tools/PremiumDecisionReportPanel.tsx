@@ -109,17 +109,17 @@ function AuditVerdictReportContent({ data }: { data: AuditVerdictReportData }) {
  <div className="space-y-6">
  <div>
  <p className="text-xs font-bold uppercase text-text-secondary">Exposure baseline (pre-P90)</p>
- <p className="font-mono text-2xl text-text-primary">{formatUsd(data.naiveCost)}</p>
- </div>
- <div>
- <p className="text-xs font-bold uppercase text-amber">{MARGINCORE_TERMS.marginLeakBuffer}</p>
- <p className="font-mono text-2xl text-amber">{formatUsd(data.riskBuffer)}</p>
+<p className="sc-result-nowrap font-mono text-2xl text-text-primary">{formatUsd(data.naiveCost)}</p>
+</div>
+<div>
+<p className="text-xs font-bold uppercase text-amber">{MARGINCORE_TERMS.marginLeakBuffer}</p>
+<p className="sc-result-nowrap font-mono text-2xl text-amber">{formatUsd(data.riskBuffer)}</p>
  </div>
  </div>
 
  <div className="bg-deep-navy p-6 text-white">
  <p className="text-xs font-bold uppercase text-white/70">{MARGINCORE_TERMS.safeBidLimit}</p>
- <p className="mt-2 text-4xl font-bold text-amber">{formatUsd(data.safePrice)}</p>
+ <p className="sc-result-nowrap mt-2 text-4xl font-bold text-amber">{formatUsd(data.safePrice)}</p>
  <div className="mt-4 border-t border-white/20 pt-4 text-sm leading-relaxed text-white/75">
  {data.verdictLabel}
  </div>
@@ -147,7 +147,7 @@ function AuditVerdictReportContent({ data }: { data: AuditVerdictReportData }) {
  {data.matrix.map((row) => (
  <tr key={row.scenario} className="border-b border-border-subtle/60">
  <td className="py-3 text-text-primary">{row.scenario}</td>
- <td className="py-3 text-right font-mono text-text-primary">{row.impact}</td>
+ <td className="sc-result-nowrap py-3 text-right font-mono text-text-primary">{row.impact}</td>
  </tr>
  ))}
  </tbody>

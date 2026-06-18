@@ -23,11 +23,23 @@ jobs:
 
       - run: npm ci
 
+      - name: Sync translations (Lokalise)
+        run: npm run i18n:sync
+        continue-on-error: true
+        env:
+          LOKALISE_TOKEN: ${{ secrets.LOKALISE_TOKEN }}
+          LOKALISE_PROJECT_ID: ${{ secrets.LOKALISE_PROJECT_ID }}
+          NODE_OPTIONS: --max-old-space-size=2048
+
+      - name: i18n hardcoded-text audit
+        run: node scripts/audit-i18n-hardcoded.mjs
+
       - name: Build
         run: npm run build
         env:
           NODE_OPTIONS: --max-old-space-size=8192
           NEXT_PUBLIC_SITE_URL: https://www.sectorcalc.com
+          LOCALE_CENTER_STRICT: "1"
 
       - name: Validate build
         run: node scripts/validate-next-build.mjs

@@ -1,32 +1,24 @@
-import {
-  createSitemapXmlResponse,
-  generateSitemapIndexXml,
-} from "@/lib/seo/generate-sitemap-xml";
-import { resolveSitemapBaseUrl } from "@/lib/seo/global-seo-config";
-import { getSitemapIndexEntries } from "@/lib/seo/locale-sitemap";
-import { getActiveSitemapLocales } from "@/lib/seo/global-seo-config";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { SITEMAP_CACHE_CONTROL } from "@/lib/seo/generate-sitemap-xml";
 
 export const runtime = "nodejs";
+export const dynamic = "force-static";
 export const revalidate = 3600;
 
-export async function GET(request: Request): Promise<Response> {
-  const baseUrl = resolveSitemapBaseUrl(request);
-
+export async function GET(): Promise<Response> {
   try {
-    const sitemaps = await getSitemapIndexEntries(new Date(), baseUrl);
-    const xml = generateSitemapIndexXml(sitemaps);
-    return createSitemapXmlResponse(xml, request);
+    const filePath = join(process.cwd(), "public", "sitemap.xml");
+    const xml = readFileSync(filePath, "utf8");
+
+    return new Response(xml, {
+      headers: {
+        "Content-Type": "application/xml; charset=utf-8",
+        "Cache-Control": SITEMAP_CACHE_CONTROL,
+      },
+    });
   } catch (error) {
-    console.error("sitemap index SSR failed, returning fallback:", error);
-    // Fallback: static shards with current timestamp
-    const now = new Date();
-    const locales = getActiveSitemapLocales();
-    const base = baseUrl.replace(/\/$/, "");
-    const fallback = locales.map((locale) => ({
-      url: `${base}/sitemap/${locale}.xml`,
-      lastModified: now,
-    }));
-    const xml = generateSitemapIndexXml(fallback);
-    return createSitemapXmlResponse(xml, request);
+    console.error("sitemap.xml static read failed:", error);
+    return new Response("Not Found", { status: 404 });
   }
 }

@@ -11,6 +11,13 @@ export const GENERATED_TOOL_I18N_LOCALES = [
   "ar",
 ] as const satisfies readonly SupportedLocale[];
 
+/** Words beyond this length WILL produce garbage with translateCalculatorPhrase. */
+const GLOSSARY_SAFE_WORD_LIMIT = 8;
+
+function isGlossarySafe(text: string): boolean {
+  return text.split(/\s+/).filter(Boolean).length <= GLOSSARY_SAFE_WORD_LIMIT;
+}
+
 export function normalizeGeneratedI18nText(
   raw: unknown,
   fallback: string,
@@ -34,6 +41,24 @@ export function normalizeGeneratedI18nText(
   return normalized as GeneratedToolI18nText;
 }
 
+/**
+ * Resolve locale text from schema i18n data.
+ *
+ * Resolution order:
+ *   1. locale-specific schema i18n (if present and non-empty)
+ *   2. English schema i18n (clean EN, no glossary garbage)
+ *   3. Glossary-safe fallback for short labels only (≤8 words),
+ *      uses translateCalculatorPhrase which does word-for-word
+ *      glossary replacement.
+ *   4. Raw English fallback
+ *
+ * This avoids the mixed-language garbage that occurs when
+ * translateCalculatorPhrase does word-by-word glossary replacement
+ * on long descriptive text (businessContext, descriptions).
+ *
+ * Build-time audit (audit:schema-field-i18n --strict) catches
+ * schemas with incomplete i18n and can fail CI.
+ */
 export function resolveGeneratedI18nText(
   i18n: GeneratedToolI18nText | undefined,
   locale: string,
@@ -44,31 +69,36 @@ export function resolveGeneratedI18nText(
   }
 
   const normalizedLocale: SupportedLocale = isSupportedLocale(locale) ? locale : "en";
+
+  // 1. Return proper locale-specific text
   const localized = i18n[normalizedLocale]?.trim();
-  const trimmedFallback = fallback.trim();
   if (localized) {
-    // If the generator carried over the exact English fallback into a non-English locale,
-    // force a calculator-phrase translation so we don't "leak" English surface copy.
-    if (normalizedLocale !== "en" && localized === trimmedFallback) {
-      return translateCalculatorPhrase(localized, normalizedLocale);
-    }
     return localized;
   }
 
   const english = i18n.en?.trim();
-  if (english && normalizedLocale !== "en") {
+
+  // 2. For short text (labels ≤8 words): use glossary as fallback.
+  //    translateCalculatorPhrase works acceptably for short
+  //    field labels even when schema i18n is missing.
+  if (english && normalizedLocale !== "en" && isGlossarySafe(english)) {
     return translateCalculatorPhrase(english, normalizedLocale);
   }
+
+  // 3. Fall back to English directly (for long descriptions this
+  //    is cleaner than mixed-language glossary garbage).
   if (english) {
     return english;
   }
 
+  // 4. Try any available locale
   for (const localeKey of GENERATED_TOOL_I18N_LOCALES) {
     const value = i18n[localeKey]?.trim();
     if (value) {
-      return normalizedLocale === "en" ? value : translateCalculatorPhrase(value, normalizedLocale);
+      return normalizedLocale === "en" ? value : value;
     }
   }
 
-  return normalizedLocale === "en" ? fallback : translateCalculatorPhrase(fallback, normalizedLocale);
+  // 5. Ultimate fallback
+  return fallback;
 }

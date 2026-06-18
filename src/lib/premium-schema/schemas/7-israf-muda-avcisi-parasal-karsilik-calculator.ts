@@ -282,19 +282,12 @@ export const SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = 
     },
     {
       formulaId: "lean.muda_waiting_cost",
-      inputMap: {
-        waitingMinutes: "waitingHours",
-        resourceMinuteCost: "manualHourlyOpportunityCost",
-      },
+      inputMap: {},
       outputId: "waitingCost",
     },
     {
       formulaId: "lean.muda_transport_cost",
-      inputMap: {
-        transportDistanceKm: "unnecessaryTransportCost",
-        transportTrips: "unnecessaryTransportCost",
-        transportCostPerKm: "unnecessaryTransportCost",
-      },
+      inputMap: {},
       outputId: "transportCost",
     },
     {
@@ -307,29 +300,17 @@ export const SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = 
     },
     {
       formulaId: "lean.muda_motion_cost",
-      inputMap: {
-        unnecessaryMotionMinutes: "unnecessaryMotionHours",
-        laborMinuteCost: "motionHourlyCost",
-      },
+      inputMap: {},
       outputId: "motionCost",
     },
     {
       formulaId: "lean.muda_overprocessing_cost",
-      inputMap: {
-        overprocessingMinutes: "overprocessingHours",
-        resourceMinuteCost: "overprocessingHourlyCost",
-        extraMaterialCost: "overprocessingHourlyCost",
-      },
+      inputMap: {},
       outputId: "overprocessingCost",
     },
     {
       formulaId: "lean.muda_defect_cost",
-      inputMap: {
-        scrapUnits: "defectUnits",
-        unitProductionCost: "unitVariableCost",
-        reworkMinutes: "reworkCostPerDefect",
-        laborMinuteCost: "reworkCostPerDefect",
-      },
+      inputMap: {},
       outputId: "defectCost",
     },
     {

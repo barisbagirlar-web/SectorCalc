@@ -19,8 +19,8 @@ const nextConfig: NextConfig = {
   // Large generated-tool SSG can exceed the default 60s per page.
   staticPageGenerationTimeout: 180,
   webpack: (config, { dev }) => {
-    // Keep webpack filesystem cache on Firebase builds — cache: false caused SSG
-    // page.js MODULE_NOT_FOUND races on large static trees (22k+ pages).
+    // Webpack filesystem cache is required — without it, clean compilation OOMs on
+    // 24k-page trees. Build script cleans cache before each deploy to avoid corruption.
     if (!dev && process.env.VERCEL !== "1") {
       config.cache = {
         type: "filesystem",
@@ -41,7 +41,7 @@ const nextConfig: NextConfig = {
       static: 300,
     },
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
-    staticGenerationRetryCount: 2,
+    staticGenerationRetryCount: 5,
     // Avoid SSG worker batching races (missing page.js) on large locale trees.
     workerThreads: false,
     cpus: 1,

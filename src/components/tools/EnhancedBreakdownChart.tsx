@@ -117,7 +117,7 @@ export function EnhancedBreakdownChart({
     return (
       <div className="max-w-xs rounded-lg border border-technical-gray bg-white p-3 shadow-lg">
         <p className="font-semibold text-premium-velvet">{item.name}</p>
-        <p className="text-sm text-body-charcoal">
+        <p className="sc-result-nowrap text-sm text-body-charcoal">
           {item.displayValue} ({item.percent}%)
         </p>
         <p className="mt-1 text-xs text-body-charcoal/80">{resolveDescription(item)}</p>

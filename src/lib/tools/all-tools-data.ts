@@ -16,6 +16,9 @@ import {
   resolveSchemaCategoryKey,
   resolveSchemaSectorKey,
 } from "@/lib/tools/schema-catalog-label-keys";
+import { getPremiumCategorySlugForTool } from "@/data/premium-tool-category-map";
+import { resolvePremiumCategoryTitle } from "@/data/premium-categories";
+import type { PremiumCategorySlug } from "@/data/premium-categories";
 
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
 const DEFAULT_LABEL = "Diğer";
@@ -38,6 +41,8 @@ export type ToolData = {
   readonly sector: string;
   readonly sectorKey: string;
   readonly premiumRequired: boolean;
+  readonly premiumCategorySlug?: PremiumCategorySlug;
+  readonly premiumCategory?: string;
   readonly href: string;
 };
 
@@ -237,14 +242,17 @@ export function getAllTools(locale = "tr"): ToolData[] {
       );
       const sector = resolveSector(slug, raw, normalized, locale);
 
-      return {
+      const toolData: ToolData = {
         slug,
         name: resolveToolTitle(slug, raw, normalized, locale),
         ...category,
         ...sector,
         premiumRequired: isPremiumTool(raw, normalized, catalogItem?.tier),
+        premiumCategorySlug: getPremiumCategorySlugForTool(slug),
+        premiumCategory: resolvePremiumCategoryTitle(getPremiumCategorySlugForTool(slug), locale),
         href: catalogItem?.routePath ?? resolveGeneratedToolPath(slug),
-      } satisfies ToolData;
+      };
+      return toolData;
     })
     .filter((item): item is ToolData => item !== null)
     .sort((left, right) => left.name.localeCompare(right.name, locale));

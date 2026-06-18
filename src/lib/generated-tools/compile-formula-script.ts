@@ -1,11 +1,14 @@
 import { toSafeVarName } from "@/lib/generated-tools/export-names";
 import { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
+import { FormulaFailureAccumulator, type FormulaFailureCategory } from "@/lib/generated-tools/formula-failure-catalog";
+import { validateFormulaAst } from "@/lib/generated-tools/ast-formula-validator";
 
 type ScriptCompileOptions = {
   readonly inputIds: readonly string[];
   readonly inputToAccess: (inputId: string) => string;
   readonly formulaKeys: readonly string[];
   readonly selfKey?: string;
+  readonly failureAccumulator?: FormulaFailureAccumulator;
 };
 
 function escapeRegExp(value: string): string {
@@ -553,10 +556,28 @@ export function compileFormulaScriptFallback(
 ): string | null {
   let expression = rawExpression.trim();
   if (!expression) {
+    if (options.failureAccumulator) {
+      options.failureAccumulator.add(
+        "unknown",
+        options.selfKey ?? "unknown",
+        "PARSE_FAILURE",
+        rawExpression,
+        "Script fallback: empty expression",
+      );
+    }
     return null;
   }
 
   if (!looksLikeScript(expression)) {
+    if (options.failureAccumulator) {
+      options.failureAccumulator.add(
+        "unknown",
+        options.selfKey ?? "unknown",
+        "MALFORMED_FUNCTION",
+        rawExpression,
+        "Script fallback: expression does not look like a script",
+      );
+    }
     return null;
   }
   expression = stripAssignmentPrefix(expression);
@@ -580,6 +601,19 @@ export function compileFormulaScriptFallback(
   expression = sanitizeDangerousPatterns(expression);
 
   if (!expression || !isSafeCompiledFormulaExpression(expression)) {
+    if (options.failureAccumulator) {
+      const astResult = expression ? validateFormulaAst(expression, options.inputIds, options.formulaKeys) : null;
+      const firstIssue = astResult?.issues.find((i) => i.severity === "ERROR");
+      options.failureAccumulator.add(
+        "unknown",
+        options.selfKey ?? "unknown",
+        firstIssue ? (firstIssue.category as unknown as FormulaFailureCategory | "UNKNOWN") : "PARSE_FAILURE",
+        rawExpression,
+        firstIssue
+          ? `Script fallback safety check failed: ${firstIssue.category}: ${firstIssue.message}`
+          : "Script fallback safety check failed: expression invalid after transforms",
+      );
+    }
     return null;
   }
   return expression;

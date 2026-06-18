@@ -223,17 +223,21 @@ export function runPremiumSchemaEngine(
 ): PremiumSchemaEngineResult {
   const formatLocale = normalizeLocale(locale);
   const userInputs = normalizeSchemaInputs(schema, rawInputs);
-  const usesSevenMudaPriming = schema.id === "7-israf-muda-avcisi-parasal-karsilik-calculator";
+
+  const PRIMED_SCHEMA_IDS = new Set<string>([
+    "7-israf-muda-avcisi-parasal-karsilik-calculator",
+  ]);
+  const needsPriming = PRIMED_SCHEMA_IDS.has(schema.id);
 
   bindSevenMudaEngineeringSchemaInputs(null);
 
   try {
-    if (usesSevenMudaPriming) {
+    if (needsPriming) {
       bindSevenMudaEngineeringSchemaInputs(userInputs);
     }
 
     const coreResult = runPremiumSchemaEngineCore(schema, userInputs, formatLocale);
-    if (!usesSevenMudaPriming) {
+    if (!needsPriming) {
       return coreResult;
     }
     return {

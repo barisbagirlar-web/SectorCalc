@@ -33,6 +33,7 @@ type TraceChatPanelProps = {
     readonly disclaimer: string;
     readonly title: string;
     readonly tagline: string;
+    readonly close: string;
   };
   readonly showUpsell: boolean;
 };
@@ -75,7 +76,7 @@ export function TraceChatPanel({
             type="button"
             className="sc-trace__header-close"
             onClick={onClose}
-            aria-label="Close"
+            aria-label={labels.close}
           >
             <X className="sc-trace__header-close-icon" aria-hidden />
           </button>

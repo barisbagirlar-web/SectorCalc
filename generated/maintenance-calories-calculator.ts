@@ -24,8 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Maintenance_calories_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = 66*input.gender + 655*(1-input.gender) + (13.7*input.gender + 9.6*(1-input.gender))*input.weight + (5*input.gender + 1.8*(1-input.gender))*input.height - (6.8*input.gender + 4.7*(1-input.gender))*input.age; results["BMR"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["BMR"] = 0; }
-  try { const v = 66*input.gender + 655*(1-input.gender) + (13.7*input.gender + 9.6*(1-input.gender))*input.weight + (5*input.gender + 1.8*(1-input.gender))*input.height - (6.8*input.gender + 4.7*(1-input.gender))*input.age; results["BMR_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["BMR_aux"] = 0; }
+  results["BMR"] = 0;
+  results["BMR_aux"] = 0;
   return results;
 }
 

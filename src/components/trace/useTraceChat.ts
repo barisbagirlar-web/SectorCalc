@@ -153,6 +153,7 @@ export function useTraceChat(mode: TraceChatMode) {
       disclaimer: t("disclaimer"),
       title: t("title"),
       tagline: t("tagline"),
+      close: t("close"),
     },
     isPremium,
   };

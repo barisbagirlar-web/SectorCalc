@@ -5,6 +5,7 @@ import { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-f
 import { toGeneratedExportBaseName, toSafeVarName } from "@/lib/generated-tools/export-names";
 import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
+import type { FormulaFailureAccumulator } from "@/lib/generated-tools/formula-failure-catalog";
 
 function ensureString(val: unknown, defaultValue = ""): string {
   if (typeof val === "string") {
@@ -109,6 +110,7 @@ function toTypeScriptNumericExpression(compiled: string): string {
 function generateFormulaEvaluator(
   schema: GeneratedToolSchema,
   exportBase: string,
+  failureAccumulator?: FormulaFailureAccumulator,
 ): { code: string; compileFailures: number } {
   const formulaEntries = Object.entries(schema.formulas);
   if (formulaEntries.length === 0) {
@@ -135,6 +137,8 @@ function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number 
       inputToAccess: (inputId) => `input.${toSafeVarName(inputId)}`,
       formulaKeys,
       selfKey: key,
+      failureAccumulator,
+      schemaSlugForLog: exportBase,
     });
 
     if (!compiled || !isSafeCompiledFormulaExpression(compiled)) {
@@ -240,7 +244,11 @@ export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}
 }`;
 }
 
-export function generateFromSchemaFile(schemaPath: string, outPath: string): number {
+export function generateFromSchemaFile(
+  schemaPath: string,
+  outPath: string,
+  failureAccumulator?: FormulaFailureAccumulator,
+): number {
   const raw = JSON.parse(fs.readFileSync(schemaPath, "utf-8")) as unknown;
   const slug = path.basename(schemaPath, "-schema.json");
   const schema = normalizeRawGeneratedSchema(raw, slug);
@@ -249,7 +257,7 @@ export function generateFromSchemaFile(schemaPath: string, outPath: string): num
   }
 
   const exportBase = toGeneratedExportBaseName(slug);
-  const { code: formulaEvaluator, compileFailures } = generateFormulaEvaluator(schema, exportBase);
+  const { code: formulaEvaluator, compileFailures } = generateFormulaEvaluator(schema, exportBase, failureAccumulator);
 
   const content = `// @ts-nocheck
 // Auto-generated from ${path.basename(schemaPath)}

@@ -33,6 +33,7 @@ type RedirectRoutes = never;
 type RewriteRoutes = never;
 type AppRouteHandlerRoutes = never;
 type PageData = Record<string, unknown>;
+export {};
 `;
 
 function acquireBuildLock() {
@@ -79,6 +80,11 @@ function ensureNextTypeAndBuildManifestStubs() {
   if (!existsSync(pagesManifestPath)) {
     writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
   }
+
+  const middlewareManifestPath = join(serverDir, "middleware-manifest.json");
+  if (!existsSync(middlewareManifestPath)) {
+    writeFileSync(middlewareManifestPath, JSON.stringify({}));
+  }
 }
 
 function ssgFullyCompleted(log) {
@@ -109,7 +115,7 @@ function recoverableManifestFailure(log) {
 function ssgPageModuleRaceFailure(log) {
   return (
     (log.includes("Cannot find module") &&
-      (log.includes("/.next/server/app/") || log.includes("/.next/server/pages/"))) ||
+      (log.includes("/.next/server/") || log.includes("/.next/server/pages/"))) ||
     log.includes("Unexpected end of JSON input") ||
     log.includes("Cannot find module for page: /_document") ||
     log.includes("PageNotFoundError")
@@ -117,7 +123,7 @@ function ssgPageModuleRaceFailure(log) {
 }
 
 function interruptedBuild(log, status) {
-  return status === 143 || status === 130 || /SIGTERM|SIGINT|ENOMEM|JavaScript heap out of memory/i.test(log);
+  return status === 143 || status === 130 || status === 137 || /SIGTERM|SIGINT|SIGKILL|ENOMEM|JavaScript heap out of memory/i.test(log);
 }
 
 function preserveBuildLogForDiagnostics() {
@@ -155,8 +161,9 @@ function runNextBuild() {
     cwd: ROOT,
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=20480",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
       FORCE_COLOR: "0",
+      LOCALE_CENTER_STRICT: "1",
     },
     stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],
   });
@@ -260,7 +267,7 @@ function shouldRetryWithFullClean(result) {
   return ssgPageModuleRaceFailure(output) || interruptedBuild(output, status);
 }
 
-const MAX_ATTEMPTS = process.env.VERCEL === "1" ? 5 : 1;
+const MAX_ATTEMPTS = process.env.VERCEL === "1" ? 5 : 2;
 let lastOutput = "";
 
 try {
@@ -268,6 +275,17 @@ try {
   if (existsSync(PERSISTENT_BUILD_LOG)) {
     rmSync(PERSISTENT_BUILD_LOG, { force: true });
   }
+
+  // i18n hardcoded-text gate — fail fast before expensive build
+  const i18nAudit = spawnSync(
+    process.execPath,
+    ["scripts/audit-i18n-hardcoded.mjs"],
+    { cwd: ROOT, stdio: "inherit" },
+  );
+  if (i18nAudit.status !== 0) {
+    process.exit(1);
+  }
+
   ensureNextTypeAndBuildManifestStubs();
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {

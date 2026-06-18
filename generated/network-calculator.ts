@@ -24,8 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Network_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = input.cidr === 0 ? 0 : (0xFFFFFFFF << (32 - input.cidr)) >>> 0; results["maskInt"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maskInt"] = 0; }
-  try { const v = input.cidr === 0 ? 0 : (0xFFFFFFFF << (32 - input.cidr)) >>> 0; results["maskInt_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maskInt_aux"] = 0; }
+  results["maskInt"] = 0;
+  results["maskInt_aux"] = 0;
   return results;
 }
 

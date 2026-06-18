@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Link } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { CatalogHubToolsClientPanel } from "@/components/tools/CatalogHubToolsClientPanel";
+import { FreeToolsCategoryGroupedContent } from "@/components/free-tools/FreeToolsCategoryGroupedContent";
 import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { createPageMetadata } from "@/lib/metadata";
-import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 import { getFreeTools } from "@/lib/tools/all-tools-data";
 import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
 import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
@@ -92,15 +90,9 @@ export default async function FreeToolsPage({ params }: PageProps) {
             </div>
 
             <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-              <CatalogHubToolsClientPanel locale={locale} tools={tools} variant="free-tools" />
+              <FreeToolsCategoryGroupedContent locale={locale} tools={tools} />
             </Suspense>
 
-            <div className="sc-discovery-footer">
-              <p className="sc-discovery-footer__lead">{tCatalog("discoveryFooter.freeToolsLead")}</p>
-              <Link href={getPremiumToolsHref()} prefetch={false} className="sc-discovery-footer__link">
-                {tCatalog("discoveryFooter.freeToolsCta")}
-              </Link>
-            </div>
           </ToolsPageLayout>
         </ToolsPageSearchProvider>
       </section>

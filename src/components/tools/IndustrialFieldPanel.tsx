@@ -53,7 +53,7 @@ export function IndustrialFieldPanel({ panel, verdictSeverity }: IndustrialField
               <p className="text-[9px] font-semibold uppercase tracking-wider text-body-charcoal">
                 {kpi.label}
               </p>
-              <p className="mt-0.5 font-mono text-sm font-bold tabular-nums text-premium-velvet sm:text-base">
+              <p className="sc-result-nowrap mt-0.5 font-mono text-sm font-bold tabular-nums text-premium-velvet sm:text-base">
                 {kpi.value}
               </p>
             </div>

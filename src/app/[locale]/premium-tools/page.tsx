@@ -5,7 +5,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { SchemaToolsCatalogExplorer } from "@/components/tools/SchemaToolsCatalogExplorer";
+import { PremiumCategoryGrid } from "@/components/premium/PremiumCategorySection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumTools } from "@/lib/tools/all-tools-data";
@@ -85,12 +85,11 @@ export default async function PremiumToolsPage({ params }: PageProps) {
               </Suspense>
             </div>
 
-            <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-              <SchemaToolsCatalogExplorer
+            {/* ── Premium category sections ────── */}
+            <Suspense fallback={<div className="min-h-[20rem] animate-pulse rounded bg-gray-50" aria-hidden="true" />}>
+              <PremiumCategoryGrid
                 tools={tools}
-                filterBy="sector"
-                variant="premium-tools"
-                hideBrowseSection
+                locale={locale}
               />
             </Suspense>
           </ToolsPageLayout>

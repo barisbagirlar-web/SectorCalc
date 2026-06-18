@@ -24,8 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Clv_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  try { const v = (input.averageOrderValue * input.orderFrequency * (input.profitMargin / 100)); results["annualProfit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualProfit"] = 0; }
-  try { const v = ((asFormulaNumber(results["annualProfit"])) * input.customerLifespan); results["totalProfitUndiscounted"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalProfitUndiscounted"] = 0; }
+  results["annualProfit"] = 0;
+  results["totalProfitUndiscounted"] = 0;
   return results;
 }
 

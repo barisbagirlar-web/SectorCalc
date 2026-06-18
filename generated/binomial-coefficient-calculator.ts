@@ -23,7 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Binomial_coefficient_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = (((input.useSymmetry && input.k > input.n/2) ? input.n - input.k : input.k) ? 1 : 0); results["k_eff"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["k_eff"] = 0; }
-  try { const v = `C(input.n,input.k) = input.n! / (input.k! * (input.n-input.k)!)`; results["breakdownFormula"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdownFormula"] = 0; }
+  results["breakdownFormula"] = 0;
   return results;
 }
 

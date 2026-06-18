@@ -390,9 +390,15 @@ function normalizeGeneratedToolInputFromRaw(entry: unknown): GeneratedToolInput 
 
   const selectOptions = type === "select" ? normalizeGeneratedSelectOptions(record.options) : undefined;
 
+  const rawLabel = asString(record.label);
+  const rawBusinessContext = asString(record.businessContext);
+
   return {
     id: record.id.trim(),
-    label: asString(record.label),
+    label: rawLabel,
+    label_i18n: record.label_i18n
+      ? normalizeGeneratedI18nText(record.label_i18n, rawLabel)
+      : undefined,
     type,
     unit: asString(record.unit),
     default: record.default as GeneratedToolInput["default"],
@@ -400,7 +406,10 @@ function normalizeGeneratedToolInputFromRaw(entry: unknown): GeneratedToolInput 
     max: typeof record.max === "number" ? record.max : null,
     options: selectOptions?.values ?? null,
     optionLabels: selectOptions?.labels,
-    businessContext: asString(record.businessContext),
+    businessContext: rawBusinessContext,
+    businessContext_i18n: record.businessContext_i18n
+      ? normalizeGeneratedI18nText(record.businessContext_i18n, rawBusinessContext)
+      : undefined,
     group: asString(record.group) || undefined,
   };
 }

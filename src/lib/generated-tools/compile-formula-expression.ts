@@ -1,5 +1,10 @@
 import { compileFormulaScriptFallback } from "@/lib/generated-tools/compile-formula-script";
 import { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
+import { FormulaFailureAccumulator } from "@/lib/generated-tools/formula-failure-catalog";
+import {
+  categorizeCompileFailure,
+  validateFormulaAst,
+} from "@/lib/generated-tools/ast-formula-validator";
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -460,6 +465,8 @@ export function compileFormulaExpression(
     readonly inputToAccess: (inputId: string) => string;
     readonly formulaKeys: readonly string[];
     readonly selfKey?: string;
+    readonly failureAccumulator?: FormulaFailureAccumulator;
+    readonly schemaSlugForLog?: string;
   },
 ): string | null {
   let expression = rawExpression.trim();
@@ -472,6 +479,7 @@ export function compileFormulaExpression(
   expression = normalizeGreekFormulaAliases(expression);
   expression = transformUniformSumDiscount(expression);
   if (!expression) {
+    logCompileFailure("PARSE_FAILURE", rawExpression, "Expression empty after stripping", options);
     return null;
   }
 
@@ -482,6 +490,7 @@ export function compileFormulaExpression(
     /\bΦ\s*\(/i.test(expression) ||
     /\bIRR\s*=\s*r\s+such\b/i.test(expression)
   ) {
+    logCompileFailure("UNSUPPORTED", rawExpression, "Unsupported formula construct", options);
     return null;
   }
 
@@ -521,9 +530,63 @@ export function compileFormulaExpression(
 
   expression = transformBooleanMultiplyOne(expression);
 
+  // AST validation on the compiled expression
+  const astResult = validateFormulaAst(expression, options.inputIds, options.formulaKeys);
+  if (!astResult.valid) {
+    const firstError = astResult.issues.find((i) => i.severity === "ERROR");
+    if (firstError) {
+      logCompileFailure(
+        firstError.category as Parameters<typeof logCompileFailure>[0],
+        rawExpression,
+        `${firstError.category}: ${firstError.message}`,
+        options,
+      );
+      return null;
+    }
+  }
+
   if (isSafeCompiledFormulaExpression(expression)) {
     return expression;
   }
 
-  return compileFormulaScriptFallback(rawExpression, options);
+  // Primary compilation failed; try script fallback
+  const fallbackResult = compileFormulaScriptFallback(rawExpression, {
+    ...options,
+    failureAccumulator: options.failureAccumulator,
+  });
+
+  if (!fallbackResult) {
+    logCompileFailure(
+      "PARSE_FAILURE",
+      rawExpression,
+      "Both primary and fallback compilation failed",
+      options,
+    );
+  }
+
+  return fallbackResult;
+}
+
+/**
+ * Internal helper to log compilation failures to the accumulator when available.
+ */
+function logCompileFailure(
+  category: string,
+  rawExpression: string,
+  detail: string,
+  options: {
+    readonly failureAccumulator?: FormulaFailureAccumulator;
+    readonly schemaSlugForLog?: string;
+    readonly selfKey?: string;
+  },
+): void {
+  if (options.failureAccumulator) {
+    options.failureAccumulator.add(
+      options.schemaSlugForLog ?? "unknown",
+      options.selfKey ?? "unknown",
+      category as never,
+      rawExpression,
+      detail,
+    );
+  }
 }

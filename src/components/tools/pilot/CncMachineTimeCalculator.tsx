@@ -223,7 +223,7 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
             <div className="sc-form-result-panel min-w-0 space-y-4">
               {submitted && naiveResult ? (
                 <div className="space-y-2 text-sm">
-                  <p className="font-semibold text-premium-velvet">{formatUsd(naiveResult.naiveCost)}</p>
+                  <p className="sc-result-nowrap font-semibold text-premium-velvet">{formatUsd(naiveResult.naiveCost)}</p>
                   <p className="text-body-charcoal">
                     {naiveResult.totalMinutes.toFixed(1)} min · {naiveResult.machineHours.toFixed(2)} hr
                   </p>
@@ -258,7 +258,7 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
                 {premiumParsed && !premiumParsed.isError && premiumTone ? (
                   <div className="space-y-2 text-sm">
                     <p className={premiumTone}>{premiumParsed.verdict}</p>
-                    <p className="font-semibold text-premium-velvet">{formatUsd(premiumParsed.p90SafePrice)}</p>
+                    <p className="sc-result-nowrap font-semibold text-premium-velvet">{formatUsd(premiumParsed.p90SafePrice)}</p>
                     <Link href={getPremiumToolHref(tool)} className="text-xs text-body-charcoal underline">
                       {t("premium.fullAnalyzerLink")}
                     </Link>

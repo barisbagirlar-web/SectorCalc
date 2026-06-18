@@ -211,7 +211,7 @@ export function ScenarioComparison({
               </div>
 
               {primaryValue !== null ? (
-                <p className="mt-3 text-center text-sm font-semibold text-premium-velvet">
+                <p className="sc-result-nowrap mt-3 text-center text-sm font-semibold text-premium-velvet">
                   {t("scenarioTotal", { value: formatValue(primaryValue) })}
                 </p>
               ) : null}
